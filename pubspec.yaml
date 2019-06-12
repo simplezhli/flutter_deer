@@ -1,0 +1,109 @@
+name: flutter_deer
+description: Flutter Deer
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 1.0.0+1
+author: 唯鹿 <a05111993@163.com>
+homepage: https://github.com/simplezhli/flutter_deer
+
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^0.1.2
+  # Toast插件 https://github.com/OpenFlutter/flutter_oktoast
+  oktoast: ^2.1.8
+  # 网络库 https://github.com/flutterchina/dio
+  dio: ^1.0.17
+  # https://github.com/ReactiveX/rxdart
+  rxdart: ^0.21.0
+  # Dart 常用工具类库 https://github.com/Sky24n/common_utils
+  common_utils: ^1.1.1
+  # Flutter 常用工具类库 https://github.com/Sky24n/flustars
+  flustars: ^0.2.5+1
+  # Flutter UI组件库 https://github.com/flutterchina/flukit.
+  flukit: ^1.0.0
+  # 启动URL的插件 https://github.com/flutter/plugins/tree/master/packages/url_launcher
+  url_launcher: 5.0.2
+  # 图片选择插件 https://github.com/flutter/plugins/tree/master/packages/image_picker
+  image_picker: 0.6.0+8
+  # 侧滑删除 https://github.com/letsar/flutter_slidable
+  flutter_slidable: ^0.5.3
+  # WebView插件 https://github.com/flutter/plugins/tree/master/packages/webview_flutter
+  webview_flutter: 0.3.7+1
+  # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions
+  keyboard_actions: ^2.1.1
+  # 列表悬浮头 https://github.com/fluttercommunity/flutter_sticky_headers
+  sticky_headers: ^0.1.8
+  # 城市选择列表 https://github.com/flutterchina/azlistview
+  azlistview: ^0.1.2
+  # 用于日历功能 https://github.com/apptreesoftware/date_utils
+  date_utils: ^0.1.0+2
+  # 手势识别 https://github.com/aleksanderwozniak/simple_gesture_detector
+  simple_gesture_detector: ^0.1.3
+  # 曲线图表 https://github.com/aeyrium/bezier-chart
+  # bezier_chart: ^1.0.7
+  
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+# For information on the generic Dart part of this file, see the
+# following page: https:/w.dartlang.org/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  assets:
+    - assets/data/
+    - assets/images/
+    - assets/images/home/
+    - assets/images/store/
+    - assets/images/state/
+    - assets/images/order/
+    - assets/images/login/
+    - assets/images/goods/
+    - assets/images/shop/
+    - assets/images/account/
+    - assets/images/statistic/
+    
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages

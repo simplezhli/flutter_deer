@@ -1,0 +1,210 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/util/app_navigator.dart';
+import 'package:flutter_deer/widgets/app_bar.dart';
+import 'package:flutter_deer/widgets/my_button.dart';
+import 'package:flutter_deer/widgets/store_select_text_item.dart';
+import 'package:flutter_deer/widgets/text_field_item.dart';
+
+import 'bank_select_page.dart';
+import 'city_select_page.dart';
+import 'models/bank_model.dart';
+import 'models/city_model.dart';
+
+class AddWithdrawalAccountPage extends StatefulWidget {
+  @override
+  _AddWithdrawalAccountPageState createState() =>
+      _AddWithdrawalAccountPageState();
+}
+
+class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
+  bool isWechat = false;
+  String accountType = "银行卡(对私账户)";
+  String city = "";
+  String bank = "";
+  String bank1 = "";
+  
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: MyAppBar(
+        title: "添加账号",
+      ),
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Gaps.vGap5,
+                    StoreSelectTextItem(
+                      title: "账号类型",
+                      content: accountType,
+                      onTap: () {
+                        _showSelectAccountTypeDialog();
+                      },
+                    ),
+                    Offstage(
+                      offstage: isWechat,
+                      child: Column(
+                        children: <Widget>[
+                          TextFieldItem(
+                            title: "持  卡  人",
+                            hintText: "填写您的真实姓名",
+                          ),
+                          TextFieldItem(
+                            title: "银行卡号",
+                            keyboardType: TextInputType.number,
+                            hintText: "填写银行卡号",
+                          ),
+                          StoreSelectTextItem(
+                            title: "开  户  地",
+                            content: city.isEmpty ? "选择开户城市" : city,
+                            style: city.isEmpty ? TextStyles.textGrayC14 : TextStyles.textDark14,
+                            onTap: () {
+                              AppNavigator.pushResult(context, CitySelectPage(), (result){
+                                setState(() {
+                                  CityModel model = result;
+                                  city = model.name;
+                                });
+                              });
+                            },
+                          ),
+                          StoreSelectTextItem(
+                            title: "银行名称",
+                            content: bank.isEmpty ? "选择开户银行" : bank,
+                            style: bank.isEmpty ? TextStyles.textGrayC14 : TextStyles.textDark14,
+                            onTap: () {
+                              AppNavigator.pushResult(context, BankSelectPage(type: 0), (result){
+                                setState(() {
+                                  BankModel model = result;
+                                  bank = model.bankName;
+                                });
+                              });
+                            },
+                          ),
+                          StoreSelectTextItem(
+                            title: "支行名称",
+                            content: bank1.isEmpty ? "选择开户支行" : bank1,
+                            style: bank1.isEmpty ? TextStyles.textGrayC14 : TextStyles.textDark14,
+                            onTap: () {
+                              AppNavigator.pushResult(context, BankSelectPage(type: 1), (result){
+                                setState(() {
+                                  BankModel model = result;
+                                  bank1 = model.bankName;
+                                });
+                              });
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8.0, left: 16.0),
+                      child: Text(isWechat ? "绑定本机当前登录的微信号" : "绑定持卡人本人的银行卡",
+                          style: TextStyles.textGray12),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
+              child: MyButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                text: "确定",
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  _dialogSelect(bool flag) {
+    setState(() {
+      isWechat = flag;
+    });
+    Navigator.pop(context);
+  }
+
+  _showSelectAccountTypeDialog() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return Material(
+            type: MaterialType.transparency,
+            child: Center(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                width: 270.0,
+                height: 190.0,
+                padding: const EdgeInsets.only(top: 24.0),
+                child: Theme(
+                  data: ThemeData(
+                    buttonTheme: ButtonThemeData(
+                      minWidth: double.infinity,
+                    ),
+                    textTheme: TextTheme(
+                        button: TextStyle(
+                      fontSize: Dimens.font_sp14,
+                    )),
+                  ),
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        "账号类型",
+                        style: TextStyles.textBoldDark18,
+                      ),
+                      Gaps.vGap16,
+                      Gaps.line,
+                      Expanded(
+                        child: FlatButton(
+                          child: Text("微信"),
+                          textColor: Colours.app_main,
+                          onPressed: () {
+                            accountType = "微信";
+                            _dialogSelect(true);
+                          },
+                        ),
+                      ),
+                      Gaps.line,
+                      Expanded(
+                        child: FlatButton(
+                          child: Text("银行卡(对私账户)"),
+                          textColor: Colours.app_main,
+                          onPressed: () {
+                            accountType = "银行卡(对私账户)";
+                            _dialogSelect(false);
+                          },
+                        ),
+                      ),
+                      Gaps.line,
+                      Expanded(
+                        child: FlatButton(
+                          child: Text("银行卡(对公账户)"),
+                          textColor: Colours.app_main,
+                          onPressed: () {
+                            accountType = "银行卡(对公账户)";
+                            _dialogSelect(false);
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          );
+        });
+  }
+}
