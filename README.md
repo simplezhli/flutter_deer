@@ -40,7 +40,7 @@
 
 具体可以下载体验：
 
-Android版安装包：[点击下载](https://github.com/simplezhli/flutter_deer/preview/app-release.apk)
+Android版安装包：[点击下载](https://raw.githubusercontent.com/simplezhli/flutter_deer/master/preview/app-release.apk)
 
 IOS需要自行下载代码运行。（效果是一致的）
 
@@ -60,7 +60,11 @@ IOS需要自行下载代码运行。（效果是一致的）
 
     2. 输入框在不设置`obscureText`属性的情况下(false)，无法弹出密码模式键盘。
 
-    
+
+## 心得
+
+- [Flutter开发中的一些Tips](https://weilu.blog.csdn.net/article/details/90546727)
+
 ## Thanks For
 
 - [flutter-go](https://github.com/alibaba/flutter-go)
