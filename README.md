@@ -12,15 +12,12 @@
 
 部分页面效果如下：
 
-<img src="preview/Screenshot_1.png" width="210px"/> <img src="preview/Screenshot_2.png" width="210px"/> <img src="preview/Screenshot_3.png" width="210px"/> <img src="preview/Screenshot_4.png" width="210px"/>
-
-<img src="preview/Screenshot_5.png" width="210px"/> <img src="preview/Screenshot_6.png" width="210px"/> <img src="preview/Screenshot_7.png" width="210px"/> <img src="preview/Screenshot_8.png" width="210px"/>
-
-<img src="preview/Screenshot_9.png" width="210px"/> <img src="preview/Screenshot_10.png" width="210px"/> <img src="preview/Screenshot_11.png" width="210px"/> <img src="preview/Screenshot_12.png" width="210px"/> 
-
-<img src="preview/Screenshot_13.png" width="210px"/> <img src="preview/Screenshot_14.png" width="210px"/> <img src="preview/Screenshot_15.png" width="210px"/> <img src="preview/Screenshot_17.png" width="210px"/>
-
-<img src="preview/Screenshot_18.png" width="210px"/> <img src="preview/Screenshot_19.png" width="210px"/> <img src="preview/Screenshot_20.png" width="210px"/> <img src="preview/Screenshot_21.png" width="210px"/>
+| ![](./preview/Screenshot_1.png)    |  ![](./preview/Screenshot_2.png)    | ![](./preview/Screenshot_3.png)   |  ![](./preview/Screenshot_4.png)   |
+| :--------------------------------: | :---------------------------------: | :-------------------------------: | :-------------------------------:  |
+| ![](./preview/Screenshot_5.png)    |  ![](./preview/Screenshot_6.png)    | ![](./preview/Screenshot_7.png)   |  ![](./preview/Screenshot_8.png)   |
+| ![](./preview/Screenshot_9.png)    |  ![](./preview/Screenshot_10.png)   | ![](./preview/Screenshot_11.png)  |  ![](./preview/Screenshot_12.png)  |
+| ![](./preview/Screenshot_13.png)   |  ![](./preview/Screenshot_14.png)   | ![](./preview/Screenshot_15.png)  |  ![](./preview/Screenshot_17.png)  |
+| ![](./preview/Screenshot_18.png)   |  ![](./preview/Screenshot_19.png)   | ![](./preview/Screenshot_20.png)  |  ![](./preview/Screenshot_21.png)  |
 
 ## 实现效果包括
 
@@ -40,9 +37,11 @@
 
 具体可以下载体验：
 
-Android版安装包：[点击下载](https://raw.githubusercontent.com/simplezhli/flutter_deer/master/preview/app-release.apk)
+Android版安装包：[点击下载](https://www.pgyer.com/gYXj)
 
 IOS需要自行下载代码运行。（效果是一致的）
+
+因为页面有点多，不清楚业务流程可能会导致部分页面无法找到。具体可以参看设计图，或者页面上都随便点点。。。
 
 觉得还可以的话，来个Star、Fork支持一波！有问题欢迎提Issue。
 

@@ -32,7 +32,7 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
   void initState() {
     super.initState();
 
-    controller = AnimationController(duration: Duration(milliseconds: 1800), vsync: this);
+    controller = AnimationController(duration: Duration(milliseconds: 800), vsync: this);
     final Animation curve = CurvedAnimation(parent: controller, curve: Curves.decelerate);
     animation = Tween<double>(begin: 0, end: 1).animate(curve);
     animation.addListener(() {
