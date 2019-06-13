@@ -29,7 +29,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
             right: 0.0,
             child: Container(
               color: Colors.white,
-              height: MediaQuery.of(context).size.height * 6.5 / 10.0,
+              height: MediaQuery.of(context).size.height * 7 / 10.0,
               child: Column(
                 children: <Widget>[
                   Stack(
@@ -60,20 +60,26 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                       ),
                     ],
                   ),
-                  Container(
-                    height: 45.0,
-                    margin: const EdgeInsets.only(top: 28.0, left: 16.0, right: 16.0),
-                    decoration: BoxDecoration(
-                      border: Border.all(width: 0.6, color: Colours.text_gray_c),
-                      borderRadius: BorderRadius.circular(4.0),
-                    ),
-                    child: Row(
-                      children: _inputWidget,
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Container(
+                          height: 45.0,
+                          margin: const EdgeInsets.only(left: 16.0, right: 16.0),
+                          decoration: BoxDecoration(
+                            border: Border.all(width: 0.6, color: Colours.text_gray_c),
+                            borderRadius: BorderRadius.circular(4.0),
+                          ),
+                          child: Row(
+                            children: _inputWidget,
+                          ),
+                        ),
+                        Gaps.vGap10,
+                        Text(("提现密码不可为连续、重复的数字。"), style: TextStyles.textGray12),
+                      ],
                     ),
                   ),
-                  Gaps.vGap10,
-                  Text(("提现密码不可为连续、重复的数字。"), style: TextStyles.textGray12),
-                  Expanded(child: Gaps.empty,),
                   Gaps.line,
                   Container(
                     color: Colours.line,

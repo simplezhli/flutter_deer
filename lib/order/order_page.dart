@@ -25,7 +25,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
   
   int _index = 0;
   var orderLeftButtonText = ["拒单", "拒单", "订单跟踪", "订单跟踪", "订单跟踪"];
-  var orderRightButtonText = ["接单", "开始配送", "完成配送", "", ""];
+  var orderRightButtonText = ["接单", "开始配送", "完成", "", ""];
   
   @override
   Widget build(BuildContext context) {
@@ -203,7 +203,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
               Theme( // 修改button默认的最小宽度与padding
                 data: Theme.of(context).copyWith(
                   buttonTheme: ButtonThemeData(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 14.0),
                     minWidth: 64.0,
                     height: 30.0,
                     materialTapTargetSize: MaterialTapTargetSize.shrinkWrap, // 距顶部距离为0

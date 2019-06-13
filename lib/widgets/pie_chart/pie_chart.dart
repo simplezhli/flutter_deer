@@ -27,7 +27,8 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
   Animation<double> animation;
   AnimationController controller;
   double _fraction = 0.0;
-
+  List<PieData> oldData;
+  
   @override
   void initState() {
     super.initState();
@@ -46,7 +47,10 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
   @override
   void didUpdateWidget(PieChart oldWidget) {
     super.didUpdateWidget(oldWidget);
-    controller.forward(from: 0);
+    // 数据变化时执行动画
+    if (oldData != widget.data){
+      controller.forward(from: 0);
+    }
   }
 
   @override
@@ -57,6 +61,7 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
 
   @override
   Widget build(BuildContext context) {
+    oldData = widget.data;
     count = 0;
     for (int i = 0; i < widget.data.length; i++){
       count += widget.data[i].number;

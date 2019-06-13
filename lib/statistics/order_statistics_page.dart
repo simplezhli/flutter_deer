@@ -245,9 +245,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
     List<Widget> widgets = [];
     weeks.forEach((str){
       widgets.add(Container(
-        height: 40.0,
         alignment: Alignment.center,
-        padding: const EdgeInsets.symmetric(vertical: 9.0, horizontal: 9.0),
         child: Text(str, style: TextStyles.textGray12),
       ));
     });
@@ -265,8 +263,8 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
     dayWidgets.addAll(_buildWeeks());
     list.forEach((day) {
       dayWidgets.add(
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 9.0, horizontal: 9.0),
+          Container(
+            alignment: Alignment.center,
             child: SelectedText(
               day.day < 10 ? "0${day.day}" : day.day.toString(),
               selected:(day.day == selectedDay.day && !DateUtils.isExtraDay(day, initialDay)),
@@ -288,8 +286,8 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
     List<Widget> monthWidgets = [];
     monthList.forEach((month){
       monthWidgets.add(
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 9.0, horizontal: 9.0),
+        Container(
+          alignment: Alignment.center,
             child: SelectedText(
               "$month月",
               selected: month == selectedMonth,
@@ -310,8 +308,8 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
     List<Widget> dayWidgets = [];
     weeksDays.forEach((day) {
       dayWidgets.add(
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 9.0, horizontal: 9.0),
+        Container(
+          alignment: Alignment.center,
           child: SelectedText(
             day.day < 10 ? "0${day.day}" : day.day.toString(),
             selected: day.day == selectedWeekDay,
@@ -330,7 +328,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
   _buildSelectedText(String text, int index){
     return SelectedText(
       text,
-      fontSize: 16.0,
+      fontSize: 15.0,
       selected: selectedIndex == index,
       unSelectedTextColor: Colours.text_normal,
       onTap: (){

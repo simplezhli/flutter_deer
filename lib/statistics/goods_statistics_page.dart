@@ -44,7 +44,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            padding: const EdgeInsets.only(left: 16.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,24 +55,26 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                 Gaps.vGap16,
                 Row(
                   children: <Widget>[
-                    Gaps.hGap8,
                     _buildSelectedText(initialDay.year.toString(), 0),
-                    Gaps.hGap16,
+                    Gaps.hGap12,
                     Container(width: 0.6, height: 24.0, color: Colours.line),
-                    Gaps.hGap16,
+                    Gaps.hGap12,
                     _buildSelectedText("${initialDay.month.toString()}月", 1),
-                    Gaps.hGap16,
+                    Gaps.hGap12,
                     Container(width: 0.6, height: 24.0, color: Colours.line),
-                    Gaps.hGap16,
+                    Gaps.hGap12,
                     _buildSelectedText(_type ? "${DateUtils.previousWeek(initialDay)} -${DateUtils.apiDayFormat(initialDay)}" : "${initialDay.day.toString()}日", 2),
                   ],
                 ),
                 Gaps.vGap8,
-                _buildChart(),
+                Padding(
+                  padding: const EdgeInsets.only(right: 16.0),
+                  child: _buildChart(),
+                ),
                 Text("热销商品排行", style: TextStyles.textBoldDark18),
                 ListView.builder(
                   physics: ClampingScrollPhysics(),
-                  padding: const EdgeInsets.only(top: 16.0),
+                  padding: const EdgeInsets.only(top: 16.0, right: 16.0),
                   shrinkWrap: true,
                   itemCount: 10,
                   itemExtent: 76.0,
@@ -136,48 +138,50 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
     Color(0xFF7087FA), Color(0xFFA0E65C), Color(0xFF5CE6A1), Color(0xFFA364FA), 
     Color(0xFFDA61F2),Color(0xFFFA64AE), Color(0xFFFA6464)
   ];
-  
+
   _buildItem(int index){
     return Container(
       margin: const EdgeInsets.only(bottom: 8.0),
       child: MyCard(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(8.0, 16.0, 24.0, 16.0),
+          padding: const EdgeInsets.fromLTRB(8.0, 16.0, 16.0, 16.0),
           child: Row(
             children: <Widget>[
               index <= 2 ?
-                Image.asset(Utils.getImgPath("statistic/${index == 0 ? "champion" : index == 1 ? "runnerup" : "thirdplace"}"), width: 40.0,) :
-                Container(
-                  alignment: Alignment.center,
-                  width: 18.0, height: 18.0, 
-                  margin: const EdgeInsets.symmetric(horizontal: 11.0),
-                  decoration: BoxDecoration(
+              Image.asset(Utils.getImgPath("statistic/${index == 0 ? "champion" : index == 1 ? "runnerup" : "thirdplace"}"), width: 40.0,) :
+              Container(
+                alignment: Alignment.center,
+                width: 18.0, height: 18.0,
+                margin: const EdgeInsets.symmetric(horizontal: 11.0),
+                decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: colorList[index - 3]
-                  ),
-                  child: Text("${index + 1}", style: TextStyle(color: Colors.white, fontSize: 12.0, fontWeight: FontWeight.bold)),
                 ),
-              Gaps.hGap8,
+                child: Text("${index + 1}", style: TextStyle(color: Colors.white, fontSize: 12.0, fontWeight: FontWeight.bold)),
+              ),
+              Gaps.hGap4,
               Container(
                 height: 36.0, width: 36.0,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4.0),
-                  border: Border.all(color: Color(0xFFF7F8FA), width: 0.6),
-                  image: DecorationImage(
-                    image: AssetImage(Utils.getImgPath("order/icon_goods"))
-                  )
+                    borderRadius: BorderRadius.circular(4.0),
+                    border: Border.all(color: Color(0xFFF7F8FA), width: 0.6),
+                    image: DecorationImage(
+                        image: AssetImage(Utils.getImgPath("order/icon_goods"))
+                    )
                 ),
               ),
-              Gaps.hGap16,
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text("那鲁火多饮料", style: TextStyle(color: Colours.text_dark, fontWeight: FontWeight.bold, fontSize: 12.0)),
-                  Text("250ml", style: TextStyles.textGray12),
-                ],
+              Gaps.hGap8,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text("那鲁火多饮料", maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(color: Colours.text_dark, fontWeight: FontWeight.bold, fontSize: 12.0)),
+                    Text("250ml", style: TextStyles.textGray12),
+                  ],
+                ),
               ),
-              Expanded(child: Gaps.empty),
+              Gaps.hGap8,
               Offstage(
                 offstage: _type,
                 child: Column(
@@ -190,7 +194,6 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                 ),
               ),
               Gaps.hGap16,
-              Gaps.hGap4,
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: _type ? MainAxisAlignment.center : MainAxisAlignment.spaceBetween,
@@ -209,7 +212,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
   _buildSelectedText(String text, int index){
     return SelectedText(
       text,
-      fontSize: 16.0,
+      fontSize: 15.0,
       selected: _type && selectedIndex == index,
       unSelectedTextColor: Colours.text_normal,
       onTap: (){

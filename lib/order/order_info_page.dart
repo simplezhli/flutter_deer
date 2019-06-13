@@ -76,9 +76,11 @@ class _OrderInfoState extends State<OrderInfo> {
                       ),
                       Gaps.vGap10,
                       Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Image.asset(Utils.getImgPath("order/icon_address"), width: 16.0, height: 16.0),
-                          Text(" 西安市雁塔区 鱼化寨街道唐兴路唐兴数码3楼318", style: TextStyles.textDark14),
+                          Image.asset(Utils.getImgPath("order/icon_address"), width: 16.0, height: 20.0),
+                          Gaps.hGap4,
+                          Expanded(child: Text("西安市雁塔区 鱼化寨街道唐兴路唐兴数码3楼318", maxLines: 2, style: TextStyles.textDark14)),
                         ],
                       ),
                       Gaps.vGap16,

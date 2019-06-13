@@ -53,7 +53,7 @@ class _CitySelectPageState extends State<CitySelectPage> {
           return IndexBar(
             onTouch: onTouch,
             data: list,
-            itemHeight: 25,
+            itemHeight: 18,
             touchDownColor: Colors.transparent,
             textStyle: TextStyles.textGray12
           );
