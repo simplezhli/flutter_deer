@@ -215,11 +215,11 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
       fontSize: 15.0,
       selected: _type && selectedIndex == index,
       unSelectedTextColor: Colours.text_normal,
-      onTap: (){
+      onTap: _type ? (){
         setState(() {
           selectedIndex = index;
         });
-      },
+      } : null,
     );
   }
 }
