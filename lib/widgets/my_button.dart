@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 
-class MyButton extends StatefulWidget {
+class MyButton extends StatelessWidget {
 
   const MyButton({
     Key key,
@@ -12,16 +12,11 @@ class MyButton extends StatefulWidget {
 
   final String text;
   final VoidCallback onPressed;
-  
-  @override
-  _MyButtonState createState() => _MyButtonState();
-}
 
-class _MyButtonState extends State<MyButton> {
   @override
   Widget build(BuildContext context) {
     return FlatButton(
-      onPressed: widget.onPressed,
+      onPressed: onPressed,
       textColor: Colors.white,
       color: Colours.app_main,
       disabledTextColor: Colours.login_text_disabled,
@@ -34,9 +29,9 @@ class _MyButtonState extends State<MyButton> {
             width: double.infinity,
             alignment: Alignment.center,
             child: Text(
-              widget.text,
+              text,
               style: TextStyle(
-                fontSize: Dimens.font_sp18
+                  fontSize: Dimens.font_sp18
               ),
             ),
           ),

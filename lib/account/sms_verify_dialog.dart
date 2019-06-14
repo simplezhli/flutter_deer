@@ -125,7 +125,6 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                           style: TextStyle(color: Colors.transparent, fontSize: Dimens.font_sp18),
                           onChanged: (v){
                             if (v.length > 6){
-                              print(v);
                               _controller.value = TextEditingValue(
                                 text: v.substring(0, 6),
                                 selection: TextSelection.collapsed(offset: 6),

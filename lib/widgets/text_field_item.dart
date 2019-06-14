@@ -6,7 +6,7 @@ import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/number_text_input_formatter.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
 
-class TextFieldItem extends StatefulWidget {
+class TextFieldItem extends StatelessWidget {
 
   const TextFieldItem({
     Key key,
@@ -26,23 +26,11 @@ class TextFieldItem extends StatefulWidget {
   final KeyboardActionsConfig config;
 
   @override
-  _TextFieldItemState createState() => _TextFieldItemState();
-}
-
-class _TextFieldItemState extends State<TextFieldItem> {
-
-  @override
-  void initState() {
-    if (widget.config != null && defaultTargetPlatform == TargetPlatform.iOS){
-      // 因Android平台输入法兼容问题，所以只配置IOS平台
-      FormKeyboardActions.setKeyboardActions(context, widget.config);
-    }
-    super.initState();
-  }
-
-
-  @override
   Widget build(BuildContext context) {
+    if (config != null && defaultTargetPlatform == TargetPlatform.iOS){
+      // 因Android平台输入法兼容问题，所以只配置IOS平台
+      FormKeyboardActions.setKeyboardActions(context, config);
+    }
     return Container(
       height: 50.0,
       margin:  const EdgeInsets.only(left: 16.0),
@@ -57,22 +45,22 @@ class _TextFieldItemState extends State<TextFieldItem> {
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
             child: Text(
-              widget.title,
+              title,
               style: TextStyles.textDark14,
             ),
           ),
           Expanded(
             flex: 1,
             child: TextField(
-              focusNode: widget.focusNode,
-              keyboardType: widget.keyboardType,
-              inputFormatters: _getInputFormatters(),
-              controller: widget.controller,
-              decoration: InputDecoration(
-                hintText: widget.hintText,
-                border: InputBorder.none, //去掉下划线
-                hintStyle: TextStyles.textGrayC14
-              )
+                focusNode: focusNode,
+                keyboardType: keyboardType,
+                inputFormatters: _getInputFormatters(),
+                controller: controller,
+                decoration: InputDecoration(
+                    hintText: hintText,
+                    border: InputBorder.none, //去掉下划线
+                    hintStyle: TextStyles.textGrayC14
+                )
             ),
           )
         ],
@@ -81,10 +69,10 @@ class _TextFieldItemState extends State<TextFieldItem> {
   }
 
   _getInputFormatters(){
-    if (widget.keyboardType == TextInputType.numberWithOptions(decimal: true)){
+    if (keyboardType == TextInputType.numberWithOptions(decimal: true)){
       return [UsNumberTextInputFormatter()];
     }
-    if (widget.keyboardType == TextInputType.number || widget.keyboardType == TextInputType.phone){
+    if (keyboardType == TextInputType.number || keyboardType == TextInputType.phone){
       return [WhitelistingTextInputFormatter.digitsOnly];
     }
     return null;

@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 
-class MyCard extends StatefulWidget {
+class MyCard extends StatelessWidget {
 
   const MyCard({
     Key key,
@@ -13,23 +13,18 @@ class MyCard extends StatefulWidget {
   final Widget child;
   final Color color;
   final Color shadowColor;
-  
-  @override
-  _MyCardState createState() => _MyCardState();
-}
 
-class _MyCardState extends State<MyCard> {
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-          color: widget.color,
+          color: color,
           borderRadius: BorderRadius.circular(8.0),
           boxShadow: [
-            BoxShadow(color: widget.shadowColor, offset: Offset(0.0, 2.0), blurRadius: 8.0, spreadRadius: 0.0),
+            BoxShadow(color: shadowColor, offset: Offset(0.0, 2.0), blurRadius: 8.0, spreadRadius: 0.0),
           ]
       ),
-      child: widget.child,
+      child: child,
     );
   }
 }

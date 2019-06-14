@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 
-class BaseDialog extends StatefulWidget{
+class BaseDialog extends StatelessWidget{
 
   BaseDialog({
     Key key,
@@ -19,13 +19,6 @@ class BaseDialog extends StatefulWidget{
   final Widget child;
   final double height;
   final bool hiddenTitle;
-  
-  @override
-  _BaseDialog createState() => _BaseDialog();
-  
-}
-
-class _BaseDialog extends State<BaseDialog>{
 
   @override
   Widget build(BuildContext context) {
@@ -38,21 +31,21 @@ class _BaseDialog extends State<BaseDialog>{
               borderRadius: BorderRadius.circular(8.0),
             ),
             width: 270.0,
-            height: widget.height,
+            height: height,
             padding: const EdgeInsets.only(top: 24.0),
             child: Column(
               children: <Widget>[
                 Offstage(
-                  offstage: widget.hiddenTitle,
+                  offstage: hiddenTitle,
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 8.0),
                     child: Text(
-                      widget.hiddenTitle ? "" : widget.title,
+                      hiddenTitle ? "" : title,
                       style: TextStyles.textBoldDark18,
                     ),
                   ),
                 ),
-                Expanded(child: widget.child),
+                Expanded(child: child),
                 Gaps.vGap8,
                 Gaps.line,
                 Row(
@@ -91,7 +84,7 @@ class _BaseDialog extends State<BaseDialog>{
                           ),
                           textColor: Colours.app_main,
                           onPressed: (){
-                            widget.onPressed();
+                            onPressed();
                           },
                         ),
                       ),
@@ -104,4 +97,5 @@ class _BaseDialog extends State<BaseDialog>{
       ),
     );
   }
+  
 }

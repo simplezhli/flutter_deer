@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/utils.dart';
 
-class StoreSelectTextItem extends StatefulWidget {
+class StoreSelectTextItem extends StatelessWidget {
 
   const StoreSelectTextItem({
     Key key,
@@ -19,16 +19,11 @@ class StoreSelectTextItem extends StatefulWidget {
   final String content;
   final TextAlign textAlign;
   final TextStyle style;
-  
-  @override
-  _StoreSelectTextItemState createState() => _StoreSelectTextItemState();
-}
 
-class _StoreSelectTextItemState extends State<StoreSelectTextItem> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: widget.onTap,
+      onTap: onTap,
       child: Container(
         height: 50.0,
         margin: const EdgeInsets.only(right: 8.0, left: 16.0),
@@ -41,7 +36,7 @@ class _StoreSelectTextItemState extends State<StoreSelectTextItem> {
         child: Row(
           children: <Widget>[
             Text(
-              widget.title,
+              title,
               style: TextStyles.textDark14,
             ),
             Expanded(
@@ -49,11 +44,11 @@ class _StoreSelectTextItemState extends State<StoreSelectTextItem> {
               child: Padding(
                 padding: const EdgeInsets.only(right: 8.0, left: 16.0),
                 child: Text(
-                  widget.content,
+                  content,
                   maxLines: 2,
-                  textAlign: widget.textAlign,
+                  textAlign: textAlign,
                   overflow: TextOverflow.ellipsis,
-                  style: widget.style ?? TextStyles.textDark14,
+                  style: style ?? TextStyles.textDark14,
                 ),
               ),
             ),

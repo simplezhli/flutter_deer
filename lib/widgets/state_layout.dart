@@ -1,5 +1,5 @@
 
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/utils.dart';
 
@@ -46,6 +46,10 @@ class _StateLayoutState extends State<StateLayout> {
         img = "zwzh";
         hintText = "马上添加提现账号吧";
         break;
+      case StateType.loading:
+        img = "";
+        hintText = "";
+        break;
     }
     return Container(
       width: double.infinity,
@@ -53,7 +57,7 @@ class _StateLayoutState extends State<StateLayout> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Container(
+          widget.type != StateType.loading ? Container(
             height: 120.0,
             width: 120.0,
             decoration: BoxDecoration(
@@ -61,7 +65,7 @@ class _StateLayoutState extends State<StateLayout> {
                 image: AssetImage(Utils.getImgPath("state/" + img)),
               ),
             ),
-          ),
+          ): CupertinoActivityIndicator(radius: 18.0),
           Gaps.vGap16,
           Text(
             widget.hintText ?? hintText,
@@ -85,4 +89,6 @@ enum StateType {
   message,
   /// 无提现账号
   account,
+  /// 加载中
+  loading
 }
