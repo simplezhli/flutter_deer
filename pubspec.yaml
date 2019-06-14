@@ -35,7 +35,7 @@ dependencies:
   # Dart 常用工具类库 https://github.com/Sky24n/common_utils
   common_utils: ^1.1.1
   # Flutter 常用工具类库 https://github.com/Sky24n/flustars
-  flustars: ^0.2.5+1
+  flustars: 0.2.5
   # Flutter UI组件库 https://github.com/flutterchina/flukit.
   flukit: ^1.0.0
   # 启动URL的插件 https://github.com/flutter/plugins/tree/master/packages/url_launcher

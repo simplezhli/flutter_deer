@@ -8,8 +8,8 @@ import 'package:rxdart/rxdart.dart';
 import 'package:common_utils/common_utils.dart';
 import 'package:flukit/flukit.dart';
 import 'common/common.dart';
+import 'package:flustars/flustars.dart';
 import 'login/login_page.dart';
-import 'util/sp_util.dart';
 
 class SplashPage extends StatefulWidget {
   @override

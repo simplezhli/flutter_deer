@@ -2,6 +2,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flustars/flustars.dart' as FlutterStars;
 import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/login/register_page.dart';
 import 'package:flutter_deer/login/reset_password_page.dart';
@@ -9,7 +10,6 @@ import 'package:flutter_deer/login/sms_login_page.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/store/store_audit_page.dart';
 import 'package:flutter_deer/util/app_navigator.dart';
-import 'package:flutter_deer/util/sp_util.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/text_field.dart';
@@ -59,7 +59,7 @@ class _LoginState extends State<Login> {
     //监听输入改变  
     _nameController.addListener(_verify);
     _passwordController.addListener(_verify);
-    _nameController.text = SpUtil.getString(Constant.phone);
+    _nameController.text = FlutterStars.SpUtil.getString(Constant.phone);
   }
   
   void _verify(){
@@ -84,7 +84,7 @@ class _LoginState extends State<Login> {
   }
   
   void _login(){
-    SpUtil.putString(Constant.phone, _nameController.text);
+    FlutterStars.SpUtil.putString(Constant.phone, _nameController.text);
     AppNavigator.push(context, StoreAudit());
   }
   
