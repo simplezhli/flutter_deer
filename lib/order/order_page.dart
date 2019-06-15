@@ -24,8 +24,8 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
   bool get wantKeepAlive => true;
   
   int _index = 0;
-  var orderLeftButtonText = ["拒单", "拒单", "订单跟踪", "订单跟踪", "订单跟踪"];
-  var orderRightButtonText = ["接单", "开始配送", "完成", "", ""];
+  var _orderLeftButtonText = ["拒单", "拒单", "订单跟踪", "订单跟踪", "订单跟踪"];
+  var _orderRightButtonText = ["接单", "开始配送", "完成", "", ""];
   
   @override
   Widget build(BuildContext context) {
@@ -116,7 +116,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
           delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
             return Container(
               margin: const EdgeInsets.only(top: 8.0),
-              child: index % 5 == 0 ? getTimeTag() : getOrderItem(),
+              child: index % 5 == 0 ? _getTimeTag() : _getOrderItem(),
             );
           },
           childCount: 50),
@@ -125,7 +125,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
     ];
   }
   
-  Widget getOrderItem(){
+  Widget _getOrderItem(){
     return MyCard(
       child: Container(
         padding: const EdgeInsets.all(16.0),
@@ -231,7 +231,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
                     ),
                     FlatButton(
                       color: Colours.bg_gray,
-                      child: Text(orderLeftButtonText[_index]),
+                      child: Text(_orderLeftButtonText[_index]),
                       onPressed: (){
                         if (_index >= 2){
                           AppNavigator.push(context, OrderTrack());
@@ -239,11 +239,11 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
                       },
                     ),
                     Offstage(
-                      offstage: orderRightButtonText[_index].length == 0,
+                      offstage: _orderRightButtonText[_index].length == 0,
                       child: Gaps.hGap10,
                     ),
                     Offstage(
-                      offstage: orderRightButtonText[_index].length == 0,
+                      offstage: _orderRightButtonText[_index].length == 0,
                       child: FlatButton(
                         color: Colours.app_main,
                         textColor: Colors.white,
@@ -261,7 +261,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
                                 });
                           }
                         },
-                        child: Text(orderRightButtonText[_index]),
+                        child: Text(_orderRightButtonText[_index]),
                       ),
                     ),
                   ],
@@ -300,7 +300,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
         });
   }
 
-  Widget getTimeTag(){
+  Widget _getTimeTag(){
     return MyCard(
         child: Container(
           height: 34.0,

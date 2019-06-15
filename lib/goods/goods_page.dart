@@ -17,10 +17,10 @@ class Goods extends StatefulWidget {
 
 class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin{
 
-  List<String> sortList = ["全部商品", "个人护理", "饮料", "沐浴洗护", "厨房用具", "休闲食品", "生鲜水果", "酒水", "家庭清洁"];
+  List<String> _sortList = ["全部商品", "个人护理", "饮料", "沐浴洗护", "厨房用具", "休闲食品", "生鲜水果", "酒水", "家庭清洁"];
   TabController _tabController;
   PageController _pageController = PageController(initialPage: 0);
-  var isPageCanChanged = true;
+  var _isPageCanChanged = true;
   var _index = 0;
   var _sortIndex = 0;
   
@@ -86,7 +86,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
                 Padding(
                   padding: const EdgeInsets.only(left: 16.0, right: 8.0),
                   child: Text(
-                    sortList[_sortIndex],
+                    _sortList[_sortIndex],
                     style: TextStyles.textBoldDark24,
                   ),
                 ),
@@ -173,7 +173,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
             child: PageView.builder(
               itemCount: 3,
               onPageChanged: (index) {
-                if (isPageCanChanged) {//由于pageview切换是会回调这个方法,又会触发切换tabbar的操作,所以定义一个flag,控制pageview的回调
+                if (_isPageCanChanged) {//由于pageview切换是会回调这个方法,又会触发切换tabbar的操作,所以定义一个flag,控制pageview的回调
                   _onPageChange(index);
                 }
               },
@@ -191,9 +191,9 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
   _onPageChange(int index, {PageController p, TabController t}) async {
     
     if (p != null) {//判断是哪一个切换
-      isPageCanChanged = false;
+      _isPageCanChanged = false;
       await _pageController.animateToPage(index, duration: Duration(milliseconds: 300), curve: Curves.ease);//等待pageview切换完毕,再释放pageivew监听
-      isPageCanChanged = true;
+      _isPageCanChanged = true;
     } else {
       _tabController.animateTo(index);//切换Tabbar
     }
@@ -231,9 +231,9 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
           height: body.size.height - button.size.height - 12.0,
           child: ListView.builder(
             physics: ClampingScrollPhysics(),
-            itemCount: sortList.length + 1,
+            itemCount: _sortList.length + 1,
             itemBuilder: (_, index){
-              return index == sortList.length ? Container(
+              return index == _sortList.length ? Container(
                 color: Colors.white,
                 height: 12.0,
               ) : Material(
@@ -245,7 +245,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Text(
-                          sortList[index],
+                          _sortList[index],
                           style: index == _sortIndex ? TextStyles.textMain14 : TextStyles.textDark14,
                         ),
                         Text(
@@ -259,7 +259,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
                     setState(() {
                       _sortIndex = index;
                     });
-                    Toast.show("选择分类: " + sortList[index]);
+                    Toast.show("选择分类: " + _sortList[index]);
                     Navigator.of(context).pop();
                   },
                 ),

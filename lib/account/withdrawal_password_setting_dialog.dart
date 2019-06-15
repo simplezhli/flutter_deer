@@ -11,7 +11,7 @@ class WithdrawalPasswordSettingDialog extends StatefulWidget {
 
 class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSettingDialog> {
   
-  var list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0, 0];
+  var _list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0, 0];
   
   @override
   Widget build(BuildContext context) {
@@ -99,7 +99,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                           child: InkWell(
                             child: Center(
                               child: (index == 9 || index == 11) ? Image.asset(index == 11 ? Utils.getImgPath("account/del") : "", width: 32.0,) :
-                              Text(list[index].toString(), style: TextStyle(
+                              Text(_list[index].toString(), style: TextStyle(
                                   color: Colours.text_dark,
                                   fontSize: 26.0
                               )),
@@ -119,7 +119,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                                 });
                                 return;
                               }
-                              _codeList[_index] = list[index].toString();
+                              _codeList[_index] = _list[index].toString();
                               _index++;
                               if (_index == 6){
 

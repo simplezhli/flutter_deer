@@ -13,15 +13,15 @@ class WithdrawalAccountListPage extends StatefulWidget {
 
 class _WithdrawalAccountListPageState extends State<WithdrawalAccountListPage> {
   
-  int selectIndex = 0;
-  List<WithdrawalAccountModel> list = [];
+  int _selectIndex = 0;
+  List<WithdrawalAccountModel> _list = [];
   
   @override
   void initState() {
     super.initState();
-    list.clear();
-    list.add(WithdrawalAccountModel("尾号5236 李艺", "工商银行", 0, "123"));
-    list.add(WithdrawalAccountModel("唯鹿", "微信", 1, ""));
+    _list.clear();
+    _list.add(WithdrawalAccountModel("尾号5236 李艺", "工商银行", 0, "123"));
+    _list.add(WithdrawalAccountModel("唯鹿", "微信", 1, ""));
   }
   
   @override
@@ -33,14 +33,14 @@ class _WithdrawalAccountListPageState extends State<WithdrawalAccountListPage> {
         onPressed: (){}
       ),
       body: ListView.separated(
-        itemCount: list.length,
+        itemCount: _list.length,
         separatorBuilder: (_, index) {
           return Divider(height: 0.6);
         },
         itemBuilder: (_, index){
           return InkWell(
             onTap: (){
-              Navigator.pop(context, list[index]);
+              Navigator.pop(context, _list[index]);
             },
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -49,21 +49,21 @@ class _WithdrawalAccountListPageState extends State<WithdrawalAccountListPage> {
               alignment: Alignment.center,
               child: Row(
                 children: <Widget>[
-                  Image.asset(Utils.getImgPath(list[index].type == 0 ? "account/yhk" : "account/wechat"), width: 24.0),
+                  Image.asset(Utils.getImgPath(_list[index].type == 0 ? "account/yhk" : "account/wechat"), width: 24.0),
                   Gaps.hGap16,
                   Expanded(
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(list[index].typeName, style: TextStyles.textDark14),
+                        Text(_list[index].typeName, style: TextStyles.textDark14),
                         Gaps.vGap8,
-                        Text(list[index].name, style: TextStyles.textDark12),
+                        Text(_list[index].name, style: TextStyles.textDark12),
                       ],
                     ),
                   ),
                   Offstage(
-                    offstage: selectIndex != index,
+                    offstage: _selectIndex != index,
                     child: Image.asset(
                       Utils.getImgPath("account/selected"),
                       height: 24.0,

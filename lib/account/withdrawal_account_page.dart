@@ -16,15 +16,15 @@ class WithdrawalAccountPage extends StatefulWidget {
 
 class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
   
-  List<WithdrawalAccountModel> list = [];
+  List<WithdrawalAccountModel> _list = [];
   
   @override
   void initState() {
     super.initState();
-    list.clear();
-    list.add(WithdrawalAccountModel("唯鹿", "微信", 1, ""));
-    list.add(WithdrawalAccountModel("李*", "工商银行", 0, "**** **** **** 5236"));
-    list.add(WithdrawalAccountModel("李*", "渤海银行", 0, "**** **** **** 2165"));
+    _list.clear();
+    _list.add(WithdrawalAccountModel("唯鹿", "微信", 1, ""));
+    _list.add(WithdrawalAccountModel("李*", "工商银行", 0, "**** **** **** 5236"));
+    _list.add(WithdrawalAccountModel("李*", "渤海银行", 0, "**** **** **** 2165"));
   }
   
   @override
@@ -37,16 +37,16 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
           AppNavigator.push(context, AddWithdrawalAccountPage());
         }
       ),
-      body: list.isEmpty ? StateLayout(
+      body: _list.isEmpty ? StateLayout(
         type: StateType.account) : 
       ListView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 22.0),
-        itemCount: list.length,
+        itemCount: _list.length,
         itemBuilder: (_, index){
           return Padding(
             padding: const EdgeInsets.only(top: 15.0),
             child: AccountCard(
-              type: list[index].type,
+              type: _list[index].type,
               child: InkWell(
                 //Toast.show("长按删除账号！");
                 onLongPress: (){
@@ -67,23 +67,23 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(20.0),
                           ),
-                          child: Image.asset(Utils.getImgPath(list[index].type == 1 ? "account/wechat" : "account/yhk"))
+                          child: Image.asset(Utils.getImgPath(_list[index].type == 1 ? "account/wechat" : "account/yhk"))
                         ),
                       ),
                       Positioned(
                         top: 22.0,
                         left: 72.0,
-                        child: Text(list[index].typeName, style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp18)),
+                        child: Text(_list[index].typeName, style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp18)),
                       ),
                       Positioned(
                         top: 48.0,
                         left: 72.0,
-                        child: Text(list[index].name, style: TextStyle(color: Colors.white, fontSize: 12.0)),
+                        child: Text(_list[index].name, style: TextStyle(color: Colors.white, fontSize: 12.0)),
                       ),
                       Positioned(
                         bottom: 24.0,
                         left: 72.0,
-                        child: Text(list[index].code, style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp18, letterSpacing: 1.0)),
+                        child: Text(_list[index].code, style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp18, letterSpacing: 1.0)),
                       ),
                     ],
                   ),
@@ -124,7 +124,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                         child: Text("确认解绑", style: TextStyle(fontSize: Dimens.font_sp18)),
                         onPressed: (){
                           setState(() {
-                            list.removeAt(index);
+                            _list.removeAt(index);
                           });
                           Navigator.of(context).pop();
                         },

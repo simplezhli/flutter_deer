@@ -20,10 +20,10 @@ class _CitySelectPageState extends State<CitySelectPage> {
   @override
   void initState() {
     super.initState();
-    loadData();
+    _loadData();
   }
 
-  void loadData() async {
+  void _loadData() async {
     // 获取城市列表
     rootBundle.loadString('assets/data/city.json').then((value) {
       List list = json.decode(value);

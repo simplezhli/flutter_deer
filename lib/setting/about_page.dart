@@ -16,9 +16,9 @@ class About extends StatefulWidget {
 
 class _AboutState extends State<About> {
 
-  var styles = [FlutterLogoStyle.stacked, FlutterLogoStyle.markOnly, FlutterLogoStyle.horizontal];
-  var colors = [Colors.red, Colors.green, Colors.brown, Colors.blue, Colors.purple, Colors.pink, Colors.amber];
-  var curves = [
+  var _styles = [FlutterLogoStyle.stacked, FlutterLogoStyle.markOnly, FlutterLogoStyle.horizontal];
+  var _colors = [Colors.red, Colors.green, Colors.brown, Colors.blue, Colors.purple, Colors.pink, Colors.amber];
+  var _curves = [
     Curves.ease, Curves.easeIn, Curves.easeInOutCubic, Curves.easeInOut,
     Curves.easeInQuad, Curves.easeInCirc, Curves.easeInBack, Curves.easeInOutExpo,
     Curves.easeInToLinear, Curves.easeOutExpo, Curves.easeInOutSine, Curves.easeOutSine,
@@ -63,10 +63,10 @@ class _AboutState extends State<About> {
           Gaps.vGap50,
           FlutterLogo(
             size: 100.0,
-            colors: colors[Random.secure().nextInt(7)],
+            colors: _colors[Random.secure().nextInt(7)],
             textColor: _randomColor(),
-            style: styles[Random.secure().nextInt(3)],
-            curve: curves[Random.secure().nextInt(12)],
+            style: _styles[Random.secure().nextInt(3)],
+            curve: _curves[Random.secure().nextInt(12)],
           ),
           Gaps.vGap10,
           ClickItem(

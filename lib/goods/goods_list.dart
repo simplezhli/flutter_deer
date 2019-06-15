@@ -28,7 +28,7 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
   int _selectIndex = -1;
   Animation<double> _animation;
   AnimationController _controller;
-  List list = [];
+  List _list = [];
 
   @override
   void initState() {
@@ -41,9 +41,9 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
 
     //Item数量
     int count = widget.index == 0 ? 3 : (widget.index == 1 ? 15 : 26);
-    list.clear();
+    _list.clear();
     for(int i = 0; i < count; i++){
-      list.add("");
+      _list.add("");
     }
   }
 
@@ -56,8 +56,8 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return list.isEmpty ? StateLayout(type: StateType.goods,) : ListView.builder(
-      itemCount: list.length,
+    return _list.isEmpty ? StateLayout(type: StateType.goods,) : ListView.builder(
+      itemCount: _list.length,
       itemBuilder: (_, index){
         return Stack(
           children: <Widget>[
@@ -287,7 +287,7 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
                       child: Text("确认删除", style: TextStyle(fontSize: Dimens.font_sp18)),
                       onPressed: (){
                         setState(() {
-                          list.removeAt(index);
+                          _list.removeAt(index);
                         });
                         Navigator.of(context).pop();
                       },

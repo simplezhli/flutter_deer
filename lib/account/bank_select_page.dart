@@ -22,16 +22,16 @@ class BankSelectPage extends StatefulWidget {
 class _BankSelectPageState extends State<BankSelectPage> {
 
   List<BankModel> _bankList = [];
-  List<String> bankNameList = ["工商银行", "建设银行", "中国银行", "农业银行", "招商银行", "交通银行", "中信银行", "民生银行", "兴业银行", "浦发银行"];
-  List<String> bankLogoList = ["gongshang", "jianhang", "zhonghang", "nonghang", "zhaohang", "jiaohang", "zhongxin", "minsheng", "xingye", "pufa"];
+  List<String> _bankNameList = ["工商银行", "建设银行", "中国银行", "农业银行", "招商银行", "交通银行", "中信银行", "民生银行", "兴业银行", "浦发银行"];
+  List<String> _bankLogoList = ["gongshang", "jianhang", "zhonghang", "nonghang", "zhaohang", "jiaohang", "zhongxin", "minsheng", "xingye", "pufa"];
   
   @override
   void initState() {
     super.initState();
-    loadData();
+    _loadData();
   }
 
-  void loadData() async {
+  void _loadData() async {
     // 获取城市列表
     rootBundle.loadString(widget.type == 0 ? 'assets/data/bank.json' : 'assets/data/bank_2.json').then((value) {
       List list = json.decode(value);
@@ -90,19 +90,19 @@ class _BankSelectPageState extends State<BankSelectPage> {
           child: ListView.builder(
             physics: NeverScrollableScrollPhysics(),
             itemExtent: 40.0,
-            itemCount: bankNameList.length,
+            itemCount: _bankNameList.length,
             itemBuilder: (_, index){
               return InkWell(
                 onTap: (){
-                  Navigator.pop(context, BankModel(0, bankNameList[index], ""));
+                  Navigator.pop(context, BankModel(0, _bankNameList[index], ""));
                 },
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Row(
                     children: <Widget>[
-                      Image.asset(Utils.getImgPath("account/${bankLogoList[index]}"),width: 24.0),
+                      Image.asset(Utils.getImgPath("account/${_bankLogoList[index]}"),width: 24.0),
                       Gaps.hGap8,
-                      Text(bankNameList[index], style: TextStyles.textDark14),
+                      Text(_bankNameList[index], style: TextStyles.textDark14),
                     ],
                   ),
                 ),

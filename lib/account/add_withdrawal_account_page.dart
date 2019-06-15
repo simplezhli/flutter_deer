@@ -18,11 +18,11 @@ class AddWithdrawalAccountPage extends StatefulWidget {
 }
 
 class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
-  bool isWechat = false;
-  String accountType = "银行卡(对私账户)";
-  String city = "";
-  String bank = "";
-  String bank1 = "";
+  bool _isWechat = false;
+  String _accountType = "银行卡(对私账户)";
+  String _city = "";
+  String _bank = "";
+  String _bank1 = "";
   
   @override
   Widget build(BuildContext context) {
@@ -42,13 +42,13 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                     Gaps.vGap5,
                     StoreSelectTextItem(
                       title: "账号类型",
-                      content: accountType,
+                      content: _accountType,
                       onTap: () {
                         _showSelectAccountTypeDialog();
                       },
                     ),
                     Offstage(
-                      offstage: isWechat,
+                      offstage: _isWechat,
                       child: Column(
                         children: <Widget>[
                           TextFieldItem(
@@ -62,39 +62,39 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                           ),
                           StoreSelectTextItem(
                             title: "开  户  地",
-                            content: city.isEmpty ? "选择开户城市" : city,
-                            style: city.isEmpty ? TextStyles.textGrayC14 : TextStyles.textDark14,
+                            content: _city.isEmpty ? "选择开户城市" : _city,
+                            style: _city.isEmpty ? TextStyles.textGrayC14 : TextStyles.textDark14,
                             onTap: () {
                               AppNavigator.pushResult(context, CitySelectPage(), (result){
                                 setState(() {
                                   CityModel model = result;
-                                  city = model.name;
+                                  _city = model.name;
                                 });
                               });
                             },
                           ),
                           StoreSelectTextItem(
                             title: "银行名称",
-                            content: bank.isEmpty ? "选择开户银行" : bank,
-                            style: bank.isEmpty ? TextStyles.textGrayC14 : TextStyles.textDark14,
+                            content: _bank.isEmpty ? "选择开户银行" : _bank,
+                            style: _bank.isEmpty ? TextStyles.textGrayC14 : TextStyles.textDark14,
                             onTap: () {
                               AppNavigator.pushResult(context, BankSelectPage(type: 0), (result){
                                 setState(() {
                                   BankModel model = result;
-                                  bank = model.bankName;
+                                  _bank = model.bankName;
                                 });
                               });
                             },
                           ),
                           StoreSelectTextItem(
                             title: "支行名称",
-                            content: bank1.isEmpty ? "选择开户支行" : bank1,
-                            style: bank1.isEmpty ? TextStyles.textGrayC14 : TextStyles.textDark14,
+                            content: _bank1.isEmpty ? "选择开户支行" : _bank1,
+                            style: _bank1.isEmpty ? TextStyles.textGrayC14 : TextStyles.textDark14,
                             onTap: () {
                               AppNavigator.pushResult(context, BankSelectPage(type: 1), (result){
                                 setState(() {
                                   BankModel model = result;
-                                  bank1 = model.bankName;
+                                  _bank1 = model.bankName;
                                 });
                               });
                             },
@@ -104,7 +104,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 8.0, left: 16.0),
-                      child: Text(isWechat ? "绑定本机当前登录的微信号" : "绑定持卡人本人的银行卡",
+                      child: Text(_isWechat ? "绑定本机当前登录的微信号" : "绑定持卡人本人的银行卡",
                           style: TextStyles.textGray12),
                     ),
                   ],
@@ -129,7 +129,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
 
   _dialogSelect(bool flag) {
     setState(() {
-      isWechat = flag;
+      _isWechat = flag;
     });
     Navigator.pop(context);
   }
@@ -172,7 +172,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                           child: Text("微信"),
                           textColor: Colours.app_main,
                           onPressed: () {
-                            accountType = "微信";
+                            _accountType = "微信";
                             _dialogSelect(true);
                           },
                         ),
@@ -183,7 +183,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                           child: Text("银行卡(对私账户)"),
                           textColor: Colours.app_main,
                           onPressed: () {
-                            accountType = "银行卡(对私账户)";
+                            _accountType = "银行卡(对私账户)";
                             _dialogSelect(false);
                           },
                         ),
@@ -194,7 +194,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                           child: Text("银行卡(对公账户)"),
                           textColor: Colours.app_main,
                           onPressed: () {
-                            accountType = "银行卡(对公账户)";
+                            _accountType = "银行卡(对公账户)";
                             _dialogSelect(false);
                           },
                         ),

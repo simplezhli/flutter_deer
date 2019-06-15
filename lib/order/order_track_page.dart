@@ -11,13 +11,13 @@ class OrderTrack extends StatefulWidget {
 
 class _OrderTrackState extends State<OrderTrack> {
   
-  List<Step> stepList = [];
+  List<Step> _stepList = [];
   
   @override
   Widget build(BuildContext context) {
-    stepList.clear();
+    _stepList.clear();
     for (int i = 0; i < 4; i++){
-      stepList.add(getStep(i));
+      _stepList.add(_buildStep(i));
     }
     
     return Scaffold(
@@ -36,27 +36,27 @@ class _OrderTrackState extends State<OrderTrack> {
           ),
           Stepper(
             physics: BouncingScrollPhysics(),
-            currentStep: stepList.length - 1,
+            currentStep: _stepList.length - 1,
             controlsBuilder: (BuildContext context, {VoidCallback onStepContinue, VoidCallback onStepCancel}) {
               return Row(); //操作按钮置空
             },
-            steps: stepList,
+            steps: _stepList,
           )
         ],
       ),
     );
   }
   
-  var titleList = ["订单已完成", "开始配送", "等待配送", "收到新订单"];
-  var timeList = ["2018/08/30 13:30", "2018/08/30 11:30", "2018/08/30 9:30", "2018/08/30 9:00"];
+  var _titleList = ["订单已完成", "开始配送", "等待配送", "收到新订单"];
+  var _timeList = ["2018/08/30 13:30", "2018/08/30 11:30", "2018/08/30 9:30", "2018/08/30 9:00"];
   
-  Step getStep(int index){
+  Step _buildStep(int index){
     return Step(
       title: Padding(
         padding: const EdgeInsets.only(top: 15.0),
-        child: Text(titleList[index], style: index == 0 ? TextStyles.textMain14 : TextStyles.textDark14),
+        child: Text(_titleList[index], style: index == 0 ? TextStyles.textMain14 : TextStyles.textDark14),
       ),
-      subtitle: Text(timeList[index], style: index == 0 ? TextStyles.textMain12 : TextStyles.textGray12),
+      subtitle: Text(_timeList[index], style: index == 0 ? TextStyles.textMain12 : TextStyles.textGray12),
       content: Text(""),
       isActive: index == 0,
       // TODO 这里的状态图标无法修改，暂时使用原生的。应该可以复制Step代码修改一下。

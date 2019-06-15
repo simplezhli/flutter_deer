@@ -26,11 +26,11 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
   ScrollController _controller = new ScrollController();
   // TabBar不能动态加载，所以初始化3个，其中两个文字置空，点击事件拦截住。
   List<Tab> myTabs = <Tab>[Tab(text: '请选择'), Tab(text: ''), Tab(text: '')];
-  List mGoodsSort = [];
-  List mGoodsSort1 = [];
-  List mGoodsSort2 = [];
+  List _mGoodsSort = [];
+  List _mGoodsSort1 = [];
+  List _mGoodsSort2 = [];
   /// 当前列表数据
-  List mList = [];
+  List _mList = [];
   /// 三级联动选择的position
   var _positions = [0, 0, 0];
    
@@ -45,16 +45,16 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
     
     // 数据为固定的三个列表
     rootBundle.loadString('assets/data/sort_0.json').then((value) {
-      mGoodsSort = json.decode(value);
+      _mGoodsSort = json.decode(value);
       setState(() {
-        mList = mGoodsSort;
+        _mList = _mGoodsSort;
       });
     });
     rootBundle.loadString('assets/data/sort_1.json').then((value) {
-      mGoodsSort1 = json.decode(value);
+      _mGoodsSort1 = json.decode(value);
     });
     rootBundle.loadString('assets/data/sort_2.json').then((value) {
-      mGoodsSort2 = json.decode(value);
+      _mGoodsSort2 = json.decode(value);
     });
    
   }
@@ -110,13 +110,13 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                   }
                   switch(index){
                     case 0:
-                      mList = mGoodsSort;
+                      _mList = _mGoodsSort;
                       break;
                     case 1:
-                      mList = mGoodsSort1;
+                      _mList = _mGoodsSort1;
                       break;
                     case 2:
-                      mList = mGoodsSort2;
+                      _mList = _mGoodsSort2;
                       break;
                   }
                   setState(() {
@@ -143,38 +143,38 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                       child: Row(
                         children: <Widget>[
                           Text(
-                            mList[index]["name"],
-                            style: mList[index]["name"] == myTabs[_index].text ? TextStyles.textMain14 : TextStyles.textDark14),
+                              _mList[index]["name"],
+                            style: _mList[index]["name"] == myTabs[_index].text ? TextStyles.textMain14 : TextStyles.textDark14),
                           Gaps.hGap8,
                           Offstage(
-                            offstage: mList[index]["name"] != myTabs[_index].text,
+                            offstage: _mList[index]["name"] != myTabs[_index].text,
                             child: Image.asset(Utils.getImgPath("goods/xz"), height: 16.0, width: 16.0),
                           )
                         ],
                       ),
                     ),
                     onTap: (){
-                      myTabs[_index] = Tab(text: mList[index]["name"]);
+                      myTabs[_index] = Tab(text: _mList[index]["name"]);
                       _positions[_index] = index;
                       _index++;
                       switch(_index){
                         case 1:
-                          mList = mGoodsSort1;
+                          _mList = _mGoodsSort1;
                           myTabs[1] = Tab(text: "请选择");
                           myTabs[2] = Tab(text: "");
                           break;
                         case 2:
-                          mList = mGoodsSort2;
+                          _mList = _mGoodsSort2;
                           myTabs[2] = Tab(text: "请选择");
                           break;
                         case 3:
-                          mList = mGoodsSort2;
+                          _mList = _mGoodsSort2;
                           break;
                       }
                       setState(() {
                         if (_index > 2){
                           _index = 2;
-                          widget.onSelected(mList[index]["id"], mList[index]["name"]);
+                          widget.onSelected(_mList[index]["id"], _mList[index]["name"]);
                           Navigator.of(context).pop();
                         }
                       });
@@ -183,7 +183,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                     },
                   );
                 },
-                itemCount: mList.length,
+                itemCount: _mList.length,
               ),
             )
           ],

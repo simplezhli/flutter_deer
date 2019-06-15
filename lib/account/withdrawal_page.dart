@@ -21,7 +21,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
   TextEditingController _controller = TextEditingController();
   int _withdrawalType = 0;
   bool _isClick = false;
-  WithdrawalAccountModel data = WithdrawalAccountModel("尾号5236 李艺", "工商银行", 0, "123");
+  WithdrawalAccountModel _data = WithdrawalAccountModel("尾号5236 李艺", "工商银行", 0, "123");
   
   @override
   void initState() {
@@ -56,7 +56,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
               onTap: (){
                 AppNavigator.pushResult(context, WithdrawalAccountListPage(), (result){
                   setState(() {
-                    data = result;
+                    _data = result;
                   });
                 });
               },
@@ -67,16 +67,16 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                 alignment: Alignment.center,
                 child: Row(
                   children: <Widget>[
-                    Image.asset(Utils.getImgPath(data.type == 0 ? "account/yhk" : "account/wechat"), width: 24.0),
+                    Image.asset(Utils.getImgPath(_data.type == 0 ? "account/yhk" : "account/wechat"), width: 24.0),
                     Gaps.hGap16,
                     Expanded(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(data.typeName, style: TextStyles.textDark14),
+                          Text(_data.typeName, style: TextStyles.textDark14),
                           Gaps.vGap8,
-                          Text(data.name, style: TextStyles.textGray12),
+                          Text(_data.name, style: TextStyles.textGray12),
                         ],
                       ),
                     ),

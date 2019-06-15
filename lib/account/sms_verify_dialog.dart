@@ -18,7 +18,7 @@ class SMSVerifyDialog extends StatefulWidget {
 class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
 
   /// 倒计时秒数
-  final int second = 60;
+  final int _second = 60;
   /// 当前秒数
   int s;
   StreamSubscription _subscription;
@@ -163,12 +163,12 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                     disabledTextColor: Colours.text_gray,
                     onPressed: _isClick ? (){
                       setState(() {
-                        s = second;
+                        s = _second;
                         _isClick = false;
                       });
-                      _subscription = Observable.periodic(Duration(seconds: 1), (i) => i).take(second).listen((i){
+                      _subscription = Observable.periodic(Duration(seconds: 1), (i) => i).take(_second).listen((i){
                         setState(() {
-                          s = second - i - 1;
+                          s = _second - i - 1;
                           _isClick = s < 1;
                         });
                       });

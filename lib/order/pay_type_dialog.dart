@@ -20,8 +20,8 @@ class PayTypeDialog extends StatefulWidget{
 
 class _PayTypeDialog extends State<PayTypeDialog>{
 
-  int value = 0;
-  var list = ["未收款", "支付宝", "微信", "现金"];
+  int _value = 0;
+  var _list = ["未收款", "支付宝", "微信", "现金"];
 
   Widget getItem(int index){
     return Material(
@@ -34,12 +34,12 @@ class _PayTypeDialog extends State<PayTypeDialog>{
               Gaps.hGap16,
               Expanded(
                 child: Text(
-                  list[index],
-                  style: value == index ? TextStyles.textMain14 : TextStyles.textDark14,
+                  _list[index],
+                  style: _value == index ? TextStyles.textMain14 : TextStyles.textDark14,
                 ),
               ),
               Offstage(
-                  offstage: value != index,
+                  offstage: _value != index,
                   child: Image.asset(Utils.getImgPath("order/ic_check"), width: 16.0, height: 16.0)),
               Gaps.hGap16,
             ],
@@ -48,7 +48,7 @@ class _PayTypeDialog extends State<PayTypeDialog>{
         onTap: (){
           if (mounted) {
             setState(() {
-              value = index;
+              _value = index;
             });
           }
         },
@@ -71,7 +71,7 @@ class _PayTypeDialog extends State<PayTypeDialog>{
         ],
       ),
       onPressed: (){
-        widget.onPressed(value, list[value]);
+        widget.onPressed(_value, _list[_value]);
         Navigator.of(context).pop();
       },
     );
