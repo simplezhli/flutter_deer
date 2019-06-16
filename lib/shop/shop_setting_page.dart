@@ -20,18 +20,18 @@ class ShopSettingPage extends StatefulWidget {
 
 class _ShopSettingPageState extends State<ShopSettingPage> {
 
-  bool check = false;
-  var selectValue = [0];
-  int sendType = 0;
-  String sendPrice = "0.00";
-  String freePrice = "0.00";
-  String phone = "";
-  String shopIntroduction = "零食铺子坚果饮料美酒佳肴…";
-  String securityService = "假一赔十";
+  bool _check = false;
+  var _selectValue = [0];
+  int _sendType = 0;
+  String _sendPrice = "0.00";
+  String _freePrice = "0.00";
+  String _phone = "";
+  String _shopIntroduction = "零食铺子坚果饮料美酒佳肴…";
+  String _securityService = "假一赔十";
   
   _getPayType(){
     String payType = "";
-    for (int s in selectValue){
+    for (int s in _selectValue){
       if (s == 0){
         payType = "$payType在线支付+";
       }else if(s == 1){
@@ -67,17 +67,17 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                         Padding(
                           padding: const EdgeInsets.only(left: 16.0),
                           child: Text(
-                            check ? "正在营业" : "暂停营业",
+                            _check ? "正在营业" : "暂停营业",
                             style: TextStyles.textBoldDark24,
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(right: 4.0),
                           child: Switch.adaptive(
-                            value: check,
+                            value: _check,
                             onChanged: (bool val) {
                               setState(() {
-                                check = !check;
+                                _check = !_check;
                               });
                             },
                           ),
@@ -93,32 +93,32 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                     Gaps.vGap16,
                     ClickItem(
                       title: "店铺简介",
-                      content: shopIntroduction,
+                      content: _shopIntroduction,
                       onTap: (){
                         AppNavigator.pushResult(context,
                             InputTextPage(
                               title: "店铺简介",
                               hintText: "这里有一段完美的简介…",
-                              content: shopIntroduction,
+                              content: _shopIntroduction,
                             ), (result){
                               setState(() {
-                                shopIntroduction =result.toString();
+                                _shopIntroduction =result.toString();
                               });
                             });
                       },
                     ),
                     ClickItem(
                       title: "保障服务",
-                      content: securityService,
+                      content: _securityService,
                       onTap: (){
                         AppNavigator.pushResult(context,
                           InputTextPage(
                             title: "保障服务",
                             hintText: "这里有一段完美的说明…",
-                            content: securityService,
+                            content: _securityService,
                           ), (result){
                             setState(() {
-                              securityService =result.toString();
+                              _securityService =result.toString();
                             });
                           });
                       },
@@ -132,10 +132,10 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                             barrierDismissible: false,
                             builder: (BuildContext context) {
                               return PayTypeDialog(
-                                value: selectValue,
+                                value: _selectValue,
                                 onPressed: (value){
                                   setState(() {
-                                    selectValue = value;
+                                    _selectValue = value;
                                   });
                                 },
                               );
@@ -150,7 +150,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                     ),
                     ClickItem(
                       title: "运费配置",
-                      content: sendType == 0 ? "运费满免配置" : "运费比例配置",
+                      content: _sendType == 0 ? "运费满免配置" : "运费比例配置",
                       onTap: (){
                         showDialog(
                             context: context,
@@ -159,7 +159,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                               return SendTypeDialog(
                                 onPressed: (i, value){
                                   setState(() {
-                                    sendType = i;
+                                    _sendType = i;
                                   });
                                 },
                               );
@@ -167,10 +167,10 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                       },
                     ),
                     Offstage(
-                      offstage: sendType == 1,
+                      offstage: _sendType == 1,
                       child: ClickItem(
                         title: "运费满免",
-                        content: freePrice,
+                        content: _freePrice,
                         onTap: (){
                           showDialog(
                               context: context,
@@ -180,7 +180,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                                   title: "配送费满免",
                                   onPressed: (value){
                                     setState(() {
-                                      freePrice = value;
+                                      _freePrice = value;
                                     });
                                   },
                                 );
@@ -189,10 +189,10 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                       ),
                     ),
                     Offstage(
-                      offstage: sendType == 1,
+                      offstage: _sendType == 1,
                       child: ClickItem(
                         title: "配送费用",
-                        content: sendPrice,
+                        content: _sendPrice,
                         onTap: (){
                           showDialog(
                               context: context,
@@ -202,7 +202,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                                   title: "配送费用",
                                   onPressed: (value){
                                     setState(() {
-                                      sendPrice = value;
+                                      _sendPrice = value;
                                     });
                                   },
                                 );
@@ -211,7 +211,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                       ),
                     ),
                     Offstage(
-                      offstage: sendType == 0,
+                      offstage: _sendType == 0,
                       child: ClickItem(
                         maxLines: 10,
                         title: "运费比例",
@@ -230,17 +230,17 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                     Gaps.vGap16,
                     ClickItem(
                       title: "联系电话",
-                      content: phone,
+                      content: _phone,
                       onTap: (){
                         AppNavigator.pushResult(context, 
                             InputTextPage(
                               title: "联系电话",
                               hintText: "这里有一串神秘的数字…",
                               keyboardType: TextInputType.phone,
-                              content: phone,
+                              content: _phone,
                             ), (result){
                               setState(() {
-                                phone =result.toString();
+                                _phone =result.toString();
                               });
                         });
                       },

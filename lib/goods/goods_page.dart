@@ -259,7 +259,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
                     setState(() {
                       _sortIndex = index;
                     });
-                    Toast.show("选择分类: " + _sortList[index]);
+                    Toast.show("选择分类: ${_sortList[index]}");
                     Navigator.of(context).pop();
                   },
                 ),

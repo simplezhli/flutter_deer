@@ -20,35 +20,35 @@ class StateLayout extends StatefulWidget {
 
 class _StateLayoutState extends State<StateLayout> {
   
-  String img;
-  String hintText;
+  String _img;
+  String _hintText;
   
   @override
   Widget build(BuildContext context) {
     switch (widget.type){
       case StateType.order:
-        img = "zwdd";
-        hintText = "暂无订单";
+        _img = "zwdd";
+        _hintText = "暂无订单";
         break;
       case StateType.goods:
-        img = "zwsp";
-        hintText = "暂无商品";
+        _img = "zwsp";
+        _hintText = "暂无商品";
         break;
       case StateType.network:
-        img = "zwwl";
-        hintText = "无网络连接";
+        _img = "zwwl";
+        _hintText = "无网络连接";
         break;
       case StateType.message:
-        img = "zwxx";
-        hintText = "暂无消息";
+        _img = "zwxx";
+        _hintText = "暂无消息";
         break;
       case StateType.account:
-        img = "zwzh";
-        hintText = "马上添加提现账号吧";
+        _img = "zwzh";
+        _hintText = "马上添加提现账号吧";
         break;
       case StateType.loading:
-        img = "";
-        hintText = "";
+        _img = "";
+        _hintText = "";
         break;
     }
     return Container(
@@ -62,13 +62,13 @@ class _StateLayoutState extends State<StateLayout> {
             width: 120.0,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(Utils.getImgPath("state/" + img)),
+                image: AssetImage(Utils.getImgPath("state/$_img")),
               ),
             ),
           ): CupertinoActivityIndicator(radius: 18.0),
           Gaps.vGap16,
           Text(
-            widget.hintText ?? hintText,
+            widget.hintText ?? _hintText,
             style: TextStyles.textGray14,
           ),
           Gaps.vGap50,

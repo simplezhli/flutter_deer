@@ -20,8 +20,8 @@ class SendTypeDialog extends StatefulWidget{
 
 class _SendTypeDialog extends State<SendTypeDialog>{
 
-  int value = 0;
-  var list = ["运费满免配置", "运费比例配置"];
+  int _value = 0;
+  var _list = ["运费满免配置", "运费比例配置"];
 
   Widget getItem(int index){
     return Material(
@@ -34,12 +34,12 @@ class _SendTypeDialog extends State<SendTypeDialog>{
               Gaps.hGap16,
               Expanded(
                 child: Text(
-                  list[index],
-                  style: value == index ? TextStyles.textMain14 : TextStyles.textDark14,
+                  _list[index],
+                  style: _value == index ? TextStyles.textMain14 : TextStyles.textDark14,
                 ),
               ),
               Offstage(
-                  offstage: value != index,
+                  offstage: _value != index,
                   child: Image.asset(Utils.getImgPath("order/ic_check"), width: 16.0, height: 16.0)),
               Gaps.hGap16,
             ],
@@ -48,7 +48,7 @@ class _SendTypeDialog extends State<SendTypeDialog>{
         onTap: (){
           if (mounted) {
             setState(() {
-              value = index;
+              _value = index;
             });
           }
         },
@@ -69,7 +69,7 @@ class _SendTypeDialog extends State<SendTypeDialog>{
         ],
       ),
       onPressed: (){
-        widget.onPressed(value, list[value]);
+        widget.onPressed(_value, _list[_value]);
         Navigator.of(context).pop();
       },
     );

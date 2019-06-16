@@ -23,33 +23,33 @@ class OrderStatisticsPage extends StatefulWidget {
 
 class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
   
-  int selectedIndex = 2;
-  DateTime initialDay;
-  Iterable<DateTime> weeksDays;
-  List<DateTime> currentMonthsDays;
+  int _selectedIndex = 2;
+  DateTime _initialDay;
+  Iterable<DateTime> _weeksDays;
+  List<DateTime> _currentMonthsDays;
   // 周视图中选择的日期
-  int selectedWeekDay;
+  int _selectedWeekDay;
   // 月视图中选择的日期
-  DateTime selectedDay;
+  DateTime _selectedDay;
   // 年视图中选择的月份
-  int selectedMonth;
-  List monthList = [];
-  bool isExpanded = true;
+  int _selectedMonth;
+  List _monthList = [];
+  bool _isExpanded = true;
   
-  static const List<String> weeks = const ["周一", "周二", "周三", "周四", "周五", "周六", "周日"];
+  static const List<String> _weeks = const ["周一", "周二", "周三", "周四", "周五", "周六", "周日"];
 
   @override
   void initState() {
     super.initState();
-    initialDay = DateTime.now();
-    selectedWeekDay = initialDay.day;
-    selectedDay = initialDay;
-    selectedMonth = initialDay.month;
-    weeksDays = Date.Utils.daysInRange(Date.Utils.previousWeek(initialDay), DateUtils.nextDay(initialDay)).toList().sublist(1, 8);
-    currentMonthsDays = DateUtils.daysInMonth(initialDay);
-    monthList.clear();
+    _initialDay = DateTime.now();
+    _selectedWeekDay = _initialDay.day;
+    _selectedDay = _initialDay;
+    _selectedMonth = _initialDay.month;
+    _weeksDays = Date.Utils.daysInRange(Date.Utils.previousWeek(_initialDay), DateUtils.nextDay(_initialDay)).toList().sublist(1, 8);
+    _currentMonthsDays = DateUtils.daysInMonth(_initialDay);
+    _monthList.clear();
     for (int i = 1; i < 13; i ++){
-      monthList.add(i);
+      _monthList.add(i);
     }
   }
 
@@ -70,22 +70,22 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                 children: <Widget>[
                   Gaps.hGap8,
                   Gaps.hGap16,
-                  _buildSelectedText(initialDay.year.toString(), 0),
+                  _buildSelectedText(_initialDay.year.toString(), 0),
                   Gaps.hGap16,
                   Container(width: 0.6, height: 24.0, color: Colours.line),
                   Gaps.hGap16,
-                  _buildSelectedText("${initialDay.month.toString()}月", 1),
+                  _buildSelectedText("${_initialDay.month.toString()}月", 1),
                   Gaps.hGap16,
                   Container(width: 0.6, height: 24.0, color: Colours.line),
                   Gaps.hGap16,
-                  _buildSelectedText("${DateUtils.previousWeek(initialDay)} -${DateUtils.apiDayFormat(initialDay)}", 2),
+                  _buildSelectedText("${DateUtils.previousWeek(_initialDay)} -${DateUtils.apiDayFormat(_initialDay)}", 2),
                 ],
               ),
               Gaps.vGap16,
               Flexible(
                 child: Container(
                   color: Color(0xFFFAFAFA),
-                  padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: selectedIndex != 1 ? 4.0 : 0.0),
+                  padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: _selectedIndex != 1 ? 4.0 : 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -95,20 +95,20 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                         firstCurve: const Interval(0.0, 0.0, curve: Curves.fastOutSlowIn),
                         secondCurve: const Interval(0.0, 0.0, curve: Curves.fastOutSlowIn),
                         sizeCurve: Curves.decelerate,
-                        crossFadeState: isExpanded ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+                        crossFadeState: _isExpanded ? CrossFadeState.showSecond : CrossFadeState.showFirst,
                         duration: const Duration(milliseconds: 300),
                       ),
-                      selectedIndex == 1 ?
+                      _selectedIndex == 1 ?
                           InkWell(
                             onTap: (){
                               setState(() {
-                                isExpanded = !isExpanded;
+                                _isExpanded = !_isExpanded;
                               });
                             },
                             child: Container(
                               height: 27.0,
                               alignment: Alignment.topCenter,
-                              child: Image.asset(Utils.getImgPath("statistic/${isExpanded ? "up" : "down"}"), width: 16.0,),
+                              child: Image.asset(Utils.getImgPath("statistic/${_isExpanded ? "up" : "down"}"), width: 16.0,),
                             ),
                           ) : Gaps.empty,
                     ],
@@ -213,9 +213,9 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
       }
     }
 
-    if (selectedIndex == 0){
+    if (_selectedIndex == 0){
       return data;
-    }else if(selectedIndex == 1){
+    }else if(_selectedIndex == 1){
       return data1;
     }else{
       return data2;
@@ -232,18 +232,18 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
   }
   
   _buildCalendar(){
-    if (selectedIndex == 0){
+    if (_selectedIndex == 0){
       return _builderMonthCalendar();
-    }else if (selectedIndex == 1){
+    }else if (_selectedIndex == 1){
       return _builderCalendar();
-    }else if (selectedIndex == 2){
+    }else if (_selectedIndex == 2){
       return _builderWeekCalendar();
     }
   }
   
   List<Widget> _buildWeeks(){
     List<Widget> widgets = [];
-    weeks.forEach((str){
+    _weeks.forEach((str){
       widgets.add(Container(
         alignment: Alignment.center,
         child: Text(str, style: TextStyles.textGray12),
@@ -255,10 +255,10 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
   List<Widget> _builderCalendar() {
     List<Widget> dayWidgets = [];
     List<DateTime> list;
-    if (isExpanded) {
-      list = currentMonthsDays;
+    if (_isExpanded) {
+      list = _currentMonthsDays;
     }else{
-      list = DateUtils.daysInWeek(selectedDay);
+      list = DateUtils.daysInWeek(_selectedDay);
     }
     dayWidgets.addAll(_buildWeeks());
     list.forEach((day) {
@@ -267,12 +267,12 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
             alignment: Alignment.center,
             child: SelectedText(
               day.day < 10 ? "0${day.day}" : day.day.toString(),
-              selected:(day.day == selectedDay.day && !DateUtils.isExtraDay(day, initialDay)),
+              selected:(day.day == _selectedDay.day && !DateUtils.isExtraDay(day, _initialDay)),
               // 不是本月的日期与超过当前日期的不可点击
-              enable: day.day <= initialDay.day && !DateUtils.isExtraDay(day, initialDay),
+              enable: day.day <= _initialDay.day && !DateUtils.isExtraDay(day, _initialDay),
               onTap: (){
                 setState(() {
-                  selectedDay = day;
+                  _selectedDay = day;
                 });
               },
             ),
@@ -284,17 +284,17 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
 
   List<Widget> _builderMonthCalendar() {
     List<Widget> monthWidgets = [];
-    monthList.forEach((month){
+    _monthList.forEach((month){
       monthWidgets.add(
         Container(
           alignment: Alignment.center,
             child: SelectedText(
               "$month月",
-              selected: month == selectedMonth,
-              enable: month <= initialDay.month,
+              selected: month == _selectedMonth,
+              enable: month <= _initialDay.month,
               onTap: (){
                 setState(() {
-                  selectedMonth = month;
+                  _selectedMonth = month;
                 });
               },
             ),
@@ -306,16 +306,16 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
   
   List<Widget> _builderWeekCalendar() {
     List<Widget> dayWidgets = [];
-    weeksDays.forEach((day) {
+    _weeksDays.forEach((day) {
       dayWidgets.add(
         Container(
           alignment: Alignment.center,
           child: SelectedText(
             day.day < 10 ? "0${day.day}" : day.day.toString(),
-            selected: day.day == selectedWeekDay,
+            selected: day.day == _selectedWeekDay,
             onTap: (){
               setState(() {
-                selectedWeekDay = day.day;
+                _selectedWeekDay = day.day;
               });
             },
           ),
@@ -329,11 +329,11 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
     return SelectedText(
       text,
       fontSize: 15.0,
-      selected: selectedIndex == index,
+      selected: _selectedIndex == index,
       unSelectedTextColor: Colours.text_normal,
       onTap: (){
         setState(() {
-          selectedIndex = index;
+          _selectedIndex = index;
         });
       },
     );

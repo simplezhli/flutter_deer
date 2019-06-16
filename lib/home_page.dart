@@ -17,8 +17,8 @@ class _HomeState extends State<Home> {
   
   int _tabIndex = 0;
   var _pageList;
-  var tabImages;
-  var appBarTitles = ['订单', '商品', '统计', '店铺'];
+  var _tabImages;
+  var _appBarTitles = ['订单', '商品', '统计', '店铺'];
   final _pageController = PageController();
   
   @override
@@ -35,7 +35,7 @@ class _HomeState extends State<Home> {
       Shop(),
     ];
 
-    tabImages = [
+    _tabImages = [
       [
         Image.asset(Utils.getImgPath("home/icon_Order_n")),
         Image.asset(Utils.getImgPath("home/icon_Order_s")),
@@ -57,15 +57,15 @@ class _HomeState extends State<Home> {
 
   Image getTabIcon(int curIndex) {
     if (curIndex == _tabIndex) {
-      return tabImages[curIndex][1];
+      return _tabImages[curIndex][1];
     }
-    return tabImages[curIndex][0];
+    return _tabImages[curIndex][0];
   }
 
   Widget getTabText(int curIndex) {
     return Padding(
       padding: const EdgeInsets.only(top: 5.0),
-      child: Text(appBarTitles[curIndex]),
+      child: Text(_appBarTitles[curIndex]),
     );
   }
   

@@ -34,26 +34,26 @@ class MyAppBar extends StatefulWidget implements PreferredSizeWidget{
 
 class _MyAppBarState extends State<MyAppBar> {
 
-  SystemUiOverlayStyle overlayStyle = SystemUiOverlayStyle.light;
+  SystemUiOverlayStyle _overlayStyle = SystemUiOverlayStyle.light;
 
   @override
   void initState() {
     super.initState();
     setState(() {
-      overlayStyle = ThemeData.estimateBrightnessForColor(widget.backgroundColor) == Brightness.dark
+      _overlayStyle = ThemeData.estimateBrightnessForColor(widget.backgroundColor) == Brightness.dark
           ? SystemUiOverlayStyle.light
           : SystemUiOverlayStyle.dark;
     });
   }
 
   Color getColor(){
-    return overlayStyle == SystemUiOverlayStyle.light ? Colors.white : Colours.text_dark;
+    return _overlayStyle == SystemUiOverlayStyle.light ? Colors.white : Colours.text_dark;
   }
   
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: overlayStyle,
+      value: _overlayStyle,
       child: Material(
         color: widget.backgroundColor,
         child: SafeArea(

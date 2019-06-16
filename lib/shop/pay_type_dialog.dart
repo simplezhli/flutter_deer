@@ -23,11 +23,11 @@ class PayTypeDialog extends StatefulWidget{
 
 class _PayTypeDialog extends State<PayTypeDialog>{
 
-  List selectValue;
-  var list = ["线上支付", "对公转账", "货到付款"];
+  List _selectValue;
+  var _list = ["线上支付", "对公转账", "货到付款"];
 
   Widget getItem(int index){
-    selectValue = widget.value ?? [0];
+    _selectValue = widget.value ?? [0];
     return Material(
       type: MaterialType.transparency,
       child: InkWell(
@@ -38,11 +38,11 @@ class _PayTypeDialog extends State<PayTypeDialog>{
               Gaps.hGap16,
               Expanded(
                 child: Text(
-                  list[index],
+                  _list[index],
                   style: TextStyles.textDark14,
                 ),
               ),
-              Image.asset(Utils.getImgPath(selectValue.contains(index) ? "shop/xz" : "shop/xztm"), width: 16.0, height: 16.0),
+              Image.asset(Utils.getImgPath(_selectValue.contains(index) ? "shop/xz" : "shop/xztm"), width: 16.0, height: 16.0),
               Gaps.hGap16,
             ],
           ),
@@ -54,10 +54,10 @@ class _PayTypeDialog extends State<PayTypeDialog>{
               return;
             }
             setState(() {
-              if (selectValue.contains(index)){
-                selectValue.remove(index);
+              if (_selectValue.contains(index)){
+                _selectValue.remove(index);
               }else{
-                selectValue.add(index);
+                _selectValue.add(index);
               }
             });
           }
@@ -80,7 +80,7 @@ class _PayTypeDialog extends State<PayTypeDialog>{
         ],
       ),
       onPressed: (){
-        widget.onPressed(selectValue);
+        widget.onPressed(_selectValue);
         Navigator.of(context).pop();
       },
     );

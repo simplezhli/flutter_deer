@@ -19,15 +19,15 @@ class GoodsStatisticsPage extends StatefulWidget {
 
 class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
 
-  DateTime initialDay;
-  int selectedIndex = 2;
+  DateTime _initialDay;
+  int _selectedIndex = 2;
   /// false 待配货 true 已配货
   bool _type = false;
   
   @override
   void initState() {
     super.initState();
-    initialDay = DateTime.now();
+    _initialDay = DateTime.now();
   }
 
   @override
@@ -55,15 +55,15 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                 Gaps.vGap16,
                 Row(
                   children: <Widget>[
-                    _buildSelectedText(initialDay.year.toString(), 0),
+                    _buildSelectedText(_initialDay.year.toString(), 0),
                     Gaps.hGap12,
                     Container(width: 0.6, height: 24.0, color: Colours.line),
                     Gaps.hGap12,
-                    _buildSelectedText("${initialDay.month.toString()}月", 1),
+                    _buildSelectedText("${_initialDay.month.toString()}月", 1),
                     Gaps.hGap12,
                     Container(width: 0.6, height: 24.0, color: Colours.line),
                     Gaps.hGap12,
-                    _buildSelectedText(_type ? "${DateUtils.previousWeek(initialDay)} -${DateUtils.apiDayFormat(initialDay)}" : "${initialDay.day.toString()}日", 2),
+                    _buildSelectedText(_type ? "${DateUtils.previousWeek(_initialDay)} -${DateUtils.apiDayFormat(_initialDay)}" : "${_initialDay.day.toString()}日", 2),
                   ],
                 ),
                 Gaps.vGap8,
@@ -213,11 +213,11 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
     return SelectedText(
       text,
       fontSize: 15.0,
-      selected: _type && selectedIndex == index,
+      selected: _type && _selectedIndex == index,
       unSelectedTextColor: Colours.text_normal,
       onTap: _type ? (){
         setState(() {
-          selectedIndex = index;
+          _selectedIndex = index;
         });
       } : null,
     );

@@ -183,7 +183,7 @@ class _StoreAuditState extends State<StoreAudit> {
   }
 
   String _sortName = "";
-  var list = ["水果生鲜", "家用电器", "休闲食品", "茶酒饮料", "美妆个护", "粮油调味", "家庭清洁", "厨具用品", "儿童玩具", "床上用品"];
+  var _list = ["水果生鲜", "家用电器", "休闲食品", "茶酒饮料", "美妆个护", "粮油调味", "家庭清洁", "厨具用品", "儿童玩具", "床上用品"];
 
   _showBottomSheet(){
     showModalBottomSheet(
@@ -198,17 +198,17 @@ class _StoreAuditState extends State<StoreAudit> {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   height: 48.0,
                   alignment: Alignment.centerLeft,
-                  child: Text(list[index]),
+                  child: Text(_list[index]),
                 ),
                 onTap: (){
                   setState(() {
-                    _sortName = list[index];
+                    _sortName = _list[index];
                   });
                   Navigator.of(context).pop();
                 },
               );
             },
-            itemCount: list.length,
+            itemCount: _list.length,
           ),
         );
       },
