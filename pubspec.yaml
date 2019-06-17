@@ -58,6 +58,8 @@ dependencies:
   simple_gesture_detector: ^0.1.3
   # 曲线图表 https://github.com/aeyrium/bezier-chart
   # bezier_chart: ^1.0.7
+  # 路由框架 https://github.com/theyakka/fluro
+  fluro: ^1.4.0
   
 dev_dependencies:
   flutter_test:

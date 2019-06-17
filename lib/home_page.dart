@@ -7,6 +7,7 @@ import 'package:flutter_deer/util/utils.dart';
 
 import 'goods/goods_page.dart';
 import 'shop/shop_page.dart';
+import 'util/toast.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -62,56 +63,71 @@ class _HomeState extends State<Home> {
     return _tabImages[curIndex][0];
   }
 
-  Widget getTabText(int curIndex) {
+  Widget _buildTabText(int curIndex) {
     return Padding(
       padding: const EdgeInsets.only(top: 5.0),
       child: Text(_appBarTitles[curIndex]),
     );
   }
+
+  DateTime  _lastTime;
+  
+  Future<bool> _isExit(){
+    if (_lastTime == null || DateTime.now().difference(_lastTime) > Duration(milliseconds: 2500)) {
+      _lastTime = DateTime.now();
+      Toast.show("再次点击退出应用");
+      return Future.value(false);
+    } 
+    Toast.cancelToast();
+    return Future.value(true);
+  }
   
   @override
   Widget build(BuildContext context) {
     
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: getTabIcon(0),
-            title: getTabText(0)
-          ),
-          BottomNavigationBarItem(
-            icon: getTabIcon(1),
-            title: getTabText(1)
-          ),
-          BottomNavigationBarItem(
-            icon: getTabIcon(2),
-            title: getTabText(2)
-          ),
-          BottomNavigationBarItem(
-            icon: getTabIcon(3),
-            title: getTabText(3)
-          ),
-        ],
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _tabIndex,
-        elevation: 5.0,
-        iconSize: 21.0,
-        selectedFontSize: Dimens.font_sp10,
-        unselectedFontSize: Dimens.font_sp10,
-        selectedItemColor: Colours.app_main,
-        unselectedItemColor: Color(0xffbfbfbf),
-        onTap: (index){
-          _pageController.jumpToPage(index);
-        },
+    return WillPopScope(
+      onWillPop: _isExit,
+      child: Scaffold(
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.white,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: getTabIcon(0),
+              title: _buildTabText(0)
+            ),
+            BottomNavigationBarItem(
+              icon: getTabIcon(1),
+              title: _buildTabText(1)
+            ),
+            BottomNavigationBarItem(
+              icon: getTabIcon(2),
+              title: _buildTabText(2)
+            ),
+            BottomNavigationBarItem(
+              icon: getTabIcon(3),
+              title: _buildTabText(3)
+            ),
+          ],
+          type: BottomNavigationBarType.fixed,
+          currentIndex: _tabIndex,
+          elevation: 5.0,
+          iconSize: 21.0,
+          selectedFontSize: Dimens.font_sp10,
+          unselectedFontSize: Dimens.font_sp10,
+          selectedItemColor: Colours.app_main,
+          unselectedItemColor: Color(0xffbfbfbf),
+          onTap: (index){
+            _pageController.jumpToPage(index);
+          },
+        ),
+        // 使用PageView的原因参看 https://zhuanlan.zhihu.com/p/58582876
+        body: PageView(
+          controller: _pageController,
+          onPageChanged: onPageChanged,
+          children: _pageList,
+          physics: NeverScrollableScrollPhysics(), // 禁止滑动
+        )
       ),
-      // 使用PageView的原因参看 https://zhuanlan.zhihu.com/p/58582876
-      body: PageView(
-        controller: _pageController,
-        onPageChanged: onPageChanged,
-        children: _pageList,
-        physics: NeverScrollableScrollPhysics(), // 禁止滑动
-      )
     );
   }
 

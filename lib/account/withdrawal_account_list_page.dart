@@ -1,9 +1,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/util/app_navigator.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 
+import 'add_withdrawal_account_page.dart';
 import 'models/withdrawal_account_model.dart';
 
 class WithdrawalAccountListPage extends StatefulWidget {
@@ -30,7 +32,9 @@ class _WithdrawalAccountListPageState extends State<WithdrawalAccountListPage> {
       appBar: MyAppBar(
         centerTitle: "选择账号",
         actionName: "添加",
-        onPressed: (){}
+        onPressed: (){
+          AppNavigator.push(context, AddWithdrawalAccountPage());
+        }
       ),
       body: ListView.separated(
         itemCount: _list.length,
@@ -40,7 +44,7 @@ class _WithdrawalAccountListPageState extends State<WithdrawalAccountListPage> {
         itemBuilder: (_, index){
           return InkWell(
             onTap: (){
-              Navigator.pop(context, _list[index]);
+              AppNavigator.goBackWithParams(context, _list[index]);
             },
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),

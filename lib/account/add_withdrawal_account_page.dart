@@ -131,7 +131,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
     setState(() {
       _isWechat = flag;
     });
-    Navigator.pop(context);
+    AppNavigator.goBack(context);
   }
 
   _showSelectAccountTypeDialog() {

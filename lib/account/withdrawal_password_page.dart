@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/account/sms_verify_dialog.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/util/app_navigator.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/base_dialog.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
@@ -50,7 +51,7 @@ class _WithdrawalPasswordPageState extends State<WithdrawalPasswordPage> {
                       child: const Text("为了您的账户安全需先进行短信验证并设置提现密码。", style: TextStyles.textDark14, textAlign: TextAlign.center),
                     ),
                     onPressed: (){
-                      Navigator.pop(context);
+                      AppNavigator.goBack(context);
                       _showVerifyDialog();
                     },
                   );

@@ -63,7 +63,7 @@ class _SplashPageState extends State<SplashPage> {
   }
   
   _goLogin(){
-    AppNavigator.pushAndRemoveUntil(context, Login());
+    AppNavigator.pushReplacement(context, Login());
   }
 
   void _initBannerData() {

@@ -1,6 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/routers/application.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/routers/routers.dart';
 import 'package:flutter_deer/util/app_navigator.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
@@ -50,7 +53,7 @@ class _StoreAuditResultState extends State<StoreAuditResult> {
             Gaps.vGap12,
             MyButton(
               onPressed: (){
-                AppNavigator.pushAndRemoveUntil(context, Home());
+                NavigatorUtils.push(context, Routes.home, clearStack: true);
               },
               text: "进入",
             )

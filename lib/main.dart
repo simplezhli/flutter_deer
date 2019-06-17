@@ -1,8 +1,11 @@
 import 'dart:io';
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'routers/application.dart';
+import 'routers/routers.dart';
 import 'splash_page.dart';
 
 void main(){
@@ -16,6 +19,13 @@ void main(){
 }
 
 class MyApp extends StatelessWidget {
+  
+  MyApp()  {
+    final router = Router();
+    Routes.configureRoutes(router);
+    Application.router = router;
+  }
+  
   @override
   Widget build(BuildContext context) {
     return OKToast(
@@ -27,7 +37,13 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: Colors.white,
         ),
         home: SplashPage(),
+        onGenerateRoute: Application.router.generator,
       ),
+      backgroundColor: Colors.black54,
+      textPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
+      radius: 20.0,
+      position: ToastPosition.bottom,
+      dismissOtherOnShow: true
     );
   }
 }

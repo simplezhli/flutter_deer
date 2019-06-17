@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/util/app_navigator.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
@@ -47,7 +48,7 @@ class _WithdrawalResultPageState extends State<WithdrawalResultPage> {
             Gaps.vGap12,
             MyButton(
               onPressed: (){
-                Navigator.pop(context);
+                AppNavigator.goBack(context);
               },
               text: "返回",
             )

@@ -61,6 +61,7 @@ IOS需要自行下载代码运行。（效果是一致的）
 
 | 库                         | 功能             |
 | -------------------------- | --------------- |
+| [fluro](https://github.com/theyakka/fluro)                            | **路由管理**       |
 | [flutter_oktoast](https://github.com/OpenFlutter/flutter_oktoast)     | **Toast**       |
 | [common_utils](https://github.com/Sky24n/common_utils)                | **Dart 常用工具类库**     |
 | [flutter_slidable](https://github.com/letsar/flutter_slidable)        | **侧滑删除**      |
