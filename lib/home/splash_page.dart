@@ -2,14 +2,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/common/common.dart';
+import 'package:flutter_deer/login/login_page.dart';
 import 'package:flutter_deer/util/app_navigator.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:common_utils/common_utils.dart';
 import 'package:flukit/flukit.dart';
-import 'common/common.dart';
 import 'package:flustars/flustars.dart';
-import 'login/login_page.dart';
 
 class SplashPage extends StatefulWidget {
   @override

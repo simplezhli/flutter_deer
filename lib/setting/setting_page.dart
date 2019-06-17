@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/app_navigator.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
@@ -8,6 +9,7 @@ import 'package:flutter_deer/widgets/click_item.dart';
 
 import 'about_page.dart';
 import 'account_manager_page.dart';
+import 'setting_router.dart';
 
 class SettingPage extends StatefulWidget {
   @override
@@ -27,7 +29,7 @@ class _SettingPageState extends State<SettingPage> {
           ClickItem(
             title: "账号管理",
             onTap: (){
-              AppNavigator.push(context, AccountManagerPage());
+              NavigatorUtils.push(context, SettingRouter.accountManagerPage);
             }
           ),
           ClickItem(
@@ -44,7 +46,7 @@ class _SettingPageState extends State<SettingPage> {
           ClickItem(
             title: "关于我们",
             onTap: (){
-              AppNavigator.push(context, About());
+              NavigatorUtils.push(context, SettingRouter.aboutPage);
             }
           ),
           ClickItem(

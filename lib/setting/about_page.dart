@@ -4,7 +4,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/setting/webview_page.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/home/webview_page.dart';
 import 'package:flutter_deer/util/app_navigator.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
@@ -73,13 +74,13 @@ class _AboutState extends State<About> {
             title: "Github",
             content: "Go Star",
             onTap: (){
-              AppNavigator.push(context, WebViewPage(title: "Github", url: "https://github.com/simplezhli",));
+              NavigatorUtils.goWebViewPage(context, "Github", "https://github.com/simplezhli");
             }
           ),
           ClickItem(
             title: "作者",
             onTap: (){
-              AppNavigator.push(context, WebViewPage(title: "作者博客", url: "https://weilu.blog.csdn.net",));
+              NavigatorUtils.goWebViewPage(context, "作者博客", "https://weilu.blog.csdn.net");
             }
           ),
         ],

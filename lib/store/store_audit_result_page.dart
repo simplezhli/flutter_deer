@@ -9,7 +9,7 @@ import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 
-import '../home_page.dart';
+import 'package:flutter_deer/home/home_page.dart';
 
 class StoreAuditResult extends StatefulWidget {
   @override

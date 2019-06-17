@@ -4,7 +4,9 @@ import 'package:flutter_deer/account/account_page.dart';
 import 'package:flutter_deer/account/account_record_list_page.dart';
 import 'package:flutter_deer/account/withdrawal_account_page.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/setting/setting_page.dart';
+import 'package:flutter_deer/setting/setting_router.dart';
 import 'package:flutter_deer/shop/shop_setting_page.dart';
 import 'package:flutter_deer/util/app_navigator.dart';
 import 'package:flutter_deer/util/utils.dart';
@@ -41,7 +43,7 @@ class _ShopState extends State<Shop> {
             ),
             IconButton(
               onPressed: (){
-                AppNavigator.push(context, SettingPage());
+                NavigatorUtils.push(context, SettingRouter.settingPage);
               },
               icon: Image.asset(
                 Utils.getImgPath("shop/setting"),

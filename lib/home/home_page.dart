@@ -1,13 +1,12 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/goods/goods_page.dart';
 import 'package:flutter_deer/order/order_page.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/shop/shop_page.dart';
 import 'package:flutter_deer/statistics/statistics_page.dart';
+import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/util/utils.dart';
-
-import 'goods/goods_page.dart';
-import 'shop/shop_page.dart';
-import 'util/toast.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -56,7 +55,7 @@ class _HomeState extends State<Home> {
     ];
   }
 
-  Image getTabIcon(int curIndex) {
+  Image _getTabIcon(int curIndex) {
     if (curIndex == _tabIndex) {
       return _tabImages[curIndex][1];
     }
@@ -92,19 +91,19 @@ class _HomeState extends State<Home> {
           backgroundColor: Colors.white,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: getTabIcon(0),
+              icon: _getTabIcon(0),
               title: _buildTabText(0)
             ),
             BottomNavigationBarItem(
-              icon: getTabIcon(1),
+              icon: _getTabIcon(1),
               title: _buildTabText(1)
             ),
             BottomNavigationBarItem(
-              icon: getTabIcon(2),
+              icon: _getTabIcon(2),
               title: _buildTabText(2)
             ),
             BottomNavigationBarItem(
-              icon: getTabIcon(3),
+              icon: _getTabIcon(3),
               title: _buildTabText(3)
             ),
           ],
@@ -123,7 +122,7 @@ class _HomeState extends State<Home> {
         // 使用PageView的原因参看 https://zhuanlan.zhihu.com/p/58582876
         body: PageView(
           controller: _pageController,
-          onPageChanged: onPageChanged,
+          onPageChanged: _onPageChanged,
           children: _pageList,
           physics: NeverScrollableScrollPhysics(), // 禁止滑动
         )
@@ -131,7 +130,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  void onPageChanged(int index) {
+  void _onPageChanged(int index) {
     setState(() {
       _tabIndex = index;
     });

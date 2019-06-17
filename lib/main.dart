@@ -6,7 +6,7 @@ import 'package:oktoast/oktoast.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'routers/application.dart';
 import 'routers/routers.dart';
-import 'splash_page.dart';
+import 'package:flutter_deer/home/splash_page.dart';
 
 void main(){
   runApp(MyApp());
