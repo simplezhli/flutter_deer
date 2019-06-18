@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_deer/login/update_password_page.dart';
-import 'package:flutter_deer/util/app_navigator.dart';
+import 'package:flutter_deer/login/login_router.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
@@ -38,7 +38,7 @@ class _AccountManagerPageState extends State<AccountManagerPage> {
               title: "修改密码",
               content: "用于密码登录",
               onTap: (){
-                AppNavigator.push(context, UpdatePasswordPage());
+                NavigatorUtils.push(context, LoginRouter.updatePasswordPage);
               }
           ),
           ClickItem(

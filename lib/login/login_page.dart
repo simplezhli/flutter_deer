@@ -4,16 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flustars/flustars.dart' as FlutterStars;
 import 'package:flutter_deer/common/common.dart';
-import 'package:flutter_deer/login/register_page.dart';
-import 'package:flutter_deer/login/reset_password_page.dart';
-import 'package:flutter_deer/login/sms_login_page.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/store/store_audit_page.dart';
-import 'package:flutter_deer/util/app_navigator.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/store/store_router.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/text_field.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
+
+import 'login_router.dart';
 
 
 class Login extends StatefulWidget {
@@ -85,7 +84,7 @@ class _LoginState extends State<Login> {
   
   void _login(){
     FlutterStars.SpUtil.putString(Constant.phone, _nameController.text);
-    AppNavigator.push(context, StoreAudit());
+    NavigatorUtils.push(context, StoreRouter.auditPage);
   }
   
   @override
@@ -95,7 +94,7 @@ class _LoginState extends State<Login> {
         isBack: false,
         actionName: '验证码登录',
         onPressed: (){
-          AppNavigator.push(context, SMSLogin());
+          NavigatorUtils.push(context, LoginRouter.smsLoginPage);
         },
       ),
       body: defaultTargetPlatform == TargetPlatform.iOS ? FormKeyboardActions(
@@ -150,7 +149,7 @@ class _LoginState extends State<Login> {
                 style: TextStyles.textGray12,
               ),
               onTap: (){
-                AppNavigator.push(context, ResetPassword());
+                NavigatorUtils.push(context, LoginRouter.resetPasswordPage);
               },
             ),
           ),
@@ -167,7 +166,7 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 onTap: (){
-                  AppNavigator.push(context, Register());
+                  NavigatorUtils.push(context, LoginRouter.registerPage);
                 },
               )
           )

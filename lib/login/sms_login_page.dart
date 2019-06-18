@@ -1,13 +1,13 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_deer/login/register_page.dart';
-import 'package:flutter_deer/login/reset_password_page.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/app_navigator.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/text_field.dart';
+
+import 'login_router.dart';
 
 class SMSLogin extends StatefulWidget {
   @override
@@ -99,7 +99,7 @@ class _SMSLoginState extends State<SMSLogin> {
                     ),
                   ),
                   onTap: (){
-                    AppNavigator.push(context, Register());
+                    NavigatorUtils.push(context, LoginRouter.registerPage);
                   },
                 )
             ),
@@ -120,7 +120,7 @@ class _SMSLoginState extends State<SMSLogin> {
                   style: TextStyles.textGray12,
                 ),
                 onTap: (){
-                  AppNavigator.push(context, ResetPassword());
+                  NavigatorUtils.push(context, LoginRouter.resetPasswordPage);
                 },
               ),
             )

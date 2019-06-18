@@ -2,13 +2,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/shop/pay_type_dialog.dart';
+import 'package:flutter_deer/shop/shop_router.dart';
 import 'package:flutter_deer/util/app_navigator.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 
-import 'freight_config_page.dart';
 import 'input_text_page.dart';
 import 'price_input_dialog.dart';
 import 'send_type_dialog.dart';
@@ -217,7 +218,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                         title: "运费比例",
                         content: "1、订单金额<20元，配送费为订单金额的1%\n2、订单金额≥20元，配送费为订单金额的1%",
                         onTap: (){
-                          AppNavigator.push(context, FreightConfigPage());
+                          NavigatorUtils.push(context, ShopRouter.freightConfigPage);
                         },
                       ),
                     ),

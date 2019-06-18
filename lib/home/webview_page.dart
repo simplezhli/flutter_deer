@@ -1,4 +1,6 @@
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -19,19 +21,42 @@ class WebViewPage extends StatefulWidget {
 }
 
 class _WebViewPageState extends State<WebViewPage> {
-  
+
+  final Completer<WebViewController> _controller = Completer<WebViewController>();
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: MyAppBar(
-        centerTitle: widget.title,
-      ),
-      body: new WebView(
-        initialUrl: widget.url,
-        javascriptMode: JavascriptMode.unrestricted,
-        onWebViewCreated: (WebViewController webViewController) {
-        },
-      )
+    return FutureBuilder<WebViewController>(
+        future: _controller.future,
+        builder: (context, snapshot) {
+          return WillPopScope(
+            onWillPop: () async {
+              if (snapshot.hasData){
+                bool canGoBack = await snapshot.data.canGoBack();
+                if (canGoBack){
+                  // 网页可以返回时，优先返回上一页
+                  snapshot.data.goBack();
+                  return Future.value(false);
+                }
+                return Future.value(true);
+              }
+              return Future.value(true);
+            },
+            child: Scaffold(
+                appBar: MyAppBar(
+                  centerTitle: widget.title,
+                ),
+                body: WebView(
+                  initialUrl: widget.url,
+                  javascriptMode: JavascriptMode.unrestricted,
+                  onWebViewCreated: (WebViewController webViewController) {
+                    _controller.complete(webViewController);
+                  },
+                )
+            ),
+          );
+        }
     );
   }
+
 }

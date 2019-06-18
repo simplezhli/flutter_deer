@@ -5,13 +5,11 @@ import 'package:flutter_deer/account/account_record_list_page.dart';
 import 'package:flutter_deer/account/withdrawal_account_page.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/setting/setting_page.dart';
 import 'package:flutter_deer/setting/setting_router.dart';
-import 'package:flutter_deer/shop/shop_setting_page.dart';
+import 'package:flutter_deer/shop/shop_router.dart';
 import 'package:flutter_deer/util/app_navigator.dart';
 import 'package:flutter_deer/util/utils.dart';
 
-import 'message_page.dart';
 
 class Shop extends StatefulWidget {
   @override
@@ -33,7 +31,7 @@ class _ShopState extends State<Shop> {
           actions: <Widget>[
             IconButton(
               onPressed: (){
-                AppNavigator.push(context, MessagePage());
+                NavigatorUtils.push(context, ShopRouter.messagePage);
               },
               icon: Image.asset(
                 Utils.getImgPath("shop/message"),
@@ -166,7 +164,7 @@ class _ShopState extends State<Shop> {
                       ],
                     ),
                     onTap: (){
-                      AppNavigator.push(context, ShopSettingPage());
+                      NavigatorUtils.push(context, ShopRouter.shopSettingPage);
                     },
                   );
                 },

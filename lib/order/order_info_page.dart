@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/app_navigator.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 
-import 'order_track_page.dart';
+import 'order_router.dart';
 
 class OrderInfo extends StatefulWidget {
   @override
@@ -21,7 +21,7 @@ class _OrderInfoState extends State<OrderInfo> {
       appBar: MyAppBar(
         actionName: '订单跟踪',
         onPressed: (){
-          AppNavigator.push(context, OrderTrack());
+          NavigatorUtils.push(context, OrderRouter.orderTrackPage);
         },
       ),
       body: Stack(

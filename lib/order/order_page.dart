@@ -2,15 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/app_navigator.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
 import 'package:flutter_deer/widgets/my_flexible_space_bar.dart';
 
-import 'order_info_page.dart';
-import 'order_search_page.dart';
-import 'order_track_page.dart';
+import 'order_router.dart';
 import 'pay_type_dialog.dart';
 
 class Order extends StatefulWidget {
@@ -45,7 +43,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
         actions: <Widget>[
           IconButton(
             onPressed: (){
-              AppNavigator.push(context, OrderSearch());
+              NavigatorUtils.push(context, OrderRouter.orderSearchPage);
             },
             icon: Image.asset(
               Utils.getImgPath("order/icon_search"),
@@ -131,7 +129,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
         padding: const EdgeInsets.all(16.0),
         child: InkWell(
           onTap: (){
-            AppNavigator.push(context, OrderInfo());
+            NavigatorUtils.push(context, OrderRouter.orderInfoPage);
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -234,7 +232,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
                       child: Text(_orderLeftButtonText[_index]),
                       onPressed: (){
                         if (_index >= 2){
-                          AppNavigator.push(context, OrderTrack());
+                          NavigatorUtils.push(context, OrderRouter.orderTrackPage);
                         }
                       },
                     ),

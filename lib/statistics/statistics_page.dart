@@ -2,13 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/order/order_page.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/app_navigator.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/statistics/statistics_router.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
 import 'package:flutter_deer/widgets/my_flexible_space_bar.dart';
-
-import 'goods_statistics_page.dart';
-import 'order_statistics_page.dart';
 
 class Statistics extends StatefulWidget {
   @override
@@ -128,9 +126,9 @@ class _StatisticsState extends State<Statistics> {
           child: InkWell(
             onTap: (){
               if (index == 1 || index == 2){
-                AppNavigator.push(context, OrderStatisticsPage(index));
+                NavigatorUtils.push(context, '${StatisticsRouter.orderStatisticsPage}?index=$index');
               }else{
-                AppNavigator.push(context, GoodsStatisticsPage());
+                NavigatorUtils.push(context, StatisticsRouter.goodsStatisticsPage);
               }
             },
             child: Column(

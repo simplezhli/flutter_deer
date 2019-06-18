@@ -3,13 +3,13 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/store/store_router.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/store_select_text_item.dart';
 import 'package:flutter_deer/widgets/text_field_item.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/store/store_audit_result_page.dart';
-import 'package:flutter_deer/util/app_navigator.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
@@ -79,7 +79,7 @@ class _StoreAuditState extends State<StoreAudit> {
               padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
               child: MyButton(
                 onPressed: (){
-                  AppNavigator.push(context, StoreAuditResult());
+                  NavigatorUtils.push(context, StoreRouter.auditResultPage);
                 },
                 text: "提交",
               ),
