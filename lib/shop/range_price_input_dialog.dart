@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/number_text_input_formatter.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/base_dialog.dart';
@@ -87,7 +88,7 @@ class _RangePriceInputDialog extends State<RangePriceInputDialog>{
           return;
         }
         widget.onPressed(_controller.text, _controller1.text);
-        Navigator.of(context).pop();
+        NavigatorUtils.goBack(context);
       },
     );
   }

@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/base_dialog.dart';
@@ -81,7 +82,7 @@ class _PayTypeDialog extends State<PayTypeDialog>{
       ),
       onPressed: (){
         widget.onPressed(_selectValue);
-        Navigator.of(context).pop();
+        NavigatorUtils.goBack(context);
       },
     );
   }

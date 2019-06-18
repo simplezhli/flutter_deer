@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/account/account_router.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/app_navigator.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/store_select_text_item.dart';
 import 'package:flutter_deer/widgets/text_field_item.dart';
 
-import 'bank_select_page.dart';
-import 'city_select_page.dart';
 import 'models/bank_model.dart';
 import 'models/city_model.dart';
 
 class AddWithdrawalAccountPage extends StatefulWidget {
   @override
-  _AddWithdrawalAccountPageState createState() =>
-      _AddWithdrawalAccountPageState();
+  _AddWithdrawalAccountPageState createState() => _AddWithdrawalAccountPageState();
 }
 
 class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
@@ -65,7 +63,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                             content: _city.isEmpty ? "选择开户城市" : _city,
                             style: _city.isEmpty ? TextStyles.textGrayC14 : TextStyles.textDark14,
                             onTap: () {
-                              AppNavigator.pushResult(context, CitySelectPage(), (result){
+                              NavigatorUtils.pushResult(context, AccountRouter.citySelectPage, (result){
                                 setState(() {
                                   CityModel model = result;
                                   _city = model.name;
@@ -78,7 +76,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                             content: _bank.isEmpty ? "选择开户银行" : _bank,
                             style: _bank.isEmpty ? TextStyles.textGrayC14 : TextStyles.textDark14,
                             onTap: () {
-                              AppNavigator.pushResult(context, BankSelectPage(type: 0), (result){
+                              NavigatorUtils.pushResult(context, '${AccountRouter.bankSelectPage}?type=0', (result){
                                 setState(() {
                                   BankModel model = result;
                                   _bank = model.bankName;
@@ -91,7 +89,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                             content: _bank1.isEmpty ? "选择开户支行" : _bank1,
                             style: _bank1.isEmpty ? TextStyles.textGrayC14 : TextStyles.textDark14,
                             onTap: () {
-                              AppNavigator.pushResult(context, BankSelectPage(type: 1), (result){
+                              NavigatorUtils.pushResult(context, '${AccountRouter.bankSelectPage}?type=1', (result){
                                 setState(() {
                                   BankModel model = result;
                                   _bank1 = model.bankName;
@@ -115,9 +113,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
               padding:
                   const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
               child: MyButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
+                onPressed: () => NavigatorUtils.goBack(context),
                 text: "确定",
               ),
             )
@@ -131,7 +127,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
     setState(() {
       _isWechat = flag;
     });
-    AppNavigator.goBack(context);
+    NavigatorUtils.goBack(context);
   }
 
   _showSelectAccountTypeDialog() {

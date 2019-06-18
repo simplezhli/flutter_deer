@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/app_navigator.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/util/utils.dart';
@@ -50,7 +51,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                         bottom: 16.0,
                         child: InkWell(
                           onTap: (){
-                            AppNavigator.goBack(context);
+                            NavigatorUtils.goBack(context);
                           },
                           child: Container(
                             height: 16.0,

@@ -2,6 +2,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/text_field_item.dart';
 import 'package:image_picker/image_picker.dart';
@@ -133,7 +134,7 @@ class _GoodsSizeEditState extends State<GoodsSizeEdit> {
               padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
               child: MyButton(
                 onPressed: (){
-                  Navigator.of(context).pop();
+                  NavigatorUtils.goBack(context);
                 },
                 text: "确定",
               ),

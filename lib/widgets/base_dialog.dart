@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 
 class BaseDialog extends StatelessWidget{
 
@@ -62,7 +63,7 @@ class BaseDialog extends StatelessWidget{
                           ),
                           textColor: Colours.text_gray,
                           onPressed: (){
-                            Navigator.of(context).pop();
+                            NavigatorUtils.goBack(context);
                           },
                         ),
                       ),

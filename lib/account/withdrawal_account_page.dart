@@ -1,12 +1,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/app_navigator.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
 
-import 'add_withdrawal_account_page.dart';
+import 'account_router.dart';
 import 'models/withdrawal_account_model.dart';
 
 class WithdrawalAccountPage extends StatefulWidget {
@@ -34,7 +34,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
         centerTitle: "提现账号",
         actionName: "添加",
         onPressed: (){
-          AppNavigator.push(context, AddWithdrawalAccountPage());
+          NavigatorUtils.push(context, AccountRouter.addWithdrawalAccountPage);
         }
       ),
       body: _list.isEmpty ? StateLayout(
@@ -126,7 +126,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                           setState(() {
                             _list.removeAt(index);
                           });
-                          Navigator.of(context).pop();
+                          NavigatorUtils.goBack(context);
                         },
                       ),
                     ),
@@ -138,7 +138,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                         textColor: Colours.text_gray,
                         child: Text("取消", style: TextStyle(fontSize: Dimens.font_sp18)),
                         onPressed: (){
-                          Navigator.of(context).pop();
+                          NavigatorUtils.goBack(context);
                         },
                       ),
                     ),

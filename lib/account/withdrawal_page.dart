@@ -1,15 +1,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/app_navigator.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/number_text_input_formatter.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 
+import 'account_router.dart';
 import 'models/withdrawal_account_model.dart';
-import 'withdrawal_account_list_page.dart';
-import 'withdrawal_result_page.dart';
 
 class WithdrawalPage extends StatefulWidget {
   @override
@@ -54,7 +53,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
             Gaps.vGap5,
             InkWell(
               onTap: (){
-                AppNavigator.pushResult(context, WithdrawalAccountListPage(), (result){
+                NavigatorUtils.pushResult(context, AccountRouter.withdrawalAccountListPage, (result){
                   setState(() {
                     _data = result;
                   });
@@ -245,7 +244,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                   Gaps.vGap8,
                   MyButton(
                     onPressed: _isClick ? (){
-                      AppNavigator.push(context, WithdrawalResultPage());
+                      NavigatorUtils.push(context, AccountRouter.withdrawalResultPage);
                     } : null,
                     text: "提现",
                   ),

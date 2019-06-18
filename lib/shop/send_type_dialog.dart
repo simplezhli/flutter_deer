@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/base_dialog.dart';
 
@@ -70,7 +71,7 @@ class _SendTypeDialog extends State<SendTypeDialog>{
       ),
       onPressed: (){
         widget.onPressed(_value, _list[_value]);
-        Navigator.of(context).pop();
+        NavigatorUtils.goBack(context);
       },
     );
   }

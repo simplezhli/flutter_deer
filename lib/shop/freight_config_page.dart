@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
@@ -54,7 +55,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
             bottom: 8.0,
             child: MyButton(
               onPressed: (){
-                Navigator.of(context).pop();
+                NavigatorUtils.goBack(context);
               },
               text: "完成",
             ),

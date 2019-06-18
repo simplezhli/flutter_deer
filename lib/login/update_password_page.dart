@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/app_navigator.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
@@ -49,7 +49,7 @@ class _UpdatePasswordPageState extends State<UpdatePasswordPage> {
   
   void _confirm(){
     Toast.show("修改成功！");
-    AppNavigator.goBack(context);
+    NavigatorUtils.goBack(context);
   }
   
   @override

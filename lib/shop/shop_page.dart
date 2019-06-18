@@ -1,15 +1,11 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_deer/account/account_page.dart';
-import 'package:flutter_deer/account/account_record_list_page.dart';
-import 'package:flutter_deer/account/withdrawal_account_page.dart';
+import 'package:flutter_deer/account/account_router.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/setting/setting_router.dart';
 import 'package:flutter_deer/shop/shop_router.dart';
-import 'package:flutter_deer/util/app_navigator.dart';
 import 'package:flutter_deer/util/utils.dart';
-
 
 class Shop extends StatefulWidget {
   @override
@@ -119,11 +115,11 @@ class _ShopState extends State<Shop> {
                     ),
                     onTap: (){
                       if (index == 0){
-                        AppNavigator.push(context, AccountRecordListPage());
+                        NavigatorUtils.push(context, AccountRouter.accountRecordListPage);
                       }else if (index == 1){
-                        AppNavigator.push(context, AccountPage());
+                        NavigatorUtils.push(context, AccountRouter.accountPage);
                       }else if (index == 2){
-                        AppNavigator.push(context, WithdrawalAccountPage());
+                        NavigatorUtils.push(context, AccountRouter.withdrawalAccountPage);
                       }
                     },
                   );

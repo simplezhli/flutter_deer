@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/widgets/base_dialog.dart';
 
 class GoodsSizeDialog extends StatefulWidget{
@@ -47,7 +48,7 @@ class _GoodsSizeDialog extends State<GoodsSizeDialog>{
       ),
       onPressed: (){
         widget.onPressed(_controller.text);
-        Navigator.of(context).pop();
+        NavigatorUtils.goBack(context);
       },
     );
   }

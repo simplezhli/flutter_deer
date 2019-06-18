@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 
 class InputTextPage extends StatefulWidget {
@@ -39,7 +40,7 @@ class _InputTextPageState extends State<InputTextPage> {
         title: widget.title,
         actionName: "完成",
         onPressed: (){
-          Navigator.of(context).pop(_controller.text);
+          NavigatorUtils.goBackWithParams(context, _controller.text);
         },
       ),
       body: Container(

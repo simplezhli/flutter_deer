@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/app_navigator.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:azlistview/azlistview.dart';
@@ -95,7 +95,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
             itemBuilder: (_, index){
               return InkWell(
                 onTap: (){
-                  AppNavigator.goBackWithParams(context, BankModel(0, _bankNameList[index], ""));
+                  NavigatorUtils.goBackWithParams(context, BankModel(0, _bankNameList[index], ""));
                 },
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -118,7 +118,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
   Widget _buildListItem(BankModel model) {
     return InkWell(
       onTap: (){
-        AppNavigator.goBackWithParams(context, model);
+        NavigatorUtils.goBackWithParams(context, model);
       },
       child: Container(
         padding: const EdgeInsets.only(left: 16.0, right: 34.0),

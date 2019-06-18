@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+/// Navigator工具类 
+/// 更推荐使用'routers/fluro_navigator.dart'
 class AppNavigator {
   static push(BuildContext context, Widget scene) {
     Navigator.push(

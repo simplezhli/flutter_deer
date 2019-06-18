@@ -204,7 +204,7 @@ class _StoreAuditState extends State<StoreAudit> {
                   setState(() {
                     _sortName = _list[index];
                   });
-                  Navigator.of(context).pop();
+                  NavigatorUtils.goBack(context);
                 },
               );
             },

@@ -2,16 +2,17 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/app_navigator.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/text_field_item.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/app_navigator.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 
-import 'goods_size_page.dart';
+import 'goods_router.dart';
 import 'goods_sort_dialog.dart';
 
 class GoodsEdit extends StatefulWidget {
@@ -160,7 +161,7 @@ class _GoodsEditState extends State<GoodsEdit> {
                       title: "商品规格",
                       content: "对规格进行编辑",
                       onTap: (){
-                        AppNavigator.push(context, GoodsSize());
+                        NavigatorUtils.push(context, GoodsRouter.goodsSizePage);
                       },
                     ),
                     Gaps.vGap8,
@@ -172,7 +173,7 @@ class _GoodsEditState extends State<GoodsEdit> {
               padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
               child: MyButton(
                 onPressed: (){
-                  Navigator.of(context).pop();
+                  NavigatorUtils.goBack(context);
                 },
                 text: "提交",
               ),

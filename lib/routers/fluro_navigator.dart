@@ -24,6 +24,16 @@ class NavigatorUtils {
       print("$error");
     });
   }
+
+  /// 返回
+  static void goBack(BuildContext context) {
+    Navigator.pop(context);
+  }
+
+  /// 带参数返回
+  static void goBackWithParams(BuildContext context, result) {
+    Navigator.pop(context, result);
+  }
   
   /// 跳到WebView页
   static goWebViewPage(BuildContext context, String title, String url){

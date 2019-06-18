@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/app_navigator.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
@@ -10,8 +10,8 @@ import 'package:flutter_deer/widgets/popup_window.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
+import 'goods_router.dart';
 import 'goods_size_dialog.dart';
-import 'goods_size_edit_page.dart';
 import 'models/goods_size_model.dart';
 
 class GoodsSize extends StatefulWidget {
@@ -81,7 +81,7 @@ class _GoodsSizeState extends State<GoodsSize> {
         actionName: "保存",
         onPressed: (){
           Toast.show("保存");
-          Navigator.of(context).pop();
+          NavigatorUtils.goBack(context);
         },
       ),
       body: SafeArea(
@@ -138,7 +138,7 @@ class _GoodsSizeState extends State<GoodsSize> {
               padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
               child: MyButton(
                 onPressed: _isEdit ? (){
-                  AppNavigator.push(context, GoodsSizeEdit());
+                  NavigatorUtils.push(context, GoodsRouter.goodsSizeEditPage);
                 } : null,
                 text: "添加",
               ),
@@ -177,7 +177,7 @@ class _GoodsSizeState extends State<GoodsSize> {
       ],
       child: InkWell(
         onTap: (){
-          AppNavigator.push(context, GoodsSizeEdit());
+          NavigatorUtils.push(context, GoodsRouter.goodsSizeEditPage);
         },
         child: Container(
           padding: const EdgeInsets.only(left: 16.0, top: 16.0),

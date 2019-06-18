@@ -282,13 +282,13 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
             content: Text('是否拨打：$phone ?'),
             actions: <Widget>[
               FlatButton(
-                onPressed: () => Navigator.of(context).pop(),
+                onPressed: () => NavigatorUtils.goBack(context),
                 child: Text('取消'),
               ),
               FlatButton(
                 onPressed: (){
                   Utils.launchTelURL(phone);
-                  Navigator.of(context).pop();
+                  NavigatorUtils.goBack(context);
                 },
                 textColor: Colours.text_red,
                 child: Text('拨打'),

@@ -261,7 +261,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
               padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
               child: MyButton(
                 onPressed: (){
-                  Navigator.of(context).pop();
+                  NavigatorUtils.goBack(context);
                 },
                 text: "提交",
               ),

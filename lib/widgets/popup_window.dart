@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 
 ///create by elileo on 2018/12/21
 ///https://github.com/elileo1/flutter_travel_friends/blob/master/lib/widget/PopupWindow.dart
@@ -119,7 +120,7 @@ class _PopupWindowRoute<T> extends PopupRoute<T> {
               highlightColor: Colors.transparent,
               splashColor: Colors.transparent,
               onTap: (){
-                Navigator.of(context).pop();
+                NavigatorUtils.goBack(context);
               },
               child: Container(
                 width: double.infinity,

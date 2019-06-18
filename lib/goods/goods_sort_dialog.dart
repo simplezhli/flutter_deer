@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/utils.dart';
 
 class GoodsSortDialog extends StatefulWidget {
@@ -175,7 +176,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                         if (_index > 2){
                           _index = 2;
                           widget.onSelected(_mList[index]["id"], _mList[index]["name"]);
-                          Navigator.of(context).pop();
+                          NavigatorUtils.goBack(context);
                         }
                       });
                       _controller.animateTo(0.0, duration: Duration(milliseconds: 100), curve: Curves.ease);

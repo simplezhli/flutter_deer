@@ -1,6 +1,8 @@
 
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/account/account_router.dart';
+import 'package:flutter_deer/goods/goods_router.dart';
 import 'package:flutter_deer/home/404.dart';
 import 'package:flutter_deer/login/login_router.dart';
 import 'package:flutter_deer/order/order_router.dart';
@@ -43,8 +45,10 @@ class Routes {
     /// 各自路由由各自模块管理，统一在此添加初始化
     _listRouter.add(ShopRouter());
     _listRouter.add(LoginRouter());
+    _listRouter.add(GoodsRouter());
     _listRouter.add(OrderRouter());
     _listRouter.add(StoreRouter());
+    _listRouter.add(AccountRouter());
     _listRouter.add(SettingRouter());
     _listRouter.add(StatisticsRouter());
   

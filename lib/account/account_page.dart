@@ -1,14 +1,12 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_deer/account/withdrawal_page.dart';
-import 'package:flutter_deer/account/withdrawal_password_page.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/app_navigator.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
 
-import 'withdrawal_record_list_page.dart';
+import 'account_router.dart';
 
 class AccountPage extends StatefulWidget {
   @override
@@ -79,19 +77,19 @@ class _AccountPageState extends State<AccountPage> {
           ClickItem(
             title: "提现",
             onTap: (){
-              AppNavigator.push(context, WithdrawalPage());
+              NavigatorUtils.push(context, AccountRouter.withdrawalPage);
             },
           ),
           ClickItem(
             title: "提现记录",
             onTap: (){
-              AppNavigator.push(context, WithdrawalRecordListPage());
+              NavigatorUtils.push(context, AccountRouter.withdrawalRecordListPage);
             },
           ),
           ClickItem(
             title: "提现密码",
             onTap: (){
-              AppNavigator.push(context, WithdrawalPasswordPage());
+              NavigatorUtils.push(context, AccountRouter.withdrawalPasswordPage);
             },
           ),
         ],

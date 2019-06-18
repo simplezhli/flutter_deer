@@ -2,13 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/app_navigator.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/menu_reveal.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
 
-import 'goods_edit_page.dart';
+import 'goods_router.dart';
 
 class GoodsList extends StatefulWidget {
   
@@ -220,7 +220,7 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
                                     setState(() {
                                       _selectIndex = -1;
                                     });
-                                    AppNavigator.push(context, GoodsEdit(isAdd: false));
+                                    NavigatorUtils.push(context, '${GoodsRouter.goodsEditPage}?isAdd=false');
                                   },
                                 ),
                                 FlatButton(
@@ -289,7 +289,7 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
                         setState(() {
                           _list.removeAt(index);
                         });
-                        Navigator.of(context).pop();
+                        NavigatorUtils.goBack(context);
                       },
                     ),
                   ),
@@ -301,7 +301,7 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
                       textColor: Colours.text_gray,
                       child: Text("取消", style: TextStyle(fontSize: Dimens.font_sp18)),
                       onPressed: (){
-                        Navigator.of(context).pop();
+                        NavigatorUtils.goBack(context);
                       },
                     ),
                   ),

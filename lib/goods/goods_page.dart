@@ -1,14 +1,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/app_navigator.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/popup_window.dart';
 
-import 'goods_edit_page.dart';
 import 'goods_list.dart';
-import 'goods_search_page.dart';
+import 'goods_router.dart';
 
 class Goods extends StatefulWidget {
   @override
@@ -51,7 +51,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
         actions: <Widget>[
           IconButton(
             onPressed: (){
-              AppNavigator.push(context, GoodsSearch());
+              NavigatorUtils.push(context, GoodsRouter.goodsSearchPage);
             },
             icon: Image.asset(
               Utils.getImgPath("goods/search"),
@@ -224,7 +224,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
         onTap: (){
-          Navigator.of(context).pop();
+          NavigatorUtils.goBack(context);
         },
         child: Container(
           color: Color(0x99000000),
@@ -260,7 +260,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
                       _sortIndex = index;
                     });
                     Toast.show("选择分类: ${_sortList[index]}");
-                    Navigator.of(context).pop();
+                    NavigatorUtils.goBack(context);
                   },
                 ),
               );
@@ -290,7 +290,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
         onTap: (){
-          Navigator.of(context).pop();
+          NavigatorUtils.goBack(context);
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -305,7 +305,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
               child: FlatButton.icon(
                 onPressed: (){
                   Toast.show("扫码添加");
-                  Navigator.of(context).pop();
+                  NavigatorUtils.goBack(context);
                 },
                 color: Colors.white,
                 shape: RoundedRectangleBorder(
@@ -322,8 +322,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
               child: FlatButton.icon(
                 color: Colors.white,
                 onPressed: (){
-                  Navigator.of(context).pop();
-                  AppNavigator.push(context, GoodsEdit(isAdd: true));
+                  NavigatorUtils.push(context, '${GoodsRouter.goodsEditPage}?isAdd=true', replace: true);
                 },
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8.0), bottomRight: Radius.circular(8.0)),

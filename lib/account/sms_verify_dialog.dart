@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/app_navigator.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:rxdart/rxdart.dart';
@@ -87,7 +87,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                         top: 0.0,
                         right: 0.0,
                         child: InkWell(
-                          onTap: (){AppNavigator.goBack(context);},
+                          onTap: (){NavigatorUtils.goBack(context);},
                           child: Container(
                             padding: const EdgeInsets.only(top: 16.0, right: 16.0),
                             child: Image.asset(Utils.getImgPath("goods/icon_dialog_close"), width: 16.0),
