@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 
@@ -24,8 +24,7 @@ class _WithdrawalResultPageState extends State<WithdrawalResultPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Gaps.vGap50,
-            Image.asset(
-              Utils.getImgPath("account/sqsb"),
+            loadAssetImage("account/sqsb",
               width: 80.0,
               height: 80.0,
             ),

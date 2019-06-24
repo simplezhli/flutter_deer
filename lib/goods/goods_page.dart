@@ -2,9 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/util/app_navigator.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
-import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/popup_window.dart';
 
 import 'goods_list.dart';
@@ -53,8 +52,8 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
             onPressed: (){
               NavigatorUtils.push(context, GoodsRouter.goodsSearchPage);
             },
-            icon: Image.asset(
-              Utils.getImgPath("goods/search"),
+            icon: loadAssetImage(
+              "goods/search",
               width: 24.0,
               height: 24.0,
             ),
@@ -64,8 +63,8 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
             onPressed: (){
               _showAddMenu();
             },
-            icon: Image.asset(
-              Utils.getImgPath("goods/add"),
+            icon: loadAssetImage(
+              "goods/add",
               width: 24.0,
               height: 24.0,
             ),
@@ -90,7 +89,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
                     style: TextStyles.textBoldDark24,
                   ),
                 ),
-                Image.asset(Utils.getImgPath("goods/expand"), width: 16.0, height: 16.0)
+                loadAssetImage("goods/expand", width: 16.0, height: 16.0)
               ],
             ),
             onTap: (){
@@ -297,7 +296,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(right: 12.0),
-              child: Image.asset(Utils.getImgPath("goods/jt"), width: 8.0, height: 4.0,),
+              child: loadAssetImage("goods/jt", width: 8.0, height: 4.0,),
             ),
             Container(
               width: 120.0,
@@ -311,7 +310,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(8.0), topRight: Radius.circular(8.0)),
                 ),  
-                icon: Image.asset(Utils.getImgPath("goods/scanning"), width: 16.0, height: 16.0,), 
+                icon: loadAssetImage("goods/scanning", width: 16.0, height: 16.0,), 
                 label: Text("扫码添加", style: TextStyles.textDark14,)
               ),
             ),
@@ -327,7 +326,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8.0), bottomRight: Radius.circular(8.0)),
                 ),
-                icon: Image.asset(Utils.getImgPath("goods/add2"), width: 16.0, height: 16.0,),
+                icon: loadAssetImage("goods/add2", width: 16.0, height: 16.0,),
                 label: Text("添加商品", style: TextStyles.textDark14)
               ),
             ),

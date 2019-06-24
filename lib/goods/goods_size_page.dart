@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
@@ -165,7 +166,7 @@ class _GoodsSizeState extends State<GoodsSize> {
           child: Container(
             width: 72.0,
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
-            child: Image.asset(Utils.getImgPath("goods/goods_delete")),
+            child: loadAssetImage("goods/goods_delete"),
           ),
           color: Colours.text_red,
           onTap: () {
@@ -193,7 +194,7 @@ class _GoodsSizeState extends State<GoodsSize> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
-                    child: Image.asset(Utils.getImgPath(goodsSizeList[index].icon), width: 72.0, height: 72.0),
+                    child: loadAssetImage(goodsSizeList[index].icon, width: 72.0, height: 72.0),
                   ),
                   Gaps.hGap8,
                   Expanded(

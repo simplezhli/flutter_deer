@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
@@ -45,8 +46,8 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
             onPressed: (){
               NavigatorUtils.push(context, OrderRouter.orderSearchPage);
             },
-            icon: Image.asset(
-              Utils.getImgPath("order/icon_search"),
+            icon: loadAssetImage(
+              "order/icon_search",
               width: 22.0,
               height: 22.0,
             ),
@@ -59,8 +60,8 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
         floating: false, // 不随着滑动隐藏标题
         pinned: true, // 固定在顶部
         flexibleSpace: MyFlexibleSpaceBar(
-          background: Image.asset(
-            Utils.getImgPath("order/order_bg"),
+          background: loadAssetImage(
+            "order/order_bg",
             width: double.infinity,
             height: 113.0,
             fit: BoxFit.fill,
@@ -305,7 +306,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Row(
             children: <Widget>[
-              Image.asset(Utils.getImgPath("order/icon_calendar"), width: 14.0, height: 14.0),
+              loadAssetImage("order/icon_calendar", width: 14.0, height: 14.0),
               Gaps.hGap10,
               Text(
                 "2019年2月5日",
@@ -330,7 +331,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Image.asset(Utils.getImgPath(_index == index ? selImg : unImg), width: 24.0, height: 24.0,),
+                loadAssetImage(_index == index ? selImg : unImg, width: 24.0, height: 24.0,),
                 Gaps.vGap4,
                 Text(text, style: TextStyle(fontWeight: _index == index ? FontWeight.bold : FontWeight.normal))
               ],

@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/date_utils.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
@@ -108,7 +109,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                             child: Container(
                               height: 27.0,
                               alignment: Alignment.topCenter,
-                              child: Image.asset(Utils.getImgPath("statistic/${_isExpanded ? "up" : "down"}"), width: 16.0,),
+                              child: loadAssetImage("statistic/${_isExpanded ? "up" : "down"}", width: 16.0,),
                             ),
                           ) : Gaps.empty,
                     ],

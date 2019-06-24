@@ -43,22 +43,24 @@ class _CitySelectPageState extends State<CitySelectPage> {
       appBar: MyAppBar(
         title: "开户地点",
       ),
-      body: AzListView(
-        data: _cityList,
-        itemBuilder: (context, model) => _buildListItem(model),
-        isUseRealIndex: true,
-        itemHeight: 40,
-        suspensionWidget: null,
-        suspensionHeight: 0,
-        indexBarBuilder:(context, list, onTouch){
-          return IndexBar(
-            onTouch: onTouch,
-            data: list,
-            itemHeight: 18,
-            touchDownColor: Colors.transparent,
-            textStyle: TextStyles.textGray12
-          );
-        },
+      body: SafeArea(
+        child: AzListView(
+          data: _cityList,
+          itemBuilder: (context, model) => _buildListItem(model),
+          isUseRealIndex: true,
+          itemHeight: 40,
+          suspensionWidget: null,
+          suspensionHeight: 0,
+          indexBarBuilder:(context, list, onTouch){
+            return IndexBar(
+              onTouch: onTouch,
+              data: list,
+              itemHeight: 18,
+              touchDownColor: Colors.transparent,
+              textStyle: TextStyles.textGray12
+            );
+          },
+        ),
       ),
     );
   }

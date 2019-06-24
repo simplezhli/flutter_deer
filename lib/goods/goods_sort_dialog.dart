@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 
 class GoodsSortDialog extends StatefulWidget {
 
@@ -90,7 +90,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                   child: Container(
                     height: 16.0,
                     width: 16.0,
-                    child: Image.asset(Utils.getImgPath("goods/icon_dialog_close"))
+                    child: loadAssetImage("goods/icon_dialog_close")
                   ),
                   right: 16.0,
                   top: 16.0,
@@ -149,7 +149,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                           Gaps.hGap8,
                           Offstage(
                             offstage: _mList[index]["name"] != myTabs[_index].text,
-                            child: Image.asset(Utils.getImgPath("goods/xz"), height: 16.0, width: 16.0),
+                            child: loadAssetImage("goods/xz", height: 16.0, width: 16.0),
                           )
                         ],
                       ),

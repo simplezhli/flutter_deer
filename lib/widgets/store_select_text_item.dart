@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 
 class StoreSelectTextItem extends StatelessWidget {
 
@@ -52,8 +52,7 @@ class StoreSelectTextItem extends StatelessWidget {
                 ),
               ),
             ),
-            Image.asset(
-              Utils.getImgPath("ic_arrow_right"),
+            loadAssetImage("ic_arrow_right",
               height: 16.0,
               width: 16.0,
             )

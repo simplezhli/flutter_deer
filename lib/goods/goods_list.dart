@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
-import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/menu_reveal.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
 
@@ -53,6 +53,15 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
     super.dispose();
   }
 
+  List<String> _imgList = [
+    "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3130502839,1206722360&fm=26&gp=0.jpg",
+    "xxx", // 故意使用一张错误链接
+    "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1762976310,1236462418&fm=26&gp=0.jpg",
+    "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3659255919,3211745976&fm=26&gp=0.jpg",
+    "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2085939314,235211629&fm=26&gp=0.jpg",
+    "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2441563887,1184810091&fm=26&gp=0.jpg"
+  ];
+  
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -74,9 +83,7 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Container(
-                        child: Image.asset(Utils.getImgPath("goods/icon_goods"), width: 72.0, height: 72.0),
-                      ),
+                      loadNetworkImage(_imgList[index % 6], width: 72.0, height: 72.0),
                       Gaps.hGap8,
                       Expanded(
                         child: Column(
@@ -152,7 +159,7 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
                                 width: 24.0,
                                 height: 24.0,
                                 padding: const EdgeInsets.only(left: 8.0, bottom: 8.0),
-                                child: Image.asset(Utils.getImgPath("goods/ellipsis"))
+                                child: loadAssetImage("goods/ellipsis")
                             ),
                             onTap: (){
                               // 开始执行动画

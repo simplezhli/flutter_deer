@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/date_utils.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
@@ -148,7 +149,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
           child: Row(
             children: <Widget>[
               index <= 2 ?
-              Image.asset(Utils.getImgPath("statistic/${index == 0 ? "champion" : index == 1 ? "runnerup" : "thirdplace"}"), width: 40.0,) :
+              loadAssetImage("statistic/${index == 0 ? "champion" : index == 1 ? "runnerup" : "thirdplace"}", width: 40.0,) :
               Container(
                 alignment: Alignment.center,
                 width: 18.0, height: 18.0,

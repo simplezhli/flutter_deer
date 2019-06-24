@@ -4,6 +4,7 @@ import 'package:flutter_deer/order/order_page.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/statistics/statistics_router.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
 import 'package:flutter_deer/widgets/my_flexible_space_bar.dart';
@@ -34,8 +35,7 @@ class _StatisticsState extends State<Statistics> {
         expandedHeight: 100.0,
         pinned: true,
         flexibleSpace: MyFlexibleSpaceBar(
-          background: Image.asset(
-            Utils.getImgPath("statistic/statistic_bg"),
+          background: loadAssetImage("statistic/statistic_bg",
             width: double.infinity,
             height: 115.0,
             fit: BoxFit.fill,
@@ -107,7 +107,7 @@ class _StatisticsState extends State<Statistics> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Image.asset(Utils.getImgPath("statistic/$img"), width: 40.0, height: 40.0),
+          loadAssetImage("statistic/$img", width: 40.0, height: 40.0),
           Gaps.vGap4,
           Text(title, style: TextStyles.textGray12),
           Gaps.vGap8,
@@ -139,11 +139,11 @@ class _StatisticsState extends State<Statistics> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(title, style: TextStyles.textBoldDark14),
-                      Image.asset(Utils.getImgPath("statistic/icon_selected"), height: 16.0, width: 16.0)
+                      loadAssetImage("statistic/icon_selected", height: 16.0, width: 16.0)
                     ],
                   ),
                 ),
-                Expanded(child: Image.asset(Utils.getImgPath("statistic/$img"), fit: BoxFit.fill))
+                Expanded(child: loadAssetImage("statistic/$img", fit: BoxFit.fill))
               ],
             ),
           ),

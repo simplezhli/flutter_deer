@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:azlistview/azlistview.dart';
 import 'models/bank_model.dart';
@@ -52,29 +52,31 @@ class _BankSelectPageState extends State<BankSelectPage> {
       appBar: MyAppBar(
         title: widget.type == 0 ? "开户银行" : "选择支行",
       ),
-      body: AzListView(
-        data: _bankList,
-        itemBuilder: (context, model) => _buildListItem(model),
-        isUseRealIndex: true,
-        itemHeight: 40,
-        suspensionWidget: null,
-        suspensionHeight: 0,
-        indexBarBuilder:(context, list, onTouch){
-          return IndexBar(
-            onTouch: onTouch,
-            data: list,
-            itemHeight: 25,
-            touchDownColor: Colors.transparent,
-            textStyle: TextStyles.textGray12
-          );
-        },
-        header: widget.type == 0 ? AzListViewHeader(
-          tag: "常用",
-          height: 430, 
-          builder: (context){
-            return _buildHeader();
-          }
-        ) : null,
+      body: SafeArea(
+        child: AzListView(
+          data: _bankList,
+          itemBuilder: (context, model) => _buildListItem(model),
+          isUseRealIndex: true,
+          itemHeight: 40,
+          suspensionWidget: null,
+          suspensionHeight: 0,
+          indexBarBuilder:(context, list, onTouch){
+            return IndexBar(
+              onTouch: onTouch,
+              data: list,
+              itemHeight: 25,
+              touchDownColor: Colors.transparent,
+              textStyle: TextStyles.textGray12
+            );
+          },
+          header: widget.type == 0 ? AzListViewHeader(
+            tag: "常用",
+            height: 430, 
+            builder: (context){
+              return _buildHeader();
+            }
+          ) : null,
+        ),
       ),
     );
   }
@@ -101,7 +103,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Row(
                     children: <Widget>[
-                      Image.asset(Utils.getImgPath("account/${_bankLogoList[index]}"),width: 24.0),
+                      loadAssetImage("account/${_bankLogoList[index]}",width: 24.0),
                       Gaps.hGap8,
                       Text(_bankNameList[index], style: TextStyles.textDark14),
                     ],

@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
-import 'package:flutter_deer/util/utils.dart';
 import 'package:rxdart/rxdart.dart';
 
 /// 骚操作：借腹生子
@@ -59,7 +59,11 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
     }
     return Scaffold(//创建透明层
       backgroundColor: Colors.transparent,//透明类型
-      body: Center(
+      body: AnimatedContainer(
+        alignment: Alignment.center,
+        height: MediaQuery.of(context).size.height - MediaQuery.of(context).viewInsets.bottom,
+        duration: const Duration(milliseconds: 120),
+        curve: Curves.easeInCubic,
         child: Container(
             decoration: BoxDecoration(
               color: Colors.white,
@@ -90,7 +94,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                           onTap: (){NavigatorUtils.goBack(context);},
                           child: Container(
                             padding: const EdgeInsets.only(top: 16.0, right: 16.0),
-                            child: Image.asset(Utils.getImgPath("goods/icon_dialog_close"), width: 16.0),
+                            child: loadAssetImage("goods/icon_dialog_close", width: 16.0),
                           )
                         ),
                       )

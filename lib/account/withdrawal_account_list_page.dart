@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 
 import 'account_router.dart';
@@ -53,7 +53,7 @@ class _WithdrawalAccountListPageState extends State<WithdrawalAccountListPage> {
               alignment: Alignment.center,
               child: Row(
                 children: <Widget>[
-                  Image.asset(Utils.getImgPath(_list[index].type == 0 ? "account/yhk" : "account/wechat"), width: 24.0),
+                  loadAssetImage(_list[index].type == 0 ? "account/yhk" : "account/wechat", width: 24.0),
                   Gaps.hGap16,
                   Expanded(
                     child: Column(
@@ -68,8 +68,8 @@ class _WithdrawalAccountListPageState extends State<WithdrawalAccountListPage> {
                   ),
                   Offstage(
                     offstage: _selectIndex != index,
-                    child: Image.asset(
-                      Utils.getImgPath("account/selected"),
+                    child: loadAssetImage(
+                      "account/selected",
                       height: 24.0,
                       width: 24.0,
                     ),

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 
@@ -47,7 +48,7 @@ class _OrderInfoState extends State<OrderInfo> {
                       Row(
                         children: <Widget>[
                           ClipOval(
-                            child: Image.asset(Utils.getImgPath("order/icon_avatar"), width: 44.0, height: 44.0),
+                            child: loadAssetImage("order/icon_avatar", width: 44.0, height: 44.0),
                           ),
                           Gaps.hGap8,
                           Expanded(
@@ -67,7 +68,7 @@ class _OrderInfoState extends State<OrderInfo> {
                           ),
                           Gaps.hGap16,
                           InkWell(
-                            child: Image.asset(Utils.getImgPath("order/icon_phone"), width: 24.0, height: 24.0),
+                            child: loadAssetImage("order/icon_phone", width: 24.0, height: 24.0),
                             onTap: (){
                               _showCallPhoneDialog("15000000000");
                             },
@@ -78,7 +79,7 @@ class _OrderInfoState extends State<OrderInfo> {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Image.asset(Utils.getImgPath("order/icon_address"), width: 16.0, height: 20.0),
+                          loadAssetImage("order/icon_address", width: 16.0, height: 20.0),
                           Gaps.hGap4,
                           Expanded(child: Text("西安市雁塔区 鱼化寨街道唐兴路唐兴数码3楼318", maxLines: 2, style: TextStyles.textDark14)),
                         ],
@@ -108,7 +109,7 @@ class _OrderInfoState extends State<OrderInfo> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Container(
-                                    child: Image.asset(Utils.getImgPath("order/icon_goods"), width: 56.0, height: 56.0),
+                                    child: loadAssetImage("order/icon_goods", width: 56.0, height: 56.0),
                                     margin: const EdgeInsets.only(top: 5.0),
                                   ),
                                   Gaps.hGap8,

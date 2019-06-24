@@ -35,6 +35,7 @@
 * 自定义简易日历
 * 曲线图及饼状图
 * 模块化路由管理
+* 更多的细节优化
 
 具体可以下载体验：
 
@@ -62,6 +63,7 @@ IOS需要自行下载代码运行。（效果是一致的）
 
 | 库                         | 功能             |
 | -------------------------- | --------------- |
+| [cached_network_image](https://github.com/renefloor/flutter_cached_network_image)        | **图片缓存**       |
 | [fluro](https://github.com/theyakka/fluro)                            | **路由管理**       |
 | [flutter_oktoast](https://github.com/OpenFlutter/flutter_oktoast)     | **Toast**       |
 | [common_utils](https://github.com/Sky24n/common_utils)                | **Dart 常用工具类库**     |

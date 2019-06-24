@@ -2,9 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/util/app_navigator.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
-import 'package:flutter_deer/util/utils.dart';
 
 class WithdrawalPasswordSettingDialog extends StatefulWidget {
   @override
@@ -56,7 +55,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                           child: Container(
                             height: 16.0,
                             width: 16.0,
-                            child: Image.asset(Utils.getImgPath("goods/icon_dialog_close"))
+                            child: loadAssetImage("goods/icon_dialog_close")
                           ),
                         ),
                       ),
@@ -100,7 +99,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                           color: (index == 9 || index == 11) ? Color(0xFFF2F2F2) : Colors.white,
                           child: InkWell(
                             child: Center(
-                              child: (index == 9 || index == 11) ? Image.asset(index == 11 ? Utils.getImgPath("account/del") : "", width: 32.0,) :
+                              child: (index == 9 || index == 11) ? loadAssetImage(index == 11 ? "account/del" : "", width: 32.0,) :
                               Text(_list[index].toString(), style: TextStyle(
                                   color: Colours.text_dark,
                                   fontSize: 26.0

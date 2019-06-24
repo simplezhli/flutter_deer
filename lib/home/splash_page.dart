@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/login/login_router.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:common_utils/common_utils.dart';
@@ -20,9 +21,9 @@ class _SplashPageState extends State<SplashPage> {
 
   int _status = 0;
   List<String> _guideList = [
-    Utils.getImgPath("app_start_1"),
-    Utils.getImgPath("app_start_2"),
-    Utils.getImgPath("app_start_3"),
+    "app_start_1",
+    "app_start_2",
+    "app_start_3",
   ];
   List<Widget> _bannerList = new List();
   StreamSubscription _subscription;
@@ -73,7 +74,7 @@ class _SplashPageState extends State<SplashPage> {
           onTap: (){
             _goLogin();
           },
-          child: Image.asset(
+          child: loadAssetImage(
             _guideList[i],
             fit: BoxFit.fill,
             width: double.infinity,
@@ -81,7 +82,7 @@ class _SplashPageState extends State<SplashPage> {
           ),
         ));
       } else {
-        _bannerList.add(Image.asset(
+        _bannerList.add(loadAssetImage(
           _guideList[i],
           fit: BoxFit.fill,
           width: double.infinity,

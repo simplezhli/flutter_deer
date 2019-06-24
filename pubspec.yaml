@@ -60,6 +60,8 @@ dependencies:
   # bezier_chart: ^1.0.7
   # 路由框架 https://github.com/theyakka/fluro
   fluro: ^1.4.0
+  # 图片缓存 https://github.com/renefloor/flutter_cached_network_image
+  cached_network_image: ^0.7.0
   
 dev_dependencies:
   flutter_test:

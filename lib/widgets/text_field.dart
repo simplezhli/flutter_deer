@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
 
@@ -111,8 +111,7 @@ class _MyTextFieldState extends State<MyTextField> {
               child: InkWell(
                 highlightColor: Colors.transparent,
                 splashColor: Colors.transparent,
-                child: Image.asset(
-                  Utils.getImgPath("login/qyg_shop_icon_delete"),
+                child: loadAssetImage("login/qyg_shop_icon_delete",
                   width: 18.0,
                   height: 18.0,
                 ),
@@ -130,8 +129,8 @@ class _MyTextFieldState extends State<MyTextField> {
                 child: InkWell(
                   highlightColor: Colors.transparent,
                   splashColor: Colors.transparent,
-                  child: Image.asset(
-                    _isShowPwd ? Utils.getImgPath("login/qyg_shop_icon_display") : Utils.getImgPath("login/qyg_shop_icon_hide"),
+                  child: loadAssetImage(
+                    _isShowPwd ? "login/qyg_shop_icon_display" : "login/qyg_shop_icon_hide",
                     width: 18.0,
                     height: 18.0,
                   ),

@@ -5,7 +5,7 @@ import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/setting/setting_router.dart';
 import 'package:flutter_deer/shop/shop_router.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 
 class Shop extends StatefulWidget {
   @override
@@ -29,8 +29,8 @@ class _ShopState extends State<Shop> {
               onPressed: (){
                 NavigatorUtils.push(context, ShopRouter.messagePage);
               },
-              icon: Image.asset(
-                Utils.getImgPath("shop/message"),
+              icon: loadAssetImage(
+                "shop/message",
                 width: 24.0,
                 height: 24.0,
               ),
@@ -39,8 +39,8 @@ class _ShopState extends State<Shop> {
               onPressed: (){
                 NavigatorUtils.push(context, SettingRouter.settingPage);
               },
-              icon: Image.asset(
-                Utils.getImgPath("shop/setting"),
+              icon: loadAssetImage(
+                "shop/setting",
                 width: 24.0,
                 height: 24.0,
               ),
@@ -62,14 +62,14 @@ class _ShopState extends State<Shop> {
                   ),
                   Positioned(
                     right: 0.0,
-                    child: Image.asset(Utils.getImgPath("shop/tx"), width: 56.0),
+                    child: loadAssetImage("shop/tx", width: 56.0),
                   ),
                   Positioned(
                     top: 38.0,
                     left: 0.0,
                     child: Row(
                       children: <Widget>[
-                        Image.asset(Utils.getImgPath("shop/zybq"), width: 40.0, height: 16.0,),
+                        loadAssetImage("shop/zybq", width: 40.0, height: 16.0,),
                         Gaps.hGap8,
                         Text("店铺账号:15000000000", style: TextStyles.textDark12)
                       ],
@@ -105,7 +105,7 @@ class _ShopState extends State<Shop> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Image.asset(Utils.getImgPath("shop/${menuImage[index]}"), width: 32.0),
+                        loadAssetImage("shop/${menuImage[index]}", width: 32.0),
                         Gaps.vGap4,
                         Text(
                           menuTitle[index],
@@ -151,7 +151,7 @@ class _ShopState extends State<Shop> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Image.asset(Utils.getImgPath("shop/dpsz"), width: 32.0),
+                        loadAssetImage("shop/dpsz", width: 32.0),
                         Gaps.vGap4,
                         Text(
                           "店铺设置",
