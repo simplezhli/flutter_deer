@@ -12,11 +12,11 @@ import 'intercept.dart';
 
 /// @weilu https://github.com/simplezhli
 class DioUtils {
-  
+
   static final DioUtils _singleton = DioUtils._internal();
 
   static DioUtils get instance => DioUtils();
-  
+
   factory DioUtils() {
     return _singleton;
   }
@@ -51,13 +51,13 @@ class DioUtils {
   }
 
   // 数据返回格式统一，统一处理异常
-  Future<BaseEntity<T>> _request<T>(String method, String url, {Map<String, dynamic> data, Options options}) async {
-    var response = await _dio.request(url, data: data, options: _checkOptions(method, options));
+  Future<BaseEntity<T>> _request<T>(String method, String url, {Map<String, dynamic> data, CancelToken cancelToken, Options options}) async {
+    var response = await _dio.request(url, data: data, options: _checkOptions(method, options), cancelToken: cancelToken);
 
     int _code;
     String _msg;
     T _data;
-    
+
     try {
       Map<String, dynamic> _map = json.decode(response.data.toString());
       _code = _map["code"];
@@ -72,8 +72,8 @@ class DioUtils {
     return BaseEntity(_code, _msg, _data);
   }
 
-  Future<BaseEntity<List<T>>> _requestList<T>(String method, String url, {Map<String, dynamic> data, Options options}) async {
-    var response = await _dio.request(url, data: data, options: _checkOptions(method, options));
+  Future<BaseEntity<List<T>>> _requestList<T>(String method, String url, {Map<String, dynamic> data, CancelToken cancelToken, Options options}) async {
+    var response = await _dio.request(url, data: data, options: _checkOptions(method, options), cancelToken: cancelToken);
     int _code;
     String _msg;
     List<T> _data = [];
@@ -95,11 +95,11 @@ class DioUtils {
     }
     return BaseEntity(_code, _msg, _data);
   }
-  
+
   BaseEntity parseError(){
     return BaseEntity(ExceptionHandle.parse_error, "数据解析错误", null);
   }
-  
+
   Options _checkOptions(method, options) {
     if (options == null) {
       options = new Options();
@@ -108,31 +108,36 @@ class DioUtils {
     return options;
   }
 
-  Future<BaseEntity<T>> request<T>(String method, String url, {Map<String, dynamic> params, Options options}) async {
-    var response = await _request<T>(method, url, data: params, options: options);
+  Future<BaseEntity<T>> request<T>(String method, String url, {Map<String, dynamic> params, CancelToken cancelToken, Options options}) async {
+    var response = await _request<T>(method, url, data: params, options: options, cancelToken: cancelToken);
     return response;
   }
 
-  Future<BaseEntity<List<T>>> requestList<T>(String method, String url, {Map<String, dynamic> params, Options options}) async {
-    var response = await _requestList<T>(method, url, data: params, options: options);
+  Future<BaseEntity<List<T>>> requestList<T>(String method, String url, {Map<String, dynamic> params, CancelToken cancelToken, Options options}) async {
+    var response = await _requestList<T>(method, url, data: params, options: options, cancelToken: cancelToken);
     return response;
   }
 
   /// 统一处理(onSuccess返回T对象，onSuccessList返回List<T>)
-  requestNetwork<T>(String method, String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function onError, Map<String, dynamic> params, Options options}){
-    
-    Observable.fromFuture(onSuccess != null ? request<T>(method, url, params: params, options: options) :
-        requestList<T>(method, url, params: params, options: options))
+  requestNetwork<T>(String method, String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function onError,
+    Map<String, dynamic> params, CancelToken cancelToken, Options options}){
+
+    Observable.fromFuture(onSuccess != null ? request<T>(method, url, params: params, options: options, cancelToken: cancelToken) :
+    requestList<T>(method, url, params: params, options: options, cancelToken: cancelToken))
         .asBroadcastStream()
         .listen((result){
-          if (result.code == 0){
-            onSuccess != null ? onSuccess(result.data) : onSuccessList(result.data);
-          }else{
-            onError == null ? _onError(result.code, result.message) : onError(result.code, result.message);
-          }
+      if (result.code == 0){
+        onSuccess != null ? onSuccess(result.data) : onSuccessList(result.data);
+      }else{
+        onError == null ? _onError(result.code, result.message) : onError(result.code, result.message);
+      }
     }, onError: (e){
-          Error error = ExceptionHandle.handleException(e);
-          onError == null ? _onError(error.code, error.msg) : onError(error.code, error.msg);
+      if (CancelToken.isCancel(e)){
+        print("取消请求接口： $url");
+      }else{
+        Error error = ExceptionHandle.handleException(e);
+        onError == null ? _onError(error.code, error.msg) : onError(error.code, error.msg);
+      }
     });
   }
 
@@ -140,20 +145,20 @@ class DioUtils {
     Log.e("接口请求异常： code: $code, mag: $mag");
     Toast.show(mag);
   }
-  
-  post<T>(String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function onError, Map<String, dynamic> params, Options options}){
-    requestNetwork<T>("POST", url, onSuccess: onSuccess, onSuccessList: onSuccessList, onError: onError, params: params, options: options);
+
+  post<T>(String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function onError, Map<String, dynamic> params, CancelToken cancelToken, Options options}){
+    requestNetwork<T>("POST", url, onSuccess: onSuccess, onSuccessList: onSuccessList, onError: onError, params: params, options: options, cancelToken: cancelToken);
   }
 
-  get<T>(String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function onError, Map<String, dynamic> params, Options options}){
-    requestNetwork<T>("GET", url, onSuccess: onSuccess, onSuccessList: onSuccessList, onError: onError, params: params, options: options);
+  get<T>(String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function onError, Map<String, dynamic> params, CancelToken cancelToken, Options options}){
+    requestNetwork<T>("GET", url, onSuccess: onSuccess, onSuccessList: onSuccessList, onError: onError, params: params, options: options, cancelToken: cancelToken);
   }
 
-  put<T>(String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function onError, Map<String, dynamic> params, Options options}){
-    requestNetwork<T>("PUT", url, onSuccess: onSuccess, onSuccessList: onSuccessList, onError: onError, params: params, options: options);
+  put<T>(String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function onError, Map<String, dynamic> params, CancelToken cancelToken, Options options}){
+    requestNetwork<T>("PUT", url, onSuccess: onSuccess, onSuccessList: onSuccessList, onError: onError, params: params, options: options, cancelToken: cancelToken);
   }
 
-  delete<T>(String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function onError, Map<String, dynamic> params, Options options}){
-    requestNetwork<T>("DELETE", url, onSuccess: onSuccess, onSuccessList: onSuccessList, onError: onError, params: params, options: options);
+  delete<T>(String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function onError, Map<String, dynamic> params, CancelToken cancelToken, Options options}){
+    requestNetwork<T>("DELETE", url, onSuccess: onSuccess, onSuccessList: onSuccessList, onError: onError, params: params, options: options, cancelToken: cancelToken);
   }
 }
