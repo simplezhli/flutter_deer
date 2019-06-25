@@ -63,7 +63,7 @@ packages:
       name: cookie_jar
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.0.8"
+    version: "1.0.0"
   crypto:
     dependency: transitive
     description:
@@ -98,7 +98,7 @@ packages:
       name: dio
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.17"
+    version: "2.1.7"
   flukit:
     dependency: "direct main"
     description:
@@ -268,6 +268,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.5.5"
+  sprintf:
+    dependency: "direct main"
+    description:
+      name: sprintf
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "4.0.2"
   sqflite:
     dependency: transitive
     description:

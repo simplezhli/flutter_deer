@@ -1,24 +1,46 @@
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/account/account_router.dart';
+import 'package:flutter_deer/net/dio_utils.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/setting/setting_router.dart';
 import 'package:flutter_deer/shop/shop_router.dart';
 import 'package:flutter_deer/util/image_utils.dart';
+import 'package:flutter_deer/util/utils.dart';
+
+import 'models/user_entity.dart';
 
 class Shop extends StatefulWidget {
   @override
   _ShopState createState() => _ShopState();
 }
 
-class _ShopState extends State<Shop> {
+class _ShopState extends State<Shop> with AutomaticKeepAliveClientMixin<Shop>{
   
   var menuTitle = ["账户流水", "资金管理", "提现账号"];
   var menuImage = ["zhls", "zjgl", "txzh"];
+  /// 头像
+  String _img;
+  
+  @override
+  void initState() {
+    /// 接口请求例子
+    /// get请求参数拼接到链接后（可以使用Transformer.urlEncodeMap方法），post使用params传参
+    DioUtils.instance.get<UserEntity>("users/simplezhli",
+      onSuccess: (data){
+        setState(() {
+          _img = data.avatarUrl;
+        });
+      },
+    );
+    super.initState();
+  }
   
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
         appBar: AppBar(
           brightness: Brightness.light,
@@ -62,7 +84,12 @@ class _ShopState extends State<Shop> {
                   ),
                   Positioned(
                     right: 0.0,
-                    child: loadAssetImage("shop/tx", width: 56.0),
+                    child: CircleAvatar(
+                      radius: 28.0,
+                      backgroundImage: _img == null ? AssetImage(
+                        Utils.getImgPath('shop/tx'),
+                      ) : CachedNetworkImageProvider(_img),
+                    )
                   ),
                   Positioned(
                     top: 38.0,
@@ -170,4 +197,7 @@ class _ShopState extends State<Shop> {
         )
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

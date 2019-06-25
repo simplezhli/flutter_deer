@@ -2,7 +2,7 @@
 
 <img src="preview/logo.jpg"/>
 
-本项目为Flutter的学习练习项目（暂时不包括网络请求，只有简单的数据处理，主要为UI练习）。
+本项目为Flutter的学习练习项目（只有简单的数据处理，主要为UI练习）。
 
 通过设置、修改、组合自带部件以及自定义来实现具体的设计效果，满足日常开发的需求。
 
@@ -21,6 +21,7 @@
 
 ## 实现效果包括
 
+* 基于dio + rxdart的网络请求封装（支持泛型，自动解析，基于FlutterJsonBeanFactory插件实现）
 * 输入框等部件的处理封装
 * 自定义列表滑动效果
 * PopupWindow
@@ -63,6 +64,7 @@ IOS需要自行下载代码运行。（效果是一致的）
 
 | 库                         | 功能             |
 | -------------------------- | --------------- |
+| [dio](https://github.com/flutterchina/dio)                            | **网络库** |
 | [cached_network_image](https://github.com/renefloor/flutter_cached_network_image)        | **图片缓存**       |
 | [fluro](https://github.com/theyakka/fluro)                            | **路由管理**       |
 | [flutter_oktoast](https://github.com/OpenFlutter/flutter_oktoast)     | **Toast**       |
@@ -79,6 +81,7 @@ IOS需要自行下载代码运行。（效果是一致的）
 | [azlistview](https://github.com/flutterchina/azlistview)              | **城市选择列表** |
 | [date_utils](https://github.com/apptreesoftware/date_utils)           | **常用的日期工具类** |
 | [bezier_chart](https://github.com/aeyrium/bezier-chart)               | **曲线图表** |
+| [sprintf](https://github.com/Naddiseo/dart-sprintf)                   | **格式化String** |
 
 具体可以参看[pubspec.yaml](https://github.com/simplezhli/flutter_deer/blob/master/pubspec.yaml)文件    
 
