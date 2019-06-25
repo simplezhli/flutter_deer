@@ -42,12 +42,12 @@
 
 Android版安装包：[点击下载](https://www.pgyer.com/gYXj)
 
-IOS需要自行下载代码运行。（效果是一致的）
+iOS需要自行下载代码运行。（效果是一致的）
 
 **注意**：
 
     1. `debug`模式下会有部分卡顿现象，属于正常现象。良好的体验需要打`release` 包。
-        IOS可以执行命令`flutter build ios` 以创建`release`版本。
+        iOS可以执行命令`flutter build ios` 以创建`release`版本。
         Android可以执行命令`flutter build apk` 以创建`release`版本。
 
     2. 因为页面有点多，不清楚业务流程可能会导致部分页面无法找到。具体可以参看设计图，或者页面上都随便点点。。。
