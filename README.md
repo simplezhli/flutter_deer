@@ -49,8 +49,11 @@ iOS需要自行下载代码运行。（效果是一致的）
     1. `debug`模式下会有部分卡顿现象，属于正常现象。良好的体验需要打`release` 包。
         iOS可以执行命令`flutter build ios` 以创建`release`版本。
         Android可以执行命令`flutter build apk` 以创建`release`版本。
+        
+    2. FlutterJsonBeanFactory插件使用可以查看[这篇文章](https://www.jianshu.com/p/e909f3f936d6)
 
-    2. 因为页面有点多，不清楚业务流程可能会导致部分页面无法找到。具体可以参看设计图，或者页面上都随便点点。。。
+    3. 因为页面有点多，不清楚业务流程可能会导致部分页面无法找到。具体可以参看设计图，或者页面上都随便点点。。。
+    
 
 **觉得还可以的话，来个Star、Fork支持一波！有问题欢迎提Issue。**
 
@@ -86,6 +89,12 @@ iOS需要自行下载代码运行。（效果是一致的）
 具体可以参看[pubspec.yaml](https://github.com/simplezhli/flutter_deer/blob/master/pubspec.yaml)文件    
 
 ## TODO
+
+后续计划：
+
+    1. 添加地图功能，具体实现插件见 [flutter_2d_amap](https://github.com/simplezhli/flutter_2d_amap) 
+    
+    2. 引入状态管理，预计使用 [provider](https://github.com/rrousselGit/provider) 
 
 已知问题：
 
