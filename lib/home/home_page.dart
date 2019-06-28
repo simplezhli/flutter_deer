@@ -90,22 +90,11 @@ class _HomeState extends State<Home> {
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.white,
           items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: _getTabIcon(0),
-              title: _buildTabText(0)
-            ),
-            BottomNavigationBarItem(
-              icon: _getTabIcon(1),
-              title: _buildTabText(1)
-            ),
-            BottomNavigationBarItem(
-              icon: _getTabIcon(2),
-              title: _buildTabText(2)
-            ),
-            BottomNavigationBarItem(
-              icon: _getTabIcon(3),
-              title: _buildTabText(3)
-            ),
+            for (int i = 0; i < _appBarTitles.length; i++)
+              BottomNavigationBarItem(
+                  icon: _getTabIcon(i),
+                  title: _buildTabText(i)
+              ),
           ],
           type: BottomNavigationBarType.fixed,
           currentIndex: _tabIndex,

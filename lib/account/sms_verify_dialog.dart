@@ -27,7 +27,6 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
 
   FocusNode _focusNode = FocusNode();
   TextEditingController _controller = TextEditingController();
-  List<Widget> _inputWidget = [];
   List<String> _codeList = ["", "", "", "", "", ""];
   
   @override
@@ -53,10 +52,6 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
   
   @override
   Widget build(BuildContext context) {
-    _inputWidget.clear();
-    for (int i = 0; i < 6; i++){
-      _inputWidget.add(_buildInputWidget(i));
-    }
     return Scaffold(//创建透明层
       backgroundColor: Colors.transparent,//透明类型
       body: AnimatedContainer(
@@ -113,7 +108,10 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                         padding: const EdgeInsets.symmetric(horizontal: 24.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: _inputWidget,
+                          children: [
+                            for (int i = 0; i < _codeList.length; i++)
+                              _buildInputWidget(i),
+                          ],
                         ),
                       ),
                       Positioned.fill(
@@ -129,24 +127,24 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                           backgroundCursorColor: Colors.transparent,
                           style: TextStyle(color: Colors.transparent, fontSize: Dimens.font_sp18),
                           onChanged: (v){
-                            if (v.length > 6){
+                            if (v.length > _codeList.length){
                               _controller.value = TextEditingValue(
                                 text: v.substring(0, 6),
                                 selection: TextSelection.collapsed(offset: 6),
                               );
                               return;
                             }
-                            for (int i = 0; i < 6; i ++){
+                            for (int i = 0; i < _codeList.length; i ++){
                               if (i < v.length){
                                 _codeList[i] = v.substring(i, i + 1);
                               }else{
                                 _codeList[i] = "";
                               }
                             }
-                            if (v.length == 6){
+                            if (v.length == _codeList.length){
                               Toast.show("验证码：${_controller.text}");
                               _controller.text = "";
-                              for (int i = 0; i < 6; i ++){
+                              for (int i = 0; i < _codeList.length; i ++){
                                 _codeList[i] = "";
                               }
                             }

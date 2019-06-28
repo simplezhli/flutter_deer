@@ -16,10 +16,6 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
   
   @override
   Widget build(BuildContext context) {
-    _inputWidget.clear();
-    for (int i = 0; i < 6; i++){
-      _inputWidget.add(_buildInputWidget(i));
-    }
     return Material(
       type: MaterialType.transparency,
       child: Stack(
@@ -73,7 +69,10 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                             borderRadius: BorderRadius.circular(4.0),
                           ),
                           child: Row(
-                            children: _inputWidget,
+                            children: [
+                              for (int i = 0; i < _codeList.length; i++)
+                                _buildInputWidget(i)
+                            ]
                           ),
                         ),
                         Gaps.vGap10,
@@ -122,15 +121,15 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                               }
                               _codeList[_index] = _list[index].toString();
                               _index++;
-                              if (_index == 6){
+                              if (_index == _codeList.length){
 
                                 String code = "";
-                                for (int i = 0; i < 6; i ++){
+                                for (int i = 0; i < _codeList.length; i ++){
                                   code = code + _codeList[i];
                                 }
                                 Toast.show("密码：$code");
                                 _index = 0;
-                                for (int i = 0; i < 6; i ++){
+                                for (int i = 0; i < _codeList.length; i ++){
                                   _codeList[i] = "";
                                 }
                               }
@@ -152,7 +151,6 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
   }
 
   int _index = 0;
-  List<Widget> _inputWidget = [];
   List<String> _codeList = ["", "", "", "", "", ""];
 
   Widget _buildInputWidget(int p){

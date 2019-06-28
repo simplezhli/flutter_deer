@@ -8,7 +8,6 @@ import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:common_utils/common_utils.dart';
 import 'package:flukit/flukit.dart';
 import 'package:flustars/flustars.dart';
 
@@ -25,7 +24,6 @@ class _SplashPageState extends State<SplashPage> {
     "app_start_2",
     "app_start_3",
   ];
-  List<Widget> _bannerList = new List();
   StreamSubscription _subscription;
   
   @override
@@ -51,7 +49,6 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   void _initGuide() {
-    _initBannerData();
     setState(() {
       _status = 1;
     });
@@ -65,31 +62,6 @@ class _SplashPageState extends State<SplashPage> {
   
   _goLogin(){
     NavigatorUtils.push(context, LoginRouter.loginPage, replace: true);
-  }
-
-  void _initBannerData() {
-    for (int i = 0, length = _guideList.length; i < length; i++) {
-      if (i == length - 1) {
-        _bannerList.add(InkWell(
-          onTap: (){
-            _goLogin();
-          },
-          child: loadAssetImage(
-            _guideList[i],
-            fit: BoxFit.fill,
-            width: double.infinity,
-            height: double.infinity,
-          ),
-        ));
-      } else {
-        _bannerList.add(loadAssetImage(
-          _guideList[i],
-          fit: BoxFit.fill,
-          width: double.infinity,
-          height: double.infinity,
-        ));
-      }
-    }
   }
   
   @override
@@ -108,13 +80,33 @@ class _SplashPageState extends State<SplashPage> {
           ),
           Offstage(
             offstage: !(_status == 1),
-            child: ObjectUtil.isEmpty(_bannerList) 
-                ? Container() 
-                : Swiper(
-                autoStart: false,
-                circular: false,
-                indicator: null,
-                children: _bannerList),
+            child: Swiper(
+              autoStart: false, 
+              circular: false,
+              indicator: null,
+              children: [
+                for (int i = 0, length = _guideList.length; i < length; i++)
+                  if (i == length - 1)
+                    InkWell(
+                      onTap: (){
+                        _goLogin();
+                      },
+                      child: loadAssetImage(
+                        _guideList[i],
+                        fit: BoxFit.fill,
+                        width: double.infinity,
+                        height: double.infinity,
+                      ),
+                    )
+                  else
+                    loadAssetImage(
+                      _guideList[i],
+                      fit: BoxFit.fill,
+                      width: double.infinity,
+                      height: double.infinity,
+                    )
+              ]
+            ),
           )
         ],
       ),
