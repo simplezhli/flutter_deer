@@ -88,13 +88,15 @@ iOS需要自行下载代码运行。（效果是一致的）
 
 具体可以参看[pubspec.yaml](https://github.com/simplezhli/flutter_deer/blob/master/pubspec.yaml)文件    
 
+## 后续计划：
+
+* [ ] 添加地图功能，具体实现插件见 [flutter_2d_amap](https://github.com/simplezhli/flutter_2d_amap)
+
+* [ ] 引入状态管理，预计使用 [provider](https://github.com/rrousselGit/provider)
+
+* [ ] 下拉刷新 + 上拉加载
+
 ## TODO
-
-后续计划：
-
-    1. 添加地图功能，具体实现插件见 [flutter_2d_amap](https://github.com/simplezhli/flutter_2d_amap) 
-    
-    2. 引入状态管理，预计使用 [provider](https://github.com/rrousselGit/provider) 
 
 已知问题：
 
