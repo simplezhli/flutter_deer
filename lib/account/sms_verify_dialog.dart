@@ -104,52 +104,55 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                 Expanded(
                   child: Stack(
                     children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            for (int i = 0; i < _codeList.length; i++)
-                              _buildInputWidget(i),
-                          ],
-                        ),
-                      ),
-                      Positioned.fill(
-                        child: EditableText(
-                          controller: _controller,
-                          focusNode: _focusNode,
-                          keyboardType: TextInputType.number,
-                          inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
-                          // 隐藏光标与字体颜色，达到隐藏输入框的目的
-                          cursorColor: Colors.transparent,
-                          cursorWidth: 0.0,
-                          textAlign: TextAlign.center,
-                          backgroundCursorColor: Colors.transparent,
-                          style: TextStyle(color: Colors.transparent, fontSize: Dimens.font_sp18),
-                          onChanged: (v){
-                            if (v.length > _codeList.length){
-                              _controller.value = TextEditingValue(
-                                text: v.substring(0, 6),
-                                selection: TextSelection.collapsed(offset: 6),
-                              );
-                              return;
+                      EditableText(
+                        controller: _controller,
+                        focusNode: _focusNode,
+                        keyboardType: TextInputType.number,
+                        /// 只能为数字、6位
+                        inputFormatters: [WhitelistingTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(6)],
+                        // 隐藏光标与字体颜色，达到隐藏输入框的目的
+                        cursorColor: Colors.transparent,
+                        cursorWidth: 0,
+                        textAlign: TextAlign.center,
+                        backgroundCursorColor: Colors.transparent,
+                        style: TextStyle(color: Colors.transparent, fontSize: Dimens.font_sp18),
+                        onChanged: (v){
+                          for (int i = 0; i < _codeList.length; i ++){
+                            if (i < v.length){
+                              _codeList[i] = v.substring(i, i + 1);
+                            }else{
+                              _codeList[i] = "";
                             }
+                          }
+                          if (v.length == _codeList.length){
+                            Toast.show("验证码：${_controller.text}");
+                            _controller.text = "";
                             for (int i = 0; i < _codeList.length; i ++){
-                              if (i < v.length){
-                                _codeList[i] = v.substring(i, i + 1);
-                              }else{
-                                _codeList[i] = "";
-                              }
+                              _codeList[i] = "";
                             }
-                            if (v.length == _codeList.length){
-                              Toast.show("验证码：${_controller.text}");
-                              _controller.text = "";
-                              for (int i = 0; i < _codeList.length; i ++){
-                                _codeList[i] = "";
-                              }
-                            }
-                            setState(() {});
-                          },
+                          }
+                          setState(() {});
+                        },
+                      ),
+                      GestureDetector(
+                        onTap: (){
+                          /// 一直怼，会有概率造成键盘抖动，加一个键盘时候弹出判断
+                          if (MediaQuery.of(context).viewInsets.bottom < 10){
+                            final focusScope = FocusScope.of(context);
+                            focusScope.requestFocus(FocusNode());
+                            Future.delayed(Duration.zero, () => focusScope.requestFocus(_focusNode));
+                          }
+                        },
+                        child: Container(
+                          color: Colors.transparent,
+                          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              for (int i = 0; i < _codeList.length; i++)
+                                _buildInputWidget(i),
+                            ],
+                          ),
                         ),
                       ),
                     ],
