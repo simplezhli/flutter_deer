@@ -96,6 +96,12 @@ iOS需要自行下载代码运行。（效果是一致的）
 
 * [ ] 下拉刷新 + 上拉加载
 
+## 友情赞助
+
+对Flutter有兴趣的可以通过下图的二维码购买陈航老师的课程。
+
+<img src="preview/jikeshijian.jpg" width="450px"/>
+
 ## TODO
 
 已知问题：
