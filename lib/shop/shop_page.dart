@@ -28,7 +28,7 @@ class _ShopState extends State<Shop> with AutomaticKeepAliveClientMixin<Shop>{
   void initState() {
     /// 接口请求例子
     /// get请求参数queryParameters  post请求参数params
-    DioUtils.instance.get<UserEntity>("users/simplezhli",
+    DioUtils.instance.requestNetwork<UserEntity>(Method.get, "users/simplezhli",
       onSuccess: (data){
         setState(() {
           _img = data.avatarUrl;

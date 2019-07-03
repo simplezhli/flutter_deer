@@ -119,25 +119,41 @@ class DioUtils {
   }
 
   /// 统一处理(onSuccess返回T对象，onSuccessList返回List<T>)
-  requestNetwork<T>(String method, String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function onError,
-    Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}){
-
-    Observable.fromFuture(onSuccess != null ? request<T>(method, url, params: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken) :
-    requestList<T>(method, url, params: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken))
+  requestNetwork<T>(Method method, String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function(int code, String mag) onError,
+    Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options, bool isList : false}){
+    String m;
+    switch(method){
+      case Method.get:
+        m = "GET";
+        break;
+      case Method.post:
+        m = "POST";
+        break;
+      case Method.put:
+        m = "PUT";
+        break;
+      case Method.patch:
+        m = "PATCH";
+        break;
+      case Method.delete:
+        m = "DELETE";
+        break;
+    }
+    Observable.fromFuture(isList ? requestList<T>(m, url, params: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken) :
+    request<T>(m, url, params: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken))
         .asBroadcastStream()
         .listen((result){
       if (result.code == 0){
-        onSuccess != null ? onSuccess(result.data) : onSuccessList(result.data);
+        isList ? onSuccessList(result.data) : onSuccess(result.data);
       }else{
         onError == null ? _onError(result.code, result.message) : onError(result.code, result.message);
       }
     }, onError: (e){
       if (CancelToken.isCancel(e)){
         print("取消请求接口： $url");
-      }else{
-        Error error = ExceptionHandle.handleException(e);
-        onError == null ? _onError(error.code, error.msg) : onError(error.code, error.msg);
       }
+      Error error = ExceptionHandle.handleException(e);
+      onError == null ? _onError(error.code, error.msg) : onError(error.code, error.msg);
     });
   }
 
@@ -145,20 +161,12 @@ class DioUtils {
     Log.e("接口请求异常： code: $code, mag: $mag");
     Toast.show(mag);
   }
+}
 
-  post<T>(String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function onError, Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}){
-    requestNetwork<T>("POST", url, onSuccess: onSuccess, onSuccessList: onSuccessList, onError: onError, params: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken);
-  }
-
-  get<T>(String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function onError, Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}){
-    requestNetwork<T>("GET", url, onSuccess: onSuccess, onSuccessList: onSuccessList, onError: onError, params: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken);
-  }
-
-  put<T>(String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function onError, Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}){
-    requestNetwork<T>("PUT", url, onSuccess: onSuccess, onSuccessList: onSuccessList, onError: onError, params: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken);
-  }
-
-  delete<T>(String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function onError, Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}){
-    requestNetwork<T>("DELETE", url, onSuccess: onSuccess, onSuccessList: onSuccessList, onError: onError, params: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken);
-  }
+enum Method {
+  get,
+  post,
+  put,
+  patch,
+  delete,
 }

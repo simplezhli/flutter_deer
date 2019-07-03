@@ -14,6 +14,7 @@ class ExceptionHandle {
   static const int socket_error = 1002;
   static const int http_error = 1003;
   static const int timeout_error = 1004;
+  static const int cancel_error = 1005;
   static const int unknown_error = 9999;
 
   static Error handleException(dynamic error){
@@ -33,6 +34,8 @@ class ExceptionHandle {
           error.type == DioErrorType.SEND_TIMEOUT ||
           error.type == DioErrorType.RECEIVE_TIMEOUT){
         return Error(timeout_error, "连接超时！");
+      }else if (error.type == DioErrorType.CANCEL){
+        return Error(cancel_error, "");
       }else{
         return Error(unknown_error, "未知异常");
       }
