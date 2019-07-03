@@ -51,8 +51,8 @@ class DioUtils {
   }
 
   // 数据返回格式统一，统一处理异常
-  Future<BaseEntity<T>> _request<T>(String method, String url, {Map<String, dynamic> data, CancelToken cancelToken, Options options}) async {
-    var response = await _dio.request(url, data: data, options: _checkOptions(method, options), cancelToken: cancelToken);
+  Future<BaseEntity<T>> _request<T>(String method, String url, {Map<String, dynamic> data, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
+    var response = await _dio.request(url, data: data, queryParameters: queryParameters, options: _checkOptions(method, options), cancelToken: cancelToken);
 
     int _code;
     String _msg;
@@ -72,8 +72,8 @@ class DioUtils {
     return BaseEntity(_code, _msg, _data);
   }
 
-  Future<BaseEntity<List<T>>> _requestList<T>(String method, String url, {Map<String, dynamic> data, CancelToken cancelToken, Options options}) async {
-    var response = await _dio.request(url, data: data, options: _checkOptions(method, options), cancelToken: cancelToken);
+  Future<BaseEntity<List<T>>> _requestList<T>(String method, String url, {Map<String, dynamic> data, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
+    var response = await _dio.request(url, data: data, queryParameters: queryParameters, options: _checkOptions(method, options), cancelToken: cancelToken);
     int _code;
     String _msg;
     List<T> _data = [];
@@ -108,22 +108,22 @@ class DioUtils {
     return options;
   }
 
-  Future<BaseEntity<T>> request<T>(String method, String url, {Map<String, dynamic> params, CancelToken cancelToken, Options options}) async {
-    var response = await _request<T>(method, url, data: params, options: options, cancelToken: cancelToken);
+  Future<BaseEntity<T>> request<T>(String method, String url, {Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
+    var response = await _request<T>(method, url, data: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken);
     return response;
   }
 
-  Future<BaseEntity<List<T>>> requestList<T>(String method, String url, {Map<String, dynamic> params, CancelToken cancelToken, Options options}) async {
-    var response = await _requestList<T>(method, url, data: params, options: options, cancelToken: cancelToken);
+  Future<BaseEntity<List<T>>> requestList<T>(String method, String url, {Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
+    var response = await _requestList<T>(method, url, data: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken);
     return response;
   }
 
   /// 统一处理(onSuccess返回T对象，onSuccessList返回List<T>)
   requestNetwork<T>(String method, String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function onError,
-    Map<String, dynamic> params, CancelToken cancelToken, Options options}){
+    Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}){
 
-    Observable.fromFuture(onSuccess != null ? request<T>(method, url, params: params, options: options, cancelToken: cancelToken) :
-    requestList<T>(method, url, params: params, options: options, cancelToken: cancelToken))
+    Observable.fromFuture(onSuccess != null ? request<T>(method, url, params: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken) :
+    requestList<T>(method, url, params: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken))
         .asBroadcastStream()
         .listen((result){
       if (result.code == 0){
@@ -146,19 +146,19 @@ class DioUtils {
     Toast.show(mag);
   }
 
-  post<T>(String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function onError, Map<String, dynamic> params, CancelToken cancelToken, Options options}){
-    requestNetwork<T>("POST", url, onSuccess: onSuccess, onSuccessList: onSuccessList, onError: onError, params: params, options: options, cancelToken: cancelToken);
+  post<T>(String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function onError, Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}){
+    requestNetwork<T>("POST", url, onSuccess: onSuccess, onSuccessList: onSuccessList, onError: onError, params: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken);
   }
 
-  get<T>(String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function onError, Map<String, dynamic> params, CancelToken cancelToken, Options options}){
-    requestNetwork<T>("GET", url, onSuccess: onSuccess, onSuccessList: onSuccessList, onError: onError, params: params, options: options, cancelToken: cancelToken);
+  get<T>(String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function onError, Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}){
+    requestNetwork<T>("GET", url, onSuccess: onSuccess, onSuccessList: onSuccessList, onError: onError, params: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken);
   }
 
-  put<T>(String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function onError, Map<String, dynamic> params, CancelToken cancelToken, Options options}){
-    requestNetwork<T>("PUT", url, onSuccess: onSuccess, onSuccessList: onSuccessList, onError: onError, params: params, options: options, cancelToken: cancelToken);
+  put<T>(String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function onError, Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}){
+    requestNetwork<T>("PUT", url, onSuccess: onSuccess, onSuccessList: onSuccessList, onError: onError, params: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken);
   }
 
-  delete<T>(String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function onError, Map<String, dynamic> params, CancelToken cancelToken, Options options}){
-    requestNetwork<T>("DELETE", url, onSuccess: onSuccess, onSuccessList: onSuccessList, onError: onError, params: params, options: options, cancelToken: cancelToken);
+  delete<T>(String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function onError, Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}){
+    requestNetwork<T>("DELETE", url, onSuccess: onSuccess, onSuccessList: onSuccessList, onError: onError, params: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken);
   }
 }

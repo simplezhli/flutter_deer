@@ -27,7 +27,7 @@ class _ShopState extends State<Shop> with AutomaticKeepAliveClientMixin<Shop>{
   @override
   void initState() {
     /// 接口请求例子
-    /// get请求参数拼接到链接后（可以使用Transformer.urlEncodeMap方法），post使用params传参
+    /// get请求参数queryParameters  post请求参数params
     DioUtils.instance.get<UserEntity>("users/simplezhli",
       onSuccess: (data){
         setState(() {

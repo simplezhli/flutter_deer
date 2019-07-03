@@ -78,7 +78,11 @@ class LoggingInterceptor extends Interceptor{
   onRequest(RequestOptions options) {
     startTime = DateTime.now();
     Log.d("----------Start----------");
-    Log.i("RequestUrl: " + options.baseUrl + options.path);
+    if (options.queryParameters.isEmpty){
+      Log.i("RequestUrl: " + options.baseUrl + options.path);
+    }else{
+      Log.i("RequestUrl: " + options.baseUrl + options.path + "?" + Transformer.urlEncodeMap(options.queryParameters));
+    }
     Log.d("RequestMethod: " + options.method);
     Log.d("RequestHeaders:" + options.headers.toString());
     Log.d("RequestContentType: ${options.contentType}");
