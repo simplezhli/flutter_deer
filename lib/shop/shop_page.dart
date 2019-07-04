@@ -2,7 +2,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/account/account_router.dart';
-import 'package:flutter_deer/net/dio_utils.dart';
+import 'package:flutter_deer/mvp/base_page_state.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/setting/setting_router.dart';
@@ -10,32 +10,24 @@ import 'package:flutter_deer/shop/shop_router.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/utils.dart';
 
-import 'models/user_entity.dart';
+import 'presenter/shop_presenter.dart';
 
 class Shop extends StatefulWidget {
   @override
-  _ShopState createState() => _ShopState();
+  ShopState createState() => ShopState();
 }
 
-class _ShopState extends State<Shop> with AutomaticKeepAliveClientMixin<Shop>{
+class ShopState extends BasePageState<Shop, ShopPagePresenter> with AutomaticKeepAliveClientMixin<Shop>{
   
   var menuTitle = ["账户流水", "资金管理", "提现账号"];
   var menuImage = ["zhls", "zjgl", "txzh"];
   /// 头像
   String _img;
   
-  @override
-  void initState() {
-    /// 接口请求例子
-    /// get请求参数queryParameters  post请求参数params
-    DioUtils.instance.requestNetwork<UserEntity>(Method.get, "users/simplezhli",
-      onSuccess: (data){
-        setState(() {
-          _img = data.avatarUrl;
-        });
-      },
-    );
-    super.initState();
+  void setImg(String img){
+    setState(() {
+      _img = img;
+    });
   }
   
   @override
@@ -200,4 +192,9 @@ class _ShopState extends State<Shop> with AutomaticKeepAliveClientMixin<Shop>{
 
   @override
   bool get wantKeepAlive => true;
+
+  @override
+  ShopPagePresenter createPresenter() {
+    return ShopPagePresenter();
+  }
 }

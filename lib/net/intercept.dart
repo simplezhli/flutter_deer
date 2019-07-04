@@ -134,7 +134,7 @@ class AdapterInterceptor extends Interceptor{
 
   Response adapterData(Response response){
     String result;
-    String content = response.data.toString();
+    String content = response.data == null ? "" : response.data.toString();
     /// 成功时，直接格式化返回
     if (response.statusCode == ExceptionHandle.success || response.statusCode == ExceptionHandle.success_not_content){
       if (content == null || content.isEmpty){

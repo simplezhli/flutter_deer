@@ -15,15 +15,21 @@ abstract class BasePageState<T extends StatefulWidget, V extends BasePagePresent
   }
   
   V createPresenter();
-  
+
   @override
   void closeProgress() {
-    debugPrint('-----close-----');
+    Toast.cancelToast();
   }
 
   @override
   void showProgress() {
-    debugPrint('-----show-----');
+    if (!Toast.isShowProgress()){
+      try{
+        Toast.showProgress();
+      }catch(e){
+        print(e);
+      }
+    }
   }
 
   @override

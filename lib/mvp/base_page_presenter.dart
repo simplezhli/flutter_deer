@@ -25,6 +25,7 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
 
   @override
   void dispose() {
+    /// 销毁时，将请求取消
     if (!_cancelToken.isCancelled){
       _cancelToken.cancel();
     }
@@ -33,10 +34,10 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
   @override
   void initState() {}
 
-  void requestNetwork<T>(Method method, String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function(int code, String mag) onError,
+  void requestNetwork<T>(Method method, String url, {bool isShow : true, bool isClose: true, Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function(int code, String mag) onError,
     Map<String, dynamic> params, Map<String, dynamic> queryParameters, 
     CancelToken cancelToken, Options options, bool isList : false}){
-    view.showProgress();
+    if (isShow) view.showProgress();
     DioUtils.instance.requestNetwork<T>(method, url,
         params: params,
         queryParameters: queryParameters,
@@ -44,19 +45,19 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
         cancelToken: _cancelToken,
         isList: isList,
         onSuccess: (data){
-          view.closeProgress();
+          if (isClose) view.closeProgress();
           if (onSuccess != null) {
             onSuccess(data);
           }
         },
         onSuccessList: (data){
-          view.closeProgress();
+          if (isClose) view.closeProgress();
           if (onSuccessList != null) {
             onSuccessList(data);
           }
         },
         onError: (code, msg){
-          view.closeProgress();
+          if (isClose) view.closeProgress();
           if (msg.isNotEmpty){
             view.showToast(msg);
           }

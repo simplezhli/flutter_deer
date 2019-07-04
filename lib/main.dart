@@ -2,11 +2,12 @@ import 'dart:io';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:oktoast/oktoast.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'routers/application.dart';
 import 'routers/routers.dart';
 import 'package:flutter_deer/home/splash_page.dart';
+
+import 'widgets/toast/oktoast.dart';
 
 void main(){
   runApp(MyApp());
