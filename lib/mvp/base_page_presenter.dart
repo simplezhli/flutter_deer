@@ -37,7 +37,7 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
     Map<String, dynamic> params, Map<String, dynamic> queryParameters, 
     CancelToken cancelToken, Options options, bool isList : false}){
     view.showProgress();
-    DioUtils.instance.requestNetwork(method, url,
+    DioUtils.instance.requestNetwork<T>(method, url,
         params: params,
         queryParameters: queryParameters,
         options: options,

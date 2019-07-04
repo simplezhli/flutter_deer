@@ -21,6 +21,7 @@
 
 ## 实现效果包括
 
+* mvp模式
 * 基于dio + rxdart的网络请求封装（支持泛型，自动解析，基于FlutterJsonBeanFactory插件实现）
 * 输入框等部件的处理封装
 * 自定义列表滑动效果

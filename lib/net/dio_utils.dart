@@ -87,7 +87,6 @@ class DioUtils {
         (_map["data"] as List).forEach((item){
           _data.add(EntityFactory.generateOBJ<T>(item));
         });
-        BaseEntity(_code, _msg, _data);
       }
     }catch(e){
       print(e);
