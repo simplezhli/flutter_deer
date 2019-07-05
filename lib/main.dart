@@ -3,11 +3,10 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:oktoast/oktoast.dart';
 import 'routers/application.dart';
 import 'routers/routers.dart';
 import 'package:flutter_deer/home/splash_page.dart';
-
-import 'widgets/toast/oktoast.dart';
 
 void main(){
   runApp(MyApp());
@@ -43,8 +42,7 @@ class MyApp extends StatelessWidget {
       backgroundColor: Colors.black54,
       textPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
       radius: 20.0,
-      position: ToastPosition.bottom,
-      dismissOtherOnShow: true
+      position: ToastPosition.bottom
     );
   }
 }

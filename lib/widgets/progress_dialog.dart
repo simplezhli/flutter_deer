@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 
-class ProgressDialog extends StatelessWidget{
+class ProgressDialog extends Dialog{
 
   ProgressDialog({
     Key key,

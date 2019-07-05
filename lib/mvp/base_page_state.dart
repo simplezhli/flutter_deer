@@ -1,6 +1,9 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/toast.dart';
+import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/widgets/progress_dialog.dart';
 
 import 'base_page_presenter.dart';
 import 'mvps.dart';
@@ -18,15 +21,36 @@ abstract class BasePageState<T extends StatefulWidget, V extends BasePagePresent
 
   @override
   void closeProgress() {
-    Toast.cancelToast();
+    if (mounted && _isShowDialog){
+      _isShowDialog = false;
+      NavigatorUtils.goBack(context);
+    }
   }
+
+  bool _isShowDialog = false;
 
   @override
   void showProgress() {
-    if (!Toast.isShowProgress()){
+    /// 避免重复弹出
+    if (mounted && !_isShowDialog){
+      _isShowDialog = true;
       try{
-        Toast.showProgress();
+        showTransparentDialog(
+            context: context,
+            barrierDismissible: false,
+            builder:(_) {
+              return WillPopScope(
+                onWillPop: () async {
+                  // 拦截到返回键，证明dialog被手动关闭
+                  _isShowDialog = false;
+                  return Future.value(true);
+                },
+                child: ProgressDialog(hintText: "正在加载..."),
+              );
+            }
+        );
       }catch(e){
+        /// 异常原因主要是页面没有build完成就调用Progress。
         print(e);
       }
     }

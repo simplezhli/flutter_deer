@@ -27,7 +27,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   # Toast插件 https://github.com/OpenFlutter/flutter_oktoast
-#  oktoast: ^2.1.8  /// 基于此库做了点定制修改，暂时注掉
+  oktoast: ^2.1.9
   # 网络库 https://github.com/flutterchina/dio
   dio: ^2.1.7
   # https://github.com/ReactiveX/rxdart
