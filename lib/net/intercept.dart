@@ -94,6 +94,13 @@ class LoggingInterceptor extends Interceptor{
   onResponse(Response response) {
     endTime = DateTime.now();
     int duration = endTime.difference(startTime).inMilliseconds;
+    if (response.statusCode == ExceptionHandle.success){
+      Log.d("ResponseCode: ${response.statusCode}");
+    }else {
+      Log.e("ResponseCode: ${response.statusCode}");
+    }
+    // 输出结果
+    Log.json(response.data.toString());
     Log.d("----------End: $duration 毫秒----------");
     return super.onResponse(response);
   }
@@ -197,13 +204,6 @@ class AdapterInterceptor extends Interceptor{
         }
       }
     }
-    if (response.statusCode == ExceptionHandle.success){
-      Log.d("ResponseCode: ${response.statusCode}");
-    }else {
-      Log.e("ResponseCode: ${response.statusCode}");
-    }
-    // 输入结果
-    Log.json(result);
     response.data = result;
     return response;
   }

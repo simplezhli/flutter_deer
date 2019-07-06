@@ -149,7 +149,7 @@ class DioUtils {
       }
     }, onError: (e){
       if (CancelToken.isCancel(e)){
-        print("取消请求接口： $url");
+        Log.i("取消请求接口： $url");
       }
       Error error = ExceptionHandle.handleException(e);
       onError == null ? _onError(error.code, error.msg) : onError(error.code, error.msg);
