@@ -64,6 +64,10 @@ dependencies:
   cached_network_image: ^0.7.0
   # 格式化String https://github.com/Naddiseo/dart-sprintf
   sprintf: ^4.0.2
+  # 高德2D地图插件 https://github.com/simplezhli/flutter_2d_amap
+  flutter_2d_amap:
+    git:
+      url: git://github.com/simplezhli/flutter_2d_amap.git
   
 dev_dependencies:
   flutter_test:

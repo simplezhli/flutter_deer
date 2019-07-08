@@ -6,6 +6,12 @@
 	<string>请允许APP访问您的相机</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>请允许APP访问您的相册</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>地图功能需要您的定位服务，否则无法使用，如果您需要使用后台定位功能请选择“始终允许”。</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>地图功能需要您的定位服务，否则无法使用。</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>地图功能需要您的定位服务，否则无法使用。</string>
 	<key>io.flutter.embedded_views_preview</key>
     <true/>
 	<key>CFBundleDevelopmentRegion</key>

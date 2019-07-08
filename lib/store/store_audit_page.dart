@@ -3,7 +3,9 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_2d_amap/flutter_2d_amap.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/shop/shop_router.dart';
 import 'package:flutter_deer/store/store_router.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/store_select_text_item.dart';
@@ -25,6 +27,7 @@ class _StoreAuditState extends State<StoreAudit> {
   final FocusNode _nodeText1 = FocusNode();
   final FocusNode _nodeText2 = FocusNode();
   final FocusNode _nodeText3 = FocusNode();
+  String _address = "陕西省 西安市 雁塔区 高新六路201号";
   
   void _getImage() {
     setState(() {
@@ -155,8 +158,18 @@ class _StoreAuditState extends State<StoreAudit> {
           ),
           StoreSelectTextItem(
               title: "店铺地址",
-              content: "陕西省 西安市 雁塔区 高新六路201号",
-              onTap: (){ }
+              content: _address,
+              onTap: (){
+                NavigatorUtils.pushResult(context, ShopRouter.addressSelectPage, (result){
+                  setState(() {
+                    PoiSearch model = result;
+                    _address = model.provinceName + " " +
+                        model.cityName + " " +
+                        model.adName + " " +
+                        model.title;
+                  });
+                });
+              }
           ),
           Gaps.vGap16,
           Gaps.vGap16,

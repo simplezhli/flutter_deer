@@ -18,11 +18,13 @@
 | ![](./preview/Screenshot_9.png)    |  ![](./preview/Screenshot_10.png)   | ![](./preview/Screenshot_11.png)  |  ![](./preview/Screenshot_12.png)  |
 | ![](./preview/Screenshot_13.png)   |  ![](./preview/Screenshot_14.png)   | ![](./preview/Screenshot_15.png)  |  ![](./preview/Screenshot_17.png)  |
 | ![](./preview/Screenshot_18.png)   |  ![](./preview/Screenshot_19.png)   | ![](./preview/Screenshot_20.png)  |  ![](./preview/Screenshot_21.png)  |
+| ![](./preview/Screenshot_22.jpg)   |  |  |  |
 
 ## 实现效果包括
 
 * mvp模式
 * 基于dio + rxdart的网络请求封装（支持泛型，自动解析，基于FlutterJsonBeanFactory插件实现）
+* 使用高德地图定位选择地址
 * 输入框等部件的处理封装
 * 自定义列表滑动效果
 * PopupWindow
@@ -69,6 +71,7 @@ iOS需要自行下载代码运行。（效果是一致的）
 | 库                         | 功能             |
 | -------------------------- | --------------- |
 | [dio](https://github.com/flutterchina/dio)                            | **网络库** |
+| [flutter_2d_amap](https://github.com/simplezhli/flutter_2d_amap)        | **高德2D地图**       |
 | [cached_network_image](https://github.com/renefloor/flutter_cached_network_image)        | **图片缓存**       |
 | [fluro](https://github.com/theyakka/fluro)                            | **路由管理**       |
 | [flutter_oktoast](https://github.com/OpenFlutter/flutter_oktoast)     | **Toast**       |
@@ -91,7 +94,7 @@ iOS需要自行下载代码运行。（效果是一致的）
 
 ## 后续计划：
 
-* [ ] 添加地图功能，具体实现插件见 [flutter_2d_amap](https://github.com/simplezhli/flutter_2d_amap)
+* [x] 添加地图功能，具体实现插件见 [flutter_2d_amap](https://github.com/simplezhli/flutter_2d_amap)
 
 * [ ] 引入状态管理，预计使用 [provider](https://github.com/rrousselGit/provider)
 

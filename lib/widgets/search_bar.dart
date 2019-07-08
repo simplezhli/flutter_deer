@@ -80,7 +80,7 @@ class _SearchBarState extends State<SearchBar> {
                       borderRadius: BorderRadius.circular(4.0),
                     ),
                     child: TextField(
-                      autofocus: true,
+                      autofocus: false,
                       controller: _controller,
                       maxLines: 1,
                       decoration: InputDecoration(

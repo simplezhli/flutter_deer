@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_2d_amap/flutter_2d_amap.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/shop/pay_type_dialog.dart';
@@ -29,6 +30,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
   String _phone = "";
   String _shopIntroduction = "零食铺子坚果饮料美酒佳肴…";
   String _securityService = "假一赔十";
+  String _address = "陕西省 西安市 长安区 郭杜镇郭北村韩林路圣方医院斜对面";
   
   _getPayType(){
     String payType = "";
@@ -249,8 +251,18 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                     ClickItem(
                       maxLines: 2,
                       title: "店铺地址",
-                      content: "陕西省 西安市 长安区 郭杜镇郭北村韩林路圣方医院斜对面",
-                      onTap: (){},
+                      content: _address,
+                      onTap: (){
+                        NavigatorUtils.pushResult(context, ShopRouter.addressSelectPage, (result){
+                          setState(() {
+                            PoiSearch model = result;
+                            _address = model.provinceName + " " +
+                                model.cityName + " " +
+                                model.adName + " " +
+                                model.title;
+                          });
+                        });
+                      },
                     ),
                     Gaps.vGap8,
                   ],
