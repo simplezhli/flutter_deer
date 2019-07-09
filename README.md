@@ -60,18 +60,32 @@ iOS需要自行下载代码运行。（效果是一致的）
 
 **觉得还可以的话，来个Star、Fork支持一波！有问题欢迎提Issue。**
 
-## 项目环境
+## 项目运行环境
 
-    1. Flutter version 1.5.4-hotfix.2
+    1. Flutter version 1.5.4+hotfix.2
+     
+    2. Dart version 2.3.0
 
-    2. Dart version 2.3.0 (build 2.3.0-dev.0.5 a1668566e5)
+
+**注意**：
+
+本人也尝试过升级到最新的稳定本`1.7.8+hotfix.2`，但是因为个别机型在删除`TextField`中的文字会导致崩溃，所以暂时还是采用`1.5.4+hotfix.2`。
+
+如果你的Flutter版本高于1.5.9，需要使用高版本的依赖库兼容，请手动替换：
+
+```dart
+
+  flustars: ^0.2.6+1
+  cached_network_image: ^1.0.0
+  
+```
     
 ## 使用到的三方库
 
 | 库                         | 功能             |
 | -------------------------- | --------------- |
 | [dio](https://github.com/flutterchina/dio)                            | **网络库** |
-| [flutter_2d_amap](https://github.com/simplezhli/flutter_2d_amap)        | **高德2D地图**       |
+| [flutter_2d_amap](https://github.com/simplezhli/flutter_2d_amap)      | **高德2D地图**       |
 | [cached_network_image](https://github.com/renefloor/flutter_cached_network_image)        | **图片缓存**       |
 | [fluro](https://github.com/theyakka/fluro)                            | **路由管理**       |
 | [flutter_oktoast](https://github.com/OpenFlutter/flutter_oktoast)     | **Toast**       |

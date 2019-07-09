@@ -87,10 +87,15 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                   ),
                 ),
                 Positioned(
-                  child: Container(
-                    height: 16.0,
-                    width: 16.0,
-                    child: loadAssetImage("goods/icon_dialog_close")
+                  child: InkWell(
+                    onTap: (){
+                      NavigatorUtils.goBack(context);
+                    },
+                    child: Container(
+                      height: 16.0,
+                      width: 16.0,
+                      child: loadAssetImage("goods/icon_dialog_close")
+                    ),
                   ),
                   right: 16.0,
                   top: 16.0,

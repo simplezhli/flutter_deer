@@ -43,8 +43,7 @@ class _InputTextPageState extends State<InputTextPage> {
           NavigatorUtils.goBackWithParams(context, _controller.text);
         },
       ),
-      body: Container(
-        height: 150.0,
+      body: Padding(
         padding: const EdgeInsets.only(top: 21.0, left: 16.0, right: 16.0, bottom: 16.0),
         child: TextField(
           maxLength: 30,
