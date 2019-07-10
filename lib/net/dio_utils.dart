@@ -67,7 +67,7 @@ class DioUtils {
       }
     }catch(e){
       print(e);
-      return parseError();
+      return BaseEntity(ExceptionHandle.parse_error, "数据解析错误", _data);
     }
     return BaseEntity(_code, _msg, _data);
   }
@@ -90,13 +90,9 @@ class DioUtils {
       }
     }catch(e){
       print(e);
-      return parseError();
+      return BaseEntity(ExceptionHandle.parse_error, "数据解析错误", _data);
     }
     return BaseEntity(_code, _msg, _data);
-  }
-
-  BaseEntity parseError(){
-    return BaseEntity(ExceptionHandle.parse_error, "数据解析错误", null);
   }
 
   Options _checkOptions(method, options) {
@@ -148,7 +144,7 @@ class DioUtils {
         onError == null ? _onError(result.code, result.message) : onError(result.code, result.message);
       }
     }, onError: (e){
-      if (CancelToken.isCancel(e)){
+      if (e is DioError && CancelToken.isCancel(e)){
         Log.i("取消请求接口： $url");
       }
       Error error = ExceptionHandle.handleException(e);

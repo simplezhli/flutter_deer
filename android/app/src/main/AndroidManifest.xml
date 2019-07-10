@@ -8,6 +8,7 @@
          additional functionality it is fine to subclass or reimplement
          FlutterApplication and put your custom class here. -->
     <application
+        android:networkSecurityConfig="@xml/network_security_config"
         android:name="io.flutter.app.FlutterApplication"
         android:label="Flutter Deer"
         android:icon="@mipmap/ic_launcher">
