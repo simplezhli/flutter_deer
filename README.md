@@ -133,6 +133,8 @@ iOS需要自行下载代码运行。（效果是一致的）
 
 - [Flutter开发中的一些Tips](https://weilu.blog.csdn.net/article/details/90546727)
 
+- [Flutter开发中的一些Tips(二)](https://weilu.blog.csdn.net/article/details/94849020)
+
 ## Thanks For
 
 - [flutter-go](https://github.com/alibaba/flutter-go)

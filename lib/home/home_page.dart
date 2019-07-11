@@ -89,13 +89,10 @@ class _HomeState extends State<Home> {
       child: Scaffold(
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.white,
-          items: <BottomNavigationBarItem>[
-            for (int i = 0; i < _appBarTitles.length; i++)
-              BottomNavigationBarItem(
-                  icon: _getTabIcon(i),
-                  title: _buildTabText(i)
-              ),
-          ],
+          items: List.generate(_appBarTitles.length, (i) => BottomNavigationBarItem(
+              icon: _getTabIcon(i),
+              title: _buildTabText(i)
+          )),
           type: BottomNavigationBarType.fixed,
           currentIndex: _tabIndex,
           elevation: 5.0,

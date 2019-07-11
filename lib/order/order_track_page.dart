@@ -11,15 +11,8 @@ class OrderTrack extends StatefulWidget {
 
 class _OrderTrackState extends State<OrderTrack> {
   
-  List<Step> _stepList = [];
-  
   @override
   Widget build(BuildContext context) {
-    _stepList.clear();
-    for (int i = 0; i < 4; i++){
-      _stepList.add(_buildStep(i));
-    }
-    
     return Scaffold(
       appBar: MyAppBar(
         centerTitle: "订单跟踪",
@@ -36,11 +29,11 @@ class _OrderTrackState extends State<OrderTrack> {
           ),
           Stepper(
             physics: BouncingScrollPhysics(),
-            currentStep: _stepList.length - 1,
+            currentStep: 4 - 1,
             controlsBuilder: (BuildContext context, {VoidCallback onStepContinue, VoidCallback onStepCancel}) {
               return Row(); //操作按钮置空
             },
-            steps: _stepList,
+            steps: List.generate(4, (i) => _buildStep(i)),
           )
         ],
       ),

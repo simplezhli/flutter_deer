@@ -148,10 +148,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                           padding: const EdgeInsets.symmetric(horizontal: 24.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              for (int i = 0; i < _codeList.length; i++)
-                                _buildInputWidget(i),
-                            ],
+                            children: List.generate(_codeList.length, (i) => _buildInputWidget(i))
                           ),
                         ),
                       ),

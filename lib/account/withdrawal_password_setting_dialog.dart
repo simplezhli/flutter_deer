@@ -69,10 +69,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                             borderRadius: BorderRadius.circular(4.0),
                           ),
                           child: Row(
-                            children: [
-                              for (int i = 0; i < _codeList.length; i++)
-                                _buildInputWidget(i)
-                            ]
+                            children: List.generate(_codeList.length, (i) => _buildInputWidget(i))
                           ),
                         ),
                         Gaps.vGap10,

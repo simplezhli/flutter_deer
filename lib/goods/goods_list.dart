@@ -41,10 +41,7 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
 
     //Item数量
     int count = widget.index == 0 ? 3 : (widget.index == 1 ? 15 : 26);
-    _list.clear();
-    for(int i = 0; i < count; i++){
-      _list.add("");
-    }
+    _list = List.generate(count, (i) => 'Item：$i');
   }
 
   @override

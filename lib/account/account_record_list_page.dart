@@ -36,9 +36,8 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
   }
   
   Widget _buildItem(int index){
-    List<Widget> list = [];
-    for (int i = 0; i < index + 1; i++){
-      list.add(Container(
+    List<Widget> list = List.generate(index + 1, (i){
+      return Container(
         height: 72.0,
         width: double.infinity,
         padding: const EdgeInsets.all(15.0),
@@ -51,27 +50,27 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
           children: <Widget>[
             Text(i % 2 == 0 ? "采购订单结算营收" : "提现", style: TextStyles.textDark14),
             Positioned(
-              top: 0.0,
-              right: 0.0,
-              child: Text(i % 2 == 0 ? "+10.00" : "-10.00", style: i % 2 == 0 ? TextStyle(
-                color: Colours.text_red,
-                fontWeight: FontWeight.bold
-              ) : TextStyles.textBoldDark14)
+                top: 0.0,
+                right: 0.0,
+                child: Text(i % 2 == 0 ? "+10.00" : "-10.00", style: i % 2 == 0 ? TextStyle(
+                    color: Colours.text_red,
+                    fontWeight: FontWeight.bold
+                ) : TextStyles.textBoldDark14)
             ),
             Positioned(
-              bottom: 0.0,
-              left: 0.0,
-              child: Text(i % 2 == 0 ? "18:20:10" : "18:20:11", style: TextStyles.textGray12)
+                bottom: 0.0,
+                left: 0.0,
+                child: Text(i % 2 == 0 ? "18:20:10" : "18:20:11", style: TextStyles.textGray12)
             ),
             Positioned(
-              bottom: 0.0,
-              right: 0.0,
-              child: Text("余额：20.00", style: TextStyles.textGray12)
+                bottom: 0.0,
+                right: 0.0,
+                child: Text("余额：20.00", style: TextStyles.textGray12)
             ),
           ],
         ),
-      ));
-    }
+      );
+    });
     return Column(
       children: list
     );
