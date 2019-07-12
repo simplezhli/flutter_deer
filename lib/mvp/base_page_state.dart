@@ -64,19 +64,19 @@ abstract class BasePageState<T extends StatefulWidget, V extends BasePagePresent
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    presenter.didChangeDependencies();
+    presenter?.didChangeDependencies();
   }
 
   @override
   void dispose() {
     super.dispose();
-    presenter.dispose();
+    presenter?.dispose();
   }
 
   @override
   void deactivate() {
     super.deactivate();
-    presenter.deactivate();
+    presenter?.deactivate();
   }
 
   @override
@@ -88,10 +88,10 @@ abstract class BasePageState<T extends StatefulWidget, V extends BasePagePresent
   @override
   void initState() {
     super.initState();
-    presenter.initState();
+    presenter?.initState();
   }
 
   void didUpdateWidgets<W>(W oldWidget) {
-    presenter.didUpdateWidgets<W>(oldWidget);
+    presenter?.didUpdateWidgets<W>(oldWidget);
   }
 }

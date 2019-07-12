@@ -103,39 +103,38 @@ class DioUtils {
     return options;
   }
 
-  Future<BaseEntity<T>> request<T>(String method, String url, {Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
-    var response = await _request<T>(method, url, data: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken);
-    return response;
+  Future<BaseEntity<T>> request<T>(Method method, String url, {Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
+    try{
+      String m = _getRequestMethod(method);
+      return await _request<T>(m, url, data: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken);
+    }catch(e){
+      if (e is DioError && CancelToken.isCancel(e)){
+        Log.i("取消请求接口： $url");
+      }
+      Error error = ExceptionHandle.handleException(e);
+      return Future.value(BaseEntity(error.code, error.msg, null));
+    }
   }
 
-  Future<BaseEntity<List<T>>> requestList<T>(String method, String url, {Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
-    var response = await _requestList<T>(method, url, data: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken);
-    return response;
+  Future<BaseEntity<List<T>>> requestList<T>(Method method, String url, {Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
+    try{
+      String m = _getRequestMethod(method);
+      return await _requestList<T>(m, url, data: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken);
+    }catch(e){
+      if (e is DioError && CancelToken.isCancel(e)){
+        Log.i("取消请求接口： $url");
+      }
+      Error error = ExceptionHandle.handleException(e);
+      return Future.value(BaseEntity(error.code, error.msg, []));
+    }
   }
 
   /// 统一处理(onSuccess返回T对象，onSuccessList返回List<T>)
   requestNetwork<T>(Method method, String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function(int code, String mag) onError,
     Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options, bool isList : false}){
-    String m;
-    switch(method){
-      case Method.get:
-        m = "GET";
-        break;
-      case Method.post:
-        m = "POST";
-        break;
-      case Method.put:
-        m = "PUT";
-        break;
-      case Method.patch:
-        m = "PATCH";
-        break;
-      case Method.delete:
-        m = "DELETE";
-        break;
-    }
-    Observable.fromFuture(isList ? requestList<T>(m, url, params: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken) :
-    request<T>(m, url, params: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken))
+    String m = _getRequestMethod(method);
+    Observable.fromFuture(isList ? _requestList<T>(m, url, data: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken) :
+    _request<T>(m, url, data: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken))
         .asBroadcastStream()
         .listen((result){
       if (result.code == 0){
@@ -155,6 +154,28 @@ class DioUtils {
   _onError(int code, String mag){
     Log.e("接口请求异常： code: $code, mag: $mag");
     Toast.show(mag);
+  }
+
+  String _getRequestMethod(Method method){
+    String m;
+    switch(method){
+      case Method.get:
+        m = "GET";
+        break;
+      case Method.post:
+        m = "POST";
+        break;
+      case Method.put:
+        m = "PUT";
+        break;
+      case Method.patch:
+        m = "PATCH";
+        break;
+      case Method.delete:
+        m = "DELETE";
+        break;
+    }
+    return m;
   }
 }
 

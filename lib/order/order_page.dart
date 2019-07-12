@@ -1,5 +1,6 @@
 
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
@@ -8,6 +9,7 @@ import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
 import 'package:flutter_deer/widgets/my_flexible_space_bar.dart';
+import 'package:flutter_deer/widgets/state_layout.dart';
 
 import 'order_router.dart';
 import 'pay_type_dialog.dart';
@@ -26,13 +28,37 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
   var _orderLeftButtonText = ["拒单", "拒单", "订单跟踪", "订单跟踪", "订单跟踪"];
   var _orderRightButtonText = ["接单", "开始配送", "完成", "", ""];
   
+  /// 是否正在加载数据
+  bool _isLoading = false;
+  int _page = 1;
+  final int _maxPage = 3;
+  StateType _stateType = StateType.loading;
+  
+  @override
+  void initState() {
+    super.initState();
+    _onRefresh();
+  }
+  
   @override
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
-      body: CustomScrollView(
-        physics: ClampingScrollPhysics(),
-        slivers: _sliverBuilder(),
+      body: NotificationListener(
+        onNotification: (ScrollNotification note){
+          if(note.metrics.pixels == note.metrics.maxScrollExtent){
+            _loadMore();
+          }
+        },
+        /// 问题参看：https://github.com/flutter/flutter/issues/34727 
+        /// 原生方案中，暂时可以采取的最好方案了
+        child: RefreshIndicator(
+          onRefresh: _onRefresh,
+          child: CustomScrollView(
+            physics: ClampingScrollPhysics(),
+            slivers: _sliverBuilder(),
+          ),
+        ),
       ),
     );
   }
@@ -46,8 +72,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
             onPressed: (){
               NavigatorUtils.push(context, OrderRouter.orderSearchPage);
             },
-            icon: loadAssetImage(
-              "order/icon_search",
+            icon: loadAssetImage("order/icon_search",
               width: 22.0,
               height: 22.0,
             ),
@@ -60,8 +85,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
         floating: false, // 不随着滑动隐藏标题
         pinned: true, // 固定在顶部
         flexibleSpace: MyFlexibleSpaceBar(
-          background: loadAssetImage(
-            "order/order_bg",
+          background: loadAssetImage("order/order_bg",
             width: double.infinity,
             height: 113.0,
             fit: BoxFit.fill,
@@ -111,20 +135,67 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
       ),
       SliverPadding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        sliver: SliverList(
+        sliver: _list.isEmpty ? SliverFillRemaining(child: StateLayout(type: _stateType)) : SliverList(
           delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
             return Container(
               margin: const EdgeInsets.only(top: 8.0),
-              child: index % 5 == 0 ? _getTimeTag() : _getOrderItem(),
+              child: index < _list.length ? (index % 5 == 0 ? _buildTimeTag() : _buildOrderItem()) : _buildMoreWidget(),
             );
           },
-          childCount: 50),
+          childCount: _list.length + 1),
         ),
       ),
     ];
   }
+
+  List _list = [];
+
+  Future _onRefresh() async {
+    await Future.delayed(Duration(seconds: 2), () {
+      setState(() {
+        _page = 1;
+        _list = List.generate(10, (i) => 'newItem：$i');
+      });
+    });
+  }
   
-  Widget _getOrderItem(){
+  bool _hasMore(){
+    return _page < _maxPage;
+  }
+
+  Future _loadMore() async {
+    if (_isLoading) {
+      return;
+    }
+    if (!_hasMore()){
+      return;
+    }
+    _isLoading = true;
+    await Future.delayed(Duration(seconds: 2), () {
+      setState(() {
+        _list.addAll(List.generate(10, (i) => 'newItem：$i'));
+        _page ++;
+        _isLoading = false;
+      });
+    });
+  }
+  
+  Widget _buildMoreWidget(){
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Offstage(offstage: !_hasMore(), child: const CupertinoActivityIndicator()),
+          Offstage(offstage: !_hasMore(), child: Gaps.hGap5),
+          Text(!_hasMore() ? '没有了呦~' : '正在加载中...', style: TextStyle(color: const Color(0x8A000000))),
+        ],
+      ),
+    );
+  }
+  
+  Widget _buildOrderItem(){
     return MyCard(
       child: Container(
         padding: const EdgeInsets.all(16.0),
@@ -299,7 +370,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
         });
   }
 
-  Widget _getTimeTag(){
+  Widget _buildTimeTag(){
     return MyCard(
         child: Container(
           height: 34.0,

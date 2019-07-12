@@ -6,6 +6,7 @@ import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/menu_reveal.dart';
+import 'package:flutter_deer/widgets/my_refresh_list.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
 
 import 'goods_router.dart';
@@ -40,13 +41,14 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
     _animation = new Tween(begin: 0.0, end: 1.1).animate(_curvedAnimation);
 
     //Item数量
-    int count = widget.index == 0 ? 3 : (widget.index == 1 ? 15 : 26);
-    _list = List.generate(count, (i) => 'Item：$i');
+    _maxPage = widget.index == 0 ? 1 : (widget.index == 1 ? 2 : 3);
+
+    _onRefresh();
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller?.dispose();
     super.dispose();
   }
 
@@ -58,12 +60,38 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
     "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2085939314,235211629&fm=26&gp=0.jpg",
     "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2441563887,1184810091&fm=26&gp=0.jpg"
   ];
+
+  Future _onRefresh() async {
+    await Future.delayed(Duration(seconds: 2), () {
+      setState(() {
+        _page = 1;
+        _list = List.generate(widget.index == 0 ? 3 : 10, (i) => 'newItem：$i');
+      });
+    });
+  }
+
+  Future _loadMore() async {
+    await Future.delayed(Duration(seconds: 2), () {
+      setState(() {
+        _list.addAll(List.generate(10, (i) => 'newItem：$i'));
+        _page ++;
+      });
+    });
+  }
+
+  int _page = 1;
+  int _maxPage;
+  StateType _stateType = StateType.loading;
   
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return _list.isEmpty ? StateLayout(type: StateType.goods,) : ListView.builder(
-      itemCount: _list.length,
+    return DeerListView(
+      data: _list,
+      stateType: _stateType,
+      onRefresh: _onRefresh,
+      loadMore: _loadMore,
+      hasMore: _page < _maxPage,
       itemBuilder: (_, index){
         return Stack(
           children: <Widget>[
@@ -292,6 +320,9 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
                       onPressed: (){
                         setState(() {
                           _list.removeAt(index);
+                          if (_list.isEmpty){
+                            _stateType = StateType.goods;
+                          }
                         });
                         NavigatorUtils.goBack(context);
                       },

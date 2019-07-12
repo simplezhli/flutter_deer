@@ -65,7 +65,7 @@ class _StateLayoutState extends State<StateLayout> {
                 image: AssetImage(Utils.getImgPath("state/$_img")),
               ),
             ),
-          ): CupertinoActivityIndicator(radius: 18.0),
+          ): CupertinoActivityIndicator(radius: 16.0),
           Gaps.vGap16,
           Text(
             widget.hintText ?? _hintText,

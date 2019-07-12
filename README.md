@@ -27,6 +27,7 @@
 * 使用高德地图定位选择地址
 * 输入框等部件的处理封装
 * 自定义列表滑动效果
+* 下拉刷新 + 上拉加载更多
 * PopupWindow
 * 简易的过渡动画
 * 侧滑删除
@@ -110,9 +111,10 @@ iOS需要自行下载代码运行。（效果是一致的）
 
 * [x] 添加地图功能，具体实现插件见 [flutter_2d_amap](https://github.com/simplezhli/flutter_2d_amap)
 
+* [x] 下拉刷新 + 上拉加载更多
+
 * [ ] 引入状态管理，预计使用 [provider](https://github.com/rrousselGit/provider)
 
-* [ ] 下拉刷新 + 上拉加载
 
 ## 友情赞助
 
