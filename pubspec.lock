@@ -130,7 +130,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: d717b5c5958b583e44e8e2144b3693e969585775
+      resolved-ref: "3df09cc834eb4f9f6dada75e92e3a076f68f23cd"
       url: "git://github.com/simplezhli/flutter_2d_amap.git"
     source: git
     version: "0.0.1"
@@ -257,7 +257,7 @@ packages:
       name: shared_preferences
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.5.3+1"
+    version: "0.5.3+2"
   simple_gesture_detector:
     dependency: "direct main"
     description:
