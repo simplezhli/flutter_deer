@@ -29,11 +29,11 @@ dependencies:
   # Toast插件 https://github.com/OpenFlutter/flutter_oktoast
   oktoast: ^2.2.0
   # 网络库 https://github.com/flutterchina/dio
-  dio: ^2.1.10
+  dio: ^2.1.13
   # https://github.com/ReactiveX/rxdart
-  rxdart: ^0.21.0
+  rxdart: ^0.22.0
   # Dart 常用工具类库 https://github.com/Sky24n/common_utils
-  common_utils: ^1.1.1
+  common_utils: ^1.1.3
   # Flutter 常用工具类库 https://github.com/Sky24n/flustars
   flustars: 0.2.5
   # Flutter UI组件库 https://github.com/flutterchina/flukit.
@@ -45,7 +45,7 @@ dependencies:
   # 侧滑删除 https://github.com/letsar/flutter_slidable
   flutter_slidable: ^0.5.3
   # WebView插件 https://github.com/flutter/plugins/tree/master/packages/webview_flutter
-  webview_flutter: 0.3.9+1
+  webview_flutter: 0.3.10
   # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions
   keyboard_actions: ^2.1.1+1
   # 列表悬浮头 https://github.com/fluttercommunity/flutter_sticky_headers

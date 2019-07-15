@@ -35,7 +35,7 @@ class ExceptionHandle {
           error.type == DioErrorType.RECEIVE_TIMEOUT){
         return Error(timeout_error, "连接超时！");
       }else if (error.type == DioErrorType.CANCEL){
-        return Error(cancel_error, "");
+        return Error(cancel_error, "取消请求");
       }else{
         return Error(unknown_error, "未知异常");
       }

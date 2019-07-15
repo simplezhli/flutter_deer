@@ -115,13 +115,6 @@ iOS需要自行下载代码运行。（效果是一致的）
 
 * [ ] 引入状态管理，预计使用 [provider](https://github.com/rrousselGit/provider)
 
-
-## 友情赞助
-
-对Flutter有兴趣的可以通过下图的二维码购买陈航老师的课程。
-
-<img src="preview/jikeshijian.jpg" width="450px"/>
-
 ## TODO
 
 已知问题：
@@ -145,6 +138,11 @@ iOS需要自行下载代码运行。（效果是一致的）
 
 - [Flutter-TianYue](https://github.com/ZDfordream/Flutter-TianYue)
 
+## 友情赞助
+
+对Flutter有兴趣的可以通过下图的二维码购买陈航老师的课程。
+
+<img src="preview/jikeshijian.jpg" width="450px"/>
 
 ## License
 

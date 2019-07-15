@@ -1,7 +1,7 @@
 
 import 'package:dio/dio.dart';
-import 'package:flutter_deer/net/base_entity.dart';
 import 'package:flutter_deer/net/dio_utils.dart';
+import 'package:meta/meta.dart';
 
 import 'mvps.dart';
 
@@ -36,54 +36,34 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
   void initState() {}
 
   /// 返回Future 适用于刷新，加载更多
-  Future request<T>(Method method, String url, {bool isShow : true, bool isClose: true, Function(T t) onSuccess, Function(int code, String mag) onError, Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
+  Future request<T>(Method method, {@required String url, bool isShow : true, bool isClose: true, Function(T t) onSuccess, Function(int code, String mag) onError, Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
     if (isShow) view.showProgress();
     await DioUtils.instance.request<T>(method, url,
         params: params,
         queryParameters: queryParameters,
-        options: options, 
-        cancelToken: cancelToken?? _cancelToken
-    ).then((BaseEntity<T> result){
-      if (result.code == 0){
-        if (onSuccess != null){
-          onSuccess(result.data);
-        }
-      }else{
-        if (result.message.isNotEmpty){
-          view.showToast(result.message);
-        }
-        if (onError != null){
-          onError(result.code, result.message);
-        }
-      }
-    });
+        options: options,
+        cancelToken: cancelToken?? _cancelToken,
+        onSuccess: onSuccess,
+        onError: onError
+    );
     if (isClose) view.closeProgress();
   }
 
   /// 返回Future 适用于刷新，加载更多
-  Future requestList<T>(Method method, String url, {bool isShow : true, bool isClose: true, Function(List<T> t) onSuccess, Function(int code, String mag) onError, Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
+  Future requestList<T>(Method method, {@required String url, bool isShow : true, bool isClose: true, Function(List<T> t) onSuccess, Function(int code, String mag) onError, Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
     if (isShow) view.showProgress();
     await DioUtils.instance.requestList<T>(method, url,
-        params: params, 
-        queryParameters: queryParameters, 
-        options: options, 
-        cancelToken: cancelToken?? _cancelToken
-    ).then((BaseEntity<List<T>> result){
-      if (result.code == 0){
-        onSuccess(result.data);
-      }else{
-        if (result.message.isNotEmpty){
-          view.showToast(result.message);
-        }
-        if (onError != null){
-          onError(result.code, result.message);
-        }
-      }
-    });
+        params: params,
+        queryParameters: queryParameters,
+        options: options,
+        cancelToken: cancelToken?? _cancelToken,
+        onSuccess: onSuccess,
+        onError: onError
+    );
     if (isClose) view.closeProgress();
   }
 
-  void requestNetwork<T>(Method method, String url, {bool isShow : true, bool isClose: true, Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function(int code, String mag) onError,
+  void requestNetwork<T>(Method method, {@required String url, bool isShow : true, bool isClose: true, Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function(int code, String mag) onError,
     Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options, bool isList : false}){
     if (isShow) view.showProgress();
     DioUtils.instance.requestNetwork<T>(method, url,
@@ -106,9 +86,6 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
         },
         onError: (code, msg){
           if (isClose) view.closeProgress();
-          if (msg.isNotEmpty){
-            view.showToast(msg);
-          }
           if (onError != null) {
             onError(code, msg);
           }

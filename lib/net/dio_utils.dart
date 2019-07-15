@@ -103,30 +103,46 @@ class DioUtils {
     return options;
   }
 
-  Future<BaseEntity<T>> request<T>(Method method, String url, {Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
-    try{
-      String m = _getRequestMethod(method);
-      return await _request<T>(m, url, data: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken);
-    }catch(e){
-      if (e is DioError && CancelToken.isCancel(e)){
-        Log.i("取消请求接口： $url");
+  Future request<T>(Method method, String url, {Function(T t) onSuccess, Function(int code, String mag) onError, Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
+    String m = _getRequestMethod(method);
+    return await _request<T>(m, url,
+        data: params,
+        queryParameters: queryParameters,
+        options: options,
+        cancelToken: cancelToken).then((BaseEntity<T> result){
+      if (result.code == 0){
+        if (onSuccess != null){
+          onSuccess(result.data);
+        }
+      }else{
+        onError == null ? _onError(result.code, result.message) : onError(result.code, result.message);
       }
+    }, onError: (e, _){
+      _cancelLogPrint(e, url);
       Error error = ExceptionHandle.handleException(e);
-      return Future.value(BaseEntity(error.code, error.msg, null));
-    }
+      onError == null ? _onError(error.code, error.msg) : onError(error.code, error.msg);
+    });
   }
 
-  Future<BaseEntity<List<T>>> requestList<T>(Method method, String url, {Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
-    try{
-      String m = _getRequestMethod(method);
-      return await _requestList<T>(m, url, data: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken);
-    }catch(e){
-      if (e is DioError && CancelToken.isCancel(e)){
-        Log.i("取消请求接口： $url");
+  Future requestList<T>(Method method, String url, {Function(List<T> t) onSuccess, Function(int code, String mag) onError, Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
+    String m = _getRequestMethod(method);
+    return await _requestList<T>(m, url,
+        data: params,
+        queryParameters: queryParameters,
+        options: options,
+        cancelToken: cancelToken).then((BaseEntity<List<T>> result){
+      if (result.code == 0){
+        if (onSuccess != null){
+          onSuccess(result.data);
+        }
+      }else{
+        onError == null ? _onError(result.code, result.message) : onError(result.code, result.message);
       }
+    }, onError: (e, _){
+      _cancelLogPrint(e, url);
       Error error = ExceptionHandle.handleException(e);
-      return Future.value(BaseEntity(error.code, error.msg, []));
-    }
+      onError == null ? _onError(error.code, error.msg) : onError(error.code, error.msg);
+    });
   }
 
   /// 统一处理(onSuccess返回T对象，onSuccessList返回List<T>)
@@ -138,22 +154,36 @@ class DioUtils {
         .asBroadcastStream()
         .listen((result){
       if (result.code == 0){
-        isList ? onSuccessList(result.data) : onSuccess(result.data);
+        if (isList){
+          if (onSuccessList != null){
+            onSuccessList(result.data);
+          }
+        }else{
+          if (onSuccess != null){
+            onSuccess(result.data);
+          }
+        }
       }else{
         onError == null ? _onError(result.code, result.message) : onError(result.code, result.message);
       }
     }, onError: (e){
-      if (e is DioError && CancelToken.isCancel(e)){
-        Log.i("取消请求接口： $url");
-      }
+      _cancelLogPrint(e, url);
       Error error = ExceptionHandle.handleException(e);
       onError == null ? _onError(error.code, error.msg) : onError(error.code, error.msg);
     });
   }
 
-  _onError(int code, String mag){
-    Log.e("接口请求异常： code: $code, mag: $mag");
-    Toast.show(mag);
+  _cancelLogPrint(dynamic e, String url){
+    if (e is DioError && CancelToken.isCancel(e)){
+      Log.i("取消请求接口： $url");
+    }
+  }
+
+  _onError(int code, String msg){
+    Log.e("接口请求异常： code: $code, mag: $msg");
+    if (code != ExceptionHandle.cancel_error){
+      Toast.show(msg);
+    }
   }
 
   String _getRequestMethod(Method method){

@@ -13,7 +13,8 @@ class ShopPagePresenter extends BasePagePresenter<ShopState> {
     WidgetsBinding.instance.addPostFrameCallback((_){
       /// 接口请求例子
       /// get请求参数queryParameters  post请求参数params
-      requestNetwork<UserEntity>(Method.get, "users/simplezhli",
+      requestNetwork<UserEntity>(Method.get,
+        url: "users/simplezhli",
         onSuccess: (data){
           view.setImg(data.avatarUrl);
         },
