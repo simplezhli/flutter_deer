@@ -3,7 +3,6 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_deer/util/log_utils.dart';
-import 'package:flutter_deer/util/toast.dart';
 import 'package:rxdart/rxdart.dart';
 import '../entity_factory.dart';
 import 'base_entity.dart';
@@ -115,12 +114,12 @@ class DioUtils {
           onSuccess(result.data);
         }
       }else{
-        onError == null ? _onError(result.code, result.message) : onError(result.code, result.message);
+        _onError(result.code, result.message, onError);
       }
     }, onError: (e, _){
       _cancelLogPrint(e, url);
       Error error = ExceptionHandle.handleException(e);
-      onError == null ? _onError(error.code, error.msg) : onError(error.code, error.msg);
+      _onError(error.code, error.msg, onError);
     });
   }
 
@@ -136,12 +135,12 @@ class DioUtils {
           onSuccess(result.data);
         }
       }else{
-        onError == null ? _onError(result.code, result.message) : onError(result.code, result.message);
+        _onError(result.code, result.message, onError);
       }
     }, onError: (e, _){
       _cancelLogPrint(e, url);
       Error error = ExceptionHandle.handleException(e);
-      onError == null ? _onError(error.code, error.msg) : onError(error.code, error.msg);
+      _onError(error.code, error.msg, onError);
     });
   }
 
@@ -164,12 +163,12 @@ class DioUtils {
           }
         }
       }else{
-        onError == null ? _onError(result.code, result.message) : onError(result.code, result.message);
+        _onError(result.code, result.message, onError);
       }
     }, onError: (e){
       _cancelLogPrint(e, url);
       Error error = ExceptionHandle.handleException(e);
-      onError == null ? _onError(error.code, error.msg) : onError(error.code, error.msg);
+      _onError(error.code, error.msg, onError);
     });
   }
 
@@ -179,10 +178,10 @@ class DioUtils {
     }
   }
 
-  _onError(int code, String msg){
+  _onError(int code, String msg, Function(int code, String mag) onError){
     Log.e("接口请求异常： code: $code, mag: $msg");
-    if (code != ExceptionHandle.cancel_error){
-      Toast.show(msg);
+    if (onError != null) {
+      onError(code, msg);
     }
   }
 

@@ -23,7 +23,8 @@
 ## 实现效果包括
 
 * mvp模式
-* 基于dio + rxdart的网络请求封装（支持泛型，自动解析，基于FlutterJsonBeanFactory插件实现）
+* 使用 `provider`做状态管理
+* 基于`dio + rxdart`的网络请求封装（支持泛型，自动解析，基于`FlutterJsonBeanFactory`插件实现）
 * 使用高德地图定位选择地址
 * 输入框等部件的处理封装
 * 自定义列表滑动效果
@@ -85,6 +86,7 @@ iOS需要自行下载代码运行。（效果是一致的）
 | 库                         | 功能             |
 | -------------------------- | --------------- |
 | [dio](https://github.com/flutterchina/dio)                            | **网络库** |
+| [provider](https://github.com/rrousselGit/provider)                       | **状态管理** |
 | [flutter_2d_amap](https://github.com/simplezhli/flutter_2d_amap)      | **高德2D地图**       |
 | [cached_network_image](https://github.com/renefloor/flutter_cached_network_image)        | **图片缓存**       |
 | [fluro](https://github.com/theyakka/fluro)                            | **路由管理**       |
@@ -112,7 +114,7 @@ iOS需要自行下载代码运行。（效果是一致的）
 
 * [x] 下拉刷新 + 上拉加载更多
 
-* [ ] 引入状态管理，预计使用 [provider](https://github.com/rrousselGit/provider)
+* [x] 引入状态管理，预计使用 [provider](https://github.com/rrousselGit/provider)
 
 ## TODO
 

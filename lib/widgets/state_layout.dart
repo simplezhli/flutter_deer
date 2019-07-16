@@ -50,6 +50,10 @@ class _StateLayoutState extends State<StateLayout> {
         _img = "";
         _hintText = "";
         break;
+      case StateType.empty:
+        _img = "";
+        _hintText = "";
+        break;
     }
     return Container(
       width: double.infinity,
@@ -57,7 +61,9 @@ class _StateLayoutState extends State<StateLayout> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          widget.type != StateType.loading ? Container(
+          widget.type == StateType.loading ? CupertinoActivityIndicator(radius: 16.0) :
+          (widget.type == StateType.empty ? SizedBox() :
+          Container(
             height: 120.0,
             width: 120.0,
             decoration: BoxDecoration(
@@ -65,7 +71,7 @@ class _StateLayoutState extends State<StateLayout> {
                 image: AssetImage(Utils.getImgPath("state/$_img")),
               ),
             ),
-          ): CupertinoActivityIndicator(radius: 16.0),
+          )),
           Gaps.vGap16,
           Text(
             widget.hintText ?? _hintText,
@@ -90,5 +96,7 @@ enum StateType {
   /// 无提现账号
   account,
   /// 加载中
-  loading
+  loading,
+  /// 空
+  empty
 }

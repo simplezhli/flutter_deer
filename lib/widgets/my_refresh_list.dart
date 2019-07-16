@@ -14,7 +14,7 @@ class DeerListView extends StatefulWidget {
     @required this.onRefresh,
     this.loadMore,
     this.hasMore : false,
-    this.stateType : StateType.loading,
+    this.stateType : StateType.empty,
     this.pageSize : 10
   }): super(key: key);
 

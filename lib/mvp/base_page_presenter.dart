@@ -1,6 +1,7 @@
 
 import 'package:dio/dio.dart';
 import 'package:flutter_deer/net/dio_utils.dart';
+import 'package:flutter_deer/net/error_handle.dart';
 import 'package:meta/meta.dart';
 
 import 'mvps.dart';
@@ -43,10 +44,16 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
         queryParameters: queryParameters,
         options: options,
         cancelToken: cancelToken?? _cancelToken,
-        onSuccess: onSuccess,
-        onError: onError
+        onSuccess: (data){
+          if (isClose) view.closeProgress();
+          if (onSuccess != null) {
+            onSuccess(data);
+          }
+        },
+        onError: (code, msg){
+          _onError(code, msg, isClose, onError);
+        }
     );
-    if (isClose) view.closeProgress();
   }
 
   /// 返回Future 适用于刷新，加载更多
@@ -57,10 +64,16 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
         queryParameters: queryParameters,
         options: options,
         cancelToken: cancelToken?? _cancelToken,
-        onSuccess: onSuccess,
-        onError: onError
+        onSuccess: (data){
+          if (isClose) view.closeProgress();
+          if (onSuccess != null) {
+            onSuccess(data);
+          }
+        },
+        onError: (code, msg){
+          _onError(code, msg, isClose, onError);
+        }
     );
-    if (isClose) view.closeProgress();
   }
 
   void requestNetwork<T>(Method method, {@required String url, bool isShow : true, bool isClose: true, Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function(int code, String mag) onError,
@@ -85,11 +98,18 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
           }
         },
         onError: (code, msg){
-          if (isClose) view.closeProgress();
-          if (onError != null) {
-            onError(code, msg);
-          }
+          _onError(code, msg, isClose, onError);
         }
     );
+  }
+
+  _onError(int code, String msg, bool isClose, Function(int code, String mag) onError){
+    if (isClose) view.closeProgress();
+    if (code != ExceptionHandle.cancel_error){
+      view.showToast(msg);
+    }
+    if (onError != null) {
+      onError(code, msg);
+    }
   }
 }

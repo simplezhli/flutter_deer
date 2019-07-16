@@ -36,22 +36,15 @@ class _MyAppBarState extends State<MyAppBar> {
 
   SystemUiOverlayStyle _overlayStyle = SystemUiOverlayStyle.light;
 
-  @override
-  void initState() {
-    super.initState();
-    setState(() {
-      _overlayStyle = ThemeData.estimateBrightnessForColor(widget.backgroundColor) == Brightness.dark
-          ? SystemUiOverlayStyle.light
-          : SystemUiOverlayStyle.dark;
-    });
-  }
-
   Color getColor(){
     return _overlayStyle == SystemUiOverlayStyle.light ? Colors.white : Colours.text_dark;
   }
   
   @override
   Widget build(BuildContext context) {
+    _overlayStyle = ThemeData.estimateBrightnessForColor(widget.backgroundColor) == Brightness.dark
+        ? SystemUiOverlayStyle.light
+        : SystemUiOverlayStyle.dark;
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: _overlayStyle,
       child: Material(

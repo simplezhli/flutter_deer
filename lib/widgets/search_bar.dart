@@ -31,15 +31,6 @@ class _SearchBarState extends State<SearchBar> {
 
   SystemUiOverlayStyle overlayStyle = SystemUiOverlayStyle.light;
   TextEditingController _controller = TextEditingController();
-  @override
-  void initState() {
-    super.initState();
-    setState(() {
-      overlayStyle = ThemeData.estimateBrightnessForColor(widget.backgroundColor) == Brightness.dark
-          ? SystemUiOverlayStyle.light
-          : SystemUiOverlayStyle.dark;
-    });
-  }
 
   Color getColor(){
     return overlayStyle == SystemUiOverlayStyle.light ? Colors.white : Colours.text_dark;
@@ -47,6 +38,9 @@ class _SearchBarState extends State<SearchBar> {
   
   @override
   Widget build(BuildContext context) {
+    overlayStyle = ThemeData.estimateBrightnessForColor(widget.backgroundColor) == Brightness.dark
+        ? SystemUiOverlayStyle.light
+        : SystemUiOverlayStyle.dark;
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: overlayStyle,
       child: Material(
