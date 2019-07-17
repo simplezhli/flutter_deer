@@ -1,7 +1,6 @@
 
 import 'package:dio/dio.dart';
-import 'package:flutter_deer/net/dio_utils.dart';
-import 'package:flutter_deer/net/error_handle.dart';
+import 'package:flutter_deer/net/net.dart';
 import 'package:meta/meta.dart';
 
 import 'mvps.dart';
@@ -51,7 +50,7 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
           }
         },
         onError: (code, msg){
-          _onError(code, msg, isClose, onError);
+          _onError(code, msg, onError);
         }
     );
   }
@@ -71,7 +70,7 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
           }
         },
         onError: (code, msg){
-          _onError(code, msg, isClose, onError);
+          _onError(code, msg, onError);
         }
     );
   }
@@ -98,13 +97,14 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
           }
         },
         onError: (code, msg){
-          _onError(code, msg, isClose, onError);
+          _onError(code, msg, onError);
         }
     );
   }
 
-  _onError(int code, String msg, bool isClose, Function(int code, String mag) onError){
-    if (isClose) view.closeProgress();
+  _onError(int code, String msg, Function(int code, String mag) onError){
+    /// 异常时直接关闭加载圈，不受isClose影响
+    view.closeProgress();
     if (code != ExceptionHandle.cancel_error){
       view.showToast(msg);
     }

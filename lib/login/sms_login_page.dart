@@ -70,7 +70,7 @@ class _SMSLoginState extends State<SMSLogin> {
               controller: _phoneController,
               maxLength: 11,
               keyboardType: TextInputType.phone,
-              hintText: "请输入账号",
+              hintText: "请输入手机号",
             ),
             Gaps.vGap10,
             MyTextField(

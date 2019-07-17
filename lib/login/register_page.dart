@@ -80,14 +80,14 @@ class _RegisterState extends State<Register> {
               controller: _nameController,
               maxLength: 11,
               keyboardType: TextInputType.phone,
-              hintText: "请输入账号",
+              hintText: "请输入手机号",
             ),
             Gaps.vGap10,
             MyTextField(
               controller: _vCodeController,
               keyboardType: TextInputType.number,
               getVCode: (){
-
+                Toast.show("并没有真正发送哦，直接登录吧！");
               },
               maxLength: 6,
               hintText: "请输入验证码",

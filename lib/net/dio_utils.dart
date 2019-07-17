@@ -62,7 +62,11 @@ class DioUtils {
       _code = _map["code"];
       _msg = _map["message"];
       if (_map.containsKey("data")){
-        _data = EntityFactory.generateOBJ(_map["data"]);
+        if (T.toString() == "String"){
+          _data = _map["data"].toString() as T;
+        }else{
+          _data = EntityFactory.generateOBJ(_map["data"]);
+        }
       }
     }catch(e){
       print(e);
