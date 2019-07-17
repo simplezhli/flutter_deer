@@ -319,7 +319,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
                         textColor: Colors.white,
                         onPressed: (){
                           if (_index == 2){
-                            showDialog(
+                            showElasticDialog(
                                 context: context,
                                 barrierDismissible: false,
                                 builder: (BuildContext context) {

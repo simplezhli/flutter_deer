@@ -116,9 +116,7 @@ class _PopupWindowRoute<T> extends PopupRoute<T> {
         builder: (BuildContext context) {
           return Material(
             type: MaterialType.transparency,
-            child: InkWell(
-              highlightColor: Colors.transparent,
-              splashColor: Colors.transparent,
+            child: GestureDetector(
               onTap: (){
                 NavigatorUtils.goBack(context);
               },

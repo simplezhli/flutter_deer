@@ -177,9 +177,7 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: <Widget>[
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
+                          GestureDetector(
                             child: Container(
                                 width: 24.0,
                                 height: 24.0,

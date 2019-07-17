@@ -81,7 +81,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
   // 暂时没有对输入数据进行校验
   _buildItem(int index){
     return _list[index].isAdd ?
-    InkWell(
+    GestureDetector(
       onTap: (){
         var config = _list[index - 1];
         if (config.max.isNotEmpty && config.min.isNotEmpty) {
@@ -93,8 +93,6 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
           return;
         }
       },
-      highlightColor: Colors.transparent,
-      splashColor: Colors.transparent,
       child: Container(
           height: 100.0,
           margin: const EdgeInsets.only(bottom: 8.0),

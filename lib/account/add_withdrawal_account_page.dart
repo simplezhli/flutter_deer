@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/account/account_router.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/store_select_text_item.dart';
@@ -131,7 +132,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
   }
 
   _showSelectAccountTypeDialog() {
-    showDialog(
+    showElasticDialog(
         context: context,
         builder: (BuildContext context) {
           return Material(

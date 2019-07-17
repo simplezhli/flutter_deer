@@ -108,9 +108,7 @@ class _MyTextFieldState extends State<MyTextField> {
           children: <Widget>[
             Offstage(
               offstage: _isShowDelete,
-              child: InkWell(
-                highlightColor: Colors.transparent,
-                splashColor: Colors.transparent,
+              child: GestureDetector(
                 child: loadAssetImage("login/qyg_shop_icon_delete",
                   width: 18.0,
                   height: 18.0,
@@ -126,9 +124,7 @@ class _MyTextFieldState extends State<MyTextField> {
               offstage: !widget.isInputPwd,
               child: Padding(
                 padding: const EdgeInsets.only(left: 15.0),
-                child: InkWell(
-                  highlightColor: Colors.transparent,
-                  splashColor: Colors.transparent,
+                child: GestureDetector(
                   child: loadAssetImage(
                     _isShowPwd ? "login/qyg_shop_icon_display" : "login/qyg_shop_icon_hide",
                     width: 18.0,

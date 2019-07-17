@@ -75,9 +75,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
         key: _bodyKey,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          InkWell(
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
+          GestureDetector(
             key: _buttonKey,
             child: Row(
               mainAxisSize: MainAxisSize.min,
@@ -219,9 +217,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
       fullWidth: true,
       position: position,
       elevation: 0.0,
-      child: InkWell(
-        splashColor: Colors.transparent,
-        highlightColor: Colors.transparent,
+      child: GestureDetector(
         onTap: (){
           NavigatorUtils.goBack(context);
         },
@@ -285,9 +281,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
       isShowBg: true,
       position: position,
       elevation: 0.0,
-      child: InkWell(
-        splashColor: Colors.transparent,
-        highlightColor: Colors.transparent,
+      child: GestureDetector(
         onTap: (){
           NavigatorUtils.goBack(context);
         },

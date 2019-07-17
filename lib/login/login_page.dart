@@ -141,9 +141,7 @@ class _LoginState extends State<Login> {
           Container(
             height: 40.0,
             alignment: Alignment.centerRight,
-            child: InkWell(
-              highlightColor: Colors.transparent,
-              splashColor: Colors.transparent,
+            child: GestureDetector(
               child: Text(
                 '忘记密码',
                 style: TextStyles.textGray12,
@@ -156,9 +154,7 @@ class _LoginState extends State<Login> {
           Gaps.vGap16,
           Container(
               alignment: Alignment.center,
-              child: InkWell(
-                highlightColor: Colors.transparent,
-                splashColor: Colors.transparent,
+              child: GestureDetector(
                 child: Text(
                   '还没账号？快去注册',
                   style: TextStyle(

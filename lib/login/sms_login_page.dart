@@ -85,9 +85,7 @@ class _SMSLoginState extends State<SMSLogin> {
             Gaps.vGap10,
             Container(
                 alignment: Alignment.centerLeft,
-                child: InkWell(
-                  highlightColor: Colors.transparent,
-                  splashColor: Colors.transparent,
+                child: GestureDetector(
                   child: RichText(
                     text: TextSpan(
                       text: '提示：未注册账号的手机号，请先',
@@ -112,9 +110,7 @@ class _SMSLoginState extends State<SMSLogin> {
             Container(
               height: 40.0,
               alignment: Alignment.centerRight,
-              child: InkWell(
-                highlightColor: Colors.transparent,
-                splashColor: Colors.transparent,
+              child: GestureDetector(
                 child: Text(
                   '忘记密码',
                   style: TextStyles.textGray12,

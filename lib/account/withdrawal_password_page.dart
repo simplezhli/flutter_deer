@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/account/sms_verify_dialog.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/base_dialog.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
@@ -39,7 +40,7 @@ class _WithdrawalPasswordPageState extends State<WithdrawalPasswordPage> {
           ClickItem(
             title: "忘记密码",
             onTap: (){
-              showDialog(
+              showElasticDialog(
                 context: context,
                 barrierDismissible: false,
                 builder: (BuildContext context) {

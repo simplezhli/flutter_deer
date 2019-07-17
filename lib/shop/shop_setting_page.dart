@@ -7,6 +7,7 @@ import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/shop/pay_type_dialog.dart';
 import 'package:flutter_deer/shop/shop_router.dart';
 import 'package:flutter_deer/util/app_navigator.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
@@ -130,7 +131,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                       title: "支付方式",
                       content: _getPayType(),
                       onTap: (){
-                        showDialog(
+                        showElasticDialog(
                             context: context,
                             barrierDismissible: false,
                             builder: (BuildContext context) {
@@ -155,7 +156,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                       title: "运费配置",
                       content: _sendType == 0 ? "运费满免配置" : "运费比例配置",
                       onTap: (){
-                        showDialog(
+                        showElasticDialog(
                             context: context,
                             barrierDismissible: false,
                             builder: (BuildContext context) {
