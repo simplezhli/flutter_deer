@@ -60,26 +60,24 @@ class _LoginState extends State<Login> {
     _passwordController.addListener(_verify);
     _nameController.text = FlutterStars.SpUtil.getString(Constant.phone);
   }
-  
+
   void _verify(){
     String name = _nameController.text;
     String password = _passwordController.text;
+    bool isClick = true;
     if (name.isEmpty || name.length < 11) {
-      setState(() {
-        _isClick = false;
-      });
-      return;
+      isClick = false;
     }
     if (password.isEmpty || password.length < 6) {
-      setState(() {
-        _isClick = false;
-      });
-      return;
+      isClick = false;
     }
 
-    setState(() {
-      _isClick = true;
-    });
+    /// 状态不一样在刷新，避免重复不必要的setState
+    if (isClick != _isClick){
+      setState(() {
+        _isClick = isClick;
+      });
+    }
   }
   
   void _login(){

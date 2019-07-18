@@ -27,36 +27,29 @@ class _ResetPasswordState extends State<ResetPassword> {
     _vCodeController.addListener(_verify);
     _passwordController.addListener(_verify);
   }
-  
+
   void _verify(){
     String name = _nameController.text;
     String vCode = _vCodeController.text;
     String password = _passwordController.text;
+    bool isClick = true;
     if (name.isEmpty || name.length < 11) {
-      setState(() {
-        _isClick = false;
-      });
-      return;
+      isClick = false;
     }
     if (vCode.isEmpty || vCode.length < 6) {
-      setState(() {
-        _isClick = false;
-      });
-      return;
+      isClick = false;
     }
     if (password.isEmpty || password.length < 6) {
-      setState(() {
-        _isClick = false;
-      });
-      return;
+      isClick = false;
     }
-
-    setState(() {
-      _isClick = true;
-    });
+    if (isClick != _isClick){
+      setState(() {
+        _isClick = isClick;
+      });
+    }
   }
   
-  void _login(){
+  void _reset(){
     Toast.show("确认......");
   }
   
@@ -80,7 +73,7 @@ class _ResetPasswordState extends State<ResetPassword> {
               controller: _nameController,
               maxLength: 11,
               keyboardType: TextInputType.phone,
-              hintText: "请输入账号",
+              hintText: "请输入手机号",
             ),
             Gaps.vGap10,
             MyTextField(
@@ -102,7 +95,7 @@ class _ResetPasswordState extends State<ResetPassword> {
             Gaps.vGap10,
             Gaps.vGap15,
             MyButton(
-              onPressed: _isClick ? _login : null,
+              onPressed: _isClick ? _reset : null,
               text: "确认",
             )
           ],

@@ -27,36 +27,29 @@ class _RegisterState extends State<Register> {
     _vCodeController.addListener(_verify);
     _passwordController.addListener(_verify);
   }
-  
+
   void _verify(){
     String name = _nameController.text;
     String vCode = _vCodeController.text;
     String password = _passwordController.text;
+    bool isClick = true;
     if (name.isEmpty || name.length < 11) {
-      setState(() {
-        _isClick = false;
-      });
-      return;
+      isClick = false;
     }
     if (vCode.isEmpty || vCode.length < 6) {
-      setState(() {
-        _isClick = false;
-      });
-      return;
+      isClick = false;
     }
     if (password.isEmpty || password.length < 6) {
-      setState(() {
-        _isClick = false;
-      });
-      return;
+      isClick = false;
     }
-
-    setState(() {
-      _isClick = true;
-    });
+    if (isClick != _isClick){
+      setState(() {
+        _isClick = isClick;
+      });
+    }
   }
   
-  void _login(){
+  void _register(){
     Toast.show("确认......");
   }
   
@@ -102,8 +95,8 @@ class _RegisterState extends State<Register> {
             Gaps.vGap10,
             Gaps.vGap15,
             MyButton(
-              onPressed: _isClick ? _login : null,
-              text: "确认",
+              onPressed: _isClick ? _register : null,
+              text: "注册",
             )
           ],
         ),

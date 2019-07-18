@@ -44,7 +44,11 @@ public class MainActivity extends FlutterActivity {
         XLog.tag(tag).e(message);
         break;
       case "logJson":
-        XLog.tag(tag).json(message);
+        try {
+          XLog.tag(tag).json(message);
+        } catch (Exception e) {
+          XLog.tag(tag).d(message);
+        }
         break;
       default:
         XLog.tag(tag).v(message);

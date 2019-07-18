@@ -166,28 +166,12 @@ class AdapterInterceptor extends Interceptor{
               content = content.substring(1, content.length - 1);
             }
             Map<String, dynamic> map = json.decode(content);
-            if (map.containsKey(ERROR) && map[ERROR].toString() != null && map[ERROR].toString() != "null" ){
-              List errorJson = json.decode(map[ERROR].toString());
-              if (errorJson.length == 1){
-                msg = errorJson[0][MESSAGE];
-              }else {
-                if (map.containsKey(MESSAGE)){
-                  msg = map[MESSAGE];
-                }else if(map.containsKey(MSG)){
-                  msg = map[MSG];
-                }else {
-                  msg = "";
-                }
-              }
-
-            }else{
-              if (map.containsKey(MESSAGE)){
-                msg = map[MESSAGE];
-              }else if(map.containsKey(MSG)){
-                msg = map[MSG];
-              }else {
-                msg = "";
-              }
+            if (map.containsKey(MESSAGE)){
+              msg = map[MESSAGE];
+            }else if(map.containsKey(MSG)){
+              msg = map[MSG];
+            }else {
+              msg = "未知异常";
             }
             result = sprintf(FAILURE_FORMAT, [response.statusCode, msg]);
             // 401 token失效时，单独处理，其他一律为成功

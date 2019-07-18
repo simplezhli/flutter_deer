@@ -25,26 +25,22 @@ class _UpdatePasswordPageState extends State<UpdatePasswordPage> {
     _oldPwdController.addListener(_verify);
     _newPwdController.addListener(_verify);
   }
-  
+
   void _verify(){
     String oldPwd = _oldPwdController.text;
     String newPwd = _newPwdController.text;
+    bool isClick = true;
     if (oldPwd.isEmpty || oldPwd.length < 6) {
-      setState(() {
-        _isClick = false;
-      });
-      return;
+      isClick = false;
     }
     if (newPwd.isEmpty || newPwd.length < 6) {
-      setState(() {
-        _isClick = false;
-      });
-      return;
+      isClick = false;
     }
-
-    setState(() {
-      _isClick = true;
-    });
+    if (isClick != _isClick){
+      setState(() {
+        _isClick = isClick;
+      });
+    }
   }
   
   void _confirm(){

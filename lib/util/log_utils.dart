@@ -39,12 +39,8 @@ class Log{
   
   static json(String msg, {tag: 'X-LOG'}) {
     if (debuggable){
-      try {
-        perform.invokeMethod('logJson', {'tag': tag, 'msg': msg});
-        _print(msg, tag: tag);
-      } catch (e) {
-        d(msg);
-      }
+      perform.invokeMethod('logJson', {'tag': tag, 'msg': msg});
+      _print(msg, tag: tag);
     }
   }
 

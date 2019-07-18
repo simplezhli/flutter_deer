@@ -30,22 +30,18 @@ class _SMSLoginState extends State<SMSLogin> {
   void _verify(){
     String name = _phoneController.text;
     String vCode = _vCodeController.text;
+    bool isClick = true;
     if (name.isEmpty || name.length < 11) {
-      setState(() {
-        _isClick = false;
-      });
-      return;
+      isClick = false;
     }
     if (vCode.isEmpty || vCode.length < 6) {
-      setState(() {
-        _isClick = false;
-      });
-      return;
+      isClick = false;
     }
-
-    setState(() {
-      _isClick = true;
-    });
+    if (isClick != _isClick){
+      setState(() {
+        _isClick = isClick;
+      });
+    }
   }
 
   void _login(){

@@ -2,7 +2,7 @@
 
 <img src="preview/logo.jpg"/>
 
-本项目为Flutter的学习练习项目（现阶段主要为UI练习）。
+本项目为学习Flutter的练习项目（要为UI练习）。
 
 通过设置、修改、组合自带部件以及自定义来实现具体的设计效果，满足日常开发的需求。
 
@@ -131,6 +131,8 @@ iOS需要自行下载代码运行。（效果是一致的）
 
 - [Flutter开发中的一些Tips(二)](https://weilu.blog.csdn.net/article/details/94849020)
 
+- [Flutter 动画曲线Curves 效果一览](https://weilu.blog.csdn.net/article/details/95632571)
+
 ## Thanks For
 
 - [flutter-go](https://github.com/alibaba/flutter-go)
@@ -141,7 +143,7 @@ iOS需要自行下载代码运行。（效果是一致的）
 
 ## 友情赞助
 
-对Flutter有兴趣的可以通过下图的二维码购买陈航老师的课程。
+想系统学习Flutter的可以通过下图的二维码购买陈航老师的课程。
 
 <img src="preview/jikeshijian.jpg" width="450px"/>
 
