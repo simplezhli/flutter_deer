@@ -7,6 +7,7 @@ import 'package:flutter_2d_amap/flutter_2d_amap.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/shop/shop_router.dart';
 import 'package:flutter_deer/store/store_router.dart';
+import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/store_select_text_item.dart';
 import 'package:flutter_deer/widgets/text_field_item.dart';
@@ -23,16 +24,19 @@ class StoreAudit extends StatefulWidget {
 
 class _StoreAuditState extends State<StoreAudit> {
 
-  Future<File> _imageFile;
+  File _imageFile;
   final FocusNode _nodeText1 = FocusNode();
   final FocusNode _nodeText2 = FocusNode();
   final FocusNode _nodeText3 = FocusNode();
   String _address = "陕西省 西安市 雁塔区 高新六路201号";
   
-  void _getImage() {
-    setState(() {
-      _imageFile = ImagePicker.pickImage(source: ImageSource.gallery);
-    });
+  void _getImage() async{
+    try {
+      _imageFile = await ImagePicker.pickImage(source: ImageSource.gallery);
+      setState(() {});
+    } catch (e) {
+      Toast.show("没有权限，无法打开相册！");
+    }
   }
 
   KeyboardActionsConfig _buildConfig(BuildContext context) {
@@ -112,27 +116,18 @@ class _StoreAuditState extends State<StoreAudit> {
               children: <Widget>[
                 InkWell(
                   borderRadius: BorderRadius.circular(16.0),
-                  onTap: (){
-                    //选择图片
-                    _getImage();
-                  },
-                  child: FutureBuilder(
-                      future: _imageFile,
-                      builder: (_, snapshot){
-                        return Container(
-                          width: 80.0,
-                          height: 80.0,
-                          decoration: BoxDecoration(
-                            // 图片圆角展示
-                            borderRadius: BorderRadius.circular(16.0),
-                            image: DecorationImage(
-                              image: snapshot.connectionState == ConnectionState.done && snapshot.data != null ?
-                              FileImage(snapshot.data) : AssetImage(Utils.getImgPath("store/icon_zj")),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        );
-                      }
+                  onTap: _getImage,
+                  child: Container(
+                    width: 80.0,
+                    height: 80.0,
+                    decoration: BoxDecoration(
+                      // 图片圆角展示
+                      borderRadius: BorderRadius.circular(16.0),
+                      image: DecorationImage(
+                        image: _imageFile != null ? FileImage(_imageFile) : AssetImage(Utils.getImgPath("store/icon_zj")),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
                 ),
                 Gaps.vGap10,

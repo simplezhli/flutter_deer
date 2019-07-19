@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/text_field_item.dart';
 import 'package:image_picker/image_picker.dart';
@@ -18,12 +19,15 @@ class GoodsSizeEdit extends StatefulWidget {
 
 class _GoodsSizeEditState extends State<GoodsSizeEdit> {
 
-  Future<File> _imageFile;
+  File _imageFile;
 
-  void _getImage() {
-    setState(() {
-      _imageFile = ImagePicker.pickImage(source: ImageSource.gallery);
-    });
+  void _getImage() async{
+    try {
+      _imageFile = await ImagePicker.pickImage(source: ImageSource.gallery);
+      setState(() {});
+    } catch (e) {
+      Toast.show("没有权限，无法打开相册！");
+    }
   }
 
   @override
@@ -60,23 +64,17 @@ class _GoodsSizeEditState extends State<GoodsSizeEdit> {
                               _getImage();
                             },
                             borderRadius: BorderRadius.circular(16.0),
-                            child: FutureBuilder(
-                                future: _imageFile,
-                                builder: (_, snapshot){
-                                  return Container(
-                                    width: 96.0,
-                                    height: 96.0,
-                                    decoration: BoxDecoration(
-                                      // 图片圆角展示
-                                      borderRadius: BorderRadius.circular(16.0),
-                                      image: DecorationImage(
-                                        image: snapshot.connectionState == ConnectionState.done && snapshot.data != null ?
-                                        FileImage(snapshot.data) : AssetImage(Utils.getImgPath("store/icon_zj")),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  );
-                                }
+                            child: Container(
+                              width: 96.0,
+                              height: 96.0,
+                              decoration: BoxDecoration(
+                                // 图片圆角展示
+                                borderRadius: BorderRadius.circular(16.0),
+                                image: DecorationImage(
+                                  image: _imageFile != null ? FileImage(_imageFile) : AssetImage(Utils.getImgPath("store/icon_zj")),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
                             ),
                           ),
                           Gaps.vGap8,

@@ -24,7 +24,7 @@
 
 * mvp模式
 * 使用 `provider`做状态管理
-* 基于`dio + rxdart`的网络请求封装（支持泛型，自动解析，基于`FlutterJsonBeanFactory`插件实现）
+* 基于`dio`的网络请求封装（支持泛型，自动解析，基于`FlutterJsonBeanFactory`插件实现）
 * 使用高德地图定位选择地址
 * 输入框等部件的处理封装
 * 自定义列表滑动效果
@@ -115,6 +115,8 @@ iOS需要自行下载代码运行。（效果是一致的）
 * [x] 下拉刷新 + 上拉加载更多
 
 * [x] 引入状态管理，预计使用 [provider](https://github.com/rrousselGit/provider)
+
+* [ ] 项目中有使用这一套框架及组件，会同步修复及优化遇到的问题。
 
 ## TODO
 

@@ -112,7 +112,7 @@ packages:
       name: fluro
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.5.0"
+    version: "1.5.1"
   flustars:
     dependency: "direct main"
     description:
@@ -130,7 +130,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "136e0c2da1a00dc9180a0d452e593ac89d47b3e8"
+      resolved-ref: "0ea1010417044fce2dd439607c97da5084d88e26"
       url: "git://github.com/simplezhli/flutter_2d_amap.git"
     source: git
     version: "0.0.1"
@@ -173,7 +173,7 @@ packages:
       name: image_picker
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.6.0+13"
+    version: "0.6.0+17"
   intl:
     dependency: transitive
     description:
@@ -264,7 +264,7 @@ packages:
       name: shared_preferences
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.5.3+2"
+    version: "0.5.3+4"
   simple_gesture_detector:
     dependency: "direct main"
     description:
@@ -297,7 +297,7 @@ packages:
       name: sqflite
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.1.6+1"
+    version: "1.1.6+2"
   stack_trace:
     dependency: transitive
     description:
@@ -360,7 +360,7 @@ packages:
       name: url_launcher
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "5.0.3"
+    version: "5.1.0"
   uuid:
     dependency: transitive
     description:
@@ -381,7 +381,7 @@ packages:
       name: webview_flutter
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.3.10"
+    version: "0.3.10+3"
 sdks:
   dart: ">=2.3.0-dev.0.5.flutter-a1668566e5 <3.0.0"
   flutter: ">=1.5.0 <2.0.0"

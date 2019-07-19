@@ -24,41 +24,14 @@ class AuthInterceptor extends Interceptor{
 }
 
 class TokenInterceptor extends Interceptor{
-  @override
-  onError(DioError error) async {
-    //401代表token过期
-    if (error.response != null && error.response.statusCode == ExceptionHandle.unauthorized) { 
-      Log.d("-----------自动刷新Token------------");
-      Dio dio = DioUtils.instance.getDio();
-      dio.lock();
-      String accessToken = await getToken(); // 获取新的accessToken
-      Log.e("-----------NewToken: $accessToken ------------");
-      SpUtil.putString(Constant.access_Token, accessToken);
-      dio.unlock();
 
-      // 重新请求失败接口
-      var request = error.response.request;
-      try {
-        var response = await dio.request(request.path,
-            data: request.data,
-            queryParameters: request.queryParameters,
-            cancelToken: request.cancelToken,
-            options: request,
-            onReceiveProgress: request.onReceiveProgress);
-        return response;
-      } on DioError catch (e) {
-        return e;
-      }
-    }
-    return super.onError(error);
-  }
-  
   Future<String> getToken() async {
 
     Map<String, String> params = Map();
     params["refresh_token"] = SpUtil.getString(Constant.refresh_Token);
     try{
-      var response = await DioUtils.instance.getDio().post("lgn/refreshToken", data: params);
+      _tokenDio.options = DioUtils.instance.getDio().options;
+      var response = await _tokenDio.post("lgn/refreshToken", data: params);
       if (response.statusCode == ExceptionHandle.success){
         return json.decode(response.data.toString())["access_token"];
       }
@@ -66,6 +39,42 @@ class TokenInterceptor extends Interceptor{
       Log.e("刷新Token失败！");
     }
     return "";
+  }
+
+  Dio _tokenDio = Dio();
+
+  @override
+  onResponse(Response response) async{
+    //401代表token过期
+    if (response != null && response.statusCode == ExceptionHandle.unauthorized) {
+      Log.d("-----------自动刷新Token------------");
+      Dio dio = DioUtils.instance.getDio();
+      dio.interceptors.requestLock.lock();
+      String accessToken = await getToken(); // 获取新的accessToken
+      Log.e("-----------NewToken: $accessToken ------------");
+      SpUtil.putString(Constant.access_Token, accessToken);
+      dio.interceptors.requestLock.unlock();
+
+      if (accessToken.isNotEmpty){{
+        // 重新请求失败接口
+        var request = response.request;
+        request.headers["Authorization"] = "Bearer $accessToken";
+        try {
+          Log.e("----------- 重新请求接口 ------------");
+          /// 避免重复执行拦截器，使用tokenDio
+          var response = await _tokenDio.request(request.path,
+              data: request.data,
+              queryParameters: request.queryParameters,
+              cancelToken: request.cancelToken,
+              options: request,
+              onReceiveProgress: request.onReceiveProgress);
+          return response;
+        } on DioError catch (e) {
+          return e;
+        }
+      }}
+    }
+    return super.onResponse(response);
   }
 }
 
@@ -117,7 +126,6 @@ class AdapterInterceptor extends Interceptor{
   static const String MSG = "msg";
   static const String SLASH = "\"";
   static const String MESSAGE = "message";
-  static const String ERROR = "validateErrors";
 
   static const String DEFAULT = "\"无返回信息\"";
   static const String NOT_FOUND = "未找到查询信息";
