@@ -72,6 +72,7 @@ class _MyAppBarState extends State<MyAppBar> {
               ),
               widget.isBack ? IconButton(
                 onPressed: (){
+                  FocusScope.of(context).requestFocus(new FocusNode());
                   Navigator.maybePop(context);
                 },
                 padding: const EdgeInsets.all(12.0),

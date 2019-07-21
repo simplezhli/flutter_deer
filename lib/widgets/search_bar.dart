@@ -55,6 +55,7 @@ class _SearchBarState extends State<SearchBar> {
                   height: 48.0,
                   child: InkWell(
                     onTap: (){
+                      FocusScope.of(context).requestFocus(new FocusNode());
                       Navigator.maybePop(context);
                     },
                     child: Padding(

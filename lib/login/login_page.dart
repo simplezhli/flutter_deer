@@ -7,6 +7,7 @@ import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/store/store_router.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/text_field.dart';
@@ -27,30 +28,6 @@ class _LoginState extends State<Login> {
   final FocusNode _nodeText1 = FocusNode();
   final FocusNode _nodeText2 = FocusNode();
   bool _isClick = false;
-
-  KeyboardActionsConfig _buildConfig(BuildContext context) {
-    return KeyboardActionsConfig(
-      keyboardActionsPlatform: KeyboardActionsPlatform.IOS,
-      keyboardBarColor: Colors.grey[200],
-      nextFocus: true,
-      actions: [
-        KeyboardAction(
-          focusNode: _nodeText1,
-          closeWidget: Padding(
-            padding: EdgeInsets.all(5.0),
-            child: Text("关闭"),
-          ),
-        ),
-        KeyboardAction(
-          focusNode: _nodeText2,
-          closeWidget: Padding(
-            padding: EdgeInsets.all(5.0),
-            child: Text("关闭"),
-          ),
-        ),
-      ],
-    );
-  }
 
   @override
   void initState() {
@@ -124,7 +101,7 @@ class _LoginState extends State<Login> {
           Gaps.vGap10,
           MyTextField(
             focusNode: _nodeText2,
-            config: _buildConfig(context),
+            config: Utils.getKeyboardActionsConfig([_nodeText1, _nodeText2]),
             isInputPwd: true,
             controller: _passwordController,
             maxLength: 16,
