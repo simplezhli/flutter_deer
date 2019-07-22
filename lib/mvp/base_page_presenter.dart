@@ -1,4 +1,4 @@
-
+import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter_deer/net/net.dart';
 import 'package:meta/meta.dart';
@@ -36,7 +36,7 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
   void initState() {}
 
   /// 返回Future 适用于刷新，加载更多
-  Future request<T>(Method method, {@required String url, bool isShow : true, bool isClose: true, Function(T t) onSuccess, Function(int code, String mag) onError, Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
+  Future request<T>(Method method, {@required String url, bool isShow : true, bool isClose: true, Function(T t) onSuccess, Function(int code, String mag) onError, dynamic params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
     if (isShow) view.showProgress();
     await DioUtils.instance.request<T>(method, url,
         params: params,
@@ -56,7 +56,7 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
   }
 
   /// 返回Future 适用于刷新，加载更多
-  Future requestList<T>(Method method, {@required String url, bool isShow : true, bool isClose: true, Function(List<T> t) onSuccess, Function(int code, String mag) onError, Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
+  Future requestList<T>(Method method, {@required String url, bool isShow : true, bool isClose: true, Function(List<T> t) onSuccess, Function(int code, String mag) onError, dynamic params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
     if (isShow) view.showProgress();
     await DioUtils.instance.requestList<T>(method, url,
         params: params,
@@ -76,7 +76,7 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
   }
 
   void requestNetwork<T>(Method method, {@required String url, bool isShow : true, bool isClose: true, Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function(int code, String mag) onError,
-    Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options, bool isList : false}){
+    dynamic params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options, bool isList : false}){
     if (isShow) view.showProgress();
     DioUtils.instance.requestNetwork<T>(method, url,
         params: params,
@@ -100,6 +100,29 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
           _onError(code, msg, onError);
         }
     );
+  }
+
+  /// 上传图片实现
+  Future<String> uploadImg(File image) async{
+    String imgPath = "";
+    try{
+      String path = image.path;
+      var name = path.substring(path.lastIndexOf("/") + 1, path.length);
+      var suffix = name.substring(name.lastIndexOf(".") + 1, name.length);
+      FormData formData = FormData.from({
+        "uploadIcon": UploadFileInfo(File(path), name, contentType: ContentType.parse("image/$suffix"))
+      });
+      await request<String>(Method.post,
+          url: Api.upload,
+          params: formData,
+          onSuccess: (data){
+            imgPath = data;
+          }
+      );
+    }catch(e){
+      view.showToast("图片上传失败！");
+    }
+    return imgPath;
   }
 
   _onError(int code, String msg, Function(int code, String mag) onError){

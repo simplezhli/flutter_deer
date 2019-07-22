@@ -50,7 +50,7 @@ class DioUtils {
   }
 
   // 数据返回格式统一，统一处理异常
-  Future<BaseEntity<T>> _request<T>(String method, String url, {Map<String, dynamic> data, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
+  Future<BaseEntity<T>> _request<T>(String method, String url, {dynamic data, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
     var response = await _dio.request(url, data: data, queryParameters: queryParameters, options: _checkOptions(method, options), cancelToken: cancelToken);
 
     int _code;
@@ -75,7 +75,7 @@ class DioUtils {
     return BaseEntity(_code, _msg, _data);
   }
 
-  Future<BaseEntity<List<T>>> _requestList<T>(String method, String url, {Map<String, dynamic> data, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
+  Future<BaseEntity<List<T>>> _requestList<T>(String method, String url, {dynamic data, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
     var response = await _dio.request(url, data: data, queryParameters: queryParameters, options: _checkOptions(method, options), cancelToken: cancelToken);
     int _code;
     String _msg;
@@ -106,7 +106,7 @@ class DioUtils {
     return options;
   }
 
-  Future request<T>(Method method, String url, {Function(T t) onSuccess, Function(int code, String mag) onError, Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
+  Future request<T>(Method method, String url, {Function(T t) onSuccess, Function(int code, String mag) onError, dynamic params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
     String m = _getRequestMethod(method);
     return await _request<T>(m, url,
         data: params,
@@ -127,7 +127,7 @@ class DioUtils {
     });
   }
 
-  Future requestList<T>(Method method, String url, {Function(List<T> t) onSuccess, Function(int code, String mag) onError, Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
+  Future requestList<T>(Method method, String url, {Function(List<T> t) onSuccess, Function(int code, String mag) onError, dynamic params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
     String m = _getRequestMethod(method);
     return await _requestList<T>(m, url,
         data: params,
@@ -150,7 +150,7 @@ class DioUtils {
 
   /// 统一处理(onSuccess返回T对象，onSuccessList返回List<T>)
   requestNetwork<T>(Method method, String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function(int code, String mag) onError,
-    Map<String, dynamic> params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options, bool isList : false}){
+    dynamic params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options, bool isList : false}){
     String m = _getRequestMethod(method);
     Observable.fromFuture(isList ? _requestList<T>(m, url, data: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken) :
     _request<T>(m, url, data: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken))

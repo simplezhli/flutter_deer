@@ -38,7 +38,7 @@ class TokenInterceptor extends Interceptor{
     }catch(e){
       Log.e("刷新Token失败！");
     }
-    return "";
+    return null;
   }
 
   Dio _tokenDio = Dio();
@@ -55,7 +55,7 @@ class TokenInterceptor extends Interceptor{
       SpUtil.putString(Constant.access_Token, accessToken);
       dio.interceptors.requestLock.unlock();
 
-      if (accessToken.isNotEmpty){{
+      if (accessToken != null){{
         // 重新请求失败接口
         var request = response.request;
         request.headers["Authorization"] = "Bearer $accessToken";
