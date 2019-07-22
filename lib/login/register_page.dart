@@ -1,11 +1,14 @@
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/toast.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/text_field.dart';
+import 'package:keyboard_actions/keyboard_actions.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -17,6 +20,9 @@ class _RegisterState extends State<Register> {
   TextEditingController _nameController = TextEditingController();
   TextEditingController _vCodeController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+  final FocusNode _nodeText1 = FocusNode();
+  final FocusNode _nodeText2 = FocusNode();
+  final FocusNode _nodeText3 = FocusNode();
   bool _isClick = false;
   
   @override
@@ -52,54 +58,66 @@ class _RegisterState extends State<Register> {
   void _register(){
     Toast.show("确认......");
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
-        title: "注册",
-      ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              "开启你的账号",
-              style: TextStyles.textBoldDark26,
-            ),
-            Gaps.vGap16,
-            MyTextField(
-              controller: _nameController,
-              maxLength: 11,
-              keyboardType: TextInputType.phone,
-              hintText: "请输入手机号",
-            ),
-            Gaps.vGap10,
-            MyTextField(
-              controller: _vCodeController,
-              keyboardType: TextInputType.number,
-              getVCode: (){
-                Toast.show("并没有真正发送哦，直接登录吧！");
-              },
-              maxLength: 6,
-              hintText: "请输入验证码",
-            ),
-            Gaps.vGap10,
-            MyTextField(
-              isInputPwd: true,
-              controller: _passwordController,
-              maxLength: 16,
-              hintText: "请输入密码",
-            ),
-            Gaps.vGap10,
-            Gaps.vGap15,
-            MyButton(
-              onPressed: _isClick ? _register : null,
-              text: "注册",
-            )
-          ],
+        appBar: MyAppBar(
+          title: "注册",
         ),
+        body: defaultTargetPlatform == TargetPlatform.iOS ? FormKeyboardActions(
+          child: _buildBody(),
+        ) : SingleChildScrollView(
+          child: _buildBody(),
+        )
+    );
+  }
+  
+  _buildBody(){
+    return Padding(
+      padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Text(
+            "开启你的账号",
+            style: TextStyles.textBoldDark26,
+          ),
+          Gaps.vGap16,
+          MyTextField(
+            focusNode: _nodeText1,
+            config: Utils.getKeyboardActionsConfig([_nodeText1, _nodeText2, _nodeText3]),
+            controller: _nameController,
+            maxLength: 11,
+            keyboardType: TextInputType.phone,
+            hintText: "请输入手机号",
+          ),
+          Gaps.vGap10,
+          MyTextField(
+            focusNode: _nodeText2,
+            controller: _vCodeController,
+            keyboardType: TextInputType.number,
+            getVCode: (){
+              Toast.show("并没有真正发送哦，直接登录吧！");
+            },
+            maxLength: 6,
+            hintText: "请输入验证码",
+          ),
+          Gaps.vGap10,
+          MyTextField(
+            focusNode: _nodeText3,
+            isInputPwd: true,
+            controller: _passwordController,
+            maxLength: 16,
+            hintText: "请输入密码",
+          ),
+          Gaps.vGap10,
+          Gaps.vGap15,
+          MyButton(
+            onPressed: _isClick ? _register : null,
+            text: "注册",
+          )
+        ],
       ),
     );
   }

@@ -40,7 +40,7 @@ class MyTextField extends StatefulWidget {
 
 class _MyTextFieldState extends State<MyTextField> {
   bool _isShowPwd = false;
-  bool _isShowDelete = true;
+  bool _isShowDelete;
   bool _isClick = true;
   /// 倒计时秒数
   final int second = 30;
@@ -51,7 +51,9 @@ class _MyTextFieldState extends State<MyTextField> {
   @override
   void initState() {
     super.initState();
-    //监听输入改变  
+    /// 获取初始化值
+    _isShowDelete = widget.controller.text.isEmpty;
+    /// 监听输入改变  
     widget.controller.addListener((){
       setState(() {
         _isShowDelete = widget.controller.text.isEmpty;

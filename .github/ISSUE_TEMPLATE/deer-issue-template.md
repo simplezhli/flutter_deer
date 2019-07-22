@@ -1,6 +1,6 @@
 ---
 name: deer issue template
-about: Describe this issue template's purpose here.
+about: 请确保已经详细阅读了readme和查找了已有的issue，避免提出重复的问题。
 title: ''
 labels: ''
 assignees: ''
@@ -9,7 +9,8 @@ assignees: ''
 
 ### 运行环境 ###
 
-- [x] 设备型号：如：`MIX 2s`
+- [x] 电脑系统：如：`Windows 10`
+- [x] 设备型号：如：`小米MIX 2s`
 - [x] 设备系统版本：如 `Android 9.0`
 - [x] Flutter 版本：如 `1.5.4`
 

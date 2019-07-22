@@ -8,7 +8,7 @@ import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:flukit/flukit.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flustars/flustars.dart';
 
 class SplashPage extends StatefulWidget {
@@ -40,7 +40,7 @@ class _SplashPageState extends State<SplashPage> {
   
   void _initAsync() async {
     await SpUtil.getInstance();
-    if (SpUtil.getBool(Constant.key_guide, defValue: true)) {
+    if (!SpUtil.getBool(Constant.key_guide, defValue: true)) {
       SpUtil.putBool(Constant.key_guide, false);
       _initGuide();
     } else {
@@ -81,32 +81,22 @@ class _SplashPageState extends State<SplashPage> {
           Offstage(
             offstage: !(_status == 1),
             child: Swiper(
-              autoStart: false, 
-              circular: false,
-              indicator: null,
-              children: [
-                for (int i = 0, length = _guideList.length; i < length; i++)
-                  if (i == length - 1)
-                    InkWell(
-                      onTap: (){
-                        _goLogin();
-                      },
-                      child: loadAssetImage(
-                        _guideList[i],
-                        fit: BoxFit.fill,
-                        width: double.infinity,
-                        height: double.infinity,
-                      ),
-                    )
-                  else
-                    loadAssetImage(
-                      _guideList[i],
-                      fit: BoxFit.fill,
-                      width: double.infinity,
-                      height: double.infinity,
-                    )
-              ]
-            ),
+              itemCount: _guideList.length,
+              loop: false,
+              itemBuilder: (_, index){
+                return loadAssetImage(
+                  _guideList[index],
+                  fit: BoxFit.fill,
+                  width: double.infinity,
+                  height: double.infinity,
+                );
+              },
+              onTap: (index){
+                if (index == _guideList.length - 1){
+                  _goLogin();
+                }
+              },
+            )
           )
         ],
       ),

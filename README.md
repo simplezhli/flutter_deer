@@ -78,7 +78,7 @@ iOS需要自行下载代码运行。（效果是一致的）
 ```dart
 
   flustars: ^0.2.6+1
-  cached_network_image: ^1.0.0
+  cached_network_image: ^1.1.0
 ```
     
 ## 使用到的三方库
@@ -94,7 +94,7 @@ iOS需要自行下载代码运行。（效果是一致的）
 | [common_utils](https://github.com/Sky24n/common_utils)                | **Dart 常用工具类库**     |
 | [flutter_slidable](https://github.com/letsar/flutter_slidable)        | **侧滑删除**      |
 | [flustars](https://github.com/Sky24n/flustars)                        | **Flutter 常用工具类库**       |
-| [flukit](https://github.com/flutterchina/flukit)                      | **Flutter UI组件库**       |
+| [flutter_swiper](https://github.com/best-flutter/flutter_swiper)      | **Flutter 轮播组件**       |
 | [url_launcher](https://github.com/flutter/plugins/tree/master/packages/url_launcher)   | **启动URL的插件**       |
 | [image_picker](https://github.com/flutter/plugins/tree/master/packages/image_picker)   | **图片选择插件** |
 | [rxdart](https://github.com/ReactiveX/rxdart)                         | **Dart的响应式扩展** |
@@ -140,8 +140,6 @@ iOS需要自行下载代码运行。（效果是一致的）
 - [flutter-go](https://github.com/alibaba/flutter-go)
 
 - [flutter_wanandroid](https://github.com/Sky24n/flutter_wanandroid)
-
-- [Flutter-TianYue](https://github.com/ZDfordream/Flutter-TianYue)
 
 ## 友情赞助
 
