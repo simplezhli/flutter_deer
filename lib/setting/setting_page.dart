@@ -6,6 +6,7 @@ import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
 
+import 'exit_dialog.dart';
 import 'setting_router.dart';
 
 class SettingPage extends StatefulWidget {
@@ -48,7 +49,13 @@ class _SettingPageState extends State<SettingPage> {
           ),
           ClickItem(
             title: "退出当前账号",
-            onTap: (){}
+            onTap: (){
+              showDialog(
+                context: context,
+                barrierDismissible: false,
+                builder: (_) => ExitDialog()
+              );
+            }
           ),
         ],
       ),
