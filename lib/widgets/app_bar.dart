@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
 
-class MyAppBar extends StatefulWidget implements PreferredSizeWidget{
+class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
 
   const MyAppBar({
     Key key,
@@ -24,31 +24,15 @@ class MyAppBar extends StatefulWidget implements PreferredSizeWidget{
   final String actionName;
   final VoidCallback onPressed;
   final bool isBack;
-  
-  @override
-  _MyAppBarState createState() => _MyAppBarState();
 
-  @override
-  Size get preferredSize => Size.fromHeight(48.0);
-}
-
-class _MyAppBarState extends State<MyAppBar> {
-
-  SystemUiOverlayStyle _overlayStyle = SystemUiOverlayStyle.light;
-
-  Color getColor(){
-    return _overlayStyle == SystemUiOverlayStyle.light ? Colors.white : Colours.text_dark;
-  }
-  
   @override
   Widget build(BuildContext context) {
-    _overlayStyle = ThemeData.estimateBrightnessForColor(widget.backgroundColor) == Brightness.dark
-        ? SystemUiOverlayStyle.light
-        : SystemUiOverlayStyle.dark;
+    SystemUiOverlayStyle _overlayStyle = ThemeData.estimateBrightnessForColor(backgroundColor) == Brightness.dark
+        ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark;
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: _overlayStyle,
       child: Material(
-        color: widget.backgroundColor,
+        color: backgroundColor,
         child: SafeArea(
           child: Stack(
             alignment: Alignment.centerLeft,
@@ -57,57 +41,55 @@ class _MyAppBarState extends State<MyAppBar> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                    alignment: widget.centerTitle.isEmpty ? Alignment.centerLeft : Alignment.center,
+                    alignment: centerTitle.isEmpty ? Alignment.centerLeft : Alignment.center,
                     width: double.infinity,
                     child: Text(
-                      widget.title.isEmpty ? widget.centerTitle : widget.title,
-                      style: TextStyle(
-                        fontSize: Dimens.font_sp18,
-                        color: getColor(),
-                      )
+                        title.isEmpty ? centerTitle : title,
+                        style: TextStyle(
+                          fontSize: Dimens.font_sp18,
+                          color: _overlayStyle == SystemUiOverlayStyle.light ? Colors.white : Colours.text_dark,
+                        )
                     ),
                     padding: const EdgeInsets.symmetric(horizontal: 48.0),
                   )
                 ],
               ),
-              widget.isBack ? IconButton(
+              isBack ? IconButton(
                 onPressed: (){
-                  FocusScope.of(context).requestFocus(new FocusNode());
+                  FocusScope.of(context).requestFocus(FocusNode());
                   Navigator.maybePop(context);
                 },
                 padding: const EdgeInsets.all(12.0),
                 icon: Image.asset(
-                  widget.backImg,
-                  color: getColor(),
+                  backImg,
+                  color: _overlayStyle == SystemUiOverlayStyle.light ? Colors.white : Colours.text_dark,
                 ),
               ) : Gaps.empty,
               Positioned(
                 right: 0.0,
                 child: Theme(
                   data: ThemeData(
-                    buttonTheme: ButtonThemeData(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      minWidth: 60.0,
-                    )
+                      buttonTheme: ButtonThemeData(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        minWidth: 60.0,
+                      )
                   ),
-                  child: widget.actionName.isEmpty ? Container() :
+                  child: actionName.isEmpty ? Container() :
                   FlatButton(
-                    child: Text(widget.actionName),
-                    textColor: getColor(),
+                    child: Text(actionName),
+                    textColor: _overlayStyle == SystemUiOverlayStyle.light ? Colors.white : Colours.text_dark,
                     highlightColor: Colors.transparent,
-                    onPressed: widget.onPressed,
+                    onPressed: onPressed,
                   ),
                 ),
               ),
-//            IconButton(
-//              icon: Icon(Icons.add),
-//              highlightColor: Colors.transparent,
-//              onPressed: widget.onPressed,
-//            )
             ],
           ),
         ),
       ),
     );
   }
+
+  @override
+  Size get preferredSize => Size.fromHeight(48.0);
 }

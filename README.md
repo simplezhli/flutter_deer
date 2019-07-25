@@ -64,21 +64,21 @@ iOS需要自行下载代码运行。（效果是一致的）
 
 ## 项目运行环境
 
-    1. Flutter version 1.5.4+hotfix.2
+    1. Flutter version 1.7.8+hotfix.4
      
-    2. Dart version 2.3.0
+    2. Dart version 2.4.0
 
 
 **注意**：
 
-本人也尝试过升级到最新的稳定本`1.7.8+hotfix.3`，但是因为华为小米的个别机型在删除`TextField`中的文字会导致崩溃（具体[点击查看](https://weilu.blog.csdn.net/article/details/94849020)），所以暂时还是采用`1.5.4+hotfix.2`。
+本人也尝试过升级过稳定版本`1.7.8+hotfix.2` 和 `1.7.8+hotfix.3`，但是因为华为小米的个别机型在删除`TextField`中的文字会导致崩溃（具体[点击查看](https://weilu.blog.csdn.net/article/details/94849020)），所以推荐采用`1.7.8+hotfix.4`。
 
-如果你的Flutter版本高于1.5.9，需要使用高版本的依赖库兼容，请手动替换：
+如果你的Flutter版本低于1.5.9，需要使用低版本的依赖库，请手动替换：
 
 ```dart
 
-  flustars: ^0.2.6+1
-  cached_network_image: ^1.1.0
+  flustars: 0.2.5
+  cached_network_image: ^0.7.0
 ```
     
 ## 使用到的三方库
