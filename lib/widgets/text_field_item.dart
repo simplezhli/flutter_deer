@@ -52,17 +52,19 @@ class TextFieldItem extends StatelessWidget {
           Expanded(
             flex: 1,
             child: TextField(
-                focusNode: focusNode,
-                keyboardType: keyboardType,
-                inputFormatters: _getInputFormatters(),
-                controller: controller,
-                decoration: InputDecoration(
-                    hintText: hintText,
-                    border: InputBorder.none, //去掉下划线
-                    hintStyle: TextStyles.textGrayC14
-                )
+              focusNode: focusNode,
+              keyboardType: keyboardType,
+              inputFormatters: _getInputFormatters(),
+              controller: controller,
+              style: TextStyles.textDark14,
+              decoration: InputDecoration(
+                hintText: hintText,
+                border: InputBorder.none, //去掉下划线
+                hintStyle: TextStyles.textGrayC14
+              )
             ),
-          )
+          ),
+          Gaps.hGap16
         ],
       ),
     );

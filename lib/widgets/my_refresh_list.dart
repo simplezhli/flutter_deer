@@ -46,6 +46,7 @@ class _DeerListViewState extends State<DeerListView> {
         if (note.metrics.pixels == note.metrics.maxScrollExtent){
           _loadMore();
         }
+        return true;
       },
       child: RefreshIndicator(
         onRefresh: widget.onRefresh,

@@ -61,7 +61,7 @@ class BaseDialog extends StatelessWidget{
                       child: Container(
                         height: 48.0,
                         child: FlatButton(
-                          child: Text(
+                          child: const Text(
                             "取消",
                             style: TextStyle(
                                 fontSize: Dimens.font_sp18
@@ -83,7 +83,7 @@ class BaseDialog extends StatelessWidget{
                       child: Container(
                         height: 48.0,
                         child: FlatButton(
-                          child: Text(
+                          child: const Text(
                             "确定",
                             style: TextStyle(
                                 fontSize: Dimens.font_sp18

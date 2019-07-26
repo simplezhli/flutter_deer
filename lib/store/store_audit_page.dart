@@ -9,11 +9,11 @@ import 'package:flutter_deer/shop/shop_router.dart';
 import 'package:flutter_deer/store/store_router.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
+import 'package:flutter_deer/widgets/selected_image.dart';
 import 'package:flutter_deer/widgets/store_select_text_item.dart';
 import 'package:flutter_deer/widgets/text_field_item.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
 
@@ -104,38 +104,22 @@ class _StoreAuditState extends State<StoreAudit> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Gaps.vGap5,
-          Padding(
+          const Padding(
             padding: const EdgeInsets.only(left: 16.0),
-            child: Text("店铺资料", style: TextStyles.textBoldDark18),
+            child: const Text("店铺资料", style: TextStyles.textBoldDark18),
           ),
           Gaps.vGap16,
-          Container(
-            width: double.infinity,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                InkWell(
-                  borderRadius: BorderRadius.circular(16.0),
-                  onTap: _getImage,
-                  child: Container(
-                    width: 80.0,
-                    height: 80.0,
-                    decoration: BoxDecoration(
-                      // 图片圆角展示
-                      borderRadius: BorderRadius.circular(16.0),
-                      image: DecorationImage(
-                        image: _imageFile != null ? FileImage(_imageFile) : AssetImage(Utils.getImgPath("store/icon_zj")),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ),
-                Gaps.vGap10,
-                Text(
-                  "店主手持身份证或营业执照",
-                  style: TextStyles.textGray14,
-                )
-              ],
+          Center(
+            child: SelectedImage(
+              image: _imageFile,
+              onTap: _getImage
+            ),
+          ),
+          Gaps.vGap10,
+          const Center(
+            child: const Text(
+              "店主手持身份证或营业执照",
+              style: TextStyles.textGray14,
             ),
           ),
           Gaps.vGap16,
@@ -168,9 +152,9 @@ class _StoreAuditState extends State<StoreAudit> {
           ),
           Gaps.vGap16,
           Gaps.vGap16,
-          Padding(
+          const Padding(
             padding: const EdgeInsets.only(left: 16.0),
-            child: Text("店主信息", style: TextStyles.textBoldDark18),
+            child: const Text("店主信息", style: TextStyles.textBoldDark18),
           ),
           Gaps.vGap16,
           TextFieldItem(

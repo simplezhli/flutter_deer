@@ -49,6 +49,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
           if(note.metrics.pixels == note.metrics.maxScrollExtent){
             _loadMore();
           }
+          return true;
         },
         /// 问题参看：https://github.com/flutter/flutter/issues/34727 
         /// 原生方案中，暂时可以采取的最好方案了

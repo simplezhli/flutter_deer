@@ -47,7 +47,7 @@ class ClickItem extends StatelessWidget {
               title,
               style: TextStyles.textDark14,
             ),
-            Spacer(),
+            const Spacer(),
             Expanded(
               flex: 4,
               child: Padding(

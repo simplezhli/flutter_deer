@@ -3,13 +3,14 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
+import 'package:flutter_deer/widgets/selected_image.dart';
 import 'package:flutter_deer/widgets/text_field_item.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 
 import 'goods_router.dart';
@@ -57,44 +58,26 @@ class _GoodsEditState extends State<GoodsEdit> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Gaps.vGap5,
-                    Padding(
+                    const Padding(
                       padding: const EdgeInsets.only(left: 16.0),
-                      child: Text(
+                      child: const Text(
                         "基本信息",
                         style: TextStyles.textBoldDark18,
                       ),
                     ),
                     Gaps.vGap16,
-                    Container(
-                      width: double.infinity,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          InkWell(
-                            onTap: (){
-                              //选择图片
-                              _getImage();
-                            },
-                            borderRadius: BorderRadius.circular(16.0),
-                            child: Container(
-                              width: 96.0,
-                              height: 96.0,
-                              decoration: BoxDecoration(
-                                // 图片圆角展示
-                                borderRadius: BorderRadius.circular(16.0),
-                                image: DecorationImage(
-                                  image: _imageFile != null ? FileImage(_imageFile) : AssetImage(Utils.getImgPath("store/icon_zj")),
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Gaps.vGap8,
-                          Text(
-                            "点击添加商品图片",
-                            style: TextStyles.textGray14,
-                          )
-                        ],
+                    Center(
+                      child: SelectedImage(
+                        size: 96.0,
+                        image: _imageFile,
+                        onTap: _getImage
+                      ),
+                    ),
+                    Gaps.vGap8,
+                    const Center(
+                      child: const Text(
+                        "点击添加商品图片",
+                        style: TextStyles.textGray14,
                       ),
                     ),
                     Gaps.vGap16,
@@ -111,9 +94,23 @@ class _GoodsEditState extends State<GoodsEdit> {
                       keyboardType: TextInputType.numberWithOptions(decimal: true),
                       hintText: "填写商品单品折后价格",
                     ),
-                    TextFieldItem(
-                      title: "商品条码",
-                      hintText: "选填",
+                    Stack(
+                      alignment: Alignment.centerRight,
+                      children: <Widget>[
+                        TextFieldItem(
+                          title: "商品条码",
+                          hintText: "选填",
+                        ),
+                        Positioned(
+                          right: 16.0,
+                          child: GestureDetector(
+                            child: loadAssetImage("goods/scanning", width: 16.0, height: 16.0),
+                            onTap: (){
+                              Toast.show("扫码添加");
+                            },
+                          ),
+                        )
+                      ],
                     ),
                     TextFieldItem(
                       title: "商品说明",
@@ -121,9 +118,9 @@ class _GoodsEditState extends State<GoodsEdit> {
                     ),
                     Gaps.vGap16,
                     Gaps.vGap16,
-                    Padding(
+                    const Padding(
                       padding: const EdgeInsets.only(left: 16.0),
-                      child: Text(
+                      child: const Text(
                         "折扣立减",
                         style: TextStyles.textBoldDark18,
                       ),
@@ -139,9 +136,9 @@ class _GoodsEditState extends State<GoodsEdit> {
                     ),
                     Gaps.vGap16,
                     Gaps.vGap16,
-                    Padding(
+                    const Padding(
                       padding: const EdgeInsets.only(left: 16.0),
-                      child: Text(
+                      child: const Text(
                         "类型规格",
                         style: TextStyles.textBoldDark18,
                       ),
