@@ -123,7 +123,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "0ea1010417044fce2dd439607c97da5084d88e26"
+      resolved-ref: "9705e914e9c3593f41cb4d32d0f43b3abb9b14f1"
       url: "https://github.com/simplezhli/flutter_2d_amap.git"
     source: git
     version: "0.0.1"
@@ -229,7 +229,7 @@ packages:
       name: path_provider
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.5.0+1"
+    version: "1.2.0"
   pedantic:
     dependency: transitive
     description:
@@ -264,7 +264,7 @@ packages:
       name: rxdart
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.22.0"
+    version: "0.22.1"
   shared_preferences:
     dependency: transitive
     description:
