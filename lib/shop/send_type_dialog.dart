@@ -61,9 +61,9 @@ class _SendTypeDialog extends State<SendTypeDialog>{
   Widget build(BuildContext context) {
     return BaseDialog(
       title: "运费配置",
-      height: 205.0,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           getItem(0),
           getItem(1),

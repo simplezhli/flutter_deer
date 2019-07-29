@@ -31,7 +31,6 @@ class _PriceInputDialog extends State<PriceInputDialog>{
   Widget build(BuildContext context) {
     return BaseDialog(
       title: widget.title,
-      height: 160.0,
       child: Container(
         height: 34.0,
         margin: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0.0),

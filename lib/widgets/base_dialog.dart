@@ -10,7 +10,6 @@ class BaseDialog extends StatelessWidget{
     Key key,
     this.title,
     this.onPressed,
-    this.height,
     this.hiddenTitle : false,
     @required this.child
   }) : super(key : key);
@@ -18,7 +17,6 @@ class BaseDialog extends StatelessWidget{
   final String title;
   final Function onPressed;
   final Widget child;
-  final double height;
   final bool hiddenTitle;
 
   @override
@@ -38,9 +36,9 @@ class BaseDialog extends StatelessWidget{
               borderRadius: BorderRadius.circular(8.0),
             ),
             width: 270.0,
-            height: height,
             padding: const EdgeInsets.only(top: 24.0),
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Offstage(
                   offstage: hiddenTitle,
@@ -52,7 +50,7 @@ class BaseDialog extends StatelessWidget{
                     ),
                   ),
                 ),
-                Expanded(child: child),
+                Flexible(child: child),
                 Gaps.vGap8,
                 Gaps.line,
                 Row(

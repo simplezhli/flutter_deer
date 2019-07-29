@@ -71,9 +71,9 @@ class _PayTypeDialog extends State<PayTypeDialog>{
   Widget build(BuildContext context) {
     return BaseDialog(
       title: "支付方式(多选)",
-      height: 242.0,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           getItem(0),
           getItem(1),

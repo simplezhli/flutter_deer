@@ -26,7 +26,6 @@ class _GoodsSizeDialog extends State<GoodsSizeDialog>{
   Widget build(BuildContext context) {
     return BaseDialog(
       title: "规格名称",
-      height: 160.0,
       child: Container(
         height: 34.0,
         margin: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0.0),
