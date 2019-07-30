@@ -20,6 +20,11 @@ abstract class BasePageState<T extends StatefulWidget, V extends BasePagePresent
   V createPresenter();
 
   @override
+  BuildContext getContext() {
+    return context;
+  }
+  
+  @override
   void closeProgress() {
     if (mounted && _isShowDialog){
       _isShowDialog = false;

@@ -31,7 +31,7 @@ class MyTextField extends StatefulWidget {
   final String hintText;
   final FocusNode focusNode;
   final bool isInputPwd;
-  final Function getVCode;
+  final Future<bool> Function() getVCode;
   final KeyboardActionsConfig config;
   
   @override
@@ -69,6 +69,22 @@ class _MyTextFieldState extends State<MyTextField> {
   void dispose() {
     _subscription?.cancel();
     super.dispose();
+  }
+
+  Future _getVCode() async {
+    bool isSuccess = await widget.getVCode();
+    if (isSuccess != null && isSuccess){
+      setState(() {
+        s = second;
+        _isClick = false;
+      });
+      _subscription = Observable.periodic(Duration(seconds: 1), (i) => i).take(second).listen((i){
+        setState(() {
+          s = second - i - 1;
+          _isClick = s < 1;
+        });
+      });
+    }
   }
   
   @override
@@ -148,19 +164,7 @@ class _MyTextFieldState extends State<MyTextField> {
                   height: 26.0,
                   width: 76.0,
                   child: FlatButton(
-                    onPressed: _isClick ? (){
-                      widget.getVCode();
-                      setState(() {
-                        s = second;
-                        _isClick = false;
-                      });
-                      _subscription = Observable.periodic(Duration(seconds: 1), (i) => i).take(second).listen((i){
-                        setState(() {
-                          s = second - i - 1;
-                          _isClick = s < 1;
-                        });
-                      });
-                    }: null,
+                    onPressed: _isClick ? _getVCode : null,
                     padding: const EdgeInsetsDirectional.only(start: 8.0, end: 8.0),
                     textColor: Colours.app_main,
                     color: Colors.transparent,

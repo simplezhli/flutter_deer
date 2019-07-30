@@ -131,7 +131,8 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
     if (code != ExceptionHandle.cancel_error){
       view.showToast(msg);
     }
-    if (onError != null) {
+    /// 页面如果dispose，则不回调onError
+    if (onError != null && view.getContext() != null) {
       onError(code, msg);
     }
   }

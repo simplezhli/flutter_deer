@@ -98,7 +98,7 @@ class _ResetPasswordState extends State<ResetPassword> {
             controller: _vCodeController,
             keyboardType: TextInputType.number,
             getVCode: (){
-              
+              return Future.value(true);
             },
             maxLength: 6,
             hintText: "请输入验证码",

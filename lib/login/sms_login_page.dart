@@ -93,6 +93,7 @@ class _SMSLoginState extends State<SMSLogin> {
             hintText: "请输入验证码",
             getVCode: (){
               Toast.show('获取验证码');
+              return Future.value(true);
             },
           ),
           Gaps.vGap10,

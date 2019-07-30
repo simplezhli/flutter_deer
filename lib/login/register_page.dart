@@ -97,8 +97,15 @@ class _RegisterState extends State<Register> {
             focusNode: _nodeText2,
             controller: _vCodeController,
             keyboardType: TextInputType.number,
-            getVCode: (){
-              Toast.show("并没有真正发送哦，直接登录吧！");
+            getVCode: () async {
+              if (_nameController.text.length == 11){
+                Toast.show("并没有真正发送哦，直接登录吧！");
+                /// 一般可以在这里发送真正的请求，请求成功返回true
+                return true;
+              }else{
+                Toast.show("请输入有效的手机号");
+                return false;
+              }
             },
             maxLength: 6,
             hintText: "请输入验证码",
