@@ -20,11 +20,14 @@
 | ![](./preview/Screenshot_18.png)   |  ![](./preview/Screenshot_19.png)   | ![](./preview/Screenshot_20.png)  |  ![](./preview/Screenshot_21.png)  |
 | ![](./preview/Screenshot_22.jpg)   |  |  |  |
 
+**觉得还可以的话，来个Star、Fork支持一波！有问题欢迎提Issue。**
+
 ## 实现效果包括
 
 * mvp模式
 * 使用 `provider`做状态管理
-* 基于`dio`的网络请求封装（支持泛型，自动解析，基于`FlutterJsonBeanFactory`插件实现）
+* 基于`dio`的网络请求封装（支持泛型，基于`FlutterJsonBeanFactory`插件实现）
+* 使用`Sliver`系列组件实现复杂滚动效果
 * 使用高德地图定位选择地址
 * 输入框等部件的处理封装
 * 自定义列表滑动效果
@@ -49,37 +52,30 @@ Android版安装包：[点击下载](https://www.pgyer.com/gYXj)
 
 iOS需要自行下载代码运行。（效果是一致的）
 
-**注意**：
-
-    1. `debug`模式下会有部分卡顿现象，属于正常现象。良好的体验需要打`release` 包。
-        iOS可以执行命令`flutter build ios` 以创建`release`版本。
-        Android可以执行命令`flutter build apk` 以创建`release`版本。
-        
-    2. FlutterJsonBeanFactory插件使用可以查看[这篇文章](https://www.jianshu.com/p/e909f3f936d6)
-
-    3. 因为页面有点多，不清楚业务流程可能会导致部分页面无法找到。具体可以参看设计图，或者页面上随便点点。。。
-    
-
-**觉得还可以的话，来个Star、Fork支持一波！有问题欢迎提Issue。**
-
 ## 项目运行环境
 
     1. Flutter version 1.7.8+hotfix.4
      
     2. Dart version 2.4.0
 
+## 注意事项
 
-**注意**：
+- `debug`模式下会有部分卡顿现象，属于正常现象。良好的体验需要打`release` 包。
+    iOS可以执行命令`flutter build ios` 以创建`release`版本。
+    Android可以执行命令`flutter build apk` 以创建`release`版本。
+        
+- FlutterJsonBeanFactory插件使用可以查看[这篇文章](https://www.jianshu.com/p/e909f3f936d6)
 
-本人也尝试过升级过稳定版本`1.7.8+hotfix.2` 和 `1.7.8+hotfix.3`，但是因为华为小米的个别机型在删除`TextField`中的文字会导致崩溃（具体[点击查看](https://weilu.blog.csdn.net/article/details/94849020)），所以推荐采用`1.7.8+hotfix.4`。
+- 本人也尝试过升级过稳定版本`1.7.8+hotfix.2` 和 `1.7.8+hotfix.3`，但是因为华为小米的个别机型在删除`TextField`中的文字会导致崩溃（具体[点击查看](https://weilu.blog.csdn.net/article/details/94849020)），所以推荐采用`1.7.8+hotfix.4`。
 
-如果你的Flutter版本低于1.5.9，需要使用低版本的依赖库，请手动替换：
+- 如果你的Flutter版本低于1.5.9，需要使用低版本的依赖库，请手动替换：
 
 ```dart
-
   flustars: 0.2.5
   cached_network_image: ^0.7.0
 ```
+
+- 因为页面有点多，不清楚业务流程可能会导致部分页面无法找到。具体可以参看设计图，或者页面上随便点点。。。
     
 ## 使用到的三方库
 
@@ -118,14 +114,11 @@ iOS需要自行下载代码运行。（效果是一致的）
 
 * [ ] 项目中有使用这一套框架及组件，会同步修复及优化遇到的问题。
 
-## TODO
+## 已知问题：
 
-已知问题：
+- ListView在没有设置分割线的情况下，个别Item之间存在大约1像素的间隔。（[像素对齐问题](https://github.com/flutter/flutter/issues/14288)）
 
-    1. ListView在没有设置分割线的情况下，个别Item之间存在大约1像素的间隔。（像素对齐问题）
-
-    2. 输入框在不设置`obscureText`属性的情况下(false)，无法弹出密码模式键盘。
-
+- 输入框在不设置`obscureText`属性的情况下(false)，无法弹出密码模式键盘。(暂时使用`BlacklistingTextInputFormatter`去除可能会输入的中文)
 
 ## 心得
 

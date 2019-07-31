@@ -71,7 +71,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
     return Material(
       color: Colors.white,
       child: Container(
-        height: MediaQuery.of(context).size.height * 9.0 / 16.0,
+        height: MediaQuery.of(context).size.height * 11.0 / 16.0,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[

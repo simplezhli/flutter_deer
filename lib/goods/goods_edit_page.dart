@@ -181,6 +181,8 @@ class _GoodsEditState extends State<GoodsEdit> {
   _showBottomSheet(){
     showModalBottomSheet(
       context: context,
+      /// 使用true则高度不受16分之9的最高限制
+      isScrollControlled: true,
       builder: (BuildContext context) {
         return GoodsSortDialog(
           onSelected: (_, name){
