@@ -40,7 +40,7 @@ class _SplashPageState extends State<SplashPage> {
   
   void _initAsync() async {
     await SpUtil.getInstance();
-    if (!SpUtil.getBool(Constant.key_guide, defValue: true)) {
+    if (SpUtil.getBool(Constant.key_guide, defValue: true)) {
       SpUtil.putBool(Constant.key_guide, false);
       _initGuide();
     } else {
@@ -86,7 +86,7 @@ class _SplashPageState extends State<SplashPage> {
               itemBuilder: (_, index){
                 return loadAssetImage(
                   _guideList[index],
-                  fit: BoxFit.fill,
+                  fit: BoxFit.cover,
                   width: double.infinity,
                   height: double.infinity,
                 );

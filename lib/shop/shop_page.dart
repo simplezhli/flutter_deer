@@ -82,7 +82,7 @@ class ShopState extends BasePageState<Shop, ShopPagePresenter> with AutomaticKee
                             child: CircleAvatar(
                               radius: 28.0,
                               backgroundColor: Colors.transparent,
-                              backgroundImage: getImageProvider(provider.user.avatarUrl, holderImg: 'shop/tx')
+                              backgroundImage: getImageProvider(provider.user?.avatarUrl, holderImg: 'shop/tx')
                             )
                         ),
                         Positioned(

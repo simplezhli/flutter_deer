@@ -41,21 +41,23 @@ class _DeerListViewState extends State<DeerListView> {
   
   @override
   Widget build(BuildContext context) {
-    return NotificationListener(
-      onNotification: (ScrollNotification note){
-        if (note.metrics.pixels == note.metrics.maxScrollExtent){
-          _loadMore();
-        }
-        return true;
-      },
-      child: RefreshIndicator(
-        onRefresh: widget.onRefresh,
-        child: widget.data.isEmpty ? StateLayout(type: widget.stateType) : ListView.builder(
-          itemCount: widget.data.length + 1,
-          itemBuilder: (BuildContext context, int index){
-            return index < widget.data.length ? widget.itemBuilder(context, index) : _buildMoreWidget();
+    return SafeArea(
+      child: NotificationListener(
+        onNotification: (ScrollNotification note){
+          if (note.metrics.pixels == note.metrics.maxScrollExtent){
+            _loadMore();
           }
-        )
+          return true;
+        },
+        child: RefreshIndicator(
+          onRefresh: widget.onRefresh,
+          child: widget.data.isEmpty ? StateLayout(type: widget.stateType) : ListView.builder(
+            itemCount: widget.data.length + 1,
+            itemBuilder: (BuildContext context, int index){
+              return index < widget.data.length ? widget.itemBuilder(context, index) : _buildMoreWidget();
+            }
+          )
+        ),
       ),
     );
   }

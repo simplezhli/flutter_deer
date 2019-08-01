@@ -47,33 +47,35 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
           });
         },
       ),
-      body: Stack(
-        children: <Widget>[
-          Positioned(
-            left: 16.0,
-            right: 16.0,
-            bottom: 8.0,
-            child: MyButton(
-              onPressed: (){
-                NavigatorUtils.goBack(context);
-              },
-              text: "完成",
+      body: SafeArea(
+        child: Stack(
+          children: <Widget>[
+            Positioned(
+              left: 16.0,
+              right: 16.0,
+              bottom: 8.0,
+              child: MyButton(
+                onPressed: (){
+                  NavigatorUtils.goBack(context);
+                },
+                text: "完成",
+              ),
             ),
-          ),
-          Positioned(
-            top: 0.0,
-            left: 0.0,
-            right: 0.0,
-            bottom: 64.0,
-            child: ListView.builder(
-              padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-              itemBuilder: (_, index){
-                return _buildItem(index);
-              },
-              itemCount: _list.length,
+            Positioned(
+              top: 0.0,
+              left: 0.0,
+              right: 0.0,
+              bottom: 64.0,
+              child: ListView.builder(
+                padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+                itemBuilder: (_, index){
+                  return _buildItem(index);
+                },
+                itemCount: _list.length,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
