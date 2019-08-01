@@ -82,7 +82,7 @@ iOS需要自行下载代码运行。（效果是一致的）
 | 库                         | 功能             |
 | -------------------------- | --------------- |
 | [dio](https://github.com/flutterchina/dio)                            | **网络库** |
-| [provider](https://github.com/rrousselGit/provider)                       | **状态管理** |
+| [provider](https://github.com/rrousselGit/provider)                   | **状态管理** |
 | [flutter_2d_amap](https://github.com/simplezhli/flutter_2d_amap)      | **高德2D地图**       |
 | [cached_network_image](https://github.com/renefloor/flutter_cached_network_image)        | **图片缓存**       |
 | [fluro](https://github.com/theyakka/fluro)                            | **路由管理**       |
@@ -102,7 +102,7 @@ iOS需要自行下载代码运行。（效果是一致的）
 | [bezier_chart](https://github.com/aeyrium/bezier-chart)               | **曲线图表** |
 | [sprintf](https://github.com/Naddiseo/dart-sprintf)                   | **格式化String** |
 
-具体可以参看[pubspec.yaml](https://github.com/simplezhli/flutter_deer/blob/master/pubspec.yaml)文件    
+详细内容可以参看[pubspec.yaml](https://github.com/simplezhli/flutter_deer/blob/master/pubspec.yaml)文件    
 
 ## 后续计划：
 

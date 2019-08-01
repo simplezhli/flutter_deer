@@ -90,9 +90,9 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                     ),
                     Gaps.vGap16,
                     Gaps.vGap16,
-                    Padding(
+                    const Padding(
                       padding: const EdgeInsets.only(left: 16.0),
-                      child: Text("基础设置", style: TextStyles.textBoldDark18),
+                      child: const Text("基础设置", style: TextStyles.textBoldDark18),
                     ),
                     Gaps.vGap16,
                     ClickItem(
@@ -148,9 +148,9 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                     ),
                     Gaps.vGap16,
                     Gaps.vGap16,
-                    Padding(
+                    const Padding(
                       padding: const EdgeInsets.only(left: 16.0),
-                      child: Text("运费设置", style: TextStyles.textBoldDark18),
+                      child: const Text("运费设置", style: TextStyles.textBoldDark18),
                     ),
                     ClickItem(
                       title: "运费配置",
@@ -227,9 +227,9 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                     ),
                     Gaps.vGap16,
                     Gaps.vGap16,
-                    Padding(
+                    const Padding(
                       padding: const EdgeInsets.only(left: 16.0),
-                      child: Text("联系信息", style: TextStyles.textBoldDark18,),
+                      child: const Text("联系信息", style: TextStyles.textBoldDark18,),
                     ),
                     Gaps.vGap16,
                     ClickItem(

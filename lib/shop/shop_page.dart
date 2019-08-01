@@ -1,5 +1,4 @@
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/account/account_router.dart';
 import 'package:flutter_deer/mvp/base_page_state.dart';
@@ -8,7 +7,6 @@ import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/setting/setting_router.dart';
 import 'package:flutter_deer/shop/shop_router.dart';
 import 'package:flutter_deer/util/image_utils.dart';
-import 'package:flutter_deer/util/utils.dart';
 import 'package:provider/provider.dart';
 
 import 'models/user_entity.dart';
@@ -74,8 +72,8 @@ class ShopState extends BasePageState<Shop, ShopPagePresenter> with AutomaticKee
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: Stack(
                       children: <Widget>[
-                        SizedBox(width: double.infinity, height: 56.0),
-                        Text(
+                        const SizedBox(width: double.infinity, height: 56.0),
+                        const Text(
                           "官方直营店",
                           style: TextStyles.textBoldDark24,
                         ),
@@ -83,9 +81,8 @@ class ShopState extends BasePageState<Shop, ShopPagePresenter> with AutomaticKee
                             right: 0.0,
                             child: CircleAvatar(
                               radius: 28.0,
-                              backgroundImage: provider.user == null ? AssetImage(
-                                Utils.getImgPath('shop/tx'),
-                              ) : CachedNetworkImageProvider(provider.user.avatarUrl),
+                              backgroundColor: Colors.transparent,
+                              backgroundImage: getImageProvider(provider.user.avatarUrl, holderImg: 'shop/tx')
                             )
                         ),
                         Positioned(
@@ -95,7 +92,7 @@ class ShopState extends BasePageState<Shop, ShopPagePresenter> with AutomaticKee
                             children: <Widget>[
                               loadAssetImage("shop/zybq", width: 40.0, height: 16.0,),
                               Gaps.hGap8,
-                              Text("店铺账号:15000000000", style: TextStyles.textDark12)
+                              const Text("店铺账号:15000000000", style: TextStyles.textDark12)
                             ],
                           ),
                         ),
@@ -109,9 +106,9 @@ class ShopState extends BasePageState<Shop, ShopPagePresenter> with AutomaticKee
               Container(height: 0.6, width: double.infinity, color: Colours.line, margin: const EdgeInsets.only(left: 16.0)),
               Gaps.vGap12,
               Gaps.vGap12,
-              Padding(
+              const Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Text(
+                child: const Text(
                   "账户",
                   style: TextStyles.textBoldDark18,
                 ),
@@ -155,9 +152,9 @@ class ShopState extends BasePageState<Shop, ShopPagePresenter> with AutomaticKee
               Container(height: 0.6, width: double.infinity, color: Colours.line, margin: const EdgeInsets.only(left: 16.0)),
               Gaps.vGap12,
               Gaps.vGap12,
-              Padding(
+              const Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Text(
+                child: const Text(
                   "店铺",
                   style: TextStyles.textBoldDark18,
                 ),
@@ -179,7 +176,7 @@ class ShopState extends BasePageState<Shop, ShopPagePresenter> with AutomaticKee
                         children: <Widget>[
                           loadAssetImage("shop/dpsz", width: 32.0),
                           Gaps.vGap4,
-                          Text(
+                          const Text(
                             "店铺设置",
                             style: TextStyles.textDark12,
                           )

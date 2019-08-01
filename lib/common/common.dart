@@ -1,4 +1,5 @@
 class Constant {
+  static const bool debuggable = true;
   static const String key_guide = 'key_guide';
   static const String phone = 'phone';
   static const String access_Token = 'accessToken';

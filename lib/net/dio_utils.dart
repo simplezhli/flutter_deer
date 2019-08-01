@@ -39,6 +39,16 @@ class DioUtils {
 //      contentType: ContentType('application', 'x-www-form-urlencoded', charset: 'utf-8'),
     );
     _dio = Dio(options);
+    /// Fiddler抓包代理配置 https://www.jianshu.com/p/d831b1f7c45b
+//    (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
+//        (HttpClient client) {
+//      client.findProxy = (uri) {
+//        //proxy all request to localhost:8888
+//        return "PROXY 10.41.0.132:8888";
+//      };
+//      client.badCertificateCallback =
+//          (X509Certificate cert, String host, int port) => true;
+//    };
     /// 统一添加身份验证请求头
     _dio.interceptors.add(AuthInterceptor());
     /// 刷新Token
