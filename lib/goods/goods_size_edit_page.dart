@@ -23,7 +23,7 @@ class _GoodsSizeEditState extends State<GoodsSizeEdit> {
 
   void _getImage() async{
     try {
-      _imageFile = await ImagePicker.pickImage(source: ImageSource.gallery);
+      _imageFile = await ImagePicker.pickImage(source: ImageSource.gallery, maxWidth: 600);
       setState(() {});
     } catch (e) {
       Toast.show("没有权限，无法打开相册！");

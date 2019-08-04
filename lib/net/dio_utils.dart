@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/util/log_utils.dart';
 import 'package:rxdart/rxdart.dart';
 import '../entity_factory.dart';
@@ -53,8 +54,10 @@ class DioUtils {
     _dio.interceptors.add(AuthInterceptor());
     /// 刷新Token
     _dio.interceptors.add(TokenInterceptor());
-    /// 打印Log
-    _dio.interceptors.add(LoggingInterceptor());
+    /// 打印Log(生产模式去除)
+    if (!Constant.inProduction){
+      _dio.interceptors.add(LoggingInterceptor());
+    }
     /// 适配数据
     _dio.interceptors.add(AdapterInterceptor());
   }
