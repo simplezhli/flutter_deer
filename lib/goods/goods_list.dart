@@ -86,7 +86,7 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
   Widget build(BuildContext context) {
     super.build(context);
     return DeerListView(
-      data: _list,
+      itemCount: _list.length,
       stateType: _stateType,
       onRefresh: _onRefresh,
       loadMore: _loadMore,

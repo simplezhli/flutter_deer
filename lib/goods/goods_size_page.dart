@@ -130,6 +130,7 @@ class _GoodsSizeState extends State<GoodsSize> {
                 hintText: "暂无商品规格",
               ) : ListView.builder(
                 itemCount: goodsSizeList.length,
+                itemExtent: 105.0,
                 itemBuilder: (_, index){
                   return getGoodsSizeItem(index);
                 },

@@ -184,11 +184,11 @@ class _StoreAuditState extends State<StoreAudit> {
         return Container(
           height: 360.0,
           child: ListView.builder(
+            itemExtent: 48.0,
             itemBuilder: (_, index){
               return InkWell(
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  height: 48.0,
                   alignment: Alignment.centerLeft,
                   child: Text(_list[index]),
                 ),

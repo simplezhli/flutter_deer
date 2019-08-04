@@ -67,6 +67,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
               right: 0.0,
               bottom: 64.0,
               child: ListView.builder(
+                itemExtent: 110.0,
                 padding: const EdgeInsets.only(left: 16.0, right: 16.0),
                 itemBuilder: (_, index){
                   return _buildItem(index);
@@ -96,7 +97,6 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
         }
       },
       child: Container(
-          height: 100.0,
           margin: const EdgeInsets.only(bottom: 8.0),
           padding: const EdgeInsets.symmetric(vertical: 32.0),
           decoration: BoxDecoration(
@@ -107,7 +107,6 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
       ),
     ) : Container(
       margin: const EdgeInsets.only(bottom: 8.0),
-      height: 103.0,
       child: MyCard(
         child: Padding(
           padding: const EdgeInsets.all(15.0),

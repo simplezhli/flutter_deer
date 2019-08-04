@@ -9,23 +9,27 @@ class DeerListView extends StatefulWidget {
 
   const DeerListView({
     Key key,
-    @required this.data,
+    @required this.itemCount,
     @required this.itemBuilder,
     @required this.onRefresh,
     this.loadMore,
     this.hasMore : false,
     this.stateType : StateType.empty,
-    this.pageSize : 10
+    this.pageSize : 10,
+    this.padding,
+    this.itemExtent
   }): super(key: key);
 
   final RefreshCallback onRefresh;
   final LoadMoreCallback loadMore;
-  final List data;
+  final int itemCount;
   final bool hasMore;
   final IndexedWidgetBuilder itemBuilder;
   final StateType stateType;
   /// 一页的数量，默认为10
   final int pageSize;
+  final EdgeInsetsGeometry padding;
+  final double itemExtent;
   
   @override
   _DeerListViewState createState() => _DeerListViewState();
@@ -51,10 +55,12 @@ class _DeerListViewState extends State<DeerListView> {
         },
         child: RefreshIndicator(
           onRefresh: widget.onRefresh,
-          child: widget.data.isEmpty ? StateLayout(type: widget.stateType) : ListView.builder(
-            itemCount: widget.data.length + 1,
+          child: widget.itemCount == 0 ? StateLayout(type: widget.stateType) : ListView.builder(
+            itemCount: widget.itemCount + 1,
+            padding: widget.padding,
+            itemExtent: widget.itemExtent,
             itemBuilder: (BuildContext context, int index){
-              return index < widget.data.length ? widget.itemBuilder(context, index) : _buildMoreWidget();
+              return index < widget.itemCount ? widget.itemBuilder(context, index) : _buildMoreWidget();
             }
           )
         ),
@@ -87,7 +93,7 @@ class _DeerListViewState extends State<DeerListView> {
           Offstage(offstage: !widget.hasMore, child: const CupertinoActivityIndicator()),
           Offstage(offstage: !widget.hasMore, child: Gaps.hGap5),
           /// 只有一页的时候，就不显示FooterView了
-          Text(widget.hasMore ? '正在加载中...' : (widget.data.length < widget.pageSize ? '' : '没有了呦~'), style: TextStyle(color: const Color(0x8A000000))),
+          Text(widget.hasMore ? '正在加载中...' : (widget.itemCount < widget.pageSize ? '' : '没有了呦~'), style: TextStyle(color: const Color(0x8A000000))),
         ],
       ),
     );

@@ -140,11 +140,11 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
             Expanded(
               child: ListView.builder(
                 controller: _controller,
+                itemExtent: 48.0,
                 itemBuilder: (_, index){
                   return InkWell(
                     child: Container(
                       padding: EdgeInsets.symmetric(horizontal: 16.0),
-                      height: 48.0,
                       alignment: Alignment.centerLeft,
                       child: Row(
                         children: <Widget>[

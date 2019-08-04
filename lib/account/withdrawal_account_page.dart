@@ -42,6 +42,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
       ListView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 22.0),
         itemCount: _list.length,
+        itemExtent: 151.0,
         itemBuilder: (_, index){
           return Padding(
             padding: const EdgeInsets.only(top: 15.0),
@@ -53,7 +54,6 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                   _showDeleteBottomSheet(index);
                 },
                 child: Container(
-                  height: 136.0,
                   child: Stack(
                     children: <Widget>[
                       Positioned(

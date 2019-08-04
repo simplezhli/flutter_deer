@@ -44,15 +44,15 @@ class OrderSearchState extends BasePageState<OrderSearch, OrderSearchPresenter> 
         body: Consumer<SearchItemListProvider>(
           builder: (_, provider, __) {
             return DeerListView(
-              data: provider.list,
+              itemCount: provider.list.length,
               stateType: provider.stateType,
               onRefresh: _onRefresh,
               loadMore: _loadMore,
+              itemExtent: 50.0,
               hasMore: provider.hasMore,
               itemBuilder: (_, index){
                 return Container(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  height: 50.0,
                   alignment: Alignment.centerLeft,
                   child: Text(provider.list[index].name),
                 );
