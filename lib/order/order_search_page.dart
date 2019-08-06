@@ -2,13 +2,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/mvp/base_page_state.dart';
+import 'package:flutter_deer/provider/base_list_provider.dart';
 import 'package:flutter_deer/widgets/my_refresh_list.dart';
 import 'package:flutter_deer/widgets/search_bar.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
 import 'package:provider/provider.dart';
 
+import 'models/search_entity.dart';
 import 'presenter/order_search_presenter.dart';
-import 'provider/search_item_provider.dart';
 
 class OrderSearch extends StatefulWidget {
   @override
@@ -17,14 +18,21 @@ class OrderSearch extends StatefulWidget {
 
 class OrderSearchState extends BasePageState<OrderSearch, OrderSearchPresenter> {
 
-  SearchItemListProvider provider = SearchItemListProvider();
+  BaseListProvider<SearchItem> provider = BaseListProvider<SearchItem>();
   
   String _keyword;
   int _page = 1;
   
   @override
+  void initState() {
+    /// 默认为加载中状态，本页面场景默认为空
+    provider.setStateTypeNotNotify(StateType.empty);
+    super.initState();
+  }
+  
+  @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<SearchItemListProvider>(
+    return ChangeNotifierProvider<BaseListProvider<SearchItem>>(
       builder: (_) => provider,
       child: Scaffold(
         appBar: SearchBar(
@@ -41,7 +49,7 @@ class OrderSearchState extends BasePageState<OrderSearch, OrderSearchPresenter> 
             presenter.search(_keyword, _page, true);
           },
         ),
-        body: Consumer<SearchItemListProvider>(
+        body: Consumer<BaseListProvider<SearchItem>>(
           builder: (_, provider, __) {
             return DeerListView(
               itemCount: provider.list.length,

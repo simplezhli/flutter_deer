@@ -1,12 +1,31 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/widgets/state_layout.dart';
 
 class BaseListProvider<T> extends ChangeNotifier {
 
   final List<T> _list = [];
-
   List<T> get list => _list;
-  
+
+  StateType _stateType = StateType.loading;
+  bool _hasMore = true;
+
+  StateType get stateType => _stateType;
+  bool get hasMore => _hasMore;
+
+  void setStateTypeNotNotify(StateType stateType){
+    _stateType = stateType;
+  }
+
+  void setStateType(StateType stateType){
+    _stateType = stateType;
+    notifyListeners();
+  }
+
+  void setHasMore(bool hasMore){
+    _hasMore = hasMore;
+  }
+
   void add(T data) {
     _list.add(data);
     notifyListeners();
@@ -36,9 +55,13 @@ class BaseListProvider<T> extends ChangeNotifier {
     _list.removeAt(i);
     notifyListeners();
   }
-  
+
   void clear() {
     _list.clear();
+    notifyListeners();
+  }
+
+  void refresh(){
     notifyListeners();
   }
 }

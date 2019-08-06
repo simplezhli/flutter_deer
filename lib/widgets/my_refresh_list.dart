@@ -56,11 +56,16 @@ class _DeerListViewState extends State<DeerListView> {
         child: RefreshIndicator(
           onRefresh: widget.onRefresh,
           child: widget.itemCount == 0 ? StateLayout(type: widget.stateType) : ListView.builder(
-            itemCount: widget.itemCount + 1,
+            itemCount: widget.loadMore == null ? widget.itemCount : widget.itemCount + 1,
             padding: widget.padding,
             itemExtent: widget.itemExtent,
             itemBuilder: (BuildContext context, int index){
-              return index < widget.itemCount ? widget.itemBuilder(context, index) : _buildMoreWidget();
+              /// 不需要加载更多则不需要添加FootView
+              if (widget.loadMore == null){
+                return widget.itemBuilder(context, index);
+              }else{
+                return index < widget.itemCount ? widget.itemBuilder(context, index) : _buildMoreWidget();
+              }
             }
           )
         ),

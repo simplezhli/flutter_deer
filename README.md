@@ -30,7 +30,6 @@
 * 使用`Sliver`系列组件实现复杂滚动效果
 * 使用高德地图定位选择地址
 * 输入框等部件的处理封装
-* 自定义列表滑动效果
 * 下拉刷新 + 上拉加载更多
 * PopupWindow
 * 简易的过渡动画
@@ -70,7 +69,7 @@ iOS需要自行下载代码运行。（效果是一致的）
 
 - 如果你的Flutter版本低于1.5.9，需要使用低版本的依赖库，请手动替换：
 
-```dart
+```yaml
   flustars: 0.2.5
   cached_network_image: ^0.7.0
 ```
@@ -133,12 +132,6 @@ iOS需要自行下载代码运行。（效果是一致的）
 - [flutter-go](https://github.com/alibaba/flutter-go)
 
 - [flutter_wanandroid](https://github.com/Sky24n/flutter_wanandroid)
-
-## 友情赞助
-
-想系统学习Flutter的可以通过下图的二维码购买陈航老师的课程。
-
-<img src="preview/jikeshijian.jpg" width="450px"/>
 
 ## License
 
