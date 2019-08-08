@@ -134,6 +134,11 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.1.1"
+  flutter_localizations:
+    dependency: "direct main"
+    description: flutter
+    source: sdk
+    version: "0.0.0"
   flutter_page_indicator:
     dependency: transitive
     description:
@@ -264,7 +269,7 @@ packages:
       name: rxdart
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.22.1"
+    version: "0.22.1+1"
   shared_preferences:
     dependency: transitive
     description:
@@ -374,7 +379,7 @@ packages:
       name: url_launcher
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "5.1.1"
+    version: "5.1.2"
   uuid:
     dependency: transitive
     description:

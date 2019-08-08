@@ -3,6 +3,7 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:oktoast/oktoast.dart';
 import 'routers/application.dart';
 import 'routers/routers.dart';
@@ -38,6 +39,15 @@ class MyApp extends StatelessWidget {
         ),
         home: SplashPage(),
         onGenerateRoute: Application.router.generator,
+        localizationsDelegates: [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: [
+          const Locale('zh', 'CH'),
+          const Locale('en', 'US')
+        ]      
       ),
       backgroundColor: Colors.black54,
       textPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),

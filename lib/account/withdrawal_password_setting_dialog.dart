@@ -95,7 +95,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                           color: (index == 9 || index == 11) ? Color(0xFFF2F2F2) : Colors.white,
                           child: InkWell(
                             child: Center(
-                              child: (index == 9 || index == 11) ? loadAssetImage(index == 11 ? "account/del" : "", width: 32.0,) :
+                              child: index == 11 ? loadAssetImage("account/del", width: 32.0) : index == 9 ? const SizedBox() :
                               Text(_list[index].toString(), style: TextStyle(
                                   color: Colours.text_dark,
                                   fontSize: 26.0

@@ -77,6 +77,8 @@ class DioUtils {
       if (_map.containsKey("data")){
         if (T.toString() == "String"){
           _data = _map["data"].toString() as T;
+        }else if (T.toString() == "Map<dynamic, dynamic>"){
+          _data = _map["data"] as T;
         }else{
           _data = EntityFactory.generateOBJ(_map["data"]);
         }

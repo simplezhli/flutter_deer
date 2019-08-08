@@ -111,7 +111,7 @@ class _SearchBarState extends State<SearchBar> {
                     onPressed:(){
                       widget.onPressed(_controller.text);
                     },
-                    child: Text("搜索"),
+                    child: Text("搜索", style: TextStyle(fontSize: 14.0)),
                     shape:RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4.0),
                     )
