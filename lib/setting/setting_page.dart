@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/util/toast.dart';
+import 'package:flutter_deer/setting/update_dialog.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
 
@@ -38,7 +38,7 @@ class _SettingPageState extends State<SettingPage> {
           ClickItem(
             title: "检查更新",
             onTap: (){
-              Toast.show("已是最新版本");
+              _showUpdateDialog();
             }
           ),
           ClickItem(
@@ -59,6 +59,16 @@ class _SettingPageState extends State<SettingPage> {
           ),
         ],
       ),
+    );
+  }
+
+  void _showUpdateDialog() {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return UpdateDialog();
+        }
     );
   }
 }

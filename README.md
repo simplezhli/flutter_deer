@@ -18,7 +18,7 @@
 | ![](./preview/Screenshot_9.png)    |  ![](./preview/Screenshot_10.png)   | ![](./preview/Screenshot_11.png)  |  ![](./preview/Screenshot_12.png)  |
 | ![](./preview/Screenshot_13.png)   |  ![](./preview/Screenshot_14.png)   | ![](./preview/Screenshot_15.png)  |  ![](./preview/Screenshot_17.png)  |
 | ![](./preview/Screenshot_18.png)   |  ![](./preview/Screenshot_19.png)   | ![](./preview/Screenshot_20.png)  |  ![](./preview/Screenshot_21.png)  |
-| ![](./preview/Screenshot_22.jpg)   |  |  |  |
+| ![](./preview/Screenshot_22.jpg)   |  ![](./preview/Screenshot_23.jpg)   |  |  |
 
 **觉得还可以的话，来个Star、Fork支持一波！有问题欢迎提Issue。**
 
@@ -31,6 +31,7 @@
 * 使用高德地图定位选择地址
 * 输入框等部件的处理封装
 * 下拉刷新 + 上拉加载更多
+* 应用检查更新
 * PopupWindow
 * 简易的过渡动画
 * 侧滑删除

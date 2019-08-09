@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.weilu.deer">
 
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <!-- io.flutter.app.FlutterApplication is an android.app.Application that
          calls FlutterMain.startInitialization(this); in its onCreate method.
@@ -9,7 +10,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:networkSecurityConfig="@xml/network_security_config"
-        android:name="io.flutter.app.FlutterApplication"
+        android:name=".MyApp"
         android:label="Flutter Deer"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -35,5 +36,17 @@
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="29017a09c0b0279853577be7df682513"/>
+
+        <!-- 兼容7.0 -->
+        <provider
+            android:name=".DeerPickerProvider"
+            android:authorities="${applicationId}.Merchant"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+        
     </application>
 </manifest>
