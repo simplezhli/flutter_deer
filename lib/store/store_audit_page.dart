@@ -28,6 +28,7 @@ class _StoreAuditState extends State<StoreAudit> {
   final FocusNode _nodeText1 = FocusNode();
   final FocusNode _nodeText2 = FocusNode();
   final FocusNode _nodeText3 = FocusNode();
+  KeyboardActionsConfig _config;
   String _address = "陕西省 西安市 雁塔区 高新六路201号";
   
   void _getImage() async{
@@ -39,7 +40,7 @@ class _StoreAuditState extends State<StoreAudit> {
     }
   }
 
-  KeyboardActionsConfig _buildConfig(BuildContext context) {
+  KeyboardActionsConfig _buildConfig() {
     return KeyboardActionsConfig(
       keyboardActionsPlatform: KeyboardActionsPlatform.IOS,
       keyboardBarColor: Colors.grey[200],
@@ -62,6 +63,12 @@ class _StoreAuditState extends State<StoreAudit> {
         ),
       ],
     );
+  }
+
+  @override
+  void initState() {
+    _config = _buildConfig();
+    super.initState();
   }
 
   @override
@@ -164,7 +171,7 @@ class _StoreAuditState extends State<StoreAudit> {
           ),
           TextFieldItem(
               focusNode: _nodeText3,
-              config: _buildConfig(context),
+              config: _config,
               keyboardType: TextInputType.phone,
               title: "联系电话",
               hintText: "填写店主联系电话"

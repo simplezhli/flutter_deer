@@ -23,6 +23,7 @@ class _RegisterState extends State<Register> {
   final FocusNode _nodeText1 = FocusNode();
   final FocusNode _nodeText2 = FocusNode();
   final FocusNode _nodeText3 = FocusNode();
+  KeyboardActionsConfig _config;
   bool _isClick = false;
   
   @override
@@ -32,6 +33,7 @@ class _RegisterState extends State<Register> {
     _nameController.addListener(_verify);
     _vCodeController.addListener(_verify);
     _passwordController.addListener(_verify);
+    _config = Utils.getKeyboardActionsConfig([_nodeText1, _nodeText2, _nodeText3]);
   }
 
   void _verify(){
@@ -86,7 +88,7 @@ class _RegisterState extends State<Register> {
           Gaps.vGap16,
           MyTextField(
             focusNode: _nodeText1,
-            config: Utils.getKeyboardActionsConfig([_nodeText1, _nodeText2, _nodeText3]),
+            config: _config,
             controller: _nameController,
             maxLength: 11,
             keyboardType: TextInputType.phone,
