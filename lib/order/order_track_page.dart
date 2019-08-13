@@ -17,25 +17,29 @@ class _OrderTrackState extends State<OrderTrack> {
       appBar: MyAppBar(
         centerTitle: "订单跟踪",
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(top: 21.0, left: 16.0, right: 16.0),
-            child: Text(
-              "订单编号：14562364879",
-              style: TextStyles.textDark14,
-            ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(top: 21.0, left: 16.0, right: 16.0),
+                child: Text(
+                  "订单编号：14562364879",
+                  style: TextStyles.textDark14,
+                ),
+              ),
+              Stepper(
+                physics: BouncingScrollPhysics(),
+                currentStep: 4 - 1,
+                controlsBuilder: (BuildContext context, {VoidCallback onStepContinue, VoidCallback onStepCancel}) {
+                  return Row(); //操作按钮置空
+                },
+                steps: List.generate(4, (i) => _buildStep(i)),
+              )
+            ],
           ),
-          Stepper(
-            physics: BouncingScrollPhysics(),
-            currentStep: 4 - 1,
-            controlsBuilder: (BuildContext context, {VoidCallback onStepContinue, VoidCallback onStepCancel}) {
-              return Row(); //操作按钮置空
-            },
-            steps: List.generate(4, (i) => _buildStep(i)),
-          )
-        ],
+        ),
       ),
     );
   }

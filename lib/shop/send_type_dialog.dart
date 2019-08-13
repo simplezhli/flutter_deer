@@ -70,8 +70,8 @@ class _SendTypeDialog extends State<SendTypeDialog>{
         ],
       ),
       onPressed: (){
-        widget.onPressed(_value, _list[_value]);
         NavigatorUtils.goBack(context);
+        widget.onPressed(_value, _list[_value]);
       },
     );
   }

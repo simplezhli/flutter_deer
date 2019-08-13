@@ -58,7 +58,7 @@ class DioUtils {
     if (!Constant.inProduction){
       _dio.interceptors.add(LoggingInterceptor());
     }
-    /// 适配数据
+    /// 适配数据(根据自己的数据结构，可自行选择添加)
     _dio.interceptors.add(AdapterInterceptor());
   }
 
@@ -72,15 +72,15 @@ class DioUtils {
 
     try {
       Map<String, dynamic> _map = json.decode(response.data.toString());
-      _code = _map["code"];
-      _msg = _map["message"];
-      if (_map.containsKey("data")){
+      _code = _map[Constant.code];
+      _msg = _map[Constant.message];
+      if (_map.containsKey(Constant.data)){
         if (T.toString() == "String"){
-          _data = _map["data"].toString() as T;
+          _data = _map[Constant.data].toString() as T;
         }else if (T.toString() == "Map<dynamic, dynamic>"){
-          _data = _map["data"] as T;
+          _data = _map[Constant.data] as T;
         }else{
-          _data = EntityFactory.generateOBJ(_map["data"]);
+          _data = EntityFactory.generateOBJ(_map[Constant.data]);
         }
       }
     }catch(e){
@@ -98,11 +98,11 @@ class DioUtils {
 
     try {
       Map<String, dynamic> _map = json.decode(response.data.toString());
-      _code = _map["code"];
-      _msg = _map["message"];
-      if (_map.containsKey("data")){
+      _code = _map[Constant.code];
+      _msg = _map[Constant.message];
+      if (_map.containsKey(Constant.data)){
         ///  List类型处理，暂不考虑Map
-        (_map["data"] as List).forEach((item){
+        (_map[Constant.data] as List).forEach((item){
           _data.add(EntityFactory.generateOBJ<T>(item));
         });
       }

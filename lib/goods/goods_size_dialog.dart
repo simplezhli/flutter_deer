@@ -46,8 +46,8 @@ class _GoodsSizeDialog extends State<GoodsSizeDialog>{
         ),
       ),
       onPressed: (){
-        widget.onPressed(_controller.text);
         NavigatorUtils.goBack(context);
+        widget.onPressed(_controller.text);
       },
     );
   }

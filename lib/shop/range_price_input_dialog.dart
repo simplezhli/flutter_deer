@@ -86,8 +86,8 @@ class _RangePriceInputDialog extends State<RangePriceInputDialog>{
           Toast.show("最小金额不能大于最大金额!");
           return;
         }
-        widget.onPressed(_controller.text, _controller1.text);
         NavigatorUtils.goBack(context);
+        widget.onPressed(_controller.text, _controller1.text);
       },
     );
   }

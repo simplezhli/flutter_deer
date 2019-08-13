@@ -58,8 +58,8 @@ class _PriceInputDialog extends State<PriceInputDialog>{
           Toast.show("请输入${widget.title}");         
           return;
         }
-        widget.onPressed(_controller.text);
         NavigatorUtils.goBack(context);
+        widget.onPressed(_controller.text);
       },
     );
   }

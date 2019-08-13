@@ -81,8 +81,8 @@ class _PayTypeDialog extends State<PayTypeDialog>{
         ],
       ),
       onPressed: (){
-        widget.onPressed(_selectValue);
         NavigatorUtils.goBack(context);
+        widget.onPressed(_selectValue);
       },
     );
   }
