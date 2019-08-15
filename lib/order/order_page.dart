@@ -134,10 +134,6 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
                           return;
                         }
                         _pageController.jumpToPage(index);
-                        _index = index;
-                        setState(() {
-
-                        });
                       },
                     ),
                   ),
@@ -191,7 +187,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
               borderRadius: BorderRadius.circular(11.0),
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 2.0),
+              padding: const EdgeInsets.symmetric(horizontal: 5.5, vertical: 2.0),
               child: Text("10", style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp12),),
             ),
           ) : Gaps.empty,

@@ -103,9 +103,6 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
                 if (!mounted){
                   return;
                 }
-                setState(() {
-                  _index = index;
-                });
                 _pageController.jumpToPage(index);
               },
               isScrollable: true,

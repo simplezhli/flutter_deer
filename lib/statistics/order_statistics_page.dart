@@ -176,6 +176,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                   footerValueBuilder: (double value) {return "";},
                   series: [
                     BezierLine(
+                      label: widget.index == 1 ? "单" : "元",
                       data: _getRandomData()
                     ),
                   ],
