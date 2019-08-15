@@ -294,8 +294,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
               height: 40.0,
               child: FlatButton.icon(
                 onPressed: (){
-                  Toast.show("扫码添加");
-                  NavigatorUtils.goBack(context);
+                  NavigatorUtils.push(context, '${GoodsRouter.goodsEditPage}?isAdd=true&isScan=true', replace: true);
                 },
                 color: Colors.white,
                 shape: RoundedRectangleBorder(

@@ -71,6 +71,10 @@ dependencies:
       url: https://github.com/simplezhli/flutter_2d_amap.git
   # 状态管理 https://github.com/rrousselGit/provider
   provider: ^3.0.0+1
+  # 扫码 https://github.com/apptreesoftware/flutter_barcode_reader
+  barcode_scan:
+    git:
+      url: https://github.com/simplezhli/flutter_barcode_reader.git
   
 dev_dependencies:
   flutter_test:

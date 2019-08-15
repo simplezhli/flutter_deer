@@ -22,7 +22,8 @@ class GoodsRouter implements IRouterProvider{
     router.define(goodsPage, handler: Handler(handlerFunc: (_, params) => Goods()));
     router.define(goodsEditPage, handler: Handler(handlerFunc: (_, params){
       bool isAdd = params['isAdd']?.first == "true";
-      return GoodsEdit(isAdd: isAdd);
+      bool isScan = params['isScan']?.first == "true";
+      return GoodsEdit(isAdd: isAdd, isScan: isScan,);
     }));
     router.define(goodsSearchPage, handler: Handler(handlerFunc: (_, params) => GoodsSearch()));
     router.define(goodsSizePage, handler: Handler(handlerFunc: (_, params) => GoodsSize()));

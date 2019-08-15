@@ -18,7 +18,7 @@
 | ![](./preview/Screenshot_9.png)    |  ![](./preview/Screenshot_10.png)   | ![](./preview/Screenshot_11.png)  |  ![](./preview/Screenshot_12.png)  |
 | ![](./preview/Screenshot_13.png)   |  ![](./preview/Screenshot_14.png)   | ![](./preview/Screenshot_15.png)  |  ![](./preview/Screenshot_17.png)  |
 | ![](./preview/Screenshot_18.png)   |  ![](./preview/Screenshot_19.png)   | ![](./preview/Screenshot_20.png)  |  ![](./preview/Screenshot_21.png)  |
-| ![](./preview/Screenshot_22.jpg)   |  ![](./preview/Screenshot_23.jpg)   |  |  |
+| ![](./preview/Screenshot_22.jpg)   |  ![](./preview/Screenshot_23.jpg)   | ![](./preview/Screenshot_24.jpg)  |  |
 
 **觉得还可以的话，来个Star、Fork支持一波！有问题欢迎提Issue。**
 
@@ -33,6 +33,7 @@
 * 下拉刷新 + 上拉加载更多
 * 应用检查更新
 * PopupWindow
+* 扫码功能（barcode_scan插件）
 * 简易的过渡动画
 * 侧滑删除
 * 城市选择
@@ -101,6 +102,7 @@ iOS需要自行下载代码运行。（效果是一致的）
 | [date_utils](https://github.com/apptreesoftware/date_utils)           | **常用的日期工具类** |
 | [bezier_chart](https://github.com/aeyrium/bezier-chart)               | **曲线图表** |
 | [sprintf](https://github.com/Naddiseo/dart-sprintf)                   | **格式化String** |
+| [barcode_scan](https://github.com/apptreesoftware/flutter_barcode_reader)     | **扫码功能** |
 
 详细内容可以参看[pubspec.yaml](https://github.com/simplezhli/flutter_deer/blob/master/pubspec.yaml)文件    
 

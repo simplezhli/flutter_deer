@@ -1,5 +1,7 @@
 
+import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -16,6 +18,19 @@ class Utils {
     } else {
       Toast.show('拨号失败！');
     }
+  }
+
+  static Future<String> scan() async {
+    try {
+      return await BarcodeScanner.scan();
+    } catch (e) {
+      if (e is PlatformException){
+        if (e.code == BarcodeScanner.CameraAccessDenied) {
+          Toast.show("没有相机权限！");
+        }
+      }
+    }
+    return null;
   }
 
   static KeyboardActionsConfig getKeyboardActionsConfig(List<FocusNode> list){

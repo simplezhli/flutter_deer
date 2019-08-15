@@ -15,6 +15,15 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.1.2"
+  barcode_scan:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: "99718f6af286db353a291c9bb0af423384938756"
+      url: "https://github.com/simplezhli/flutter_barcode_reader.git"
+    source: git
+    version: "1.0.0"
   boolean_selector:
     dependency: transitive
     description:
