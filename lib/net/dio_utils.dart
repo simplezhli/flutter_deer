@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/util/log_utils.dart';
 import 'package:rxdart/rxdart.dart';
@@ -71,7 +72,7 @@ class DioUtils {
     T _data;
 
     try {
-      Map<String, dynamic> _map = json.decode(response.data.toString());
+      Map<String, dynamic> _map = await compute(parseData, response.data.toString());
       _code = _map[Constant.code];
       _msg = _map[Constant.message];
       if (_map.containsKey(Constant.data)){
@@ -97,11 +98,10 @@ class DioUtils {
     List<T> _data = [];
 
     try {
-      Map<String, dynamic> _map = json.decode(response.data.toString());
+      Map<String, dynamic> _map = await compute(parseData, response.data.toString());
       _code = _map[Constant.code];
       _msg = _map[Constant.message];
       if (_map.containsKey(Constant.data)){
-        ///  List类型处理，暂不考虑Map
         (_map[Constant.data] as List).forEach((item){
           _data.add(EntityFactory.generateOBJ<T>(item));
         });
@@ -222,9 +222,16 @@ class DioUtils {
       case Method.delete:
         m = "DELETE";
         break;
+      case Method.head:
+        m = "HEAD";
+        break;
     }
     return m;
   }
+}
+
+Map<String, dynamic> parseData(String data){
+  return json.decode(data);
 }
 
 enum Method {
@@ -233,4 +240,5 @@ enum Method {
   put,
   patch,
   delete,
+  head
 }

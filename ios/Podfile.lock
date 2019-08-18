@@ -6,6 +6,9 @@ PODS:
     - AMapFoundation (~> 1.4)
   - AMapSearch (6.9.0):
     - AMapFoundation (~> 1.4)
+  - barcode_scan (0.0.1):
+    - Flutter
+    - MTBBarcodeScanner
   - Flutter (1.0.0)
   - flutter_2d_amap (0.0.1):
     - AMap2DMap
@@ -17,6 +20,7 @@ PODS:
   - FMDB/standard (2.7.5)
   - image_picker (0.0.1):
     - Flutter
+  - MTBBarcodeScanner (5.0.11)
   - path_provider (0.0.1):
     - Flutter
   - shared_preferences (0.0.1):
@@ -30,6 +34,7 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
+  - barcode_scan (from `.symlinks/plugins/barcode_scan/ios`)
   - Flutter (from `.symlinks/flutter/ios`)
   - flutter_2d_amap (from `.symlinks/plugins/flutter_2d_amap/ios`)
   - image_picker (from `.symlinks/plugins/image_picker/ios`)
@@ -46,8 +51,11 @@ SPEC REPOS:
     - AMapLocation
     - AMapSearch
     - FMDB
+    - MTBBarcodeScanner
 
 EXTERNAL SOURCES:
+  barcode_scan:
+    :path: ".symlinks/plugins/barcode_scan/ios"
   Flutter:
     :path: ".symlinks/flutter/ios"
   flutter_2d_amap:
@@ -70,10 +78,12 @@ SPEC CHECKSUMS:
   AMapFoundation: 216d58448c80356434ac4332250a8fdb2f5c4d1e
   AMapLocation: 89a7e4eb6040d32ba73c77a4966ecc66e46aa7c3
   AMapSearch: af02822537e55b85a4752e9df5c19e4b9da82031
+  barcode_scan: 33f586d02270046fc6559135038b34b5754eaa4f
   Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
   flutter_2d_amap: 87cd67e45e7e99877456736ef133dbc25cdf3383
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   image_picker: 16e5fec1fbc87fd3b297c53e4048521eaf17cd06
+  MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
   path_provider: f96fff6166a8867510d2c25fdcc346327cc4b259
   shared_preferences: 1feebfa37bb57264736e16865e7ffae7fc99b523
   sqflite: ff1d9da63c06588cc8d1faf7256d741f16989d5a

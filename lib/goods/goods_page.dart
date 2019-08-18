@@ -301,7 +301,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(8.0), topRight: Radius.circular(8.0)),
                 ),  
                 icon: loadAssetImage("goods/scanning", width: 16.0, height: 16.0,), 
-                label: Text("扫码添加", style: TextStyles.textDark14,)
+                label: const Text("扫码添加", style: TextStyles.textDark14,)
               ),
             ),
             Container(width: 120.0, height: 0.6, color: Colours.line),
@@ -317,7 +317,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
                   borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8.0), bottomRight: Radius.circular(8.0)),
                 ),
                 icon: loadAssetImage("goods/add2", width: 16.0, height: 16.0,),
-                label: Text("添加商品", style: TextStyles.textDark14)
+                label: const Text("添加商品", style: TextStyles.textDark14)
               ),
             ),
           ],

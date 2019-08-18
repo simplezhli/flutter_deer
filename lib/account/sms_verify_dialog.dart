@@ -77,7 +77,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                         width: double.infinity,
                         alignment: Alignment.center,
                         padding: const EdgeInsets.only(top: 22.0),
-                        child: Text(
+                        child: const Text(
                           "短信验证",
                           style: TextStyles.textBoldDark18,
                         ),

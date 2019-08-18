@@ -73,7 +73,7 @@ class _SMSLoginState extends State<SMSLogin> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
+          const Text(
             "验证码登录",
             style: TextStyles.textBoldDark26,
           ),
@@ -127,7 +127,7 @@ class _SMSLoginState extends State<SMSLogin> {
             height: 40.0,
             alignment: Alignment.centerRight,
             child: GestureDetector(
-              child: Text(
+              child: const Text(
                 '忘记密码',
                 style: TextStyles.textGray12,
               ),

@@ -152,7 +152,7 @@ class _OrderListState extends State<OrderList> with AutomaticKeepAliveClientMixi
                       style: TextStyles.textDark14,
                     ),
                   ),
-                  Text(
+                  const Text(
                     "货到付款",
                     style: TextStyle(
                         fontSize: Dimens.font_sp12,
@@ -229,7 +229,7 @@ class _OrderListState extends State<OrderList> with AutomaticKeepAliveClientMixi
                   children: <Widget>[
                     FlatButton(
                       color: Colours.bg_gray,
-                      child: Text("联系客户"),
+                      child: const Text("联系客户"),
                       onPressed: (){
                         _showCallPhoneDialog("15000000000");
                       },
@@ -288,12 +288,12 @@ class _OrderListState extends State<OrderList> with AutomaticKeepAliveClientMixi
         barrierDismissible: false,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('提示'),
+            title: const Text('提示'),
             content: Text('是否拨打：$phone ?'),
             actions: <Widget>[
               FlatButton(
                 onPressed: () => NavigatorUtils.goBack(context),
-                child: Text('取消'),
+                child: const Text('取消'),
               ),
               FlatButton(
                 onPressed: (){
@@ -301,7 +301,7 @@ class _OrderListState extends State<OrderList> with AutomaticKeepAliveClientMixi
                   NavigatorUtils.goBack(context);
                 },
                 textColor: Colours.text_red,
-                child: Text('拨打'),
+                child: const Text('拨打'),
               ),
             ],
           );

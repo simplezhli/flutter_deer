@@ -81,7 +81,7 @@ class _RegisterState extends State<Register> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Text(
+          const Text(
             "开启你的账号",
             style: TextStyles.textBoldDark26,
           ),

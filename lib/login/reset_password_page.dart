@@ -81,7 +81,7 @@ class _ResetPasswordState extends State<ResetPassword> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Text(
+          const Text(
             "重置登录密码",
             style: TextStyles.textBoldDark26,
           ),

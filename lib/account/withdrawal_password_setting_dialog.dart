@@ -35,7 +35,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                         width: double.infinity,
                         alignment: Alignment.center,
                         padding: const EdgeInsets.symmetric(vertical: 16.0),
-                        child: Text(
+                        child: const Text(
                           "设置提现密码",
                           style: TextStyles.textBoldDark18,
                         ),
@@ -73,7 +73,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                           ),
                         ),
                         Gaps.vGap10,
-                        Text(("提现密码不可为连续、重复的数字。"), style: TextStyles.textGray12),
+                        const Text(("提现密码不可为连续、重复的数字。"), style: TextStyles.textGray12),
                       ],
                     ),
                   ),

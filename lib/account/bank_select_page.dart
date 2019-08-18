@@ -87,7 +87,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 16.0),
-          child: Text("常用", style: TextStyles.textGray12),
+          child: const Text("常用", style: TextStyles.textGray12),
         ),
         Expanded(
           child: ListView.builder(

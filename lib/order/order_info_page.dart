@@ -34,13 +34,13 @@ class _OrderInfoState extends State<OrderInfo> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(
+                      const Text(
                         "暂未接单",
                         style: TextStyles.textBoldDark24,
                       ),
                       Gaps.vGap16,
                       Gaps.vGap16,
-                      Text(
+                      const Text(
                         "客户信息",
                         style: TextStyles.textBoldDark18,
                       ),
@@ -86,7 +86,7 @@ class _OrderInfoState extends State<OrderInfo> {
                       ),
                       Gaps.vGap16,
                       Gaps.vGap16,
-                      Text(
+                      const Text(
                         "商品信息",
                         style: TextStyles.textBoldDark18,
                       ),
@@ -194,7 +194,7 @@ class _OrderInfoState extends State<OrderInfo> {
                       Gaps.line,
                       Gaps.vGap16,
                       Gaps.vGap16,
-                      Text(
+                      const Text(
                         "订单信息",
                         style: TextStyles.textBoldDark18,
                       ),
@@ -235,7 +235,7 @@ class _OrderInfoState extends State<OrderInfo> {
                           child: FlatButton(
                             color: Color(0xFFE1EAFA),
                             textColor: Colours.app_main,
-                            child: Text(
+                            child: const Text(
                               "拒单",
                               style: TextStyle(
                                   fontSize: Dimens.font_sp18
@@ -250,7 +250,7 @@ class _OrderInfoState extends State<OrderInfo> {
                           child: FlatButton(
                             color: Colours.app_main,
                             textColor: Colors.white,
-                            child: Text(
+                            child: const Text(
                               "接单",
                               style: TextStyle(
                                   fontSize: Dimens.font_sp18
@@ -306,12 +306,12 @@ class _OrderInfoState extends State<OrderInfo> {
         barrierDismissible: false,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('提示'),
+            title: const Text('提示'),
             content: Text('是否拨打：$phone ?'),
             actions: <Widget>[
               FlatButton(
                 onPressed: () => NavigatorUtils.goBack(context),
-                child: Text('取消'),
+                child: const Text('取消'),
               ),
               FlatButton(
                 onPressed: (){
@@ -319,7 +319,7 @@ class _OrderInfoState extends State<OrderInfo> {
                   NavigatorUtils.goBack(context);
                 },
                 textColor: Colours.text_red,
-                child: Text('拨打'),
+                child: const Text('拨打'),
               ),
             ],
           );

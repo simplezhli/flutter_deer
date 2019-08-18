@@ -101,7 +101,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text("提现金额", style: TextStyles.textBoldDark14),
+                        const Text("提现金额", style: TextStyles.textBoldDark14),
                         Text("单笔2万，单日2万", style: TextStyle(fontSize: 12.0, color: Color(0xFFFF8547)))
                       ],
                     ),
@@ -150,7 +150,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                           onTap: (){
                             _controller.text = "70";
                           },
-                          child: Text("全部提现", style: TextStyles.textMain12)
+                          child: const Text("全部提现", style: TextStyles.textMain12)
                         )
                       ],
                     ),
@@ -159,7 +159,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text("转出方式", style: TextStyles.textBoldDark14),
+                        const Text("转出方式", style: TextStyles.textBoldDark14),
                         loadAssetImage("account/sm", width: 16.0)
                       ],
                     ),
@@ -183,7 +183,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                               top: 16.0,
                               left: 24.0,
                               right: 0.0,
-                              child: Text("快速到账", style: TextStyles.textDark14)
+                              child: const Text("快速到账", style: TextStyles.textDark14)
                             ),
                             Positioned(
                               bottom: 16.0,
@@ -225,7 +225,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                               top: 16.0,
                               left: 24.0,
                               right: 0.0,
-                              child: Text("普通到账", style: TextStyles.textDark14)
+                              child: const Text("普通到账", style: TextStyles.textDark14)
                             ),
                             Positioned(
                               bottom: 16.0,

@@ -10,7 +10,7 @@ class WidgetNotFound extends StatelessWidget {
       appBar: MyAppBar(
         centerTitle: "页面不存在",
       ),
-      body: StateLayout(
+      body: const StateLayout(
         type: StateType.account,
         hintText: "页面不存在",
       ),

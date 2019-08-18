@@ -158,7 +158,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                   ),
                   child: Column(
                     children: <Widget>[
-                      Text(
+                      const Text(
                         "账号类型",
                         style: TextStyles.textBoldDark18,
                       ),

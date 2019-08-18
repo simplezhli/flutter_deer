@@ -110,7 +110,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                     Container(
                       alignment: Alignment.center,
                       height: 52.0,
-                      child: Text(
+                      child: const Text(
                         "是否确认解绑，防止错误操作",
                         style: TextStyles.textGray16,
                       ),
@@ -121,7 +121,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                       width: double.infinity,
                       child: FlatButton(
                         textColor: Colours.text_red,
-                        child: Text("确认解绑", style: TextStyle(fontSize: Dimens.font_sp18)),
+                        child: const Text("确认解绑", style: TextStyle(fontSize: Dimens.font_sp18)),
                         onPressed: (){
                           setState(() {
                             _list.removeAt(index);
@@ -136,7 +136,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                       width: double.infinity,
                       child: FlatButton(
                         textColor: Colours.text_gray,
-                        child: Text("取消", style: TextStyle(fontSize: Dimens.font_sp18)),
+                        child: const Text("取消", style: TextStyle(fontSize: Dimens.font_sp18)),
                         onPressed: (){
                           NavigatorUtils.goBack(context);
                         },

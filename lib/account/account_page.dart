@@ -40,7 +40,7 @@ class _AccountPageState extends State<AccountPage> {
                   top: 37.0,
                   child: Column(
                     children: <Widget>[
-                      Text("当前余额(元)", style: TextStyle(color: Color(0xFFD4E2FA), fontSize: 12.0)),
+                      const Text("当前余额(元)", style: TextStyle(color: Color(0xFFD4E2FA), fontSize: 12.0)),
                       Gaps.vGap8,
                       Text("30.12", style: TextStyle(color: Colors.white, fontSize: 32.0, fontWeight: FontWeight.bold)),
                     ],
@@ -55,14 +55,14 @@ class _AccountPageState extends State<AccountPage> {
                     children: <Widget>[
                       Column(
                         children: <Widget>[
-                          Text("累计结算金额", style: TextStyle(color: Color(0xFFD4E2FA), fontSize: 12.0)),
+                          const Text("累计结算金额", style: TextStyle(color: Color(0xFFD4E2FA), fontSize: 12.0)),
                           Gaps.vGap8,
                           Text("20000.00", style: TextStyle(color: Color(0xFFD4E2FA), fontSize: 14.0)),
                         ],
                       ),
                       Column(
                         children: <Widget>[
-                          Text("累计发放佣金", style: TextStyle(color: Color(0xFFD4E2FA), fontSize: 12.0)),
+                          const Text("累计发放佣金", style: TextStyle(color: Color(0xFFD4E2FA), fontSize: 12.0)),
                           Gaps.vGap8,
                           Text("0.02", style: TextStyle(color: Color(0xFFD4E2FA), fontSize: 14.0)),
                         ],
