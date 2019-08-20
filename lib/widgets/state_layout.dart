@@ -62,7 +62,7 @@ class _StateLayoutState extends State<StateLayout> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           widget.type == StateType.loading ? CupertinoActivityIndicator(radius: 16.0) :
-          (widget.type == StateType.empty ? SizedBox() :
+          (widget.type == StateType.empty ? Gaps.empty :
           Container(
             height: 120.0,
             width: 120.0,

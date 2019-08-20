@@ -42,11 +42,11 @@ dependencies:
   # 启动URL的插件 https://github.com/flutter/plugins/tree/master/packages/url_launcher
   url_launcher: 5.1.2
   # 图片选择插件 https://github.com/flutter/plugins/tree/master/packages/image_picker
-  image_picker: 0.6.1
+  image_picker: 0.6.1+3
   # 侧滑删除 https://github.com/letsar/flutter_slidable
   flutter_slidable: ^0.5.3
   # WebView插件 https://github.com/flutter/plugins/tree/master/packages/webview_flutter
-  webview_flutter: 0.3.10+4
+  webview_flutter: 0.3.12+1
   # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions
   keyboard_actions: ^2.1.1+1
   # 列表悬浮头 https://github.com/fluttercommunity/flutter_sticky_headers

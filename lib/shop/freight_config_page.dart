@@ -67,7 +67,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
               right: 0.0,
               bottom: 64.0,
               child: ListView.builder(
-                itemExtent: 110.0,
+                itemExtent: 111.0,
                 padding: const EdgeInsets.only(left: 16.0, right: 16.0),
                 itemBuilder: (_, index){
                   return _buildItem(index);
@@ -178,7 +178,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                       children: <Widget>[
                         loadAssetImage(_list[index].type == 1 ? "shop/xzyf" : "shop/wxzyf", width: 16.0,),
                         Gaps.hGap4,
-                        Text("比率"),
+                        const Text("比率", style: TextStyles.textDark14),
                       ],
                     ),
                   ),
@@ -194,7 +194,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                       children: <Widget>[
                         loadAssetImage(_list[index].type == 0 ? "shop/xzyf" : "shop/wxzyf", width: 16.0),
                         Gaps.hGap4,
-                        Text("金额"),
+                        const Text("金额", style: TextStyles.textDark14),
                       ],
                     ),
                   ),

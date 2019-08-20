@@ -9,7 +9,7 @@ class MenuReveal extends StatelessWidget {
   final double revealPercent;
   final Widget child;
 
-  MenuReveal({
+  const MenuReveal({
     this.revealPercent,
     this.child
   });

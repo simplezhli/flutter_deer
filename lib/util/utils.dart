@@ -41,8 +41,8 @@ class Utils {
       actions: List.generate(list.length, (i) => KeyboardAction(
         focusNode: list[i],
         closeWidget: const Padding(
-          padding: EdgeInsets.all(5.0),
-          child: Text("关闭"),
+          padding: const EdgeInsets.all(5.0),
+          child: const Text("关闭"),
         ),
       )),
     );

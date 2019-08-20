@@ -269,7 +269,7 @@ class _GoodsSizeState extends State<GoodsSize> {
                               "¥${goodsSizeList[index].price}",
                               style: TextStyles.textDark14,
                             ),
-                            SizedBox(width: 50.0,),
+                            const SizedBox(width: 50.0,),
                             Text(
                               "佣金${goodsSizeList[index].charges}元",
                               style: TextStyles.textDark12

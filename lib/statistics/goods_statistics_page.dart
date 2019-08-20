@@ -72,7 +72,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                   padding: const EdgeInsets.only(right: 16.0),
                   child: _buildChart(),
                 ),
-                Text("热销商品排行", style: TextStyles.textBoldDark18),
+                const Text("热销商品排行", style: TextStyles.textBoldDark18),
                 ListView.builder(
                   physics: ClampingScrollPhysics(),
                   padding: const EdgeInsets.only(top: 16.0, right: 16.0),

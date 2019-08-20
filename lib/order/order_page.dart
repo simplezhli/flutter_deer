@@ -41,23 +41,39 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
-      body: NestedScrollView(
-        physics: ClampingScrollPhysics(),
-        headerSliverBuilder: (context, innerBoxIsScrolled) {
-          return _sliverBuilder(context);
-        },
-        body: PageView.builder(
-          itemCount: 5,
-          onPageChanged: (index) {
-            if (_isPageCanChanged) {
-              _onPageChange(index);
-            }
-          },
-          controller: _pageController,
-          itemBuilder: (_, index) {
-            return OrderList(index: index, tabIndex: _index);
-          },
-        ),
+      body: Stack(
+        children: <Widget>[
+          /// 像素对齐问题的临时解决方法
+          const SafeArea(
+            child: const SizedBox(
+              height: 105,
+              width: double.infinity,
+              child: const DecoratedBox(
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(colors: [Color(0xFF5793FA), Color(0xFF4647FA)])
+                  )
+              ),
+            ),
+          ),
+          NestedScrollView(
+            physics: ClampingScrollPhysics(),
+            headerSliverBuilder: (context, innerBoxIsScrolled) {
+              return _sliverBuilder(context);
+            },
+            body: PageView.builder(
+              itemCount: 5,
+              onPageChanged: (index) {
+                if (_isPageCanChanged) {
+                  _onPageChange(index);
+                }
+              },
+              controller: _pageController,
+              itemBuilder: (_, index) {
+                return OrderList(index: index, tabIndex: _index);
+              },
+            ),
+          ),
+        ],
       ),
     );
   }

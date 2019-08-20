@@ -100,7 +100,10 @@ class Gaps {
   static const Widget hGap4 = const SizedBox(width: 4.0);
   static const Widget hGap8 = const SizedBox(width: 8.0);
   static const Widget hGap12 = const SizedBox(width: 12.0);
-  
-  static Widget line = Container(height: 0.6, color: Colours.line);
+
+  static Widget line = const SizedBox(
+    height: 0.6,
+    child: const DecoratedBox(decoration: BoxDecoration(color: Colours.line)),
+  );
   static const Widget empty = const SizedBox();
 }

@@ -6,7 +6,7 @@ import 'package:flutter_deer/routers/fluro_navigator.dart';
 
 class BaseDialog extends StatelessWidget{
 
-  BaseDialog({
+  const BaseDialog({
     Key key,
     this.title,
     this.onPressed,

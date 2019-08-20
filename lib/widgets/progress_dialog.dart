@@ -5,7 +5,7 @@ import 'package:flutter_deer/res/resources.dart';
 
 class ProgressDialog extends Dialog{
 
-  ProgressDialog({
+  const ProgressDialog({
     Key key,
     this.hintText
   }) : super(key: key);

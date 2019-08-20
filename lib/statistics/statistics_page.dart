@@ -43,7 +43,7 @@ class _StatisticsState extends State<Statistics> {
           centerTitle: true,
           titlePadding: const EdgeInsetsDirectional.only(start: 16.0, bottom: 14.0),
           collapseMode: CollapseMode.pin,
-          title: Text('统计'),
+          title: const Text('统计'),
         ),
       ),
       SliverPersistentHeader(

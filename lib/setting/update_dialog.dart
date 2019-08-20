@@ -151,6 +151,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
       DirectoryUtil.createStorageDirSync(category: 'apk');
       String path = DirectoryUtil.getStoragePath(fileName: 'deer', category: 'apk', format: 'apk');
       File file = File(path);
+      /// 链接可能会失效
       await Dio().download("http://oss.pgyer.com/094e0de740d62b7e95ba5d5f65ed3e99.apk?auth_key=1565257974-a4efb6d2f1f192f992c1bbcbe5097af8-0-aaa223d92592e2c753e522e028cc2fc0&response-content-disposition=attachment%3B+filename%3Dapp-release.apk",
         file.path,
         cancelToken: _cancelToken,
@@ -170,6 +171,9 @@ class _UpdateDialogState extends State<UpdateDialog> {
     }catch (e){
       Toast.show("下载失败!");
       print(e);
+      setState(() {
+        _isDownload = false;
+      });
     }
   }
 }

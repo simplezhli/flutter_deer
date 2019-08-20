@@ -58,7 +58,7 @@ class _StoreAuditState extends State<StoreAudit> {
           focusNode: _nodeText3,
           closeWidget: Padding(
             padding: EdgeInsets.all(5.0),
-            child: Text("关闭"),
+            child: const Text("关闭"),
           ),
         ),
       ],
