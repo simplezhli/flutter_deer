@@ -42,6 +42,7 @@ class _PriceInputDialog extends State<PriceInputDialog>{
           autofocus: true,
           controller: _controller,
           maxLines: 1,
+          style: TextStyles.textDark14,
           keyboardType: TextInputType.numberWithOptions(decimal: true),
           // 金额限制数字格式
           inputFormatters: [UsNumberTextInputFormatter()],

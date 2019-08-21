@@ -76,7 +76,7 @@ class _UpdatePasswordPageState extends State<UpdatePasswordPage> {
               maxLength: 16,
               hintText: "请确认旧密码",
             ),
-            Gaps.vGap10,
+            Gaps.vGap8,
             MyTextField(
               isInputPwd: true,
               controller: _newPwdController,

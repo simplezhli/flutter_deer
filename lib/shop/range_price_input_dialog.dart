@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/number_text_input_formatter.dart';
 import 'package:flutter_deer/util/toast.dart';
@@ -43,14 +44,16 @@ class _RangePriceInputDialog extends State<RangePriceInputDialog>{
             Expanded(
               child: TextField(
                 autofocus: true,
+                style: TextStyles.textDark14,
                 controller: _controller,
                 maxLines: 1,
                 keyboardType: TextInputType.numberWithOptions(decimal: true),
                 // 金额限制数字格式
                 inputFormatters: [UsNumberTextInputFormatter()],
                 decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.only(top: 4.0, left: 16.0, right: 16.0),
+                  contentPadding: const EdgeInsets.only(top: 4.0, left: 16.0, right: 16.0, bottom: 4.0),
                   border: InputBorder.none,
+                  hintStyle: TextStyles.textGray14,
                 ),
               ),
             ),
@@ -63,14 +66,16 @@ class _RangePriceInputDialog extends State<RangePriceInputDialog>{
             Expanded(
               child: TextField(
                 autofocus: true,
+                style: TextStyles.textDark14,
                 controller: _controller1,
                 maxLines: 1,
                 keyboardType: TextInputType.numberWithOptions(decimal: true),
                 // 金额限制数字格式
                 inputFormatters: [UsNumberTextInputFormatter()],
                 decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.only(top: 4.0, left: 16.0, right: 16.0),
+                  contentPadding: const EdgeInsets.only(top: 4.0, left: 16.0, right: 16.0, bottom: 4.0),
                   border: InputBorder.none,
+                  hintStyle: TextStyles.textGray14,
                 ),
               ),
             ),

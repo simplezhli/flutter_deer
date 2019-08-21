@@ -93,6 +93,7 @@ class _MyTextFieldState extends State<MyTextField> {
       alignment: Alignment.centerRight,
       children: <Widget>[
         TextField(
+          style: TextStyles.textDark14,
           focusNode: widget.focusNode,
           maxLength: widget.maxLength,
           obscureText: widget.isInputPwd ? !_isShowPwd : false,
@@ -106,6 +107,7 @@ class _MyTextFieldState extends State<MyTextField> {
           decoration: InputDecoration(
               contentPadding: const EdgeInsets.symmetric(vertical: 16.0),
               hintText: widget.hintText,
+              hintStyle: TextStyles.textGray14,
               counterText: "",
               focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(

@@ -51,6 +51,7 @@ class _InputTextPageState extends State<InputTextPage> {
           autofocus: true,
           controller: _controller,
           keyboardType: widget.keyboardType,
+          style: TextStyles.textDark14,
           decoration: InputDecoration(
             hintText: widget.hintText,
             border: InputBorder.none,

@@ -103,6 +103,7 @@ class Gaps {
 
   static Widget line = const SizedBox(
     height: 0.6,
+    width: double.infinity,
     child: const DecoratedBox(decoration: BoxDecoration(color: Colours.line)),
   );
   static const Widget empty = const SizedBox();

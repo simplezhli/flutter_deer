@@ -35,6 +35,7 @@ class _GoodsSizeDialog extends State<GoodsSizeDialog>{
         ),
         child: TextField(
           autofocus: true,
+          style: TextStyles.textDark14,
           controller: _controller,
           maxLines: 1,
           decoration: InputDecoration(

@@ -75,11 +75,12 @@ class _SearchBarState extends State<SearchBar> {
                       borderRadius: BorderRadius.circular(4.0),
                     ),
                     child: TextField(
-                      autofocus: false,
+                      style: TextStyles.textDark14,
+                      autofocus: true,
                       controller: _controller,
                       maxLines: 1,
                       decoration: InputDecoration(
-                        contentPadding: const EdgeInsets.only(top: 6.0, left: -8.0, right: -16.0),
+                        contentPadding: const EdgeInsets.only(top: 6.0, left: -8.0, right: -16.0, bottom: 6.0),
                         border: InputBorder.none,
                         icon: Padding(
                           padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 8.0),

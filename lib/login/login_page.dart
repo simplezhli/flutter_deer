@@ -100,7 +100,7 @@ class _LoginState extends State<Login> {
             keyboardType: TextInputType.phone,
             hintText: "请输入账号",
           ),
-          Gaps.vGap10,
+          Gaps.vGap8,
           MyTextField(
             focusNode: _nodeText2,
             config: _config,

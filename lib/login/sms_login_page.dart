@@ -86,7 +86,7 @@ class _SMSLoginState extends State<SMSLogin> {
             keyboardType: TextInputType.phone,
             hintText: "请输入手机号",
           ),
-          Gaps.vGap10,
+          Gaps.vGap8,
           MyTextField(
             focusNode: _nodeText2,
             controller: _vCodeController,
@@ -98,7 +98,7 @@ class _SMSLoginState extends State<SMSLogin> {
               return Future.value(true);
             },
           ),
-          Gaps.vGap10,
+          Gaps.vGap8,
           Container(
               alignment: Alignment.centerLeft,
               child: GestureDetector(
