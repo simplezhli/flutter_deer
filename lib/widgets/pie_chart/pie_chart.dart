@@ -109,7 +109,7 @@ class PieChartPainter extends CustomPainter {
       // 获取“其他”数据
       pieData = data[10];
       pieData.percentage = pieData.number / count;
-      pieData.color = Color(0xFFCCCCCC);
+      pieData.color = Colours.text_gray_c;
       // 移除“其他”后，按数量排序
       data.removeAt(10);
     }

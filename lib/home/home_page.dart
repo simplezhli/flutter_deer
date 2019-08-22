@@ -1,12 +1,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/goods/goods_page.dart';
+import 'package:flutter_deer/home/provider/home_provider.dart';
 import 'package:flutter_deer/order/order_page.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/shop/shop_page.dart';
 import 'package:flutter_deer/statistics/statistics_page.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -14,12 +16,15 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  
-  int _tabIndex = 0;
+
   var _pageList;
   var _tabImages;
   var _appBarTitles = ['订单', '商品', '统计', '店铺'];
   final _pageController = PageController();
+
+  HomeProvider provider = HomeProvider();
+
+  List<BottomNavigationBarItem> _list;
   
   @override
   void initState() {
@@ -53,20 +58,17 @@ class _HomeState extends State<Home> {
         loadAssetImage("home/icon_Shop_s"),
       ]
     ];
-  }
 
-  Image _getTabIcon(int curIndex) {
-    if (curIndex == _tabIndex) {
-      return _tabImages[curIndex][1];
-    }
-    return _tabImages[curIndex][0];
-  }
-
-  Widget _buildTabText(int curIndex) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 5.0),
-      child: Text(_appBarTitles[curIndex]),
-    );
+    _list = List.generate(4, (i){
+      return BottomNavigationBarItem(
+          icon: _tabImages[i][0],
+          activeIcon: _tabImages[i][1],
+          title: Padding(
+            padding: const EdgeInsets.only(top: 5.0),
+            child: Text(_appBarTitles[i]),
+          )
+      );
+    });
   }
 
   DateTime  _lastTime;
@@ -83,43 +85,44 @@ class _HomeState extends State<Home> {
   
   @override
   Widget build(BuildContext context) {
-    
-    return WillPopScope(
-      onWillPop: _isExit,
-      child: Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.white,
-          items: List.generate(_appBarTitles.length, (i) => BottomNavigationBarItem(
-              icon: _getTabIcon(i),
-              title: _buildTabText(i)
-          )),
-          type: BottomNavigationBarType.fixed,
-          currentIndex: _tabIndex,
-          elevation: 5.0,
-          iconSize: 21.0,
-          selectedFontSize: Dimens.font_sp10,
-          unselectedFontSize: Dimens.font_sp10,
-          selectedItemColor: Colours.app_main,
-          unselectedItemColor: Color(0xffbfbfbf),
-          onTap: (index){
-            _pageController.jumpToPage(index);
-          },
+    return ChangeNotifierProvider<HomeProvider>(
+      builder: (_) => provider,
+      child: WillPopScope(
+        onWillPop: _isExit,
+        child: Scaffold(
+          bottomNavigationBar: Consumer<HomeProvider>(
+            builder: (_, provider, __){
+              return BottomNavigationBar(
+                backgroundColor: Colors.white,
+                items: _list,
+                type: BottomNavigationBarType.fixed,
+                currentIndex: provider.value,
+                elevation: 5.0,
+                iconSize: 21.0,
+                selectedFontSize: Dimens.font_sp10,
+                unselectedFontSize: Dimens.font_sp10,
+                selectedItemColor: Colours.app_main,
+                unselectedItemColor: Color(0xffbfbfbf),
+                onTap: (index){
+                  _pageController.jumpToPage(index);
+                },
+              );
+            },
+          ),
+          // 使用PageView的原因参看 https://zhuanlan.zhihu.com/p/58582876
+          body: PageView(
+            controller: _pageController,
+            onPageChanged: _onPageChanged,
+            children: _pageList,
+            physics: NeverScrollableScrollPhysics(), // 禁止滑动
+          )
         ),
-        // 使用PageView的原因参看 https://zhuanlan.zhihu.com/p/58582876
-        body: PageView(
-          controller: _pageController,
-          onPageChanged: _onPageChanged,
-          children: _pageList,
-          physics: NeverScrollableScrollPhysics(), // 禁止滑动
-        )
       ),
     );
   }
 
   void _onPageChanged(int index) {
-    setState(() {
-      _tabIndex = index;
-    });
+    provider.value = index;
   }
 
 }

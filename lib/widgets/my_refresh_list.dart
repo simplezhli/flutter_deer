@@ -64,7 +64,7 @@ class _DeerListViewState extends State<DeerListView> {
               if (widget.loadMore == null){
                 return widget.itemBuilder(context, index);
               }else{
-                return index < widget.itemCount ? widget.itemBuilder(context, index) : _buildMoreWidget();
+                return index < widget.itemCount ? widget.itemBuilder(context, index) : MoreWidget(widget.itemCount, widget.hasMore, widget.pageSize);
               }
             }
           )
@@ -88,19 +88,31 @@ class _DeerListViewState extends State<DeerListView> {
     _isLoading = false;
   }
 
-  Widget _buildMoreWidget(){
+}
+
+class MoreWidget extends StatelessWidget {
+  
+  const MoreWidget(this.itemCount, this.hasMore, this.pageSize);
+
+  final int itemCount;
+  final bool hasMore;
+  final int pageSize;
+  
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Offstage(offstage: !widget.hasMore, child: const CupertinoActivityIndicator()),
-          Offstage(offstage: !widget.hasMore, child: Gaps.hGap5),
+          hasMore ? const CupertinoActivityIndicator() : Gaps.empty,
+          hasMore ? Gaps.hGap5 : Gaps.empty,
           /// 只有一页的时候，就不显示FooterView了
-          Text(widget.hasMore ? '正在加载中...' : (widget.itemCount < widget.pageSize ? '' : '没有了呦~'), style: TextStyle(color: const Color(0x8A000000))),
+          Text(hasMore ? '正在加载中...' : (itemCount < pageSize ? '' : '没有了呦~'), style: const TextStyle(color: const Color(0x8A000000))),
         ],
       ),
     );
   }
 }
+

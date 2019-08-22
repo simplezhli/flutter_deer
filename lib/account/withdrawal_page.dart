@@ -130,7 +130,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                               hintStyle: TextStyle(
                                 fontSize: 14.0,
                                 fontWeight: FontWeight.normal,
-                                color: Color(0xFFCCCCCC)
+                                color: Colours.text_gray_c
                               ),
                               hintText: "不能少于1元",
                               counterText: "",

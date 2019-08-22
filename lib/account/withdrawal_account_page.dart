@@ -177,7 +177,7 @@ class _AccountCardState extends State<AccountCard> {
           BoxShadow(color: widget.type == 1 ? Color(0x804EE07A) : Color(0x805793FA), offset: Offset(0.0, 2.0), blurRadius: 8.0, spreadRadius: 0.0),
         ],
         gradient: LinearGradient(
-          colors: widget.type == 1 ? [Color(0xFF40E6AE), Color(0xFF2DE062)] : [Color(0xFF57C4FA), Color(0xFF4688FA)]
+          colors: widget.type == 1 ? [Color(0xFF40E6AE), Color(0xFF2DE062)] : [Color(0xFF57C4FA), Colours.app_main]
         )
       ),
       child: widget.child,

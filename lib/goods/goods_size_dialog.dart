@@ -39,7 +39,7 @@ class _GoodsSizeDialog extends State<GoodsSizeDialog>{
           controller: _controller,
           maxLines: 1,
           decoration: InputDecoration(
-            contentPadding: const EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),
+            contentPadding: const EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0, bottom: 8.0),
             border: InputBorder.none,
             hintText: "输入文字…",
             hintStyle: TextStyles.textGrayC14,

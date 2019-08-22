@@ -122,18 +122,15 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                   children: <Widget>[
                     Text(widget.index == 1 ? "订单走势" : "交易额走势", style: TextStyles.textBoldDark18),
                     Gaps.vGap16,
-                    _buildChart(const Color(0xFF4688FA), const Color(0x805793FA), widget.index == 1 ? "全部订单" : "交易额(元)", "3000"),
-                    Offstage(
-                      offstage: widget.index != 1,
-                      child: Column(
-                        children: <Widget>[
-                          Gaps.vGap16,
-                          _buildChart(const Color(0xFFFFAA33), const Color(0x80FFAA33), "完成订单", "2000"),
-                          Gaps.vGap16,
-                          _buildChart(const Color(0xFFFF4759), const Color(0x80FF4759), "取消订单", "1000"),
-                          Gaps.vGap16,
-                        ],
-                      ),
+                    _buildChart(Colours.app_main, const Color(0x805793FA), widget.index == 1 ? "全部订单" : "交易额(元)", "3000"),
+                    widget.index != 1 ? Gaps.empty : Column(
+                      children: <Widget>[
+                        Gaps.vGap16,
+                        _buildChart(const Color(0xFFFFAA33), const Color(0x80FFAA33), "完成订单", "2000"),
+                        Gaps.vGap16,
+                        _buildChart(Colours.text_red, const Color(0x80FF4759), "取消订单", "1000"),
+                        Gaps.vGap16,
+                      ],
                     )
                   ],
                 ),

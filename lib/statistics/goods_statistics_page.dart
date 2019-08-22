@@ -119,7 +119,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
         if (i == 10){
           pieData.name = "其他";
           pieData.number = Random.secure().nextInt(1000);
-          pieData.color = Color(0xFFCCCCCC);
+          pieData.color = Colours.text_gray_c;
         }else{
           pieData.name = "商品$i";
           pieData.number = Random.secure().nextInt(1000);

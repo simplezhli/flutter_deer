@@ -47,7 +47,7 @@ class _PriceInputDialog extends State<PriceInputDialog>{
           // 金额限制数字格式
           inputFormatters: [UsNumberTextInputFormatter()],
           decoration: InputDecoration(
-            contentPadding: const EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),
+            contentPadding: const EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0, bottom: 8.0),
             border: InputBorder.none,
             hintText: "输入${widget.title}",
             hintStyle: TextStyles.textGrayC14,

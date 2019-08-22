@@ -135,7 +135,7 @@ class _LoginState extends State<Login> {
                 child: const Text(
                   '还没账号？快去注册',
                   style: TextStyle(
-                      color: Colours.text_blue
+                      color: Colours.app_main
                   ),
                 ),
                 onTap: (){

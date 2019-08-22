@@ -11,4 +11,7 @@ class Constant {
   static const String phone = 'phone';
   static const String access_Token = 'accessToken';
   static const String refresh_Token = 'refreshToken';
+
+  static const List<String> orderLeftButtonText = ["拒单", "拒单", "订单跟踪", "订单跟踪", "订单跟踪"];
+  static const List<String> orderRightButtonText = ["接单", "开始配送", "完成", "", ""];
 }

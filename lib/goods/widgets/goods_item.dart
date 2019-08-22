@@ -89,7 +89,7 @@ class GoodsItem extends StatelessWidget {
                               child: Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
                                 decoration: BoxDecoration(
-                                  color: Color(0xFF4688FA),
+                                  color: Colours.app_main,
                                   borderRadius: BorderRadius.circular(2.0),
                                 ),
                                 height: 16.0,

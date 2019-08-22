@@ -637,19 +637,19 @@ class BezierChartState extends State<BezierChart>
     ///Rebuild data points and series only if the BezierChartScale is different from the old one
     /// or if the series are different
 
-    bool areSeriesDifferent = false;
-    if (oldWidget.series.length != widget.series.length) {
-      areSeriesDifferent = true;
-    } else {
-      for (int i = 0; i < oldWidget.series.length; i++) {
-        final line1 = oldWidget.series[i];
-        final line2 = widget.series[i];
-        if (line1 != line2) {
-          areSeriesDifferent = true;
-          break;
-        }
-      }
-    }
+//    bool areSeriesDifferent = false;
+//    if (oldWidget.series.length != widget.series.length) {
+//      areSeriesDifferent = true;
+//    } else {
+//      for (int i = 0; i < oldWidget.series.length; i++) {
+//        final line1 = oldWidget.series[i];
+//        final line2 = widget.series[i];
+//        if (line1 != line2) {
+//          areSeriesDifferent = true;
+//          break;
+//        }
+//      }
+//    }
     ///TODO 修改处 oldWidget.bezierChartScale != widget.bezierChartScale || areSeriesDifferent
     if (oldWidget.series != widget.series) {
       _currentBezierChartScale = widget.bezierChartScale;

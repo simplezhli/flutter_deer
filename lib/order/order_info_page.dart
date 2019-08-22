@@ -150,7 +150,7 @@ class _OrderInfoState extends State<OrderInfo> {
                                               child: Container(
                                                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xFF4688FA),
+                                                  color: Colours.app_main,
                                                   borderRadius: BorderRadius.circular(2.0),
                                                 ),
                                                 height: 16.0,
