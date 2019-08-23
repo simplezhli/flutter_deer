@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
 
@@ -31,7 +31,7 @@ class _AccountPageState extends State<AccountPage> {
                   margin: const EdgeInsets.symmetric(horizontal: 6.0),
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage(Utils.getImgPath("account/bg")),
+                      image: AssetImage(ImageUtils.getImgPath("account/bg")),
                       fit: BoxFit.fill
                     )
                   ),

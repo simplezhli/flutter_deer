@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/base_dialog.dart';
+import 'package:flutter_deer/widgets/load_image.dart';
 
 class PayTypeDialog extends StatefulWidget{
 
@@ -43,7 +43,7 @@ class _PayTypeDialog extends State<PayTypeDialog>{
                   style: TextStyles.textDark14,
                 ),
               ),
-              loadAssetImage(_selectValue.contains(index) ? "shop/xz" : "shop/xztm", width: 16.0, height: 16.0),
+              LoadAssetImage(_selectValue.contains(index) ? "shop/xz" : "shop/xztm", width: 16.0, height: 16.0),
               Gaps.hGap16,
             ],
           ),

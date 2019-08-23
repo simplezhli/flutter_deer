@@ -3,7 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/image_utils.dart';
+
+import 'load_image.dart';
 
 class SearchBar extends StatefulWidget implements PreferredSizeWidget{
 
@@ -84,14 +85,14 @@ class _SearchBarState extends State<SearchBar> {
                         border: InputBorder.none,
                         icon: Padding(
                           padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 8.0),
-                          child: loadAssetImage("order/order_search"),
+                          child: const LoadAssetImage("order/order_search"),
                         ),
                         hintText: widget.hintText,
                         hintStyle: TextStyles.textGrayC14,
                         suffixIcon: InkWell(
                           child: Padding(
                             padding: const EdgeInsets.only(left: 16.0, top: 8.0, bottom: 8.0),
-                            child: loadAssetImage("order/order_delete"),
+                            child: const LoadAssetImage("order/order_delete"),
                           ),
                           onTap: (){
                             _controller.text = "";

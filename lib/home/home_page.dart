@@ -6,8 +6,8 @@ import 'package:flutter_deer/order/order_page.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/shop/shop_page.dart';
 import 'package:flutter_deer/statistics/statistics_page.dart';
-import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
+import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
@@ -42,20 +42,20 @@ class _HomeState extends State<Home> {
 
     _tabImages = [
       [
-        loadAssetImage("home/icon_Order_n"),
-        loadAssetImage("home/icon_Order_s"),
+        const LoadAssetImage("home/icon_Order_n"),
+        const LoadAssetImage("home/icon_Order_s"),
       ],
       [
-        loadAssetImage("home/icon_commodity_n"),
-        loadAssetImage("home/icon_commodity_s"),
+        const LoadAssetImage("home/icon_commodity_n"),
+        const LoadAssetImage("home/icon_commodity_s"),
       ],
       [
-        loadAssetImage("home/icon_statistics_n"),
-        loadAssetImage("home/icon_statistics_s"),
+        const LoadAssetImage("home/icon_statistics_n"),
+        const LoadAssetImage("home/icon_statistics_s"),
       ],
       [
-        loadAssetImage("home/icon_Shop_n"),
-        loadAssetImage("home/icon_Shop_s"),
+        const LoadAssetImage("home/icon_Shop_n"),
+        const LoadAssetImage("home/icon_Shop_s"),
       ]
     ];
 

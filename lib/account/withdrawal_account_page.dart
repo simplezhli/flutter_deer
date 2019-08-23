@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
+import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
 
 import 'account_router.dart';
@@ -67,7 +67,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(20.0),
                           ),
-                          child: loadAssetImage(_list[index].type == 1 ? "account/wechat" : "account/yhk")
+                          child: LoadAssetImage(_list[index].type == 1 ? "account/wechat" : "account/yhk")
                         ),
                       ),
                       Positioned(

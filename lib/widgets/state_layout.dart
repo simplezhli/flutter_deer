@@ -1,7 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 
 class StateLayout extends StatefulWidget {
   
@@ -68,7 +68,7 @@ class _StateLayoutState extends State<StateLayout> {
             width: 120.0,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(Utils.getImgPath("state/$_img")),
+                image: AssetImage(ImageUtils.getImgPath("state/$_img")),
               ),
             ),
           )),

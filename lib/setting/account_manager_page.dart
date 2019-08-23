@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/login/login_router.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
+import 'package:flutter_deer/widgets/load_image.dart';
 
 class AccountManagerPage extends StatefulWidget {
   @override
@@ -30,7 +30,7 @@ class _AccountManagerPageState extends State<AccountManagerPage> {
                 top: 8.0,
                 bottom: 8.0,
                 right: 40.0,
-                child: loadAssetImage("shop/tx", width: 34.0),
+                child: const LoadAssetImage("shop/tx", width: 34.0),
               )
             ],
           ),

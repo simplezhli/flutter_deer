@@ -6,7 +6,7 @@ import 'package:flutter_deer/order/order_list.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/image_utils.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
 import 'package:flutter_deer/widgets/my_flexible_space_bar.dart';
 
@@ -89,7 +89,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
               onPressed: (){
                 NavigatorUtils.push(context, OrderRouter.orderSearchPage);
               },
-              icon: loadAssetImage("order/icon_search",
+              icon: const LoadAssetImage("order/icon_search",
                 width: 22.0,
                 height: 22.0,
               ),
@@ -102,7 +102,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
           floating: false, // 不随着滑动隐藏标题
           pinned: true, // 固定在顶部
           flexibleSpace: MyFlexibleSpaceBar(
-            background: loadAssetImage("order/order_bg",
+            background: const LoadAssetImage("order/order_bg",
               width: double.infinity,
               height: 113.0,
               fit: BoxFit.fill,
@@ -120,7 +120,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
             DecoratedBox(
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage(Utils.getImgPath("order/order_bg1")),
+                      image: AssetImage(ImageUtils.getImgPath("order/order_bg1")),
                       fit: BoxFit.fill
                   )
               ),
@@ -189,7 +189,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              loadAssetImage(_index == index ? selImg : unImg, width: 24.0, height: 24.0,),
+              LoadAssetImage(_index == index ? selImg : unImg, width: 24.0, height: 24.0,),
               Gaps.vGap4,
               Text(text)
             ],

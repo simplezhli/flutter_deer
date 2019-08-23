@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
+import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
 
@@ -103,7 +103,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
             color: Colours.bg_gray,
             borderRadius: BorderRadius.circular(8.0),
           ),
-          child: loadAssetImage("shop/tj")
+          child: const LoadAssetImage("shop/tj")
       ),
     ) : Container(
       margin: const EdgeInsets.only(bottom: 8.0),
@@ -176,7 +176,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        loadAssetImage(_list[index].type == 1 ? "shop/xzyf" : "shop/wxzyf", width: 16.0,),
+                        LoadAssetImage(_list[index].type == 1 ? "shop/xzyf" : "shop/wxzyf", width: 16.0,),
                         Gaps.hGap4,
                         const Text("比率", style: TextStyles.textDark14),
                       ],
@@ -192,7 +192,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        loadAssetImage(_list[index].type == 0 ? "shop/xzyf" : "shop/wxzyf", width: 16.0),
+                        LoadAssetImage(_list[index].type == 0 ? "shop/xzyf" : "shop/wxzyf", width: 16.0),
                         Gaps.hGap4,
                         const Text("金额", style: TextStyles.textDark14),
                       ],

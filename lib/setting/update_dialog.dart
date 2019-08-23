@@ -7,8 +7,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
-import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/util/version_utils.dart';
 
 
@@ -59,7 +59,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.only(topLeft: const Radius.circular(8.0), topRight: const Radius.circular(8.0)),
                     image: DecorationImage(
-                      image: AssetImage(Utils.getImgPath("update_head",format: 'jpg')),
+                      image: AssetImage(ImageUtils.getImgPath("update_head",format: 'jpg')),
                       fit: BoxFit.cover,
                     ),
                   )

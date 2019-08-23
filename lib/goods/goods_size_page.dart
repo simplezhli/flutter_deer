@@ -4,8 +4,8 @@ import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
-import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
+import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/popup_window.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
@@ -65,7 +65,7 @@ class _GoodsSizeState extends State<GoodsSize> {
         height: 147.0,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(Utils.getImgPath("goods/ydss")),
+            image: AssetImage(ImageUtils.getImgPath("goods/ydss")),
             fit: BoxFit.fitWidth
           )
         ),
@@ -167,7 +167,7 @@ class _GoodsSizeState extends State<GoodsSize> {
           child: Container(
             width: 72.0,
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
-            child: loadAssetImage("goods/goods_delete"),
+            child: const LoadAssetImage("goods/goods_delete"),
           ),
           color: Colours.text_red,
           onTap: () {
@@ -195,7 +195,7 @@ class _GoodsSizeState extends State<GoodsSize> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
-                    child: loadAssetImage(goodsSizeList[index].icon, width: 72.0, height: 72.0),
+                    child: LoadAssetImage(goodsSizeList[index].icon, width: 72.0, height: 72.0),
                   ),
                   Gaps.hGap8,
                   Expanded(

@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/date_utils.dart';
 import 'package:flutter_deer/util/image_utils.dart';
-import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
+import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
 import 'package:flutter_deer/widgets/pie_chart/pie_chart.dart';
 import 'package:flutter_deer/widgets/pie_chart/pie_data.dart';
@@ -149,7 +149,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
           child: Row(
             children: <Widget>[
               index <= 2 ?
-              loadAssetImage("statistic/${index == 0 ? "champion" : index == 1 ? "runnerup" : "thirdplace"}", width: 40.0,) :
+              LoadAssetImage("statistic/${index == 0 ? "champion" : index == 1 ? "runnerup" : "thirdplace"}", width: 40.0,) :
               Container(
                 alignment: Alignment.center,
                 width: 18.0, height: 18.0,
@@ -167,7 +167,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                     borderRadius: BorderRadius.circular(4.0),
                     border: Border.all(color: Color(0xFFF7F8FA), width: 0.6),
                     image: DecorationImage(
-                        image: AssetImage(Utils.getImgPath("order/icon_goods"))
+                        image: AssetImage(ImageUtils.getImgPath("order/icon_goods"))
                     )
                 ),
               ),

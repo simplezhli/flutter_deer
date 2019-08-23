@@ -3,10 +3,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
+import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/selected_image.dart';
 import 'package:flutter_deer/widgets/text_field_item.dart';
@@ -125,7 +125,7 @@ class _GoodsEditState extends State<GoodsEdit> {
                         Positioned(
                           right: 16.0,
                           child: GestureDetector(
-                            child: loadAssetImage("goods/scanning", width: 16.0, height: 16.0),
+                            child: const LoadAssetImage("goods/scanning", width: 16.0, height: 16.0),
                             onTap: _scan,
                           ),
                         )

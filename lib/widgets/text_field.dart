@@ -5,9 +5,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/image_utils.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
+
+import 'load_image.dart';
 
 class MyTextField extends StatefulWidget {
   
@@ -129,7 +130,7 @@ class _MyTextFieldState extends State<MyTextField> {
             Offstage(
               offstage: _isShowDelete,
               child: GestureDetector(
-                child: loadAssetImage("login/qyg_shop_icon_delete",
+                child: const LoadAssetImage("login/qyg_shop_icon_delete",
                   width: 18.0,
                   height: 18.0,
                 ),
@@ -145,7 +146,7 @@ class _MyTextFieldState extends State<MyTextField> {
               child: Padding(
                 padding: const EdgeInsets.only(left: 15.0),
                 child: GestureDetector(
-                  child: loadAssetImage(
+                  child: LoadAssetImage(
                     _isShowPwd ? "login/qyg_shop_icon_display" : "login/qyg_shop_icon_hide",
                     width: 18.0,
                     height: 18.0,

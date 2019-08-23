@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:azlistview/azlistview.dart';
+import 'package:flutter_deer/widgets/load_image.dart';
 import 'models/bank_model.dart';
 
 class BankSelectPage extends StatefulWidget {
@@ -103,7 +103,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Row(
                     children: <Widget>[
-                      loadAssetImage("account/${_bankLogoList[index]}",width: 24.0),
+                      LoadAssetImage("account/${_bankLogoList[index]}",width: 24.0),
                       Gaps.hGap8,
                       Text(_bankNameList[index], style: TextStyles.textDark14),
                     ],

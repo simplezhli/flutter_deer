@@ -7,6 +7,7 @@ import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/setting/setting_router.dart';
 import 'package:flutter_deer/shop/shop_router.dart';
 import 'package:flutter_deer/util/image_utils.dart';
+import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:provider/provider.dart';
 
 import 'models/user_entity.dart';
@@ -44,7 +45,7 @@ class ShopState extends BasePageState<Shop, ShopPagePresenter> with AutomaticKee
                 onPressed: (){
                   NavigatorUtils.push(context, ShopRouter.messagePage);
                 },
-                icon: loadAssetImage(
+                icon: const LoadAssetImage(
                   "shop/message",
                   width: 24.0,
                   height: 24.0,
@@ -54,7 +55,7 @@ class ShopState extends BasePageState<Shop, ShopPagePresenter> with AutomaticKee
                 onPressed: (){
                   NavigatorUtils.push(context, SettingRouter.settingPage);
                 },
-                icon: loadAssetImage(
+                icon: const LoadAssetImage(
                   "shop/setting",
                   width: 24.0,
                   height: 24.0,
@@ -82,7 +83,7 @@ class ShopState extends BasePageState<Shop, ShopPagePresenter> with AutomaticKee
                             child: CircleAvatar(
                               radius: 28.0,
                               backgroundColor: Colors.transparent,
-                              backgroundImage: getImageProvider(provider.user?.avatarUrl, holderImg: 'shop/tx')
+                              backgroundImage: ImageUtils.getImageProvider(provider.user?.avatarUrl, holderImg: 'shop/tx')
                             )
                         ),
                         Positioned(
@@ -90,7 +91,7 @@ class ShopState extends BasePageState<Shop, ShopPagePresenter> with AutomaticKee
                           left: 0.0,
                           child: Row(
                             children: <Widget>[
-                              loadAssetImage("shop/zybq", width: 40.0, height: 16.0,),
+                              const LoadAssetImage("shop/zybq", width: 40.0, height: 16.0,),
                               Gaps.hGap8,
                               const Text("店铺账号:15000000000", style: TextStyles.textDark12)
                             ],
@@ -128,7 +129,7 @@ class ShopState extends BasePageState<Shop, ShopPagePresenter> with AutomaticKee
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          loadAssetImage("shop/${menuImage[index]}", width: 32.0),
+                          LoadAssetImage("shop/${menuImage[index]}", width: 32.0),
                           Gaps.vGap4,
                           Text(
                             menuTitle[index],
@@ -174,7 +175,7 @@ class ShopState extends BasePageState<Shop, ShopPagePresenter> with AutomaticKee
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          loadAssetImage("shop/dpsz", width: 32.0),
+                          const LoadAssetImage("shop/dpsz", width: 32.0),
                           Gaps.vGap4,
                           const Text(
                             "店铺设置",

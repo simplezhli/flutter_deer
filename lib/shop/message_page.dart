@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
 
@@ -47,11 +46,7 @@ class _MessagePageState extends State<MessagePage> {
                               borderRadius: BorderRadius.circular(4.0),
                             ),
                           ),
-                          loadAssetImage(
-                            "ic_arrow_right",
-                            height: 16.0,
-                            width: 16.0,
-                          )
+                          Images.arrowRight
                         ],
                       ),
                       Gaps.vGap8,

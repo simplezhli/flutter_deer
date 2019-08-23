@@ -7,10 +7,7 @@ import 'package:keyboard_actions/keyboard_actions.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Utils {
-  static String getImgPath(String name, {String format: 'png'}) {
-    return 'assets/images/$name.$format';
-  }
-
+  
   static void launchTelURL(String phone) async {
     String url = 'tel:'+ phone;
     if (await canLaunch(url)) {

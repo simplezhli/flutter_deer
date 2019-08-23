@@ -6,7 +6,7 @@ import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/login/login_router.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/image_utils.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flustars/flustars.dart';
@@ -72,7 +72,7 @@ class _SplashPageState extends State<SplashPage> {
           Offstage(
             offstage: !(_status == 0),
             child: Image.asset(
-              Utils.getImgPath("start_page", format: "jpg"),
+              ImageUtils.getImgPath("start_page", format: "jpg"),
               width: double.infinity,
               fit: BoxFit.fill,
               height: double.infinity,
@@ -84,7 +84,7 @@ class _SplashPageState extends State<SplashPage> {
               itemCount: _guideList.length,
               loop: false,
               itemBuilder: (_, index){
-                return loadAssetImage(
+                return LoadAssetImage(
                   _guideList[index],
                   fit: BoxFit.cover,
                   width: double.infinity,

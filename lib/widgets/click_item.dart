@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/image_utils.dart';
 
 class ClickItem extends StatelessWidget {
 
@@ -66,7 +65,7 @@ class ClickItem extends StatelessWidget {
               opacity: onTap == null ? 0 : 1,
               child: Padding(
                 padding: EdgeInsets.only(top: maxLines == 1 ? 0.0 : 2.0),
-                child: loadAssetImage("ic_arrow_right", height: 16.0, width: 16.0,),
+                child: Images.arrowRight,
               ),
             )
           ],

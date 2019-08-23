@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/date_utils.dart';
 import 'package:flutter_deer/util/image_utils.dart';
-import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
+import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
 import 'package:flutter_deer/widgets/selected_text.dart';
 import 'package:flutter_deer/widgets/bezier_chart/bezier_chart.dart';
@@ -108,7 +108,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                             child: Container(
                               height: 27.0,
                               alignment: Alignment.topCenter,
-                              child: loadAssetImage("statistic/${_isExpanded ? "up" : "down"}", width: 16.0,),
+                              child: LoadAssetImage("statistic/${_isExpanded ? "up" : "down"}", width: 16.0,),
                             ),
                           ) : Gaps.empty,
                     ],
@@ -152,7 +152,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
           padding: const EdgeInsets.all(16.0),
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage(Utils.getImgPath("statistic/chart_fg")),
+                  image: AssetImage(ImageUtils.getImgPath("statistic/chart_fg")),
                   fit: BoxFit.fill
               )
           ),

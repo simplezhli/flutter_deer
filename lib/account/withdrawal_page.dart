@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/number_text_input_formatter.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
+import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 
 import 'account_router.dart';
@@ -72,7 +72,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                   alignment: Alignment.center,
                   child: Row(
                     children: <Widget>[
-                      loadAssetImage(_data.type == 0 ? "account/yhk" : "account/wechat", width: 24.0),
+                      LoadAssetImage(_data.type == 0 ? "account/yhk" : "account/wechat", width: 24.0),
                       Gaps.hGap16,
                       Expanded(
                         child: Column(
@@ -85,10 +85,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                           ],
                         ),
                       ),
-                      loadAssetImage("ic_arrow_right",
-                        height: 16.0,
-                        width: 16.0,
-                      )
+                      Images.arrowRight
                     ],
                   ),
                 ),
@@ -112,7 +109,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                           width: 15.0,
                           height: 40.0,
                           padding: const EdgeInsets.symmetric(vertical: 8.0),
-                          child: loadAssetImage("account/rmb")
+                          child: const LoadAssetImage("account/rmb")
                         ),
                         Gaps.hGap8,
                         Expanded(
@@ -160,7 +157,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         const Text("转出方式", style: TextStyles.textBoldDark14),
-                        loadAssetImage("account/sm", width: 16.0)
+                        const LoadAssetImage("account/sm", width: 16.0)
                       ],
                     ),
                     InkWell(
@@ -177,7 +174,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                             Positioned(
                               top: 18.0,
                               left: 0.0,
-                              child: loadAssetImage(_withdrawalType == 0 ? "account/txxz" : "account/txwxz", width: 16.0)
+                              child: LoadAssetImage(_withdrawalType == 0 ? "account/txxz" : "account/txwxz", width: 16.0)
                             ),
                             Positioned(
                               top: 16.0,
@@ -219,7 +216,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                             Positioned(
                               top: 18.0,
                               left: 0.0,
-                              child: loadAssetImage(_withdrawalType == 1 ? "account/txxz" : "account/txwxz", width: 16.0)
+                              child: LoadAssetImage(_withdrawalType == 1 ? "account/txxz" : "account/txwxz", width: 16.0)
                             ),
                             Positioned(
                               top: 16.0,
