@@ -50,7 +50,7 @@ abstract class BasePageState<T extends StatefulWidget, V extends BasePagePresent
                   _isShowDialog = false;
                   return Future.value(true);
                 },
-                child: ProgressDialog(hintText: "正在加载..."),
+                child: const ProgressDialog(hintText: "正在加载..."),
               );
             }
         );

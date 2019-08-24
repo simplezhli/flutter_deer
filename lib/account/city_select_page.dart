@@ -40,7 +40,7 @@ class _CitySelectPageState extends State<CitySelectPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
+      appBar: const MyAppBar(
         title: "开户地点",
       ),
       body: SafeArea(

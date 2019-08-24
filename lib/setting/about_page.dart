@@ -54,7 +54,7 @@ class _AboutState extends State<About> {
     });
     
     return Scaffold(
-      appBar: MyAppBar(
+      appBar: const MyAppBar(
         title: "关于我们",
       ),
       body: Column(

@@ -16,7 +16,7 @@ class _StoreAuditResultState extends State<StoreAuditResult> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
+      appBar: const MyAppBar(
         title: "审核结果",
       ),
       body: Padding(

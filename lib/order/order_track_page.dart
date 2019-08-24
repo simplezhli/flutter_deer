@@ -14,7 +14,7 @@ class _OrderTrackState extends State<OrderTrack> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
+      appBar: const MyAppBar(
         centerTitle: "订单跟踪",
       ),
       body: SafeArea(

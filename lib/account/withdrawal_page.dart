@@ -50,7 +50,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
         return Future.value(true);
       },
       child: Scaffold(
-        appBar: MyAppBar(
+        appBar: const MyAppBar(
           title: "提现",
         ),
         body: SingleChildScrollView(

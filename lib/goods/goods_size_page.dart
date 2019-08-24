@@ -125,7 +125,7 @@ class _GoodsSizeState extends State<GoodsSize> {
             Gaps.vGap16,
             Gaps.vGap16,
             Expanded(
-              child: goodsSizeList.isEmpty ? StateLayout(
+              child: goodsSizeList.isEmpty ? const StateLayout(
                 type: StateType.goods,
                 hintText: "暂无商品规格",
               ) : ListView.builder(

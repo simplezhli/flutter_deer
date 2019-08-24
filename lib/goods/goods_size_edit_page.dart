@@ -33,7 +33,7 @@ class _GoodsSizeEditState extends State<GoodsSizeEdit> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
+      appBar: const MyAppBar(
         centerTitle: "规格分类",
       ),
       body: SafeArea(

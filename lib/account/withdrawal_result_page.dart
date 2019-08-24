@@ -15,7 +15,7 @@ class _WithdrawalResultPageState extends State<WithdrawalResultPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
+      appBar: const MyAppBar(
         title: "提现结果",
       ),
       body: Padding(

@@ -29,9 +29,9 @@ class ProgressDialog extends Dialog{
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              CupertinoActivityIndicator(radius: 14.0),
+              const CupertinoActivityIndicator(radius: 14.0),
               Gaps.vGap8,
-              Text(hintText, style: TextStyle(color: Colors.white),)
+              Text(hintText, style: const TextStyle(color: Colors.white),)
             ],
           ),
         ),

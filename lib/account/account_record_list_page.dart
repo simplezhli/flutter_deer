@@ -13,7 +13,7 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
+      appBar: const MyAppBar(
         centerTitle: "账户流水",
       ),
       body: ListView.builder(

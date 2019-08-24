@@ -19,33 +19,28 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
 
   int _status = 0;
-  List<String> _guideList = [
-    "app_start_1",
-    "app_start_2",
-    "app_start_3",
-  ];
+  List<String> _guideList = ["app_start_1", "app_start_2", "app_start_3"];
   StreamSubscription _subscription;
-  
+
   @override
   void initState() {
     super.initState();
-    _initSplash();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await SpUtil.getInstance();
+      if (SpUtil.getBool(Constant.key_guide, defValue: true)){
+        /// 预先缓存图片，避免直接使用时因为首次加载造成闪动
+        precacheImage(AssetImage(ImageUtils.getImgPath("app_start_1")), context);
+        precacheImage(AssetImage(ImageUtils.getImgPath("app_start_2")), context);
+        precacheImage(AssetImage(ImageUtils.getImgPath("app_start_3")), context);
+      }
+      _initSplash();
+    });
   }
-  
+
   @override
   void dispose() {
     _subscription?.cancel();
     super.dispose();
-  }
-  
-  void _initAsync() async {
-    await SpUtil.getInstance();
-    if (SpUtil.getBool(Constant.key_guide, defValue: true)) {
-      SpUtil.putBool(Constant.key_guide, false);
-      _initGuide();
-    } else {
-      _goLogin();
-    }
   }
 
   void _initGuide() {
@@ -53,53 +48,47 @@ class _SplashPageState extends State<SplashPage> {
       _status = 1;
     });
   }
-  
+
   void _initSplash(){
-    _subscription = Observable.just(1).delay(Duration(milliseconds: 2000)).listen((_){
-      _initAsync();
+    _subscription = Observable.just(1).delay(Duration(milliseconds: 1500)).listen((_){
+      if (SpUtil.getBool(Constant.key_guide, defValue: true)) {
+        SpUtil.putBool(Constant.key_guide, false);
+        _initGuide();
+      } else {
+        _goLogin();
+      }
     });
   }
-  
+
   _goLogin(){
     NavigatorUtils.push(context, LoginRouter.loginPage, replace: true);
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: Stack(
-        children: <Widget>[
-          Offstage(
-            offstage: !(_status == 0),
-            child: Image.asset(
-              ImageUtils.getImgPath("start_page", format: "jpg"),
-              width: double.infinity,
-              fit: BoxFit.fill,
-              height: double.infinity,
-            ),
-          ),
-          Offstage(
-            offstage: !(_status == 1),
-            child: Swiper(
-              itemCount: _guideList.length,
-              loop: false,
-              itemBuilder: (_, index){
-                return LoadAssetImage(
-                  _guideList[index],
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                  height: double.infinity,
-                );
-              },
-              onTap: (index){
-                if (index == _guideList.length - 1){
-                  _goLogin();
-                }
-              },
-            )
-          )
-        ],
-      ),
+      child: _status == 0 ? Image.asset(
+        ImageUtils.getImgPath("start_page", format: "jpg"),
+        width: double.infinity,
+        fit: BoxFit.fill,
+        height: double.infinity,
+      ) : Swiper(
+        itemCount: _guideList.length,
+        loop: false,
+        itemBuilder: (_, index){
+          return LoadAssetImage(
+            _guideList[index],
+            fit: BoxFit.cover,
+            width: double.infinity,
+            height: double.infinity,
+          );
+        },
+        onTap: (index){
+          if (index == _guideList.length - 1){
+            _goLogin();
+          }
+        },
+      )
     );
   }
 }

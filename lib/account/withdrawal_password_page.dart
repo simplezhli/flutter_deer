@@ -19,7 +19,7 @@ class _WithdrawalPasswordPageState extends State<WithdrawalPasswordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
+      appBar: const MyAppBar(
         centerTitle: "提现密码",
       ),
       body: Column(

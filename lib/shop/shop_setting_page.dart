@@ -52,7 +52,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
     return Scaffold(
       // 防止键盘弹出，提交按钮升起。。。
       resizeToAvoidBottomInset: false,
-      appBar: MyAppBar(),
+      appBar: const MyAppBar(),
       body: SafeArea(
         child: Column(
           children: <Widget>[

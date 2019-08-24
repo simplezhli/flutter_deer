@@ -13,7 +13,7 @@ class _WithdrawalRecordListPageState extends State<WithdrawalRecordListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
+      appBar: const MyAppBar(
         title: "提现记录",
       ),
       body: ListView.builder(

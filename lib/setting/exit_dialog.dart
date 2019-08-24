@@ -22,9 +22,9 @@ class _ExitDialog extends State<ExitDialog>{
   Widget build(BuildContext context) {
     return BaseDialog(
       title: "提示",
-      child: Padding(
+      child: const Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-        child: Text("您确定要退出登录吗？", style: TextStyles.textDark16),
+        child: const Text("您确定要退出登录吗？", style: TextStyles.textDark16),
       ),
       onPressed: (){
         NavigatorUtils.push(context, LoginRouter.loginPage, clearStack: true);

@@ -156,7 +156,7 @@ class _OrderInfoState extends State<OrderInfo> {
                                                 height: 16.0,
                                                 alignment: Alignment.center,
                                                 child: Text(
-                                                  "立减2.50元",
+                                                  "抵扣2.50元",
                                                   style: TextStyle(
                                                       color: Colors.white,
                                                       fontSize: Dimens.font_sp10

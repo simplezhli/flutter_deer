@@ -75,7 +75,7 @@ class _StoreAuditState extends State<StoreAudit> {
   Widget build(BuildContext context) {
     return Scaffold(
       //resizeToAvoidBottomPadding: false,
-      appBar: MyAppBar(
+      appBar: const MyAppBar(
         centerTitle: "店铺审核资料",
       ),
       body: SafeArea(

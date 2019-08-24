@@ -27,7 +27,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: MyAppBar(
+      appBar: const MyAppBar(
         title: "添加账号",
       ),
       body: SafeArea(

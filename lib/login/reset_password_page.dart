@@ -64,7 +64,7 @@ class _ResetPasswordState extends State<ResetPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: MyAppBar(
+        appBar: const MyAppBar(
           title: "忘记密码",
         ),
         body: defaultTargetPlatform == TargetPlatform.iOS ? FormKeyboardActions(

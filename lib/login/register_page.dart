@@ -64,7 +64,7 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: MyAppBar(
+        appBar: const MyAppBar(
           title: "注册",
         ),
         body: defaultTargetPlatform == TargetPlatform.iOS ? FormKeyboardActions(
