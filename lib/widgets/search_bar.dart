@@ -102,23 +102,29 @@ class _SearchBarState extends State<SearchBar> {
                     ),
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.only(left: 8.0, right: 16.0),
-                  height: 32.0,
-                  width: 44.0,
-                  child: FlatButton(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    color: Colours.app_main,
-                    textColor: Colors.white,
-                    onPressed:(){
-                      widget.onPressed(_controller.text);
-                    },
-                    child: Text("搜索", style: TextStyle(fontSize: 14.0)),
-                    shape:RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(4.0),
-                    )
+                Gaps.hGap8,
+                Theme(
+                  data: Theme.of(context).copyWith(
+                    buttonTheme: ButtonThemeData(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        height: 32.0,
+                        minWidth: 44.0,
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap, // 距顶部距离为0
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4.0),
+                        )
+                    ),
                   ),
-                )
+                  child: FlatButton(
+                      color: Colours.app_main,
+                      textColor: Colors.white,
+                      onPressed:(){
+                        widget.onPressed(_controller.text);
+                      },
+                      child: Text("搜索", style: TextStyle(fontSize: 14.0)),
+                  ),
+                ),
+                Gaps.hGap16,
               ],
             )
           ),

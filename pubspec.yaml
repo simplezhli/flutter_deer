@@ -24,9 +24,7 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^0.1.2
+ 
   # Toast插件 https://github.com/OpenFlutter/flutter_oktoast
   oktoast: ^2.2.0
   # 网络库 https://github.com/flutterchina/dio
@@ -48,7 +46,7 @@ dependencies:
   # WebView插件 https://github.com/flutter/plugins/tree/master/packages/webview_flutter
   webview_flutter: 0.3.12+1
   # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions
-  keyboard_actions: ^2.1.1+1
+  keyboard_actions: ^2.1.2
   # 列表悬浮头 https://github.com/fluttercommunity/flutter_sticky_headers
   sticky_headers: ^0.1.8
   # 城市选择列表 https://github.com/flutterchina/azlistview
@@ -70,7 +68,7 @@ dependencies:
     git:
       url: https://github.com/simplezhli/flutter_2d_amap.git
   # 状态管理 https://github.com/rrousselGit/provider
-  provider: ^3.0.0+1
+  provider: ^3.1.0
   # 扫码 https://github.com/apptreesoftware/flutter_barcode_reader
   barcode_scan:
     git:

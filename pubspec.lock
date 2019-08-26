@@ -20,7 +20,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "99718f6af286db353a291c9bb0af423384938756"
+      resolved-ref: d83c0aca1cc54ce6513a967ae73ca855b67a0561
       url: "https://github.com/simplezhli/flutter_barcode_reader.git"
     source: git
     version: "1.0.0"
@@ -79,14 +79,7 @@ packages:
       name: crypto
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.0.6"
-  cupertino_icons:
-    dependency: "direct main"
-    description:
-      name: cupertino_icons
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.1.2"
+    version: "2.1.2"
   date_utils:
     dependency: "direct main"
     description:
@@ -100,7 +93,7 @@ packages:
       name: decimal
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.3.3"
+    version: "0.3.4"
   dio:
     dependency: "direct main"
     description:
@@ -208,7 +201,7 @@ packages:
       name: keyboard_actions
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.1.1+1"
+    version: "2.1.2"
   matcher:
     dependency: transitive
     description:
@@ -257,7 +250,7 @@ packages:
       name: provider
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "3.0.0+1"
+    version: "3.1.0"
   quiver:
     dependency: transitive
     description:
@@ -271,7 +264,7 @@ packages:
       name: rational
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.3.4"
+    version: "0.3.5"
   rxdart:
     dependency: "direct main"
     description:
@@ -318,7 +311,7 @@ packages:
       name: sqflite
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.1.6+2"
+    version: "1.1.6+3"
   stack_trace:
     dependency: transitive
     description:

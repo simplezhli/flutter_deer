@@ -114,51 +114,9 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
               labelColor: Colours.app_main,
               indicatorPadding: const EdgeInsets.only(left: 12.0, right: 36.0),
               tabs: <Widget>[
-                Tab(
-                  child: Container(
-                    width: 78.0,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text("在售"),
-                        Offstage(offstage: _index != 0, child: Padding(
-                          padding: const EdgeInsets.only(top: 1.0),
-                          child: Text(" (3件)", style: TextStyle(fontSize: Dimens.font_sp12)),
-                        )),
-                      ],
-                    ),
-                  )
-                ),
-                Tab(
-                    child: Container(
-                      width: 78.0,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text("待售"),
-                          Offstage(offstage: _index != 1, child: Padding(
-                            padding: const EdgeInsets.only(top: 1.0),
-                            child: Text(" (15件)", style: TextStyle(fontSize: Dimens.font_sp12)),
-                          )),
-                        ],
-                      ),
-                    )
-                ),
-                Tab(
-                    child: Container(
-                      width: 78.0,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text("下架"),
-                          Offstage(offstage: _index != 2, child: Padding(
-                            padding: const EdgeInsets.only(top: 1.0),
-                            child: Text(" (26件)", style: TextStyle(fontSize: Dimens.font_sp12)),
-                          )),
-                        ],
-                      ),
-                    )
-                ),
+                _TabView("在售", " (3件)", 0, _index),
+                _TabView("待售", " (15件)", 1, _index),
+                _TabView("下架", " (26件)", 2, _index),
               ],
             ),
           ),
@@ -328,4 +286,33 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
 
   @override
   bool get wantKeepAlive => true;
+}
+
+class _TabView extends StatelessWidget {
+  
+  const _TabView(this.tabName, this.tabSub, this.index, this.selectIndex);
+  
+  final String tabName;
+  final String tabSub;
+  final int index;
+  final int selectIndex;
+  
+  @override
+  Widget build(BuildContext context) {
+    return Tab(
+        child: Container(
+          width: 78.0,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(tabName),
+              Offstage(offstage: selectIndex != index, child: Padding(
+                padding: const EdgeInsets.only(top: 1.0),
+                child: Text(tabSub, style: TextStyle(fontSize: Dimens.font_sp12)),
+              )),
+            ],
+          ),
+        )
+    );
+  }
 }

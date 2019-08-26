@@ -127,66 +127,59 @@ class _MyTextFieldState extends State<MyTextField> {
         Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            Offstage(
-              offstage: _isShowDelete,
-              child: GestureDetector(
-                child: const LoadAssetImage("login/qyg_shop_icon_delete",
-                  width: 18.0,
-                  height: 18.0,
-                ),
-                onTap: (){
-                  setState(() {
-                    widget.controller.text = "";
-                  });
-                },
+            _isShowDelete ? Gaps.empty : GestureDetector(
+              child: const LoadAssetImage("login/qyg_shop_icon_delete",
+                width: 18.0,
+                height: 18.0,
               ),
+              onTap: (){
+                setState(() {
+                  widget.controller.text = "";
+                });
+              },
             ),
-            Offstage(
-              offstage: !widget.isInputPwd,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 15.0),
-                child: GestureDetector(
-                  child: LoadAssetImage(
-                    _isShowPwd ? "login/qyg_shop_icon_display" : "login/qyg_shop_icon_hide",
-                    width: 18.0,
-                    height: 18.0,
-                  ),
-                  onTap: (){
-                    setState(() {
-                      _isShowPwd = !_isShowPwd;
-                    });
-                  },
-                ),
+            !widget.isInputPwd ? Gaps.empty : Gaps.hGap15,
+            !widget.isInputPwd ? Gaps.empty : GestureDetector(
+              child: LoadAssetImage(
+                _isShowPwd ? "login/qyg_shop_icon_display" : "login/qyg_shop_icon_hide",
+                width: 18.0,
+                height: 18.0,
               ),
+              onTap: (){
+                setState(() {
+                  _isShowPwd = !_isShowPwd;
+                });
+              },
             ),
-            Offstage(
-              offstage: widget.getVCode == null,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 15.0),
-                child: Container(
+            widget.getVCode == null ? Gaps.empty : Gaps.hGap15,
+            widget.getVCode == null ? Gaps.empty :
+            Theme(
+              data: Theme.of(context).copyWith(
+                buttonTheme: ButtonThemeData(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   height: 26.0,
-                  width: 76.0,
-                  child: FlatButton(
-                    onPressed: _isClick ? _getVCode : null,
-                    padding: const EdgeInsetsDirectional.only(start: 8.0, end: 8.0),
-                    textColor: Colours.app_main,
-                    color: Colors.transparent,
-                    disabledTextColor: Colors.white,
-                    disabledColor: Colours.text_gray_c,
-                    shape:RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(1.0), 
-                      side: BorderSide(
-                        color: _isClick ? Colours.app_main : Colours.text_gray_c,
-                        width: 0.8,
-                      )
-                    ),
-                    child: Text(
-                      _isClick ? "获取验证码" : "（$s s）",
-                      style: TextStyle(fontSize: Dimens.font_sp12),
-                    ),
-                  ),
+                  minWidth: 76.0,
+                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 ),
               ),
+              child: FlatButton(
+                onPressed: _isClick ? _getVCode : null,
+                textColor: Colours.app_main,
+                color: Colors.transparent,
+                disabledTextColor: Colors.white,
+                disabledColor: Colours.text_gray_c,
+                shape:RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(1.0),
+                    side: BorderSide(
+                      color: _isClick ? Colours.app_main : Colours.text_gray_c,
+                      width: 0.8,
+                    )
+                ),
+                child: Text(
+                  _isClick ? "获取验证码" : "（$s s）",
+                  style: TextStyle(fontSize: Dimens.font_sp12),
+                ),
+              ),                
             )
           ],
         )
