@@ -139,7 +139,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                           /// 一直怼，会有概率造成键盘抖动，加一个键盘时候弹出判断
                           if (MediaQuery.of(context).viewInsets.bottom < 10){
                             final focusScope = FocusScope.of(context);
-                            focusScope.requestFocus(FocusNode());
+                            focusScope.unfocus();
                             Future.delayed(Duration.zero, () => focusScope.requestFocus(_focusNode));
                           }
                         },

@@ -69,6 +69,8 @@ class _MyTextFieldState extends State<MyTextField> {
   @override
   void dispose() {
     _subscription?.cancel();
+    widget.controller?.removeListener(() {});
+    widget.controller?.dispose();
     super.dispose();
   }
 
@@ -133,9 +135,7 @@ class _MyTextFieldState extends State<MyTextField> {
                 height: 18.0,
               ),
               onTap: (){
-                setState(() {
-                  widget.controller.text = "";
-                });
+                widget.controller.text = "";
               },
             ),
             !widget.isInputPwd ? Gaps.empty : Gaps.hGap15,

@@ -19,7 +19,6 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
   List<String> _sortList = ["全部商品", "个人护理", "饮料", "沐浴洗护", "厨房用具", "休闲食品", "生鲜水果", "酒水", "家庭清洁"];
   TabController _tabController;
   PageController _pageController = PageController(initialPage: 0);
-  var _isPageCanChanged = true;
   var _index = 0;
   var _sortIndex = 0;
   
@@ -124,11 +123,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
           Expanded(
             child: PageView.builder(
               itemCount: 3,
-              onPageChanged: (index) {
-                if (_isPageCanChanged) {//由于pageview切换是会回调这个方法,又会触发切换tabbar的操作,所以定义一个flag,控制pageview的回调
-                  _onPageChange(index);
-                }
-              },
+              onPageChanged: _onPageChange,
               controller: _pageController,
               itemBuilder: (BuildContext context, int index) {
                 return GoodsList(index: index);
@@ -140,15 +135,9 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
     );
   }
 
-  _onPageChange(int index, {PageController p, TabController t}) async {
-    
-    if (p != null) {//判断是哪一个切换
-      _isPageCanChanged = false;
-      await _pageController.animateToPage(index, duration: Duration(milliseconds: 300), curve: Curves.ease);//等待pageview切换完毕,再释放pageivew监听
-      _isPageCanChanged = true;
-    } else {
-      _tabController.animateTo(index);//切换Tabbar
-    }
+  _onPageChange(int index) {
+
+    _tabController.animateTo(index);
     setState(() {
       _index = index;
     });

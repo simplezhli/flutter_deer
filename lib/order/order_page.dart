@@ -29,6 +29,18 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
   void initState() {
     super.initState();
     _tabController = TabController(vsync: this, length: 5);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      /// 预先缓存剩余切换图片
+      _preCacheImage();
+    });
+  }
+
+  _preCacheImage(){
+    precacheImage(AssetImage(ImageUtils.getImgPath("order/xdd_n")), context);
+    precacheImage(AssetImage(ImageUtils.getImgPath("order/dps_s")), context);
+    precacheImage(AssetImage(ImageUtils.getImgPath("order/dwc_s")), context);
+    precacheImage(AssetImage(ImageUtils.getImgPath("order/ywc_s")), context);
+    precacheImage(AssetImage(ImageUtils.getImgPath("order/yqx_s")), context);
   }
 
   @override
@@ -62,11 +74,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
             },
             body: PageView.builder(
               itemCount: 5,
-              onPageChanged: (index) {
-                if (_isPageCanChanged) {
-                  _onPageChange(index);
-                }
-              },
+              onPageChanged: _onPageChange,
               controller: _pageController,
               itemBuilder: (_, index) {
                 return OrderList(index: index, tabIndex: _index);
@@ -139,11 +147,11 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
                       unselectedLabelStyle: TextStyles.textDark14,
                       indicatorColor: Colors.transparent,
                       tabs: <Widget>[
-                        _buildTabView(0, "order/xdd_s", "order/xdd_n", '新订单'),
-                        _buildTabView(1, "order/dps_s", "order/dps_n", '待配送'),
-                        _buildTabView(2, "order/dwc_s", "order/dwc_n", '待完成'),
-                        _buildTabView(3, "order/ywc_s", "order/ywc_n", '已完成'),
-                        _buildTabView(4, "order/yqx_s", "order/yqx_n", '已取消'),
+                        _TabView(0, "order/xdd_s", "order/xdd_n", '新订单', _index),
+                        _TabView(1, "order/dps_s", "order/dps_n", '待配送', _index),
+                        _TabView(2, "order/dwc_s", "order/dwc_n", '待完成', _index),
+                        _TabView(3, "order/ywc_s", "order/ywc_n", '已完成', _index),
+                        _TabView(4, "order/yqx_s", "order/yqx_n", '已取消', _index),
                       ],
                       onTap: (index){
                         if (!mounted){
@@ -163,24 +171,29 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
     ];
   }
 
-  var _isPageCanChanged = true;
   PageController _pageController = PageController(initialPage: 0);
-  _onPageChange(int index, {PageController p, TabController t}) async {
-
-    if (p != null) {//判断是哪一个切换
-      _isPageCanChanged = false;
-      await _pageController.animateToPage(index, duration: Duration(milliseconds: 300), curve: Curves.ease);//等待pageview切换完毕,再释放pageivew监听
-      _isPageCanChanged = true;
-    } else {
-      _tabController.animateTo(index);//切换Tabbar
-    }
+  _onPageChange(int index) {
+    _tabController.animateTo(index);
     _index = index;
     setState(() {
 
     });
   }
 
-  Widget _buildTabView(int index, String selImg, String unImg, String text){
+}
+
+class _TabView extends StatelessWidget {
+
+  const _TabView(this.index, this.selImg, this.unImg, this.text, this.selectIndex);
+
+  final int index;
+  final String selImg;
+  final String unImg;
+  final String text;
+  final int selectIndex;
+  
+  @override
+  Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
         Container(
@@ -189,7 +202,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              LoadAssetImage(_index == index ? selImg : unImg, width: 24.0, height: 24.0,),
+              LoadAssetImage(selectIndex == index ? selImg : unImg, width: 24.0, height: 24.0,),
               Gaps.vGap4,
               Text(text)
             ],

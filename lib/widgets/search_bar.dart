@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
 
@@ -56,7 +57,7 @@ class _SearchBarState extends State<SearchBar> {
                   height: 48.0,
                   child: InkWell(
                     onTap: (){
-                      FocusScope.of(context).requestFocus(new FocusNode());
+                      FocusScope.of(context).unfocus();
                       Navigator.maybePop(context);
                     },
                     child: Padding(
@@ -95,7 +96,10 @@ class _SearchBarState extends State<SearchBar> {
                             child: const LoadAssetImage("order/order_delete"),
                           ),
                           onTap: (){
-                            _controller.text = "";
+                            /// https://github.com/flutter/flutter/issues/35909
+                            SchedulerBinding.instance.addPostFrameCallback((_) {
+                              _controller.text = "";
+                            });
                           },
                         ),
                       ),

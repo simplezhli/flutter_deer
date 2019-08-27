@@ -6,6 +6,7 @@ import 'package:flutter_deer/order/order_page.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/shop/shop_page.dart';
 import 'package:flutter_deer/statistics/statistics_page.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:provider/provider.dart';
@@ -25,11 +26,22 @@ class _HomeState extends State<Home> {
   HomeProvider provider = HomeProvider();
 
   List<BottomNavigationBarItem> _list;
-  
+
   @override
   void initState() {
     super.initState();
     initData();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _preCacheImage();
+    });
+  }
+
+  _preCacheImage(){
+    /// 预先缓存剩余图片
+    precacheImage(AssetImage(ImageUtils.getImgPath("home/icon_Order_n")), context);
+    precacheImage(AssetImage(ImageUtils.getImgPath("home/icon_commodity_s")), context);
+    precacheImage(AssetImage(ImageUtils.getImgPath("home/icon_statistics_s")), context);
+    precacheImage(AssetImage(ImageUtils.getImgPath("home/icon_Shop_s")), context);
   }
   
   void initData(){

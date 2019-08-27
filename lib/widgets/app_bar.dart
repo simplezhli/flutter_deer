@@ -56,7 +56,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
               ),
               isBack ? IconButton(
                 onPressed: (){
-                  FocusScope.of(context).requestFocus(FocusNode());
+                  FocusScope.of(context).unfocus();
                   Navigator.maybePop(context);
                 },
                 padding: const EdgeInsets.all(12.0),

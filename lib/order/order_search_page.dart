@@ -42,7 +42,7 @@ class OrderSearchState extends BasePageState<OrderSearch, OrderSearchPresenter> 
               showToast("搜索关键字不能为空！");
               return;
             }
-            FocusScope.of(context).requestFocus(FocusNode());
+            FocusScope.of(context).unfocus();
             _keyword = text;
             provider.setStateType(StateType.loading);
             _page = 1;

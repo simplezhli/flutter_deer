@@ -9,13 +9,13 @@ class NavigatorUtils {
   
   static push(BuildContext context, String path,
       {bool replace = false, bool clearStack = false}) {
-    FocusScope.of(context).requestFocus(new FocusNode());
+    FocusScope.of(context).unfocus();
     Application.router.navigateTo(context, path, replace: replace, clearStack: clearStack, transition: TransitionType.native);
   }
 
   static pushResult(BuildContext context, String path, Function(Object) function,
       {bool replace = false, bool clearStack = false}) {
-    FocusScope.of(context).requestFocus(new FocusNode());
+    FocusScope.of(context).unfocus();
     Application.router.navigateTo(context, path, replace: replace, clearStack: clearStack, transition: TransitionType.native).then((result){
       // 页面返回result为null
       if (result == null){
@@ -29,13 +29,13 @@ class NavigatorUtils {
 
   /// 返回
   static void goBack(BuildContext context) {
-    FocusScope.of(context).requestFocus(new FocusNode());
+    FocusScope.of(context).unfocus();
     Navigator.pop(context);
   }
 
   /// 带参数返回
   static void goBackWithParams(BuildContext context, result) {
-    FocusScope.of(context).requestFocus(new FocusNode());
+    FocusScope.of(context).unfocus();
     Navigator.pop(context, result);
   }
   
