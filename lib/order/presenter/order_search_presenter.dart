@@ -14,7 +14,7 @@ class OrderSearchPresenter extends BasePagePresenter<OrderSearchState> {
     params["q"] = text;
     params["page"] = page.toString();
     params["l"] = "Dart";
-    await request<SearchEntity>(Method.get,
+    await requestNetwork<SearchEntity>(Method.get,
       url: Api.search,
       queryParameters: params,
       isShow: isShowDialog,

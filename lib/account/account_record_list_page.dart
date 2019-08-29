@@ -23,7 +23,7 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
             header: Container(
               alignment: Alignment.centerLeft,
               width: double.infinity,
-              color: Color(0xFFFAFAFA),
+              color: const Color(0xFFFAFAFA),
               padding: const EdgeInsets.only(left: 16.0),
               height: 34.0,
               child: Text("2018/06/0${index + 1}"),

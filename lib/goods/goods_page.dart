@@ -166,7 +166,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
           NavigatorUtils.goBack(context);
         },
         child: Container(
-          color: Color(0x99000000),
+          color: const Color(0x99000000),
           height: body.size.height - button.size.height - 12.0,
           child: ListView.builder(
             physics: ClampingScrollPhysics(),

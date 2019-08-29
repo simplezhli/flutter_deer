@@ -150,7 +150,7 @@ class GoodsItem extends StatelessWidget {
                     child: InkWell(
                       onTap: onTapMenuClose,
                       child: Container(
-                        color: Color(0x4D000000),
+                        color: const Color(0x4D000000),
                         child: Theme( // 修改button默认的最小宽度与padding
                           data: Theme.of(context).copyWith(
                             buttonTheme: ButtonThemeData(

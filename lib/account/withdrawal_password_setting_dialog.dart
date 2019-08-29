@@ -92,7 +92,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                       itemCount: 12,
                       itemBuilder: (_, index){
                         return Material(
-                          color: (index == 9 || index == 11) ? Color(0xFFF2F2F2) : Colors.white,
+                          color: (index == 9 || index == 11) ? const Color(0xFFF2F2F2) : Colors.white,
                           child: InkWell(
                             child: Center(
                               child: index == 11 ? const LoadAssetImage("account/del", width: 32.0) : index == 9 ? Gaps.empty :

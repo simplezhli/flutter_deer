@@ -233,7 +233,7 @@ class _OrderInfoState extends State<OrderInfo> {
                         Expanded(
                           flex: 1,
                           child: FlatButton(
-                            color: Color(0xFFE1EAFA),
+                            color: const Color(0xFFE1EAFA),
                             textColor: Colours.app_main,
                             child: const Text(
                               "拒单",

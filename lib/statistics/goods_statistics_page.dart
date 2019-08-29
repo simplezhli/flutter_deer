@@ -2,6 +2,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/date_utils.dart';
 import 'package:flutter_deer/util/image_utils.dart';
@@ -135,11 +136,6 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
     }
   }
   
-  List<Color> colorList = [
-    Color(0xFF7087FA), Color(0xFFA0E65C), Color(0xFF5CE6A1), Color(0xFFA364FA), 
-    Color(0xFFDA61F2),Color(0xFFFA64AE), Color(0xFFFA6464)
-  ];
-
   _buildItem(int index){
     return Container(
       margin: const EdgeInsets.only(bottom: 8.0),
@@ -156,7 +152,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                 margin: const EdgeInsets.symmetric(horizontal: 11.0),
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: colorList[index - 3]
+                    color: Constant.colorList[index]
                 ),
                 child: Text("${index + 1}", style: TextStyle(color: Colors.white, fontSize: 12.0, fontWeight: FontWeight.bold)),
               ),
@@ -165,7 +161,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                 height: 36.0, width: 36.0,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(4.0),
-                    border: Border.all(color: Color(0xFFF7F8FA), width: 0.6),
+                    border: Border.all(color: const Color(0xFFF7F8FA), width: 0.6),
                     image: DecorationImage(
                         image: AssetImage(ImageUtils.getImgPath("order/icon_goods"))
                     )

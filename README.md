@@ -115,7 +115,7 @@ iOS需要自行下载代码运行。（效果是一致的）
 
 - 输入框在不设置`obscureText`属性的情况下(false)，无法弹出密码模式键盘。(暂时使用`BlacklistingTextInputFormatter`去除可能会输入的中文)
 
-## 心得
+## 心得及问题记录
 
 - [Flutter开发中的一些Tips](https://weilu.blog.csdn.net/article/details/90546727)
 

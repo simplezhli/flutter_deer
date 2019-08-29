@@ -52,7 +52,6 @@ class _AboutState extends State<About> {
         
       });
     });
-    
     return Scaffold(
       appBar: const MyAppBar(
         title: "关于我们",
@@ -72,7 +71,7 @@ class _AboutState extends State<About> {
             title: "Github",
             content: "Go Star",
             onTap: (){
-              NavigatorUtils.goWebViewPage(context, "Github", "https://github.com/simplezhli");
+              NavigatorUtils.goWebViewPage(context, "Flutter Deer", "https://github.com/simplezhli/flutter_deer");
             }
           ),
           ClickItem(

@@ -2,6 +2,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/widgets/pie_chart/pie_data.dart';
 
@@ -71,7 +72,7 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
         shape: BoxShape.circle,
         color: Colors.white,
         boxShadow: [
-          BoxShadow(color: Color(0x80C8DAFA), offset: Offset(0.0, 4.0), blurRadius: 8.0, spreadRadius: 0.0),
+          const BoxShadow(color: Color(0x80C8DAFA), offset: Offset(0.0, 4.0), blurRadius: 8.0, spreadRadius: 0.0),
         ],
       ),
       child: CustomPaint(
@@ -117,7 +118,7 @@ class PieChartPainter extends CustomPainter {
     data.sort((left,right) => right.number.compareTo(left.number));
     // 由大到小给予颜色
     for (int i = 0; i < data.length; i++){
-      this.data[i].color = colorList[i];
+      this.data[i].color = Constant.colorList[i];
       this.data[i].percentage = this.data[i].number / count;
       // 排序后的数据输出
 //      print(data[i].toString());
@@ -135,12 +136,6 @@ class PieChartPainter extends CustomPainter {
   double mRadius;
   List<PieData> data;
   double totalAngle;
-
-  List<Color> colorList = [
-    Color(0xFFFFD147), Color(0xFFA9DAF2), Color(0xFFFAAF64),
-    Color(0xFF7087FA), Color(0xFFA0E65C), Color(0xFF5CE6A1), Color(0xFFA364FA),
-    Color(0xFFDA61F2),Color(0xFFFA64AE), Color(0xFFFA6464),
-  ];
 
   // 起始角度
   double prevAngle;
@@ -179,7 +174,7 @@ class PieChartPainter extends CustomPainter {
       ..style = PaintingStyle.fill;
     canvas.drawCircle(offset, mRadius * 0.52, _mPaint);
     
-    _mPaint..color = Color(0x80FFFFFF)
+    _mPaint..color = const Color(0x80FFFFFF)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 8.0;
     canvas.drawCircle(offset, mRadius * 0.52, _mPaint);

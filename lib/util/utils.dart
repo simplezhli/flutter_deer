@@ -71,7 +71,7 @@ Future<T> showTransparentDialog<T>({
     },
     barrierDismissible: barrierDismissible,
     barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
-    barrierColor: Color(0x00FFFFFF),
+    barrierColor: const Color(0x00FFFFFF),
     transitionDuration: const Duration(milliseconds: 150),
     transitionBuilder: _buildMaterialDialogTransitions,
   );

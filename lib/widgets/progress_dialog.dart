@@ -21,7 +21,7 @@ class ProgressDialog extends Dialog{
           height: 88.0,
           width: 120.0,
           decoration: ShapeDecoration(
-              color: Color(0xFF3A3A3A),
+              color: const Color(0xFF3A3A3A),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(8.0))
               )

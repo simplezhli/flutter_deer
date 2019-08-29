@@ -100,7 +100,7 @@ packages:
       name: dio
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.1.13"
+    version: "2.1.16"
   fluro:
     dependency: "direct main"
     description:
@@ -271,7 +271,7 @@ packages:
       name: rxdart
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.22.1+1"
+    version: "0.22.2"
   shared_preferences:
     dependency: transitive
     description:
@@ -311,7 +311,7 @@ packages:
       name: sqflite
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.1.6+3"
+    version: "1.1.6+4"
   stack_trace:
     dependency: transitive
     description:

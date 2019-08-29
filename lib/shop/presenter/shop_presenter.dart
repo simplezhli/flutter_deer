@@ -14,7 +14,7 @@ class ShopPagePresenter extends BasePagePresenter<ShopState> {
     WidgetsBinding.instance.addPostFrameCallback((_){
       /// 接口请求例子
       /// get请求参数queryParameters  post请求参数params
-      requestNetwork<UserEntity>(Method.get,
+      asyncRequestNetwork<UserEntity>(Method.get,
         url: Api.users,
         onSuccess: (data){
           view.setUser(data);

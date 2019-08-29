@@ -123,7 +123,7 @@ class _PopupWindowRoute<T> extends PopupRoute<T> {
               child: Container(
                 width: double.infinity,
                 height: double.infinity,
-                color: isShowBg ? Color(0x99000000) : null,
+                color: isShowBg ? const Color(0x99000000) : null,
                 child: new CustomSingleChildLayout(
                   delegate: new _PopupWindowLayoutDelegate(
                       position, null, Directionality.of(context)),

@@ -6,7 +6,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/util/log_utils.dart';
 import 'package:rxdart/rxdart.dart';
-import '../entity_factory.dart';
 import 'base_entity.dart';
 import 'error_handle.dart';
 import 'intercept.dart';
@@ -64,53 +63,18 @@ class DioUtils {
   }
 
   // 数据返回格式统一，统一处理异常
-  Future<BaseEntity<T>> _request<T>(String method, String url, {dynamic data, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
+  Future<BaseEntity<T>> _request<T>(String method, String url, {
+    dynamic data, Map<String, dynamic> queryParameters,
+    CancelToken cancelToken, Options options
+  }) async {
     var response = await _dio.request(url, data: data, queryParameters: queryParameters, options: _checkOptions(method, options), cancelToken: cancelToken);
-
-    int _code;
-    String _msg;
-    T _data;
-
     try {
       Map<String, dynamic> _map = await compute(parseData, response.data.toString());
-      _code = _map[Constant.code];
-      _msg = _map[Constant.message];
-      if (_map.containsKey(Constant.data)){
-        if (T.toString() == "String"){
-          _data = _map[Constant.data].toString() as T;
-        }else if (T.toString() == "Map<dynamic, dynamic>"){
-          _data = _map[Constant.data] as T;
-        }else{
-          _data = EntityFactory.generateOBJ(_map[Constant.data]);
-        }
-      }
+      return BaseEntity.fromJson(_map);
     }catch(e){
       print(e);
-      return BaseEntity(ExceptionHandle.parse_error, "数据解析错误", _data);
+      return BaseEntity(ExceptionHandle.parse_error, "数据解析错误", null);
     }
-    return BaseEntity(_code, _msg, _data);
-  }
-
-  Future<BaseEntity<List<T>>> _requestList<T>(String method, String url, {dynamic data, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
-    var response = await _dio.request(url, data: data, queryParameters: queryParameters, options: _checkOptions(method, options), cancelToken: cancelToken);
-    int _code;
-    String _msg;
-    List<T> _data = [];
-
-    try {
-      Map<String, dynamic> _map = await compute(parseData, response.data.toString());
-      _code = _map[Constant.code];
-      _msg = _map[Constant.message];
-      if (_map.containsKey(Constant.data)){
-        (_map[Constant.data] as List).forEach((item){
-          _data.add(EntityFactory.generateOBJ<T>(item));
-        });
-      }
-    }catch(e){
-      print(e);
-      return BaseEntity(ExceptionHandle.parse_error, "数据解析错误", _data);
-    }
-    return BaseEntity(_code, _msg, _data);
   }
 
   Options _checkOptions(method, options) {
@@ -121,7 +85,13 @@ class DioUtils {
     return options;
   }
 
-  Future request<T>(Method method, String url, {Function(T t) onSuccess, Function(int code, String mag) onError, dynamic params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
+  Future requestNetwork<T>(Method method, String url, {
+        Function(T t) onSuccess, 
+        Function(List<T> list) onSuccessList, 
+        Function(int code, String msg) onError,
+        dynamic params, Map<String, dynamic> queryParameters, 
+        CancelToken cancelToken, Options options, bool isList : false
+  }) async {
     String m = _getRequestMethod(method);
     return await _request<T>(m, url,
         data: params,
@@ -129,29 +99,14 @@ class DioUtils {
         options: options,
         cancelToken: cancelToken).then((BaseEntity<T> result){
       if (result.code == 0){
-        if (onSuccess != null){
-          onSuccess(result.data);
-        }
-      }else{
-        _onError(result.code, result.message, onError);
-      }
-    }, onError: (e, _){
-      _cancelLogPrint(e, url);
-      Error error = ExceptionHandle.handleException(e);
-      _onError(error.code, error.msg, onError);
-    });
-  }
-
-  Future requestList<T>(Method method, String url, {Function(List<T> t) onSuccess, Function(int code, String mag) onError, dynamic params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options}) async {
-    String m = _getRequestMethod(method);
-    return await _requestList<T>(m, url,
-        data: params,
-        queryParameters: queryParameters,
-        options: options,
-        cancelToken: cancelToken).then((BaseEntity<List<T>> result){
-      if (result.code == 0){
-        if (onSuccess != null){
-          onSuccess(result.data);
+        if (isList){
+          if (onSuccessList != null){
+            onSuccessList(result.listData);
+          }
+        }else{
+          if (onSuccess != null){
+            onSuccess(result.data);
+          }
         }
       }else{
         _onError(result.code, result.message, onError);
@@ -164,17 +119,21 @@ class DioUtils {
   }
 
   /// 统一处理(onSuccess返回T对象，onSuccessList返回List<T>)
-  requestNetwork<T>(Method method, String url, {Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function(int code, String mag) onError,
-    dynamic params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options, bool isList : false}){
+  asyncRequestNetwork<T>(Method method, String url, {
+    Function(T t) onSuccess, 
+    Function(List<T> list) onSuccessList, 
+    Function(int code, String msg) onError,
+    dynamic params, Map<String, dynamic> queryParameters, 
+    CancelToken cancelToken, Options options, bool isList : false
+  }){
     String m = _getRequestMethod(method);
-    Observable.fromFuture(isList ? _requestList<T>(m, url, data: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken) :
-    _request<T>(m, url, data: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken))
+    Observable.fromFuture(_request<T>(m, url, data: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken))
         .asBroadcastStream()
         .listen((result){
       if (result.code == 0){
         if (isList){
           if (onSuccessList != null){
-            onSuccessList(result.data);
+            onSuccessList(result.listData);
           }
         }else{
           if (onSuccess != null){

@@ -62,7 +62,7 @@ class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>
               width: double.infinity,
               child: const DecoratedBox(
                   decoration: BoxDecoration(
-                      gradient: LinearGradient(colors: [Color(0xFF5793FA), Color(0xFF4647FA)])
+                      gradient: LinearGradient(colors: const [Color(0xFF5793FA), Color(0xFF4647FA)])
                   )
               ),
             ),
