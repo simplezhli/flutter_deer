@@ -17,12 +17,12 @@ import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
 
-class StoreAudit extends StatefulWidget {
+class StoreAuditPage extends StatefulWidget {
   @override
-  _StoreAuditState createState() => _StoreAuditState();
+  _StoreAuditPageState createState() => _StoreAuditPageState();
 }
 
-class _StoreAuditState extends State<StoreAudit> {
+class _StoreAuditPageState extends State<StoreAuditPage> {
 
   File _imageFile;
   final FocusNode _nodeText1 = FocusNode();

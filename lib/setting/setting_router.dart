@@ -15,7 +15,7 @@ class SettingRouter implements IRouterProvider{
   @override
   void initRouter(Router router) {
     router.define(settingPage, handler: Handler(handlerFunc: (_, params) => SettingPage()));
-    router.define(aboutPage, handler: Handler(handlerFunc: (_, params) => About()));
+    router.define(aboutPage, handler: Handler(handlerFunc: (_, params) => AboutPage()));
     router.define(accountManagerPage, handler: Handler(handlerFunc: (_, params) => AccountManagerPage()));
   }
   

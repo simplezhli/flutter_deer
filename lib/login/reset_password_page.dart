@@ -10,12 +10,12 @@ import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/text_field.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
 
-class ResetPassword extends StatefulWidget {
+class ResetPasswordPage extends StatefulWidget {
   @override
-  _ResetPasswordState createState() => _ResetPasswordState();
+  _ResetPasswordPageState createState() => _ResetPasswordPageState();
 }
 
-class _ResetPasswordState extends State<ResetPassword> {
+class _ResetPasswordPageState extends State<ResetPasswordPage> {
   //定义一个controller
   TextEditingController _nameController = TextEditingController();
   TextEditingController _vCodeController = TextEditingController();

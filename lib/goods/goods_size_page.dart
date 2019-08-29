@@ -15,12 +15,12 @@ import 'goods_router.dart';
 import 'goods_size_dialog.dart';
 import 'models/goods_size_model.dart';
 
-class GoodsSize extends StatefulWidget {
+class GoodsSizePage extends StatefulWidget {
   @override
-  _GoodsSizeState createState() => _GoodsSizeState();
+  _GoodsSizePageState createState() => _GoodsSizePageState();
 }
 
-class _GoodsSizeState extends State<GoodsSize> {
+class _GoodsSizePageState extends State<GoodsSizePage> {
   
   bool _isEdit = false;
   String _sizeName = "商品规格名称";

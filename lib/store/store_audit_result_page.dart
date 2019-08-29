@@ -7,12 +7,12 @@ import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 
-class StoreAuditResult extends StatefulWidget {
+class StoreAuditResultPage extends StatefulWidget {
   @override
-  _StoreAuditResultState createState() => _StoreAuditResultState();
+  _StoreAuditResultPageState createState() => _StoreAuditResultPageState();
 }
 
-class _StoreAuditResultState extends State<StoreAuditResult> {
+class _StoreAuditResultPageState extends State<StoreAuditResultPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

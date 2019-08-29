@@ -12,12 +12,12 @@ import 'package:keyboard_actions/keyboard_actions.dart';
 
 import 'login_router.dart';
 
-class SMSLogin extends StatefulWidget {
+class SMSLoginPage extends StatefulWidget {
   @override
-  _SMSLoginState createState() => _SMSLoginState();
+  _SMSLoginPageState createState() => _SMSLoginPageState();
 }
 
-class _SMSLoginState extends State<SMSLogin> {
+class _SMSLoginPageState extends State<SMSLoginPage> {
   
   TextEditingController _phoneController = TextEditingController();
   TextEditingController _vCodeController = TextEditingController();

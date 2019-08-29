@@ -8,8 +8,8 @@ import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/store_select_text_item.dart';
 import 'package:flutter_deer/widgets/text_field_item.dart';
 
-import 'models/bank_model.dart';
-import 'models/city_model.dart';
+import '../models/bank_model.dart';
+import '../models/city_model.dart';
 
 class AddWithdrawalAccountPage extends StatefulWidget {
   @override

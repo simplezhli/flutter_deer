@@ -17,10 +17,10 @@ class OrderRouter implements IRouterProvider{
   
   @override
   void initRouter(Router router) {
-    router.define(orderPage, handler: Handler(handlerFunc: (_, params) => Order()));
-    router.define(orderInfoPage, handler: Handler(handlerFunc: (_, params) => OrderInfo()));
-    router.define(orderSearchPage, handler: Handler(handlerFunc: (_, params) => OrderSearch()));
-    router.define(orderTrackPage, handler: Handler(handlerFunc: (_, params) => OrderTrack()));
+    router.define(orderPage, handler: Handler(handlerFunc: (_, params) => OrderPage()));
+    router.define(orderInfoPage, handler: Handler(handlerFunc: (_, params) => OrderInfoPage()));
+    router.define(orderSearchPage, handler: Handler(handlerFunc: (_, params) => OrderSearchPage()));
+    router.define(orderTrackPage, handler: Handler(handlerFunc: (_, params) => OrderTrackPage()));
   }
   
 }

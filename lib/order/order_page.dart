@@ -12,12 +12,12 @@ import 'package:flutter_deer/widgets/my_flexible_space_bar.dart';
 
 import 'order_router.dart';
 
-class Order extends StatefulWidget {
+class OrderPage extends StatefulWidget {
   @override
-  _OrderState createState() => _OrderState();
+  _OrderPageState createState() => _OrderPageState();
 }
 
-class _OrderState extends State<Order> with AutomaticKeepAliveClientMixin<Order>, SingleTickerProviderStateMixin{
+class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixin<OrderPage>, SingleTickerProviderStateMixin{
 
   @override
   bool get wantKeepAlive => true;

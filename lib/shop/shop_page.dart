@@ -14,12 +14,12 @@ import 'models/user_entity.dart';
 import 'presenter/shop_presenter.dart';
 import 'provider/user_provider.dart';
 
-class Shop extends StatefulWidget {
+class ShopPage extends StatefulWidget {
   @override
-  ShopState createState() => ShopState();
+  ShopPageState createState() => ShopPageState();
 }
 
-class ShopState extends BasePageState<Shop, ShopPagePresenter> with AutomaticKeepAliveClientMixin<Shop>{
+class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with AutomaticKeepAliveClientMixin<ShopPage>{
   
   var menuTitle = ["账户流水", "资金管理", "提现账号"];
   var menuImage = ["zhls", "zjgl", "txzh"];

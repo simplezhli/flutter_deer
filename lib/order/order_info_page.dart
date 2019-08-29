@@ -9,12 +9,12 @@ import 'package:flutter_deer/widgets/load_image.dart';
 
 import 'order_router.dart';
 
-class OrderInfo extends StatefulWidget {
+class OrderInfoPage extends StatefulWidget {
   @override
-  _OrderInfoState createState() => _OrderInfoState();
+  _OrderInfoPageState createState() => _OrderInfoPageState();
 }
 
-class _OrderInfoState extends State<OrderInfo> {
+class _OrderInfoPageState extends State<OrderInfoPage> {
   
   @override
   Widget build(BuildContext context) {

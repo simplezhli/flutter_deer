@@ -6,7 +6,7 @@ import 'package:flutter_deer/widgets/state_layout.dart';
 
 import '../order_search_page.dart';
 
-class OrderSearchPresenter extends BasePagePresenter<OrderSearchState> {
+class OrderSearchPresenter extends BasePagePresenter<OrderSearchPageState> {
 
   Future search(String text, int page, bool isShowDialog) async{
    

@@ -11,13 +11,13 @@ import 'package:image_picker/image_picker.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 
-class GoodsSizeEdit extends StatefulWidget {
+class GoodsSizeEditPage extends StatefulWidget {
   
   @override
-  _GoodsSizeEditState createState() => _GoodsSizeEditState();
+  _GoodsSizeEditPageState createState() => _GoodsSizeEditPageState();
 }
 
-class _GoodsSizeEditState extends State<GoodsSizeEdit> {
+class _GoodsSizeEditPageState extends State<GoodsSizeEditPage> {
 
   File _imageFile;
 

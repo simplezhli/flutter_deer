@@ -9,12 +9,12 @@ import 'package:flutter_deer/widgets/popup_window.dart';
 import 'goods_list.dart';
 import 'goods_router.dart';
 
-class Goods extends StatefulWidget {
+class GoodsPage extends StatefulWidget {
   @override
-  _GoodsState createState() => _GoodsState();
+  _GoodsPageState createState() => _GoodsPageState();
 }
 
-class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin{
+class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin{
 
   List<String> _sortList = ["全部商品", "个人护理", "饮料", "沐浴洗护", "厨房用具", "休闲食品", "生鲜水果", "酒水", "家庭清洁"];
   TabController _tabController;

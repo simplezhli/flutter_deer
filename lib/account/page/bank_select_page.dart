@@ -8,7 +8,7 @@ import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:azlistview/azlistview.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
-import 'models/bank_model.dart';
+import '../models/bank_model.dart';
 
 class BankSelectPage extends StatefulWidget {
   

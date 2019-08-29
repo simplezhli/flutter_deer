@@ -3,10 +3,10 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/routers/application.dart';
+import 'package:flutter_deer/routers/routers.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:oktoast/oktoast.dart';
-import 'routers/application.dart';
-import 'routers/routers.dart';
 import 'package:flutter_deer/home/splash_page.dart';
 
 void main(){

@@ -11,12 +11,12 @@ import 'package:provider/provider.dart';
 import 'models/search_entity.dart';
 import 'presenter/order_search_presenter.dart';
 
-class OrderSearch extends StatefulWidget {
+class OrderSearchPage extends StatefulWidget {
   @override
-  OrderSearchState createState() => OrderSearchState();
+  OrderSearchPageState createState() => OrderSearchPageState();
 }
 
-class OrderSearchState extends BasePageState<OrderSearch, OrderSearchPresenter> {
+class OrderSearchPageState extends BasePageState<OrderSearchPage, OrderSearchPresenter> {
 
   BaseListProvider<SearchItem> provider = BaseListProvider<SearchItem>();
   

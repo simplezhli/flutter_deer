@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 
-class OrderTrack extends StatefulWidget {
+class OrderTrackPage extends StatefulWidget {
   @override
-  _OrderTrackState createState() => _OrderTrackState();
+  _OrderTrackPageState createState() => _OrderTrackPageState();
 }
 
-class _OrderTrackState extends State<OrderTrack> {
+class _OrderTrackPageState extends State<OrderTrackPage> {
   
   @override
   Widget build(BuildContext context) {

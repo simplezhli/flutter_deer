@@ -6,8 +6,8 @@ import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
 
-import 'account_router.dart';
-import 'models/withdrawal_account_model.dart';
+import '../account_router.dart';
+import '../models/withdrawal_account_model.dart';
 
 class WithdrawalAccountPage extends StatefulWidget {
   @override

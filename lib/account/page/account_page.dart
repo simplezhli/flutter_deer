@@ -6,7 +6,7 @@ import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
 
-import 'account_router.dart';
+import '../account_router.dart';
 
 class AccountPage extends StatefulWidget {
   @override

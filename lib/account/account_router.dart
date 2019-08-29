@@ -2,17 +2,17 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter_deer/routers/router_init.dart';
 
-import 'account_page.dart';
-import 'account_record_list_page.dart';
-import 'add_withdrawal_account_page.dart';
-import 'bank_select_page.dart';
-import 'city_select_page.dart';
-import 'withdrawal_account_list_page.dart';
-import 'withdrawal_account_page.dart';
-import 'withdrawal_page.dart';
-import 'withdrawal_password_page.dart';
-import 'withdrawal_record_list_page.dart';
-import 'withdrawal_result_page.dart';
+import 'page/account_page.dart';
+import 'page/account_record_list_page.dart';
+import 'page/add_withdrawal_account_page.dart';
+import 'page/bank_select_page.dart';
+import 'page/city_select_page.dart';
+import 'page/withdrawal_account_list_page.dart';
+import 'page/withdrawal_account_page.dart';
+import 'page/withdrawal_page.dart';
+import 'page/withdrawal_password_page.dart';
+import 'page/withdrawal_record_list_page.dart';
+import 'page/withdrawal_result_page.dart';
 
 
 class AccountRouter implements IRouterProvider{

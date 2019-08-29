@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/search_bar.dart';
 
-class GoodsSearch extends StatefulWidget {
+class GoodsSearchPage extends StatefulWidget {
   @override
-  _GoodsSearchState createState() => _GoodsSearchState();
+  _GoodsSearchPageState createState() => _GoodsSearchPageState();
 }
 
-class _GoodsSearchState extends State<GoodsSearch> {
+class _GoodsSearchPageState extends State<GoodsSearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

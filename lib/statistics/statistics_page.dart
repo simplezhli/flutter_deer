@@ -9,12 +9,12 @@ import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
 import 'package:flutter_deer/widgets/my_flexible_space_bar.dart';
 
-class Statistics extends StatefulWidget {
+class StatisticsPage extends StatefulWidget {
   @override
-  _StatisticsState createState() => _StatisticsState();
+  _StatisticsPageState createState() => _StatisticsPageState();
 }
 
-class _StatisticsState extends State<Statistics> {
+class _StatisticsPageState extends State<StatisticsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

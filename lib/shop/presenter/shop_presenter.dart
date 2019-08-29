@@ -7,7 +7,7 @@ import 'package:flutter_deer/shop/models/user_entity.dart';
 
 import '../shop_page.dart';
 
-class ShopPagePresenter extends BasePagePresenter<ShopState> {
+class ShopPagePresenter extends BasePagePresenter<ShopPageState> {
 
   @override
   void initState() {

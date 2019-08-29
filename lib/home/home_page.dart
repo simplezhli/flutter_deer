@@ -46,10 +46,10 @@ class _HomeState extends State<Home> {
   
   void initData(){
     _pageList = [
-      Order(),
-      Goods(),
-      Statistics(),
-      Shop(),
+      OrderPage(),
+      GoodsPage(),
+      StatisticsPage(),
+      ShopPage(),
     ];
 
     _tabImages = [

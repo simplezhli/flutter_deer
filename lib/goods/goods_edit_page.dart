@@ -17,18 +17,18 @@ import 'package:flutter_deer/widgets/app_bar.dart';
 import 'goods_router.dart';
 import 'goods_sort_dialog.dart';
 
-class GoodsEdit extends StatefulWidget {
+class GoodsEditPage extends StatefulWidget {
   
-  const GoodsEdit({Key key, this.isAdd: true, this.isScan}) : super(key: key);
+  const GoodsEditPage({Key key, this.isAdd: true, this.isScan}) : super(key: key);
   
   final bool isAdd;
   final bool isScan;
   
   @override
-  _GoodsEditState createState() => _GoodsEditState();
+  _GoodsEditPageState createState() => _GoodsEditPageState();
 }
 
-class _GoodsEditState extends State<GoodsEdit> {
+class _GoodsEditPageState extends State<GoodsEditPage> {
 
   File _imageFile;
   String _goodsSortName;

@@ -16,12 +16,12 @@ import 'package:keyboard_actions/keyboard_actions.dart';
 import 'login_router.dart';
 
 
-class Login extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   @override
-  _LoginState createState() => _LoginState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginState extends State<Login> {
+class _LoginPageState extends State<LoginPage> {
   //定义一个controller
   TextEditingController _nameController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
