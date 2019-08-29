@@ -2,8 +2,8 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter_deer/routers/router_init.dart';
 
-import 'store_audit_page.dart';
-import 'store_audit_result_page.dart';
+import 'page/store_audit_page.dart';
+import 'page/store_audit_result_page.dart';
 
 
 class StoreRouter implements IRouterProvider{

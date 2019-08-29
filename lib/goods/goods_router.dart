@@ -2,11 +2,11 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter_deer/routers/router_init.dart';
 
-import 'goods_edit_page.dart';
-import 'goods_page.dart';
-import 'goods_search_page.dart';
-import 'goods_size_edit_page.dart';
-import 'goods_size_page.dart';
+import 'page/goods_edit_page.dart';
+import 'page/goods_page.dart';
+import 'page/goods_search_page.dart';
+import 'page/goods_size_edit_page.dart';
+import 'page/goods_size_page.dart';
 
 
 class GoodsRouter implements IRouterProvider{

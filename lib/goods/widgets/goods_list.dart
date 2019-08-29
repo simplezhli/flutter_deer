@@ -6,9 +6,9 @@ import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/my_refresh_list.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
 
-import 'goods_router.dart';
-import 'widgets/goods_delete_bottom_sheet.dart';
-import 'widgets/goods_item.dart';
+import '../goods_router.dart';
+import 'goods_delete_bottom_sheet.dart';
+import 'goods_item.dart';
 
 class GoodsList extends StatefulWidget {
   

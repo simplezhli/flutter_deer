@@ -2,12 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/setting/update_dialog.dart';
+import 'package:flutter_deer/setting/widgets/exit_dialog.dart';
+import 'package:flutter_deer/setting/widgets/update_dialog.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
 
-import 'exit_dialog.dart';
-import 'setting_router.dart';
+import '../setting_router.dart';
 
 class SettingPage extends StatefulWidget {
   @override

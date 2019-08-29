@@ -2,10 +2,10 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter_deer/routers/router_init.dart';
 
-import 'order_info_page.dart';
-import 'order_page.dart';
-import 'order_search_page.dart';
-import 'order_track_page.dart';
+import 'page/order_info_page.dart';
+import 'page/order_page.dart';
+import 'page/order_search_page.dart';
+import 'page/order_track_page.dart';
 
 
 class OrderRouter implements IRouterProvider{

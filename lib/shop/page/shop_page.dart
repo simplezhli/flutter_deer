@@ -5,14 +5,13 @@ import 'package:flutter_deer/mvp/base_page_state.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/setting/setting_router.dart';
+import 'package:flutter_deer/shop/models/user_entity.dart';
+import 'package:flutter_deer/shop/presenter/shop_presenter.dart';
+import 'package:flutter_deer/shop/provider/user_provider.dart';
 import 'package:flutter_deer/shop/shop_router.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:provider/provider.dart';
-
-import 'models/user_entity.dart';
-import 'presenter/shop_presenter.dart';
-import 'provider/user_provider.dart';
 
 class ShopPage extends StatefulWidget {
   @override

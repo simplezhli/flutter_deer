@@ -1,11 +1,10 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/order/widgets/order_item.dart';
+import 'package:flutter_deer/order/widgets/order_item_tag.dart';
 import 'package:flutter_deer/widgets/my_refresh_list.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
-
-import 'widgets/order_item.dart';
-import 'widgets/order_item_tag.dart';
 
 class OrderList extends StatefulWidget {
 

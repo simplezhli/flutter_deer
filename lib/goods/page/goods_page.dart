@@ -1,13 +1,13 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/goods/widgets/goods_list.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/popup_window.dart';
 
-import 'goods_list.dart';
-import 'goods_router.dart';
+import '../goods_router.dart';
 
 class GoodsPage extends StatefulWidget {
   @override

@@ -2,6 +2,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/goods/widgets/goods_sort_dialog.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/util/utils.dart';
@@ -14,8 +15,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 
-import 'goods_router.dart';
-import 'goods_sort_dialog.dart';
+import '../goods_router.dart';
+
 
 class GoodsEditPage extends StatefulWidget {
   

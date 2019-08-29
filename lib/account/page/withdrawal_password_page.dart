@@ -1,14 +1,13 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_deer/account/widget/sms_verify_dialog.dart';
+import 'package:flutter_deer/account/widgets/sms_verify_dialog.dart';
+import 'package:flutter_deer/account/widgets/withdrawal_password_setting_dialog.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/base_dialog.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
-
-import '../widget/withdrawal_password_setting_dialog.dart';
 
 class WithdrawalPasswordPage extends StatefulWidget {
   @override

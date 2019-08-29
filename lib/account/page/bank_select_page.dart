@@ -3,12 +3,12 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_deer/account/models/bank_model.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:azlistview/azlistview.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
-import '../models/bank_model.dart';
 
 class BankSelectPage extends StatefulWidget {
   

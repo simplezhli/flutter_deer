@@ -2,11 +2,11 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter_deer/routers/router_init.dart';
 
-import 'login_page.dart';
-import 'register_page.dart';
-import 'reset_password_page.dart';
-import 'sms_login_page.dart';
-import 'update_password_page.dart';
+import 'page/login_page.dart';
+import 'page/register_page.dart';
+import 'page/reset_password_page.dart';
+import 'page/sms_login_page.dart';
+import 'page/update_password_page.dart';
 
 
 class LoginRouter implements IRouterProvider{

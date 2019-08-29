@@ -7,7 +7,7 @@ import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 
-import 'order_router.dart';
+import '../order_router.dart';
 
 class OrderInfoPage extends StatefulWidget {
   @override

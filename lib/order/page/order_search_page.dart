@@ -2,14 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/mvp/base_page_state.dart';
+import 'package:flutter_deer/order/models/search_entity.dart';
+import 'package:flutter_deer/order/presenter/order_search_presenter.dart';
 import 'package:flutter_deer/provider/base_list_provider.dart';
 import 'package:flutter_deer/widgets/my_refresh_list.dart';
 import 'package:flutter_deer/widgets/search_bar.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
 import 'package:provider/provider.dart';
-
-import 'models/search_entity.dart';
-import 'presenter/order_search_presenter.dart';
 
 class OrderSearchPage extends StatefulWidget {
   @override

@@ -4,17 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_2d_amap/flutter_2d_amap.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/shop/pay_type_dialog.dart';
+import 'package:flutter_deer/shop/page/input_text_page.dart';
+import 'package:flutter_deer/shop/widgets/pay_type_dialog.dart';
 import 'package:flutter_deer/shop/shop_router.dart';
+import 'package:flutter_deer/shop/widgets/price_input_dialog.dart';
+import 'package:flutter_deer/shop/widgets/send_type_dialog.dart';
 import 'package:flutter_deer/util/app_navigator.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
-
-import 'input_text_page.dart';
-import 'price_input_dialog.dart';
-import 'send_type_dialog.dart';
 
 class ShopSettingPage extends StatefulWidget {
   @override

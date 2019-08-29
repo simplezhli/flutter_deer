@@ -2,7 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_deer/order/order_list.dart';
+import 'package:flutter_deer/order/widgets/order_list.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/image_utils.dart';
@@ -10,7 +10,7 @@ import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
 import 'package:flutter_deer/widgets/my_flexible_space_bar.dart';
 
-import 'order_router.dart';
+import '../order_router.dart';
 
 class OrderPage extends StatefulWidget {
   @override

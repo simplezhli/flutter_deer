@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/account/models/withdrawal_account_model.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/number_text_input_formatter.dart';
@@ -8,7 +9,6 @@ import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 
 import '../account_router.dart';
-import '../models/withdrawal_account_model.dart';
 
 class WithdrawalPage extends StatefulWidget {
   @override

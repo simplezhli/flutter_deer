@@ -1,11 +1,11 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_deer/goods/goods_page.dart';
+import 'package:flutter_deer/goods/page/goods_page.dart';
 import 'package:flutter_deer/home/provider/home_provider.dart';
-import 'package:flutter_deer/order/order_page.dart';
+import 'package:flutter_deer/order/page/order_page.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/shop/shop_page.dart';
-import 'package:flutter_deer/statistics/statistics_page.dart';
+import 'package:flutter_deer/shop/page/shop_page.dart';
+import 'package:flutter_deer/statistics/page/statistics_page.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/load_image.dart';

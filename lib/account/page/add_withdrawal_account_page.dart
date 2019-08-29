@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/account/account_router.dart';
+import 'package:flutter_deer/account/models/bank_model.dart';
+import 'package:flutter_deer/account/models/city_model.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/utils.dart';
@@ -7,9 +9,6 @@ import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/store_select_text_item.dart';
 import 'package:flutter_deer/widgets/text_field_item.dart';
-
-import '../models/bank_model.dart';
-import '../models/city_model.dart';
 
 class AddWithdrawalAccountPage extends StatefulWidget {
   @override

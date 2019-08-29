@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/goods/models/goods_size_model.dart';
+import 'package:flutter_deer/goods/widgets/goods_size_dialog.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/image_utils.dart';
@@ -11,9 +13,7 @@ import 'package:flutter_deer/widgets/popup_window.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
-import 'goods_router.dart';
-import 'goods_size_dialog.dart';
-import 'models/goods_size_model.dart';
+import '../goods_router.dart';
 
 class GoodsSizePage extends StatefulWidget {
   @override

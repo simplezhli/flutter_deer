@@ -4,8 +4,8 @@ import 'package:flutter_deer/mvp/base_page_presenter.dart';
 import 'package:flutter_deer/net/api.dart';
 import 'package:flutter_deer/net/dio_utils.dart';
 import 'package:flutter_deer/shop/models/user_entity.dart';
+import 'package:flutter_deer/shop/page/shop_page.dart';
 
-import '../shop_page.dart';
 
 class ShopPagePresenter extends BasePagePresenter<ShopPageState> {
 

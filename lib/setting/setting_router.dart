@@ -2,9 +2,9 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter_deer/routers/router_init.dart';
 
-import 'about_page.dart';
-import 'account_manager_page.dart';
-import 'setting_page.dart';
+import 'page/about_page.dart';
+import 'page/account_manager_page.dart';
+import 'page/setting_page.dart';
 
 class SettingRouter implements IRouterProvider{
 

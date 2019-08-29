@@ -3,7 +3,7 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/account/account_router.dart';
 import 'package:flutter_deer/goods/goods_router.dart';
-import 'package:flutter_deer/home/404.dart';
+import 'package:flutter_deer/routers/404.dart';
 import 'package:flutter_deer/login/login_router.dart';
 import 'package:flutter_deer/order/order_router.dart';
 import 'package:flutter_deer/routers/router_init.dart';

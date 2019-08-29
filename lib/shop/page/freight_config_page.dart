@@ -2,15 +2,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/shop/models/freight_config_model.dart';
+import 'package:flutter_deer/shop/widgets/price_input_dialog.dart';
+import 'package:flutter_deer/shop/widgets/range_price_input_dialog.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
-
-import 'models/freight_config_model.dart';
-import 'price_input_dialog.dart';
-import 'range_price_input_dialog.dart';
 
 class FreightConfigPage extends StatefulWidget {
   @override
