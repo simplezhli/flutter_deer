@@ -32,7 +32,7 @@ class _PayTypeDialog extends State<PayTypeDialog>{
     return Material(
       type: MaterialType.transparency,
       child: InkWell(
-        child: Container(
+        child: SizedBox(
           height: 42.0,
           child: Row(
             children: <Widget>[

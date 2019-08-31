@@ -242,8 +242,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
   List<Widget> _buildWeeks(){
     List<Widget> widgets = [];
     _weeks.forEach((str){
-      widgets.add(Container(
-        alignment: Alignment.center,
+      widgets.add(Center(
         child: Text(str, style: TextStyles.textGray12),
       ));
     });
@@ -261,8 +260,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
     dayWidgets.addAll(_buildWeeks());
     list.forEach((day) {
       dayWidgets.add(
-          Container(
-            alignment: Alignment.center,
+          Center(
             child: SelectedText(
               day.day < 10 ? "0${day.day}" : day.day.toString(),
               selected:(day.day == _selectedDay.day && !DateUtils.isExtraDay(day, _initialDay)),
@@ -284,8 +282,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
     List<Widget> monthWidgets = [];
     _monthList.forEach((month){
       monthWidgets.add(
-        Container(
-          alignment: Alignment.center,
+          Center(
             child: SelectedText(
               "$month月",
               selected: month == _selectedMonth,
@@ -306,18 +303,17 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
     List<Widget> dayWidgets = [];
     _weeksDays.forEach((day) {
       dayWidgets.add(
-        Container(
-          alignment: Alignment.center,
-          child: SelectedText(
-            day.day < 10 ? "0${day.day}" : day.day.toString(),
-            selected: day.day == _selectedWeekDay,
-            onTap: (){
-              setState(() {
-                _selectedWeekDay = day.day;
-              });
-            },
-          ),
-        )
+          Center(
+            child: SelectedText(
+              day.day < 10 ? "0${day.day}" : day.day.toString(),
+              selected: day.day == _selectedWeekDay,
+              onTap: (){
+                setState(() {
+                  _selectedWeekDay = day.day;
+                });
+              },
+            ),
+          )
       );       
     });
     return dayWidgets;

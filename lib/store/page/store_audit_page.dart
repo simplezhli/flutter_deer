@@ -188,7 +188,7 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
-        return Container(
+        return SizedBox(
           height: 360.0,
           child: ListView.builder(
             itemExtent: 48.0,

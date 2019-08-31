@@ -56,7 +56,7 @@ class BaseDialog extends StatelessWidget{
                 Row(
                   children: <Widget>[
                     Expanded(
-                      child: Container(
+                      child: SizedBox(
                         height: 48.0,
                         child: FlatButton(
                           child: const Text(
@@ -72,13 +72,13 @@ class BaseDialog extends StatelessWidget{
                         ),
                       ),
                     ),
-                    Container(
+                    const SizedBox(
                       height: 48.0,
                       width: 0.6,
-                      color: Colours.line,
+                      child: const DecoratedBox(decoration: BoxDecoration(color: Colours.line)),
                     ),
                     Expanded(
-                      child: Container(
+                      child: SizedBox(
                         height: 48.0,
                         child: FlatButton(
                           child: const Text(

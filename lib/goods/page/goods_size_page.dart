@@ -194,9 +194,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Container(
-                    child: LoadAssetImage(goodsSizeList[index].icon, width: 72.0, height: 72.0),
-                  ),
+                  LoadAssetImage(goodsSizeList[index].icon, width: 72.0, height: 72.0),
                   Gaps.hGap8,
                   Expanded(
                     child: Column(

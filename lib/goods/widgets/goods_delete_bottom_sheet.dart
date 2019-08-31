@@ -17,20 +17,21 @@ class GoodsDeleteBottomSheet extends StatelessWidget {
     return Material(
       color: Colors.white,
       child: SafeArea(
-        child: Container(
+        child: SizedBox(
             height: 161.2,
             child: Column(
               children: <Widget>[
-                Container(
-                  alignment: Alignment.center,
+                const SizedBox(
                   height: 52.0,
-                  child: const Text(
-                    "是否确认删除，防止错误操作",
-                    style: TextStyles.textDark16,
+                  child: const Center(
+                    child: const Text(
+                      "是否确认删除，防止错误操作",
+                      style: TextStyles.textDark16,
+                    ),
                   ),
                 ),
                 Gaps.line,
-                Container(
+                SizedBox(
                   height: 54.0,
                   width: double.infinity,
                   child: FlatButton(
@@ -43,7 +44,7 @@ class GoodsDeleteBottomSheet extends StatelessWidget {
                   ),
                 ),
                 Gaps.line,
-                Container(
+                SizedBox(
                   height: 54.0,
                   width: double.infinity,
                   child: FlatButton(

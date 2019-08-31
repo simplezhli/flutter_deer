@@ -52,7 +52,7 @@ class _SearchBarState extends State<SearchBar> {
             color: widget.backgroundColor,
             child: Row(
               children: <Widget>[
-                Container(
+                SizedBox(
                   width: 48.0,
                   height: 48.0,
                   child: InkWell(

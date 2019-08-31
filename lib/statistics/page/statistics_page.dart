@@ -28,7 +28,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
   List<Widget> _sliverBuilder() {
     return <Widget>[
       SliverAppBar(
-        leading: Container(),
+        leading: Gaps.empty,
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         centerTitle: true,

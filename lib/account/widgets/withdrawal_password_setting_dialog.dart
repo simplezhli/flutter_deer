@@ -48,7 +48,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                           onTap: (){
                             NavigatorUtils.goBack(context);
                           },
-                          child: Container(
+                          child: const SizedBox(
                             height: 16.0,
                             width: 16.0,
                             child: const LoadAssetImage("goods/icon_dialog_close")

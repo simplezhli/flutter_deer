@@ -236,7 +236,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
               padding: const EdgeInsets.only(right: 12.0),
               child: const LoadAssetImage("goods/jt", width: 8.0, height: 4.0,),
             ),
-            Container(
+            SizedBox(
               width: 120.0,
               height: 40.0,
               child: FlatButton.icon(
@@ -252,7 +252,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
               ),
             ),
             Container(width: 120.0, height: 0.6, color: Colours.line),
-            Container(
+            SizedBox(
               width: 120.0,
               height: 40.0,
               child: FlatButton.icon(
@@ -289,7 +289,7 @@ class _TabView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Tab(
-        child: Container(
+        child: SizedBox(
           width: 78.0,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,

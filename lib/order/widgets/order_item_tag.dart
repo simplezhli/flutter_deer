@@ -31,7 +31,7 @@ class OrderItemTag extends StatelessWidget {
                   date,
                   style: TextStyles.textDark14,
                 ),
-                Expanded(child: Container()),
+                Expanded(child: Gaps.empty),
                 Text(
                   "$orderTotal单",
                   style: TextStyles.textDark14,

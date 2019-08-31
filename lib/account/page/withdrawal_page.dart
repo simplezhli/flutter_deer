@@ -166,7 +166,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                           _withdrawalType = 0;
                         });
                       },
-                      child: Container(
+                      child: SizedBox(
                         width: double.infinity,
                         height: 74.0,
                         child: Stack(

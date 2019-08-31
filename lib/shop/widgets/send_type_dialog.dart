@@ -28,7 +28,7 @@ class _SendTypeDialog extends State<SendTypeDialog>{
     return Material(
       type: MaterialType.transparency,
       child: InkWell(
-        child: Container(
+        child: SizedBox(
           height: 42.0,
           child: Row(
             children: <Widget>[

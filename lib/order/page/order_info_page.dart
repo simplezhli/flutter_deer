@@ -61,10 +61,10 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                               ],
                             ),
                           ),
-                          Container(
+                          const SizedBox(
                             width: 1.0,
                             height: 24.0,
-                            color: Colours.order_line,
+                            child: const DecoratedBox(decoration: BoxDecoration(color: Colours.order_line)),
                           ),
                           Gaps.hGap16,
                           InkWell(
