@@ -97,72 +97,52 @@ class OrderItem extends StatelessWidget {
                 Gaps.vGap8,
                 Gaps.line,
                 Gaps.vGap8,
-                Theme( // 修改button默认的最小宽度与padding
-                  data: Theme.of(context).copyWith(
-                    buttonTheme: ButtonThemeData(
-                        padding: const EdgeInsets.symmetric(horizontal: 14.0),
-                        minWidth: 64.0,
-                        height: 30.0,
-                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap, // 距顶部距离为0
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(4.0),
-                        )
+                Row(
+                  children: <Widget>[
+                    OrderItemButton(
+                      text: "联系客户",
+                      textColor: Colours.text_dark,
+                      bgColor: Colours.bg_gray,
+                      onTap: (){
+                        _showCallPhoneDialog(context, "15000000000");
+                      },
                     ),
-                    textTheme: TextTheme(
-                        button: TextStyle(
-                          fontSize: Dimens.font_sp14,
-                        )
+                    Expanded(
+                      child: Gaps.empty,
                     ),
-                  ),
-                  child: Row(
-                    children: <Widget>[
-                      FlatButton(
-                        color: Colours.bg_gray,
-                        child: const Text("联系客户"),
-                        onPressed: (){
-                          _showCallPhoneDialog(context, "15000000000");
-                        },
-                      ),
-                      Expanded(
-                        child: Gaps.empty,
-                      ),
-                      FlatButton(
-                        color: Colours.bg_gray,
-                        child: Text(Constant.orderLeftButtonText[index]),
-                        onPressed: (){
-                          if (index >= 2){
-                            NavigatorUtils.push(context, OrderRouter.orderTrackPage);
-                          }
-                        },
-                      ),
-                      Offstage(
-                        offstage: Constant.orderRightButtonText[index].length == 0,
-                        child: Gaps.hGap10,
-                      ),
-                      Offstage(
-                        offstage: Constant.orderRightButtonText[index].length == 0,
-                        child: FlatButton(
-                          color: Colours.app_main,
-                          textColor: Colors.white,
-                          onPressed: (){
-                            if (index == 2){
-                              showDialog(
-                                  context: context,
-                                  barrierDismissible: false,
-                                  builder: (BuildContext context) {
-                                    return PayTypeDialog(
-                                      onPressed: (index, type){
-                                        Toast.show("收款类型：$type");
-                                      },
-                                    );
-                                  });
-                            }
-                          },
-                          child: Text(Constant.orderRightButtonText[index]),
-                        ),
-                      ),
-                    ],
-                  ),
+                    OrderItemButton(
+                      text: Constant.orderLeftButtonText[index],
+                      textColor: Colours.text_dark,
+                      bgColor: Colours.bg_gray,
+                      onTap: (){
+                        if (index >= 2){
+                          NavigatorUtils.push(context, OrderRouter.orderTrackPage);
+                        }
+                      },
+                    ),
+                    Constant.orderRightButtonText[index].length == 0 ? Gaps.empty : Gaps.hGap10,
+                    Constant.orderRightButtonText[index].length == 0 ? Gaps.empty :
+                    OrderItemButton(
+                      text: Constant.orderRightButtonText[index],
+                      textColor: Colors.white,
+                      bgColor: Colours.app_main,
+                      onTap: (){
+                        if (index == 2){
+                          showDialog(
+                              context: context,
+                              barrierDismissible: false,
+                              builder: (BuildContext context) {
+                                return PayTypeDialog(
+                                  onPressed: (index, type){
+                                    Toast.show("收款类型：$type");
+                                  },
+                                );
+                              }
+                          );
+                        }
+                      },
+                    ),
+                  ],
                 )
               ],
             ),
@@ -198,4 +178,42 @@ class OrderItem extends StatelessWidget {
         });
   }
 
+}
+
+
+class OrderItemButton extends StatelessWidget {
+  
+  const OrderItemButton({
+    Key key,
+    this.bgColor,
+    this.textColor,
+    this.text,
+    this.onTap
+  }): super(key: key);
+  
+  final Color bgColor;
+  final Color textColor;
+  final GestureTapCallback onTap;
+  final String text;
+  
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      child: Container(
+        alignment: Alignment.center,
+        padding: const EdgeInsets.symmetric(horizontal: 14.0),
+        decoration: BoxDecoration(
+            color: bgColor,
+            borderRadius: BorderRadius.circular(4.0)
+        ),
+        constraints: BoxConstraints(
+            minWidth: 64.0,
+            maxHeight: 30.0,
+            minHeight: 30.0
+        ),
+        child: Text(text, style: TextStyle(fontSize: Dimens.font_sp14, color: textColor),),
+      ),
+      onTap: onTap,
+    );
+  }
 }

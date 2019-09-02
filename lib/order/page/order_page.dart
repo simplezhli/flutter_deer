@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/order/provider/order_page_provider.dart';
 import 'package:flutter_deer/order/widgets/order_list.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
@@ -9,6 +10,7 @@ import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
 import 'package:flutter_deer/widgets/my_flexible_space_bar.dart';
+import 'package:provider/provider.dart';
 
 import '../order_router.dart';
 
@@ -23,7 +25,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
   bool get wantKeepAlive => true;
   
   TabController _tabController;
-  int _index = 0;
+  OrderPageProvider provider = OrderPageProvider();
   
   @override
   void initState() {
@@ -52,36 +54,39 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          /// 像素对齐问题的临时解决方法
-          const SafeArea(
-            child: const SizedBox(
-              height: 105,
-              width: double.infinity,
-              child: const DecoratedBox(
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(colors: const [Color(0xFF5793FA), Color(0xFF4647FA)])
-                  )
+    return ChangeNotifierProvider<OrderPageProvider>(
+      builder: (_) => provider,
+      child: Scaffold(
+        body: Stack(
+          children: <Widget>[
+            /// 像素对齐问题的临时解决方法
+            const SafeArea(
+              child: const SizedBox(
+                height: 105,
+                width: double.infinity,
+                child: const DecoratedBox(
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(colors: const [Color(0xFF5793FA), Color(0xFF4647FA)])
+                    )
+                ),
               ),
             ),
-          ),
-          NestedScrollView(
-            physics: ClampingScrollPhysics(),
-            headerSliverBuilder: (context, innerBoxIsScrolled) {
-              return _sliverBuilder(context);
-            },
-            body: PageView.builder(
-              itemCount: 5,
-              onPageChanged: _onPageChange,
-              controller: _pageController,
-              itemBuilder: (_, index) {
-                return OrderList(index: index, tabIndex: _index);
+            NestedScrollView(
+              physics: ClampingScrollPhysics(),
+              headerSliverBuilder: (context, innerBoxIsScrolled) {
+                return _sliverBuilder(context);
               },
+              body: PageView.builder(
+                itemCount: 5,
+                onPageChanged: _onPageChange,
+                controller: _pageController,
+                itemBuilder: (_, index) {
+                  return OrderList(index: index);
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+      ),
       ),
     );
   }
@@ -109,7 +114,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
           expandedHeight: 100.0,
           floating: false, // 不随着滑动隐藏标题
           pinned: true, // 固定在顶部
-          flexibleSpace: MyFlexibleSpaceBar(
+          flexibleSpace: const MyFlexibleSpaceBar(
             background: const LoadAssetImage("order/order_bg",
               width: double.infinity,
               height: 113.0,
@@ -118,7 +123,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
             centerTitle: true,
             titlePadding: const EdgeInsetsDirectional.only(start: 16.0, bottom: 14.0),
             collapseMode: CollapseMode.pin,
-            title: Text('订单'),
+            title: const Text('订单'),
           ),
         ),
       ),
@@ -146,12 +151,12 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
                       labelStyle: TextStyles.textBoldDark14,
                       unselectedLabelStyle: TextStyles.textDark14,
                       indicatorColor: Colors.transparent,
-                      tabs: <Widget>[
-                        _TabView(0, "order/xdd_s", "order/xdd_n", '新订单', _index),
-                        _TabView(1, "order/dps_s", "order/dps_n", '待配送', _index),
-                        _TabView(2, "order/dwc_s", "order/dwc_n", '待完成', _index),
-                        _TabView(3, "order/ywc_s", "order/ywc_n", '已完成', _index),
-                        _TabView(4, "order/yqx_s", "order/yqx_n", '已取消', _index),
+                      tabs: const <Widget>[
+                        const _TabView(0, "order/xdd_s", "order/xdd_n", '新订单'),
+                        const _TabView(1, "order/dps_s", "order/dps_n", '待配送'),
+                        const _TabView(2, "order/dwc_s", "order/dwc_n", '待完成'),
+                        const _TabView(3, "order/ywc_s", "order/ywc_n", '已完成'),
+                        const _TabView(4, "order/yqx_s", "order/yqx_n", '已取消'),
                       ],
                       onTap: (index){
                         if (!mounted){
@@ -167,61 +172,61 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
             , 80.0
         ),
       ),
-
     ];
   }
 
   PageController _pageController = PageController(initialPage: 0);
-  _onPageChange(int index) {
+  _onPageChange(int index) async{
+    provider.setIndex(index);
     _tabController.animateTo(index);
-    _index = index;
-    setState(() {
-
-    });
   }
-
 }
 
 class _TabView extends StatelessWidget {
 
-  const _TabView(this.index, this.selImg, this.unImg, this.text, this.selectIndex);
+  const _TabView(this.index, this.selImg, this.unImg, this.text);
 
   final int index;
   final String selImg;
   final String unImg;
   final String text;
-  final int selectIndex;
   
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        Container(
-          width: 46.0,
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              LoadAssetImage(selectIndex == index ? selImg : unImg, width: 24.0, height: 24.0,),
-              Gaps.vGap4,
-              Text(text)
-            ],
+    return Consumer<OrderPageProvider>(
+      builder: (_, provider, child){
+        int selectIndex = provider.index;
+        return Stack(
+          children: <Widget>[
+            Container(
+              width: 46.0,
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  LoadAssetImage(selectIndex == index ? selImg : unImg, width: 24.0, height: 24.0,),
+                  Gaps.vGap4,
+                  Text(text)
+                ],
+              ),
+            ),
+            child
+          ],
+        );
+      },
+      child: Positioned(
+        right: 0.0,
+        child: index < 3 ? DecoratedBox(
+          decoration: BoxDecoration(
+            color: Colours.text_red,
+            borderRadius: BorderRadius.circular(11.0),
           ),
-        ),
-        Positioned(
-          right: 0.0,
-          child: index < 3 ? DecoratedBox(
-            decoration: BoxDecoration(
-              color: Colours.text_red,
-              borderRadius: BorderRadius.circular(11.0),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5.5, vertical: 2.0),
-              child: Text("10", style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp12),),
-            ),
-          ) : Gaps.empty,
-        )
-      ],
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5.5, vertical: 2.0),
+            child: Text("10", style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp12),),
+          ),
+        ) : Gaps.empty,
+      )
     );
   }
 }
