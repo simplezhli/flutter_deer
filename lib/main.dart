@@ -11,8 +11,8 @@ import 'package:oktoast/oktoast.dart';
 import 'package:flutter_deer/home/splash_page.dart';
 
 void main(){
-  debugProfileBuildsEnabled = true;
-  debugPaintLayerBordersEnabled = true;
+//  debugProfileBuildsEnabled = true;
+//  debugPaintLayerBordersEnabled = true;
 //  debugProfilePaintsEnabled = true;
   
   runApp(MyApp());
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
     return OKToast(
       child: MaterialApp(
         title: 'Flutter Deer',
-        showPerformanceOverlay: true, //显示性能标签
+//        showPerformanceOverlay: true, //显示性能标签
         //debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primaryColor: Colours.app_main,
