@@ -29,7 +29,7 @@ class SelectedImage extends StatelessWidget {
           // 图片圆角展示
           borderRadius: BorderRadius.circular(16.0),
           image: DecorationImage(
-            image: image == null ? AssetImage(ImageUtils.getImgPath("store/icon_zj")) : FileImage(image),
+            image: image == null ? ImageUtils.getAssetImage("store/icon_zj") : FileImage(image),
             fit: BoxFit.cover,
           ),
         ),

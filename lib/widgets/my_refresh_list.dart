@@ -48,7 +48,8 @@ class _DeerListViewState extends State<DeerListView> {
     return SafeArea(
       child: NotificationListener(
         onNotification: (ScrollNotification note){
-          if (note.metrics.pixels == note.metrics.maxScrollExtent){
+          /// 确保是垂直方向滚动，且滑动至底部
+          if (note.metrics.pixels == note.metrics.maxScrollExtent && note.metrics.axis == Axis.vertical){
             _loadMore();
           }
           return true;

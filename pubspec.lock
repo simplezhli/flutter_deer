@@ -20,7 +20,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: d83c0aca1cc54ce6513a967ae73ca855b67a0561
+      resolved-ref: "7229aeb7b5cd5c58db705237f23af0baa2a61cca"
       url: "https://github.com/simplezhli/flutter_barcode_reader.git"
     source: git
     version: "1.0.0"
@@ -93,7 +93,7 @@ packages:
       name: decimal
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.3.4"
+    version: "0.3.5"
   dio:
     dependency: "direct main"
     description:
@@ -264,7 +264,7 @@ packages:
       name: rational
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.3.5"
+    version: "0.3.6"
   rxdart:
     dependency: "direct main"
     description:

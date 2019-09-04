@@ -152,7 +152,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
           padding: const EdgeInsets.all(16.0),
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage(ImageUtils.getImgPath("statistic/chart_fg")),
+                  image: ImageUtils.getAssetImage("statistic/chart_fg"),
                   fit: BoxFit.fill
               )
           ),

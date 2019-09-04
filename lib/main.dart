@@ -50,10 +50,10 @@ class MyApp extends StatelessWidget {
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-        supportedLocales: [
-          const Locale('zh', 'CH'),
-          const Locale('en', 'US')
-        ]      
+        supportedLocales: const [
+          Locale('zh', 'CH'),
+          Locale('en', 'US')
+        ]
       ),
       backgroundColor: Colors.black54,
       textPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),

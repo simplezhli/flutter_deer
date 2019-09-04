@@ -52,7 +52,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
             DecoratedBox(
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage(ImageUtils.getImgPath("statistic/statistic_bg1")),
+                      image: ImageUtils.getAssetImage("statistic/statistic_bg1"),
                       fit: BoxFit.fill
                   )
               ),

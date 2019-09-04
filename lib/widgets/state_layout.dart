@@ -68,7 +68,7 @@ class _StateLayoutState extends State<StateLayout> {
             width: 120.0,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(ImageUtils.getImgPath("state/$_img")),
+                image: ImageUtils.getAssetImage("state/$_img"),
               ),
             ),
           )),

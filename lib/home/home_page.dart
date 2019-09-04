@@ -38,10 +38,10 @@ class _HomeState extends State<Home> {
 
   _preCacheImage(){
     /// 预先缓存剩余图片
-    precacheImage(AssetImage(ImageUtils.getImgPath("home/icon_Order_n")), context);
-    precacheImage(AssetImage(ImageUtils.getImgPath("home/icon_commodity_s")), context);
-    precacheImage(AssetImage(ImageUtils.getImgPath("home/icon_statistics_s")), context);
-    precacheImage(AssetImage(ImageUtils.getImgPath("home/icon_Shop_s")), context);
+    precacheImage(ImageUtils.getAssetImage("home/icon_Order_n"), context);
+    precacheImage(ImageUtils.getAssetImage("home/icon_commodity_s"), context);
+    precacheImage(ImageUtils.getAssetImage("home/icon_statistics_s"), context);
+    precacheImage(ImageUtils.getAssetImage("home/icon_Shop_s"), context);
   }
   
   void initData(){

@@ -65,7 +65,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
         height: 147.0,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(ImageUtils.getImgPath("goods/ydss")),
+            image: ImageUtils.getAssetImage("goods/ydss"),
             fit: BoxFit.fitWidth
           )
         ),

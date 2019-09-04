@@ -38,11 +38,11 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
   }
 
   _preCacheImage(){
-    precacheImage(AssetImage(ImageUtils.getImgPath("order/xdd_n")), context);
-    precacheImage(AssetImage(ImageUtils.getImgPath("order/dps_s")), context);
-    precacheImage(AssetImage(ImageUtils.getImgPath("order/dwc_s")), context);
-    precacheImage(AssetImage(ImageUtils.getImgPath("order/ywc_s")), context);
-    precacheImage(AssetImage(ImageUtils.getImgPath("order/yqx_s")), context);
+    precacheImage(ImageUtils.getAssetImage("order/xdd_n"), context);
+    precacheImage(ImageUtils.getAssetImage("order/dps_s"), context);
+    precacheImage(ImageUtils.getAssetImage("order/dwc_s"), context);
+    precacheImage(ImageUtils.getAssetImage("order/ywc_s"), context);
+    precacheImage(ImageUtils.getAssetImage("order/yqx_s"), context);
   }
 
   @override
@@ -133,7 +133,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
             DecoratedBox(
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage(ImageUtils.getImgPath("order/order_bg1")),
+                      image: ImageUtils.getAssetImage("order/order_bg1"),
                       fit: BoxFit.fill
                   )
               ),

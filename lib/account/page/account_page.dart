@@ -31,7 +31,7 @@ class _AccountPageState extends State<AccountPage> {
                   margin: const EdgeInsets.symmetric(horizontal: 6.0),
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage(ImageUtils.getImgPath("account/bg")),
+                      image: ImageUtils.getAssetImage("account/bg"),
                       fit: BoxFit.fill
                     )
                   ),
