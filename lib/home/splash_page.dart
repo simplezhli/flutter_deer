@@ -6,6 +6,7 @@ import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/login/login_router.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/image_utils.dart';
+import 'package:flutter_deer/util/log_utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -26,6 +27,7 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
+      Log.init();
       await SpUtil.getInstance();
       if (SpUtil.getBool(Constant.key_guide, defValue: true)){
         /// 预先缓存图片，避免直接使用时因为首次加载造成闪动

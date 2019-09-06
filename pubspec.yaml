@@ -65,9 +65,14 @@ dependencies:
       url: https://github.com/simplezhli/flutter_barcode_reader.git
   
 dev_dependencies:
+  # Widget测试
   flutter_test:
     sdk: flutter
-
+  # 集成测试
+  flutter_driver:
+    sdk: flutter
+  # 单元测试
+  test: ^1.6.3
 
 # For information on the generic Dart part of this file, see the
 # following page: https:/w.dartlang.org/tools/pub/pubspec

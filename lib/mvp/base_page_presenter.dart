@@ -101,7 +101,7 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
         "uploadIcon": UploadFileInfo(File(path), name, contentType: ContentType.parse("image/$suffix"))
       });
       await requestNetwork<String>(Method.post,
-          url: Api.upload,
+          url: HttpApi.upload,
           params: formData,
           onSuccess: (data){
             imgPath = data;

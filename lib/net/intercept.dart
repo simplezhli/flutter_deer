@@ -16,7 +16,7 @@ class AuthInterceptor extends Interceptor{
   onRequest(RequestOptions options) {
     String accessToken = SpUtil.getString(Constant.access_Token);
     if (accessToken.isNotEmpty){
-      options.headers["Authorization"] = "Bearer ${SpUtil.getString(Constant.access_Token)}";
+      options.headers["Authorization"] = "Bearer $accessToken}";
     }
    
     return super.onRequest(options);

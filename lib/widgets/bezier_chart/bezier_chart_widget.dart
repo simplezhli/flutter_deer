@@ -858,8 +858,9 @@ class BezierChartState extends State<BezierChart>
                       : 0;
                   for (int i = min; i < max + steps; i++) {
                     if (i % steps == 0) {
+                      bool isLast = (i + steps) > max && (i + steps) >= (max + steps);
                       _addYItem(i.toDouble(),
-                          key: ((i + steps) > max) ? _keyLastYAxisItem : null);
+                          key: isLast ? _keyLastYAxisItem : null);
                     }
                   }
                 } else {
