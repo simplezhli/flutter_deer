@@ -12,6 +12,7 @@ import 'package:keyboard_actions/keyboard_actions.dart';
 
 import '../login_router.dart';
 
+/// design/1注册登录/index.html#artboard4
 class SMSLoginPage extends StatefulWidget {
   @override
   _SMSLoginPageState createState() => _SMSLoginPageState();

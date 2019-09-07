@@ -7,6 +7,8 @@ import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/text_field.dart';
 
+
+/// design/1注册登录/index.html#artboard13
 class UpdatePasswordPage extends StatefulWidget {
   @override
   _UpdatePasswordPageState createState() => _UpdatePasswordPageState();

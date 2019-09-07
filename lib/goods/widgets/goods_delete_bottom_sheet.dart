@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 
+/// design/4商品/index.html#artboard2
 class GoodsDeleteBottomSheet extends StatelessWidget {
   
   const GoodsDeleteBottomSheet({

@@ -11,6 +11,8 @@ import 'package:provider/provider.dart';
 
 import '../goods_router.dart';
 
+
+/// design/4商品/index.html
 class GoodsPage extends StatefulWidget {
   @override
   _GoodsPageState createState() => _GoodsPageState();
@@ -150,7 +152,8 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
     _tabController.animateTo(index);
     provider.setIndex(index);
   }
-  
+
+  /// design/4商品/index.html#artboard3
   _showSortMenu(){
     // 获取点击控件的坐标
     final RenderBox button = _buttonKey.currentContext.findRenderObject();
@@ -218,6 +221,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
     );
   }
 
+  /// design/4商品/index.html#artboard4
   _showAddMenu(){
     final RenderBox button = _addKey.currentContext.findRenderObject();
     final RenderBox overlay = Overlay.of(context).context.findRenderObject();

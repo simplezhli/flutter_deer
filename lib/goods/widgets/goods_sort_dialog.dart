@@ -7,6 +7,8 @@ import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 
+
+/// design/4商品/index.html#artboard20
 class GoodsSortDialog extends StatefulWidget {
 
   const GoodsSortDialog({

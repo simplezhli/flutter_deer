@@ -17,7 +17,7 @@ import 'package:flutter_deer/widgets/app_bar.dart';
 
 import '../goods_router.dart';
 
-
+/// design/4商品/index.html#artboard5
 class GoodsEditPage extends StatefulWidget {
   
   const GoodsEditPage({Key key, this.isAdd: true, this.isScan}) : super(key: key);

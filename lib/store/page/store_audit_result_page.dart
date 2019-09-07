@@ -7,6 +7,7 @@ import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 
+/// design/2店铺审核/index.html#artboard2
 class StoreAuditResultPage extends StatefulWidget {
   @override
   _StoreAuditResultPageState createState() => _StoreAuditResultPageState();

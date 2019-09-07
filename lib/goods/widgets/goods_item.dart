@@ -5,6 +5,7 @@ import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/menu_reveal.dart';
 
 
+/// design/4商品/index.html#artboard1
 class GoodsItem extends StatelessWidget {
   
   const GoodsItem({

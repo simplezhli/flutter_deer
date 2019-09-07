@@ -17,6 +17,8 @@ import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
 
+
+/// design/2店铺审核/index.html
 class StoreAuditPage extends StatefulWidget {
   @override
   _StoreAuditPageState createState() => _StoreAuditPageState();

@@ -10,6 +10,8 @@ import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/text_field.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
 
+
+/// design/1注册登录/index.html#artboard11
 class RegisterPage extends StatefulWidget {
   @override
   _RegisterPageState createState() => _RegisterPageState();

@@ -15,6 +15,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 
 import '../goods_router.dart';
 
+/// design/4商品/index.html#artboard9
 class GoodsSizePage extends StatefulWidget {
   @override
   _GoodsSizePageState createState() => _GoodsSizePageState();
@@ -45,6 +46,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
     });
   }
 
+  /// design/4商品/index.html#artboard18
   _showHint(){
     final RenderBox hint = _hintKey.currentContext.findRenderObject();
     final RenderBox overlay = Overlay.of(context).context.findRenderObject();
@@ -154,7 +156,8 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
   List<GoodsSizeModel> goodsSizeList = [];
   // 保留一个Slidable打开
   final SlidableController _slidableController = SlidableController();
-  
+
+  /// design/4商品/index.html#artboard19
   Widget getGoodsSizeItem(int index){
     return Slidable(
       key: Key(index.toString()),

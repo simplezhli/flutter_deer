@@ -5,6 +5,7 @@ import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/widgets/base_dialog.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 
+/// design/3订单/index.html#artboard5
 class PayTypeDialog extends StatefulWidget{
 
   PayTypeDialog({

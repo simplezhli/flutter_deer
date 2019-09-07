@@ -11,6 +11,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 
+/// design/4商品/index.html#artboard14
 class GoodsSizeEditPage extends StatefulWidget {
   
   @override
