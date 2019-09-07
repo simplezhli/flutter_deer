@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 
+/// design/9暂无状态页面/index.html#artboard3
 class StateLayout extends StatefulWidget {
   
   const StateLayout({

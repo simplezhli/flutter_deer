@@ -11,6 +11,8 @@ import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
 
+
+/// design/7店铺-店铺配置/index.html
 class FreightConfigPage extends StatefulWidget {
   @override
   _FreightConfigPageState createState() => _FreightConfigPageState();

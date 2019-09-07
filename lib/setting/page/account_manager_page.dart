@@ -6,6 +6,8 @@ import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 
+
+/// design/8设置/index.html#artboard1
 class AccountManagerPage extends StatefulWidget {
   @override
   _AccountManagerPageState createState() => _AccountManagerPageState();

@@ -10,6 +10,7 @@ import 'package:flutter_deer/widgets/my_button.dart';
 
 import '../account_router.dart';
 
+/// design/6店铺-账户/index.html#artboard3
 class WithdrawalPage extends StatefulWidget {
   @override
   _WithdrawalPageState createState() => _WithdrawalPageState();

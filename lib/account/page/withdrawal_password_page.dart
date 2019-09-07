@@ -9,6 +9,7 @@ import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/base_dialog.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
 
+/// design/6店铺-账户/index.html#artboard20
 class WithdrawalPasswordPage extends StatefulWidget {
   @override
   _WithdrawalPasswordPageState createState() => _WithdrawalPasswordPageState();

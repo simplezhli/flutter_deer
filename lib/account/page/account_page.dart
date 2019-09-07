@@ -8,6 +8,7 @@ import 'package:flutter_deer/widgets/click_item.dart';
 
 import '../account_router.dart';
 
+/// design/6店铺-账户/index.html#artboard2
 class AccountPage extends StatefulWidget {
   @override
   _AccountPageState createState() => _AccountPageState();

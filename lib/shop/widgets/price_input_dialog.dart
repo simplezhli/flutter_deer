@@ -7,6 +7,8 @@ import 'package:flutter_deer/util/number_text_input_formatter.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/base_dialog.dart';
 
+
+/// design/7店铺-店铺配置/index.html#artboard3
 class PriceInputDialog extends StatefulWidget{
 
   PriceInputDialog({

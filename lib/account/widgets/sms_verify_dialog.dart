@@ -10,6 +10,7 @@ import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:rxdart/rxdart.dart';
 
+/// design/6店铺-账户/index.html#artboard23
 /// 骚操作：借腹生子
 class SMSVerifyDialog extends StatefulWidget {
   @override

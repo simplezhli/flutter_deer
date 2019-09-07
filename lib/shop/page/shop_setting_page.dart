@@ -15,6 +15,7 @@ import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 
+/// design/7店铺-店铺配置/index.html#artboard17
 class ShopSettingPage extends StatefulWidget {
   @override
   _ShopSettingPageState createState() => _ShopSettingPageState();

@@ -13,6 +13,7 @@ import 'package:flutter_deer/widgets/pie_chart/pie_chart.dart';
 import 'package:flutter_deer/widgets/pie_chart/pie_data.dart';
 import 'package:flutter_deer/widgets/selected_text.dart';
 
+/// design/5统计/index.html#artboard11
 class GoodsStatisticsPage extends StatefulWidget {
 
   @override

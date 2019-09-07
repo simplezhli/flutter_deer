@@ -10,6 +10,8 @@ import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/store_select_text_item.dart';
 import 'package:flutter_deer/widgets/text_field_item.dart';
 
+
+/// design/6店铺-账户/index.html#artboard29
 class AddWithdrawalAccountPage extends StatefulWidget {
   @override
   _AddWithdrawalAccountPageState createState() => _AddWithdrawalAccountPageState();
@@ -130,6 +132,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
     NavigatorUtils.goBack(context);
   }
 
+  /// design/6店铺-账户/index.html#artboard30
   _showSelectAccountTypeDialog() {
     showElasticDialog(
         context: context,

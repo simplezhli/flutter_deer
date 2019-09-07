@@ -8,6 +8,7 @@ import 'package:flutter_deer/widgets/load_image.dart';
 
 import '../account_router.dart';
 
+/// design/6店铺-账户/index.html#artboard7
 class WithdrawalAccountListPage extends StatefulWidget {
   @override
   _WithdrawalAccountListPageState createState() => _WithdrawalAccountListPageState();

@@ -5,6 +5,7 @@ import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 
+/// design/6店铺-账户/index.html#artboard13
 class WithdrawalPasswordSettingDialog extends StatefulWidget {
   @override
   _WithdrawalPasswordSettingDialogState createState() => _WithdrawalPasswordSettingDialogState();
