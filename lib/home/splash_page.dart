@@ -31,9 +31,9 @@ class _SplashPageState extends State<SplashPage> {
       await SpUtil.getInstance();
       if (SpUtil.getBool(Constant.key_guide, defValue: true)){
         /// 预先缓存图片，避免直接使用时因为首次加载造成闪动
-        precacheImage(ImageUtils.getAssetImage("app_start_1"), context);
-        precacheImage(ImageUtils.getAssetImage("app_start_2"), context);
-        precacheImage(ImageUtils.getAssetImage("app_start_3"), context);
+        _guideList.forEach((image){
+          precacheImage(ImageUtils.getAssetImage(image), context);
+        });
       }
       _initSplash();
     });
@@ -75,11 +75,13 @@ class _SplashPageState extends State<SplashPage> {
         fit: BoxFit.fill,
         height: double.infinity,
       ) : Swiper(
+        key: const Key('swiper'),
         itemCount: _guideList.length,
         loop: false,
         itemBuilder: (_, index){
           return LoadAssetImage(
             _guideList[index],
+            key: Key(_guideList[index]),
             fit: BoxFit.cover,
             width: double.infinity,
             height: double.infinity,

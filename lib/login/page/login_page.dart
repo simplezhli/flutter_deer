@@ -94,6 +94,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           Gaps.vGap16,
           MyTextField(
+            key: const Key('phone'),
             focusNode: _nodeText1,
             controller: _nameController,
             maxLength: 11,
@@ -102,6 +103,8 @@ class _LoginPageState extends State<LoginPage> {
           ),
           Gaps.vGap8,
           MyTextField(
+            key: const Key('password'),
+            keyName: 'password',
             focusNode: _nodeText2,
             config: _config,
             isInputPwd: true,
@@ -112,6 +115,7 @@ class _LoginPageState extends State<LoginPage> {
           Gaps.vGap10,
           Gaps.vGap15,
           MyButton(
+            key: const Key('login'),
             onPressed: _isClick ? _login : null,
             text: "登录",
           ),

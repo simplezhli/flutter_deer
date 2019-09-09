@@ -193,6 +193,7 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
         return SizedBox(
           height: 360.0,
           child: ListView.builder(
+            key: const Key('goods_sort'),
             itemExtent: 48.0,
             itemBuilder: (_, index){
               return InkWell(

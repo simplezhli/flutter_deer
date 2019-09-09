@@ -59,6 +59,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
                   FocusScope.of(context).unfocus();
                   Navigator.maybePop(context);
                 },
+                tooltip: 'Back',
                 padding: const EdgeInsets.all(12.0),
                 icon: Image.asset(
                   backImg,

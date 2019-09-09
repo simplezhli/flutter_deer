@@ -22,7 +22,8 @@ class MyTextField extends StatefulWidget {
     this.focusNode,
     this.isInputPwd: false,
     this.getVCode,
-    this.config
+    this.config,
+    this.keyName
   }): super(key: key);
 
   final TextEditingController controller;
@@ -34,6 +35,8 @@ class MyTextField extends StatefulWidget {
   final bool isInputPwd;
   final Future<bool> Function() getVCode;
   final KeyboardActionsConfig config;
+  /// 用于集成测试寻找widget
+  final String keyName;
   
   @override
   _MyTextFieldState createState() => _MyTextFieldState();
@@ -130,7 +133,8 @@ class _MyTextFieldState extends State<MyTextField> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             _isShowDelete ? Gaps.empty : GestureDetector(
-              child: const LoadAssetImage("login/qyg_shop_icon_delete",
+              child: LoadAssetImage("login/qyg_shop_icon_delete",
+                key: Key('${widget.keyName}_delete'),
                 width: 18.0,
                 height: 18.0,
               ),
@@ -142,6 +146,7 @@ class _MyTextFieldState extends State<MyTextField> {
             !widget.isInputPwd ? Gaps.empty : GestureDetector(
               child: LoadAssetImage(
                 _isShowPwd ? "login/qyg_shop_icon_display" : "login/qyg_shop_icon_hide",
+                key: Key('${widget.keyName}_showPwd'),
                 width: 18.0,
                 height: 18.0,
               ),
