@@ -61,7 +61,7 @@ class SelectedText extends StatelessWidget {
           text: TextSpan(
             children: <TextSpan>[
               TextSpan(text: text.substring(0, text.length - 1), style: TextStyle(color: getTextColor(), fontSize: fontSize)),
-              TextSpan(text: text.substring(text.length - 1, text.length), style: TextStyle(color: getTextColor(), fontSize: fontSize - 4.0)),
+              TextSpan(text: text.substring(text.length - 1), style: TextStyle(color: getTextColor(), fontSize: fontSize - 4.0)),
             ],
           )
       );

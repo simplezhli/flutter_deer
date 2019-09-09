@@ -107,9 +107,11 @@ iOS需要自行下载代码运行。（效果是一致的）
 
 * [x] 引入状态管理，预计使用 [provider](https://github.com/rrousselGit/provider)
 
-* [ ] 页面添加设计图路径注释，方便寻找对应的设计图。
+* [x] 页面添加设计图路径注释，方便寻找对应的设计图。
 
-* [ ] 项目中有使用这一套框架及组件，会同步修复及优化遇到的问题。
+* [x] 项目中有使用这一套框架及组件，会同步修复及优化遇到的问题。
+
+* [ ] 添加集成测试。
 
 ## 已知问题：
 
@@ -122,6 +124,8 @@ iOS需要自行下载代码运行。（效果是一致的）
 - [Flutter开发中的一些Tips](https://weilu.blog.csdn.net/article/details/90546727)
 
 - [Flutter开发中的一些Tips(二)](https://weilu.blog.csdn.net/article/details/94849020)
+
+- [Flutter开发中的一些Tips(三)](https://weilu.blog.csdn.net/article/details/100108123)
 
 - [Flutter 动画曲线Curves 效果一览](https://weilu.blog.csdn.net/article/details/95632571)
 
