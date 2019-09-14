@@ -79,7 +79,7 @@ SPEC CHECKSUMS:
   AMapLocation: 89a7e4eb6040d32ba73c77a4966ecc66e46aa7c3
   AMapSearch: af02822537e55b85a4752e9df5c19e4b9da82031
   barcode_scan: 33f586d02270046fc6559135038b34b5754eaa4f
-  Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   flutter_2d_amap: 87cd67e45e7e99877456736ef133dbc25cdf3383
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   image_picker: 16e5fec1fbc87fd3b297c53e4048521eaf17cd06

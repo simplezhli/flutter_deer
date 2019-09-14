@@ -55,9 +55,9 @@ iOS需要自行下载代码运行。（效果是一致的）
 
 ## 项目运行环境
 
-    1. Flutter version 1.7.8+hotfix.4
+    1. Flutter version 1.9.1+hotfix.2
      
-    2. Dart version 2.4.0
+    2. Dart version 2.5.0
 
 ## 注意事项
 
@@ -66,8 +66,6 @@ iOS需要自行下载代码运行。（效果是一致的）
     Android可以执行命令`flutter build apk` 以创建`release`版本。
         
 - FlutterJsonBeanFactory插件使用可以查看[这篇文章](https://www.jianshu.com/p/e909f3f936d6)
-
-- 本人也尝试过升级过稳定版本`1.7.8+hotfix.2` 和 `1.7.8+hotfix.3`，但是因为华为小米的个别机型在删除`TextField`中的文字会导致崩溃（具体[点击查看](https://weilu.blog.csdn.net/article/details/94849020)），所以推荐采用`1.7.8+hotfix.4`。
 
 - 因为页面有点多，不清楚业务流程可能会导致部分页面无法找到。(可以执行集成测试命令`flutter drive --target=test_driver/store/store.dart` 查看功能演示)
 
