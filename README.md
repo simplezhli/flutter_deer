@@ -64,6 +64,8 @@ iOS需要自行下载代码运行。（效果是一致的）
 - `debug`模式下会有部分卡顿现象，属于正常现象。良好的体验需要打`release` 包。
     iOS可以执行命令`flutter build ios` 以创建`release`版本。
     Android可以执行命令`flutter build apk` 以创建`release`版本。
+
+- 由于部分三方库的原因，本项目暂不支持web。
         
 - FlutterJsonBeanFactory插件使用可以查看[这篇文章](https://www.jianshu.com/p/e909f3f936d6)
 

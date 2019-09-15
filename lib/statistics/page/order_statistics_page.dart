@@ -10,7 +10,7 @@ import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
 import 'package:flutter_deer/widgets/selected_text.dart';
 import 'package:flutter_deer/widgets/bezier_chart/bezier_chart.dart';
-import 'package:date_utils/date_utils.dart' as Date;
+import 'package:flutter_deer/util/date_utils_.dart' as Date;
 
 /// design/5统计/index.html#artboard1
 /// design/5统计/index.html#artboard6
