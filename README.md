@@ -121,6 +121,8 @@ iOS需要自行下载代码运行。（效果是一致的）
 
 - 输入框在不设置`obscureText`属性的情况下(false)，无法弹出密码模式键盘。(暂时使用`BlacklistingTextInputFormatter`去除可能会输入的中文)
 
+- 在1.9.1上，TextField在语言环境为中文时，[光标与输入文字不居中显示](https://github.com/flutter/flutter/issues/40219)，1.7.8相对好一些。
+
 ## 心得及问题记录
 
 - [Flutter开发中的一些Tips](https://weilu.blog.csdn.net/article/details/90546727)

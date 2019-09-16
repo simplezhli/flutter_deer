@@ -29,7 +29,14 @@ class ProgressDialog extends Dialog{
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              const CupertinoActivityIndicator(radius: 14.0),
+              Theme(
+                data: ThemeData(
+                  cupertinoOverrideTheme: CupertinoThemeData(
+                    brightness: Brightness.dark // 局部指定夜间模式，加载圈颜色会设置为白色
+                  )
+                ),
+                child: const CupertinoActivityIndicator(radius: 14.0),
+              ),
               Gaps.vGap8,
               Text(hintText, style: const TextStyle(color: Colors.white),)
             ],
