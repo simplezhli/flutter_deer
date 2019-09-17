@@ -69,7 +69,7 @@ iOS需要自行下载代码运行。（效果是一致的）
         
 - FlutterJsonBeanFactory插件使用可以查看[这篇文章](https://www.jianshu.com/p/e909f3f936d6)
 
-- 因为页面有点多，不清楚业务流程可能会导致部分页面无法找到。(可以执行集成测试命令`flutter drive --target=test_driver/store/store.dart` 查看功能演示)
+- 因为页面有点多，不清楚业务流程可能会导致部分页面无法找到。(可以执行集成测试命令`flutter drive --target=test_driver/driver.dart` 查看功能演示)
 
 - 我在代码中有添加设计图的相对路径，可以搜索或查找到对应页面，希望对你有帮助。
     

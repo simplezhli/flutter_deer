@@ -73,11 +73,13 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
               ),
             ),
             NestedScrollView(
+              key: const Key('order_list'),
               physics: ClampingScrollPhysics(),
               headerSliverBuilder: (context, innerBoxIsScrolled) {
                 return _sliverBuilder(context);
               },
               body: PageView.builder(
+                key: const Key('pageView'),
                 itemCount: 5,
                 onPageChanged: _onPageChange,
                 controller: _pageController,
@@ -103,6 +105,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
               onPressed: (){
                 NavigatorUtils.push(context, OrderRouter.orderSearchPage);
               },
+              tooltip: '搜索',
               icon: const LoadAssetImage("order/icon_search",
                 width: 22.0,
                 height: 22.0,

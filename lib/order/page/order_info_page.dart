@@ -30,6 +30,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
       body: Stack(
         children: <Widget>[
           SingleChildScrollView(
+            key: const Key('order_info'),
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Stack(
                 children: <Widget>[

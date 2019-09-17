@@ -17,7 +17,8 @@ class DeerListView extends StatefulWidget {
     this.stateType : StateType.empty,
     this.pageSize : 10,
     this.padding,
-    this.itemExtent
+    this.itemExtent,
+    this.keyName
   }): super(key: key);
 
   final RefreshCallback onRefresh;
@@ -30,6 +31,8 @@ class DeerListView extends StatefulWidget {
   final int pageSize;
   final EdgeInsetsGeometry padding;
   final double itemExtent;
+  /// 用于集成测试寻找widget
+  final String keyName;
   
   @override
   _DeerListViewState createState() => _DeerListViewState();
@@ -57,6 +60,7 @@ class _DeerListViewState extends State<DeerListView> {
         child: RefreshIndicator(
           onRefresh: widget.onRefresh,
           child: widget.itemCount == 0 ? StateLayout(type: widget.stateType) : ListView.builder(
+            key: Key(widget.keyName),
             itemCount: widget.loadMore == null ? widget.itemCount : widget.itemCount + 1,
             padding: widget.padding,
             itemExtent: widget.itemExtent,

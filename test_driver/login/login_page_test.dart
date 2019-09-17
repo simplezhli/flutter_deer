@@ -1,12 +1,11 @@
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
-import '../home/splash_page_test.dart' as splash_test;
+
+import '../tools/test_utils.dart';
 
 void main() {
 
-  splash_test.main();
-  
-  group('Login Page', (){
+  group('登录部分：', (){
     FlutterDriver driver;
 
     setUpAll(() async {
@@ -18,16 +17,18 @@ void main() {
     });
 
     tearDownAll(() async {
-      if (driver != null) {
-        driver.close();
-      }
+      driver?.close();
     });
     
     test("登录页按钮点击",() async {
       await driver.tap(find.text("验证码登录"));
+      await delayed();
       await driver.tap(find.byTooltip('Back'));
+      await delayed();
       await driver.tap(find.text("忘记密码"));
+      await delayed();
       await driver.tap(find.byTooltip('Back'));
+      await delayed();
       await driver.tap(find.text("还没账号？快去注册"));
     });
 
@@ -37,26 +38,26 @@ void main() {
       var textField = find.byValueKey('phone');
       await driver.tap(textField);  // 点击输入框，给予焦点
       await driver.enterText('15000000000');  // 输入内容
-      await Future<void>.delayed(const Duration(seconds: 1));
+      await delayed();
       
       await driver.tap(find.text("获取验证码"));
       
       var textField2 = find.byValueKey('vcode');
       await driver.tap(textField2);
       await driver.enterText('123456');
-      await Future<void>.delayed(const Duration(seconds: 1));
+      await delayed();
       
       var textField3 = find.byValueKey('password');
       await driver.tap(textField3);
       await driver.enterText('111111');
-      await Future<void>.delayed(const Duration(seconds: 1));
+      await delayed();
 
       await driver.tap(find.byValueKey('register')); // 点击注册
       
       // 清除输入框文字
       await driver.tap(find.byValueKey('password_delete'));
-      
-      await Future<void>.delayed(const Duration(seconds: 1));
+
+      await delayed();
       await driver.tap(find.byTooltip('Back'));
     }, timeout: const Timeout(Duration(seconds: 30)));
 
@@ -64,16 +65,16 @@ void main() {
       var textField = find.byValueKey('phone');
       await driver.tap(textField);
       await driver.enterText('15000000000');
-      await Future<void>.delayed(const Duration(seconds: 1));
+      await delayed();
       var textField2 = find.byValueKey('password');
       await driver.tap(textField2);
       await driver.enterText('111111');
-      await Future<void>.delayed(const Duration(seconds: 1));
+      await delayed();
       // 点击密码可见两次
       await driver.tap(find.byValueKey('password_showPwd'));
-      await Future<void>.delayed(const Duration(seconds: 1));
+      await delayed();
       await driver.tap(find.byValueKey('password_showPwd'));
-      await Future<void>.delayed(const Duration(seconds: 1));
+      await delayed();
       await driver.tap(find.byValueKey('login')); // 点击登录
     }, timeout: const Timeout(Duration(seconds: 30)));
   });

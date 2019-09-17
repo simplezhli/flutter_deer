@@ -77,7 +77,7 @@ class _HomeState extends State<Home> {
           activeIcon: _tabImages[i][1],
           title: Padding(
             padding: const EdgeInsets.only(top: 5.0),
-            child: Text(_appBarTitles[i]),
+            child: Text(_appBarTitles[i], key: Key(_appBarTitles[i]),),
           )
       );
     });

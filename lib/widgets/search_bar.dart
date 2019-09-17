@@ -55,6 +55,7 @@ class _SearchBarState extends State<SearchBar> {
                   width: 48.0,
                   height: 48.0,
                   child: InkWell(
+                    key: const Key('search_back'),
                     onTap: (){
                       FocusScope.of(context).unfocus();
                       Navigator.maybePop(context);
@@ -76,6 +77,7 @@ class _SearchBarState extends State<SearchBar> {
                       borderRadius: BorderRadius.circular(4.0),
                     ),
                     child: TextField(
+                      key: const Key('srarch_text_field'),
                       style: TextStyles.textDark14,
                       autofocus: true,
                       controller: _controller,

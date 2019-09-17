@@ -53,6 +53,7 @@ class OrderSearchPageState extends BasePageState<OrderSearchPage, OrderSearchPre
         body: Consumer<BaseListProvider<SearchItem>>(
           builder: (_, provider, __) {
             return DeerListView(
+              keyName: 'order_search_list',
               itemCount: provider.list.length,
               stateType: provider.stateType,
               onRefresh: _onRefresh,

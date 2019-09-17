@@ -14,9 +14,11 @@ class OrderItem extends StatelessWidget {
 
   const OrderItem({
     Key key,
+    @required this.tabIndex,
     @required this.index,
   }) : super(key: key);
-  
+
+  final int tabIndex;
   final int index;
   
   @override
@@ -100,6 +102,7 @@ class OrderItem extends StatelessWidget {
                 Row(
                   children: <Widget>[
                     OrderItemButton(
+                      key: Key("order_button_1_$index"),
                       text: "联系客户",
                       textColor: Colours.text_dark,
                       bgColor: Colours.bg_gray,
@@ -111,23 +114,25 @@ class OrderItem extends StatelessWidget {
                       child: Gaps.empty,
                     ),
                     OrderItemButton(
-                      text: Constant.orderLeftButtonText[index],
+                      key: Key("order_button_2_$index"),
+                      text: Constant.orderLeftButtonText[tabIndex],
                       textColor: Colours.text_dark,
                       bgColor: Colours.bg_gray,
                       onTap: (){
-                        if (index >= 2){
+                        if (tabIndex >= 2){
                           NavigatorUtils.push(context, OrderRouter.orderTrackPage);
                         }
                       },
                     ),
-                    Constant.orderRightButtonText[index].length == 0 ? Gaps.empty : Gaps.hGap10,
-                    Constant.orderRightButtonText[index].length == 0 ? Gaps.empty :
+                    Constant.orderRightButtonText[tabIndex].length == 0 ? Gaps.empty : Gaps.hGap10,
+                    Constant.orderRightButtonText[tabIndex].length == 0 ? Gaps.empty :
                     OrderItemButton(
-                      text: Constant.orderRightButtonText[index],
+                      key: Key("order_button_3_$index"),
+                      text: Constant.orderRightButtonText[tabIndex],
                       textColor: Colors.white,
                       bgColor: Colours.app_main,
                       onTap: (){
-                        if (index == 2){
+                        if (tabIndex == 2){
                           showDialog(
                               context: context,
                               barrierDismissible: false,

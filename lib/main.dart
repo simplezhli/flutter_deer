@@ -26,7 +26,9 @@ void main(){
 
 class MyApp extends StatelessWidget {
   
-  MyApp() {
+  final Widget home;
+  
+  MyApp({this.home}) {
     final router = Router();
     Routes.configureRoutes(router);
     Application.router = router;
@@ -43,7 +45,7 @@ class MyApp extends StatelessWidget {
           primaryColor: Colours.app_main,
           scaffoldBackgroundColor: Colors.white,
         ),
-        home: SplashPage(),
+        home: home ?? SplashPage(),
         onGenerateRoute: Application.router.generator,
         localizationsDelegates: [
           GlobalMaterialLocalizations.delegate,
