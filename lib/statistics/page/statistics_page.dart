@@ -21,6 +21,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
+        key: const Key('statistic_list'),
         physics: ClampingScrollPhysics(),
         slivers: _sliverBuilder(),
       ),
@@ -108,7 +109,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
 
 class _StatisticsItem extends StatelessWidget {
 
-  const _StatisticsItem(this.title, this.img, this.index);
+  const _StatisticsItem(this.title, this.img, this.index, {Key key}): super(key: key);
 
   final String title;
   final String img;

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'load_image.dart';
 
@@ -76,32 +77,40 @@ class _SearchBarState extends State<SearchBar> {
                       color: Colours.bg_gray,
                       borderRadius: BorderRadius.circular(4.0),
                     ),
-                    child: TextField(
-                      key: const Key('srarch_text_field'),
-                      style: TextStyles.textDark14,
-                      autofocus: true,
-                      controller: _controller,
-                      maxLines: 1,
-                      decoration: InputDecoration(
-                        contentPadding: const EdgeInsets.only(top: 6.0, left: -8.0, right: -16.0, bottom: 6.0),
-                        border: InputBorder.none,
-                        icon: Padding(
-                          padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 8.0),
-                          child: const LoadAssetImage("order/order_search"),
-                        ),
-                        hintText: widget.hintText,
-                        hintStyle: TextStyles.textGrayC14,
-                        suffixIcon: InkWell(
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 16.0, top: 8.0, bottom: 8.0),
-                            child: const LoadAssetImage("order/order_delete"),
+                    child: Localizations(
+                      locale: const Locale("en", ""),
+                      delegates: [
+                        GlobalMaterialLocalizations.delegate,
+                        GlobalWidgetsLocalizations.delegate,
+                        GlobalCupertinoLocalizations.delegate,
+                      ],
+                      child: TextField(
+                        key: const Key('srarch_text_field'),
+                        style: TextStyles.textDark14,
+                        autofocus: true,
+                        controller: _controller,
+                        maxLines: 1,
+                        decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.only(top: 6.0, left: -8.0, right: -16.0, bottom: 6.0),
+                          border: InputBorder.none,
+                          icon: Padding(
+                            padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 8.0),
+                            child: const LoadAssetImage("order/order_search"),
                           ),
-                          onTap: (){
-                            /// https://github.com/flutter/flutter/issues/35909
-                            SchedulerBinding.instance.addPostFrameCallback((_) {
-                              _controller.text = "";
-                            });
-                          },
+                          hintText: widget.hintText,
+                          hintStyle: TextStyles.textGrayC14,
+                          suffixIcon: InkWell(
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 16.0, top: 8.0, bottom: 8.0),
+                              child: const LoadAssetImage("order/order_delete"),
+                            ),
+                            onTap: (){
+                              /// https://github.com/flutter/flutter/issues/35909
+                              SchedulerBinding.instance.addPostFrameCallback((_) {
+                                _controller.text = "";
+                              });
+                            },
+                          ),
                         ),
                       ),
                     ),

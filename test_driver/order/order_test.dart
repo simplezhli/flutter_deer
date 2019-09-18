@@ -67,7 +67,7 @@ void main() {
       await driver.tap(find.text('搜索'));
       final orderList = find.byValueKey('order_search_list');
       await driver.waitFor(orderList);
-      await driver.scroll(orderList, 0.0, -600.0, scrollDuration);
+      await driver.scroll(orderList, 0.0, -500.0, scrollDuration);
       await delayed();
       await driver.tap(find.byValueKey('search_back'));
       await delayed();

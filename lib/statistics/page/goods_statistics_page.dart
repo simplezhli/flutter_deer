@@ -45,6 +45,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
         },
       ),
       body: SingleChildScrollView(
+        key: const Key('goods_statistics_list'),
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.only(left: 16.0),

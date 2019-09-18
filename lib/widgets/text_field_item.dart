@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/number_text_input_formatter.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
 
 class TextFieldItem extends StatelessWidget {
@@ -51,17 +52,25 @@ class TextFieldItem extends StatelessWidget {
           ),
           Expanded(
             flex: 1,
-            child: TextField(
-              focusNode: focusNode,
-              keyboardType: keyboardType,
-              inputFormatters: _getInputFormatters(),
-              controller: controller,
-              style: TextStyles.textDark14,
-              decoration: InputDecoration(
-                hintText: hintText,
-                border: InputBorder.none, //去掉下划线
-                hintStyle: TextStyles.textGrayC14
-              )
+            child: Localizations(
+              locale: const Locale("en", ""),
+              delegates: [
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              child: TextField(
+                focusNode: focusNode,
+                keyboardType: keyboardType,
+                inputFormatters: _getInputFormatters(),
+                controller: controller,
+                style: TextStyles.textDark14,
+                decoration: InputDecoration(
+                  hintText: hintText,
+                  border: InputBorder.none, //去掉下划线
+                  hintStyle: TextStyles.textGrayC14
+                )
+              ),
             ),
           ),
           Gaps.hGap16
