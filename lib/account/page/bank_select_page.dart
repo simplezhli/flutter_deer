@@ -33,12 +33,12 @@ class _BankSelectPageState extends State<BankSelectPage> {
     _loadData();
   }
 
-  void _loadData() async {
+  void _loadData() {
     // 获取城市列表
     rootBundle.loadString(widget.type == 0 ? 'assets/data/bank.json' : 'assets/data/bank_2.json').then((value) {
       List list = json.decode(value);
       list.forEach((value) {
-        _bankList.add(BankModel(value['id'], value['bankName'], value['firstLetter']));
+        _bankList.add(BankModel.fromJsonMap(value));
       });
       SuspensionUtil.sortListBySuspensionTag(_bankList);
       setState(() {

@@ -47,6 +47,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                 },
                 icon: const LoadAssetImage(
                   "shop/message",
+                  key: const Key('message'),
                   width: 24.0,
                   height: 24.0,
                 ),
@@ -57,6 +58,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                 },
                 icon: const LoadAssetImage(
                   "shop/setting",
+                  key: const Key('setting'),
                   width: 24.0,
                   height: 24.0,
                 ),

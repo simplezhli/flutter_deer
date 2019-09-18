@@ -96,9 +96,8 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
     try{
       String path = image.path;
       var name = path.substring(path.lastIndexOf("/") + 1);
-      var suffix = name.substring(name.lastIndexOf(".") + 1);
-      FormData formData = FormData.from({
-        "uploadIcon": UploadFileInfo(File(path), name, contentType: ContentType.parse("image/$suffix"))
+      FormData formData = FormData.fromMap({
+        "uploadIcon": await MultipartFile.fromFile(path, filename: name)
       });
       await requestNetwork<String>(Method.post,
           url: HttpApi.upload,

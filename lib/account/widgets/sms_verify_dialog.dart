@@ -89,7 +89,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                           onTap: (){NavigatorUtils.goBack(context);},
                           child: Container(
                             padding: const EdgeInsets.only(top: 16.0, right: 16.0),
-                            child: const LoadAssetImage("goods/icon_dialog_close", width: 16.0),
+                            child: const LoadAssetImage("goods/icon_dialog_close", width: 16.0, key: const Key('dialog_close'),),
                           )
                         ),
                       )
@@ -144,6 +144,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                           }
                         },
                         child: Container(
+                          key: const Key('vcode'),
                           color: Colors.transparent,
                           padding: const EdgeInsets.symmetric(horizontal: 24.0),
                           child: Row(

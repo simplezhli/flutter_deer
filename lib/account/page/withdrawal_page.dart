@@ -246,6 +246,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                     Gaps.vGap16,
                     Gaps.vGap8,
                     MyButton(
+                      key: const Key('提现'),
                       onPressed: _isClick ? (){
                         NavigatorUtils.push(context, AccountRouter.withdrawalResultPage);
                       } : null,

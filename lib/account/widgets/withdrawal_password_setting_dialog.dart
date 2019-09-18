@@ -50,6 +50,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                             NavigatorUtils.goBack(context);
                           },
                           child: const SizedBox(
+                            key: const Key('close'),
                             height: 16.0,
                             width: 16.0,
                             child: const LoadAssetImage("goods/icon_dialog_close")

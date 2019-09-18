@@ -41,6 +41,7 @@ class _PriceInputDialog extends State<PriceInputDialog>{
           borderRadius: BorderRadius.circular(2.0),
         ),
         child: TextField(
+          key: const Key('price_input'),
           autofocus: true,
           controller: _controller,
           maxLines: 1,

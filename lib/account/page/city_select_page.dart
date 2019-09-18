@@ -30,7 +30,7 @@ class _CitySelectPageState extends State<CitySelectPage> {
     rootBundle.loadString('assets/data/city.json').then((value) {
       List list = json.decode(value);
       list.forEach((value) {
-        _cityList.add(CityModel(value['name'], value['cityCode'], value['firstCharacter']));
+        _cityList.add(CityModel.fromJsonMap(value));
       });
       setState(() {
        

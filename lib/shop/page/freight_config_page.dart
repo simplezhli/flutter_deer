@@ -98,6 +98,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
         }
       },
       child: Container(
+          key: const Key('add'),
           margin: const EdgeInsets.only(bottom: 8.0),
           padding: const EdgeInsets.symmetric(vertical: 32.0),
           decoration: BoxDecoration(
@@ -156,6 +157,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                       },
                       child: Text(
                         _getPriceText(index).isEmpty ? "订单金额" : _getPriceText(index),
+                        key: Key('订单金额$index'),
                         textAlign: TextAlign.end,
                         style: _getPriceText(index).isEmpty ? TextStyles.textGray14 : TextStyles.textDark14),
                     )),
