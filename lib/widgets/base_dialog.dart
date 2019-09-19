@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 
+/// 自定义dialog的模板
 class BaseDialog extends StatelessWidget{
 
   const BaseDialog({

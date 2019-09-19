@@ -10,6 +10,7 @@ void main() {
 
     setUpAll(() async {
       driver = await FlutterDriver.connect();
+      await driver.waitUntilFirstFrameRasterized();
     });
 
     tearDown((){
@@ -39,13 +40,12 @@ void main() {
       await delayed();
       await driver.tap(find.text('银行卡(对公账户)'));
       await delayed();
-      
-//      await driver.tap(find.text('开  户  地'));
-//      await delayed();
-//      await driver.waitFor(find.text('北京市'));
-//      await driver.tap(find.text('北京市'));
-//      await delayed();
-
+      // 选择城市
+      await driver.tap(find.text('开  户  地'));
+      await delayed();
+      await driver.tap(find.text('北京市'));
+      await delayed();
+      // 选择银行
       await driver.tap(find.text('银行名称'));
       await delayed();
       await driver.tap(find.text('建设银行'));

@@ -11,6 +11,7 @@ import 'package:keyboard_actions/keyboard_actions.dart';
 
 import 'load_image.dart';
 
+/// 登录模块的输入框封装
 class MyTextField extends StatefulWidget {
   
   const MyTextField({

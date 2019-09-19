@@ -119,6 +119,7 @@ class GoodsItem extends StatelessWidget {
                     children: <Widget>[
                       GestureDetector(
                         child: Container(
+                            key: Key('goods_menu_item_$index'),
                             width: 24.0,
                             height: 24.0,
                             padding: const EdgeInsets.only(left: 8.0, bottom: 8.0),
@@ -174,17 +175,20 @@ class GoodsItem extends StatelessWidget {
                             children: <Widget>[
                               Gaps.hGap15,
                               FlatButton(
+                                key: Key('goods_edit_item_$index'),
                                 textColor: Colors.white,
                                 color: Colours.app_main,
                                 child: const Text("编辑"),
                                 onPressed: onTapEdit,
                               ),
                               FlatButton(
+                                key: Key('goods_operation_item_$index'),
                                 color: Colors.white,
                                 child: const Text("下架"),
                                 onPressed: onTapOperation,
                               ),
                               FlatButton(
+                                key: Key('goods_delete_item_$index'),
                                 color: Colors.white,
                                 child: const Text("删除"),
                                 onPressed: onTapDelete,

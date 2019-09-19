@@ -7,6 +7,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'load_image.dart';
 
+/// 搜索页的AppBar
 class SearchBar extends StatefulWidget implements PreferredSizeWidget{
 
   const SearchBar({

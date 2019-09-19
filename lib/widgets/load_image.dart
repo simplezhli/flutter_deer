@@ -4,7 +4,7 @@ import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 
-/// 加载图片（支持本地与网络图片）
+/// 图片加载（支持本地与网络图片）
 class LoadImage extends StatelessWidget {
   
   const LoadImage(this.image, {

@@ -126,10 +126,10 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                           }
                           if (v.length == _codeList.length){
                             Toast.show("验证码：${_controller.text}");
-                            _controller.text = "";
                             for (int i = 0; i < _codeList.length; i ++){
                               _codeList[i] = "";
                             }
+                            _controller.text = "";
                           }
                           setState(() {});
                         },

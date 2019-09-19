@@ -7,6 +7,7 @@ import 'package:flutter_deer/util/number_text_input_formatter.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
 
+/// 封装输入框
 class TextFieldItem extends StatelessWidget {
 
   const TextFieldItem({

@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:common_utils/common_utils.dart';
 import 'package:flutter_deer/common/common.dart';
 
+/// 输出Log工具类
 class Log{
 
   static var perform;

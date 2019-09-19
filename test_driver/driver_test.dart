@@ -7,12 +7,15 @@ import 'statistic/statistic_test.dart' as statistic_test;
 import 'setting/setting_test.dart' as setting_test;
 import 'shop/shop_test.dart' as shop_test;
 import 'account/account_test.dart' as account_test;
+import 'goods/goods_test.dart' as goods_test;
 
+/// 各模块统一运行，也可单独执行子模块测试
 void main() {
   splash_test.main();
   login_test.main();
   store_test.main();
   order_test.main();
+  goods_test.main();
   statistic_test.main();
   shop_test.main();
   account_test.main();

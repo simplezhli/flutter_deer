@@ -73,6 +73,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
             Expanded(
               flex: 1,
               child: SingleChildScrollView(
+                key: const Key('goods_edit_page'),
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                 physics: BouncingScrollPhysics(),
                 child: Column(

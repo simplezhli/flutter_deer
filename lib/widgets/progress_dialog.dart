@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 
+/// 加载中的弹框
 class ProgressDialog extends Dialog{
 
   const ProgressDialog({

@@ -61,6 +61,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
               },
               icon: const LoadAssetImage(
                 "goods/search",
+                key: const Key('search'),
                 width: 24.0,
                 height: 24.0,
               ),
@@ -72,6 +73,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
               },
               icon: const LoadAssetImage(
                 "goods/add",
+                key: const Key('add'),
                 width: 24.0,
                 height: 24.0,
               ),
@@ -134,6 +136,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
             Gaps.line,
             Expanded(
               child: PageView.builder(
+                key: const Key('pageView'),
                 itemCount: 3,
                 onPageChanged: _onPageChange,
                 controller: _pageController,

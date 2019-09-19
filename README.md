@@ -52,7 +52,7 @@
 
 Android版安装包：[点击下载](https://www.pgyer.com/gYXj)
 
-iOS需要自行下载代码运行。（效果是一致的）
+iOS需要自行下载代码运行。
 
 ## 项目运行环境
 
@@ -70,7 +70,7 @@ iOS需要自行下载代码运行。（效果是一致的）
         
 - FlutterJsonBeanFactory插件使用可以查看[这篇文章](https://www.jianshu.com/p/e909f3f936d6)
 
-- 因为页面有点多，不清楚业务流程可能会导致部分页面无法找到。(可以执行集成测试命令`flutter drive --target=test_driver/driver.dart` 查看功能演示)
+- 因为页面有点多，一开始可能会导致部分页面无法找到。(可以执行集成测试命令`flutter drive --target=test_driver/driver.dart` 查看功能演示，全程2分多钟)
 
 - 我在代码中有添加设计图的相对路径，可以搜索或查找到对应页面，希望对你有帮助。
     
@@ -78,14 +78,14 @@ iOS需要自行下载代码运行。（效果是一致的）
 
 | 库                         | 功能             |
 | -------------------------- | --------------- |
-| [dio](https://github.com/flutterchina/dio)                            | **网络库** |
-| [provider](https://github.com/rrousselGit/provider)                   | **状态管理** |
-| [flutter_2d_amap](https://github.com/simplezhli/flutter_2d_amap)      | **高德2D地图**       |
-| [cached_network_image](https://github.com/renefloor/flutter_cached_network_image)        | **图片缓存**       |
-| [fluro](https://github.com/theyakka/fluro)                            | **路由管理**       |
-| [flutter_oktoast](https://github.com/OpenFlutter/flutter_oktoast)     | **Toast**       |
+| [dio](https://github.com/flutterchina/dio)                            | **网络库**       |
+| [provider](https://github.com/rrousselGit/provider)                   | **状态管理**     |
+| [flutter_2d_amap](https://github.com/simplezhli/flutter_2d_amap)      | **高德2D地图**   |
+| [cached_network_image](https://github.com/renefloor/flutter_cached_network_image)       | **图片加载**       |
+| [fluro](https://github.com/theyakka/fluro)                            | **路由管理**     |
+| [flutter_oktoast](https://github.com/OpenFlutter/flutter_oktoast)     | **Toast**        |
 | [common_utils](https://github.com/Sky24n/common_utils)                | **Dart 常用工具类库**     |
-| [flutter_slidable](https://github.com/letsar/flutter_slidable)        | **侧滑删除**      |
+| [flutter_slidable](https://github.com/letsar/flutter_slidable)        | **侧滑删除**     |
 | [flustars](https://github.com/Sky24n/flustars)                        | **Flutter 常用工具类库**       |
 | [flutter_swiper](https://github.com/best-flutter/flutter_swiper)      | **Flutter 轮播组件**       |
 | [url_launcher](https://github.com/flutter/plugins/tree/master/packages/url_launcher)   | **启动URL的插件**       |
@@ -94,10 +94,10 @@ iOS需要自行下载代码运行。（效果是一致的）
 | [webview_flutter](https://github.com/flutter/plugins/tree/master/packages/webview_flutter)    | **WebView插件**       |
 | [keyboard_actions](https://github.com/diegoveloper/flutter_keyboard_actions)                  | **处理键盘事件**       |
 | [sticky_headers](https://github.com/fluttercommunity/flutter_sticky_headers)   | **列表悬浮头**       |
-| [azlistview](https://github.com/flutterchina/azlistview)              | **城市选择列表** |
+| [azlistview](https://github.com/flutterchina/azlistview)              | **城市选择列表**   |
 | [date_utils](https://github.com/apptreesoftware/date_utils)           | **常用的日期工具类** |
-| [bezier_chart](https://github.com/aeyrium/bezier-chart)               | **曲线图表** |
-| [sprintf](https://github.com/Naddiseo/dart-sprintf)                   | **格式化String** |
+| [bezier_chart](https://github.com/aeyrium/bezier-chart)               | **曲线图表**       |
+| [sprintf](https://github.com/Naddiseo/dart-sprintf)                   | **格式化String**   |
 | [barcode_scan](https://github.com/apptreesoftware/flutter_barcode_reader)     | **扫码功能** |
 
 详细内容可以参看[pubspec.yaml](https://github.com/simplezhli/flutter_deer/blob/master/pubspec.yaml)文件    
@@ -114,7 +114,9 @@ iOS需要自行下载代码运行。（效果是一致的）
 
 * [x] 项目中有使用这一套框架及组件，会同步修复及优化遇到的问题。
 
-* [ ] 添加集成测试。
+* [x] 添加集成测试。
+
+* [ ] 深色模式支持。
 
 ## 已知问题：
 
@@ -126,7 +128,7 @@ iOS需要自行下载代码运行。（效果是一致的）
 
 ## 心得及问题记录
 
-- [Flutter开发中的一些Tips](https://weilu.blog.csdn.net/article/details/90546727)
+- [Flutter开发中的一些Tips(一)](https://weilu.blog.csdn.net/article/details/90546727)
 
 - [Flutter开发中的一些Tips(二)](https://weilu.blog.csdn.net/article/details/94849020)
 

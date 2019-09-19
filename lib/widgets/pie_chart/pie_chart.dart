@@ -6,7 +6,7 @@ import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/widgets/pie_chart/pie_data.dart';
 
-///参考：https://github.com/apgapg/pie_chart
+///环形图 参考：https://github.com/apgapg/pie_chart
 class PieChart extends StatefulWidget {
   
   const PieChart({

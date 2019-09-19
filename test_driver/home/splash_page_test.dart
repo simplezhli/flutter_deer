@@ -10,6 +10,7 @@ void main([List<String> args = const <String>[]]) {
     // 测试之前连接程序
     setUpAll(() async {
       driver = await FlutterDriver.connect();
+      await driver.waitUntilFirstFrameRasterized();
     });
 
     tearDown((){

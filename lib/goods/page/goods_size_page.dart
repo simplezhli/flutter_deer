@@ -63,6 +63,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
       position: position,
       elevation: 0.0,
       child: Container(
+        key: const Key('hint'),
         width: 200.0,
         height: 147.0,
         decoration: BoxDecoration(
@@ -115,6 +116,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                     });
               },
               child: RichText(
+                key: const Key('name_edit'),
                 text: TextSpan(
                   text: '先对名称进行',
                   style: TextStyles.textGray14,
@@ -170,7 +172,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
           child: Container(
             width: 72.0,
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
-            child: const LoadAssetImage("goods/goods_delete"),
+            child: LoadAssetImage("goods/goods_delete", key: Key('delete_$index'),),
           ),
           color: Colours.text_red,
           onTap: () {

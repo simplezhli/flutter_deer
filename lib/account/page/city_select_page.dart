@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/account/models/city_model.dart';
+import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
@@ -27,15 +28,28 @@ class _CitySelectPageState extends State<CitySelectPage> {
 
   void _loadData() async {
     // 获取城市列表
-    rootBundle.loadString('assets/data/city.json').then((value) {
-      List list = json.decode(value);
-      list.forEach((value) {
-        _cityList.add(CityModel.fromJsonMap(value));
-      });
-      setState(() {
-       
-      });
+    // loadString源码中有对json大小进行判断，json过大会使用compute处理，集成测试无法使用compute，所以这里修改源码单独判断处理。
+    String jsonStr;
+    if (Constant.isTest){
+      jsonStr = await loadString('assets/data/city.json');
+    }else {
+      jsonStr = await rootBundle.loadString('assets/data/city.json');
+    }
+    List list = json.decode(jsonStr);
+    list.forEach((value) {
+      _cityList.add(CityModel.fromJsonMap(value));
     });
+    setState(() {
+
+    });
+  }
+
+  /// rootBundle.loadString源码修改
+  Future<String> loadString(String key, { bool cache = true }) async {
+    final ByteData data = await rootBundle.load(key);
+    if (data == null)
+      throw FlutterError('Unable to load asset: $key');
+    return utf8.decode(data.buffer.asUint8List());
   }
   
   @override

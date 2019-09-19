@@ -53,12 +53,12 @@ dependencies:
   cached_network_image: ^1.1.1
   # 格式化String https://github.com/Naddiseo/dart-sprintf
   sprintf: ^4.0.2
+  # 状态管理 https://github.com/rrousselGit/provider
+  provider: ^3.1.0
   # 高德2D地图插件 https://github.com/simplezhli/flutter_2d_amap
   flutter_2d_amap:
     git:
       url: https://github.com/simplezhli/flutter_2d_amap.git
-  # 状态管理 https://github.com/rrousselGit/provider
-  provider: ^3.1.0
   # 扫码 https://github.com/apptreesoftware/flutter_barcode_reader
   barcode_scan:
     git:

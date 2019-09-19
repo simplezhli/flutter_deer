@@ -7,7 +7,8 @@ import 'package:keyboard_actions/keyboard_actions.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Utils {
-  
+
+  /// 调起拨号页
   static void launchTelURL(String phone) async {
     String url = 'tel:'+ phone;
     if (await canLaunch(url)) {
@@ -17,6 +18,7 @@ class Utils {
     }
   }
 
+  /// 调起二维码扫描页
   static Future<String> scan() async {
     try {
       return await BarcodeScanner.scan();
