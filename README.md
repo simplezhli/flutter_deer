@@ -27,7 +27,7 @@
 * mvp模式
 * 使用`provider` 做状态管理
 * 完整的集成测试
-* 基于`dio` （2.2.x 版本）的网络请求封装（支持泛型，基于`FlutterJsonBeanFactory`插件实现）
+* 基于`dio` （3.x 版本）的网络请求封装（支持泛型，基于`FlutterJsonBeanFactory`插件实现）
 * 使用`Sliver` 系列组件实现复杂滚动效果
 * 使用高德地图定位选择地址
 * 输入框等部件的处理封装
