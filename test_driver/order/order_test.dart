@@ -37,6 +37,10 @@ void main() {
       // 垂直滑动
       await driver.scrollUntilVisible(orderList, orderItem, dyScroll: -400);
       await delayed();
+
+    });
+
+    test("订单操作",() async {
       // 点击订单列表按钮
       await driver.tap(find.byValueKey('order_button_1_1'));
       await delayed();
@@ -45,7 +49,7 @@ void main() {
       await driver.tap(find.byValueKey('order_button_3_1'));
       await delayed();
       await driver.tap(find.text('确定'));
-      await driver.scroll(orderList, 0.0, 500.0, scrollDuration);
+      await driver.scroll(find.byValueKey('order_list'), 0.0, 500.0, scrollDuration);
     });
 
     test("订单详情页",() async {
@@ -68,7 +72,7 @@ void main() {
       await driver.tap(find.text('搜索'));
       final orderList = find.byValueKey('order_search_list');
       await driver.waitFor(orderList);
-      await driver.scroll(orderList, 0.0, -500.0, scrollDuration);
+      await driver.scroll(orderList, 0.0, -300.0, scrollDuration);
       await delayed();
       await driver.tap(find.byValueKey('search_back'));
       await delayed();

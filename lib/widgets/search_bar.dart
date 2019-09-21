@@ -57,12 +57,12 @@ class _SearchBarState extends State<SearchBar> {
                   width: 48.0,
                   height: 48.0,
                   child: InkWell(
-                    key: const Key('search_back'),
                     onTap: (){
                       FocusScope.of(context).unfocus();
                       Navigator.maybePop(context);
                     },
                     child: Padding(
+                      key: const Key('search_back'),
                       padding: const EdgeInsets.all(12.0),
                       child: Image.asset(
                         widget.backImg,

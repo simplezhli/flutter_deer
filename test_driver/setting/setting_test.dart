@@ -44,6 +44,8 @@ void main() {
       await driver.tap(find.byTooltip('Back'));
       await delayed();
       await driver.tap(find.byTooltip('Back'));
+      await delayed();
+      await driver.tap(find.byTooltip('Back'));
     });
 
   });
