@@ -150,6 +150,20 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
     return null;
   }
 
+  GlobalKey _key = GlobalKey();
+
+  double _offset = 0;
+
+  @override
+  void initState() {
+    //监听Widget是否绘制完毕
+    WidgetsBinding.instance.addPostFrameCallback((_){
+      final RenderBox renderBoxRed = _key.currentContext.findRenderObject();
+      _offset = renderBoxRed.size.width / 2;
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -198,6 +212,11 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
           );
       }
 
+      title = Container(
+        key: _key,
+        child: title,
+      );
+
       final ThemeData theme = Theme.of(context);
       final double opacity = settings.toolbarOpacity;
       if (opacity > 0.0) {
@@ -213,7 +232,7 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
               bottom: 16.0,
             );
         final double scaleValue = Tween<double>(begin: 1.5, end: 1.0).transform(t);
-        double width = (size.width - 32.0) / 2 - 19.0;
+        double width = (size.width - 32.0) / 2 - _offset;
         final Matrix4 scaleTransform = Matrix4.identity()
           ..scale(scaleValue, scaleValue, 1.0)..translate(t * width, 0.0);
         final Alignment titleAlignment = _getTitleAlignment(false);
