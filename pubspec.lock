@@ -107,7 +107,7 @@ packages:
       name: dio
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "3.0.0"
+    version: "3.0.2"
   file:
     dependency: transitive
     description:
@@ -139,7 +139,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "9705e914e9c3593f41cb4d32d0f43b3abb9b14f1"
+      resolved-ref: "8086ae658f19b45f1fd32a46e677f3abc4051a19"
       url: "https://github.com/simplezhli/flutter_2d_amap.git"
     source: git
     version: "0.0.1"
@@ -496,7 +496,7 @@ packages:
       name: sqflite
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.1.6+4"
+    version: "1.1.6+5"
   stack_trace:
     dependency: transitive
     description:
@@ -580,7 +580,7 @@ packages:
       name: url_launcher
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "5.1.2"
+    version: "5.1.4"
   uuid:
     dependency: transitive
     description:
@@ -629,7 +629,7 @@ packages:
       name: yaml
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.1.16"
+    version: "2.2.0"
 sdks:
   dart: ">2.4.0 <3.0.0"
   flutter: ">=1.5.0 <2.0.0"
