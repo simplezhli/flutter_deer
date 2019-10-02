@@ -116,7 +116,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
             children: <Widget>[
               Row(
                 children: <Widget>[
-                  Text(index == 0 ? "订单金额小于" : (index == _list.length - 1 ? "订单金额不小于" : "订单金额区间"), style: TextStyles.textDark14),
+                  Text(index == 0 ? "订单金额小于" : (index == _list.length - 1 ? "订单金额不小于" : "订单金额区间")),
                   Expanded(
                     child: InkWell(
                       onTap: (){
@@ -162,7 +162,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                         style: _getPriceText(index).isEmpty ? TextStyles.textGray14 : TextStyles.textDark14),
                     )),
                   Gaps.hGap5,
-                  Text("元", style: TextStyles.textDark14),
+                  Text("元"),
                 ],
               ),
               Gaps.vGap15,
@@ -181,7 +181,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                       children: <Widget>[
                         LoadAssetImage(_list[index].type == 1 ? "shop/xzyf" : "shop/wxzyf", width: 16.0,),
                         Gaps.hGap4,
-                        const Text("比率", style: TextStyles.textDark14),
+                        const Text("比率"),
                       ],
                     ),
                   ),
@@ -197,7 +197,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                       children: <Widget>[
                         LoadAssetImage(_list[index].type == 0 ? "shop/xzyf" : "shop/wxzyf", width: 16.0),
                         Gaps.hGap4,
-                        const Text("金额", style: TextStyles.textDark14),
+                        const Text("金额"),
                       ],
                     ),
                   ),
@@ -224,7 +224,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                         style: _list[index].price.isEmpty ? TextStyles.textGray14 : TextStyles.textDark14),
                     )),
                   Gaps.hGap5,
-                  Text(_list[index].type == 1 ? "%" : "元", style: TextStyles.textDark14),
+                  Text(_list[index].type == 1 ? "%" : "元"),
                 ],
               )
             ],

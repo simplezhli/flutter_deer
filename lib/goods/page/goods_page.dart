@@ -120,7 +120,11 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 },
                 isScrollable: true,
                 controller: _tabController,
-                labelStyle: TextStyles.textBoldDark18,
+                labelStyle: const TextStyle(
+                    fontSize: Dimens.font_sp18,
+                    color: Colours.text_dark,
+                    fontWeight: FontWeight.bold
+                ),
                 indicatorSize: TabBarIndicatorSize.label,
                 labelPadding: const EdgeInsets.only(left: 16.0),
                 unselectedLabelColor: Colours.text_dark,
@@ -263,7 +267,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(8.0), topRight: Radius.circular(8.0)),
                 ),  
                 icon: const LoadAssetImage("goods/scanning", width: 16.0, height: 16.0,), 
-                label: const Text("扫码添加", style: TextStyles.textDark14,)
+                label: const Text("扫码添加")
               ),
             ),
             Container(width: 120.0, height: 0.6, color: Colours.line),
@@ -279,7 +283,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                   borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8.0), bottomRight: Radius.circular(8.0)),
                 ),
                 icon: const LoadAssetImage("goods/add2", width: 16.0, height: 16.0,),
-                label: const Text("添加商品", style: TextStyles.textDark14)
+                label: const Text("添加商品")
               ),
             ),
           ],

@@ -106,7 +106,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
                     children: <Widget>[
                       LoadAssetImage("account/${_bankLogoList[index]}",width: 24.0),
                       Gaps.hGap8,
-                      Text(_bankNameList[index], style: TextStyles.textDark14),
+                      Text(_bankNameList[index]),
                     ],
                   ),
                 ),
@@ -138,11 +138,11 @@ class _BankSelectPageState extends State<BankSelectPage> {
                 opacity: model.isShowSuspension ? 1 : 0,
                 child: SizedBox(
                   width: 28.0,
-                  child: Text(model.firstLetter, style: TextStyles.textDark14),
+                  child: Text(model.firstLetter),
                 )
               ),
               Expanded(
-                child: Text(model.bankName, style: TextStyles.textDark14),
+                child: Text(model.bankName),
               )
             ],
           ),

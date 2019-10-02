@@ -45,7 +45,7 @@ class _RangePriceInputDialog extends State<RangePriceInputDialog>{
             Expanded(
               child: TextField(
                 autofocus: true,
-                style: TextStyles.textDark14,
+                //style: TextStyles.textDark14,
                 controller: _controller,
                 maxLines: 1,
                 keyboardType: TextInputType.numberWithOptions(decimal: true),
@@ -54,7 +54,7 @@ class _RangePriceInputDialog extends State<RangePriceInputDialog>{
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.only(top: 4.0, left: 16.0, right: 16.0, bottom: 4.0),
                   border: InputBorder.none,
-                  hintStyle: TextStyles.textGray14,
+                  //hintStyle: TextStyles.textGray14,
                 ),
               ),
             ),
@@ -67,7 +67,7 @@ class _RangePriceInputDialog extends State<RangePriceInputDialog>{
             Expanded(
               child: TextField(
                 autofocus: true,
-                style: TextStyles.textDark14,
+                //style: TextStyles.textDark14,
                 controller: _controller1,
                 maxLines: 1,
                 keyboardType: TextInputType.numberWithOptions(decimal: true),
@@ -76,7 +76,7 @@ class _RangePriceInputDialog extends State<RangePriceInputDialog>{
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.only(top: 4.0, left: 16.0, right: 16.0, bottom: 4.0),
                   border: InputBorder.none,
-                  hintStyle: TextStyles.textGray14,
+                  //hintStyle: TextStyles.textGray14,
                 ),
               ),
             ),

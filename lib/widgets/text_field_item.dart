@@ -46,10 +46,7 @@ class TextFieldItem extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
-            child: Text(
-              title,
-              style: TextStyles.textDark14,
-            ),
+            child: Text(title),
           ),
           Expanded(
             flex: 1,
@@ -65,11 +62,11 @@ class TextFieldItem extends StatelessWidget {
                 keyboardType: keyboardType,
                 inputFormatters: _getInputFormatters(),
                 controller: controller,
-                style: TextStyles.textDark14,
+                //style: TextStyles.textDark14,
                 decoration: InputDecoration(
                   hintText: hintText,
                   border: InputBorder.none, //去掉下划线
-                  hintStyle: TextStyles.textGrayC14
+                  //hintStyle: TextStyles.textGrayC14
                 )
               ),
             ),

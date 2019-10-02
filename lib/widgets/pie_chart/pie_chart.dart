@@ -86,7 +86,7 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
             children: <Widget>[
               Text(widget.name, style: TextStyles.textBoldDark16),
               Gaps.vGap4,
-              Text("$count件", style: TextStyles.textDark14)
+              Text("$count件")
             ],
           ),
         ),

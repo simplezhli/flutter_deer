@@ -49,7 +49,7 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
         ),
         child: Stack(
           children: <Widget>[
-            Text(i % 2 == 0 ? "采购订单结算营收" : "提现", style: TextStyles.textDark14),
+            Text(i % 2 == 0 ? "采购订单结算营收" : "提现"),
             Positioned(
                 top: 0.0,
                 right: 0.0,

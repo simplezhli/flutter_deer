@@ -57,8 +57,7 @@ class GoodsItem extends StatelessWidget {
                         const Text(
                           "八月十五中秋月饼礼盒",
                           maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyles.textDark14
+                          overflow: TextOverflow.ellipsis
                         ),
                         Gaps.vGap4,
                         Row(
@@ -107,10 +106,7 @@ class GoodsItem extends StatelessWidget {
                           ],
                         ),
                         Gaps.vGap16,
-                        const Text(
-                          "¥20.00",
-                          style: TextStyles.textDark14,
-                        )
+                        const Text("¥20.00")
                       ],
                     ),
                   ),

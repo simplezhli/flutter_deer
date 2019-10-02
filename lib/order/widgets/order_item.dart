@@ -38,10 +38,7 @@ class OrderItem extends StatelessWidget {
                 Row(
                   children: <Widget>[
                     Expanded(
-                      child: Text(
-                        "15000000000（郭李）",
-                        style: TextStyles.textDark14,
-                      ),
+                      child: Text("15000000000（郭李）"),
                     ),
                     const Text(
                       "货到付款",

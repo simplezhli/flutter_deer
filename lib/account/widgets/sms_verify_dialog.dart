@@ -98,7 +98,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: const Text("本次操作需短信验证，验证码会发送至您的注册手机 15000000000", style: TextStyles.textDark14, textAlign: TextAlign.center),
+                  child: const Text("本次操作需短信验证，验证码会发送至您的注册手机 15000000000", textAlign: TextAlign.center),
                 ),
                 Gaps.vGap16,
                 Expanded(

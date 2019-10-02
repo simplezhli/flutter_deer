@@ -80,7 +80,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text(_data.typeName, style: TextStyles.textDark14),
+                            Text(_data.typeName),
                             Gaps.vGap8,
                             Text(_data.name, style: TextStyles.textGray12),
                           ],
@@ -181,7 +181,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                               top: 16.0,
                               left: 24.0,
                               right: 0.0,
-                              child: const Text("快速到账", style: TextStyles.textDark14)
+                              child: const Text("快速到账")
                             ),
                             Positioned(
                               bottom: 16.0,
@@ -223,7 +223,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                               top: 16.0,
                               left: 24.0,
                               right: 0.0,
-                              child: const Text("普通到账", style: TextStyles.textDark14)
+                              child: const Text("普通到账")
                             ),
                             Positioned(
                               bottom: 16.0,

@@ -61,7 +61,7 @@ class _WithdrawalAccountListPageState extends State<WithdrawalAccountListPage> {
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(_list[index].typeName, style: TextStyles.textDark14),
+                        Text(_list[index].typeName),
                         Gaps.vGap8,
                         Text(_list[index].name, style: TextStyles.textDark12),
                       ],

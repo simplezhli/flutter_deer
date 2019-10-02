@@ -211,8 +211,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                             Text(
                               goodsSizeList[index].sizeName,
                               maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyles.textDark14
+                              overflow: TextOverflow.ellipsis
                             ),
                             Text(
                               "库存${goodsSizeList[index].stock}",
@@ -268,10 +267,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text(
-                              "¥${goodsSizeList[index].price}",
-                              style: TextStyles.textDark14,
-                            ),
+                            Text("¥${goodsSizeList[index].price}"),
                             const SizedBox(width: 50.0,),
                             Text(
                               "佣金${goodsSizeList[index].charges}元",

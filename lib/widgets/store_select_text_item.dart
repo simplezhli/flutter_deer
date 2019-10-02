@@ -34,10 +34,7 @@ class StoreSelectTextItem extends StatelessWidget {
         ),
         child: Row(
           children: <Widget>[
-            Text(
-              title,
-              style: TextStyles.textDark14,
-            ),
+            Text(title),
             Expanded(
               flex: 1,
               child: Padding(
@@ -47,7 +44,7 @@ class StoreSelectTextItem extends StatelessWidget {
                   maxLines: 2,
                   textAlign: textAlign,
                   overflow: TextOverflow.ellipsis,
-                  style: style ?? TextStyles.textDark14,
+                  style: style
                 ),
               ),
             ),

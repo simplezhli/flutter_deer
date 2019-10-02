@@ -100,11 +100,11 @@ class _CitySelectPageState extends State<CitySelectPage> {
                 opacity: model.isShowSuspension ? 1 : 0,
                 child: SizedBox(
                   width: 28.0,
-                  child: Text(model.firstCharacter, style: TextStyles.textDark14),
+                  child: Text(model.firstCharacter),
                 )
               ),
               Expanded(
-                child: Text(model.name, style: TextStyles.textDark14),
+                child: Text(model.name),
               )
             ],
           ),

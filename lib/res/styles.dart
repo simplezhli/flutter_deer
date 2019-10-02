@@ -26,31 +26,31 @@ class TextStyles {
   );
   static const TextStyle textDark16 = const TextStyle(
     fontSize: Dimens.font_sp16,
-    color: Colours.text_dark,
+//    color: Colours.text_dark,
   );
   static const TextStyle textBoldDark14 = const TextStyle(
       fontSize: Dimens.font_sp14,
-      color: Colours.text_dark,
+//      color: Colours.text_dark,
       fontWeight: FontWeight.bold
   );
   static const TextStyle textBoldDark16 = const TextStyle(
       fontSize: Dimens.font_sp16,
-      color: Colours.text_dark,
+//      color: Colours.text_dark,
       fontWeight: FontWeight.bold
   );
   static const TextStyle textBoldDark18 = const TextStyle(
     fontSize: Dimens.font_sp18,
-    color: Colours.text_dark,
+//    color: Colours.text_dark,
     fontWeight: FontWeight.bold
   );
   static const TextStyle textBoldDark24 = const TextStyle(
       fontSize: 24.0,
-      color: Colours.text_dark,
+//      color: Colours.text_dark,
       fontWeight: FontWeight.bold
   );
   static const TextStyle textBoldDark26 = const TextStyle(
       fontSize: 26.0,
-      color: Colours.text_dark,
+//      color: Colours.text_dark,
       fontWeight: FontWeight.bold
   );
   static const TextStyle textGray10 = const TextStyle(

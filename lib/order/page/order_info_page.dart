@@ -58,9 +58,9 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text("郭李", style: TextStyles.textDark14),
+                                Text("郭李"),
                                 Gaps.vGap8,
-                                Text("15000000000", style: TextStyles.textDark14),
+                                Text("15000000000"),
                               ],
                             ),
                           ),
@@ -84,7 +84,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                         children: <Widget>[
                           const LoadAssetImage("order/icon_address", width: 16.0, height: 20.0),
                           Gaps.hGap4,
-                          Expanded(child: Text("西安市雁塔区 鱼化寨街道唐兴路唐兴数码3楼318", maxLines: 2, style: TextStyles.textDark14)),
+                          Expanded(child: Text("西安市雁塔区 鱼化寨街道唐兴路唐兴数码3楼318", maxLines: 2)),
                         ],
                       ),
                       Gaps.vGap16,
@@ -124,7 +124,6 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                                             index % 2 == 0 ? "泊泉雅花瓣·浪漫亲肤玫瑰沐浴乳" : "日本纳鲁火多橙饮",
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
-                                            style: TextStyles.textDark14
                                         ),
                                         Gaps.vGap4,
                                         Text(index % 2 == 0 ? "玫瑰香 520ml" : "125ml", style: TextStyles.textGray12),
@@ -275,7 +274,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
         children: <Widget>[
           Text(title, style: TextStyles.textGray14),
           Gaps.hGap8,
-          Text(content, style: TextStyles.textDark14)
+          Text(content)
         ],
       ),
     );
@@ -287,7 +286,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Text(title, style: TextStyles.textDark14),
+          Text(title),
           Text(content, style: TextStyle(
             color: contentTextColor,
             fontWeight: FontWeight.bold

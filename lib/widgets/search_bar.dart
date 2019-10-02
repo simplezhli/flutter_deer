@@ -87,7 +87,7 @@ class _SearchBarState extends State<SearchBar> {
                       ],
                       child: TextField(
                         key: const Key('srarch_text_field'),
-                        style: TextStyles.textDark14,
+                        //style: TextStyles.textDark14,
                         autofocus: true,
                         controller: _controller,
                         maxLines: 1,
@@ -99,7 +99,7 @@ class _SearchBarState extends State<SearchBar> {
                             child: const LoadAssetImage("order/order_search"),
                           ),
                           hintText: widget.hintText,
-                          hintStyle: TextStyles.textGrayC14,
+                          //hintStyle: TextStyles.textGrayC14,
                           suffixIcon: InkWell(
                             child: Padding(
                               padding: const EdgeInsets.only(left: 16.0, top: 8.0, bottom: 8.0),

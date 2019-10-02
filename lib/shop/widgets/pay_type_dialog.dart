@@ -40,10 +40,7 @@ class _PayTypeDialog extends State<PayTypeDialog>{
             children: <Widget>[
               Gaps.hGap16,
               Expanded(
-                child: Text(
-                  _list[index],
-                  style: TextStyles.textDark14,
-                ),
+                child: Text(_list[index]),
               ),
               LoadAssetImage(_selectValue.contains(index) ? "shop/xz" : "shop/xztm", width: 16.0, height: 16.0),
               Gaps.hGap16,

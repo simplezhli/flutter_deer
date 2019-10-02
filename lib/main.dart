@@ -42,8 +42,29 @@ class MyApp extends StatelessWidget {
 //        showPerformanceOverlay: true, //显示性能标签
         //debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          brightness: Brightness.light,
           primaryColor: Colours.app_main,
           scaffoldBackgroundColor: Colors.white,
+          textTheme: TextTheme(
+            // TextField输入文字颜色
+            subhead: TextStyles.textDark14,
+            body1: TextStyles.textDark14,
+          ),
+          inputDecorationTheme: InputDecorationTheme(
+            hintStyle: TextStyles.textGray14
+          )
+        ),
+        darkTheme: ThemeData(
+          brightness: Brightness.dark,
+          primaryColor: Colours.app_main,
+          textTheme: TextTheme(
+            subhead: TextStyles.textGray14,
+            body1: TextStyles.textGray14,
+          ),
+          inputDecorationTheme: InputDecorationTheme(
+            hintStyle: TextStyles.textGray14
+          )
+          //scaffoldBackgroundColor: Colors.black87,
         ),
         home: home ?? SplashPage(),
         onGenerateRoute: Application.router.generator,

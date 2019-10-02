@@ -44,7 +44,6 @@ class ClickItem extends StatelessWidget {
           children: <Widget>[
             Text(
               title,
-              style: TextStyles.textDark14,
             ),
             const Spacer(),
             Expanded(
@@ -56,7 +55,7 @@ class ClickItem extends StatelessWidget {
                   maxLines: maxLines,
                   textAlign: maxLines == 1 ? TextAlign.right : textAlign,
                   overflow: TextOverflow.ellipsis,
-                  style: style ?? TextStyles.textDark14,
+                  style: style
                 ),
               ),
             ),

@@ -37,7 +37,7 @@ class _MessagePageState extends State<MessagePage> {
                     children: <Widget>[
                       Row(
                         children: <Widget>[
-                          Expanded(child: Text("系统通知", style: TextStyles.textDark14)),
+                          Expanded(child: Text("系统通知")),
                           Container(
                             margin: const EdgeInsets.only(right: 4.0),
                             height: 8.0,

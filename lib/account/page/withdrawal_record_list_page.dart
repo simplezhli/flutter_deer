@@ -49,7 +49,7 @@ class _WithdrawalRecordListPageState extends State<WithdrawalRecordListPage> {
         ),
         child: Stack(
           children: <Widget>[
-            Text(i % 2 == 0 ? "微信（唯鹿）" : "工商（尾号:4562 李一）", style: TextStyles.textDark14),
+            Text(i % 2 == 0 ? "微信（唯鹿）" : "工商（尾号:4562 李一）"),
             Positioned(
                 top: 0.0,
                 right: 0.0,

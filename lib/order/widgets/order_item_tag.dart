@@ -27,15 +27,9 @@ class OrderItemTag extends StatelessWidget {
               children: <Widget>[
                 const LoadAssetImage("order/icon_calendar", width: 14.0, height: 14.0),
                 Gaps.hGap10,
-                Text(
-                  date,
-                  style: TextStyles.textDark14,
-                ),
+                Text(date),
                 Expanded(child: Gaps.empty),
-                Text(
-                  "$orderTotal单",
-                  style: TextStyles.textDark14,
-                )
+                Text("$orderTotal单")
               ],
             ),
           )),
