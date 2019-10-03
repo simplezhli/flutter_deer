@@ -86,7 +86,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: const Text(
                     "商品分类",
-                    style: TextStyles.textBoldDark16,
+                    style: TextStyles.textBold16,
                   ),
                 ),
                 Positioned(

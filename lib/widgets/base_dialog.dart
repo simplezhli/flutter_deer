@@ -48,7 +48,7 @@ class BaseDialog extends StatelessWidget{
                     padding: const EdgeInsets.only(bottom: 8.0),
                     child: Text(
                       hiddenTitle ? "" : title,
-                      style: TextStyles.textBoldDark18,
+                      style: TextStyles.textBold18,
                     ),
                   ),
                 ),

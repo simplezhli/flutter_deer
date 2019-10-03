@@ -38,7 +38,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                         padding: const EdgeInsets.symmetric(vertical: 16.0),
                         child: const Text(
                           "设置提现密码",
-                          style: TextStyles.textBoldDark18,
+                          style: TextStyles.textBold18,
                         ),
                       ),
                       Positioned(
@@ -161,7 +161,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                 right: Divider.createBorderSide(context, color: Colours.text_gray_c, width: 0.6),
               ) : null
           ),
-          child: Text(_codeList[p].isEmpty ? "" : "●", style: TextStyles.textDark12,)
+          child: Text(_codeList[p].isEmpty ? "" : "●", style: TextStyles.textSize12,)
       ),
     );
   }

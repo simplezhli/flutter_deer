@@ -53,7 +53,7 @@ class _MessagePageState extends State<MessagePage> {
                       Gaps.vGap8,
                       Gaps.line,
                       Gaps.vGap8,
-                      Text("供货商由于[商品缺货]原因，取消了采购订单。", style: TextStyles.textDark12),
+                      Text("供货商由于[商品缺货]原因，取消了采购订单。", style: TextStyles.textSize12),
                     ],
                   ),
                 ),

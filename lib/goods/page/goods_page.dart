@@ -100,7 +100,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                         padding: const EdgeInsets.only(left: 16.0, right: 8.0),
                         child: Text(
                           _sortList[_sortIndex],
-                          style: TextStyles.textBoldDark24,
+                          style: TextStyles.textBold24,
                         ),
                       ),
                       LoadAssetImage("goods/expand", width: 16.0, height: 16.0, color: _iconColor,)

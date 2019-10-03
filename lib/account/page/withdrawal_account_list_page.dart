@@ -63,7 +63,7 @@ class _WithdrawalAccountListPageState extends State<WithdrawalAccountListPage> {
                       children: <Widget>[
                         Text(_list[index].typeName),
                         Gaps.vGap8,
-                        Text(_list[index].name, style: TextStyles.textDark12),
+                        Text(_list[index].name, style: TextStyles.textSize12),
                       ],
                     ),
                   ),

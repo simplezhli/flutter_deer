@@ -54,7 +54,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Gaps.vGap4,
-                Text(_type ? "已配货" : "待配货", style: TextStyles.textBoldDark24),
+                Text(_type ? "已配货" : "待配货", style: TextStyles.textBold24),
                 Gaps.vGap16,
                 Gaps.vGap16,
                 Row(
@@ -75,7 +75,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                   padding: const EdgeInsets.only(right: 16.0),
                   child: _buildChart(),
                 ),
-                const Text("热销商品排行", style: TextStyles.textBoldDark18),
+                const Text("热销商品排行", style: TextStyles.textBold18),
                 ListView.builder(
                   physics: ClampingScrollPhysics(),
                   padding: const EdgeInsets.only(top: 16.0, right: 16.0),

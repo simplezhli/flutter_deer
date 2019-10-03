@@ -83,7 +83,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
         children: <Widget>[
           const Text(
             "重置登录密码",
-            style: TextStyles.textBoldDark26,
+            style: TextStyles.textBold26,
           ),
           Gaps.vGap16,
           MyTextField(

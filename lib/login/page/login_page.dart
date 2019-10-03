@@ -88,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
         children: <Widget>[
           const Text(
             "密码登录",
-            style: TextStyles.textBoldDark26,
+            style: TextStyles.textBold26,
           ),
           Gaps.vGap16,
           MyTextField(

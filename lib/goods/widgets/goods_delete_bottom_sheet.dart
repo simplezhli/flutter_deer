@@ -28,7 +28,7 @@ class GoodsDeleteBottomSheet extends StatelessWidget {
                   child: const Center(
                     child: const Text(
                       "是否确认删除，防止错误操作",
-                      style: TextStyles.textDark16,
+                      style: TextStyles.textSize16,
                     ),
                   ),
                 ),

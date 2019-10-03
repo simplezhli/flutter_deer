@@ -24,7 +24,7 @@ class _ExitDialog extends State<ExitDialog>{
       title: "提示",
       child: const Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-        child: const Text("您确定要退出登录吗？", style: TextStyles.textDark16),
+        child: const Text("您确定要退出登录吗？", style: TextStyles.textSize16),
       ),
       onPressed: (){
         NavigatorUtils.push(context, LoginRouter.loginPage, clearStack: true);

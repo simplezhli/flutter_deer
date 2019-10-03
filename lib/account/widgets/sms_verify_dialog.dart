@@ -79,7 +79,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                         padding: const EdgeInsets.only(top: 22.0),
                         child: const Text(
                           "短信验证",
-                          style: TextStyles.textBoldDark18,
+                          style: TextStyles.textBold18,
                         ),
                       ),
                       Positioned(

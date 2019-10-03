@@ -72,7 +72,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                           padding: const EdgeInsets.only(left: 16.0),
                           child: Text(
                             _check ? "正在营业" : "暂停营业",
-                            style: TextStyles.textBoldDark24,
+                            style: TextStyles.textBold24,
                           ),
                         ),
                         Padding(
@@ -92,7 +92,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                     Gaps.vGap16,
                     const Padding(
                       padding: const EdgeInsets.only(left: 16.0),
-                      child: const Text("基础设置", style: TextStyles.textBoldDark18),
+                      child: const Text("基础设置", style: TextStyles.textBold18),
                     ),
                     Gaps.vGap16,
                     ClickItem(
@@ -150,7 +150,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                     Gaps.vGap16,
                     const Padding(
                       padding: const EdgeInsets.only(left: 16.0),
-                      child: const Text("运费设置", style: TextStyles.textBoldDark18),
+                      child: const Text("运费设置", style: TextStyles.textBold18),
                     ),
                     ClickItem(
                       title: "运费配置",
@@ -229,7 +229,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                     Gaps.vGap16,
                     const Padding(
                       padding: const EdgeInsets.only(left: 16.0),
-                      child: const Text("联系信息", style: TextStyles.textBoldDark18,),
+                      child: const Text("联系信息", style: TextStyles.textBold18,),
                     ),
                     Gaps.vGap16,
                     ClickItem(

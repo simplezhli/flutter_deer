@@ -56,7 +56,7 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
                 child: Text(i % 2 == 0 ? "+10.00" : "-10.00", style: i % 2 == 0 ? TextStyle(
                     color: Colours.text_red,
                     fontWeight: FontWeight.bold
-                ) : TextStyles.textBoldDark14)
+                ) : TextStyles.textBold14)
             ),
             Positioned(
                 bottom: 0.0,

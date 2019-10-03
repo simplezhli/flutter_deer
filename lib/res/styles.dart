@@ -17,41 +17,30 @@ class TextStyles {
     fontSize: Dimens.font_sp12,
     color: Colours.text_normal,
   );
-  static const TextStyle textDark12 = const TextStyle(
+  static const TextStyle textSize12 = const TextStyle(
     fontSize: Dimens.font_sp12,
-//    color: Colours.text_dark,
   );
-  static const TextStyle textDark14 = const TextStyle(
-    fontSize: Dimens.font_sp14,
-    color: Colours.text_dark,
-  );
-  static const TextStyle textDark16 = const TextStyle(
+  static const TextStyle textSize16 = const TextStyle(
     fontSize: Dimens.font_sp16,
-//    color: Colours.text_dark,
   );
-  static const TextStyle textBoldDark14 = const TextStyle(
+  static const TextStyle textBold14 = const TextStyle(
       fontSize: Dimens.font_sp14,
-//      color: Colours.text_dark,
       fontWeight: FontWeight.bold
   );
-  static const TextStyle textBoldDark16 = const TextStyle(
+  static const TextStyle textBold16 = const TextStyle(
       fontSize: Dimens.font_sp16,
-//      color: Colours.text_dark,
       fontWeight: FontWeight.bold
   );
-  static const TextStyle textBoldDark18 = const TextStyle(
+  static const TextStyle textBold18 = const TextStyle(
     fontSize: Dimens.font_sp18,
-//    color: Colours.text_dark,
     fontWeight: FontWeight.bold
   );
-  static const TextStyle textBoldDark24 = const TextStyle(
+  static const TextStyle textBold24 = const TextStyle(
       fontSize: 24.0,
-//      color: Colours.text_dark,
       fontWeight: FontWeight.bold
   );
-  static const TextStyle textBoldDark26 = const TextStyle(
+  static const TextStyle textBold26 = const TextStyle(
       fontSize: 26.0,
-//      color: Colours.text_dark,
       fontWeight: FontWeight.bold
   );
   static const TextStyle textGray10 = const TextStyle(
@@ -82,5 +71,20 @@ class TextStyles {
   static const TextStyle textWhite14 = const TextStyle(
     fontSize: Dimens.font_sp14,
     color: Colors.white,
+  );
+
+  static const TextStyle textWhite12 = const TextStyle(
+    fontSize: Dimens.font_sp12,
+    color: Colors.white,
+  );
+
+  static const TextStyle textDark12 = const TextStyle(
+    fontSize: Dimens.font_sp12,
+    color: Colours.text_dark,
+  );
+
+  static const TextStyle textDark14 = const TextStyle(
+    fontSize: Dimens.font_sp14,
+    color: Colours.text_dark,
   );
 }

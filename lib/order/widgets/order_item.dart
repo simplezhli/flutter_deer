@@ -23,6 +23,7 @@ class OrderItem extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
+    final TextStyle textTextStyle = Theme.of(context).brightness == Brightness.dark ? TextStyles.textWhite12 : TextStyles.textDark12;
     return Container(
       margin: const EdgeInsets.only(top: 8.0),
       child: MyCard(
@@ -59,8 +60,9 @@ class OrderItem extends StatelessWidget {
                 Gaps.vGap8,
                 RichText(
                     text: TextSpan(
+                      style: textTextStyle,
                       children: <TextSpan>[
-                        TextSpan(text: '清凉一度抽纸', style: TextStyles.textDark12),
+                        TextSpan(text: '清凉一度抽纸'),
                         TextSpan(text: '  x1', style: TextStyles.textGray12),
                       ],
                     )
@@ -68,8 +70,9 @@ class OrderItem extends StatelessWidget {
                 Gaps.vGap8,
                 RichText(
                     text: TextSpan(
+                      style: textTextStyle,
                       children: <TextSpan>[
-                        TextSpan(text: '清凉一度抽纸', style: TextStyles.textDark12),
+                        TextSpan(text: '清凉一度抽纸'),
                         TextSpan(text: '  x2', style: TextStyles.textGray12),
                       ],
                     )
@@ -80,8 +83,9 @@ class OrderItem extends StatelessWidget {
                     Expanded(
                       child: RichText(
                           text: TextSpan(
+                            style: textTextStyle,
                             children: <TextSpan>[
-                              TextSpan(text: '¥20.00', style: TextStyles.textDark12),
+                              TextSpan(text: '¥20.00'),
                               TextSpan(text: '  共3件商品', style: TextStyles.textGray10),
                             ],
                           )
@@ -89,7 +93,7 @@ class OrderItem extends StatelessWidget {
                     ),
                     Text(
                       "2018.02.05 10:00",
-                      style: TextStyles.textDark12,
+                      style: TextStyles.textSize12,
                     ),
                   ],
                 ),

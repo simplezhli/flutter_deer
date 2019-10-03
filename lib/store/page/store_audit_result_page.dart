@@ -33,7 +33,7 @@ class _StoreAuditResultPageState extends State<StoreAuditResultPage> {
             Gaps.vGap12,
             Text(
               "恭喜，店铺资料审核成功",
-              style: TextStyles.textDark16,
+              style: TextStyles.textSize16,
             ),
             Gaps.vGap8,
             Text(

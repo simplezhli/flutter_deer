@@ -44,6 +44,8 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
 
   @override
   Widget build(BuildContext context) {
+    final TextStyle textTextStyle = Theme.of(context).brightness == Brightness.dark ? TextStyles.textWhite12 : TextStyles.textDark12;
+
     return WillPopScope(
       onWillPop: (){
         /// 拦截返回，关闭键盘，否则会造成上一页面短暂的组件溢出
@@ -99,7 +101,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        const Text("提现金额", style: TextStyles.textBoldDark14),
+                        const Text("提现金额", style: TextStyles.textBold14),
                         Text("单笔2万，单日2万", style: const TextStyle(fontSize: 12.0, color: Color(0xFFFF8547)))
                       ],
                     ),
@@ -157,7 +159,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        const Text("转出方式", style: TextStyles.textBoldDark14),
+                        const Text("转出方式", style: TextStyles.textBold14),
                         const LoadAssetImage("account/sm", width: 16.0)
                       ],
                     ),
@@ -190,7 +192,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                               child: RichText(
                                 text: TextSpan(
                                   text: '手续费按',
-                                  style: TextStyles.textDark12,
+                                  style: textTextStyle,
                                   children: <TextSpan>[
                                     TextSpan(text: '0.3%', style: const TextStyle(color: Color(0xFFFF8547))),
                                     TextSpan(text: '收取'),
@@ -232,7 +234,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                               child: RichText(
                                 text: TextSpan(
                                   text: '预计',
-                                  style: TextStyles.textDark12,
+                                  style: textTextStyle,
                                   children: <TextSpan>[
                                     TextSpan(text: 'T+1天到账(免手续费，T为工作日)', style: const TextStyle(color: Color(0xFFFF8547))),
                                    ],

@@ -53,7 +53,7 @@ class _WithdrawalRecordListPageState extends State<WithdrawalRecordListPage> {
             Positioned(
                 top: 0.0,
                 right: 0.0,
-                child: Text("-10.00", style: TextStyles.textBoldDark14)
+                child: Text("-10.00", style: TextStyles.textBold14)
             ),
             Positioned(
                 bottom: 0.0,

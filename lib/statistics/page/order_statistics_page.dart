@@ -157,7 +157,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(widget.index == 1 ? "订单走势" : "交易额走势", style: TextStyles.textBoldDark18),
+                    Text(widget.index == 1 ? "订单走势" : "交易额走势", style: TextStyles.textBold18),
                     Gaps.vGap16,
                     _buildChart(Colours.app_main, const Color(0x805793FA), widget.index == 1 ? "全部订单" : "交易额(元)", "3000"),
                     widget.index != 1 ? Gaps.empty : Column(

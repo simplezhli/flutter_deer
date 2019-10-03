@@ -32,7 +32,7 @@ class _WithdrawalResultPageState extends State<WithdrawalResultPage> {
             Gaps.vGap12,
             Text(
               "提现申请提交失败，请重新提交",
-              style: TextStyles.textDark16,
+              style: TextStyles.textSize16,
             ),
             Gaps.vGap8,
             Text(

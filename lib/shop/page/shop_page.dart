@@ -83,7 +83,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                         const SizedBox(width: double.infinity, height: 56.0),
                         const Text(
                           "官方直营店",
-                          style: TextStyles.textBoldDark24,
+                          style: TextStyles.textBold24,
                         ),
                         Positioned(
                             right: 0.0,
@@ -100,7 +100,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                             children: <Widget>[
                               const LoadAssetImage("shop/zybq", width: 40.0, height: 16.0,),
                               Gaps.hGap8,
-                              const Text("店铺账号:15000000000", style: TextStyles.textDark12)
+                              const Text("店铺账号:15000000000", style: TextStyles.textSize12)
                             ],
                           ),
                         ),
@@ -118,7 +118,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: const Text(
                   "账户",
-                  style: TextStyles.textBoldDark18,
+                  style: TextStyles.textBold18,
                 ),
               ),
               Flexible(
@@ -140,7 +140,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                           Gaps.vGap4,
                           Text(
                             menuTitle[index],
-                            style: TextStyles.textDark12,
+                            style: TextStyles.textSize12,
                           )
                         ],
                       ),
@@ -164,7 +164,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: const Text(
                   "店铺",
-                  style: TextStyles.textBoldDark18,
+                  style: TextStyles.textBold18,
                 ),
               ),
               Flexible(
@@ -186,7 +186,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                           Gaps.vGap4,
                           const Text(
                             "店铺设置",
-                            style: TextStyles.textDark12,
+                            style: TextStyles.textSize12,
                           )
                         ],
                       ),

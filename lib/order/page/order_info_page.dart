@@ -39,13 +39,13 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                     children: <Widget>[
                       const Text(
                         "暂未接单",
-                        style: TextStyles.textBoldDark24,
+                        style: TextStyles.textBold24,
                       ),
                       Gaps.vGap16,
                       Gaps.vGap16,
                       const Text(
                         "客户信息",
-                        style: TextStyles.textBoldDark18,
+                        style: TextStyles.textBold18,
                       ),
                       Gaps.vGap16,
                       Row(
@@ -91,7 +91,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                       Gaps.vGap16,
                       const Text(
                         "商品信息",
-                        style: TextStyles.textBoldDark18,
+                        style: TextStyles.textBold18,
                       ),
                       ListView.builder(
                         // 如果滚动视图在滚动方向无界约束，那么shrinkWrap必须为true
@@ -166,10 +166,10 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                                     ),
                                   ),
                                   Gaps.hGap8,
-                                  Text("x1", style: TextStyles.textDark12),
+                                  Text("x1", style: TextStyles.textSize12),
                                   Gaps.hGap16,
                                   Gaps.hGap16,
-                                  Text("¥25", style: TextStyles.textBoldDark14),
+                                  Text("¥25", style: TextStyles.textBold14),
                                 ],
                               ),
                             ),
@@ -192,7 +192,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                       Gaps.vGap16,
                       const Text(
                         "订单信息",
-                        style: TextStyles.textBoldDark18,
+                        style: TextStyles.textBold18,
                       ),
                       Gaps.vGap12,
                       getOrderInfoItem("订单编号:", "1256324856942"),

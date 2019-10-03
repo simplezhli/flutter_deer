@@ -96,7 +96,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
             Gaps.vGap5,
             Text(
               _sizeName,
-              style: TextStyles.textBoldDark24,
+              style: TextStyles.textBold24,
             ),
             Gaps.vGap8,
             InkWell(
@@ -134,7 +134,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                 hintText: "暂无商品规格",
               ) : ListView.builder(
                 itemCount: goodsSizeList.length,
-                itemExtent: 105.0,
+                itemExtent: 107.0,
                 itemBuilder: (_, index){
                   return getGoodsSizeItem(index);
                 },
@@ -215,7 +215,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                             ),
                             Text(
                               "库存${goodsSizeList[index].stock}",
-                              style: TextStyles.textDark12
+                              style: TextStyles.textSize12
                             ),
                          ],
                         ),
@@ -267,15 +267,16 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text("¥${goodsSizeList[index].price}"),
+                            Text("¥${goodsSizeList[index].price}",
+                            ),
                             const SizedBox(width: 50.0,),
                             Text(
                               "佣金${goodsSizeList[index].charges}元",
-                              style: TextStyles.textDark12
+                              style: TextStyles.textSize12
                             ),
                             Text(
                               "起购${goodsSizeList[index].minSaleNum}件",
-                              style: TextStyles.textDark12
+                              style: TextStyles.textSize12
                             ),
                           ],
                         )

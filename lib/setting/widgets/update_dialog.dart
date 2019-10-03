@@ -67,7 +67,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
                 ),
                 const Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                  child: const Text("新版本更新", style: TextStyles.textDark16),
+                  child: const Text("新版本更新", style: TextStyles.textSize16),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),

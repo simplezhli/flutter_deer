@@ -84,7 +84,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
                       padding: const EdgeInsets.only(left: 16.0),
                       child: const Text(
                         "基本信息",
-                        style: TextStyles.textBoldDark18,
+                        style: TextStyles.textBold18,
                       ),
                     ),
                     Gaps.vGap16,
@@ -143,7 +143,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
                       padding: const EdgeInsets.only(left: 16.0),
                       child: const Text(
                         "折扣立减",
-                        style: TextStyles.textBoldDark18,
+                        style: TextStyles.textBold18,
                       ),
                     ),
                     Gaps.vGap16,
@@ -161,7 +161,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
                       padding: const EdgeInsets.only(left: 16.0),
                       child: const Text(
                         "类型规格",
-                        style: TextStyles.textBoldDark18,
+                        style: TextStyles.textBold18,
                       ),
                     ),
                     Gaps.vGap16,

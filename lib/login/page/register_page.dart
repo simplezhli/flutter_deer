@@ -83,7 +83,7 @@ class _RegisterPageState extends State<RegisterPage> {
         children: <Widget>[
           const Text(
             "开启你的账号",
-            style: TextStyles.textBoldDark26,
+            style: TextStyles.textBold26,
           ),
           Gaps.vGap16,
           MyTextField(

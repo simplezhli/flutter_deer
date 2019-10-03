@@ -91,7 +91,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
             children: <Widget>[
               Gaps.vGap16,
               Gaps.vGap16,
-              const Text("数据走势", style: TextStyles.textBoldDark18),
+              const Text("数据走势", style: TextStyles.textBold18),
               Gaps.vGap16,
               const _StatisticsItem("订单统计", "sjzs", 1),
               Gaps.vGap8,
@@ -137,7 +137,7 @@ class _StatisticsItem extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text(title, style: TextStyles.textBoldDark14),
+                        Text(title, style: TextStyles.textBold14),
                         const LoadAssetImage("statistic/icon_selected", height: 16.0, width: 16.0)
                       ],
                     ),

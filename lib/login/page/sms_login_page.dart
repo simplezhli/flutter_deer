@@ -74,7 +74,7 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
         children: <Widget>[
           const Text(
             "验证码登录",
-            style: TextStyles.textBoldDark26,
+            style: TextStyles.textBold26,
           ),
           Gaps.vGap16,
           MyTextField(
