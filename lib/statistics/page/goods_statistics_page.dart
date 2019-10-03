@@ -175,7 +175,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text("那鲁火多饮料", maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(color: Colours.text_dark, fontWeight: FontWeight.bold, fontSize: 12.0)),
+                    Text("那鲁火多饮料", maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12.0)),
                     Text("250ml", style: TextStyles.textGray12),
                   ],
                 ),
@@ -209,11 +209,12 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
   }
  
   _buildSelectedText(String text, int index){
+    Color unSelectedTextColor = Theme.of(context).brightness == Brightness.dark ? Colors.white : Colours.text_normal;
     return SelectedText(
       text,
       fontSize: 15.0,
       selected: _type && _selectedIndex == index,
-      unSelectedTextColor: Colours.text_normal,
+      unSelectedTextColor: unSelectedTextColor,
       onTap: _type ? (){
         setState(() {
           _selectedIndex = index;

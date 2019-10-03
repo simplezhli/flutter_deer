@@ -2,6 +2,7 @@
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -32,10 +33,18 @@ class Utils {
     return null;
   }
 
-  static KeyboardActionsConfig getKeyboardActionsConfig(List<FocusNode> list){
+  static Color getDarkColor(BuildContext context, Color darkColor){
+    return Theme.of(context).brightness == Brightness.dark ? darkColor : null;
+  }
+
+  static Color getBackgroundColor(BuildContext context){
+    return Theme.of(context).brightness == Brightness.dark ? Colours.dark_bg_color : Colors.white;
+  }
+
+  static KeyboardActionsConfig getKeyboardActionsConfig(BuildContext context, List<FocusNode> list){
     return KeyboardActionsConfig(
       keyboardActionsPlatform: KeyboardActionsPlatform.IOS,
-      keyboardBarColor: Colors.grey[200],
+      keyboardBarColor: Theme.of(context).brightness == Brightness.dark ? Colours.dark_bg_color : Colors.grey[200],
       nextFocus: true,
       actions: List.generate(list.length, (i) => KeyboardAction(
         focusNode: list[i],

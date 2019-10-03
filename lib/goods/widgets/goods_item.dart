@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/menu_reveal.dart';
 
@@ -143,6 +144,7 @@ class GoodsItem extends StatelessWidget {
             child: AnimatedBuilder(
                 animation: animation,
                 builder:(_, child){
+                  Color buttonColor = Utils.getBackgroundColor(context);
                   return MenuReveal(
                     revealPercent: animation.value,
                     child: InkWell(
@@ -179,13 +181,13 @@ class GoodsItem extends StatelessWidget {
                               ),
                               FlatButton(
                                 key: Key('goods_operation_item_$index'),
-                                color: Colors.white,
+                                color: buttonColor,
                                 child: const Text("下架"),
                                 onPressed: onTapOperation,
                               ),
                               FlatButton(
                                 key: Key('goods_delete_item_$index'),
-                                color: Colors.white,
+                                color: buttonColor,
                                 child: const Text("删除"),
                                 onPressed: onTapDelete,
                               ),

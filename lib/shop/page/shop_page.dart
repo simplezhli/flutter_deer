@@ -10,6 +10,7 @@ import 'package:flutter_deer/shop/presenter/shop_presenter.dart';
 import 'package:flutter_deer/shop/provider/user_provider.dart';
 import 'package:flutter_deer/shop/shop_router.dart';
 import 'package:flutter_deer/util/image_utils.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:provider/provider.dart';
 
@@ -33,34 +34,38 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    final Color _backgroundColor = Utils.getBackgroundColor(context);
+    final Color _iconColor = Utils.getDarkColor(context, Colors.white);
     return ChangeNotifierProvider<UserProvider>(
       builder: (_) => provider,
       child: Scaffold(
           appBar: AppBar(
-            brightness: Brightness.light,
+            brightness: Theme.of(context).brightness,
             elevation: 0.0,
-            backgroundColor: Colors.white,
+            backgroundColor: _backgroundColor,
             actions: <Widget>[
               IconButton(
                 onPressed: (){
                   NavigatorUtils.push(context, ShopRouter.messagePage);
                 },
-                icon: const LoadAssetImage(
+                icon: LoadAssetImage(
                   "shop/message",
                   key: const Key('message'),
                   width: 24.0,
                   height: 24.0,
+                  color: _iconColor,
                 ),
               ),
               IconButton(
                 onPressed: (){
                   NavigatorUtils.push(context, SettingRouter.settingPage);
                 },
-                icon: const LoadAssetImage(
+                icon: LoadAssetImage(
                   "shop/setting",
                   key: const Key('setting'),
                   width: 24.0,
                   height: 24.0,
+                  color: _iconColor,
                 ),
               )
             ],

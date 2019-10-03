@@ -27,7 +27,6 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController _passwordController = TextEditingController();
   final FocusNode _nodeText1 = FocusNode();
   final FocusNode _nodeText2 = FocusNode();
-  KeyboardActionsConfig _config;
   bool _isClick = false;
 
   @override
@@ -37,7 +36,6 @@ class _LoginPageState extends State<LoginPage> {
     _nameController.addListener(_verify);
     _passwordController.addListener(_verify);
     _nameController.text = FlutterStars.SpUtil.getString(Constant.phone);
-    _config = Utils.getKeyboardActionsConfig([_nodeText1, _nodeText2]);
   }
 
   void _verify(){
@@ -106,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
             key: const Key('password'),
             keyName: 'password',
             focusNode: _nodeText2,
-            config: _config,
+            config: Utils.getKeyboardActionsConfig(context, [_nodeText1, _nodeText2]),
             isInputPwd: true,
             controller: _passwordController,
             maxLength: 16,

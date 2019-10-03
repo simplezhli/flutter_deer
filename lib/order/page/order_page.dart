@@ -150,14 +150,15 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
                     child: TabBar(
                       labelPadding: const EdgeInsets.symmetric(horizontal: 0),
                       controller: _tabController,
-                      labelColor: Colours.text_dark,
-                      unselectedLabelColor: Colours.text_dark,
+                      labelColor: Theme.of(context).brightness == Brightness.dark ? Colors.white : Colours.text_dark,
+                      unselectedLabelColor: Theme.of(context).brightness == Brightness.dark ? Colours.text_gray : Colours.text_dark,
                       labelStyle: const TextStyle(
                           fontSize: Dimens.font_sp14,
-                          color: Colours.text_dark,
                           fontWeight: FontWeight.bold
                       ),
-                      unselectedLabelStyle: TextStyles.textDark14,
+                      unselectedLabelStyle: const TextStyle(
+                          fontSize: Dimens.font_sp14,
+                      ),
                       indicatorColor: Colors.transparent,
                       tabs: const <Widget>[
                         const _TabView(0, "order/xdd_s", "order/xdd_n", '新订单'),

@@ -5,6 +5,7 @@ import 'package:flutter_deer/goods/widgets/goods_list.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/toast.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/popup_window.dart';
 import 'package:provider/provider.dart';
@@ -47,23 +48,26 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    final Color _backgroundColor = Utils.getBackgroundColor(context);
+    final Color _iconColor = Utils.getDarkColor(context, Colors.white);
     return ChangeNotifierProvider<GoodsPageProvider>(
       builder: (_) => provider,
       child: Scaffold(
         appBar: AppBar(
-          brightness: Brightness.light,
+          brightness: Theme.of(context).brightness,
           elevation: 0.0,
-          backgroundColor: Colors.white,
+          backgroundColor: _backgroundColor,
           actions: <Widget>[
             IconButton(
               onPressed: (){
                 NavigatorUtils.push(context, GoodsRouter.goodsSearchPage);
               },
-              icon: const LoadAssetImage(
+              icon: LoadAssetImage(
                 "goods/search",
                 key: const Key('search'),
                 width: 24.0,
                 height: 24.0,
+                color: _iconColor,
               ),
             ),
             IconButton(
@@ -71,11 +75,12 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
               onPressed: (){
                 _showAddMenu();
               },
-              icon: const LoadAssetImage(
+              icon: LoadAssetImage(
                 "goods/add",
                 key: const Key('add'),
                 width: 24.0,
                 height: 24.0,
+                color: _iconColor,
               ),
             )
           ],
@@ -98,7 +103,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                           style: TextStyles.textBoldDark24,
                         ),
                       ),
-                      const LoadAssetImage("goods/expand", width: 16.0, height: 16.0)
+                      LoadAssetImage("goods/expand", width: 16.0, height: 16.0, color: _iconColor,)
                     ],
                   );
                 },
@@ -110,7 +115,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
             Gaps.vGap16,
             Gaps.vGap8,
             Container(
-              color: Colors.white,
+              color: Utils.getBackgroundColor(context),
               child: TabBar(
                 onTap: (index){
                   if (!mounted){
@@ -122,13 +127,13 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 controller: _tabController,
                 labelStyle: const TextStyle(
                     fontSize: Dimens.font_sp18,
-                    color: Colours.text_dark,
                     fontWeight: FontWeight.bold
                 ),
                 indicatorSize: TabBarIndicatorSize.label,
                 labelPadding: const EdgeInsets.only(left: 16.0),
-                unselectedLabelColor: Colours.text_dark,
+                unselectedLabelColor: Theme.of(context).brightness == Brightness.dark ? Colours.text_gray : Colours.text_dark,
                 labelColor: Colours.app_main,
+                indicatorColor: Colours.app_main,
                 indicatorPadding: const EdgeInsets.only(left: 12.0, right: 36.0),
                 tabs: <Widget>[
                   const _TabView("在售", " (3件)", 0),
@@ -190,11 +195,12 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
             physics: ClampingScrollPhysics(),
             itemCount: _sortList.length + 1,
             itemBuilder: (_, index){
+              Color backgroundColor = Utils.getBackgroundColor(context);
               return index == _sortList.length ? Container(
-                color: Colors.white,
+                color: backgroundColor,
                 height: 12.0,
               ) : Material(
-                color: Colors.white,
+                color: backgroundColor,
                 child: InkWell(
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
@@ -203,11 +209,11 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                       children: <Widget>[
                         Text(
                           _sortList[index],
-                          style: index == _sortIndex ? TextStyles.textMain14 : TextStyles.textDark14,
+                          style: index == _sortIndex ? TextStyles.textMain14 : null,
                         ),
                         Text(
                           "($index)",
-                          style: index == _sortIndex ? TextStyles.textMain14 : TextStyles.textDark14,
+                          style: index == _sortIndex ? TextStyles.textMain14 : null,
                         ),
                       ],
                     ),
@@ -238,6 +244,8 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
       Rect.fromPoints(a, b),
       Offset.zero & overlay.size,
     );
+    final Color backgroundColor = Utils.getBackgroundColor(context);
+    final Color _iconColor = Utils.getDarkColor(context, Colors.white);
     showPopupWindow(
       context: context,
       fullWidth: false,
@@ -253,7 +261,9 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(right: 12.0),
-              child: const LoadAssetImage("goods/jt", width: 8.0, height: 4.0,),
+              child: LoadAssetImage("goods/jt", width: 8.0, height: 4.0,
+                color: Utils.getDarkColor(context, Colours.dark_bg_color),
+              ),
             ),
             SizedBox(
               width: 120.0,
@@ -262,11 +272,11 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 onPressed: (){
                   NavigatorUtils.push(context, '${GoodsRouter.goodsEditPage}?isAdd=true&isScan=true', replace: true);
                 },
-                color: Colors.white,
+                color: backgroundColor,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(8.0), topRight: Radius.circular(8.0)),
                 ),  
-                icon: const LoadAssetImage("goods/scanning", width: 16.0, height: 16.0,), 
+                icon: LoadAssetImage("goods/scanning", width: 16.0, height: 16.0, color: _iconColor,),
                 label: const Text("扫码添加")
               ),
             ),
@@ -275,14 +285,14 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
               width: 120.0,
               height: 40.0,
               child: FlatButton.icon(
-                color: Colors.white,
+                color: backgroundColor,
                 onPressed: (){
                   NavigatorUtils.push(context, '${GoodsRouter.goodsEditPage}?isAdd=true', replace: true);
                 },
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8.0), bottomRight: Radius.circular(8.0)),
                 ),
-                icon: const LoadAssetImage("goods/add2", width: 16.0, height: 16.0,),
+                icon: LoadAssetImage("goods/add2", width: 16.0, height: 16.0, color: _iconColor,),
                 label: const Text("添加商品")
               ),
             ),

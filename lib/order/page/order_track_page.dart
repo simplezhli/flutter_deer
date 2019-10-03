@@ -50,7 +50,7 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
     return Step(
       title: Padding(
         padding: const EdgeInsets.only(top: 15.0),
-        child: Text(_titleList[index], style: index == 0 ? TextStyles.textMain14 : TextStyles.textDark14),
+        child: Text(_titleList[index], style: index == 0 ? TextStyles.textMain14 : null),
       ),
       subtitle: Text(_timeList[index], style: index == 0 ? TextStyles.textMain12 : TextStyles.textGray12),
       content: Text(""),

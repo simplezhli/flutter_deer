@@ -24,7 +24,6 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
   TextEditingController _vCodeController = TextEditingController();
   final FocusNode _nodeText1 = FocusNode();
   final FocusNode _nodeText2 = FocusNode();
-  KeyboardActionsConfig _config;
   bool _isClick = false;
   
   @override
@@ -32,7 +31,6 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
     super.initState();
     _phoneController.addListener(_verify);
     _vCodeController.addListener(_verify);
-    _config = Utils.getKeyboardActionsConfig([_nodeText1, _nodeText2]);
   }
 
   void _verify(){
@@ -81,7 +79,7 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
           Gaps.vGap16,
           MyTextField(
             focusNode: _nodeText1,
-            config: _config,
+            config: Utils.getKeyboardActionsConfig(context, [_nodeText1, _nodeText2]),
             controller: _phoneController,
             maxLength: 11,
             keyboardType: TextInputType.phone,

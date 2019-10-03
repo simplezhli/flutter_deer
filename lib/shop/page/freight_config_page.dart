@@ -159,7 +159,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                         _getPriceText(index).isEmpty ? "订单金额" : _getPriceText(index),
                         key: Key('订单金额$index'),
                         textAlign: TextAlign.end,
-                        style: _getPriceText(index).isEmpty ? TextStyles.textGray14 : TextStyles.textDark14),
+                        style: _getPriceText(index).isEmpty ? TextStyles.textGray14 : null),
                     )),
                   Gaps.hGap5,
                   Text("元"),
@@ -221,7 +221,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                       child: Text(
                           _list[index].price.isEmpty ? (_list[index].type == 1 ? "运费比率" : "运费金额"): _list[index].price,
                         textAlign: TextAlign.end,
-                        style: _list[index].price.isEmpty ? TextStyles.textGray14 : TextStyles.textDark14),
+                        style: _list[index].price.isEmpty ? TextStyles.textGray14 : null),
                     )),
                   Gaps.hGap5,
                   Text(_list[index].type == 1 ? "%" : "元"),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'load_image.dart';
@@ -12,7 +13,7 @@ class SearchBar extends StatefulWidget implements PreferredSizeWidget{
 
   const SearchBar({
     Key key,
-    this.backgroundColor: Colors.white,
+    this.backgroundColor,
     this.hintText: "",
     this.backImg: "assets/images/ic_back_black.png",
     this.onPressed,
@@ -41,16 +42,21 @@ class _SearchBarState extends State<SearchBar> {
   
   @override
   Widget build(BuildContext context) {
-    overlayStyle = ThemeData.estimateBrightnessForColor(widget.backgroundColor) == Brightness.dark
+    Color _backgroundColor;
+    if (widget.backgroundColor == null){
+      _backgroundColor = Utils.getBackgroundColor(context);
+    }
+
+    overlayStyle = ThemeData.estimateBrightnessForColor(_backgroundColor) == Brightness.dark
         ? SystemUiOverlayStyle.light
         : SystemUiOverlayStyle.dark;
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: overlayStyle,
       child: Material(
-        color: widget.backgroundColor,
+        color: _backgroundColor,
         child: SafeArea(
           child: Container(
-            color: widget.backgroundColor,
+            color: _backgroundColor,
             child: Row(
               children: <Widget>[
                 SizedBox(
@@ -75,7 +81,7 @@ class _SearchBarState extends State<SearchBar> {
                   child: Container(
                     height: 32.0,
                     decoration: BoxDecoration(
-                      color: Colours.bg_gray,
+                      color: Theme.of(context).brightness == Brightness.dark ? Colours.dark_bg_gray : Colours.bg_gray,
                       borderRadius: BorderRadius.circular(4.0),
                     ),
                     child: Localizations(

@@ -2,13 +2,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/util/utils.dart';
 
 /// 自定义AppBar
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
 
   const MyAppBar({
     Key key,
-    this.backgroundColor: Colors.white,
+    this.backgroundColor,
     this.title: "",
     this.centerTitle: "",
     this.actionName: "",
@@ -27,12 +28,18 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
 
   @override
   Widget build(BuildContext context) {
-    SystemUiOverlayStyle _overlayStyle = ThemeData.estimateBrightnessForColor(backgroundColor) == Brightness.dark
+    Color _backgroundColor;
+
+    if (backgroundColor == null){
+      _backgroundColor = Utils.getBackgroundColor(context);
+    }
+
+    SystemUiOverlayStyle _overlayStyle = ThemeData.estimateBrightnessForColor(_backgroundColor) == Brightness.dark
         ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark;
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: _overlayStyle,
       child: Material(
-        color: backgroundColor,
+        color: _backgroundColor,
         child: SafeArea(
           child: Stack(
             alignment: Alignment.centerLeft,

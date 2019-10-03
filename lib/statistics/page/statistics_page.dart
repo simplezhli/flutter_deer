@@ -170,7 +170,7 @@ class _StatisticsTab extends StatelessWidget {
           Gaps.vGap4,
           Text(title, style: TextStyles.textGray12),
           Gaps.vGap8,
-          Text(content, style: const TextStyle(fontSize: Dimens.font_sp18, color: Colours.text_dark)),
+          Text(content, style: const TextStyle(fontSize: Dimens.font_sp18)),
         ],
       ),
     );

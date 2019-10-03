@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import 'colors.dart';
@@ -18,7 +19,7 @@ class TextStyles {
   );
   static const TextStyle textDark12 = const TextStyle(
     fontSize: Dimens.font_sp12,
-    color: Colours.text_dark,
+//    color: Colours.text_dark,
   );
   static const TextStyle textDark14 = const TextStyle(
     fontSize: Dimens.font_sp14,
@@ -76,5 +77,10 @@ class TextStyles {
   static const TextStyle textGrayC14 = const TextStyle(
     fontSize: Dimens.font_sp14,
     color: Colours.text_gray_c,
+  );
+
+  static const TextStyle textWhite14 = const TextStyle(
+    fontSize: Dimens.font_sp14,
+    color: Colors.white,
   );
 }

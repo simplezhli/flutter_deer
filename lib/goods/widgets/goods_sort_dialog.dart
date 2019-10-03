@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 
 
@@ -71,7 +72,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.white,
+      color: Utils.getBackgroundColor(context),
       child: SizedBox(
         height: MediaQuery.of(context).size.height * 11.0 / 16.0,
         child: Column(
@@ -107,7 +108,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
             ),
             Gaps.line,
             Container(
-              color: Colors.white,
+              color: Utils.getBackgroundColor(context),
               child: TabBar(
                 controller: _tabController,
                 isScrollable: true,
@@ -133,8 +134,9 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                   });
                 },
                 indicatorSize: TabBarIndicatorSize.label,
-                unselectedLabelColor: Colours.text_dark,
+                unselectedLabelColor: Theme.of(context).brightness == Brightness.dark ? Colours.text_gray : Colours.text_dark,
                 labelColor: Colours.app_main,
+                indicatorColor: Colours.app_main,
                 tabs: myTabs,
               ),
             ),
@@ -152,7 +154,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                         children: <Widget>[
                           Text(
                               _mList[index]["name"],
-                            style: _mList[index]["name"] == myTabs[_index].text ? TextStyles.textMain14 : TextStyles.textDark14),
+                            style: _mList[index]["name"] == myTabs[_index].text ? TextStyles.textMain14 : null),
                           Gaps.hGap8,
                           Offstage(
                             offstage: _mList[index]["name"] != myTabs[_index].text,

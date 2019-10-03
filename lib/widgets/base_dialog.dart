@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/utils.dart';
 
 /// 自定义dialog的模板
 class BaseDialog extends StatelessWidget{
@@ -33,7 +34,7 @@ class BaseDialog extends StatelessWidget{
         curve: Curves.easeInCubic,
         child: Container(
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Utils.getBackgroundColor(context),
               borderRadius: BorderRadius.circular(8.0),
             ),
             width: 270.0,

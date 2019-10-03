@@ -8,7 +8,7 @@ class SelectedText extends StatelessWidget {
     Key key,
     this.fontSize : 14.0,
     this.selected : false,
-    this.unSelectedTextColor : Colours.text_dark,
+    this.unSelectedTextColor,
     this.enable : true,
     this.onTap
   }): super(key: key);

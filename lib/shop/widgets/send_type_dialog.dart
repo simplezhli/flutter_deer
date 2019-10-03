@@ -38,7 +38,7 @@ class _SendTypeDialog extends State<SendTypeDialog>{
               Expanded(
                 child: Text(
                   _list[index],
-                  style: _value == index ? TextStyles.textMain14 : TextStyles.textDark14,
+                  style: _value == index ? TextStyles.textMain14 : null,
                 ),
               ),
               Offstage(

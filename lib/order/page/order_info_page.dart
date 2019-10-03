@@ -212,7 +212,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
             left: 0.0,
             right: 0.0,
             child: Material(
-              color: Colors.white,
+              color: Utils.getBackgroundColor(context),
               child: SafeArea(
                 child: Container(
                   height: 60.0,

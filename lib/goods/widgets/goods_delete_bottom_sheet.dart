@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/utils.dart';
 
 /// design/4商品/index.html#artboard2
 class GoodsDeleteBottomSheet extends StatelessWidget {
@@ -16,7 +17,7 @@ class GoodsDeleteBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.white,
+      color: Utils.getBackgroundColor(context),
       child: SafeArea(
         child: SizedBox(
             height: 161.2,

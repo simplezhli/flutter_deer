@@ -62,7 +62,8 @@ class LoadAssetImage extends StatelessWidget {
     this.width,
     this.height, 
     this.fit,
-    this.format: 'png', 
+    this.format: 'png',
+    this.color
   }): super(key: key);
 
   final String image;
@@ -70,14 +71,17 @@ class LoadAssetImage extends StatelessWidget {
   final double height;
   final BoxFit fit;
   final String format;
+  final Color color;
   
   @override
   Widget build(BuildContext context) {
+
     return Image.asset(
       ImageUtils.getImgPath(image, format: format),
       height: height,
       width: width,
       fit: fit,
+      color: color,
     );
   }
 }

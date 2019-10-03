@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/date_utils.dart';
 import 'package:flutter_deer/util/image_utils.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
@@ -58,6 +59,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
 
   @override
   Widget build(BuildContext context) {
+    Color unSelectedTextColor = Theme.of(context).brightness == Brightness.dark ? Colors.white : Colours.text_normal;
     return Scaffold(
       appBar: MyAppBar(
         centerTitle: widget.index == 1 ? "订单统计" : "交易额统计",
@@ -77,7 +79,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                     key: const Key('year'),
                     fontSize: 15.0,
                     selected: _selectedIndex == 0,
-                    unSelectedTextColor: Colours.text_normal,
+                    unSelectedTextColor: unSelectedTextColor,
                     onTap: (){
                       setState(() {
                         _selectedIndex = 0;
@@ -92,7 +94,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                     key: const Key('month'),
                     fontSize: 15.0,
                     selected: _selectedIndex == 1,
-                    unSelectedTextColor: Colours.text_normal,
+                    unSelectedTextColor: unSelectedTextColor,
                     onTap: (){
                       setState(() {
                         _selectedIndex = 1;
@@ -107,7 +109,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                     key: const Key('day'),
                     fontSize: 15.0,
                     selected: _selectedIndex == 2,
-                    unSelectedTextColor: Colours.text_normal,
+                    unSelectedTextColor: unSelectedTextColor,
                     onTap: (){
                       setState(() {
                         _selectedIndex = 2;
@@ -119,7 +121,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
               Gaps.vGap16,
               Flexible(
                 child: Container(
-                  color: const Color(0xFFFAFAFA),
+                  color: Theme.of(context).brightness == Brightness.dark ? Colours.dark_bg_color : const Color(0xFFFAFAFA),
                   padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: _selectedIndex != 1 ? 4.0 : 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -143,7 +145,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                             child: Container(
                               height: 27.0,
                               alignment: Alignment.topCenter,
-                              child: LoadAssetImage("statistic/${_isExpanded ? "up" : "down"}", width: 16.0,),
+                              child: LoadAssetImage("statistic/${_isExpanded ? "up" : "down"}", width: 16.0, color: Utils.getDarkColor(context, Colors.white),),
                             ),
                           ) : Gaps.empty,
                     ],

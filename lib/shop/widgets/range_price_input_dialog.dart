@@ -37,7 +37,7 @@ class _RangePriceInputDialog extends State<RangePriceInputDialog>{
         height: 34.0,
         margin: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0.0),
         decoration: BoxDecoration(
-          color: Colours.bg_gray,
+          color: Theme.of(context).brightness == Brightness.dark ? Colours.dark_bg_gray : Colours.bg_gray,
           borderRadius: BorderRadius.circular(2.0),
         ),
         child: Row(

@@ -63,7 +63,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                           StoreSelectTextItem(
                             title: "开  户  地",
                             content: _city.isEmpty ? "选择开户城市" : _city,
-                            style: _city.isEmpty ? TextStyles.textGrayC14 : TextStyles.textDark14,
+                            style: _city.isEmpty ? TextStyles.textGray14 : null,
                             onTap: () {
                               NavigatorUtils.pushResult(context, AccountRouter.citySelectPage, (result){
                                 setState(() {
@@ -76,7 +76,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                           StoreSelectTextItem(
                             title: "银行名称",
                             content: _bank.isEmpty ? "选择开户银行" : _bank,
-                            style: _bank.isEmpty ? TextStyles.textGrayC14 : TextStyles.textDark14,
+                            style: _bank.isEmpty ? TextStyles.textGray14 : null,
                             onTap: () {
                               NavigatorUtils.pushResult(context, '${AccountRouter.bankSelectPage}?type=0', (result){
                                 setState(() {
@@ -89,7 +89,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                           StoreSelectTextItem(
                             title: "支行名称",
                             content: _bank1.isEmpty ? "选择开户支行" : _bank1,
-                            style: _bank1.isEmpty ? TextStyles.textGrayC14 : TextStyles.textDark14,
+                            style: _bank1.isEmpty ? TextStyles.textGray14 : null,
                             onTap: () {
                               NavigatorUtils.pushResult(context, '${AccountRouter.bankSelectPage}?type=1', (result){
                                 setState(() {

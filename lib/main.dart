@@ -58,8 +58,8 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
           primaryColor: Colours.app_main,
           textTheme: TextTheme(
-            subhead: TextStyles.textGray14,
-            body1: TextStyles.textGray14,
+            subhead: TextStyles.textWhite14,
+            body1: TextStyles.textWhite14,
           ),
           inputDecorationTheme: InputDecorationTheme(
             hintStyle: TextStyles.textGray14
