@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/base_dialog.dart';
 
 /// design/4商品/index.html#artboard10
@@ -30,7 +32,7 @@ class _GoodsSizeDialog extends State<GoodsSizeDialog>{
         height: 34.0,
         margin: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0.0),
         decoration: BoxDecoration(
-          color: const Color(0xFFFAFAFA),
+          color: Utils.isDark(context) ? Colours.dark_bg_gray : Colours.bg_gray_,
           borderRadius: BorderRadius.circular(2.0),
         ),
         child: TextField(

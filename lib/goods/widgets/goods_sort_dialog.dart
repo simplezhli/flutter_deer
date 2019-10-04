@@ -134,9 +134,8 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                   });
                 },
                 indicatorSize: TabBarIndicatorSize.label,
-                unselectedLabelColor: Theme.of(context).brightness == Brightness.dark ? Colours.text_gray : Colours.text_dark,
+                unselectedLabelColor: Utils.isDark(context) ? Colours.text_gray : Colours.text_dark,
                 labelColor: Colours.app_main,
-                indicatorColor: Colours.app_main,
                 tabs: myTabs,
               ),
             ),

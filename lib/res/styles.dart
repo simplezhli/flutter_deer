@@ -13,10 +13,6 @@ class TextStyles {
     fontSize: Dimens.font_sp14,
     color: Colours.app_main,
   );
-  static const TextStyle textNormal12 = const TextStyle(
-    fontSize: Dimens.font_sp12,
-    color: Colours.text_normal,
-  );
   static const TextStyle textSize12 = const TextStyle(
     fontSize: Dimens.font_sp12,
   );

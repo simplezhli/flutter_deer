@@ -131,9 +131,8 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 ),
                 indicatorSize: TabBarIndicatorSize.label,
                 labelPadding: const EdgeInsets.only(left: 16.0),
-                unselectedLabelColor: Theme.of(context).brightness == Brightness.dark ? Colours.text_gray : Colours.text_dark,
+                unselectedLabelColor: Utils.isDark(context) ? Colours.text_gray : Colours.text_dark,
                 labelColor: Colours.app_main,
-                indicatorColor: Colours.app_main,
                 indicatorPadding: const EdgeInsets.only(left: 12.0, right: 36.0),
                 tabs: <Widget>[
                   const _TabView("在售", " (3件)", 0),

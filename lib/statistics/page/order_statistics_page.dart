@@ -59,7 +59,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
 
   @override
   Widget build(BuildContext context) {
-    Color unSelectedTextColor = Theme.of(context).brightness == Brightness.dark ? Colors.white : Colours.text_normal;
+    Color unSelectedTextColor = Utils.isDark(context) ? Colors.white : Colours.text_normal;
     return Scaffold(
       appBar: MyAppBar(
         centerTitle: widget.index == 1 ? "订单统计" : "交易额统计",
@@ -121,7 +121,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
               Gaps.vGap16,
               Flexible(
                 child: Container(
-                  color: Theme.of(context).brightness == Brightness.dark ? Colours.dark_bg_color : const Color(0xFFFAFAFA),
+                  color: Utils.isDark(context) ? Colours.dark_bg_gray : Colours.bg_gray_,
                   padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: _selectedIndex != 1 ? 4.0 : 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,

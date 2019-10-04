@@ -81,7 +81,7 @@ class _SearchBarState extends State<SearchBar> {
                   child: Container(
                     height: 32.0,
                     decoration: BoxDecoration(
-                      color: Theme.of(context).brightness == Brightness.dark ? Colours.dark_bg_gray : Colours.bg_gray,
+                      color: Utils.isDark(context) ? Colours.dark_bg_gray : Colours.bg_gray,
                       borderRadius: BorderRadius.circular(4.0),
                     ),
                     child: Localizations(

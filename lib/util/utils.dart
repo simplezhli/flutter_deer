@@ -33,18 +33,22 @@ class Utils {
     return null;
   }
 
+  static bool isDark(BuildContext context){
+    return Theme.of(context).brightness == Brightness.dark;
+  }
+
   static Color getDarkColor(BuildContext context, Color darkColor){
-    return Theme.of(context).brightness == Brightness.dark ? darkColor : null;
+    return isDark(context) ? darkColor : null;
   }
 
   static Color getBackgroundColor(BuildContext context){
-    return Theme.of(context).brightness == Brightness.dark ? Colours.dark_bg_color : Colors.white;
+    return isDark(context) ? Colours.dark_bg_color : Colors.white;
   }
 
   static KeyboardActionsConfig getKeyboardActionsConfig(BuildContext context, List<FocusNode> list){
     return KeyboardActionsConfig(
       keyboardActionsPlatform: KeyboardActionsPlatform.IOS,
-      keyboardBarColor: Theme.of(context).brightness == Brightness.dark ? Colours.dark_bg_color : Colors.grey[200],
+      keyboardBarColor: isDark(context) ? Colours.dark_bg_color : Colors.grey[200],
       nextFocus: true,
       actions: List.generate(list.length, (i) => KeyboardAction(
         focusNode: list[i],

@@ -6,6 +6,7 @@ import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/date_utils.dart';
 import 'package:flutter_deer/util/image_utils.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
@@ -209,7 +210,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
   }
  
   _buildSelectedText(String text, int index){
-    Color unSelectedTextColor = Theme.of(context).brightness == Brightness.dark ? Colors.white : Colours.text_normal;
+    Color unSelectedTextColor = Utils.isDark(context) ? Colors.white : Colours.text_normal;
     return SelectedText(
       text,
       fontSize: 15.0,

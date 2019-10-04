@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/toast.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -61,7 +62,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
         curve: Curves.easeInCubic,
         child: Container(
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Utils.getBackgroundColor(context),
               borderRadius: BorderRadius.circular((8.0)),
             ),
             width: 280.0,
@@ -195,7 +196,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
           border: Border.all(width: 0.6, color: _codeList[p].isNotEmpty ? Colours.app_main : Colours.text_gray_c),
           borderRadius: BorderRadius.circular(4.0),
         ),
-        child: Text(_codeList[p], style: TextStyle(fontSize: Dimens.font_sp18, color: Colours.text_dark),)
+        child: Text(_codeList[p], style: TextStyle(fontSize: Dimens.font_sp18),)
     );
   }
 }

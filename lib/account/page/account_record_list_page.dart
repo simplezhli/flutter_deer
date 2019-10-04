@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:sticky_headers/sticky_headers.dart';
 
@@ -24,7 +25,7 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
             header: Container(
               alignment: Alignment.centerLeft,
               width: double.infinity,
-              color: const Color(0xFFFAFAFA),
+              color: Utils.isDark(context) ? Colours.dark_bg_gray : Colours.bg_gray_,
               padding: const EdgeInsets.only(left: 16.0),
               height: 34.0,
               child: Text("2018/06/0${index + 1}"),

@@ -4,6 +4,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/pie_chart/pie_data.dart';
 
 ///环形图 参考：https://github.com/apgapg/pie_chart
@@ -67,18 +68,21 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
     for (int i = 0; i < widget.data.length; i++){
       count += widget.data[i].number;
     }
+    final bgColor = Utils.getBackgroundColor(context);
+    final shadowColor = Utils.isDark(context) ? Colours.dark_bg_gray : Color(0x80C8DAFA);
     return Container(
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: Colors.white,
+        color: bgColor,
         boxShadow: [
-          const BoxShadow(color: Color(0x80C8DAFA), offset: Offset(0.0, 4.0), blurRadius: 8.0, spreadRadius: 0.0),
+          BoxShadow(color: shadowColor, offset: Offset(0.0, 4.0), blurRadius: 8.0, spreadRadius: 0.0),
         ],
       ),
       child: CustomPaint(
         painter: PieChartPainter(
           widget.data,
-          _fraction
+          _fraction,
+          bgColor
         ),
         child: Center(
           child: Column(
@@ -97,7 +101,7 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
 
 class PieChartPainter extends CustomPainter {
   
-  PieChartPainter(this.data, double angleFactor) {
+  PieChartPainter(this.data, double angleFactor, this.bgColor) {
     if (data.length == null || data.isEmpty) {
       return;
     }
@@ -139,6 +143,7 @@ class PieChartPainter extends CustomPainter {
 
   // 起始角度
   double prevAngle;
+  Color bgColor;
   
   @override
   void paint(Canvas canvas, Size size) {
@@ -170,7 +175,7 @@ class PieChartPainter extends CustomPainter {
     }
 
     canvas.save();
-    _mPaint..color = Colors.white
+    _mPaint..color = bgColor
       ..style = PaintingStyle.fill;
     canvas.drawCircle(offset, mRadius * 0.52, _mPaint);
     

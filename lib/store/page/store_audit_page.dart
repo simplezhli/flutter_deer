@@ -8,6 +8,7 @@ import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/shop/shop_router.dart';
 import 'package:flutter_deer/store/store_router.dart';
 import 'package:flutter_deer/util/toast.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/selected_image.dart';
 import 'package:flutter_deer/widgets/store_select_text_item.dart';
@@ -45,7 +46,7 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
   KeyboardActionsConfig _buildConfig(BuildContext context) {
     return KeyboardActionsConfig(
       keyboardActionsPlatform: KeyboardActionsPlatform.IOS,
-      keyboardBarColor: Theme.of(context).brightness == Brightness.dark ? Colours.dark_bg_color : Colors.grey[200],
+      keyboardBarColor: Utils.isDark(context) ? Colours.dark_bg_color : Colors.grey[200],
       nextFocus: true,
       actions: [
         KeyboardAction(

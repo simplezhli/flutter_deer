@@ -6,6 +6,7 @@ import 'package:flutter_deer/shop/models/freight_config_model.dart';
 import 'package:flutter_deer/shop/widgets/price_input_dialog.dart';
 import 'package:flutter_deer/shop/widgets/range_price_input_dialog.dart';
 import 'package:flutter_deer/util/toast.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
@@ -102,10 +103,10 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
           margin: const EdgeInsets.only(bottom: 8.0),
           padding: const EdgeInsets.symmetric(vertical: 32.0),
           decoration: BoxDecoration(
-            color: Colours.bg_gray,
+            color: Utils.isDark(context) ? Colours.dark_bg_gray : Colours.bg_gray,
             borderRadius: BorderRadius.circular(8.0),
           ),
-          child: const LoadAssetImage("shop/tj")
+          child: const LoadAssetImage("shop/tj",)
       ),
     ) : Container(
       margin: const EdgeInsets.only(bottom: 8.0),

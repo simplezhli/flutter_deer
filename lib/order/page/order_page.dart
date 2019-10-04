@@ -6,6 +6,7 @@ import 'package:flutter_deer/order/widgets/order_list.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/image_utils.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
 import 'package:flutter_deer/widgets/my_flexible_space_bar.dart';
@@ -150,8 +151,8 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
                     child: TabBar(
                       labelPadding: const EdgeInsets.symmetric(horizontal: 0),
                       controller: _tabController,
-                      labelColor: Theme.of(context).brightness == Brightness.dark ? Colors.white : Colours.text_dark,
-                      unselectedLabelColor: Theme.of(context).brightness == Brightness.dark ? Colours.text_gray : Colours.text_dark,
+                      labelColor: Utils.isDark(context) ? Colors.white : Colours.text_dark,
+                      unselectedLabelColor: Utils.isDark(context) ? Colours.text_gray : Colours.text_dark,
                       labelStyle: const TextStyle(
                           fontSize: Dimens.font_sp14,
                           fontWeight: FontWeight.bold

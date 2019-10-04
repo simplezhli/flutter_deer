@@ -4,6 +4,7 @@ import 'package:flutter_deer/account/models/withdrawal_account_model.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/number_text_input_formatter.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
@@ -44,7 +45,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle textTextStyle = Theme.of(context).brightness == Brightness.dark ? TextStyles.textWhite12 : TextStyles.textDark12;
+    final TextStyle textTextStyle = Utils.isDark(context) ? TextStyles.textWhite12 : TextStyles.textDark12;
 
     return WillPopScope(
       onWillPop: (){
@@ -112,7 +113,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                           width: 15.0,
                           height: 40.0,
                           padding: const EdgeInsets.symmetric(vertical: 8.0),
-                          child: const LoadAssetImage("account/rmb")
+                          child: LoadAssetImage("account/rmb", color: Utils.getDarkColor(context, Colors.white),)
                         ),
                         Gaps.hGap8,
                         Expanded(

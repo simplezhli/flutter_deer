@@ -27,7 +27,7 @@ class MyCard extends StatelessWidget {
     }
 
     if (shadowColor == null){
-      _shadowColor = Theme.of(context).brightness == Brightness.dark ? Colours.dark_bg_gray : const Color(0x80DCE7FA);
+      _shadowColor = Utils.isDark(context) ? Colours.dark_bg_gray : const Color(0x80DCE7FA);
     }else{
       _shadowColor = shadowColor;
     }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/account/models/withdrawal_account_model.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
@@ -102,7 +103,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
       context: context,
       builder: (BuildContext context) {
         return Material(
-          color: Colors.white,
+          color: Utils.getBackgroundColor(context),
           child: SafeArea(
             child: Container(
                 height: 161.2,
@@ -113,7 +114,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                       child: const Center(
                         child: const Text(
                           "是否确认解绑，防止错误操作",
-                          style: TextStyles.textGray16,
+                          style: TextStyles.textSize16,
                         ),
                       ),
                     ),

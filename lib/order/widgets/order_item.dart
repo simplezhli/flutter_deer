@@ -23,7 +23,7 @@ class OrderItem extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    final TextStyle textTextStyle = Theme.of(context).brightness == Brightness.dark ? TextStyles.textWhite12 : TextStyles.textDark12;
+    final TextStyle textTextStyle = Utils.isDark(context) ? TextStyles.textWhite12 : TextStyles.textDark12;
     return Container(
       margin: const EdgeInsets.only(top: 8.0),
       child: MyCard(
@@ -53,7 +53,7 @@ class OrderItem extends StatelessWidget {
                 Gaps.vGap8,
                 Text(
                   "西安市雁塔区 鱼化寨街道唐兴路唐兴数码3楼318",
-                  style: TextStyles.textNormal12,
+                  style: TextStyles.textGray12,
                 ),
                 Gaps.vGap8,
                 Gaps.line,

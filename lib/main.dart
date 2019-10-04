@@ -44,7 +44,10 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           brightness: Brightness.light,
           primaryColor: Colours.app_main,
+          accentColor: Colours.app_main,
+          indicatorColor: Colours.app_main,
           scaffoldBackgroundColor: Colors.white,
+          textSelectionColor: Colours.app_main.withAlpha(70),
           textTheme: TextTheme(
             // TextField输入文字颜色
             subhead: TextStyles.textDark14,
@@ -57,14 +60,17 @@ class MyApp extends StatelessWidget {
         darkTheme: ThemeData(
           brightness: Brightness.dark,
           primaryColor: Colours.app_main,
+          accentColor: Colours.app_main,
+          indicatorColor: Colours.app_main,
+          scaffoldBackgroundColor: Colours.dark_bg_color,
+          textSelectionColor: Colours.app_main.withAlpha(70),
           textTheme: TextTheme(
             subhead: TextStyles.textWhite14,
             body1: TextStyles.textWhite14,
           ),
           inputDecorationTheme: InputDecorationTheme(
             hintStyle: TextStyles.textGray14
-          )
-          //scaffoldBackgroundColor: Colors.black87,
+          ),
         ),
         home: home ?? SplashPage(),
         onGenerateRoute: Application.router.generator,

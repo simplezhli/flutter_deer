@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/toast.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 
 /// design/6店铺-账户/index.html#artboard13
@@ -26,7 +27,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
             left: 0.0,
             right: 0.0,
             child: Container(
-              color: Colors.white,
+              color: Utils.getBackgroundColor(context),
               height: MediaQuery.of(context).size.height * 7 / 10.0,
               child: Column(
                 children: <Widget>[
@@ -93,15 +94,13 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                       ),
                       itemCount: 12,
                       itemBuilder: (_, index){
+                        final color = Utils.isDark(context) ? Colours.dark_bg_gray : const Color(0xFFF2F2F2);
                         return Material(
-                          color: (index == 9 || index == 11) ? const Color(0xFFF2F2F2) : Colors.white,
+                          color: (index == 9 || index == 11) ? color : null,
                           child: InkWell(
                             child: Center(
                               child: index == 11 ? const LoadAssetImage("account/del", width: 32.0) : index == 9 ? Gaps.empty :
-                              Text(_list[index].toString(), style: TextStyle(
-                                  color: Colours.text_dark,
-                                  fontSize: 26.0
-                              )),
+                              Text(_list[index].toString(), style: TextStyle(fontSize: 26.0)),
                             ),
                             onTap: (){
                               if(index == 9){

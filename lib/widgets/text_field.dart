@@ -65,10 +65,6 @@ class _MyTextFieldState extends State<MyTextField> {
         _isShowDelete = widget.controller.text.isEmpty;
       });
     });
-    if (widget.config != null && defaultTargetPlatform == TargetPlatform.iOS){
-      // 因Android平台输入法兼容问题，所以只配置IOS平台
-      FormKeyboardActions.setKeyboardActions(context, widget.config);
-    }
   }
   
   @override
@@ -97,6 +93,10 @@ class _MyTextFieldState extends State<MyTextField> {
   
   @override
   Widget build(BuildContext context) {
+    if (widget.config != null && defaultTargetPlatform == TargetPlatform.iOS){
+      // 因Android平台输入法兼容问题，所以只配置IOS平台
+      FormKeyboardActions.setKeyboardActions(context, widget.config);
+    }
     return Stack(
       alignment: Alignment.centerRight,
       children: <Widget>[
