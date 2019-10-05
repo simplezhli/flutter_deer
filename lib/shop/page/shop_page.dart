@@ -34,15 +34,11 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    final Color _backgroundColor = Utils.getBackgroundColor(context);
     final Color _iconColor = Utils.getDarkColor(context, Colors.white);
     return ChangeNotifierProvider<UserProvider>(
       builder: (_) => provider,
       child: Scaffold(
           appBar: AppBar(
-            brightness: Theme.of(context).brightness,
-            elevation: 0.0,
-            backgroundColor: _backgroundColor,
             actions: <Widget>[
               IconButton(
                 onPressed: (){

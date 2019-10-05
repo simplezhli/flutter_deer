@@ -13,13 +13,11 @@ class SearchBar extends StatefulWidget implements PreferredSizeWidget{
 
   const SearchBar({
     Key key,
-    this.backgroundColor,
     this.hintText: "",
     this.backImg: "assets/images/ic_back_black.png",
     this.onPressed,
   }): super(key: key);
 
-  final Color backgroundColor;
   final String backImg;
   final String hintText;
   final Function(String) onPressed;
@@ -42,21 +40,13 @@ class _SearchBarState extends State<SearchBar> {
   
   @override
   Widget build(BuildContext context) {
-    Color _backgroundColor;
-    if (widget.backgroundColor == null){
-      _backgroundColor = Utils.getBackgroundColor(context);
-    }
 
-    overlayStyle = ThemeData.estimateBrightnessForColor(_backgroundColor) == Brightness.dark
-        ? SystemUiOverlayStyle.light
-        : SystemUiOverlayStyle.dark;
+    overlayStyle = Utils.isDark(context) ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark;
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: overlayStyle,
       child: Material(
-        color: _backgroundColor,
         child: SafeArea(
           child: Container(
-            color: _backgroundColor,
             child: Row(
               children: <Widget>[
                 SizedBox(
@@ -67,6 +57,7 @@ class _SearchBarState extends State<SearchBar> {
                       FocusScope.of(context).unfocus();
                       Navigator.maybePop(context);
                     },
+                    borderRadius: BorderRadius.circular(24.0),
                     child: Padding(
                       key: const Key('search_back'),
                       padding: const EdgeInsets.all(12.0),

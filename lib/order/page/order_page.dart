@@ -154,11 +154,11 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
                       labelColor: Utils.isDark(context) ? Colors.white : Colours.text_dark,
                       unselectedLabelColor: Utils.isDark(context) ? Colours.text_gray : Colours.text_dark,
                       labelStyle: const TextStyle(
-                          fontSize: Dimens.font_sp14,
-                          fontWeight: FontWeight.bold
+                        fontSize: Dimens.font_sp14,
+                        fontWeight: FontWeight.bold
                       ),
                       unselectedLabelStyle: const TextStyle(
-                          fontSize: Dimens.font_sp14,
+                        fontSize: Dimens.font_sp14,
                       ),
                       indicatorColor: Colors.transparent,
                       tabs: const <Widget>[

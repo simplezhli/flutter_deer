@@ -48,15 +48,11 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    final Color _backgroundColor = Utils.getBackgroundColor(context);
     final Color _iconColor = Utils.getDarkColor(context, Colors.white);
     return ChangeNotifierProvider<GoodsPageProvider>(
       builder: (_) => provider,
       child: Scaffold(
         appBar: AppBar(
-          brightness: Theme.of(context).brightness,
-          elevation: 0.0,
-          backgroundColor: _backgroundColor,
           actions: <Widget>[
             IconButton(
               onPressed: (){
@@ -115,6 +111,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
             Gaps.vGap16,
             Gaps.vGap8,
             Container(
+              // 隐藏点击效果
               color: Utils.getBackgroundColor(context),
               child: TabBar(
                 onTap: (index){

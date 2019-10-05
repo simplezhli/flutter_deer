@@ -72,7 +72,6 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Utils.getBackgroundColor(context),
       child: SizedBox(
         height: MediaQuery.of(context).size.height * 11.0 / 16.0,
         child: Column(
@@ -108,6 +107,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
             ),
             Gaps.line,
             Container(
+              // 隐藏点击效果
               color: Utils.getBackgroundColor(context),
               child: TabBar(
                 controller: _tabController,
