@@ -1,20 +1,22 @@
 import 'dart:io';
 import 'package:fluro/fluro.dart';
+import 'package:flustars/flustars.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/provider/theme_provider.dart';
 import 'package:flutter_deer/routers/application.dart';
 import 'package:flutter_deer/routers/routers.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:flutter_deer/home/splash_page.dart';
+import 'package:provider/provider.dart';
 
-void main(){
+void main() async {
 //  debugProfileBuildsEnabled = true;
 //  debugPaintLayerBordersEnabled = true;
 //  debugProfilePaintsEnabled = true;
-  
+  await SpUtil.getInstance();
   runApp(MyApp());
   // 透明状态栏
   if (Platform.isAndroid) {
@@ -37,64 +39,30 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OKToast(
-      child: MaterialApp(
-        title: 'Flutter Deer',
-//        showPerformanceOverlay: true, //显示性能标签
-        //debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          brightness: Brightness.light,
-          primaryColor: Colours.app_main,
-          accentColor: Colours.app_main,
-          indicatorColor: Colours.app_main,
-          canvasColor: Colors.white,
-          textSelectionColor: Colours.app_main.withAlpha(70),
-          textSelectionHandleColor: Colours.app_main,
-          textTheme: TextTheme(
-            // TextField输入文字颜色
-            subhead: TextStyles.textDark14,
-            body1: TextStyles.textDark14,
-          ),
-          inputDecorationTheme: InputDecorationTheme(
-            hintStyle: TextStyles.textGray14
-          ),
-          appBarTheme: AppBarTheme(
-            elevation: 0.0,
-            color: Colors.white,
-            brightness: Brightness.light,
-          ),
+      child: ChangeNotifierProvider<ThemeProvider>(
+        builder: (_) => ThemeProvider(),
+        child: Consumer<ThemeProvider>(
+          builder: (_, provider, __) {
+            return MaterialApp (
+              title: 'Flutter Deer',
+              //showPerformanceOverlay: true, //显示性能标签
+              //debugShowCheckedModeBanner: false,
+              theme: provider.getTheme(),
+              darkTheme: provider.getTheme(isDarkMode: true),
+              home: home ?? SplashPage(),
+              onGenerateRoute: Application.router.generator,
+              localizationsDelegates: [
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: const [
+                Locale('zh', 'CH'),
+                Locale('en', 'US')
+              ]
+            );
+          },
         ),
-        darkTheme: ThemeData(
-          brightness: Brightness.dark,
-          primaryColor: Colours.app_main,
-          accentColor: Colours.app_main,
-          indicatorColor: Colours.app_main,
-          canvasColor: Colours.dark_bg_color,
-          textSelectionColor: Colours.app_main.withAlpha(70),
-          textSelectionHandleColor: Colours.app_main,
-          textTheme: TextTheme(
-            subhead: TextStyles.textWhite14,
-            body1: TextStyles.textWhite14,
-          ),
-          inputDecorationTheme: InputDecorationTheme(
-            hintStyle: TextStyles.textGray14
-          ),
-          appBarTheme: AppBarTheme(
-            elevation: 0.0,
-            color: Colours.dark_bg_color,
-            brightness: Brightness.dark
-          ),
-        ),
-        home: home ?? SplashPage(),
-        onGenerateRoute: Application.router.generator,
-        localizationsDelegates: [
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: const [
-          Locale('zh', 'CH'),
-          Locale('en', 'US')
-        ]
       ),
       backgroundColor: Colors.black54,
       textPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),

@@ -39,6 +39,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
   int _selectedMonth;
   List _monthList = [];
   bool _isExpanded = true;
+  Color _unSelectedTextColor;
   
   static const List<String> _weeks = const ["周一", "周二", "周三", "周四", "周五", "周六", "周日"];
 
@@ -59,7 +60,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
 
   @override
   Widget build(BuildContext context) {
-    Color unSelectedTextColor = Utils.isDark(context) ? Colors.white : Colours.text_normal;
+    _unSelectedTextColor = Utils.isDark(context) ? Colors.white : Colours.text_normal;
     return Scaffold(
       appBar: MyAppBar(
         centerTitle: widget.index == 1 ? "订单统计" : "交易额统计",
@@ -79,7 +80,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                     key: const Key('year'),
                     fontSize: 15.0,
                     selected: _selectedIndex == 0,
-                    unSelectedTextColor: unSelectedTextColor,
+                    unSelectedTextColor: _unSelectedTextColor,
                     onTap: (){
                       setState(() {
                         _selectedIndex = 0;
@@ -94,7 +95,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                     key: const Key('month'),
                     fontSize: 15.0,
                     selected: _selectedIndex == 1,
-                    unSelectedTextColor: unSelectedTextColor,
+                    unSelectedTextColor: _unSelectedTextColor,
                     onTap: (){
                       setState(() {
                         _selectedIndex = 1;
@@ -109,7 +110,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                     key: const Key('day'),
                     fontSize: 15.0,
                     selected: _selectedIndex == 2,
-                    unSelectedTextColor: unSelectedTextColor,
+                    unSelectedTextColor: _unSelectedTextColor,
                     onTap: (){
                       setState(() {
                         _selectedIndex = 2;
@@ -303,6 +304,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
               selected:(day.day == _selectedDay.day && !DateUtils.isExtraDay(day, _initialDay)),
               // 不是本月的日期与超过当前日期的不可点击
               enable: day.day <= _initialDay.day && !DateUtils.isExtraDay(day, _initialDay),
+              unSelectedTextColor: _unSelectedTextColor,
               onTap: (){
                 setState(() {
                   _selectedDay = day;
@@ -324,6 +326,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
               "$month月",
               selected: month == _selectedMonth,
               enable: month <= _initialDay.month,
+              unSelectedTextColor: _unSelectedTextColor,
               onTap: (){
                 setState(() {
                   _selectedMonth = month;
@@ -344,6 +347,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
             child: SelectedText(
               day.day < 10 ? "0${day.day}" : day.day.toString(),
               selected: day.day == _selectedWeekDay,
+              unSelectedTextColor: _unSelectedTextColor,
               onTap: (){
                 setState(() {
                   _selectedWeekDay = day.day;

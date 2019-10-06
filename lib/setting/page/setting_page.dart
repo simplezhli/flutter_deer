@@ -1,5 +1,7 @@
 
+import 'package:flustars/flustars.dart' as flutter_stars;
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/setting/widgets/exit_dialog.dart';
@@ -19,6 +21,20 @@ class SettingPage extends StatefulWidget {
 class _SettingPageState extends State<SettingPage> {
   @override
   Widget build(BuildContext context) {
+    String theme = flutter_stars.SpUtil.getString(Constant.theme);
+    String themeMode;
+    switch(theme){
+      case "Dark":
+        themeMode = "开启";
+        break;
+      case "Light":
+        themeMode = "关闭";
+        break;
+      default:
+        themeMode = "跟随系统";
+        break;
+    }
+
     return Scaffold(
       appBar: MyAppBar(
         centerTitle: "设置",
@@ -36,6 +52,13 @@ class _SettingPageState extends State<SettingPage> {
             title: "清除缓存",
             content: "23.5MB",
             onTap: (){}
+          ),
+          ClickItem(
+            title: "夜间模式",
+            content: themeMode,
+            onTap: (){
+              NavigatorUtils.push(context, SettingRouter.themePage);
+            }
           ),
           ClickItem(
             title: "检查更新",
