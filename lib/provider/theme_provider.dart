@@ -52,6 +52,11 @@ class ThemeProvider extends ChangeNotifier {
         color: isDarkMode ? Colours.dark_bg_color : Colors.white,
         brightness: isDarkMode ? Brightness.dark : Brightness.light,
       ),
+      dividerTheme: DividerThemeData(
+        color: isDarkMode ? Colours.dark_line : Colours.line,
+        space: 0.6,
+        thickness: 0.6
+      )
     );
   }
 

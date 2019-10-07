@@ -42,7 +42,7 @@ class Utils {
   }
 
   static Color getBackgroundColor(BuildContext context){
-    return isDark(context) ? Colours.dark_bg_color : Colors.white;
+    return Theme.of(context).canvasColor;
   }
 
   static KeyboardActionsConfig getKeyboardActionsConfig(BuildContext context, List<FocusNode> list){

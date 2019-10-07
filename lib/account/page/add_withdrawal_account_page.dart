@@ -149,7 +149,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                 height: 190.0,
                 padding: const EdgeInsets.only(top: 24.0),
                 child: Theme(
-                  data: ThemeData(
+                  data: Theme.of(context).copyWith(
                     buttonTheme: ButtonThemeData(
                       minWidth: double.infinity,
                     ),

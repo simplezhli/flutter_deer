@@ -67,7 +67,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                           const SizedBox(
                             width: 1.0,
                             height: 24.0,
-                            child: const DecoratedBox(decoration: BoxDecoration(color: Colours.line)),
+                            child: const VerticalDivider(),
                           ),
                           Gaps.hGap16,
                           InkWell(
@@ -103,7 +103,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                           return DecoratedBox(
                             decoration: BoxDecoration(
                                 border: Border(
-                                  bottom: Divider.createBorderSide(context, color: Colours.line, width: 0.8),
+                                  bottom: Divider.createBorderSide(context, width: 0.8),
                                 )
                             ),
                             child: Padding(
@@ -217,7 +217,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                   height: 60.0,
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Theme(
-                    data: ThemeData(
+                    data: Theme.of(context).copyWith(
                       buttonTheme: ButtonThemeData(
                         height: 44.0,
                       )

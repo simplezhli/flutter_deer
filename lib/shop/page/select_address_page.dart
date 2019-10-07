@@ -78,7 +78,7 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
                 shrinkWrap: true,
                 itemCount: _list.length,
                 separatorBuilder: (_, index) {
-                  return Divider(height: 0.6);
+                  return const Divider();
                 },
                 itemBuilder: (_, index){
                   return InkWell(

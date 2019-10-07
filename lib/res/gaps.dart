@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_deer/res/resources.dart';
+
 /// 间隔
 class Gaps {
   /// 水平间隔
@@ -20,11 +22,13 @@ class Gaps {
   static const Widget vGap16 = const SizedBox(height: Dimens.gap_dp16);
   static const Widget vGap50 = const SizedBox(height: Dimens.gap_dp50);
   
-  static Widget line = const SizedBox(
-    height: 0.6,
-    width: double.infinity,
-    child: const DecoratedBox(decoration: BoxDecoration(color: Colours.line)),
-  );
+//  static Widget line = const SizedBox(
+//    height: 0.6,
+//    width: double.infinity,
+//    child: const DecoratedBox(decoration: BoxDecoration(color: Colours.line)),
+//  );
+
+  static Widget line = const Divider();
   
   static const Widget empty = const SizedBox();
 }

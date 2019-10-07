@@ -76,7 +76,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
               Positioned(
                 right: 0.0,
                 child: Theme(
-                  data: ThemeData(
+                  data: Theme.of(context).copyWith(
                       buttonTheme: ButtonThemeData(
                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
                         minWidth: 60.0,

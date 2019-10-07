@@ -91,7 +91,7 @@ class _CitySelectPageState extends State<CitySelectPage> {
         child: Container(
           decoration: BoxDecoration(
             border: (model.isShowSuspension && model.cityCode != "0483") ? Border(
-              top: Divider.createBorderSide(context, color: Colours.line, width: 0.6),
+              top: Divider.createBorderSide(context, width: 0.6),
             ) : null
           ),
           child: Row(

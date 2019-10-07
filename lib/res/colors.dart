@@ -15,6 +15,8 @@ class Colours {
   static const Color dark_bg_gray = Color(0xFF1F1F1F);
 
   static const Color line = Color(0xFFEEEEEE);
+  static const Color dark_line = Color(0x1FFFFFFF);
+
   static const Color text_red = Color(0xFFFF4759);
   
   static const Color login_text_disabled = Color(0xFFD4E2FA);

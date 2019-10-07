@@ -129,7 +129,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
         child: Container(
           decoration: BoxDecoration(
             border: (model.isShowSuspension && model.id != 17749) ? Border(
-              top: Divider.createBorderSide(context, color: Colours.line, width: 0.6),
+              top: Divider.createBorderSide(context, width: 0.6),
             ) : null
           ),
           child: Row(

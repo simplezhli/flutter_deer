@@ -82,7 +82,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                   ),
                   Gaps.line,
                   Container(
-                    color: Colours.line,
+                    color: Theme.of(context).dividerTheme.color,
                     child: GridView.builder(
                       shrinkWrap: true,
                       physics: NeverScrollableScrollPhysics(),

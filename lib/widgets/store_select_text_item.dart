@@ -29,7 +29,7 @@ class StoreSelectTextItem extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
             border: Border(
-              bottom: Divider.createBorderSide(context, color: Colours.line, width: 0.6),
+              bottom: Divider.createBorderSide(context, width: 0.6),
             )
         ),
         child: Row(

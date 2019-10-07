@@ -1,10 +1,10 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/common/common.dart';
+import 'package:flustars/flustars.dart' as flutter_stars;
 import 'package:flutter_deer/common/themes.dart';
 import 'package:flutter_deer/provider/theme_provider.dart';
-import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
-import 'package:flutter_deer/widgets/click_item.dart';
 import 'package:provider/provider.dart';
 
 class ThemePage extends StatefulWidget {
@@ -14,36 +14,56 @@ class ThemePage extends StatefulWidget {
 
 class _ThemePageState extends State<ThemePage> {
 
+  var _list = ["跟随系统", "开启", "关闭"];
+
   @override
   Widget build(BuildContext context) {
-    ThemeProvider provider = Provider.of<ThemeProvider>(context);
+    String theme = flutter_stars.SpUtil.getString(Constant.theme);
+    String themeMode;
+    switch(theme){
+      case "Dark":
+        themeMode = "开启";
+        break;
+      case "Light":
+        themeMode = "关闭";
+        break;
+      default:
+        themeMode = "跟随系统";
+        break;
+    }
     return Scaffold(
       appBar: const MyAppBar(
         title: "夜间模式",
       ),
-      body: Column(
-        children: <Widget>[
-          Gaps.vGap10,
-          ClickItem(
-            title: "跟随系统",
-            onTap: (){
-              //  MediaQuery.of(context).platformBrightness == Brightness.dark;
-              provider?.setTheme(Themes.SYSTEM);
-            }
-          ),
-          ClickItem(
-            title: "开启",
-            onTap: (){
-              provider?.setTheme(Themes.DARK);
-            }
-          ),
-          ClickItem(
-            title: "关闭",
-            onTap: (){
-              provider?.setTheme(Themes.LIGHT);
-            }
-          ),
-        ],
+      body: ListView.separated(
+          shrinkWrap: true,
+          itemCount: _list.length,
+          separatorBuilder: (_, index) {
+            return const Divider();
+          },
+          itemBuilder: (_, index){
+            return InkWell(
+              onTap: (){
+                Provider.of<ThemeProvider>(context).setTheme(index == 0 ? Themes.SYSTEM : (index == 1 ? Themes.DARK : Themes.LIGHT));
+              },
+              child: Container(
+                alignment: Alignment.centerLeft,
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                height: 50.0,
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Text(_list[index]),
+                    ),
+                    Opacity(
+                        opacity: themeMode == _list[index] ? 1 : 0,
+                        child: Icon(Icons.done, color: Colors.blue)
+                    )
+                  ],
+                ),
+              ),
+            );
+          }
       ),
     );
   }

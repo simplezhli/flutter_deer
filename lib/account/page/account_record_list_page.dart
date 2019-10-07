@@ -45,7 +45,7 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
         padding: const EdgeInsets.all(15.0),
         decoration: BoxDecoration(
             border: Border(
-              bottom: Divider.createBorderSide(context, color: Colours.line, width: 0.8),
+              bottom: Divider.createBorderSide(context, width: 0.8),
             )
         ),
         child: Stack(

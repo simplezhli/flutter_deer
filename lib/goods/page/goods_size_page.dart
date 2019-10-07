@@ -191,7 +191,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
           child: DecoratedBox(
             decoration: BoxDecoration(
                 border: Border(
-                  bottom: Divider.createBorderSide(context, color: Colours.line, width: 0.8),
+                  bottom: Divider.createBorderSide(context, width: 0.8),
                 )
             ),
             child: Padding(

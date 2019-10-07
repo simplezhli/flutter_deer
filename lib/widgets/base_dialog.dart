@@ -77,7 +77,7 @@ class BaseDialog extends StatelessWidget{
                     const SizedBox(
                       height: 48.0,
                       width: 0.6,
-                      child: const DecoratedBox(decoration: BoxDecoration(color: Colours.line)),
+                      child: const VerticalDivider(),
                     ),
                     Expanded(
                       child: SizedBox(

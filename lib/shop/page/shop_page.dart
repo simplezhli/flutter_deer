@@ -107,7 +107,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
               ),
               Gaps.vGap12,
               Gaps.vGap12,
-              Container(height: 0.6, width: double.infinity, color: Colours.line, margin: const EdgeInsets.only(left: 16.0)),
+              Container(height: 0.6, width: double.infinity, margin: const EdgeInsets.only(left: 16.0), child: Gaps.line,),
               Gaps.vGap12,
               Gaps.vGap12,
               const Padding(
@@ -153,7 +153,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                   },
                 ),
               ),
-              Container(height: 0.6, width: double.infinity, color: Colours.line, margin: const EdgeInsets.only(left: 16.0)),
+              Container(height: 0.6, width: double.infinity, margin: const EdgeInsets.only(left: 16.0), child: Gaps.line,),
               Gaps.vGap12,
               Gaps.vGap12,
               const Padding(
