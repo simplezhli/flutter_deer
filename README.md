@@ -57,7 +57,7 @@ iOS需要自行下载代码运行。
 
 ## 项目运行环境
 
-    1. Flutter version 1.9.1+hotfix.2
+    1. Flutter version 1.9.1+hotfix.4
      
     2. Dart version 2.5.0
 

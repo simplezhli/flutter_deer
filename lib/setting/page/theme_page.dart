@@ -22,13 +22,13 @@ class _ThemePageState extends State<ThemePage> {
     String themeMode;
     switch(theme){
       case "Dark":
-        themeMode = "开启";
+        themeMode = _list[1];
         break;
       case "Light":
-        themeMode = "关闭";
+        themeMode = _list[2];
         break;
       default:
-        themeMode = "跟随系统";
+        themeMode = _list[0];
         break;
     }
     return Scaffold(
