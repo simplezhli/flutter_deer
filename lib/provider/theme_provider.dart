@@ -35,13 +35,17 @@ class ThemeProvider extends ChangeNotifier {
       brightness: isDarkMode ? Brightness.dark : Brightness.light,
       primaryColor: Colours.app_main,
       accentColor: Colours.app_main,
+      // Tab指示器颜色
       indicatorColor: Colours.app_main,
+      // 背景色
       canvasColor: isDarkMode ? Colours.dark_bg_color : Colors.white,
+      // 文字选择色（输入框复制粘贴菜单）
       textSelectionColor: Colours.app_main.withAlpha(70),
       textSelectionHandleColor: Colours.app_main,
       textTheme: TextTheme(
         // TextField输入文字颜色
         subhead: isDarkMode ? TextStyles.textWhite14 : TextStyles.textDark14,
+        // Text文字样式
         body1: isDarkMode ? TextStyles.textWhite14 : TextStyles.textDark14,
       ),
       inputDecorationTheme: InputDecorationTheme(

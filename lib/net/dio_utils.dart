@@ -158,6 +158,10 @@ class DioUtils {
   }
 
   _onError(int code, String msg, Function(int code, String mag) onError){
+    if (code == null){
+      code = ExceptionHandle.unknown_error;
+      msg = "未知异常";
+    }
     Log.e("接口请求异常： code: $code, mag: $msg");
     if (onError != null) {
       onError(code, msg);

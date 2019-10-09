@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
               darkTheme: provider.getTheme(isDarkMode: true),
               home: home ?? SplashPage(),
               onGenerateRoute: Application.router.generator,
-              localizationsDelegates: [
+              localizationsDelegates: const [
                 GlobalMaterialLocalizations.delegate,
                 GlobalWidgetsLocalizations.delegate,
                 GlobalCupertinoLocalizations.delegate,

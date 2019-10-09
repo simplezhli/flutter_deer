@@ -152,6 +152,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                       padding: const EdgeInsets.only(left: 16.0),
                       child: const Text("运费设置", style: TextStyles.textBold18),
                     ),
+                    Gaps.vGap16,
                     ClickItem(
                       title: "运费配置",
                       content: _sendType == 0 ? "运费满免配置" : "运费比例配置",

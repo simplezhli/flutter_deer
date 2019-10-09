@@ -71,7 +71,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
-                  child: Text("1.又双叒修复了一大推bug。\n\n2.祭天了多名程序猿。"),
+                  child: Text("1.又双叒修复了一大堆bug。\n\n2.祭天了多名程序猿。"),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 15.0, left: 15.0, right: 15.0 , top: 5.0),

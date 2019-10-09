@@ -122,10 +122,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 },
                 isScrollable: true,
                 controller: _tabController,
-                labelStyle: const TextStyle(
-                    fontSize: Dimens.font_sp18,
-                    fontWeight: FontWeight.bold
-                ),
+                labelStyle: TextStyles.textBold18,
                 indicatorSize: TabBarIndicatorSize.label,
                 labelPadding: const EdgeInsets.only(left: 16.0),
                 unselectedLabelColor: Utils.isDark(context) ? Colours.text_gray : Colours.text_dark,

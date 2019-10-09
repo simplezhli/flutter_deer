@@ -32,6 +32,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
 
     if (backgroundColor == null){
       _backgroundColor = Utils.getBackgroundColor(context);
+    }else{
+      _backgroundColor = backgroundColor;
     }
 
     SystemUiOverlayStyle _overlayStyle = ThemeData.estimateBrightnessForColor(_backgroundColor) == Brightness.dark
