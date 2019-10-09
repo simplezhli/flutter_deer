@@ -38,7 +38,10 @@ class _SendTypeDialog extends State<SendTypeDialog>{
               Expanded(
                 child: Text(
                   _list[index],
-                  style: _value == index ? TextStyles.textMain14 : null,
+                  style: _value == index ? TextStyle(
+                    fontSize: Dimens.font_sp14,
+                    color: Theme.of(context).primaryColor,
+                  ) : null,
                 ),
               ),
               Offstage(

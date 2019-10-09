@@ -35,16 +35,18 @@ class _SearchBarState extends State<SearchBar> {
   TextEditingController _controller = TextEditingController();
 
   Color getColor(){
-    return overlayStyle == SystemUiOverlayStyle.light ? Colors.white : Colours.text_dark;
+    return overlayStyle == SystemUiOverlayStyle.light ? Colours.dark_text : Colours.text;
   }
   
   @override
   Widget build(BuildContext context) {
-
-    overlayStyle = Utils.isDark(context) ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark;
+    bool isDark = Utils.isDark(context);
+    overlayStyle = isDark ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark;
+    Color iconColor = isDark ? Colours.dark_text_gray : Colours.text_gray_c;
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: overlayStyle,
       child: Material(
+        color: Utils.getBackgroundColor(context),
         child: SafeArea(
           child: Container(
             child: Row(
@@ -72,7 +74,7 @@ class _SearchBarState extends State<SearchBar> {
                   child: Container(
                     height: 32.0,
                     decoration: BoxDecoration(
-                      color: Utils.isDark(context) ? Colours.dark_bg_gray : Colours.bg_gray,
+                      color: isDark ? Colours.dark_material_bg : Colours.bg_gray,
                       borderRadius: BorderRadius.circular(4.0),
                     ),
                     child: Localizations(
@@ -84,7 +86,6 @@ class _SearchBarState extends State<SearchBar> {
                       ],
                       child: TextField(
                         key: const Key('srarch_text_field'),
-                        //style: TextStyles.textDark14,
                         autofocus: true,
                         controller: _controller,
                         maxLines: 1,
@@ -93,14 +94,13 @@ class _SearchBarState extends State<SearchBar> {
                           border: InputBorder.none,
                           icon: Padding(
                             padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 8.0),
-                            child: const LoadAssetImage("order/order_search"),
+                            child: LoadAssetImage("order/order_search", color: iconColor,),
                           ),
                           hintText: widget.hintText,
-                          //hintStyle: TextStyles.textGrayC14,
                           suffixIcon: InkWell(
                             child: Padding(
                               padding: const EdgeInsets.only(left: 16.0, top: 8.0, bottom: 8.0),
-                              child: const LoadAssetImage("order/order_delete"),
+                              child: LoadAssetImage("order/order_delete", color: iconColor),
                             ),
                             onTap: (){
                               /// https://github.com/flutter/flutter/issues/35909
@@ -128,8 +128,8 @@ class _SearchBarState extends State<SearchBar> {
                     ),
                   ),
                   child: FlatButton(
-                      color: Colours.app_main,
-                      textColor: Colors.white,
+                      textColor: isDark ?  Colours.dark_button_text : Colors.white,
+                      color: isDark ?  Colours.dark_app_main : Colours.app_main,
                       onPressed:(){
                         widget.onPressed(_controller.text);
                       },

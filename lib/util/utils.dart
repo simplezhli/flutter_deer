@@ -42,6 +42,10 @@ class Utils {
   }
 
   static Color getBackgroundColor(BuildContext context){
+    return Theme.of(context).scaffoldBackgroundColor;
+  }
+
+  static Color getDialogBackgroundColor(BuildContext context){
     return Theme.of(context).canvasColor;
   }
 

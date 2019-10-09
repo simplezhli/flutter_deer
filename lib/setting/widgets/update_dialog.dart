@@ -35,6 +35,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
   
   @override
   Widget build(BuildContext context) {
+    Color primaryColor = Theme.of(context).primaryColor;
     return WillPopScope(
       onWillPop: () async{
         /// 使用false禁止返回键返回，达到强制升级目的
@@ -46,7 +47,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
         body: Center(
           child: Container(
             decoration: BoxDecoration(
-              color: Utils.getBackgroundColor(context),
+              color: Utils.getDialogBackgroundColor(context),
               borderRadius: BorderRadius.circular(8.0),
             ),
             width: 280.0,
@@ -77,7 +78,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
                   padding: const EdgeInsets.only(bottom: 15.0, left: 15.0, right: 15.0 , top: 5.0),
                   child: _isDownload ? LinearProgressIndicator(
                     backgroundColor: Colours.line,
-                    valueColor: new AlwaysStoppedAnimation<Color>(Colours.app_main),
+                    valueColor: new AlwaysStoppedAnimation<Color>(primaryColor),
                     value: _value,
                   ): Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -89,14 +90,14 @@ class _UpdateDialogState extends State<UpdateDialog> {
                           onPressed: (){
                             NavigatorUtils.goBack(context);
                           },
-                          textColor: Colours.app_main,
+                          textColor: primaryColor,
                           color: Colors.transparent,
                           disabledTextColor: Colors.white,
                           disabledColor: Colours.text_gray_c,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18.0),
                               side: BorderSide(
-                                color: Colours.app_main,
+                                color: primaryColor,
                                 width: 0.8,
                               )
                           ),
@@ -122,7 +123,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
                             }
                           },
                           textColor: Colors.white,
-                          color: Colours.app_main,
+                          color: primaryColor,
                           disabledTextColor: Colors.white,
                           disabledColor: Colours.text_gray_c,
                           shape: RoundedRectangleBorder(

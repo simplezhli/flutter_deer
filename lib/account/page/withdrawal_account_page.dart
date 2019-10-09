@@ -121,7 +121,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                       height: 54.0,
                       width: double.infinity,
                       child: FlatButton(
-                        textColor: Colours.text_red,
+                        textColor: Theme.of(context).errorColor,
                         child: const Text("确认解绑", style: TextStyle(fontSize: Dimens.font_sp18)),
                         onPressed: (){
                           setState(() {

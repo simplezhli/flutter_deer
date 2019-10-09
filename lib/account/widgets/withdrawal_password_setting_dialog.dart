@@ -27,7 +27,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
             left: 0.0,
             right: 0.0,
             child: Container(
-              color: Utils.getBackgroundColor(context),
+              color: Utils.getDialogBackgroundColor(context),
               height: MediaQuery.of(context).size.height * 7 / 10.0,
               child: Column(
                 children: <Widget>[
@@ -76,7 +76,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                           ),
                         ),
                         Gaps.vGap10,
-                        const Text(("提现密码不可为连续、重复的数字。"), style: TextStyles.textGray12),
+                        Text(("提现密码不可为连续、重复的数字。"), style: Theme.of(context).textTheme.subtitle),
                       ],
                     ),
                   ),

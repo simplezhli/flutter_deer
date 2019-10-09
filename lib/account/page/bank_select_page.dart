@@ -67,7 +67,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
               data: list,
               itemHeight: 25,
               touchDownColor: Colors.transparent,
-              textStyle: TextStyles.textGray12
+              textStyle: Theme.of(context).textTheme.subtitle
             );
           },
           header: widget.type == 0 ? AzListViewHeader(
@@ -88,7 +88,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 16.0),
-          child: const Text("常用", style: TextStyles.textGray12),
+          child: Text("常用", style: Theme.of(context).textTheme.subtitle),
         ),
         Expanded(
           child: ListView.builder(

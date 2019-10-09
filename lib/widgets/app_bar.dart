@@ -56,7 +56,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
                         title.isEmpty ? centerTitle : title,
                         style: TextStyle(
                           fontSize: Dimens.font_sp18,
-                          color: _overlayStyle == SystemUiOverlayStyle.light ? Colors.white : Colours.text_dark,
+                          color: _overlayStyle == SystemUiOverlayStyle.light ?  Colours.dark_text : Colours.text,
                         )
                     ),
                     padding: const EdgeInsets.symmetric(horizontal: 48.0),
@@ -72,7 +72,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
                 padding: const EdgeInsets.all(12.0),
                 icon: Image.asset(
                   backImg,
-                  color: _overlayStyle == SystemUiOverlayStyle.light ? Colors.white : Colours.text_dark,
+                  color: _overlayStyle == SystemUiOverlayStyle.light ? Colours.dark_text : Colours.text,
                 ),
               ) : Gaps.empty,
               Positioned(
@@ -87,7 +87,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
                   child: actionName.isEmpty ? Container() :
                   FlatButton(
                     child: Text(actionName, key: const Key('actionName')),
-                    textColor: _overlayStyle == SystemUiOverlayStyle.light ? Colors.white : Colours.text_dark,
+                    textColor: _overlayStyle == SystemUiOverlayStyle.light ? Colours.dark_text : Colours.text,
                     highlightColor: Colors.transparent,
                     onPressed: onPressed,
                   ),

@@ -47,12 +47,19 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
   var _timeList = ["2018/08/30 13:30", "2018/08/30 11:30", "2018/08/30 9:30", "2018/08/30 9:00"];
   
   Step _buildStep(int index){
+    Color primaryColor = Theme.of(context).primaryColor;
     return Step(
       title: Padding(
         padding: const EdgeInsets.only(top: 15.0),
-        child: Text(_titleList[index], style: index == 0 ? TextStyles.textMain14 : null),
+        child: Text(_titleList[index], style: index == 0 ? TextStyle(
+          fontSize: Dimens.font_sp14,
+          color: primaryColor,
+        ) : Theme.of(context).textTheme.body1),
       ),
-      subtitle: Text(_timeList[index], style: index == 0 ? TextStyles.textMain12 : TextStyles.textGray12),
+      subtitle: Text(_timeList[index], style: index == 0 ? TextStyle(
+        fontSize: Dimens.font_sp12,
+        color: primaryColor,
+      ) : Theme.of(context).textTheme.subtitle),
       content: Text(""),
       isActive: index == 0,
       // TODO 这里的状态图标无法修改，暂时使用原生的。应该可以复制Step代码修改一下。

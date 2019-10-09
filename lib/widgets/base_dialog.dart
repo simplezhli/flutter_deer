@@ -34,7 +34,7 @@ class BaseDialog extends StatelessWidget{
         curve: Curves.easeInCubic,
         child: Container(
             decoration: BoxDecoration(
-              color: Utils.getBackgroundColor(context),
+              color: Utils.getDialogBackgroundColor(context),
               borderRadius: BorderRadius.circular(8.0),
             ),
             width: 270.0,
@@ -89,7 +89,7 @@ class BaseDialog extends StatelessWidget{
                                 fontSize: Dimens.font_sp18
                             ),
                           ),
-                          textColor: Colours.app_main,
+                          textColor: Theme.of(context).primaryColor,
                           onPressed: (){
                             onPressed();
                           },

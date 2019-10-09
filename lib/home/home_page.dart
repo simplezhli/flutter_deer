@@ -6,8 +6,8 @@ import 'package:flutter_deer/order/page/order_page.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/shop/page/shop_page.dart';
 import 'package:flutter_deer/statistics/page/statistics_page.dart';
-import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:provider/provider.dart';
 
@@ -20,28 +20,19 @@ class _HomeState extends State<Home> {
 
   var _pageList;
   var _tabImages;
+  var _tabImagesDark;
   var _appBarTitles = ['订单', '商品', '统计', '店铺'];
   final _pageController = PageController();
 
   HomeProvider provider = HomeProvider();
 
   List<BottomNavigationBarItem> _list;
+  List<BottomNavigationBarItem> _listDark;
 
   @override
   void initState() {
     super.initState();
     initData();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _preCacheImage();
-    });
-  }
-
-  _preCacheImage(){
-    /// 预先缓存剩余图片
-    precacheImage(ImageUtils.getAssetImage("home/icon_Order_n"), context);
-    precacheImage(ImageUtils.getAssetImage("home/icon_commodity_s"), context);
-    precacheImage(ImageUtils.getAssetImage("home/icon_statistics_s"), context);
-    precacheImage(ImageUtils.getAssetImage("home/icon_Shop_s"), context);
   }
   
   void initData(){
@@ -52,22 +43,41 @@ class _HomeState extends State<Home> {
       ShopPage(),
     ];
 
+    _tabImagesDark = [
+      [
+        const LoadAssetImage("home/icon_order", width: 25.0),
+        const LoadAssetImage("home/icon_order", width: 25.0, color: Colours.dark_app_main,),
+      ],
+      [
+        const LoadAssetImage("home/icon_commodity", width: 25.0),
+        const LoadAssetImage("home/icon_commodity", width: 25.0, color: Colours.dark_app_main,),
+      ],
+      [
+        const LoadAssetImage("home/icon_statistics", width: 25.0),
+        const LoadAssetImage("home/icon_statistics", width: 25.0, color: Colours.dark_app_main,),
+      ],
+      [
+        const LoadAssetImage("home/icon_shop", width: 25.0),
+        const LoadAssetImage("home/icon_shop", width: 25.0, color: Colours.dark_app_main,),
+      ]
+    ];
+    
     _tabImages = [
       [
-        const LoadAssetImage("home/icon_Order_n"),
-        const LoadAssetImage("home/icon_Order_s"),
+        const LoadAssetImage("home/icon_order", width: 25.0, color: Colours.unselected_item_color,),
+        const LoadAssetImage("home/icon_order", width: 25.0, color: Colours.app_main,),
       ],
       [
-        const LoadAssetImage("home/icon_commodity_n"),
-        const LoadAssetImage("home/icon_commodity_s"),
+        const LoadAssetImage("home/icon_commodity", width: 25.0, color: Colours.unselected_item_color,),
+        const LoadAssetImage("home/icon_commodity", width: 25.0, color: Colours.app_main,),
       ],
       [
-        const LoadAssetImage("home/icon_statistics_n"),
-        const LoadAssetImage("home/icon_statistics_s"),
+        const LoadAssetImage("home/icon_statistics", width: 25.0, color: Colours.unselected_item_color,),
+        const LoadAssetImage("home/icon_statistics", width: 25.0, color: Colours.app_main,),
       ],
       [
-        const LoadAssetImage("home/icon_Shop_n"),
-        const LoadAssetImage("home/icon_Shop_s"),
+        const LoadAssetImage("home/icon_shop", width: 25.0, color: Colours.unselected_item_color,),
+        const LoadAssetImage("home/icon_shop", width: 25.0, color: Colours.app_main,),
       ]
     ];
 
@@ -76,7 +86,18 @@ class _HomeState extends State<Home> {
           icon: _tabImages[i][0],
           activeIcon: _tabImages[i][1],
           title: Padding(
-            padding: const EdgeInsets.only(top: 5.0),
+            padding: const EdgeInsets.only(top: 1.5),
+            child: Text(_appBarTitles[i], key: Key(_appBarTitles[i]),),
+          )
+      );
+    });
+
+    _listDark = List.generate(4, (i){
+      return BottomNavigationBarItem(
+          icon: _tabImagesDark[i][0],
+          activeIcon: _tabImagesDark[i][1],
+          title: Padding(
+            padding: const EdgeInsets.only(top: 1.5),
             child: Text(_appBarTitles[i], key: Key(_appBarTitles[i]),),
           )
       );
@@ -97,6 +118,7 @@ class _HomeState extends State<Home> {
   
   @override
   Widget build(BuildContext context) {
+    bool isDark = Utils.isDark(context);
     return ChangeNotifierProvider<HomeProvider>(
       builder: (_) => provider,
       child: WillPopScope(
@@ -105,15 +127,16 @@ class _HomeState extends State<Home> {
           bottomNavigationBar: Consumer<HomeProvider>(
             builder: (_, provider, __){
               return BottomNavigationBar(
-                items: _list,
+                backgroundColor: Utils.getBackgroundColor(context),
+                items: isDark ? _listDark : _list,
                 type: BottomNavigationBarType.fixed,
                 currentIndex: provider.value,
                 elevation: 5.0,
                 iconSize: 21.0,
                 selectedFontSize: Dimens.font_sp10,
                 unselectedFontSize: Dimens.font_sp10,
-                selectedItemColor: Colours.app_main,
-                unselectedItemColor: const Color(0xffbfbfbf),
+                selectedItemColor: Theme.of(context).primaryColor,
+                unselectedItemColor: isDark ? const Color(0xFF4D4D4D) : Colours.unselected_item_color,
                 onTap: (index){
                   _pageController.jumpToPage(index);
                 },

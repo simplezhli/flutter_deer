@@ -62,10 +62,10 @@ class _GoodsSizeEditPageState extends State<GoodsSizeEditPage> {
                       ),
                     ),
                     Gaps.vGap8,
-                    const Center(
-                      child: const Text(
+                    Center(
+                      child: Text(
                         "点击添加分类图片",
-                        style: TextStyles.textGray14,
+                        style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: 14.0),
                       ),
                     ),
                     Gaps.vGap16,

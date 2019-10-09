@@ -5,6 +5,7 @@ import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/statistics/statistics_router.dart';
 import 'package:flutter_deer/util/image_utils.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
 import 'package:flutter_deer/widgets/my_flexible_space_bar.dart';
@@ -28,7 +29,10 @@ class _StatisticsPageState extends State<StatisticsPage> {
     );
   }
 
+  bool isDark = false;
+  
   List<Widget> _sliverBuilder() {
+    isDark = Utils.isDark(context);
     return <Widget>[
       SliverAppBar(
         brightness: Brightness.dark,
@@ -39,7 +43,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
         expandedHeight: 100.0,
         pinned: true,
         flexibleSpace: MyFlexibleSpaceBar(
-          background: const LoadAssetImage("statistic/statistic_bg",
+          background: isDark ? Container(height: 115.0, color: Colours.dark_bg_color,) : const LoadAssetImage("statistic/statistic_bg",
             width: double.infinity,
             height: 115.0,
             fit: BoxFit.fill,
@@ -47,7 +51,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
           centerTitle: true,
           titlePadding: const EdgeInsetsDirectional.only(start: 16.0, bottom: 14.0),
           collapseMode: CollapseMode.pin,
-          title: const Text('统计'),
+          title: Text('统计', style: TextStyle(color: Utils.getDarkColor(context, Colours.dark_text)),),
         ),
       ),
       SliverPersistentHeader(
@@ -55,7 +59,8 @@ class _StatisticsPageState extends State<StatisticsPage> {
         delegate: SliverAppBarDelegate(
             DecoratedBox(
               decoration: BoxDecoration(
-                  image: DecorationImage(
+                  color: isDark ? Colours.dark_bg_color : null,
+                  image: isDark ? null : DecorationImage(
                       image: ImageUtils.getAssetImage("statistic/statistic_bg1"),
                       fit: BoxFit.fill
                   )
@@ -169,7 +174,7 @@ class _StatisticsTab extends StatelessWidget {
         children: <Widget>[
           LoadAssetImage("statistic/$img", width: 40.0, height: 40.0),
           Gaps.vGap4,
-          Text(title, style: TextStyles.textGray12),
+          Text(title, style: Theme.of(context).textTheme.subtitle),
           Gaps.vGap8,
           Text(content, style: const TextStyle(fontSize: Dimens.font_sp18)),
         ],

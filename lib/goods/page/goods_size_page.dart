@@ -119,9 +119,9 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                 key: const Key('name_edit'),
                 text: TextSpan(
                   text: '先对名称进行',
-                  style: TextStyles.textGray14,
+                  style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: 14.0),
                   children: <TextSpan>[
-                    TextSpan(text: '编辑', style: TextStyle(color: Colours.app_main)),
+                    TextSpan(text: '编辑', style: TextStyle(color: Theme.of(context).primaryColor)),
                   ],
                 )
               ),
@@ -174,7 +174,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
             child: LoadAssetImage("goods/goods_delete", key: Key('delete_$index'),),
           ),
-          color: Colours.text_red,
+          color: Theme.of(context).errorColor,
           onTap: () {
             setState(() {
               goodsSizeList.removeAt(index);
@@ -228,7 +228,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
                                 margin: const EdgeInsets.only(right: 4.0),
                                 decoration: BoxDecoration(
-                                  color: Colours.text_red,
+                                  color: Theme.of(context).errorColor,
                                   borderRadius: BorderRadius.circular(2.0),
                                 ),
                                 height: 16.0,
@@ -247,7 +247,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                               child: Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
                                 decoration: BoxDecoration(
-                                  color: Colours.app_main,
+                                  color: Theme.of(context).primaryColor,
                                   borderRadius: BorderRadius.circular(2.0),
                                 ),
                                 height: 16.0,

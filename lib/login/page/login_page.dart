@@ -121,9 +121,9 @@ class _LoginPageState extends State<LoginPage> {
             height: 40.0,
             alignment: Alignment.centerRight,
             child: GestureDetector(
-              child: const Text(
+              child: Text(
                 '忘记密码',
-                style: TextStyles.textGray12,
+                style: Theme.of(context).textTheme.subtitle,
               ),
               onTap: (){
                 NavigatorUtils.push(context, LoginRouter.resetPasswordPage);
@@ -134,10 +134,10 @@ class _LoginPageState extends State<LoginPage> {
           Container(
               alignment: Alignment.center,
               child: GestureDetector(
-                child: const Text(
+                child: Text(
                   '还没账号？快去注册',
                   style: TextStyle(
-                      color: Colours.app_main
+                      color: Theme.of(context).primaryColor
                   ),
                 ),
                 onTap: (){

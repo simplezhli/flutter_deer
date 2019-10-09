@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/account/models/city_model.dart';
 import 'package:flutter_deer/common/common.dart';
-import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:azlistview/azlistview.dart';
@@ -72,7 +71,7 @@ class _CitySelectPageState extends State<CitySelectPage> {
               data: list,
               itemHeight: 18,
               touchDownColor: Colors.transparent,
-              textStyle: TextStyles.textGray12
+              textStyle: Theme.of(context).textTheme.subtitle
             );
           },
         ),

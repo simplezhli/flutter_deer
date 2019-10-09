@@ -108,7 +108,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
             Gaps.line,
             Container(
               // 隐藏点击效果
-              color: Utils.getBackgroundColor(context),
+              color: Utils.getDialogBackgroundColor(context),
               child: TabBar(
                 controller: _tabController,
                 isScrollable: true,
@@ -134,8 +134,8 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                   });
                 },
                 indicatorSize: TabBarIndicatorSize.label,
-                unselectedLabelColor: Utils.isDark(context) ? Colours.text_gray : Colours.text_dark,
-                labelColor: Colours.app_main,
+                unselectedLabelColor: Utils.isDark(context) ? Colours.text_gray : Colours.text,
+                labelColor: Theme.of(context).primaryColor,
                 tabs: myTabs,
               ),
             ),
@@ -153,7 +153,10 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                         children: <Widget>[
                           Text(
                               _mList[index]["name"],
-                            style: _mList[index]["name"] == myTabs[_index].text ? TextStyles.textMain14 : null),
+                            style: _mList[index]["name"] == myTabs[_index].text ? TextStyle(
+                              fontSize: Dimens.font_sp14,
+                              color: Theme.of(context).primaryColor,
+                            ) : null),
                           Gaps.hGap8,
                           Offstage(
                             offstage: _mList[index]["name"] != myTabs[_index].text,

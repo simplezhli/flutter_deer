@@ -26,6 +26,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
   
   @override
   Widget build(BuildContext context) {
+    TextStyle style = Theme.of(context).textTheme.subtitle.copyWith(fontSize: 14.0);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: const MyAppBar(
@@ -63,7 +64,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                           StoreSelectTextItem(
                             title: "开  户  地",
                             content: _city.isEmpty ? "选择开户城市" : _city,
-                            style: _city.isEmpty ? TextStyles.textGray14 : null,
+                            style: _city.isEmpty ? style: null,
                             onTap: () {
                               NavigatorUtils.pushResult(context, AccountRouter.citySelectPage, (result){
                                 setState(() {
@@ -76,7 +77,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                           StoreSelectTextItem(
                             title: "银行名称",
                             content: _bank.isEmpty ? "选择开户银行" : _bank,
-                            style: _bank.isEmpty ? TextStyles.textGray14 : null,
+                            style: _bank.isEmpty ? style : null,
                             onTap: () {
                               NavigatorUtils.pushResult(context, '${AccountRouter.bankSelectPage}?type=0', (result){
                                 setState(() {
@@ -89,7 +90,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                           StoreSelectTextItem(
                             title: "支行名称",
                             content: _bank1.isEmpty ? "选择开户支行" : _bank1,
-                            style: _bank1.isEmpty ? TextStyles.textGray14 : null,
+                            style: _bank1.isEmpty ? style : null,
                             onTap: () {
                               NavigatorUtils.pushResult(context, '${AccountRouter.bankSelectPage}?type=1', (result){
                                 setState(() {
@@ -105,7 +106,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                     Padding(
                       padding: const EdgeInsets.only(top: 8.0, left: 16.0),
                       child: Text(_isWechat ? "绑定本机当前登录的微信号" : "绑定持卡人本人的银行卡",
-                          style: TextStyles.textGray12),
+                          style: Theme.of(context).textTheme.subtitle),
                     ),
                   ],
                 ),
@@ -137,12 +138,13 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
     showElasticDialog(
         context: context,
         builder: (BuildContext context) {
+          Color textColor = Theme.of(context).primaryColor;
           return Material(
             type: MaterialType.transparency,
             child: Center(
               child: Container(
                 decoration: BoxDecoration(
-                  color: Utils.getBackgroundColor(context),
+                  color: Utils.getDialogBackgroundColor(context),
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 width: 270.0,
@@ -169,7 +171,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                       Expanded(
                         child: FlatButton(
                           child: Text("微信"),
-                          textColor: Colours.app_main,
+                          textColor: textColor,
                           onPressed: () {
                             _accountType = "微信";
                             _dialogSelect(true);
@@ -180,7 +182,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                       Expanded(
                         child: FlatButton(
                           child: Text("银行卡(对私账户)"),
-                          textColor: Colours.app_main,
+                          textColor: textColor,
                           onPressed: () {
                             _accountType = "银行卡(对私账户)";
                             _dialogSelect(false);
@@ -191,7 +193,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                       Expanded(
                         child: FlatButton(
                           child: Text("银行卡(对公账户)"),
-                          textColor: Colours.app_main,
+                          textColor: textColor,
                           onPressed: () {
                             _accountType = "银行卡(对公账户)";
                             _dialogSelect(false);

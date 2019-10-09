@@ -97,6 +97,8 @@ class _MyTextFieldState extends State<MyTextField> {
       // 因Android平台输入法兼容问题，所以只配置IOS平台
       FormKeyboardActions.setKeyboardActions(context, widget.config);
     }
+    ThemeData themeData = Theme.of(context);
+    bool isDark = themeData.brightness == Brightness.dark;
     return Stack(
       alignment: Alignment.centerRight,
       children: <Widget>[
@@ -108,7 +110,6 @@ class _MyTextFieldState extends State<MyTextField> {
             GlobalCupertinoLocalizations.delegate,
           ],
           child: TextField(
-            //style: TextStyles.textDark14,
             focusNode: widget.focusNode,
             maxLength: widget.maxLength,
             obscureText: widget.isInputPwd ? !_isShowPwd : false,
@@ -122,17 +123,16 @@ class _MyTextFieldState extends State<MyTextField> {
             decoration: InputDecoration(
                 contentPadding: const EdgeInsets.symmetric(vertical: 16.0),
                 hintText: widget.hintText,
-                //hintStyle: TextStyles.textGray14,
                 counterText: "",
                 focusedBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
-                        color: Colours.app_main,
+                        color: themeData.primaryColor,
                         width: 0.8
                     )
                 ),
                 enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
-                        color: Colours.line,
+                        color: Theme.of(context).dividerTheme.color,
                         width: 0.8
                     )
                 )
@@ -179,14 +179,14 @@ class _MyTextFieldState extends State<MyTextField> {
               ),
               child: FlatButton(
                 onPressed: _isClick ? _getVCode : null,
-                textColor: Colours.app_main,
+                textColor: themeData.primaryColor,
                 color: Colors.transparent,
-                disabledTextColor: Colors.white,
-                disabledColor: Colours.text_gray_c,
+                disabledTextColor: isDark ? Colours.dark_text : Colors.white,
+                disabledColor: isDark ? Colours.dark_text_gray : Colours.text_gray_c,
                 shape:RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(1.0),
                     side: BorderSide(
-                      color: _isClick ? Colours.app_main : Colours.text_gray_c,
+                      color: _isClick ? themeData.primaryColor : Colors.transparent,
                       width: 0.8,
                     )
                 ),

@@ -37,12 +37,12 @@ class _WithdrawalResultPageState extends State<WithdrawalResultPage> {
             Gaps.vGap8,
             Text(
               "2019-02-21 15:20:10",
-              style: TextStyles.textGray12,
+              style: Theme.of(context).textTheme.subtitle,
             ),
             Gaps.vGap8,
             Text(
               "5秒后返回提现页面",
-              style: TextStyles.textGray12,
+              style: Theme.of(context).textTheme.subtitle,
             ),
             Gaps.vGap12,
             Gaps.vGap12,

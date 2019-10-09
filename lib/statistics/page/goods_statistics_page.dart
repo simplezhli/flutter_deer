@@ -177,7 +177,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text("那鲁火多饮料", maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12.0)),
-                    Text("250ml", style: TextStyles.textGray12),
+                    Text("250ml", style: Theme.of(context).textTheme.subtitle),
                   ],
                 ),
               ),
@@ -188,8 +188,8 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text("100件", style: TextStyles.textGray12),
-                    Text("未支付", style: TextStyles.textGray12),
+                    Text("100件", style: Theme.of(context).textTheme.subtitle),
+                    Text("未支付", style: Theme.of(context).textTheme.subtitle),
                   ],
                 ),
               ),
@@ -198,8 +198,8 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: _type ? MainAxisAlignment.center : MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text("400件", style: TextStyles.textGray12),
-                  Offstage(offstage: _type, child: Text("已支付", style: TextStyles.textGray12)),
+                  Text("400件", style: Theme.of(context).textTheme.subtitle),
+                  Offstage(offstage: _type, child: Text("已支付", style: Theme.of(context).textTheme.subtitle)),
                 ],
               ),
             ],
@@ -210,7 +210,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
   }
  
   _buildSelectedText(String text, int index){
-    Color unSelectedTextColor = Utils.isDark(context) ? Colors.white : Colours.text_normal;
+    Color unSelectedTextColor = Utils.isDark(context) ? Colors.white : Colours.dark_text_gray;
     return SelectedText(
       text,
       fontSize: 15.0,

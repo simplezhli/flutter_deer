@@ -70,7 +70,7 @@ class GoodsItem extends StatelessWidget {
                                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
                                 margin: const EdgeInsets.only(right: 4.0),
                                 decoration: BoxDecoration(
-                                  color: Colours.text_red,
+                                  color: Theme.of(context).errorColor,
                                   borderRadius: BorderRadius.circular(2.0),
                                 ),
                                 height: 16.0,
@@ -90,7 +90,7 @@ class GoodsItem extends StatelessWidget {
                               child: Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
                                 decoration: BoxDecoration(
-                                  color: Colours.app_main,
+                                  color: Theme.of(context).primaryColor,
                                   borderRadius: BorderRadius.circular(2.0),
                                 ),
                                 height: 16.0,
@@ -126,9 +126,9 @@ class GoodsItem extends StatelessWidget {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 30.0),
-                        child: const Text(
+                        child: Text(
                           "特产美味",
-                          style: TextStyles.textGray12,
+                          style: Theme.of(context).textTheme.subtitle,
                         ),
                       )
                     ],
@@ -145,6 +145,7 @@ class GoodsItem extends StatelessWidget {
                 animation: animation,
                 builder:(_, child){
                   Color buttonColor = Utils.getBackgroundColor(context);
+                  bool isDark = Utils.isDark(context);
                   return MenuReveal(
                     revealPercent: animation.value,
                     child: InkWell(
@@ -162,7 +163,7 @@ class GoodsItem extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(24.0),
                               ),
                             ),
-                            textTheme: const TextTheme(
+                            textTheme: TextTheme(
                                 button: TextStyle(
                                   fontSize: Dimens.font_sp16,
                                 )
@@ -174,8 +175,8 @@ class GoodsItem extends StatelessWidget {
                               Gaps.hGap15,
                               FlatButton(
                                 key: Key('goods_edit_item_$index'),
-                                textColor: Colors.white,
-                                color: Colours.app_main,
+                                textColor: isDark ?  Colours.dark_button_text : Colors.white,
+                                color: isDark ?  Colours.dark_app_main : Colours.app_main,
                                 child: const Text("编辑"),
                                 onPressed: onTapEdit,
                               ),

@@ -53,6 +53,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
   
   @override
   Widget build(BuildContext context) {
+    Color textColor = Theme.of(context).primaryColor;
     return Scaffold(//创建透明层
       backgroundColor: Colors.transparent,//透明类型
       body: AnimatedContainer(
@@ -62,7 +63,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
         curve: Curves.easeInCubic,
         child: Container(
             decoration: BoxDecoration(
-              color: Utils.getBackgroundColor(context),
+              color: Utils.getDialogBackgroundColor(context),
               borderRadius: BorderRadius.circular((8.0)),
             ),
             width: 280.0,
@@ -150,7 +151,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                           padding: const EdgeInsets.symmetric(horizontal: 24.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: List.generate(_codeList.length, (i) => _buildInputWidget(i))
+                            children: List.generate(_codeList.length, (i) => _buildInputWidget(i, textColor))
                           ),
                         ),
                       ),
@@ -164,7 +165,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                   height: 48.0,
                   child: FlatButton(
                     child: Text(_isClick ? "获取验证码" : "已发送($s s)", style: TextStyle(fontSize: Dimens.font_sp18)),
-                    textColor: Colours.app_main,
+                    textColor: textColor,
                     disabledTextColor: Colours.text_gray,
                     onPressed: _isClick ? (){
                       setState(() {
@@ -187,13 +188,13 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
     );
   }
 
-  Widget _buildInputWidget(int p){
+  Widget _buildInputWidget(int p, Color textColor){
     return Container(
         height: 32.0,
         width: 32.0,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          border: Border.all(width: 0.6, color: _codeList[p].isNotEmpty ? Colours.app_main : Colours.text_gray_c),
+          border: Border.all(width: 0.6, color: _codeList[p].isNotEmpty ? textColor : Colours.text_gray_c),
           borderRadius: BorderRadius.circular(4.0),
         ),
         child: Text(_codeList[p], style: TextStyle(fontSize: Dimens.font_sp18),)

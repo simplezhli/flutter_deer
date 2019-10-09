@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/utils.dart';
 
 class MyCard extends StatelessWidget {
@@ -20,14 +19,15 @@ class MyCard extends StatelessWidget {
   Widget build(BuildContext context) {
     Color _backgroundColor;
     Color _shadowColor;
+    bool isDark = Utils.isDark(context);
     if (color == null){
-      _backgroundColor = Utils.getBackgroundColor(context);
+      _backgroundColor = isDark ? Color(0xFF242526) : Colors.white;
     }else{
       _backgroundColor = color;
     }
 
     if (shadowColor == null){
-      _shadowColor = Utils.isDark(context) ? Colours.dark_bg_gray : const Color(0x80DCE7FA);
+      _shadowColor = isDark ? Colors.transparent : const Color(0x80DCE7FA);
     }else{
       _shadowColor = shadowColor;
     }

@@ -48,7 +48,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    final Color _iconColor = Utils.getDarkColor(context, Colors.white);
+    final Color _iconColor = Utils.getDarkColor(context, Colours.dark_text);
     return ChangeNotifierProvider<GoodsPageProvider>(
       builder: (_) => provider,
       child: Scaffold(
@@ -125,8 +125,8 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 labelStyle: TextStyles.textBold18,
                 indicatorSize: TabBarIndicatorSize.label,
                 labelPadding: const EdgeInsets.only(left: 16.0),
-                unselectedLabelColor: Utils.isDark(context) ? Colours.text_gray : Colours.text_dark,
-                labelColor: Colours.app_main,
+                unselectedLabelColor: Utils.isDark(context) ? Colours.text_gray : Colours.text,
+                labelColor: Theme.of(context).primaryColor,
                 indicatorPadding: const EdgeInsets.only(left: 12.0, right: 36.0),
                 tabs: <Widget>[
                   const _TabView("在售", " (3件)", 0),
@@ -172,6 +172,11 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
       Offset.zero & overlay.size,
     );
     final RenderBox body = _bodyKey.currentContext.findRenderObject();
+
+    TextStyle textStyle = TextStyle(
+      fontSize: Dimens.font_sp14,
+      color: Theme.of(context).primaryColor,
+    );
     showPopupWindow(
       context: context,
       fullWidth: true,
@@ -202,11 +207,11 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                       children: <Widget>[
                         Text(
                           _sortList[index],
-                          style: index == _sortIndex ? TextStyles.textMain14 : null,
+                          style: index == _sortIndex ? textStyle : null,
                         ),
                         Text(
                           "($index)",
-                          style: index == _sortIndex ? TextStyles.textMain14 : null,
+                          style: index == _sortIndex ? textStyle : null,
                         ),
                       ],
                     ),
@@ -238,7 +243,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
       Offset.zero & overlay.size,
     );
     final Color backgroundColor = Utils.getBackgroundColor(context);
-    final Color _iconColor = Utils.getDarkColor(context, Colors.white);
+    final Color _iconColor = Utils.getDarkColor(context, Colours.dark_text);
     showPopupWindow(
       context: context,
       fullWidth: false,

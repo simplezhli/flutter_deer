@@ -27,7 +27,7 @@ class _MessagePageState extends State<MessagePage> {
           return Column(
             children: <Widget>[
               Gaps.vGap15,
-              Text("2019-5-31 17:19:36", style: TextStyles.textGray12),
+              Text("2019-5-31 17:19:36", style: Theme.of(context).textTheme.subtitle),
               Gaps.vGap8,
               MyCard(
                 child: Padding(

@@ -45,7 +45,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle textTextStyle = Utils.isDark(context) ? TextStyles.textWhite12 : TextStyles.textDark12;
+    final TextStyle textTextStyle = Utils.isDark(context) ? TextStyles.textDark12 : TextStyles.text12;
 
     return WillPopScope(
       onWillPop: (){
@@ -85,7 +85,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                           children: <Widget>[
                             Text(_data.typeName),
                             Gaps.vGap8,
-                            Text(_data.name, style: TextStyles.textGray12),
+                            Text(_data.name, style: Theme.of(context).textTheme.subtitle),
                           ],
                         ),
                       ),
@@ -113,7 +113,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                           width: 15.0,
                           height: 40.0,
                           padding: const EdgeInsets.symmetric(vertical: 8.0),
-                          child: LoadAssetImage("account/rmb", color: Utils.getDarkColor(context, Colors.white),)
+                          child: LoadAssetImage("account/rmb", color: Utils.getDarkColor(context, Colours.dark_text),)
                         ),
                         Gaps.hGap8,
                         Expanded(
@@ -146,12 +146,15 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text("最多可提现70元", style: TextStyles.textGray12),
+                        Text("最多可提现70元", style: Theme.of(context).textTheme.subtitle),
                         InkWell(
                           onTap: (){
                             _controller.text = "70";
                           },
-                          child: const Text("全部提现", style: TextStyles.textMain12)
+                          child: Text("全部提现", style: TextStyle(
+                            fontSize: Dimens.font_sp12,
+                            color: Theme.of(context).primaryColor,
+                          ))
                         )
                       ],
                     ),

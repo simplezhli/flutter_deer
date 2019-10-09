@@ -60,7 +60,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
 
   @override
   Widget build(BuildContext context) {
-    _unSelectedTextColor = Utils.isDark(context) ? Colors.white : Colours.text_normal;
+    _unSelectedTextColor = Utils.isDark(context) ? Colors.white : Colours.dark_text_gray;
     return Scaffold(
       appBar: MyAppBar(
         centerTitle: widget.index == 1 ? "订单统计" : "交易额统计",
@@ -146,7 +146,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                             child: Container(
                               height: 27.0,
                               alignment: Alignment.topCenter,
-                              child: LoadAssetImage("statistic/${_isExpanded ? "up" : "down"}", width: 16.0, color: Utils.getDarkColor(context, Colors.white),),
+                              child: LoadAssetImage("statistic/${_isExpanded ? "up" : "down"}", width: 16.0, color: Utils.getDarkColor(context, Colours.dark_text),),
                             ),
                           ) : Gaps.empty,
                     ],
@@ -166,7 +166,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                         Gaps.vGap16,
                         _buildChart(const Color(0xFFFFAA33), const Color(0x80FFAA33), "完成订单", "2000"),
                         Gaps.vGap16,
-                        _buildChart(Colours.text_red, const Color(0x80FF4759), "取消订单", "1000"),
+                        _buildChart(Theme.of(context).errorColor, const Color(0x80FF4759), "取消订单", "1000"),
                         Gaps.vGap16,
                       ],
                     )
@@ -281,7 +281,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
     List<Widget> widgets = [];
     _weeks.forEach((str){
       widgets.add(Center(
-        child: Text(str, style: TextStyles.textGray12),
+        child: Text(str, style: Theme.of(context).textTheme.subtitle),
       ));
     });
     return widgets;

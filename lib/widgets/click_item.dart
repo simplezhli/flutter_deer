@@ -10,7 +10,6 @@ class ClickItem extends StatelessWidget {
     @required this.title,
     this.content: "",
     this.textAlign: TextAlign.start,
-    this.style: TextStyles.textGray14,
     this.maxLines: 1
   }): super(key: key);
 
@@ -18,7 +17,6 @@ class ClickItem extends StatelessWidget {
   final String title;
   final String content;
   final TextAlign textAlign;
-  final TextStyle style;
   final int maxLines;
 
   @override
@@ -55,7 +53,7 @@ class ClickItem extends StatelessWidget {
                   maxLines: maxLines,
                   textAlign: maxLines == 1 ? TextAlign.right : textAlign,
                   overflow: TextOverflow.ellipsis,
-                  style: style
+                  style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: 14.0)
                 ),
               ),
             ),

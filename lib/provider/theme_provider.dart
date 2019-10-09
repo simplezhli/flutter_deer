@@ -32,24 +32,28 @@ class ThemeProvider extends ChangeNotifier {
     }
 
     return ThemeData(
+      errorColor: isDarkMode ? Colours.dark_text_red : Colours.text_red,
       brightness: isDarkMode ? Brightness.dark : Brightness.light,
-      primaryColor: Colours.app_main,
-      accentColor: Colours.app_main,
+      primaryColor: isDarkMode ? Colours.dark_app_main : Colours.app_main,
+      accentColor: isDarkMode ? Colours.dark_app_main : Colours.app_main,
       // Tab指示器颜色
-      indicatorColor: Colours.app_main,
-      // 背景色
-      canvasColor: isDarkMode ? Colours.dark_bg_color : Colors.white,
+      indicatorColor: isDarkMode ? Colours.dark_app_main : Colours.app_main,
+      // 页面背景色
+      scaffoldBackgroundColor: isDarkMode ? Colours.dark_bg_color : Colors.white,
+      // 主要用于Material背景色
+      canvasColor: isDarkMode ? Colours.dark_material_bg : Colors.white,
       // 文字选择色（输入框复制粘贴菜单）
       textSelectionColor: Colours.app_main.withAlpha(70),
       textSelectionHandleColor: Colours.app_main,
       textTheme: TextTheme(
         // TextField输入文字颜色
-        subhead: isDarkMode ? TextStyles.textWhite14 : TextStyles.textDark14,
+        subhead: isDarkMode ? TextStyles.textDark : TextStyles.text,
         // Text文字样式
-        body1: isDarkMode ? TextStyles.textWhite14 : TextStyles.textDark14,
+        body1: isDarkMode ? TextStyles.textDark : TextStyles.text,
+        subtitle: isDarkMode ? TextStyles.textDarkGray12 : TextStyles.textGray12,
       ),
       inputDecorationTheme: InputDecorationTheme(
-          hintStyle: TextStyles.textGray14
+        hintStyle: isDarkMode ? TextStyles.textHint14 : TextStyles.textDarkGray14,
       ),
       appBarTheme: AppBarTheme(
         elevation: 0.0,

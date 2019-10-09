@@ -59,14 +59,14 @@ class _WithdrawalRecordListPageState extends State<WithdrawalRecordListPage> {
             Positioned(
                 bottom: 0.0,
                 left: 0.0,
-                child: Text(i % 2 == 0 ? "12:40:20" : "12:50:20", style: TextStyles.textGray12)
+                child: Text(i % 2 == 0 ? "12:40:20" : "12:50:20", style: Theme.of(context).textTheme.subtitle)
             ),
             Positioned(
                 bottom: 0.0,
                 right: 0.0,
-                child: Text(i % 2 == 0 ? "审核失败" : "待审核", style: i % 2 == 0 ? const TextStyle(
+                child: Text(i % 2 == 0 ? "审核失败" : "待审核", style: i % 2 == 0 ? TextStyle(
                     fontSize: 12.0,
-                    color: Colours.text_red
+                    color: Theme.of(context).errorColor
                 ) : const TextStyle(
                     fontSize: 12.0,
                     color: Color(0xFFFF8547)

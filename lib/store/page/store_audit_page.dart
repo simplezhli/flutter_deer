@@ -120,10 +120,10 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
             ),
           ),
           Gaps.vGap10,
-          const Center(
-            child: const Text(
+          Center(
+            child: Text(
               "店主手持身份证或营业执照",
-              style: TextStyles.textGray14,
+              style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: 14.0),
             ),
           ),
           Gaps.vGap16,

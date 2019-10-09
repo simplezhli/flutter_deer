@@ -53,20 +53,23 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
     super.dispose();
   }
 
+  bool isDark = false;
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    isDark = Utils.isDark(context);
     return ChangeNotifierProvider<OrderPageProvider>(
       builder: (_) => provider,
       child: Scaffold(
         body: Stack(
           children: <Widget>[
             /// 像素对齐问题的临时解决方法
-            const SafeArea(
-              child: const SizedBox(
+            SafeArea(
+              child: SizedBox(
                 height: 105,
                 width: double.infinity,
-                child: const DecoratedBox(
+                child: isDark ? null : const DecoratedBox(
                     decoration: BoxDecoration(
                         gradient: LinearGradient(colors: const [Color(0xFF5793FA), Color(0xFF4647FA)])
                     )
@@ -108,9 +111,10 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
                 NavigatorUtils.push(context, OrderRouter.orderSearchPage);
               },
               tooltip: '搜索',
-              icon: const LoadAssetImage("order/icon_search",
+              icon: LoadAssetImage("order/icon_search",
                 width: 22.0,
                 height: 22.0,
+                color: Utils.getDarkColor(context, Colours.dark_text),
               ),
             )
           ],
@@ -120,8 +124,8 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
           expandedHeight: 100.0,
           floating: false, // 不随着滑动隐藏标题
           pinned: true, // 固定在顶部
-          flexibleSpace: const MyFlexibleSpaceBar(
-            background: const LoadAssetImage("order/order_bg",
+          flexibleSpace: MyFlexibleSpaceBar(
+            background: isDark ? Container(height: 113.0, color: Colours.dark_bg_color,) : const LoadAssetImage("order/order_bg",
               width: double.infinity,
               height: 113.0,
               fit: BoxFit.fill,
@@ -129,7 +133,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
             centerTitle: true,
             titlePadding: const EdgeInsetsDirectional.only(start: 16.0, bottom: 14.0),
             collapseMode: CollapseMode.pin,
-            title: const Text('订单'),
+            title: Text('订单', style: TextStyle(color: Utils.getDarkColor(context, Colours.dark_text)),),
           ),
         ),
       ),
@@ -138,10 +142,11 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
         delegate: SliverAppBarDelegate(
             DecoratedBox(
               decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: ImageUtils.getAssetImage("order/order_bg1"),
-                      fit: BoxFit.fill
-                  )
+                color: isDark ? Colours.dark_bg_color : null,
+                image: isDark ? null : DecorationImage(
+                  image: ImageUtils.getAssetImage("order/order_bg1"),
+                  fit: BoxFit.fill
+                )
               ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -152,8 +157,8 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
                     child: TabBar(
                       labelPadding: const EdgeInsets.symmetric(horizontal: 0),
                       controller: _tabController,
-                      labelColor: Utils.isDark(context) ? Colors.white : Colours.text_dark,
-                      unselectedLabelColor: Utils.isDark(context) ? Colours.text_gray : Colours.text_dark,
+                      labelColor: Utils.isDark(context) ? Colours.dark_text : Colours.text,
+                      unselectedLabelColor: Utils.isDark(context) ? Colours.dark_text_gray : Colours.text,
                       labelStyle: TextStyles.textBold14,
                       unselectedLabelStyle: const TextStyle(
                         fontSize: Dimens.font_sp14,
@@ -226,7 +231,7 @@ class _TabView extends StatelessWidget {
         right: 0.0,
         child: index < 3 ? DecoratedBox(
           decoration: BoxDecoration(
-            color: Colours.text_red,
+            color: Theme.of(context).errorColor,
             borderRadius: BorderRadius.circular(11.0),
           ),
           child: Padding(

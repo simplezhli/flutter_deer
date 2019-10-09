@@ -1,5 +1,6 @@
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 
@@ -76,7 +77,7 @@ class _StateLayoutState extends State<StateLayout> {
           Gaps.vGap16,
           Text(
             widget.hintText ?? _hintText,
-            style: TextStyles.textGray14,
+            style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: 14.0),
           ),
           Gaps.vGap50,
         ],

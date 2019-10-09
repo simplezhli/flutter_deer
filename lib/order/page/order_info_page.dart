@@ -20,6 +20,8 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
   
   @override
   Widget build(BuildContext context) {
+    Color red = Theme.of(context).errorColor;
+    Color blue = Theme.of(context).primaryColor;
     return Scaffold(
       appBar: MyAppBar(
         actionName: '订单跟踪',
@@ -126,14 +128,14 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                                             overflow: TextOverflow.ellipsis,
                                         ),
                                         Gaps.vGap4,
-                                        Text(index % 2 == 0 ? "玫瑰香 520ml" : "125ml", style: TextStyles.textGray12),
+                                        Text(index % 2 == 0 ? "玫瑰香 520ml" : "125ml", style: Theme.of(context).textTheme.subtitle),
                                         Gaps.vGap8,
                                         Row(
                                           children: <Widget>[
                                             Container(
                                               padding: const EdgeInsets.symmetric(horizontal: 8.0),
                                               decoration: BoxDecoration(
-                                                color: Colours.text_red,
+                                                color: red,
                                                 borderRadius: BorderRadius.circular(2.0),
                                               ),
                                               height: 16.0,
@@ -149,7 +151,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                                               child: Container(
                                                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                                                 decoration: BoxDecoration(
-                                                  color: Colours.app_main,
+                                                  color: blue,
                                                   borderRadius: BorderRadius.circular(2.0),
                                                 ),
                                                 height: 16.0,
@@ -179,10 +181,10 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                       Gaps.vGap8,
                       getGoodsInfoItem("共2件商品", "¥50"),
                       getGoodsInfoItem("配送费", "¥5"),
-                      getGoodsInfoItem("立减", "-¥2.5", contentTextColor: Colours.text_red),
-                      getGoodsInfoItem("优惠券", "-¥2.5", contentTextColor: Colours.text_red),
-                      getGoodsInfoItem("社区币抵扣", "-¥2.5", contentTextColor: Colours.text_red),
-                      getGoodsInfoItem("佣金", "-¥1", contentTextColor: Colours.text_red),
+                      getGoodsInfoItem("立减", "-¥2.5", contentTextColor: red),
+                      getGoodsInfoItem("优惠券", "-¥2.5", contentTextColor: red),
+                      getGoodsInfoItem("社区币抵扣", "-¥2.5", contentTextColor: red),
+                      getGoodsInfoItem("佣金", "-¥1", contentTextColor: red),
                       Gaps.line,
                       Gaps.vGap8,
                       getGoodsInfoItem("合计", "¥46.5"),
@@ -212,6 +214,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
             left: 0.0,
             right: 0.0,
             child: Material(
+              color: Utils.getBackgroundColor(context),
               child: SafeArea(
                 child: Container(
                   height: 60.0,
@@ -243,7 +246,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                         Expanded(
                           flex: 1,
                           child: FlatButton(
-                            color: Colours.app_main,
+                            color: blue,
                             textColor: Colors.white,
                             child: const Text(
                               "接单",
@@ -271,7 +274,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
       padding: const EdgeInsets.symmetric(vertical: 4.0),
       child: Row(
         children: <Widget>[
-          Text(title, style: TextStyles.textGray14),
+          Text(title, style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: 14.0)),
           Gaps.hGap8,
           Text(content)
         ],
@@ -279,7 +282,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
     );
   }
   
-  Widget getGoodsInfoItem(String title, String content, {Color contentTextColor = Colours.text_dark}){
+  Widget getGoodsInfoItem(String title, String content, {Color contentTextColor}){
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(
@@ -287,7 +290,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
         children: <Widget>[
           Text(title),
           Text(content, style: TextStyle(
-            color: contentTextColor,
+            color: contentTextColor ?? Theme.of(context).textTheme.body1.color,
             fontWeight: FontWeight.bold
           ))
         ],
@@ -313,7 +316,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                   Utils.launchTelURL(phone);
                   NavigatorUtils.goBack(context);
                 },
-                textColor: Colours.text_red,
+                textColor: Theme.of(context).errorColor,
                 child: const Text('拨打'),
               ),
             ],

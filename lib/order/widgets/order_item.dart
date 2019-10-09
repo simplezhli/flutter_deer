@@ -23,7 +23,8 @@ class OrderItem extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    final TextStyle textTextStyle = Utils.isDark(context) ? TextStyles.textWhite12 : TextStyles.textDark12;
+    final TextStyle textTextStyle = Theme.of(context).textTheme.body1.copyWith(fontSize: 12.0);
+    bool isDark = Utils.isDark(context);
     return Container(
       margin: const EdgeInsets.only(top: 8.0),
       child: MyCard(
@@ -41,11 +42,11 @@ class OrderItem extends StatelessWidget {
                     Expanded(
                       child: Text("15000000000（郭李）"),
                     ),
-                    const Text(
+                    Text(
                       "货到付款",
                       style: TextStyle(
                           fontSize: Dimens.font_sp12,
-                          color: Colours.text_red
+                          color: Theme.of(context).errorColor
                       ),
                     ),
                   ],
@@ -53,7 +54,7 @@ class OrderItem extends StatelessWidget {
                 Gaps.vGap8,
                 Text(
                   "西安市雁塔区 鱼化寨街道唐兴路唐兴数码3楼318",
-                  style: TextStyles.textGray12,
+                  style: Theme.of(context).textTheme.subtitle,
                 ),
                 Gaps.vGap8,
                 Gaps.line,
@@ -63,7 +64,7 @@ class OrderItem extends StatelessWidget {
                       style: textTextStyle,
                       children: <TextSpan>[
                         TextSpan(text: '清凉一度抽纸'),
-                        TextSpan(text: '  x1', style: TextStyles.textGray12),
+                        TextSpan(text: '  x1', style: Theme.of(context).textTheme.subtitle),
                       ],
                     )
                 ),
@@ -73,7 +74,7 @@ class OrderItem extends StatelessWidget {
                       style: textTextStyle,
                       children: <TextSpan>[
                         TextSpan(text: '清凉一度抽纸'),
-                        TextSpan(text: '  x2', style: TextStyles.textGray12),
+                        TextSpan(text: '  x2', style: Theme.of(context).textTheme.subtitle),
                       ],
                     )
                 ),
@@ -86,7 +87,7 @@ class OrderItem extends StatelessWidget {
                             style: textTextStyle,
                             children: <TextSpan>[
                               TextSpan(text: '¥20.00'),
-                              TextSpan(text: '  共3件商品', style: TextStyles.textGray10),
+                              TextSpan(text: '  共3件商品', style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: 10.0)),
                             ],
                           )
                       ),
@@ -105,7 +106,7 @@ class OrderItem extends StatelessWidget {
                     OrderItemButton(
                       key: Key("order_button_1_$index"),
                       text: "联系客户",
-                      textColor: Colours.text_dark,
+                      textColor: Colours.text,
                       bgColor: Colours.bg_gray,
                       onTap: (){
                         _showCallPhoneDialog(context, "15000000000");
@@ -117,7 +118,7 @@ class OrderItem extends StatelessWidget {
                     OrderItemButton(
                       key: Key("order_button_2_$index"),
                       text: Constant.orderLeftButtonText[tabIndex],
-                      textColor: Colours.text_dark,
+                      textColor: Colours.text,
                       bgColor: Colours.bg_gray,
                       onTap: (){
                         if (tabIndex >= 2){
@@ -130,8 +131,8 @@ class OrderItem extends StatelessWidget {
                     OrderItemButton(
                       key: Key("order_button_3_$index"),
                       text: Constant.orderRightButtonText[tabIndex],
-                      textColor: Colors.white,
-                      bgColor: Colours.app_main,
+                      textColor: isDark ?  Colours.dark_button_text : Colors.white,
+                      bgColor: isDark ?  Colours.dark_app_main : Colours.app_main,
                       onTap: (){
                         if (tabIndex == 2){
                           showDialog(
@@ -176,7 +177,7 @@ class OrderItem extends StatelessWidget {
                   Utils.launchTelURL(phone);
                   NavigatorUtils.goBack(context);
                 },
-                textColor: Colours.text_red,
+                textColor: Theme.of(context).errorColor,
                 child: const Text('拨打'),
               ),
             ],
