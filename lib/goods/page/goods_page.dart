@@ -267,6 +267,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
               width: 120.0,
               height: 40.0,
               child: FlatButton.icon(
+                textColor: Theme.of(context).textTheme.body1.color,
                 onPressed: (){
                   NavigatorUtils.push(context, '${GoodsRouter.goodsEditPage}?isAdd=true&isScan=true', replace: true);
                 },
@@ -283,6 +284,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
               width: 120.0,
               height: 40.0,
               child: FlatButton.icon(
+                textColor: Theme.of(context).textTheme.body1.color,
                 color: backgroundColor,
                 onPressed: (){
                   NavigatorUtils.push(context, '${GoodsRouter.goodsEditPage}?isAdd=true', replace: true);

@@ -92,6 +92,7 @@ flutter:
     - assets/images/store/
     - assets/images/state/
     - assets/images/order/
+    - assets/images/order/dark/
     - assets/images/login/
     - assets/images/goods/
     - assets/images/shop/

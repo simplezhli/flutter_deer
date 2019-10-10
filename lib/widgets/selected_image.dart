@@ -2,7 +2,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/image_utils.dart';
+import 'package:flutter_deer/util/utils.dart';
 
 class SelectedImage extends StatelessWidget {
 
@@ -31,6 +33,7 @@ class SelectedImage extends StatelessWidget {
           image: DecorationImage(
             image: image == null ? ImageUtils.getAssetImage("store/icon_zj") : FileImage(image),
             fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(Utils.isDark(context) ? Colours.dark_bg_gray_ : null, BlendMode.srcIn)
           ),
         ),
       ),

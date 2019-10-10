@@ -22,6 +22,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
   Widget build(BuildContext context) {
     Color red = Theme.of(context).errorColor;
     Color blue = Theme.of(context).primaryColor;
+    bool isDark = Utils.isDark(context);
     return Scaffold(
       appBar: MyAppBar(
         actionName: '订单跟踪',
@@ -231,8 +232,8 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                         Expanded(
                           flex: 1,
                           child: FlatButton(
-                            color: const Color(0xFFE1EAFA),
-                            textColor: Colours.app_main,
+                            color: isDark ? Colours.dark_material_bg : const Color(0xFFE1EAFA),
+                            textColor: isDark ? Colours.dark_text : Colours.app_main,
                             child: const Text(
                               "拒单",
                               style: TextStyle(
@@ -247,7 +248,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                           flex: 1,
                           child: FlatButton(
                             color: blue,
-                            textColor: Colors.white,
+                            textColor: isDark ? Colours.dark_button_text : Colors.white,
                             child: const Text(
                               "接单",
                               style: TextStyle(

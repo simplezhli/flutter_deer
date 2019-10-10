@@ -144,14 +144,14 @@ class GoodsItem extends StatelessWidget {
             child: AnimatedBuilder(
                 animation: animation,
                 builder:(_, child){
-                  Color buttonColor = Utils.getBackgroundColor(context);
                   bool isDark = Utils.isDark(context);
+                  Color buttonColor = isDark ? Colours.dark_text : Colors.white;
                   return MenuReveal(
                     revealPercent: animation.value,
                     child: InkWell(
                       onTap: onTapMenuClose,
                       child: Container(
-                        color: const Color(0x4D000000),
+                        color: isDark ? const Color(0xB34D4D4D) : const Color(0x4D000000),
                         child: Theme( // 修改button默认的最小宽度与padding
                           data: Theme.of(context).copyWith(
                             buttonTheme: ButtonThemeData(
@@ -182,12 +182,14 @@ class GoodsItem extends StatelessWidget {
                               ),
                               FlatButton(
                                 key: Key('goods_operation_item_$index'),
+                                textColor: Colours.text,
                                 color: buttonColor,
                                 child: const Text("下架"),
                                 onPressed: onTapOperation,
                               ),
                               FlatButton(
                                 key: Key('goods_delete_item_$index'),
+                                textColor: Colours.text,
                                 color: buttonColor,
                                 child: const Text("删除"),
                                 onPressed: onTapDelete,

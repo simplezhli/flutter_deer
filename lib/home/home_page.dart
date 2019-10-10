@@ -19,8 +19,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
   var _pageList;
-  var _tabImages;
-  var _tabImagesDark;
+  
   var _appBarTitles = ['订单', '商品', '统计', '店铺'];
   final _pageController = PageController();
 
@@ -42,66 +41,75 @@ class _HomeState extends State<Home> {
       StatisticsPage(),
       ShopPage(),
     ];
+  }
 
-    _tabImagesDark = [
-      [
-        const LoadAssetImage("home/icon_order", width: 25.0),
-        const LoadAssetImage("home/icon_order", width: 25.0, color: Colours.dark_app_main,),
-      ],
-      [
-        const LoadAssetImage("home/icon_commodity", width: 25.0),
-        const LoadAssetImage("home/icon_commodity", width: 25.0, color: Colours.dark_app_main,),
-      ],
-      [
-        const LoadAssetImage("home/icon_statistics", width: 25.0),
-        const LoadAssetImage("home/icon_statistics", width: 25.0, color: Colours.dark_app_main,),
-      ],
-      [
-        const LoadAssetImage("home/icon_shop", width: 25.0),
-        const LoadAssetImage("home/icon_shop", width: 25.0, color: Colours.dark_app_main,),
-      ]
-    ];
-    
-    _tabImages = [
-      [
-        const LoadAssetImage("home/icon_order", width: 25.0, color: Colours.unselected_item_color,),
-        const LoadAssetImage("home/icon_order", width: 25.0, color: Colours.app_main,),
-      ],
-      [
-        const LoadAssetImage("home/icon_commodity", width: 25.0, color: Colours.unselected_item_color,),
-        const LoadAssetImage("home/icon_commodity", width: 25.0, color: Colours.app_main,),
-      ],
-      [
-        const LoadAssetImage("home/icon_statistics", width: 25.0, color: Colours.unselected_item_color,),
-        const LoadAssetImage("home/icon_statistics", width: 25.0, color: Colours.app_main,),
-      ],
-      [
-        const LoadAssetImage("home/icon_shop", width: 25.0, color: Colours.unselected_item_color,),
-        const LoadAssetImage("home/icon_shop", width: 25.0, color: Colours.app_main,),
-      ]
-    ];
+  List<BottomNavigationBarItem> _buildBottomNavigationBarItem(){
+    if (_list == null){
+      var _tabImages = [
+        [
+          const LoadAssetImage("home/icon_order", width: 25.0, color: Colours.unselected_item_color,),
+          const LoadAssetImage("home/icon_order", width: 25.0, color: Colours.app_main,),
+        ],
+        [
+          const LoadAssetImage("home/icon_commodity", width: 25.0, color: Colours.unselected_item_color,),
+          const LoadAssetImage("home/icon_commodity", width: 25.0, color: Colours.app_main,),
+        ],
+        [
+          const LoadAssetImage("home/icon_statistics", width: 25.0, color: Colours.unselected_item_color,),
+          const LoadAssetImage("home/icon_statistics", width: 25.0, color: Colours.app_main,),
+        ],
+        [
+          const LoadAssetImage("home/icon_shop", width: 25.0, color: Colours.unselected_item_color,),
+          const LoadAssetImage("home/icon_shop", width: 25.0, color: Colours.app_main,),
+        ]
+      ];
+      _list = List.generate(4, (i){
+        return BottomNavigationBarItem(
+            icon: _tabImages[i][0],
+            activeIcon: _tabImages[i][1],
+            title: Padding(
+              padding: const EdgeInsets.only(top: 1.5),
+              child: Text(_appBarTitles[i], key: Key(_appBarTitles[i]),),
+            )
+        );
+      });
+    }
+    return _list;
+  }
 
-    _list = List.generate(4, (i){
-      return BottomNavigationBarItem(
-          icon: _tabImages[i][0],
-          activeIcon: _tabImages[i][1],
-          title: Padding(
-            padding: const EdgeInsets.only(top: 1.5),
-            child: Text(_appBarTitles[i], key: Key(_appBarTitles[i]),),
-          )
-      );
-    });
+  List<BottomNavigationBarItem> _buildDarkBottomNavigationBarItem(){
+    if (_listDark == null){
+      var _tabImagesDark = [
+        [
+          const LoadAssetImage("home/icon_order", width: 25.0),
+          const LoadAssetImage("home/icon_order", width: 25.0, color: Colours.dark_app_main,),
+        ],
+        [
+          const LoadAssetImage("home/icon_commodity", width: 25.0),
+          const LoadAssetImage("home/icon_commodity", width: 25.0, color: Colours.dark_app_main,),
+        ],
+        [
+          const LoadAssetImage("home/icon_statistics", width: 25.0),
+          const LoadAssetImage("home/icon_statistics", width: 25.0, color: Colours.dark_app_main,),
+        ],
+        [
+          const LoadAssetImage("home/icon_shop", width: 25.0),
+          const LoadAssetImage("home/icon_shop", width: 25.0, color: Colours.dark_app_main,),
+        ]
+      ];
 
-    _listDark = List.generate(4, (i){
-      return BottomNavigationBarItem(
-          icon: _tabImagesDark[i][0],
-          activeIcon: _tabImagesDark[i][1],
-          title: Padding(
-            padding: const EdgeInsets.only(top: 1.5),
-            child: Text(_appBarTitles[i], key: Key(_appBarTitles[i]),),
-          )
-      );
-    });
+      _listDark = List.generate(4, (i){
+        return BottomNavigationBarItem(
+            icon: _tabImagesDark[i][0],
+            activeIcon: _tabImagesDark[i][1],
+            title: Padding(
+              padding: const EdgeInsets.only(top: 1.5),
+              child: Text(_appBarTitles[i], key: Key(_appBarTitles[i]),),
+            )
+        );
+      });
+    }
+    return _listDark;
   }
 
   DateTime  _lastTime;
@@ -128,7 +136,7 @@ class _HomeState extends State<Home> {
             builder: (_, provider, __){
               return BottomNavigationBar(
                 backgroundColor: Utils.getBackgroundColor(context),
-                items: isDark ? _listDark : _list,
+                items: isDark ? _buildDarkBottomNavigationBarItem() : _buildBottomNavigationBarItem(),
                 type: BottomNavigationBarType.fixed,
                 currentIndex: provider.value,
                 elevation: 5.0,
@@ -136,7 +144,7 @@ class _HomeState extends State<Home> {
                 selectedFontSize: Dimens.font_sp10,
                 unselectedFontSize: Dimens.font_sp10,
                 selectedItemColor: Theme.of(context).primaryColor,
-                unselectedItemColor: isDark ? const Color(0xFF4D4D4D) : Colours.unselected_item_color,
+                unselectedItemColor: isDark ? Colours.dark_bg_gray_ : Colours.unselected_item_color,
                 onTap: (index){
                   _pageController.jumpToPage(index);
                 },

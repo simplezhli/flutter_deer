@@ -165,11 +165,11 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
                       ),
                       indicatorColor: Colors.transparent,
                       tabs: const <Widget>[
-                        const _TabView(0, "order/xdd_s", "order/xdd_n", '新订单'),
-                        const _TabView(1, "order/dps_s", "order/dps_n", '待配送'),
-                        const _TabView(2, "order/dwc_s", "order/dwc_n", '待完成'),
-                        const _TabView(3, "order/ywc_s", "order/ywc_n", '已完成'),
-                        const _TabView(4, "order/yqx_s", "order/yqx_n", '已取消'),
+                        const _TabView(0, '新订单'),
+                        const _TabView(1, '待配送'),
+                        const _TabView(2, '待完成'),
+                        const _TabView(3, '已完成'),
+                        const _TabView(4, '已取消'),
                       ],
                       onTap: (index){
                         if (!mounted){
@@ -195,17 +195,32 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
   }
 }
 
+var img = [
+  ["order/xdd_s", "order/xdd_n"],
+  ["order/dps_s", "order/dps_n"],
+  ["order/dwc_s", "order/dwc_n"],
+  ["order/ywc_s", "order/ywc_n"],
+  ["order/yqx_s", "order/yqx_n"]
+];
+
+var darkImg = [
+  ["order/dark/icon_xdd_s", "order/dark/icon_xdd_n"],
+  ["order/dark/icon_dps_s", "order/dark/icon_dps_n"],
+  ["order/dark/icon_dwc_s", "order/dark/icon_dwc_n"],
+  ["order/dark/icon_ywc_s", "order/dark/icon_ywc_n"],
+  ["order/dark/icon_yqx_s", "order/dark/icon_yqx_n"]
+];
+
 class _TabView extends StatelessWidget {
 
-  const _TabView(this.index, this.selImg, this.unImg, this.text);
+  const _TabView(this.index, this.text);
 
   final int index;
-  final String selImg;
-  final String unImg;
   final String text;
   
   @override
   Widget build(BuildContext context) {
+    var imgList = Utils.isDark(context) ? darkImg : img;
     return Consumer<OrderPageProvider>(
       builder: (_, provider, child){
         int selectIndex = provider.index;
@@ -217,7 +232,7 @@ class _TabView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  LoadAssetImage(selectIndex == index ? selImg : unImg, width: 24.0, height: 24.0,),
+                  LoadAssetImage(selectIndex == index ? imgList[index][0] : imgList[index][1], width: 24.0, height: 24.0,),
                   Gaps.vGap4,
                   Text(text)
                 ],

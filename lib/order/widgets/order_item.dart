@@ -106,8 +106,8 @@ class OrderItem extends StatelessWidget {
                     OrderItemButton(
                       key: Key("order_button_1_$index"),
                       text: "联系客户",
-                      textColor: Colours.text,
-                      bgColor: Colours.bg_gray,
+                      textColor: isDark ? Colours.dark_text : Colours.text,
+                      bgColor: isDark ? Colours.dark_material_bg : Colours.bg_gray,
                       onTap: (){
                         _showCallPhoneDialog(context, "15000000000");
                       },
@@ -118,8 +118,8 @@ class OrderItem extends StatelessWidget {
                     OrderItemButton(
                       key: Key("order_button_2_$index"),
                       text: Constant.orderLeftButtonText[tabIndex],
-                      textColor: Colours.text,
-                      bgColor: Colours.bg_gray,
+                      textColor: isDark ? Colours.dark_text : Colours.text,
+                      bgColor: isDark ? Colours.dark_material_bg : Colours.bg_gray,
                       onTap: (){
                         if (tabIndex >= 2){
                           NavigatorUtils.push(context, OrderRouter.orderTrackPage);
@@ -131,8 +131,8 @@ class OrderItem extends StatelessWidget {
                     OrderItemButton(
                       key: Key("order_button_3_$index"),
                       text: Constant.orderRightButtonText[tabIndex],
-                      textColor: isDark ?  Colours.dark_button_text : Colors.white,
-                      bgColor: isDark ?  Colours.dark_app_main : Colours.app_main,
+                      textColor: isDark ? Colours.dark_button_text : Colors.white,
+                      bgColor: isDark ? Colours.dark_app_main : Colours.app_main,
                       onTap: (){
                         if (tabIndex == 2){
                           showDialog(

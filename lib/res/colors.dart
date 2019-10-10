@@ -30,9 +30,10 @@ class Colours {
   static const Color button_disabled = Color(0xFF96BBFA);
   static const Color dark_text_disabled = Color(0xFFCEDBF2);
   static const Color dark_button_disabled = Color(0xFF83A5E0);
-  
 
   static const Color bg_gray_ = Color(0xFFFAFAFA);
+  static const Color dark_bg_gray_ = Color(0xFF4D4D4D);
+  
   static const Color unselected_item_color = Color(0xffbfbfbf);
 }
 
