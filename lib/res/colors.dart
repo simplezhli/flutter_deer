@@ -6,6 +6,8 @@ class Colours {
 
   static const Color bg_color = Color(0xfff1f1f1);
   static const Color dark_bg_color = Color(0xFF18191A);
+
+  static const Color material_bg = Color(0xFFFFFFFF);
   static const Color dark_material_bg = Color(0xFF303233);
 
   static const Color text = Color(0xFF333333);
@@ -23,17 +25,19 @@ class Colours {
   static const Color line = Color(0xFFEEEEEE);
   static const Color dark_line = Color(0xFF3A3C3D);
 
-  static const Color text_red = Color(0xFFFF4759);
-  static const Color dark_text_red = Color(0xFFE03E4E);
+  static const Color red = Color(0xFFFF4759);
+  static const Color dark_red = Color(0xFFE03E4E);
   
   static const Color text_disabled = Color(0xFFD4E2FA);
-  static const Color button_disabled = Color(0xFF96BBFA);
   static const Color dark_text_disabled = Color(0xFFCEDBF2);
+
+  static const Color button_disabled = Color(0xFF96BBFA);
   static const Color dark_button_disabled = Color(0xFF83A5E0);
 
-  static const Color bg_gray_ = Color(0xFFFAFAFA);
-  static const Color dark_bg_gray_ = Color(0xFF4D4D4D);
-  
   static const Color unselected_item_color = Color(0xffbfbfbf);
+  static const Color dark_unselected_item_color = Color(0xFF4D4D4D);
+
+  static const Color bg_gray_ = Color(0xFFFAFAFA);
+  static const Color dark_bg_gray_ = Color(0xFF242526);
 }
 

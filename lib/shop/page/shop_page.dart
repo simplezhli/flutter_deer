@@ -24,6 +24,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
   
   var menuTitle = ["账户流水", "资金管理", "提现账号"];
   var menuImage = ["zhls", "zjgl", "txzh"];
+  var menuDarkImage = ["dark_zhls", "dark_zjgl", "dark_txzh"];
 
   UserProvider provider = UserProvider();
   
@@ -132,7 +133,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          LoadAssetImage("shop/${menuImage[index]}", width: 32.0),
+                          LoadAssetImage(Utils.isDark(context) ? "shop/${menuDarkImage[index]}" : "shop/${menuImage[index]}", width: 32.0),
                           Gaps.vGap4,
                           Text(
                             menuTitle[index],
@@ -178,7 +179,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          const LoadAssetImage("shop/dpsz", width: 32.0),
+                          LoadAssetImage(Utils.isDark(context) ? "shop/dark_dpsz" : "shop/dpsz", width: 32.0),
                           Gaps.vGap4,
                           const Text(
                             "店铺设置",

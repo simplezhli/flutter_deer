@@ -144,7 +144,7 @@ class _HomeState extends State<Home> {
                 selectedFontSize: Dimens.font_sp10,
                 unselectedFontSize: Dimens.font_sp10,
                 selectedItemColor: Theme.of(context).primaryColor,
-                unselectedItemColor: isDark ? Colours.dark_bg_gray_ : Colours.unselected_item_color,
+                unselectedItemColor: isDark ? Colours.dark_unselected_item_color : Colours.unselected_item_color,
                 onTap: (index){
                   _pageController.jumpToPage(index);
                 },

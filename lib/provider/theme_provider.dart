@@ -32,7 +32,7 @@ class ThemeProvider extends ChangeNotifier {
     }
 
     return ThemeData(
-      errorColor: isDarkMode ? Colours.dark_text_red : Colours.text_red,
+      errorColor: isDarkMode ? Colours.dark_red : Colours.red,
       brightness: isDarkMode ? Brightness.dark : Brightness.light,
       primaryColor: isDarkMode ? Colours.dark_app_main : Colours.app_main,
       accentColor: isDarkMode ? Colours.dark_app_main : Colours.app_main,

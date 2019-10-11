@@ -122,7 +122,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
               Gaps.vGap16,
               Flexible(
                 child: Container(
-                  color: Utils.isDark(context) ? Colours.dark_bg_gray : Colours.bg_gray_,
+                  color: Utils.isDark(context) ? Colours.dark_bg_gray_ : Colours.bg_gray_,
                   padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: _selectedIndex != 1 ? 4.0 : 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,

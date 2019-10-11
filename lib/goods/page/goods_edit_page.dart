@@ -127,7 +127,9 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
                         Positioned(
                           right: 16.0,
                           child: GestureDetector(
-                            child: const LoadAssetImage("goods/scanning", width: 16.0, height: 16.0),
+                            child: Utils.isDark(context) ? 
+                            const LoadAssetImage("goods/icon_sm", width: 16.0, height: 16.0) : 
+                            const LoadAssetImage("goods/scanning", width: 16.0, height: 16.0),
                             onTap: _scan,
                           ),
                         )

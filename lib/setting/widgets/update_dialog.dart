@@ -56,7 +56,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Container(
-                  height: 140.0,
+                  height: 120.0,
                   width: 280.0,
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.only(topLeft: const Radius.circular(8.0), topRight: const Radius.circular(8.0)),
@@ -67,7 +67,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
                   )
                 ),
                 const Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                  padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 16.0),
                   child: const Text("新版本更新", style: TextStyles.textSize16),
                 ),
                 Padding(

@@ -78,6 +78,6 @@ class TextStyles {
   
   static const TextStyle textHint14 = const TextStyle(
     fontSize: Dimens.font_sp14,
-    color: Colours.dark_bg_gray_
+    color: Colours.dark_unselected_item_color
   );
 }

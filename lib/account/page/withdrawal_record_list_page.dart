@@ -25,7 +25,7 @@ class _WithdrawalRecordListPageState extends State<WithdrawalRecordListPage> {
             header: Container(
               alignment: Alignment.centerLeft,
               width: double.infinity,
-              color: Utils.isDark(context) ? Colours.dark_bg_gray : Colours.bg_gray_,
+              color: Utils.isDark(context) ? Colours.dark_bg_gray_ : Colours.bg_gray_,
               padding: const EdgeInsets.only(left: 16.0),
               height: 34.0,
               child: Text("2018/06/0${index + 1}"),

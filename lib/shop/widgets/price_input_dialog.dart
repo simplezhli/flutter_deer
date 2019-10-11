@@ -38,7 +38,7 @@ class _PriceInputDialog extends State<PriceInputDialog>{
         height: 34.0,
         margin: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0.0),
         decoration: BoxDecoration(
-          color: Utils.isDark(context) ? Colours.dark_bg_gray : Colours.bg_gray_,
+          color: Utils.isDark(context) ? Colours.dark_bg_gray_ : Colours.bg_gray,
           borderRadius: BorderRadius.circular(2.0),
         ),
         child: TextField(

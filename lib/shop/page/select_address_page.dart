@@ -47,83 +47,83 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
           }
         },
       ),
-      body: Column(
-        children: <Widget>[
-          Expanded(
-            flex: 9,
-            child: AMap2DView(
-              onPoiSearched: (result){
-                _controller.animateTo(0.0, duration: Duration(milliseconds: 10), curve: Curves.ease);
-                _index = 0;
-                _list = result;
-                setState(() {
-                 
-                });
-              },
-              onAMap2DViewCreated: (controller){
-                _aMap2DController = controller;
-              },
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              flex: 9,
+              child: AMap2DView(
+                onPoiSearched: (result){
+                  _controller.animateTo(0.0, duration: Duration(milliseconds: 10), curve: Curves.ease);
+                  _index = 0;
+                  _list = result;
+                  setState(() {
+                   
+                  });
+                },
+                onAMap2DViewCreated: (controller){
+                  _aMap2DController = controller;
+                },
+              ),
             ),
-          ),
-          Expanded(
-            flex: 11,
-            child: 
+            Expanded(
+              flex: 11,
+              child: 
 //            _list.isEmpty ? 
 //              Container(
 //                alignment: Alignment.center,
 //                child: CircularProgressIndicator(),
 //              ) : 
-            ListView.separated(
-                controller: _controller,
-                shrinkWrap: true,
-                itemCount: _list.length,
-                separatorBuilder: (_, index) {
-                  return const Divider();
-                },
-                itemBuilder: (_, index){
-                  return InkWell(
-                    onTap: (){
-                      _index = index;
-                      if (_aMap2DController != null){
-                        _aMap2DController.move(_list[index].latitude, _list[index].longitude);
-                      }
-                      setState(() {
-                      });
-                    },
-                    child: Container(
-                      alignment: Alignment.centerLeft,
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      height: 50.0,
-                      child: Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: Text(
-                              _list[index].provinceName + " " +
-                                  _list[index].cityName + " " +
-                                  _list[index].adName + " " +
-                                  _list[index].title,
+              ListView.separated(
+                  controller: _controller,
+                  shrinkWrap: true,
+                  itemCount: _list.length,
+                  separatorBuilder: (_, index) {
+                    return const Divider();
+                  },
+                  itemBuilder: (_, index){
+                    return InkWell(
+                      onTap: (){
+                        _index = index;
+                        if (_aMap2DController != null){
+                          _aMap2DController.move(_list[index].latitude, _list[index].longitude);
+                        }
+                        setState(() {
+                        });
+                      },
+                      child: Container(
+                        alignment: Alignment.centerLeft,
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        height: 50.0,
+                        child: Row(
+                          children: <Widget>[
+                            Expanded(
+                              child: Text(
+                                _list[index].provinceName + " " +
+                                    _list[index].cityName + " " +
+                                    _list[index].adName + " " +
+                                    _list[index].title,
+                              ),
                             ),
-                          ),
-                          Opacity(
-                              opacity: _index == index ? 1 : 0,
-                              child: Icon(Icons.done, color: Colors.blue)
-                          )
-                        ],
+                            Opacity(
+                                opacity: _index == index ? 1 : 0,
+                                child: Icon(Icons.done, color: Colors.blue)
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                  );
-                }
+                    );
+                  }
+              ),
             ),
-          ),
-          SafeArea(
-            child: MyButton(
+            MyButton(
               onPressed: (){
                 NavigatorUtils.goBackWithParams(context, _list[_index]);
               },
               text: "确认选择地址",
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

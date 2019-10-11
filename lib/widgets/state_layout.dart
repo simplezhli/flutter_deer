@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/image_utils.dart';
+import 'package:flutter_deer/util/utils.dart';
 
 /// design/9暂无状态页面/index.html#artboard3
 class StateLayout extends StatefulWidget {
@@ -64,16 +65,19 @@ class _StateLayoutState extends State<StateLayout> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           widget.type == StateType.loading ? const CupertinoActivityIndicator(radius: 16.0) :
-          (widget.type == StateType.empty ? Gaps.empty :
-          Container(
-            height: 120.0,
-            width: 120.0,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: ImageUtils.getAssetImage("state/$_img"),
+          (widget.type == StateType.empty ? Gaps.empty : 
+          Opacity(
+            opacity: Utils.isDark(context) ? 0.5 : 1,
+            child: Container(
+              height: 120.0,
+              width: 120.0,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: ImageUtils.getAssetImage("state/$_img"),
+                ),
               ),
-            ),
-          )),
+            ))
+          ),
           Gaps.vGap16,
           Text(
             widget.hintText ?? _hintText,
