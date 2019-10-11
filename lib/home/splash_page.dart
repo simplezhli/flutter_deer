@@ -3,11 +3,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/common/common.dart';
+import 'package:flutter_deer/common/themes.dart';
 import 'package:flutter_deer/login/login_router.dart';
+import 'package:flutter_deer/provider/theme_provider.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/log_utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
+import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flustars/flustars.dart';
@@ -29,6 +32,8 @@ class _SplashPageState extends State<SplashPage> {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       Log.init();
       await SpUtil.getInstance();
+      // 由于SpUtil未初始化，所以MaterialApp获取的为默认主题配置，这里同步一下。
+      Provider.of<ThemeProvider>(context).syncTheme();
       if (SpUtil.getBool(Constant.key_guide, defValue: true)){
         /// 预先缓存图片，避免直接使用时因为首次加载造成闪动
         _guideList.forEach((image){

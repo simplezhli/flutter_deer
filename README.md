@@ -128,7 +128,7 @@ iOS需要自行下载代码运行。
 
 - 在1.9.1上，TextField在语言环境为中文时，[光标与输入文字不居中显示](https://github.com/flutter/flutter/issues/40219)，暂时使用Localizations来局部处理此问提。
 
-- 在iOS手机上开启深色模式时，[无法将状态栏文字修改为黑色]("https://github.com/flutter/flutter/issues/41067")。
+- 在iOS手机上开启深色模式时，[无法将状态栏文字修改为黑色](https://github.com/flutter/flutter/issues/41067)。
 
 ## 心得及问题记录
 

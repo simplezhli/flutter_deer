@@ -12,6 +12,13 @@ class ThemeProvider extends ChangeNotifier {
   static const Map<Themes, String> themes = {
     Themes.DARK: "Dark", Themes.LIGHT : "Light", Themes.SYSTEM : "System"
   };
+  
+  void syncTheme(){
+    String theme = SpUtil.getString(Constant.theme);
+    if (theme.isNotEmpty && theme != themes[Themes.SYSTEM]){
+      notifyListeners();
+    }
+  }
 
   void setTheme(Themes theme) {
     SpUtil.putString(Constant.theme, themes[theme]);

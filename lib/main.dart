@@ -12,11 +12,10 @@ import 'package:oktoast/oktoast.dart';
 import 'package:flutter_deer/home/splash_page.dart';
 import 'package:provider/provider.dart';
 
-void main() async {
+void main() {
 //  debugProfileBuildsEnabled = true;
 //  debugPaintLayerBordersEnabled = true;
 //  debugProfilePaintsEnabled = true;
-  await SpUtil.getInstance();
   runApp(MyApp());
   // 透明状态栏
   if (Platform.isAndroid) {
