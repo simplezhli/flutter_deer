@@ -139,7 +139,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "8086ae658f19b45f1fd32a46e677f3abc4051a19"
+      resolved-ref: "04164f82525ded3450dedcd7a555c1ee6e512edc"
       url: "https://github.com/simplezhli/flutter_2d_amap.git"
     source: git
     version: "0.0.1"
@@ -173,7 +173,7 @@ packages:
       name: flutter_slidable
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.5.3"
+    version: "0.5.4"
   flutter_swiper:
     dependency: "direct main"
     description:
@@ -496,7 +496,7 @@ packages:
       name: sqflite
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.1.7"
+    version: "1.1.7+1"
   stack_trace:
     dependency: transitive
     description:

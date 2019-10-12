@@ -47,15 +47,6 @@ class TextStyles {
     color: Colors.white,
   );
   
-  static const TextStyle textDark12 = const TextStyle(
-    fontSize: Dimens.font_sp12,
-    color: Colours.dark_text,
-  );
-  static const TextStyle text12 = const TextStyle(
-    fontSize: Dimens.font_sp12,
-    color: Colours.text,
-  );
-  
   static const TextStyle text = const TextStyle(
     fontSize: Dimens.font_sp14,
     color: Colours.text,

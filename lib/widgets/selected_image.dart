@@ -33,7 +33,7 @@ class SelectedImage extends StatelessWidget {
           image: DecorationImage(
             image: image == null ? ImageUtils.getAssetImage("store/icon_zj") : FileImage(image),
             fit: BoxFit.cover,
-            colorFilter: ColorFilter.mode(Utils.isDark(context) ? Colours.dark_unselected_item_color : null, BlendMode.srcIn)
+            colorFilter: image == null ? ColorFilter.mode(Utils.isDark(context) ? Colours.dark_unselected_item_color : null, BlendMode.srcIn) : null
           ),
         ),
       ),

@@ -3,7 +3,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/common/common.dart';
-import 'package:flutter_deer/common/themes.dart';
 import 'package:flutter_deer/login/login_router.dart';
 import 'package:flutter_deer/provider/theme_provider.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';

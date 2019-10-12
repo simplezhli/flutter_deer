@@ -45,7 +45,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle textTextStyle = Utils.isDark(context) ? TextStyles.textDark12 : TextStyles.text12;
+    final TextStyle textTextStyle = Theme.of(context).textTheme.body1.copyWith(fontSize: 12.0);
 
     return WillPopScope(
       onWillPop: (){

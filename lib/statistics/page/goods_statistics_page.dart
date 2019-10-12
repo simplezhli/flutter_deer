@@ -166,7 +166,8 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                     borderRadius: BorderRadius.circular(4.0),
                     border: Border.all(color: const Color(0xFFF7F8FA), width: 0.6),
                     image: DecorationImage(
-                        image: ImageUtils.getAssetImage("order/icon_goods")
+                      image: ImageUtils.getAssetImage("order/icon_goods"),
+                      fit: BoxFit.fitWidth
                     )
                 ),
               ),
