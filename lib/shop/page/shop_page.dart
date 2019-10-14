@@ -10,7 +10,7 @@ import 'package:flutter_deer/shop/presenter/shop_presenter.dart';
 import 'package:flutter_deer/shop/provider/user_provider.dart';
 import 'package:flutter_deer/shop/shop_router.dart';
 import 'package:flutter_deer/util/image_utils.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:provider/provider.dart';
 
@@ -35,7 +35,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    final Color _iconColor = Utils.getDarkColor(context, Colours.dark_text);
+    final Color _iconColor = ThemeUtils.getIconColor(context);
     return ChangeNotifierProvider<UserProvider>(
       builder: (_) => provider,
       child: Scaffold(
@@ -133,7 +133,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          LoadAssetImage(Utils.isDark(context) ? "shop/${menuDarkImage[index]}" : "shop/${menuImage[index]}", width: 32.0),
+                          LoadAssetImage(ThemeUtils.isDark(context) ? "shop/${menuDarkImage[index]}" : "shop/${menuImage[index]}", width: 32.0),
                           Gaps.vGap4,
                           Text(
                             menuTitle[index],
@@ -179,7 +179,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          LoadAssetImage(Utils.isDark(context) ? "shop/dark_dpsz" : "shop/dpsz", width: 32.0),
+                          LoadAssetImage(ThemeUtils.isDark(context) ? "shop/dark_dpsz" : "shop/dpsz", width: 32.0),
                           Gaps.vGap4,
                           const Text(
                             "店铺设置",

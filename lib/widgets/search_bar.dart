@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'load_image.dart';
@@ -40,13 +40,13 @@ class _SearchBarState extends State<SearchBar> {
   
   @override
   Widget build(BuildContext context) {
-    bool isDark = Utils.isDark(context);
+    bool isDark = ThemeUtils.isDark(context);
     overlayStyle = isDark ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark;
     Color iconColor = isDark ? Colours.dark_text_gray : Colours.text_gray_c;
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: overlayStyle,
       child: Material(
-        color: Utils.getBackgroundColor(context),
+        color: ThemeUtils.getBackgroundColor(context),
         child: SafeArea(
           child: Container(
             child: Row(

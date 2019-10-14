@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/goods/widgets/goods_sort_dialog.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
@@ -127,7 +128,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
                         Positioned(
                           right: 16.0,
                           child: GestureDetector(
-                            child: Utils.isDark(context) ? 
+                            child: ThemeUtils.isDark(context) ? 
                             const LoadAssetImage("goods/icon_sm", width: 16.0, height: 16.0) : 
                             const LoadAssetImage("goods/scanning", width: 16.0, height: 16.0),
                             onTap: _scan,

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/account/models/withdrawal_account_model.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
@@ -175,7 +175,7 @@ class _AccountCardState extends State<AccountCard> {
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.0),
-        boxShadow: Utils.isDark(context) ? null : [
+        boxShadow: ThemeUtils.isDark(context) ? null : [
           BoxShadow(color: widget.type == 1 ? const Color(0x804EE07A) : const Color(0x805793FA), offset: Offset(0.0, 2.0), blurRadius: 8.0, spreadRadius: 0.0),
         ],
         gradient: LinearGradient(

@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 import '../tools/test_utils.dart';
 
-void main() {
+void main([List<String> args = const <String>[]]) {
 
   group('设置部分：', (){
     FlutterDriver driver;
@@ -45,8 +45,24 @@ void main() {
       await delayed();
       await driver.tap(find.byTooltip('Back'));
       await delayed();
-      await driver.tap(find.byTooltip('Back'));
     });
 
+    test("夜间模式页测试",() async {
+      await driver.tap(find.text('夜间模式'));
+      await delayed();
+      await driver.tap(find.text('开启'));
+      await Future.delayed(Duration(seconds: 2));
+      await driver.tap(find.byTooltip('Back'));
+      await delayed();
+      if (args.length == 1){
+        await driver.tap(find.byTooltip('Back'));
+        await delayed();
+        await driver.tap(find.byValueKey('订单'));
+        await delayed();
+        await driver.tap(find.byValueKey('商品'));
+        await delayed();
+        await driver.tap(find.byValueKey('统计'));
+      }
+    });
   });
 }

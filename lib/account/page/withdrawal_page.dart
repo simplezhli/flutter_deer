@@ -4,7 +4,7 @@ import 'package:flutter_deer/account/models/withdrawal_account_model.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/number_text_input_formatter.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
@@ -113,7 +113,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                           width: 15.0,
                           height: 40.0,
                           padding: const EdgeInsets.symmetric(vertical: 8.0),
-                          child: LoadAssetImage("account/rmb", color: Utils.getDarkColor(context, Colours.dark_text),)
+                          child: LoadAssetImage("account/rmb", color: ThemeUtils.getIconColor(context),)
                         ),
                         Gaps.hGap8,
                         Expanded(

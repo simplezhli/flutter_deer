@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 
 /// 自定义AppBar
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
@@ -31,7 +31,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
     Color _backgroundColor;
 
     if (backgroundColor == null){
-      _backgroundColor = Utils.getBackgroundColor(context);
+      _backgroundColor = ThemeUtils.getBackgroundColor(context);
     }else{
       _backgroundColor = backgroundColor;
     }

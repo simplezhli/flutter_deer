@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/date_utils.dart';
 import 'package:flutter_deer/util/image_utils.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
@@ -60,7 +60,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
 
   @override
   Widget build(BuildContext context) {
-    _unSelectedTextColor = Utils.isDark(context) ? Colors.white : Colours.dark_text_gray;
+    _unSelectedTextColor = ThemeUtils.isDark(context) ? Colors.white : Colours.dark_text_gray;
     return Scaffold(
       appBar: MyAppBar(
         centerTitle: widget.index == 1 ? "订单统计" : "交易额统计",
@@ -122,7 +122,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
               Gaps.vGap16,
               Flexible(
                 child: Container(
-                  color: Utils.isDark(context) ? Colours.dark_bg_gray_ : Colours.bg_gray_,
+                  color: ThemeUtils.getStickyHeaderColor(context),
                   padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: _selectedIndex != 1 ? 4.0 : 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -146,7 +146,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                             child: Container(
                               height: 27.0,
                               alignment: Alignment.topCenter,
-                              child: LoadAssetImage("statistic/${_isExpanded ? "up" : "down"}", width: 16.0, color: Utils.getDarkColor(context, Colours.dark_text),),
+                              child: LoadAssetImage("statistic/${_isExpanded ? "up" : "down"}", width: 16.0, color: ThemeUtils.getIconColor(context),),
                             ),
                           ) : Gaps.empty,
                     ],

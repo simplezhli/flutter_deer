@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 
 class SelectedText extends StatelessWidget {
 
@@ -36,7 +36,7 @@ class SelectedText extends StatelessWidget {
         decoration: selected ? BoxDecoration(
             borderRadius: BorderRadius.circular(20.0),
 //            shape: BoxShape.circle,
-            boxShadow: Utils.isDark(context) ? null : const [
+            boxShadow: ThemeUtils.isDark(context) ? null : const [
               BoxShadow(color: Color(0x805793FA), offset: Offset(0.0, 2.0), blurRadius: 8.0, spreadRadius: 0.0),
             ],
             gradient: const LinearGradient(

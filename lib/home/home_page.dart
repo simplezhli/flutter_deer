@@ -6,8 +6,8 @@ import 'package:flutter_deer/order/page/order_page.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/shop/page/shop_page.dart';
 import 'package:flutter_deer/statistics/page/statistics_page.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
-import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:provider/provider.dart';
 
@@ -126,7 +126,7 @@ class _HomeState extends State<Home> {
   
   @override
   Widget build(BuildContext context) {
-    bool isDark = Utils.isDark(context);
+    bool isDark = ThemeUtils.isDark(context);
     return ChangeNotifierProvider<HomeProvider>(
       builder: (_) => provider,
       child: WillPopScope(
@@ -135,7 +135,7 @@ class _HomeState extends State<Home> {
           bottomNavigationBar: Consumer<HomeProvider>(
             builder: (_, provider, __){
               return BottomNavigationBar(
-                backgroundColor: Utils.getBackgroundColor(context),
+                backgroundColor: ThemeUtils.getBackgroundColor(context),
                 items: isDark ? _buildDarkBottomNavigationBarItem() : _buildBottomNavigationBarItem(),
                 type: BottomNavigationBarType.fixed,
                 currentIndex: provider.value,

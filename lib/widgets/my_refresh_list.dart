@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
 
 /// 封装下拉刷新与加载更多
@@ -103,7 +103,7 @@ class MoreWidget extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    final style = Utils.isDark(context) ? TextStyles.textGray14 : const TextStyle(color: Color(0x8A000000));
+    final style = ThemeUtils.isDark(context) ? TextStyles.textGray14 : const TextStyle(color: Color(0x8A000000));
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Row(

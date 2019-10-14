@@ -4,6 +4,7 @@ import 'package:flutter_deer/account/models/bank_model.dart';
 import 'package:flutter_deer/account/models/city_model.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
@@ -144,7 +145,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
             child: Center(
               child: Container(
                 decoration: BoxDecoration(
-                  color: Utils.getDialogBackgroundColor(context),
+                  color: ThemeUtils.getDialogBackgroundColor(context),
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 width: 270.0,

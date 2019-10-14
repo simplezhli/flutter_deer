@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 
 class MyButton extends StatelessWidget {
 
@@ -16,7 +16,7 @@ class MyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isDark = Utils.isDark(context);
+    bool isDark = ThemeUtils.isDark(context);
     return FlatButton(
       onPressed: onPressed,
       textColor: isDark ? Colours.dark_button_text : Colors.white,

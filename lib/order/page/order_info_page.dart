@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
@@ -22,7 +23,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
   Widget build(BuildContext context) {
     Color red = Theme.of(context).errorColor;
     Color blue = Theme.of(context).primaryColor;
-    bool isDark = Utils.isDark(context);
+    bool isDark = ThemeUtils.isDark(context);
     return Scaffold(
       appBar: MyAppBar(
         actionName: '订单跟踪',
@@ -215,7 +216,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
             left: 0.0,
             right: 0.0,
             child: Material(
-              color: Utils.getBackgroundColor(context),
+              color: ThemeUtils.getBackgroundColor(context),
               child: SafeArea(
                 child: Container(
                   height: 60.0,

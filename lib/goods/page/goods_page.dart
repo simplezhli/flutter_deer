@@ -4,8 +4,8 @@ import 'package:flutter_deer/goods/provider/goods_page_provider.dart';
 import 'package:flutter_deer/goods/widgets/goods_list.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
-import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/popup_window.dart';
 import 'package:provider/provider.dart';
@@ -48,7 +48,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    final Color _iconColor = Utils.getDarkColor(context, Colours.dark_text);
+    final Color _iconColor = ThemeUtils.getIconColor(context);
     return ChangeNotifierProvider<GoodsPageProvider>(
       builder: (_) => provider,
       child: Scaffold(
@@ -112,7 +112,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
             Gaps.vGap8,
             Container(
               // 隐藏点击效果
-              color: Utils.getBackgroundColor(context),
+              color: ThemeUtils.getBackgroundColor(context),
               child: TabBar(
                 onTap: (index){
                   if (!mounted){
@@ -125,7 +125,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 labelStyle: TextStyles.textBold18,
                 indicatorSize: TabBarIndicatorSize.label,
                 labelPadding: const EdgeInsets.only(left: 16.0),
-                unselectedLabelColor: Utils.isDark(context) ? Colours.text_gray : Colours.text,
+                unselectedLabelColor: ThemeUtils.isDark(context) ? Colours.text_gray : Colours.text,
                 labelColor: Theme.of(context).primaryColor,
                 indicatorPadding: const EdgeInsets.only(left: 12.0, right: 36.0),
                 tabs: <Widget>[
@@ -193,7 +193,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
             physics: ClampingScrollPhysics(),
             itemCount: _sortList.length + 1,
             itemBuilder: (_, index){
-              Color backgroundColor = Utils.getBackgroundColor(context);
+              Color backgroundColor = ThemeUtils.getBackgroundColor(context);
               return index == _sortList.length ? Container(
                 color: backgroundColor,
                 height: 12.0,
@@ -242,8 +242,8 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
       Rect.fromPoints(a, b),
       Offset.zero & overlay.size,
     );
-    final Color backgroundColor = Utils.getBackgroundColor(context);
-    final Color _iconColor = Utils.getDarkColor(context, Colours.dark_text);
+    final Color backgroundColor = ThemeUtils.getBackgroundColor(context);
+    final Color _iconColor = ThemeUtils.getIconColor(context);
     showPopupWindow(
       context: context,
       fullWidth: false,
@@ -260,7 +260,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
             Padding(
               padding: const EdgeInsets.only(right: 12.0),
               child: LoadAssetImage("goods/jt", width: 8.0, height: 4.0,
-                color: Utils.getDarkColor(context, Colours.dark_bg_color),
+                color: ThemeUtils.getDarkColor(context, Colours.dark_bg_color),
               ),
             ),
             SizedBox(

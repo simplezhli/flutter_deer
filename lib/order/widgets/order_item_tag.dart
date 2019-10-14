@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
 
@@ -26,7 +26,7 @@ class OrderItemTag extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Row(
               children: <Widget>[
-                Utils.isDark(context) ? const LoadAssetImage("order/icon_calendar_dark", width: 14.0, height: 14.0) : 
+                ThemeUtils.isDark(context) ? const LoadAssetImage("order/icon_calendar_dark", width: 14.0, height: 14.0) : 
                 const LoadAssetImage("order/icon_calendar", width: 14.0, height: 14.0),
                 Gaps.hGap10,
                 Text(date),

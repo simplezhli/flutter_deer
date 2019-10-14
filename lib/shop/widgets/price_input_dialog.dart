@@ -1,11 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/number_text_input_formatter.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
-import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/base_dialog.dart';
 
 
@@ -38,7 +37,7 @@ class _PriceInputDialog extends State<PriceInputDialog>{
         height: 34.0,
         margin: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0.0),
         decoration: BoxDecoration(
-          color: Utils.isDark(context) ? Colours.dark_bg_gray_ : Colours.bg_gray,
+          color: ThemeUtils.getDialogTextFieldColor(context),
           borderRadius: BorderRadius.circular(2.0),
         ),
         child: TextField(

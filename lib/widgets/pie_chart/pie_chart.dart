@@ -4,7 +4,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/pie_chart/pie_data.dart';
 
 ///环形图 参考：https://github.com/apgapg/pie_chart
@@ -68,8 +68,8 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
     for (int i = 0; i < widget.data.length; i++){
       count += widget.data[i].number;
     }
-    final bgColor = Utils.getBackgroundColor(context);
-    final shadowColor = Utils.isDark(context) ? Colours.dark_bg_gray : Color(0x80C8DAFA);
+    final bgColor = ThemeUtils.getBackgroundColor(context);
+    final shadowColor = ThemeUtils.isDark(context) ? Colours.dark_bg_gray : Color(0x80C8DAFA);
     return Container(
       decoration: BoxDecoration(
         shape: BoxShape.circle,

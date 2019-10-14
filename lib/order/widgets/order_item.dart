@@ -4,6 +4,7 @@ import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/order/widgets/pay_type_dialog.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
@@ -24,7 +25,7 @@ class OrderItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextStyle textTextStyle = Theme.of(context).textTheme.body1.copyWith(fontSize: 12.0);
-    bool isDark = Utils.isDark(context);
+    bool isDark = ThemeUtils.isDark(context);
     return Container(
       margin: const EdgeInsets.only(top: 8.0),
       child: MyCard(

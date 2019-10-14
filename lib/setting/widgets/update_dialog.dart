@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/image_utils.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
-import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/util/version_utils.dart';
 
 
@@ -47,7 +47,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
         body: Center(
           child: Container(
             decoration: BoxDecoration(
-              color: Utils.getDialogBackgroundColor(context),
+              color: ThemeUtils.getDialogBackgroundColor(context),
               borderRadius: BorderRadius.circular(8.0),
             ),
             width: 280.0,

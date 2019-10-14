@@ -17,6 +17,14 @@ class _ThemePageState extends State<ThemePage> {
   var _list = ["跟随系统", "开启", "关闭"];
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await flutter_stars.SpUtil.getInstance();
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     String theme = flutter_stars.SpUtil.getString(Constant.theme);
     String themeMode;

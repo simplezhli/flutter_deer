@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/colors.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 
 class MyCard extends StatelessWidget {
 
@@ -20,7 +20,7 @@ class MyCard extends StatelessWidget {
   Widget build(BuildContext context) {
     Color _backgroundColor;
     Color _shadowColor;
-    bool isDark = Utils.isDark(context);
+    bool isDark = ThemeUtils.isDark(context);
     if (color == null){
       _backgroundColor = isDark ? Colours.dark_bg_gray_ : Colors.white;
     }else{

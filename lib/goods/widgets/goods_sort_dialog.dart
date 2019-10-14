@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 
 
@@ -108,7 +108,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
             Gaps.line,
             Container(
               // 隐藏点击效果
-              color: Utils.getDialogBackgroundColor(context),
+              color: ThemeUtils.getDialogBackgroundColor(context),
               child: TabBar(
                 controller: _tabController,
                 isScrollable: true,
@@ -134,7 +134,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                   });
                 },
                 indicatorSize: TabBarIndicatorSize.label,
-                unselectedLabelColor: Utils.isDark(context) ? Colours.text_gray : Colours.text,
+                unselectedLabelColor: ThemeUtils.isDark(context) ? Colours.text_gray : Colours.text,
                 labelColor: Theme.of(context).primaryColor,
                 tabs: myTabs,
               ),

@@ -138,7 +138,9 @@ iOS需要自行下载代码运行。
 
 - [Flutter开发中的一些Tips(三)](https://weilu.blog.csdn.net/article/details/100108123)
 
-- [Flutter 动画曲线Curves 效果一览](https://weilu.blog.csdn.net/article/details/95632571)
+- [Flutter适配深色模式（DarkMode）](https://weilu.blog.csdn.net/article/details/102531559)
+
+- [Flutter动画曲线Curves 效果一览](https://weilu.blog.csdn.net/article/details/95632571)
 
 ## Thanks For
 

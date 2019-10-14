@@ -2,7 +2,7 @@
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -33,26 +33,10 @@ class Utils {
     return null;
   }
 
-  static bool isDark(BuildContext context){
-    return Theme.of(context).brightness == Brightness.dark;
-  }
-
-  static Color getDarkColor(BuildContext context, Color darkColor){
-    return isDark(context) ? darkColor : null;
-  }
-
-  static Color getBackgroundColor(BuildContext context){
-    return Theme.of(context).scaffoldBackgroundColor;
-  }
-
-  static Color getDialogBackgroundColor(BuildContext context){
-    return Theme.of(context).canvasColor;
-  }
-
   static KeyboardActionsConfig getKeyboardActionsConfig(BuildContext context, List<FocusNode> list){
     return KeyboardActionsConfig(
       keyboardActionsPlatform: KeyboardActionsPlatform.IOS,
-      keyboardBarColor: isDark(context) ? Colours.dark_bg_color : Colors.grey[200],
+      keyboardBarColor: ThemeUtils.getKeyboardActionsColor(context),
       nextFocus: true,
       actions: List.generate(list.length, (i) => KeyboardAction(
         focusNode: list[i],

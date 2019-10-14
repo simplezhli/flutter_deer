@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/menu_reveal.dart';
 
@@ -144,7 +144,7 @@ class GoodsItem extends StatelessWidget {
             child: AnimatedBuilder(
                 animation: animation,
                 builder:(_, child){
-                  bool isDark = Utils.isDark(context);
+                  bool isDark = ThemeUtils.isDark(context);
                   Color buttonColor = isDark ? Colours.dark_text : Colors.white;
                   return MenuReveal(
                     revealPercent: animation.value,

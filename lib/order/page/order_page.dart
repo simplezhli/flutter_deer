@@ -6,7 +6,7 @@ import 'package:flutter_deer/order/widgets/order_list.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/image_utils.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
 import 'package:flutter_deer/widgets/my_flexible_space_bar.dart';
@@ -58,7 +58,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    isDark = Utils.isDark(context);
+    isDark = ThemeUtils.isDark(context);
     return ChangeNotifierProvider<OrderPageProvider>(
       builder: (_) => provider,
       child: Scaffold(
@@ -114,7 +114,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
               icon: LoadAssetImage("order/icon_search",
                 width: 22.0,
                 height: 22.0,
-                color: Utils.getDarkColor(context, Colours.dark_text),
+                color: ThemeUtils.getIconColor(context),
               ),
             )
           ],
@@ -133,7 +133,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
             centerTitle: true,
             titlePadding: const EdgeInsetsDirectional.only(start: 16.0, bottom: 14.0),
             collapseMode: CollapseMode.pin,
-            title: Text('订单', style: TextStyle(color: Utils.getDarkColor(context, Colours.dark_text)),),
+            title: Text('订单', style: TextStyle(color: ThemeUtils.getIconColor(context)),),
           ),
         ),
       ),
@@ -157,8 +157,8 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
                     child: TabBar(
                       labelPadding: const EdgeInsets.symmetric(horizontal: 0),
                       controller: _tabController,
-                      labelColor: Utils.isDark(context) ? Colours.dark_text : Colours.text,
-                      unselectedLabelColor: Utils.isDark(context) ? Colours.dark_text_gray : Colours.text,
+                      labelColor: ThemeUtils.isDark(context) ? Colours.dark_text : Colours.text,
+                      unselectedLabelColor: ThemeUtils.isDark(context) ? Colours.dark_text_gray : Colours.text,
                       labelStyle: TextStyles.textBold14,
                       unselectedLabelStyle: const TextStyle(
                         fontSize: Dimens.font_sp14,
@@ -220,7 +220,7 @@ class _TabView extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    var imgList = Utils.isDark(context) ? darkImg : img;
+    var imgList = ThemeUtils.isDark(context) ? darkImg : img;
     return Consumer<OrderPageProvider>(
       builder: (_, provider, child){
         int selectIndex = provider.index;
