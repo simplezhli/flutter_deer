@@ -68,11 +68,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                               ],
                             ),
                           ),
-                          const SizedBox(
-                            width: 1.0,
-                            height: 24.0,
-                            child: const VerticalDivider(),
-                          ),
+                          Gaps.vLine,
                           Gaps.hGap16,
                           InkWell(
                             child: const LoadAssetImage("order/icon_phone", width: 24.0, height: 24.0),

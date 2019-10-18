@@ -88,7 +88,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                     },
                   ),
                   Gaps.hGap12,
-                  Container(width: 0.6, height: 24.0, color: Colours.line),
+                  Gaps.vLine,
                   Gaps.hGap12,
                   SelectedText(
                     "${_initialDay.month.toString()}月",
@@ -103,7 +103,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                     },
                   ),
                   Gaps.hGap12,
-                  Container(width: 0.6, height: 24.0, color: Colours.line),
+                  Gaps.vLine,
                   Gaps.hGap12,
                   SelectedText(
                     "${DateUtils.previousWeek(_initialDay)} -${DateUtils.apiDayFormat(_initialDay)}",

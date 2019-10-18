@@ -62,11 +62,11 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                   children: <Widget>[
                     _buildSelectedText(_initialDay.year.toString(), 0),
                     Gaps.hGap12,
-                    Container(width: 0.6, height: 24.0, color: Colours.line),
+                    Gaps.vLine,
                     Gaps.hGap12,
                     _buildSelectedText("${_initialDay.month.toString()}月", 1),
                     Gaps.hGap12,
-                    Container(width: 0.6, height: 24.0, color: Colours.line),
+                    Gaps.vLine,
                     Gaps.hGap12,
                     _buildSelectedText(_type ? "${DateUtils.previousWeek(_initialDay)} -${DateUtils.apiDayFormat(_initialDay)}" : "${_initialDay.day.toString()}日", 2),
                   ],

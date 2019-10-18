@@ -29,6 +29,12 @@ class Gaps {
 //  );
 
   static Widget line = const Divider();
+
+  static Widget vLine = const SizedBox(
+    width: 0.6,
+    height: 24.0,
+    child: const VerticalDivider(),
+  );
   
   static const Widget empty = const SizedBox();
 }

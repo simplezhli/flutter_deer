@@ -33,7 +33,7 @@ class _SplashPageState extends State<SplashPage> {
       await SpUtil.getInstance();
       // 由于SpUtil未初始化，所以MaterialApp获取的为默认主题配置，这里同步一下。
       Provider.of<ThemeProvider>(context).syncTheme();
-      if (SpUtil.getBool(Constant.key_guide, defValue: true)){
+      if (SpUtil.getBool(Constant.keyGuide, defValue: true)){
         /// 预先缓存图片，避免直接使用时因为首次加载造成闪动
         _guideList.forEach((image){
           precacheImage(ImageUtils.getAssetImage(image), context);
@@ -57,8 +57,8 @@ class _SplashPageState extends State<SplashPage> {
 
   void _initSplash(){
     _subscription = Observable.just(1).delay(Duration(milliseconds: 1500)).listen((_){
-      if (SpUtil.getBool(Constant.key_guide, defValue: true)) {
-        SpUtil.putBool(Constant.key_guide, false);
+      if (SpUtil.getBool(Constant.keyGuide, defValue: true)) {
+        SpUtil.putBool(Constant.keyGuide, false);
         _initGuide();
       } else {
         _goLogin();

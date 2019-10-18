@@ -14,7 +14,7 @@ import 'error_handle.dart';
 class AuthInterceptor extends Interceptor{
   @override
   onRequest(RequestOptions options) {
-    String accessToken = SpUtil.getString(Constant.access_Token);
+    String accessToken = SpUtil.getString(Constant.accessToken);
     if (accessToken.isNotEmpty){
       options.headers["Authorization"] = "Bearer $accessToken";
     }
@@ -28,7 +28,7 @@ class TokenInterceptor extends Interceptor{
   Future<String> getToken() async {
 
     Map<String, String> params = Map();
-    params["refresh_token"] = SpUtil.getString(Constant.refresh_Token);
+    params["refresh_token"] = SpUtil.getString(Constant.refreshToken);
     try{
       _tokenDio.options = DioUtils.instance.getDio().options;
       var response = await _tokenDio.post("lgn/refreshToken", data: params);
@@ -52,7 +52,7 @@ class TokenInterceptor extends Interceptor{
       dio.interceptors.requestLock.lock();
       String accessToken = await getToken(); // 获取新的accessToken
       Log.e("-----------NewToken: $accessToken ------------");
-      SpUtil.putString(Constant.access_Token, accessToken);
+      SpUtil.putString(Constant.accessToken, accessToken);
       dio.interceptors.requestLock.unlock();
 
       if (accessToken != null){{
@@ -123,15 +123,15 @@ class LoggingInterceptor extends Interceptor{
 
 class AdapterInterceptor extends Interceptor{
 
-  static const String MSG = "msg";
-  static const String SLASH = "\"";
-  static const String MESSAGE = "message";
+  static const String msg = "msg";
+  static const String slash = "\"";
+  static const String message = "message";
 
-  static const String DEFAULT = "\"无返回信息\"";
-  static const String NOT_FOUND = "未找到查询信息";
+  static const String defaultText = "\"无返回信息\"";
+  static const String notFound = "未找到查询信息";
 
-  static const String FAILURE_FORMAT = "{\"code\":%d,\"message\":\"%s\"}";
-  static const String SUCCESS_FORMAT = "{\"code\":0,\"data\":%s,\"message\":\"\"}";
+  static const String failureFormat = "{\"code\":%d,\"message\":\"%s\"}";
+  static const String successFormat = "{\"code\":0,\"data\":%s,\"message\":\"\"}";
   
   @override
   onResponse(Response response) {
@@ -153,14 +153,14 @@ class AdapterInterceptor extends Interceptor{
     /// 成功时，直接格式化返回
     if (response.statusCode == ExceptionHandle.success || response.statusCode == ExceptionHandle.success_not_content){
       if (content == null || content.isEmpty){
-        content = DEFAULT;
+        content = defaultText;
       }
-      result = sprintf(SUCCESS_FORMAT, [content]);
+      result = sprintf(successFormat, [content]);
       response.statusCode = ExceptionHandle.success;
     }else{
       if (response.statusCode == ExceptionHandle.not_found){
         /// 错误数据格式化后，按照成功数据返回
-        result = sprintf(FAILURE_FORMAT, [response.statusCode, NOT_FOUND]);
+        result = sprintf(failureFormat, [response.statusCode, notFound]);
         response.statusCode = ExceptionHandle.success;
       }else {
         if (content == null || content.isEmpty){
@@ -170,18 +170,18 @@ class AdapterInterceptor extends Interceptor{
           String msg;
           try {
             content = content.replaceAll("\\", "");
-            if (SLASH == content.substring(0, 1)){
+            if (slash == content.substring(0, 1)){
               content = content.substring(1, content.length - 1);
             }
             Map<String, dynamic> map = json.decode(content);
-            if (map.containsKey(MESSAGE)){
-              msg = map[MESSAGE];
-            }else if(map.containsKey(MSG)){
-              msg = map[MSG];
+            if (map.containsKey(message)){
+              msg = map[message];
+            }else if(map.containsKey(msg)){
+              msg = map[msg];
             }else {
               msg = "未知异常";
             }
-            result = sprintf(FAILURE_FORMAT, [response.statusCode, msg]);
+            result = sprintf(failureFormat, [response.statusCode, msg]);
             // 401 token失效时，单独处理，其他一律为成功
             if (response.statusCode == ExceptionHandle.unauthorized){
               response.statusCode = ExceptionHandle.unauthorized;
@@ -191,7 +191,7 @@ class AdapterInterceptor extends Interceptor{
           } catch (e) {
             Log.d("异常信息：$e");
             // 解析异常直接按照返回原数据处理（一般为返回500,503 HTML页面代码）
-            result = sprintf(FAILURE_FORMAT, [response.statusCode, "服务器异常(${response.statusCode})"]);
+            result = sprintf(failureFormat, [response.statusCode, "服务器异常(${response.statusCode})"]);
           }
         }
       }
