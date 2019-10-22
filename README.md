@@ -58,13 +58,13 @@ iOS需要自行下载代码运行。
 
 ## 项目运行环境
 
-    1. Flutter version 1.9.1+hotfix.4
+    1. Flutter version 1.9.1+hotfix.5
      
     2. Dart version 2.5.0
 
 ## 注意事项
 
-- `debug`模式下会有部分卡顿现象，属于正常现象。良好的体验需要打`release` 包。
+- `debug`模式下会有部分卡顿现象，这属于正常现象。良好的体验需要打`release` 包。
     iOS可以执行命令`flutter build ios` 以创建`release`版本。
     Android可以执行命令`flutter build apk` 以创建`release`版本。
 
