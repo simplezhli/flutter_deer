@@ -58,7 +58,7 @@ iOS需要自行下载代码运行。
 
 ## 项目运行环境
 
-    1. Flutter version 1.9.1+hotfix.5
+    1. Flutter version 1.9.1+hotfix.6
      
     2. Dart version 2.5.0
 
@@ -126,7 +126,7 @@ iOS需要自行下载代码运行。
 
 - 输入框在不设置`obscureText`属性的情况下(false)，无法弹出密码模式键盘。(暂时使用`BlacklistingTextInputFormatter`去除可能会输入的中文)
 
-- 在1.9.1上，TextField在语言环境为中文时，[光标与输入文字不居中显示](https://github.com/flutter/flutter/issues/40219)，暂时使用Localizations来局部处理此问提。
+- 在1.9.1上，TextField在语言环境为中文时，[光标与输入文字不居中显示](https://github.com/flutter/flutter/issues/40219)，可暂时使用`textBaseline: TextBaseline.alphabetic` 处理此问提。
 
 - 在iOS手机上开启深色模式时，[无法将状态栏文字修改为黑色](https://github.com/flutter/flutter/issues/41067)。
 

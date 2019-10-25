@@ -50,10 +50,13 @@ class TextStyles {
   static const TextStyle text = const TextStyle(
     fontSize: Dimens.font_sp14,
     color: Colours.text,
+    // https://github.com/flutter/flutter/issues/40248
+    textBaseline: TextBaseline.alphabetic
   );
   static const TextStyle textDark = const TextStyle(
     fontSize: Dimens.font_sp14,
     color: Colours.dark_text,
+    textBaseline: TextBaseline.alphabetic
   );
 
   static const TextStyle textGray12 = const TextStyle(

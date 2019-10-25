@@ -77,38 +77,30 @@ class _SearchBarState extends State<SearchBar> {
                       color: isDark ? Colours.dark_material_bg : Colours.bg_gray,
                       borderRadius: BorderRadius.circular(4.0),
                     ),
-                    child: Localizations(
-                      locale: const Locale("en", ""),
-                      delegates: [
-                        GlobalMaterialLocalizations.delegate,
-                        GlobalWidgetsLocalizations.delegate,
-                        GlobalCupertinoLocalizations.delegate,
-                      ],
-                      child: TextField(
-                        key: const Key('srarch_text_field'),
-                        autofocus: true,
-                        controller: _controller,
-                        maxLines: 1,
-                        decoration: InputDecoration(
-                          contentPadding: const EdgeInsets.only(top: 6.0, left: -8.0, right: -16.0, bottom: 6.0),
-                          border: InputBorder.none,
-                          icon: Padding(
-                            padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 8.0),
-                            child: LoadAssetImage("order/order_search", color: iconColor,),
+                    child: TextField(
+                      key: const Key('srarch_text_field'),
+                      autofocus: true,
+                      controller: _controller,
+                      maxLines: 1,
+                      decoration: InputDecoration(
+                        contentPadding: const EdgeInsets.only(top: 6.0, left: -8.0, right: -16.0, bottom: 6.0),
+                        border: InputBorder.none,
+                        icon: Padding(
+                          padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 8.0),
+                          child: LoadAssetImage("order/order_search", color: iconColor,),
+                        ),
+                        hintText: widget.hintText,
+                        suffixIcon: InkWell(
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 16.0, top: 8.0, bottom: 8.0),
+                            child: LoadAssetImage("order/order_delete", color: iconColor),
                           ),
-                          hintText: widget.hintText,
-                          suffixIcon: InkWell(
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 16.0, top: 8.0, bottom: 8.0),
-                              child: LoadAssetImage("order/order_delete", color: iconColor),
-                            ),
-                            onTap: (){
-                              /// https://github.com/flutter/flutter/issues/35909
-                              SchedulerBinding.instance.addPostFrameCallback((_) {
-                                _controller.text = "";
-                              });
-                            },
-                          ),
+                          onTap: (){
+                            /// https://github.com/flutter/flutter/issues/35909
+                            SchedulerBinding.instance.addPostFrameCallback((_) {
+                              _controller.text = "";
+                            });
+                          },
                         ),
                       ),
                     ),

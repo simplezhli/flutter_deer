@@ -102,41 +102,33 @@ class _MyTextFieldState extends State<MyTextField> {
     return Stack(
       alignment: Alignment.centerRight,
       children: <Widget>[
-        Localizations(
-          locale: const Locale("en", ""),
-          delegates: [
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          child: TextField(
-            focusNode: widget.focusNode,
-            maxLength: widget.maxLength,
-            obscureText: widget.isInputPwd ? !_isShowPwd : false,
-            autofocus: widget.autoFocus,
-            controller: widget.controller,
-            textInputAction: TextInputAction.done,
-            keyboardType: widget.keyboardType,
-            // 数字、手机号限制格式为0到9(白名单)， 密码限制不包含汉字（黑名单）
-            inputFormatters: (widget.keyboardType == TextInputType.number || widget.keyboardType == TextInputType.phone) ? 
-            [WhitelistingTextInputFormatter(RegExp("[0-9]"))] : [BlacklistingTextInputFormatter(RegExp("[\u4e00-\u9fa5]"))],
-            decoration: InputDecoration(
-                contentPadding: const EdgeInsets.symmetric(vertical: 16.0),
-                hintText: widget.hintText,
-                counterText: "",
-                focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                        color: themeData.primaryColor,
-                        width: 0.8
-                    )
-                ),
-                enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Theme.of(context).dividerTheme.color,
-                        width: 0.8
-                    )
-                )
-            ),
+        TextField(
+          focusNode: widget.focusNode,
+          maxLength: widget.maxLength,
+          obscureText: widget.isInputPwd ? !_isShowPwd : false,
+          autofocus: widget.autoFocus,
+          controller: widget.controller,
+          textInputAction: TextInputAction.done,
+          keyboardType: widget.keyboardType,
+          // 数字、手机号限制格式为0到9(白名单)， 密码限制不包含汉字（黑名单）
+          inputFormatters: (widget.keyboardType == TextInputType.number || widget.keyboardType == TextInputType.phone) ? 
+          [WhitelistingTextInputFormatter(RegExp("[0-9]"))] : [BlacklistingTextInputFormatter(RegExp("[\u4e00-\u9fa5]"))],
+          decoration: InputDecoration(
+              contentPadding: const EdgeInsets.symmetric(vertical: 16.0),
+              hintText: widget.hintText,
+              counterText: "",
+              focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(
+                      color: themeData.primaryColor,
+                      width: 0.8
+                  )
+              ),
+              enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(
+                      color: Theme.of(context).dividerTheme.color,
+                      width: 0.8
+                  )
+              )
           ),
         ),
         Row(
