@@ -36,7 +36,7 @@ class _SettingPageState extends State<SettingPage> {
     }
 
     return Scaffold(
-      appBar: MyAppBar(
+      appBar: const MyAppBar(
         centerTitle: "设置",
       ),
       body: Column(

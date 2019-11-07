@@ -57,7 +57,7 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(),
+      appBar: const MyAppBar(),
       body: defaultTargetPlatform == TargetPlatform.iOS ? FormKeyboardActions(
         child: _buildBody(),
       ) : SingleChildScrollView(

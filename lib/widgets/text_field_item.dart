@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/number_text_input_formatter.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
 
 /// 封装输入框

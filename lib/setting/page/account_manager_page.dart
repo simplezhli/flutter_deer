@@ -17,7 +17,7 @@ class _AccountManagerPageState extends State<AccountManagerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
+      appBar: const MyAppBar(
         centerTitle: "账号管理",
       ),
       body: Column(

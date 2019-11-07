@@ -6,11 +6,11 @@ class WidgetNotFound extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       appBar: MyAppBar(
         centerTitle: "页面不存在",
       ),
-      body: const StateLayout(
+      body: StateLayout(
         type: StateType.account,
         hintText: "页面不存在",
       ),
