@@ -26,7 +26,13 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.only(top: 21.0, left: 16.0, right: 16.0),
-                child: Text("订单编号：14562364879"),
+                child: Row(
+                  children: <Widget>[
+                    const Text("订单编号："),
+                    // 可选择文本组件（复制）
+                    SelectableText("14562364879", maxLines: 1,)
+                  ],
+                )
               ),
               Stepper(
                 physics: BouncingScrollPhysics(),

@@ -365,7 +365,7 @@ packages:
       name: path_provider
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.4.0"
+    version: "1.4.2"
   pedantic:
     dependency: transitive
     description:
@@ -435,7 +435,7 @@ packages:
       name: shared_preferences
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.5.4+3"
+    version: "0.5.4+5"
   shelf:
     dependency: transitive
     description:
@@ -524,7 +524,7 @@ packages:
       name: sticky_headers
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.1.8"
+    version: "0.1.8+1"
   stream_channel:
     dependency: transitive
     description:
@@ -601,7 +601,7 @@ packages:
       name: uuid
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.0.2"
+    version: "2.0.4"
   vector_math:
     dependency: transitive
     description:

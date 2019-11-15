@@ -96,8 +96,9 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
   _buildChart(){
     return AspectRatio(
       aspectRatio: 1.30,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 24.0),
+      // 百分比布局
+      child: FractionallySizedBox(
+        heightFactor: 0.8,
         child: PieChart(
           name: _type ? "待配货" : "已配货",
           data: _getRandomData(),
