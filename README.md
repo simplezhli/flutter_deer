@@ -52,7 +52,7 @@
 
 具体可以下载体验：
 
-Android版安装包：[点击下载](https://www.pgyer.com/gYXj)
+Android版安装包：[点击下载](https://www.pgyer.com/gYXj)，安装密码：`111111`。
 
 iOS需要自行下载代码运行。
 

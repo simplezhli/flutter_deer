@@ -107,7 +107,7 @@ packages:
       name: dio
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "3.0.4"
+    version: "3.0.5"
   file:
     dependency: transitive
     description:
@@ -139,7 +139,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "81b03e2bc503ae8fc8cf3c2ccd7a0a1e65683604"
+      resolved-ref: baf5e859c52425610bff551646504d69a9d9f220
       url: "https://github.com/simplezhli/flutter_2d_amap.git"
     source: git
     version: "0.0.1"
