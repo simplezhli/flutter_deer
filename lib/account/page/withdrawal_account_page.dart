@@ -80,7 +80,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                       Positioned(
                         top: 48.0,
                         left: 72.0,
-                        child: Text(_list[index].name, style: TextStyle(color: Colors.white, fontSize: 12.0)),
+                        child: Text(_list[index].name, style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp12)),
                       ),
                       Positioned(
                         bottom: 24.0,

@@ -47,9 +47,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                         top: 16.0,
                         bottom: 16.0,
                         child: InkWell(
-                          onTap: (){
-                            NavigatorUtils.goBack(context);
-                          },
+                          onTap: () => NavigatorUtils.goBack(context),
                           child: const SizedBox(
                             key: const Key('close'),
                             height: 16.0,

@@ -72,9 +72,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                           Gaps.hGap16,
                           InkWell(
                             child: const LoadAssetImage("order/icon_phone", width: 24.0, height: 24.0),
-                            onTap: (){
-                              _showCallPhoneDialog("15000000000");
-                            },
+                            onTap: () => _showCallPhoneDialog("15000000000"),
                           )
                         ],
                       ),
@@ -272,7 +270,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
       padding: const EdgeInsets.symmetric(vertical: 4.0),
       child: Row(
         children: <Widget>[
-          Text(title, style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: 14.0)),
+          Text(title, style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14)),
           Gaps.hGap8,
           Text(content)
         ],

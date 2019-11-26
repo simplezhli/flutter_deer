@@ -78,7 +78,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                   SelectedText(
                     _initialDay.year.toString(),
                     key: const Key('year'),
-                    fontSize: 15.0,
+                    fontSize: Dimens.font_sp15,
                     selected: _selectedIndex == 0,
                     unSelectedTextColor: _unSelectedTextColor,
                     onTap: (){
@@ -93,7 +93,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                   SelectedText(
                     "${_initialDay.month.toString()}月",
                     key: const Key('month'),
-                    fontSize: 15.0,
+                    fontSize: Dimens.font_sp15,
                     selected: _selectedIndex == 1,
                     unSelectedTextColor: _unSelectedTextColor,
                     onTap: (){
@@ -108,7 +108,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                   SelectedText(
                     "${DateUtils.previousWeek(_initialDay)} -${DateUtils.apiDayFormat(_initialDay)}",
                     key: const Key('day'),
-                    fontSize: 15.0,
+                    fontSize: Dimens.font_sp15,
                     selected: _selectedIndex == 2,
                     unSelectedTextColor: _unSelectedTextColor,
                     onTap: (){

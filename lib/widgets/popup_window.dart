@@ -117,9 +117,7 @@ class _PopupWindowRoute<T> extends PopupRoute<T> {
           return Material(
             type: MaterialType.transparency,
             child: GestureDetector(
-              onTap: (){
-                NavigatorUtils.goBack(context);
-              },
+              onTap: () => NavigatorUtils.goBack(context),
               child: Container(
                 width: double.infinity,
                 height: double.infinity,

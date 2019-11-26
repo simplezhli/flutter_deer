@@ -90,9 +90,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                 ),
                 Positioned(
                   child: InkWell(
-                    onTap: (){
-                      NavigatorUtils.goBack(context);
-                    },
+                    onTap: () => NavigatorUtils.goBack(context),
                     child: const SizedBox(
                       height: 16.0,
                       width: 16.0,

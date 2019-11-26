@@ -104,16 +104,14 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
                 child: RichText(
                   text: TextSpan(
                     text: '提示：未注册账号的手机号，请先',
-                    style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: 14.0),
+                    style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14),
                     children: <TextSpan>[
                       TextSpan(text: '注册', style: TextStyle(color: Theme.of(context).errorColor)),
                       TextSpan(text: '。'),
                     ],
                   ),
                 ),
-                onTap: (){
-                  NavigatorUtils.push(context, LoginRouter.registerPage);
-                },
+                onTap: () => NavigatorUtils.push(context, LoginRouter.registerPage),
               )
           ),
           Gaps.vGap15,
@@ -130,9 +128,7 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
                 '忘记密码',
                 style: Theme.of(context).textTheme.subtitle,
               ),
-              onTap: (){
-                NavigatorUtils.push(context, LoginRouter.resetPasswordPage);
-              },
+              onTap: () => NavigatorUtils.push(context, LoginRouter.resetPasswordPage),
             ),
           )
         ],

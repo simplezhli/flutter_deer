@@ -125,9 +125,7 @@ class _LoginPageState extends State<LoginPage> {
                 '忘记密码',
                 style: Theme.of(context).textTheme.subtitle,
               ),
-              onTap: (){
-                NavigatorUtils.push(context, LoginRouter.resetPasswordPage);
-              },
+              onTap: () => NavigatorUtils.push(context, LoginRouter.resetPasswordPage),
             ),
           ),
           Gaps.vGap16,
@@ -140,9 +138,7 @@ class _LoginPageState extends State<LoginPage> {
                       color: Theme.of(context).primaryColor
                   ),
                 ),
-                onTap: (){
-                  NavigatorUtils.push(context, LoginRouter.registerPage);
-                },
+                onTap: () => NavigatorUtils.push(context, LoginRouter.registerPage),
               )
           )
         ],

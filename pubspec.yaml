@@ -18,7 +18,7 @@ dependencies:
   # Toast插件 https://github.com/OpenFlutter/flutter_oktoast
   oktoast: ^2.2.0
   # 网络库 https://github.com/flutterchina/dio
-  dio: ^3.0.5
+  dio: ^3.0.6
   # https://github.com/ReactiveX/rxdart
   rxdart: ^0.22.5
   # Dart 常用工具类库 https://github.com/Sky24n/common_utils
@@ -44,7 +44,7 @@ dependencies:
   # 用于日历功能 https://github.com/apptreesoftware/date_utils
   # date_utils: ^0.1.0+2
   # 手势识别 https://github.com/aleksanderwozniak/simple_gesture_detector
-  simple_gesture_detector: ^0.1.3
+  simple_gesture_detector: ^0.1.4
   # 曲线图表 https://github.com/aeyrium/bezier-chart
   # bezier_chart: ^1.0.7
   # 路由框架 https://github.com/theyakka/fluro

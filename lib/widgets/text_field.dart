@@ -139,9 +139,7 @@ class _MyTextFieldState extends State<MyTextField> {
                 width: 18.0,
                 height: 18.0,
               ),
-              onTap: (){
-                widget.controller.text = "";
-              },
+              onTap: () => widget.controller.text = "",
             ),
             !widget.isInputPwd ? Gaps.empty : Gaps.hGap15,
             !widget.isInputPwd ? Gaps.empty : GestureDetector(

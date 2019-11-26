@@ -51,9 +51,7 @@ class _ThemePageState extends State<ThemePage> {
           },
           itemBuilder: (_, index){
             return InkWell(
-              onTap: (){
-                Provider.of<ThemeProvider>(context).setTheme(index == 0 ? Themes.SYSTEM : (index == 1 ? Themes.DARK : Themes.LIGHT));
-              },
+              onTap: () => Provider.of<ThemeProvider>(context).setTheme(index == 0 ? Themes.SYSTEM : (index == 1 ? Themes.DARK : Themes.LIGHT)),
               child: Container(
                 alignment: Alignment.centerLeft,
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),

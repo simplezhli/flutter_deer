@@ -104,9 +104,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                   );
                 },
               ),
-              onTap: (){
-                _showSortMenu();
-              },
+              onTap: () => _showSortMenu(),
             ),
             Gaps.vGap16,
             Gaps.vGap8,
@@ -183,9 +181,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
       position: position,
       elevation: 0.0,
       child: GestureDetector(
-        onTap: (){
-          NavigatorUtils.goBack(context);
-        },
+        onTap: () => NavigatorUtils.goBack(context),
         child: Container(
           color: const Color(0x99000000),
           height: body.size.height - button.size.height - 12.0,
@@ -251,9 +247,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
       position: position,
       elevation: 0.0,
       child: GestureDetector(
-        onTap: (){
-          NavigatorUtils.goBack(context);
-        },
+        onTap: () => NavigatorUtils.goBack(context),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[

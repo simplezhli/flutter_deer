@@ -100,7 +100,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
                     Center(
                       child: Text(
                         "点击添加商品图片",
-                        style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: 14.0),
+                        style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14),
                       ),
                     ),
                     Gaps.vGap16,
@@ -171,16 +171,12 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
                     ClickItem(
                       title: "商品类型",
                       content: _goodsSortName ?? "选择商品类型",
-                      onTap: (){
-                        _showBottomSheet();
-                      },
+                      onTap: () => _showBottomSheet(),
                     ),
                     ClickItem(
                       title: "商品规格",
                       content: "对规格进行编辑",
-                      onTap: (){
-                        NavigatorUtils.push(context, GoodsRouter.goodsSizePage);
-                      },
+                      onTap: () => NavigatorUtils.push(context, GoodsRouter.goodsSizePage),
                     ),
                     Gaps.vGap8,
                   ],

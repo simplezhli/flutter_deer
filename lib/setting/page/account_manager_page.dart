@@ -39,9 +39,7 @@ class _AccountManagerPageState extends State<AccountManagerPage> {
           ClickItem(
               title: "修改密码",
               content: "用于密码登录",
-              onTap: (){
-                NavigatorUtils.push(context, LoginRouter.updatePasswordPage);
-              }
+              onTap: () => NavigatorUtils.push(context, LoginRouter.updatePasswordPage)
           ),
           ClickItem(
               title: "绑定账号",

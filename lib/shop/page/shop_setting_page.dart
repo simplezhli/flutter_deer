@@ -221,9 +221,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                         maxLines: 10,
                         title: "运费比例",
                         content: "1、订单金额<20元，配送费为订单金额的1%\n2、订单金额≥20元，配送费为订单金额的1%",
-                        onTap: (){
-                          NavigatorUtils.push(context, ShopRouter.freightConfigPage);
-                        },
+                        onTap: () => NavigatorUtils.push(context, ShopRouter.freightConfigPage),
                       ),
                     ),
                     Gaps.vGap16,

@@ -24,7 +24,7 @@ class OrderItem extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    final TextStyle textTextStyle = Theme.of(context).textTheme.body1.copyWith(fontSize: 12.0);
+    final TextStyle textTextStyle = Theme.of(context).textTheme.body1.copyWith(fontSize: Dimens.font_sp12);
     bool isDark = ThemeUtils.isDark(context);
     return Container(
       margin: const EdgeInsets.only(top: 8.0),
@@ -32,9 +32,7 @@ class OrderItem extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(16.0),
           child: InkWell(
-            onTap: (){
-              NavigatorUtils.push(context, OrderRouter.orderInfoPage);
-            },
+            onTap: () => NavigatorUtils.push(context, OrderRouter.orderInfoPage),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -88,7 +86,7 @@ class OrderItem extends StatelessWidget {
                             style: textTextStyle,
                             children: <TextSpan>[
                               TextSpan(text: '¥20.00'),
-                              TextSpan(text: '  共3件商品', style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: 10.0)),
+                              TextSpan(text: '  共3件商品', style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp10)),
                             ],
                           )
                       ),
@@ -109,9 +107,7 @@ class OrderItem extends StatelessWidget {
                       text: "联系客户",
                       textColor: isDark ? Colours.dark_text : Colours.text,
                       bgColor: isDark ? Colours.dark_material_bg : Colours.bg_gray,
-                      onTap: (){
-                        _showCallPhoneDialog(context, "15000000000");
-                      },
+                      onTap: () => _showCallPhoneDialog(context, "15000000000"),
                     ),
                     Expanded(
                       child: Gaps.empty,

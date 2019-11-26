@@ -189,7 +189,7 @@ class PieChartPainter extends CustomPainter {
 
   void drawPercentage(Canvas context, String percentage, double x, double y, Size size) {
     TextSpan span = TextSpan(
-        style: TextStyle(color: Colors.white, fontSize: 12.0),
+        style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp12),
         text: percentage);
     TextPainter tp = TextPainter(
         text: span,

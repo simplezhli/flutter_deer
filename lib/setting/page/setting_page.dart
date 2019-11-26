@@ -44,9 +44,7 @@ class _SettingPageState extends State<SettingPage> {
           Gaps.vGap5,
           ClickItem(
             title: "账号管理",
-            onTap: (){
-              NavigatorUtils.push(context, SettingRouter.accountManagerPage);
-            }
+            onTap: () => NavigatorUtils.push(context, SettingRouter.accountManagerPage)
           ),
           ClickItem(
             title: "清除缓存",
@@ -56,21 +54,15 @@ class _SettingPageState extends State<SettingPage> {
           ClickItem(
             title: "夜间模式",
             content: themeMode,
-            onTap: (){
-              NavigatorUtils.push(context, SettingRouter.themePage);
-            }
+            onTap: () => NavigatorUtils.push(context, SettingRouter.themePage)
           ),
           ClickItem(
             title: "检查更新",
-            onTap: (){
-              _showUpdateDialog();
-            }
+            onTap: () => _showUpdateDialog()
           ),
           ClickItem(
             title: "关于我们",
-            onTap: (){
-              NavigatorUtils.push(context, SettingRouter.aboutPage);
-            }
+            onTap: () => NavigatorUtils.push(context, SettingRouter.aboutPage)
           ),
           ClickItem(
             title: "退出当前账号",

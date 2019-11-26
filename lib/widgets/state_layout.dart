@@ -81,7 +81,7 @@ class _StateLayoutState extends State<StateLayout> {
           Gaps.vGap16,
           Text(
             widget.hintText ?? _hintText,
-            style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: 14.0),
+            style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14),
           ),
           Gaps.vGap50,
         ],

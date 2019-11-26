@@ -119,7 +119,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                 key: const Key('name_edit'),
                 text: TextSpan(
                   text: '先对名称进行',
-                  style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: 14.0),
+                  style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14),
                   children: <TextSpan>[
                     TextSpan(text: '编辑', style: TextStyle(color: Theme.of(context).primaryColor)),
                   ],
@@ -183,9 +183,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
         ),
       ],
       child: InkWell(
-        onTap: (){
-          NavigatorUtils.push(context, GoodsRouter.goodsSizeEditPage);
-        },
+        onTap: () => NavigatorUtils.push(context, GoodsRouter.goodsSizeEditPage),
         child: Container(
           padding: const EdgeInsets.only(left: 16.0, top: 16.0),
           child: DecoratedBox(

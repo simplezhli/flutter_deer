@@ -124,7 +124,7 @@ class _SearchBarState extends State<SearchBar> {
                       onPressed:(){
                         widget.onPressed(_controller.text);
                       },
-                      child: Text("搜索", style: TextStyle(fontSize: 14.0)),
+                      child: Text("搜索", style: TextStyle(fontSize: Dimens.font_sp14)),
                   ),
                 ),
                 Gaps.hGap16,

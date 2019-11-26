@@ -97,9 +97,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
             itemCount: _bankNameList.length,
             itemBuilder: (_, index){
               return InkWell(
-                onTap: (){
-                  NavigatorUtils.goBackWithParams(context, BankModel(0, _bankNameList[index], ""));
-                },
+                onTap: () => NavigatorUtils.goBackWithParams(context, BankModel(0, _bankNameList[index], "")),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Row(
@@ -120,9 +118,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
 
   Widget _buildListItem(BankModel model) {
     return InkWell(
-      onTap: (){
-        NavigatorUtils.goBackWithParams(context, model);
-      },
+      onTap: () => NavigatorUtils.goBackWithParams(context, model),
       child: Container(
         padding: const EdgeInsets.only(left: 16.0, right: 34.0),
         height: 40.0,

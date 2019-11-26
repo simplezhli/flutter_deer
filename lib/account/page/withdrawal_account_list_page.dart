@@ -44,9 +44,7 @@ class _WithdrawalAccountListPageState extends State<WithdrawalAccountListPage> {
         },
         itemBuilder: (_, index){
           return InkWell(
-            onTap: (){
-              NavigatorUtils.goBackWithParams(context, _list[index]);
-            },
+            onTap: () => NavigatorUtils.goBackWithParams(context, _list[index]),
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               width: double.infinity,

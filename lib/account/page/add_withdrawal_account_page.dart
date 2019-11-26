@@ -27,7 +27,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
   
   @override
   Widget build(BuildContext context) {
-    TextStyle style = Theme.of(context).textTheme.subtitle.copyWith(fontSize: 14.0);
+    TextStyle style = Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: const MyAppBar(
@@ -45,9 +45,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                     StoreSelectTextItem(
                       title: "账号类型",
                       content: _accountType,
-                      onTap: () {
-                        _showSelectAccountTypeDialog();
-                      },
+                      onTap: () => _showSelectAccountTypeDialog(),
                     ),
                     Offstage(
                       offstage: _isWechat,

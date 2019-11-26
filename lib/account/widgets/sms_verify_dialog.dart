@@ -88,7 +88,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                         top: 0.0,
                         right: 0.0,
                         child: InkWell(
-                          onTap: (){NavigatorUtils.goBack(context);},
+                          onTap: () => NavigatorUtils.goBack(context),
                           child: Container(
                             padding: const EdgeInsets.only(top: 16.0, right: 16.0),
                             child: const LoadAssetImage("goods/icon_dialog_close", width: 16.0, key: const Key('dialog_close'),),

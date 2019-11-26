@@ -45,7 +45,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle textTextStyle = Theme.of(context).textTheme.body1.copyWith(fontSize: 12.0);
+    final TextStyle textTextStyle = Theme.of(context).textTheme.body1.copyWith(fontSize: Dimens.font_sp12);
 
     return WillPopScope(
       onWillPop: (){
@@ -103,7 +103,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         const Text("提现金额", style: TextStyles.textBold14),
-                        Text("单笔2万，单日2万", style: const TextStyle(fontSize: 12.0, color: Color(0xFFFF8547)))
+                        Text("单笔2万，单日2万", style: const TextStyle(fontSize: Dimens.font_sp12, color: Color(0xFFFF8547)))
                       ],
                     ),
                     Gaps.vGap8,
@@ -129,7 +129,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                             decoration: InputDecoration(
                               contentPadding: EdgeInsets.only(bottom: 8.0),
                               hintStyle: TextStyle(
-                                fontSize: 14.0,
+                                fontSize: Dimens.font_sp14,
                                 fontWeight: FontWeight.normal,
                                 color: Colours.text_gray_c
                               ),

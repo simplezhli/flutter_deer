@@ -70,15 +70,11 @@ class _AboutPageState extends State<AboutPage> {
           ClickItem(
             title: "Github",
             content: "Go Star",
-            onTap: (){
-              NavigatorUtils.goWebViewPage(context, "Flutter Deer", "https://github.com/simplezhli/flutter_deer");
-            }
+            onTap: () => NavigatorUtils.goWebViewPage(context, "Flutter Deer", "https://github.com/simplezhli/flutter_deer")
           ),
           ClickItem(
             title: "作者",
-            onTap: (){
-              NavigatorUtils.goWebViewPage(context, "作者博客", "https://weilu.blog.csdn.net");
-            }
+            onTap: () => NavigatorUtils.goWebViewPage(context, "作者博客", "https://weilu.blog.csdn.net")
           ),
         ],
       ),

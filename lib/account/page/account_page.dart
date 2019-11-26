@@ -41,7 +41,7 @@ class _AccountPageState extends State<AccountPage> {
                   top: 37.0,
                   child: Column(
                     children: <Widget>[
-                      const Text("当前余额(元)", style: TextStyle(color: Colours.text_disabled, fontSize: 12.0)),
+                      const Text("当前余额(元)", style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
                       Gaps.vGap8,
                       Text("30.12", style: TextStyle(color: Colors.white, fontSize: 32.0, fontWeight: FontWeight.bold)),
                     ],
@@ -56,16 +56,16 @@ class _AccountPageState extends State<AccountPage> {
                     children: <Widget>[
                       Column(
                         children: <Widget>[
-                          const Text("累计结算金额", style: TextStyle(color: Colours.text_disabled, fontSize: 12.0)),
+                          const Text("累计结算金额", style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
                           Gaps.vGap8,
-                          Text("20000.00", style: TextStyle(color: Colours.text_disabled, fontSize: 14.0)),
+                          Text("20000.00", style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp14)),
                         ],
                       ),
                       Column(
                         children: <Widget>[
-                          const Text("累计发放佣金", style: TextStyle(color: Colours.text_disabled, fontSize: 12.0)),
+                          const Text("累计发放佣金", style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
                           Gaps.vGap8,
-                          Text("0.02", style: TextStyle(color: Colours.text_disabled, fontSize: 14.0)),
+                          Text("0.02", style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp14)),
                         ],
                       ),
                     ],
@@ -77,21 +77,15 @@ class _AccountPageState extends State<AccountPage> {
           Gaps.vGap5,
           ClickItem(
             title: "提现",
-            onTap: (){
-              NavigatorUtils.push(context, AccountRouter.withdrawalPage);
-            },
+            onTap: () => NavigatorUtils.push(context, AccountRouter.withdrawalPage),
           ),
           ClickItem(
             title: "提现记录",
-            onTap: (){
-              NavigatorUtils.push(context, AccountRouter.withdrawalRecordListPage);
-            },
+            onTap: () => NavigatorUtils.push(context, AccountRouter.withdrawalRecordListPage),
           ),
           ClickItem(
             title: "提现密码",
-            onTap: (){
-              NavigatorUtils.push(context, AccountRouter.withdrawalPasswordPage);
-            },
+            onTap: () => NavigatorUtils.push(context, AccountRouter.withdrawalPasswordPage),
           ),
         ],
       )

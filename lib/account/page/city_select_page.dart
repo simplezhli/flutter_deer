@@ -81,9 +81,7 @@ class _CitySelectPageState extends State<CitySelectPage> {
 
   Widget _buildListItem(CityModel model) {
     return InkWell(
-      onTap: (){
-        NavigatorUtils.goBackWithParams(context, model);
-      },
+      onTap: () => NavigatorUtils.goBackWithParams(context, model),
       child: Container(
         padding: const EdgeInsets.only(left: 16.0, right: 34.0),
         height: 40.0,

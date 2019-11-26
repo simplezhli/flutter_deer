@@ -123,7 +123,7 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
           Center(
             child: Text(
               "店主手持身份证或营业执照",
-              style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: 14.0),
+              style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14),
             ),
           ),
           Gaps.vGap16,
@@ -135,9 +135,7 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
           StoreSelectTextItem(
               title: "主营范围",
               content: _sortName,
-              onTap: (){
-                _showBottomSheet();
-              }
+              onTap: () => _showBottomSheet()
           ),
           StoreSelectTextItem(
               title: "店铺地址",
