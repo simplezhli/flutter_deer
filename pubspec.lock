@@ -107,7 +107,7 @@ packages:
       name: dio
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "3.0.6"
+    version: "3.0.7"
   file:
     dependency: transitive
     description:
@@ -239,7 +239,7 @@ packages:
       name: image_picker
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.6.1+8"
+    version: "0.6.2+1"
   intl:
     dependency: transitive
     description:
@@ -365,7 +365,7 @@ packages:
       name: path_provider
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.4.4"
+    version: "1.4.5"
   pedantic:
     dependency: transitive
     description:
@@ -400,7 +400,7 @@ packages:
       name: provider
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "3.1.0+1"
+    version: "3.2.0"
   pub_semver:
     dependency: transitive
     description:
@@ -435,7 +435,7 @@ packages:
       name: shared_preferences
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.5.4+5"
+    version: "0.5.4+6"
   shelf:
     dependency: transitive
     description:
@@ -510,7 +510,7 @@ packages:
       name: sqflite
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.1.7+2"
+    version: "1.1.7+3"
   stack_trace:
     dependency: transitive
     description:
@@ -594,7 +594,14 @@ packages:
       name: url_launcher
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "5.2.3"
+    version: "5.2.7"
+  url_launcher_platform_interface:
+    dependency: transitive
+    description:
+      name: url_launcher_platform_interface
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.1"
   uuid:
     dependency: transitive
     description:
@@ -636,7 +643,7 @@ packages:
       name: webview_flutter
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.3.15+1"
+    version: "0.3.16"
   yaml:
     dependency: transitive
     description:
@@ -646,4 +653,4 @@ packages:
     version: "2.2.0"
 sdks:
   dart: ">=2.5.0 <3.0.0"
-  flutter: ">=1.9.1+hotfix.4 <2.0.0"
+  flutter: ">=1.9.1+hotfix.5 <2.0.0"

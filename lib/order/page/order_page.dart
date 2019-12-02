@@ -60,7 +60,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
     super.build(context);
     isDark = ThemeUtils.isDark(context);
     return ChangeNotifierProvider<OrderPageProvider>(
-      builder: (_) => provider,
+      create: (_) => provider,
       child: Scaffold(
         body: Stack(
           children: <Widget>[

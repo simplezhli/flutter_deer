@@ -128,7 +128,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     bool isDark = ThemeUtils.isDark(context);
     return ChangeNotifierProvider<HomeProvider>(
-      builder: (_) => provider,
+      create: (_) => provider,
       child: WillPopScope(
         onWillPop: _isExit,
         child: Scaffold(

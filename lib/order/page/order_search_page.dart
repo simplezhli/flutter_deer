@@ -34,7 +34,7 @@ class OrderSearchPageState extends BasePageState<OrderSearchPage, OrderSearchPre
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<BaseListProvider<SearchItem>>(
-      builder: (_) => provider,
+      create: (_) => provider,
       child: Scaffold(
         appBar: SearchBar(
           hintText: "请输入手机号或姓名查询",

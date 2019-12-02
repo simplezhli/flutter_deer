@@ -50,7 +50,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
     super.build(context);
     final Color _iconColor = ThemeUtils.getIconColor(context);
     return ChangeNotifierProvider<GoodsPageProvider>(
-      builder: (_) => provider,
+      create: (_) => provider,
       child: Scaffold(
         appBar: AppBar(
           actions: <Widget>[

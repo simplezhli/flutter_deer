@@ -37,7 +37,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
     super.build(context);
     final Color _iconColor = ThemeUtils.getIconColor(context);
     return ChangeNotifierProvider<UserProvider>(
-      builder: (_) => provider,
+      create: (_) => provider,
       child: Scaffold(
           appBar: AppBar(
             actions: <Widget>[

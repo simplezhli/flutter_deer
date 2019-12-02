@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return OKToast(
       child: ChangeNotifierProvider<ThemeProvider>(
-        builder: (_) => ThemeProvider(),
+        create: (_) => ThemeProvider(),
         child: Consumer<ThemeProvider>(
           builder: (_, provider, __) {
             return MaterialApp (
