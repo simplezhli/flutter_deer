@@ -15,6 +15,7 @@ void main() {
 //  debugProfileBuildsEnabled = true;
 //  debugPaintLayerBordersEnabled = true;
 //  debugProfilePaintsEnabled = true;
+//  debugRepaintRainbowEnabled = true;
   runApp(MyApp());
   // 透明状态栏
   if (Platform.isAndroid) {
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
               title: 'Flutter Deer',
               //showPerformanceOverlay: true, //显示性能标签
               //debugShowCheckedModeBanner: false,
+              //checkerboardRasterCacheImages: true,
               theme: provider.getTheme(),
               darkTheme: provider.getTheme(isDarkMode: true),
               home: home ?? SplashPage(),

@@ -28,7 +28,6 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
   int count;
   Animation<double> animation;
   AnimationController controller;
-  double _fraction = 0.0;
   List<PieData> oldData;
   
   @override
@@ -38,11 +37,6 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
     controller = AnimationController(duration: Duration(milliseconds: 800), vsync: this);
     final Animation curve = CurvedAnimation(parent: controller, curve: Curves.decelerate);
     animation = Tween<double>(begin: 0, end: 1).animate(curve);
-    animation.addListener(() {
-      setState(() {
-        _fraction = animation.value;
-      });
-    });
     controller.forward(from: 0);
   }
 
@@ -78,12 +72,20 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
           BoxShadow(color: shadowColor, offset: Offset(0.0, 4.0), blurRadius: 8.0, spreadRadius: 0.0),
         ],
       ),
-      child: CustomPaint(
-        painter: PieChartPainter(
-          widget.data,
-          _fraction,
-          bgColor
-        ),
+      child: AnimatedBuilder(
+        animation: animation,
+        builder: (_, child){
+          return RepaintBoundary(
+            child: CustomPaint(
+              painter: PieChartPainter(
+                  widget.data,
+                  animation.value,
+                  bgColor
+              ),
+              child: child,
+            ),
+          );
+        },
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -93,7 +95,7 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
               Text("$count件")
             ],
           ),
-        ),
+        )
       ),
     );
   }
@@ -201,7 +203,7 @@ class PieChartPainter extends CustomPainter {
   
   @override
   bool shouldRepaint(PieChartPainter oldDelegate) {
-    // 数据不一致时，重新绘制
-    return oldDelegate.data != data;
+    // 由于动画需要重绘，所以返true。避免重绘，交由RepaintBoundary处理。你也可以判断动画是否执行完成来处理时候重绘
+    return true;
   }
 }

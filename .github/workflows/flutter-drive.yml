@@ -1,0 +1,49 @@
+# https://medium.com/flutter-community/run-flutter-driver-tests-on-github-actions-13c639c7e4ab
+# Name of your workflow.
+name: flutter_deer drive
+
+# Trigger the workflow on push or pull request.
+on: [push, pull_request]
+
+# A workflow run is made up of one or more jobs.
+jobs:
+  # id of job, a string that is unique to the "jobs" node above.
+  drive:
+    # Creates a build matrix for your jobs. You can define different
+    # variations of an environment to run each job in.
+    strategy:
+      # A set of different configurations of the virtual environment.
+      matrix:
+        device:
+          - "iPhone 8 (13.1)"
+          - "iPhone 11 Pro Max (13.1)"
+      # When set to true, GitHub cancels all in-progress jobs if any matrix job
+      # fails.
+      fail-fast: false
+    # The type of machine to run the job on.
+    runs-on: macOS-latest
+    # Contains a sequence of tasks.
+    steps:
+      # A name for your step to display on GitHub.
+      - name: "List all simulators"
+        run: "xcrun instruments -s"
+      - name: "Start Simulator"
+        run: |
+          UDID=$(
+            xcrun instruments -s |
+            awk \
+              -F ' *[][]' \
+              -v 'device=${{ matrix.device }}' \
+              '$1 == device { print $2 }'
+          )
+          xcrun simctl boot "${UDID:?No Simulator with this name found}"
+      # The branch or tag ref that triggered the workflow will be checked out.
+      # https://github.com/actions/checkout
+      - uses: actions/checkout@v1
+      # Sets up a flutter environment.
+      # https://github.com/marketplace/actions/flutter-action
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: 'stable' # or: 'dev' or 'beta'
+      - name: "Run Flutter Driver tests"
+        run: "flutter drive --target=test_driver/driver.dart"
