@@ -1,5 +1,7 @@
 
+import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/account/widgets/rise_number_text.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/image_utils.dart';
@@ -43,7 +45,7 @@ class _AccountPageState extends State<AccountPage> {
                     children: <Widget>[
                       const Text("当前余额(元)", style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
                       Gaps.vGap8,
-                      Text("30.12", style: TextStyle(color: Colors.white, fontSize: 32.0, fontWeight: FontWeight.bold)),
+                      RiseNumberText(30.12, style: TextStyle(color: Colors.white, fontSize: 32.0, fontWeight: FontWeight.bold)),
                     ],
                   ),
                 ),
@@ -58,14 +60,14 @@ class _AccountPageState extends State<AccountPage> {
                         children: <Widget>[
                           const Text("累计结算金额", style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
                           Gaps.vGap8,
-                          Text("20000.00", style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp14)),
+                          RiseNumberText(NumUtil.getDoubleByValueStr("20000"), style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp14)),
                         ],
                       ),
                       Column(
                         children: <Widget>[
                           const Text("累计发放佣金", style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
                           Gaps.vGap8,
-                          Text("0.02", style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp14)),
+                          RiseNumberText(0.02, style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp14)),
                         ],
                       ),
                     ],

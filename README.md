@@ -28,7 +28,7 @@
 * mvp模式
 * 使用`provider` 做状态管理
 * 基于`dio` （3.x 版本）的网络请求封装（支持泛型，基于`FlutterJsonBeanFactory`插件实现）
-* 完整的集成测试
+* 完整的集成测试 [![Build Status](https://github.com/simplezhli/flutter_deer/workflows/flutter_deer%20drive/badge.svg?branch=master)](https://github.com/simplezhli/flutter_deer/actions?query=workflow%3A%22flutter_deer+driver%22+branch%3Amaster)
 * 支持深色模式
 * 使用`Sliver` 系列组件实现复杂滚动效果
 * 使用高德地图定位选择地址
