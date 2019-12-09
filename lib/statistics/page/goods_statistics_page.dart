@@ -72,10 +72,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                   ],
                 ),
                 Gaps.vGap8,
-                Padding(
-                  padding: const EdgeInsets.only(right: 16.0),
-                  child: _buildChart(),
-                ),
+                _buildChart(),
                 const Text("热销商品排行", style: TextStyles.textBold18),
                 ListView.builder(
                   physics: ClampingScrollPhysics(),
@@ -100,7 +97,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
       child: FractionallySizedBox(
         heightFactor: 0.8,
         child: PieChart(
-          name: _type ? "待配货" : "已配货",
+          name: _type ? "已配货" : "待配货",
           data: _getRandomData(),
         ),
       ),

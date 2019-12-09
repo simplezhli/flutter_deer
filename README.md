@@ -28,7 +28,7 @@
 * mvp模式
 * 使用`provider` 做状态管理
 * 基于`dio` （3.x 版本）的网络请求封装（支持泛型，基于`FlutterJsonBeanFactory`插件实现）
-* 完整的集成测试 [![Build Status](https://github.com/simplezhli/flutter_deer/workflows/flutter_deer%20drive/badge.svg?branch=master)](https://github.com/simplezhli/flutter_deer/actions?query=workflow%3A%22flutter_deer+driver%22+branch%3Amaster)
+* 完整的集成测试
 * 支持深色模式
 * 使用`Sliver` 系列组件实现复杂滚动效果
 * 使用高德地图定位选择地址
@@ -58,9 +58,13 @@ iOS需要自行下载代码运行。
 
 ## 项目运行环境
 
+[![Build Status](https://github.com/simplezhli/flutter_deer/workflows/flutter_deer%20drive/badge.svg?branch=master)](https://github.com/simplezhli/flutter_deer/actions?query=workflow%3A%22flutter_deer+driver%22+branch%3Amaster)
+
     1. Flutter version 1.9.1+hotfix.6
      
     2. Dart version 2.5.0
+    
+如果你的Flutter版本为1.10.15以上，请使用`cached_network_image`的版本为`2.0.0-rc`，相反使用`1.1.3`。
 
 ## 注意事项
 
@@ -139,6 +143,8 @@ iOS需要自行下载代码运行。
 - [Flutter开发中的一些Tips(三)](https://weilu.blog.csdn.net/article/details/100108123)
 
 - [Flutter适配深色模式（DarkMode）](https://weilu.blog.csdn.net/article/details/102531559)
+
+- [说说Flutter中的RepaintBoundary](https://weilu.blog.csdn.net/article/details/103452637)
 
 - [Flutter动画曲线Curves 效果一览](https://weilu.blog.csdn.net/article/details/95632571)
 

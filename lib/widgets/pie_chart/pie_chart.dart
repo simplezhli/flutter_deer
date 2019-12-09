@@ -72,30 +72,30 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
           BoxShadow(color: shadowColor, offset: Offset(0.0, 4.0), blurRadius: 8.0, spreadRadius: 0.0),
         ],
       ),
-      child: AnimatedBuilder(
-        animation: animation,
-        builder: (_, child){
-          return RepaintBoundary(
-            child: CustomPaint(
+      child: RepaintBoundary(
+        child: AnimatedBuilder(
+          animation: animation,
+          builder: (_, child){
+            return CustomPaint(
               painter: PieChartPainter(
                   widget.data,
                   animation.value,
                   bgColor
               ),
               child: child,
+            );
+          },
+          child: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Text(widget.name, style: TextStyles.textBold16),
+                Gaps.vGap4,
+                Text("$count件")
+              ],
             ),
-          );
-        },
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Text(widget.name, style: TextStyles.textBold16),
-              Gaps.vGap4,
-              Text("$count件")
-            ],
-          ),
-        )
+          )
+        ),
       ),
     );
   }
