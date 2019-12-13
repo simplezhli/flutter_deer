@@ -121,6 +121,7 @@ class _RegisterPageState extends State<RegisterPage> {
             focusNode: _nodeText3,
             isInputPwd: true,
             controller: _passwordController,
+            keyboardType: TextInputType.visiblePassword,
             maxLength: 16,
             hintText: "请输入密码",
           ),

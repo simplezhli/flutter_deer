@@ -111,6 +111,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
             isInputPwd: true,
             controller: _passwordController,
             maxLength: 16,
+            keyboardType: TextInputType.visiblePassword,
             hintText: "请输入密码",
           ),
           Gaps.vGap10,

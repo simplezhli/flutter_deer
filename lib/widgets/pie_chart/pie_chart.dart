@@ -14,7 +14,9 @@ class PieChart extends StatefulWidget {
     Key key,
     @required this.data,
     @required this.name
-  }) : super(key: key);
+  }) : assert(data != null, "The [data] argument must not be null."),
+       assert(name != null, "The [name] argument must not be null."),
+       super(key: key);
   
   final List<PieData> data;
   final String name;

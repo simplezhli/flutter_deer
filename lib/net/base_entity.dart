@@ -18,17 +18,21 @@ class BaseEntity<T>{
     if (json.containsKey(Constant.data)){
       if (json[Constant.data] is List) {
         (json[Constant.data] as List).forEach((item){
-          listData.add(EntityFactory.generateOBJ<T>(item));
+          listData.add(_generateOBJ<T>(item));
         });
       }else {
-        if (T.toString() == "String"){
-          data = json[Constant.data].toString() as T;
-        }else if (T.toString() == "Map<dynamic, dynamic>"){
-          data = json[Constant.data] as T;
-        }else {
-          data = EntityFactory.generateOBJ(json[Constant.data]);
-        }
+        data = _generateOBJ(json[Constant.data]);
       }
+    }
+  }
+
+  S _generateOBJ<S>(json) {
+    if (S.toString() == "String"){
+      return json.toString() as S;
+    }else if (T.toString() == "Map<dynamic, dynamic>"){
+      return json as S;
+    }else {
+      return EntityFactory.generateOBJ(json);
     }
   }
 }

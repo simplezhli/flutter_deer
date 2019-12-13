@@ -12,7 +12,8 @@ class SelectedText extends StatelessWidget {
     this.unSelectedTextColor,
     this.enable : true,
     this.onTap
-  }): super(key: key);
+  }): assert(unSelectedTextColor != null, "The [unSelectedTextColor] argument must not be null."),
+      super(key: key);
 
   final String text;
   final double fontSize;

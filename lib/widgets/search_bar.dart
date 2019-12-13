@@ -80,9 +80,9 @@ class _SearchBarState extends State<SearchBar> {
                       key: const Key('srarch_text_field'),
                       autofocus: true,
                       controller: _controller,
-                      maxLines: 1,
+                      maxLines: 4,
                       decoration: InputDecoration(
-                        contentPadding: const EdgeInsets.only(top: 6.0, left: -8.0, right: -16.0, bottom: 6.0),
+                        contentPadding: const EdgeInsets.only(top: 0.0, left: -8.0, right: -16.0, bottom: 14.0),
                         border: InputBorder.none,
                         icon: Padding(
                           padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 8.0),

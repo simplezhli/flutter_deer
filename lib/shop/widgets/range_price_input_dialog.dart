@@ -52,7 +52,7 @@ class _RangePriceInputDialog extends State<RangePriceInputDialog>{
                 // 金额限制数字格式
                 inputFormatters: [UsNumberTextInputFormatter()],
                 decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.only(top: 4.0, left: 16.0, right: 16.0, bottom: 4.0),
+                  contentPadding: const EdgeInsets.only(top: 0.0, left: 16.0, right: 16.0, bottom: 14.0),
                   border: InputBorder.none,
                   //hintStyle: TextStyles.textGray14,
                 ),
@@ -74,7 +74,7 @@ class _RangePriceInputDialog extends State<RangePriceInputDialog>{
                 // 金额限制数字格式
                 inputFormatters: [UsNumberTextInputFormatter()],
                 decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.only(top: 4.0, left: 16.0, right: 16.0, bottom: 4.0),
+                  contentPadding: const EdgeInsets.only(top: 0.0, left: 16.0, right: 16.0, bottom: 14.0),
                   border: InputBorder.none,
                   //hintStyle: TextStyles.textGray14,
                 ),

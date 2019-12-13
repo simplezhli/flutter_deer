@@ -60,11 +60,11 @@ iOS需要自行下载代码运行。
 
 [![Build Status](https://github.com/simplezhli/flutter_deer/workflows/flutter_deer%20drive/badge.svg?branch=master)](https://github.com/simplezhli/flutter_deer/actions?query=workflow%3A%22flutter_deer+driver%22+branch%3Amaster)
 
-    1. Flutter version 1.9.1+hotfix.6
+    1. Flutter version 1.12.13+hotfix.5
      
-    2. Dart version 2.5.0
+    2. Dart version 2.7.0
     
-如果你的Flutter版本为1.10.15以上，请使用`cached_network_image`的版本为`2.0.0-rc`，相反使用`1.1.3`。
+如果你的Flutter版本为1.10.15以下，请使用`cached_network_image`的版本为`1.1.3`。
 
 ## 注意事项
 
@@ -76,7 +76,7 @@ iOS需要自行下载代码运行。
         
 - FlutterJsonBeanFactory插件使用可以查看[这篇文章](https://www.jianshu.com/p/e909f3f936d6)
 
-- 因为页面有点多，一开始可能会导致部分页面无法找到。(可以执行集成测试命令`flutter drive --target=test_driver/driver.dart` 查看功能演示，全程2分多钟)
+- 因为页面有点多，一开始可能会导致部分页面无法找到。(可以执行集成测试命令`flutter drive --target=test_driver/driver.dart` 查看功能演示)
 
 - 我在代码中有添加设计图的相对路径，可以搜索或查找到对应页面，希望对你有帮助。
     
@@ -128,11 +128,11 @@ iOS需要自行下载代码运行。
 
 - ListView在没有设置分割线的情况下，个别Item之间存在大约1像素的间隔。（[像素对齐问题](https://github.com/flutter/flutter/issues/14288)）
 
-- 输入框在不设置`obscureText`属性的情况下(false)，无法弹出密码模式键盘。(暂时使用`BlacklistingTextInputFormatter`去除可能会输入的中文)
-
-- 在1.9.1上，TextField在语言环境为中文时，[光标与输入文字不居中显示](https://github.com/flutter/flutter/issues/40219)，可暂时使用`textBaseline: TextBaseline.alphabetic` 处理此问提。
-
 - 在iOS手机上开启深色模式时，[无法将状态栏文字修改为黑色](https://github.com/flutter/flutter/issues/41067)。
+
+- 1.9.1已支持，使用`keyboardType: TextInputType.visiblePassword`即可。~~输入框在不设置`obscureText`属性的情况下(false)，[无法弹出密码模式键盘](https://github.com/flutter/flutter/issues/31738)，可暂时使用`BlacklistingTextInputFormatter`去除可能会输入的中文。~~
+
+- 1.12.13已修复。~~在1.9.1上，TextField在语言环境为中文时，[光标与输入文字不居中显示](https://github.com/flutter/flutter/issues/40219)，可暂时使用`textBaseline: TextBaseline.alphabetic` 处理此问提。~~
 
 ## 心得及问题记录
 

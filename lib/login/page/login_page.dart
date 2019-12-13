@@ -107,6 +107,7 @@ class _LoginPageState extends State<LoginPage> {
             config: Utils.getKeyboardActionsConfig(context, [_nodeText1, _nodeText2]),
             isInputPwd: true,
             controller: _passwordController,
+            keyboardType: TextInputType.visiblePassword,
             maxLength: 16,
             hintText: "请输入密码",
           ),
