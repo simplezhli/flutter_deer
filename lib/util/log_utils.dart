@@ -1,61 +1,74 @@
 
-import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
-
 import 'package:common_utils/common_utils.dart';
 import 'package:flutter_deer/common/common.dart';
 
 /// 输出Log工具类
 class Log{
 
-  static var perform;
-
   static init() {
-    if (perform == null){
-      perform = const MethodChannel("x_log");
-    }
+    LogUtil.debuggable = !Constant.inProduction;
   }
 
   static d(String msg, {tag: 'X-LOG'}) {
     if (!Constant.inProduction){
-      perform?.invokeMethod('logD', {'tag': tag, 'msg': msg});
-      _print(msg, tag: tag);
-    }
-  }
-
-  static w(String msg, {tag: 'X-LOG'}) {
-    if (!Constant.inProduction){
-      perform?.invokeMethod('logW', {'tag': tag, 'msg': msg});
-      _print(msg, tag: tag);
-    }
-  }
-
-  static i(String msg, {tag: 'X-LOG'}) {
-    if (!Constant.inProduction){
-      perform?.invokeMethod('logI', {'tag': tag, 'msg': msg});
-      _print(msg, tag: tag);
+      LogUtil.v(msg, tag: tag);
     }
   }
 
   static e(String msg, {tag: 'X-LOG'}) {
     if (!Constant.inProduction){
-      perform?.invokeMethod('logE', {'tag': tag, 'msg': msg});
-      _print(msg, tag: tag);
+      LogUtil.e(msg, tag: tag);
     }
   }
 
   static json(String msg, {tag: 'X-LOG'}) {
     if (!Constant.inProduction){
-      perform?.invokeMethod('logJson', {'tag': tag, 'msg': msg});
-      _print(msg, tag: tag);
+      LogUtil.v(msg, tag: tag);
     }
   }
 
-  static _print(String msg, {tag: 'X-LOG'}){
-    /// 单元测试不必初始化Log工具类，直接使用print输出。
-    if (defaultTargetPlatform == TargetPlatform.iOS || perform == null){
-      LogUtil.debuggable = !Constant.inProduction;
-      LogUtil.v(msg, tag: tag);
+  /// https://github.com/rhymelph/r_logger
+  /// json format
+  ///
+  /// [s] your json
+  static String jsonFormat(String s) {
+    int level = 0;
+    StringBuffer jsonForMatStr = StringBuffer();
+    for (int index = 0; index < s.length; index++) {
+      int c = s.codeUnitAt(index);
+      if (level > 0 &&
+          '\n'.codeUnitAt(0) ==
+              jsonForMatStr.toString().codeUnitAt(jsonForMatStr.length - 1)) {
+        jsonForMatStr.write(_getLevelStr(level));
+      }
+      if ('{'.codeUnitAt(0) == c || '['.codeUnitAt(0) == c) {
+        jsonForMatStr.write(String.fromCharCode(c) + "\n");
+        level++;
+      } else if (','.codeUnitAt(0) == c) {
+        jsonForMatStr.write(String.fromCharCode(c) + "\n");
+      } else if ('}'.codeUnitAt(0) == c || ']'.codeUnitAt(0) == c) {
+        jsonForMatStr.write("\n");
+        level--;
+        jsonForMatStr.write(_getLevelStr(level));
+        jsonForMatStr.writeCharCode(c);
+      } else {
+        jsonForMatStr.writeCharCode(c);
+      }
     }
+    return jsonForMatStr.toString();
+  }
+
+  /// json level ping
+  ///
+  /// [level] your level
+  static String _getLevelStr(int level) {
+    StringBuffer levelStr = new StringBuffer();
+    for (int levelI = 0; levelI < level; levelI++) {
+      List<int> codeUnits = "\t".codeUnits;
+      codeUnits.forEach((i) {
+        levelStr.writeCharCode(i);
+      });
+    }
+    return levelStr.toString();
   }
 }

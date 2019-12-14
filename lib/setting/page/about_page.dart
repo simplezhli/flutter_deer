@@ -34,6 +34,23 @@ class _AboutPageState extends State<AboutPage> {
   Timer _countdownTimer;
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      // 2s定时器
+      _countdownTimer = Timer.periodic(Duration(seconds: 2), (timer) {
+        // https://www.jianshu.com/p/e4106b829bff
+        if (!mounted){
+          return;
+        }
+        setState(() {
+
+        });
+      });
+    });
+  }
+
+  @override
   void dispose() {
     _countdownTimer?.cancel();
     _countdownTimer = null;
@@ -42,16 +59,6 @@ class _AboutPageState extends State<AboutPage> {
   
   @override
   Widget build(BuildContext context) {
-    // 2s定时器
-    _countdownTimer = Timer.periodic(Duration(seconds: 2), (timer) {
-      // https://www.jianshu.com/p/e4106b829bff
-      if (!mounted){
-        return;
-      }
-      setState(() {
-        
-      });
-    });
     return Scaffold(
       appBar: const MyAppBar(
         title: "关于我们",

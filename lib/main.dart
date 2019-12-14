@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_deer/provider/theme_provider.dart';
 import 'package:flutter_deer/routers/application.dart';
 import 'package:flutter_deer/routers/routers.dart';
+import 'package:flutter_deer/util/log_utils.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:flutter_deer/home/splash_page.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
   final Widget home;
   
   MyApp({this.home}) {
+    Log.init();
     final router = Router();
     Routes.configureRoutes(router);
     Application.router = router;

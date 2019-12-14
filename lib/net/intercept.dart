@@ -88,9 +88,9 @@ class LoggingInterceptor extends Interceptor{
     startTime = DateTime.now();
     Log.d("----------Start----------");
     if (options.queryParameters.isEmpty){
-      Log.i("RequestUrl: " + options.baseUrl + options.path);
+      Log.d("RequestUrl: " + options.baseUrl + options.path);
     }else{
-      Log.i("RequestUrl: " + options.baseUrl + options.path + "?" + Transformer.urlEncodeMap(options.queryParameters));
+      Log.d("RequestUrl: " + options.baseUrl + options.path + "?" + Transformer.urlEncodeMap(options.queryParameters));
     }
     Log.d("RequestMethod: " + options.method);
     Log.d("RequestHeaders:" + options.headers.toString());

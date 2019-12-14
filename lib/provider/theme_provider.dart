@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flustars/flustars.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/common/themes.dart';
@@ -71,6 +72,9 @@ class ThemeProvider extends ChangeNotifier {
         color: isDarkMode ? Colours.dark_line : Colours.line,
         space: 0.6,
         thickness: 0.6
+      ),
+      cupertinoOverrideTheme: CupertinoThemeData(
+        brightness: isDarkMode ? Brightness.dark : Brightness.light,
       )
     );
   }

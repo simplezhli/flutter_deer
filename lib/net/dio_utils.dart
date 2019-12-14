@@ -153,7 +153,7 @@ class DioUtils {
 
   _cancelLogPrint(dynamic e, String url){
     if (e is DioError && CancelToken.isCancel(e)){
-      Log.i("取消请求接口： $url");
+      Log.e("取消请求接口： $url");
     }
   }
 
