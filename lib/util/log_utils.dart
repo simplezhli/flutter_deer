@@ -1,4 +1,5 @@
 
+import 'dart:convert' as convert;
 import 'package:common_utils/common_utils.dart';
 import 'package:flutter_deer/common/common.dart';
 
@@ -10,65 +11,77 @@ class Log{
   }
 
   static d(String msg, {tag: 'X-LOG'}) {
-    if (!Constant.inProduction){
+    if (!Constant.inProduction) {
       LogUtil.v(msg, tag: tag);
     }
   }
 
   static e(String msg, {tag: 'X-LOG'}) {
-    if (!Constant.inProduction){
+    if (!Constant.inProduction) {
       LogUtil.e(msg, tag: tag);
     }
   }
 
   static json(String msg, {tag: 'X-LOG'}) {
-    if (!Constant.inProduction){
-      LogUtil.v(msg, tag: tag);
+    if (!Constant.inProduction) {
+      var data = convert.json.decode(msg);
+      if (data is Map) {
+        _printMap(data);
+      } else if (data is List) {
+        _printList(data);
+      } else
+        LogUtil.v(msg, tag: tag);
     }
   }
 
-  /// https://github.com/rhymelph/r_logger
-  /// json format
-  ///
-  /// [s] your json
-  static String jsonFormat(String s) {
-    int level = 0;
-    StringBuffer jsonForMatStr = StringBuffer();
-    for (int index = 0; index < s.length; index++) {
-      int c = s.codeUnitAt(index);
-      if (level > 0 &&
-          '\n'.codeUnitAt(0) ==
-              jsonForMatStr.toString().codeUnitAt(jsonForMatStr.length - 1)) {
-        jsonForMatStr.write(_getLevelStr(level));
-      }
-      if ('{'.codeUnitAt(0) == c || '['.codeUnitAt(0) == c) {
-        jsonForMatStr.write(String.fromCharCode(c) + "\n");
-        level++;
-      } else if (','.codeUnitAt(0) == c) {
-        jsonForMatStr.write(String.fromCharCode(c) + "\n");
-      } else if ('}'.codeUnitAt(0) == c || ']'.codeUnitAt(0) == c) {
-        jsonForMatStr.write("\n");
-        level--;
-        jsonForMatStr.write(_getLevelStr(level));
-        jsonForMatStr.writeCharCode(c);
+  // https://github.com/Milad-Akarie/pretty_dio_logger
+  static void _printMap(Map data, {tag: 'X-LOG', int tabs = 1, bool isListItem = false, bool isLast = false}) {
+    final bool isRoot = tabs == 1;
+    final initialIndent = _indent(tabs);
+    tabs++;
+
+    if (isRoot || isListItem) LogUtil.v('$initialIndent{', tag: tag);
+
+    data.keys.toList().asMap().forEach((index, key) {
+      final isLast = index == data.length - 1;
+      var value = data[key];
+      if (value is String) value = '\"$value\"';
+      if (value is Map) {
+        if (value.length == 0)
+          LogUtil.v('${_indent(tabs)} $key: $value${!isLast ? ',' : ''}', tag: tag);
+        else {
+          LogUtil.v('${_indent(tabs)} $key: {', tag: tag);
+          _printMap(value, tabs: tabs);
+        }
+      } else if (value is List) {
+        if (value.length == 0) {
+          LogUtil.v('${_indent(tabs)} $key: ${value.toString()}', tag: tag);
+        } else {
+          LogUtil.v('${_indent(tabs)} $key: [', tag: tag);
+          _printList(value, tabs: tabs);
+          LogUtil.v('${_indent(tabs)} ]${isLast ? '' : ','}', tag: tag);
+        }
       } else {
-        jsonForMatStr.writeCharCode(c);
+        final msg = value.toString().replaceAll('\n', '');
+        LogUtil.v('${_indent(tabs)} $key: $msg${!isLast ? ',' : ''}', tag: tag);
       }
-    }
-    return jsonForMatStr.toString();
+    });
+
+    LogUtil.v('$initialIndent}${isListItem && !isLast ? ',' : ''}', tag: tag);
   }
 
-  /// json level ping
-  ///
-  /// [level] your level
-  static String _getLevelStr(int level) {
-    StringBuffer levelStr = new StringBuffer();
-    for (int levelI = 0; levelI < level; levelI++) {
-      List<int> codeUnits = "\t".codeUnits;
-      codeUnits.forEach((i) {
-        levelStr.writeCharCode(i);
-      });
-    }
-    return levelStr.toString();
+  static void _printList(List list, {tag: 'X-LOG', int tabs = 1}) {
+    list.asMap().forEach((i, e) {
+      final isLast = i == list.length - 1;
+      if (e is Map) {
+        if (e.length == 0)
+          LogUtil.v('${_indent(tabs)}  $e${!isLast ? ',' : ''}', tag: tag);
+        else
+          _printMap(e, tabs: tabs + 1, isListItem: true, isLast: isLast);
+      } else
+        LogUtil.v('${_indent(tabs + 2)} $e${isLast ? '' : ','}', tag: tag);
+    });
   }
+
+  static String _indent([int tabCount = 1]) => '  ' * tabCount;
 }

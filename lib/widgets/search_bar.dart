@@ -80,7 +80,12 @@ class _SearchBarState extends State<SearchBar> {
                       key: const Key('srarch_text_field'),
                       autofocus: true,
                       controller: _controller,
-                      maxLines: 4,
+                      maxLines: 1,
+                      textInputAction: TextInputAction.search,
+                      onSubmitted: (val){
+                        // 点击软键盘的动作按钮时的回调
+                        widget.onPressed(val);
+                      },
                       decoration: InputDecoration(
                         contentPadding: const EdgeInsets.only(top: 0.0, left: -8.0, right: -16.0, bottom: 14.0),
                         border: InputBorder.none,

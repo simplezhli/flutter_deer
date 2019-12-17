@@ -138,71 +138,68 @@ class GoodsItem extends StatelessWidget {
             ),
           ),
         ),
-        Positioned.fill(
-          child: Offstage(
-            offstage: selectIndex != index,
-            child: AnimatedBuilder(
-                animation: animation,
-                builder:(_, child){
-                  bool isDark = ThemeUtils.isDark(context);
-                  Color buttonColor = isDark ? Colours.dark_text : Colors.white;
-                  return MenuReveal(
-                    revealPercent: animation.value,
-                    child: InkWell(
-                      onTap: onTapMenuClose,
-                      child: Container(
-                        color: isDark ? const Color(0xB34D4D4D) : const Color(0x4D000000),
-                        child: Theme( // 修改button默认的最小宽度与padding
-                          data: Theme.of(context).copyWith(
-                            buttonTheme: ButtonThemeData(
-                              padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                              minWidth: 56.0,
-                              height: 56.0,
-                              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap, // 距顶部距离为0
-                              shape:RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(24.0),
-                              ),
-                            ),
-                            textTheme: TextTheme(
-                                button: TextStyle(
-                                  fontSize: Dimens.font_sp16,
-                                )
+        selectIndex != index ? Gaps.empty : Positioned.fill(
+          child: AnimatedBuilder(
+              animation: animation,
+              builder:(_, child){
+                bool isDark = ThemeUtils.isDark(context);
+                Color buttonColor = isDark ? Colours.dark_text : Colors.white;
+                return MenuReveal(
+                  revealPercent: animation.value,
+                  child: InkWell(
+                    onTap: onTapMenuClose,
+                    child: Container(
+                      color: isDark ? const Color(0xB34D4D4D) : const Color(0x4D000000),
+                      child: Theme( // 修改button默认的最小宽度与padding
+                        data: Theme.of(context).copyWith(
+                          buttonTheme: ButtonThemeData(
+                            padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                            minWidth: 56.0,
+                            height: 56.0,
+                            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap, // 距顶部距离为0
+                            shape:RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(24.0),
                             ),
                           ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[
-                              Gaps.hGap15,
-                              FlatButton(
-                                key: Key('goods_edit_item_$index'),
-                                textColor: isDark ?  Colours.dark_button_text : Colors.white,
-                                color: isDark ?  Colours.dark_app_main : Colours.app_main,
-                                child: const Text("编辑"),
-                                onPressed: onTapEdit,
-                              ),
-                              FlatButton(
-                                key: Key('goods_operation_item_$index'),
-                                textColor: Colours.text,
-                                color: buttonColor,
-                                child: const Text("下架"),
-                                onPressed: onTapOperation,
-                              ),
-                              FlatButton(
-                                key: Key('goods_delete_item_$index'),
-                                textColor: Colours.text,
-                                color: buttonColor,
-                                child: const Text("删除"),
-                                onPressed: onTapDelete,
-                              ),
-                              Gaps.hGap15,
-                            ],
+                          textTheme: TextTheme(
+                              button: TextStyle(
+                                fontSize: Dimens.font_sp16,
+                              )
                           ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            Gaps.hGap15,
+                            FlatButton(
+                              key: Key('goods_edit_item_$index'),
+                              textColor: isDark ?  Colours.dark_button_text : Colors.white,
+                              color: isDark ?  Colours.dark_app_main : Colours.app_main,
+                              child: const Text("编辑"),
+                              onPressed: onTapEdit,
+                            ),
+                            FlatButton(
+                              key: Key('goods_operation_item_$index'),
+                              textColor: Colours.text,
+                              color: buttonColor,
+                              child: const Text("下架"),
+                              onPressed: onTapOperation,
+                            ),
+                            FlatButton(
+                              key: Key('goods_delete_item_$index'),
+                              textColor: Colours.text,
+                              color: buttonColor,
+                              child: const Text("删除"),
+                              onPressed: onTapDelete,
+                            ),
+                            Gaps.hGap15,
+                          ],
                         ),
                       ),
                     ),
-                  );
-                }
-            ),
+                  ),
+                );
+              }
           ),
         )
       ],
