@@ -127,9 +127,9 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 labelColor: Theme.of(context).primaryColor,
                 indicatorPadding: const EdgeInsets.only(left: 12.0, right: 36.0),
                 tabs: <Widget>[
-                  const _TabView("在售", " (3件)", 0),
-                  const _TabView("待售", " (15件)", 1),
-                  const _TabView("下架", " (26件)", 2),
+                  const _TabView("在售", 0),
+                  const _TabView("待售", 1),
+                  const _TabView("下架", 2),
                 ],
               ),
             ),
@@ -302,15 +302,13 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
 
 class _TabView extends StatelessWidget {
   
-  const _TabView(this.tabName, this.tabSub, this.index);
+  const _TabView(this.tabName, this.index);
   
   final String tabName;
-  final String tabSub;
   final int index;
   
   @override
   Widget build(BuildContext context) {
-    
     return Consumer<GoodsPageProvider>(
       builder: (_, provider, child){
         return  Tab(
@@ -320,9 +318,9 @@ class _TabView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(tabName),
-                  Offstage(offstage: provider.index != index, child: Padding(
+                  Offstage(offstage: provider.goodsCountList[index] == 0 || provider.index != index, child: Padding(
                     padding: const EdgeInsets.only(top: 1.0),
-                    child: Text(tabSub, style: TextStyle(fontSize: Dimens.font_sp12)),
+                    child: Text(" (${provider.goodsCountList[index]}件)", style: TextStyle(fontSize: Dimens.font_sp12)),
                   )),
                 ],
               ),

@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/goods/models/goods_item_entity.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
@@ -11,7 +12,7 @@ class GoodsItem extends StatelessWidget {
   
   const GoodsItem({
     Key key,
-    @required this.img,
+    @required this.item,
     @required this.index,
     @required this.selectIndex,
     @required this.onTapMenu,
@@ -22,7 +23,7 @@ class GoodsItem extends StatelessWidget {
     @required this.animation
   }): super(key: key);
 
-  final String img;
+  final GoodsItemEntity item;
   final int index;
   final int selectIndex;
   final Function onTapMenu;
@@ -49,7 +50,7 @@ class GoodsItem extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  LoadImage(img, width: 72.0, height: 72.0),
+                  LoadImage(item.icon, width: 72.0, height: 72.0),
                   Gaps.hGap8,
                   Expanded(
                     child: Column(
@@ -65,7 +66,7 @@ class GoodsItem extends StatelessWidget {
                           children: <Widget>[
                             Offstage(
                               // 类似于gone
-                              offstage: index % 3 != 0,
+                              offstage: item.type % 3 != 0,
                               child: Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
                                 margin: const EdgeInsets.only(right: 4.0),
@@ -86,7 +87,7 @@ class GoodsItem extends StatelessWidget {
                             ),
                             Opacity(
                               // 修改透明度实现隐藏，类似于invisible
-                              opacity: index % 2 != 0 ? 0.0 : 1.0,
+                              opacity: item.type % 2 != 0 ? 0.0 : 1.0,
                               child: Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
                                 decoration: BoxDecoration(

@@ -1,10 +1,13 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/goods/models/goods_item_entity.dart';
+import 'package:flutter_deer/goods/provider/goods_page_provider.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/my_refresh_list.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
+import 'package:provider/provider.dart';
 
 import '../goods_router.dart';
 import 'goods_delete_bottom_sheet.dart';
@@ -28,7 +31,7 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
   int _selectIndex = -1;
   Animation<double> _animation;
   AnimationController _controller;
-  List _list = [];
+  List<GoodsItemEntity> _list = [];
 
   @override
   void initState() {
@@ -64,18 +67,25 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
     await Future.delayed(Duration(seconds: 2), () {
       setState(() {
         _page = 1;
-        _list = List.generate(widget.index == 0 ? 3 : 10, (i) => 'newItem：$i');
+        _list = List.generate(widget.index == 0 ? 3 : 10, (i) => GoodsItemEntity(icon: _imgList[i % 6], title: "八月十五中秋月饼礼盒", type: i % 3));
       });
+      _setGoodsCount(_list.length);
     });
   }
 
   Future _loadMore() async {
     await Future.delayed(Duration(seconds: 2), () {
       setState(() {
-        _list.addAll(List.generate(10, (i) => 'newItem：$i'));
+        _list.addAll(List.generate(10, (i) => GoodsItemEntity(icon: _imgList[i % 6], title: "八月十五中秋月饼礼盒", type: i % 3)));
         _page ++;
       });
+      _setGoodsCount(_list.length);
     });
+  }
+  
+  _setGoodsCount(int count) {
+    GoodsPageProvider provider = Provider.of<GoodsPageProvider>(context, listen: false);
+    provider.setGoodsCount(count);
   }
 
   int _page = 1;
@@ -95,7 +105,7 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
         return GoodsItem(
           index: index,
           selectIndex: _selectIndex,
-          img: _imgList[index % 6],
+          item: _list[index],
           animation: _animation,
           onTapMenu: (){
             // 开始执行动画
@@ -142,6 +152,7 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
                 _stateType = StateType.goods;
               }
             });
+            _setGoodsCount(_list.length);
           },
         );
       },
