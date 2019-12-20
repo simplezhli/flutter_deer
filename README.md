@@ -63,8 +63,6 @@ iOS需要自行下载代码运行。
     1. Flutter version 1.12.13+hotfix.5
      
     2. Dart version 2.7.0
-    
-如果你的Flutter版本为1.10.15以下，请使用`cached_network_image`的版本为`1.1.3`。
 
 ## 注意事项
 
@@ -132,7 +130,7 @@ iOS需要自行下载代码运行。
 
 - 1.9.1已支持，使用`keyboardType: TextInputType.visiblePassword`即可。~~输入框在不设置`obscureText`属性的情况下(false)，[无法弹出密码模式键盘](https://github.com/flutter/flutter/issues/31738)，可暂时使用`BlacklistingTextInputFormatter`去除可能会输入的中文。~~
 
-- 1.12.13已修复。~~在1.9.1上，TextField在语言环境为中文时，[光标与输入文字不居中显示](https://github.com/flutter/flutter/issues/40219)，可暂时使用`textBaseline: TextBaseline.alphabetic` 处理此问提。~~
+- 1.12.13已修复。~~在1.9.1上，TextField在语言环境为中文时，[光标与输入文字不居中显示](https://github.com/flutter/flutter/issues/40248)，可暂时使用`textBaseline: TextBaseline.alphabetic` 处理此问提。~~
 
 ## 心得及问题记录
 

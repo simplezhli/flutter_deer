@@ -100,7 +100,7 @@ class _SearchBarState extends State<SearchBar> {
                             child: LoadAssetImage("order/order_delete", color: iconColor),
                           ),
                           onTap: (){
-                            /// https://github.com/flutter/flutter/issues/35909
+                            /// https://github.com/flutter/flutter/issues/36324
                             SchedulerBinding.instance.addPostFrameCallback((_) {
                               _controller.text = "";
                             });

@@ -17,8 +17,6 @@ public class MainActivity extends FlutterActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     GeneratedPluginRegistrant.registerWith(this);
-    new MethodChannel(getFlutterView(), "x_log")
-            .setMethodCallHandler((methodCall, result) -> logPrint(methodCall));
 
     new MethodChannel(getFlutterView(), "version").setMethodCallHandler((methodCall, result) -> {
       if (methodCall.method.equals("install")){
@@ -40,34 +38,5 @@ public class MainActivity extends FlutterActivity {
     FileProvider7.setIntentDataAndType(this, intents, "application/vnd.android.package-archive", new File(path), false);
     this.startActivity(intents);
   }
-
-  private void logPrint(MethodCall call) {
-    String tag = call.argument("tag");
-    String message = call.argument("msg");
-
-    switch (call.method){
-      case "logD":
-        XLog.tag(tag).d(message);
-        break;
-      case "logW":
-        XLog.tag(tag).w(message);
-        break;
-      case "logI":
-        XLog.tag(tag).i(message);
-        break;
-      case "logE":
-        XLog.tag(tag).e(message);
-        break;
-      case "logJson":
-        try {
-          XLog.tag(tag).json(message);
-        } catch (Exception e) {
-          XLog.tag(tag).d(message);
-        }
-        break;
-      default:
-        XLog.tag(tag).v(message);
-        break;
-    }
-  }
+  
 }

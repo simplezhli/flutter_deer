@@ -1,13 +1,13 @@
 name: flutter_deer
 description: Flutter Deer
 
-version: 1.0.7
+version: 1.0.8
 author: 唯鹿 <a05111993@163.com>
 homepage: https://github.com/simplezhli/flutter_deer
 
 
 environment:
-  sdk: ">=2.4.0 <3.0.0"
+  sdk: ">=2.5.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -28,13 +28,13 @@ dependencies:
   # Flutter 轮播图 https://github.com/best-flutter/flutter_swiper
   flutter_swiper: ^1.1.6
   # 启动URL的插件 https://github.com/flutter/plugins/tree/master/packages/url_launcher
-  url_launcher: 5.2.7
+  url_launcher: 5.4.1
   # 图片选择插件 https://github.com/flutter/plugins/tree/master/packages/image_picker
-  image_picker: 0.6.2+1
+  image_picker: 0.6.2+3
   # 侧滑删除 https://github.com/letsar/flutter_slidable
   flutter_slidable: ^0.5.4
   # WebView插件 https://github.com/flutter/plugins/tree/master/packages/webview_flutter
-  webview_flutter: 0.3.16
+  webview_flutter: 0.3.18+1
   # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions
   keyboard_actions: ^2.1.2
   # 列表悬浮头 https://github.com/fluttercommunity/flutter_sticky_headers
