@@ -33,7 +33,7 @@ class Routes {
     router.define(home, handler: Handler(
       handlerFunc: (BuildContext context, Map<String, List<String>> params) => Home()));
     
-    router.define(webViewPage, handler: Handler(handlerFunc: (_, params){
+    router.define(webViewPage, handler: Handler(handlerFunc: (_, params) {
       String title = params['title']?.first;
       String url = params['url']?.first;
       return WebViewPage(title: title, url: url);
@@ -51,7 +51,7 @@ class Routes {
     _listRouter.add(StatisticsRouter());
   
     /// 初始化路由
-    _listRouter.forEach((routerProvider){
+    _listRouter.forEach((routerProvider) {
       routerProvider.initRouter(router);
     });
   }

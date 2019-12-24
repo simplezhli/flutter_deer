@@ -91,7 +91,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                         crossAxisSpacing: 0.6
                       ),
                       itemCount: 12,
-                      itemBuilder: (_, index){
+                      itemBuilder: (_, index) {
                         final color = ThemeUtils.isDark(context) ? Colours.dark_bg_gray : Colours.dark_button_text;
                         return Material(
                           color: (index == 9 || index == 11) ? color : null,
@@ -100,12 +100,12 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                               child: index == 11 ? const LoadAssetImage("account/del", width: 32.0) : index == 9 ? Gaps.empty :
                               Text(_list[index].toString(), style: TextStyle(fontSize: 26.0)),
                             ),
-                            onTap: (){
-                              if(index == 9){
+                            onTap: () {
+                              if (index == 9) {
                                 return;
                               }
-                              if(index == 11){
-                                if (_index == 0){
+                              if (index == 11) {
+                                if (_index == 0) {
                                   return;
                                 }
                                 _codeList[_index - 1] = "";
@@ -117,15 +117,15 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                               }
                               _codeList[_index] = _list[index].toString();
                               _index++;
-                              if (_index == _codeList.length){
+                              if (_index == _codeList.length) {
 
                                 String code = "";
-                                for (int i = 0; i < _codeList.length; i ++){
+                                for (int i = 0; i < _codeList.length; i ++) {
                                   code = code + _codeList[i];
                                 }
                                 Toast.show("密码：$code");
                                 _index = 0;
-                                for (int i = 0; i < _codeList.length; i ++){
+                                for (int i = 0; i < _codeList.length; i ++) {
                                   _codeList[i] = "";
                                 }
                               }
@@ -149,7 +149,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
   int _index = 0;
   List<String> _codeList = ["", "", "", "", "", ""];
 
-  Widget _buildInputWidget(int p){
+  Widget _buildInputWidget(int p) {
     return Expanded(
       child: Container(
           alignment: Alignment.center,

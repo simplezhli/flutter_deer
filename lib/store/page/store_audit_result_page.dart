@@ -48,7 +48,7 @@ class _StoreAuditResultPageState extends State<StoreAuditResultPage> {
             Gaps.vGap12,
             Gaps.vGap12,
             MyButton(
-              onPressed: (){
+              onPressed: () {
                 NavigatorUtils.push(context, Routes.home, clearStack: true);
               },
               text: "进入",

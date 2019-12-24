@@ -53,7 +53,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
     _weeksDays = Date.Utils.daysInRange(Date.Utils.previousWeek(_initialDay), DateUtils.nextDay(_initialDay)).toList().sublist(1, 8);
     _currentMonthsDays = DateUtils.daysInMonth(_initialDay);
     _monthList.clear();
-    for (int i = 1; i < 13; i ++){
+    for (int i = 1; i < 13; i ++) {
       _monthList.add(i);
     }
   }
@@ -81,7 +81,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                     fontSize: Dimens.font_sp15,
                     selected: _selectedIndex == 0,
                     unSelectedTextColor: _unSelectedTextColor,
-                    onTap: (){
+                    onTap: () {
                       setState(() {
                         _selectedIndex = 0;
                       });
@@ -96,7 +96,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                     fontSize: Dimens.font_sp15,
                     selected: _selectedIndex == 1,
                     unSelectedTextColor: _unSelectedTextColor,
-                    onTap: (){
+                    onTap: () {
                       setState(() {
                         _selectedIndex = 1;
                       });
@@ -111,7 +111,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                     fontSize: Dimens.font_sp15,
                     selected: _selectedIndex == 2,
                     unSelectedTextColor: _unSelectedTextColor,
-                    onTap: (){
+                    onTap: () {
                       setState(() {
                         _selectedIndex = 2;
                       });
@@ -138,7 +138,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                       ),
                       _selectedIndex == 1 ?
                           InkWell(
-                            onTap: (){
+                            onTap: () {
                               setState(() {
                                 _isExpanded = !_isExpanded;
                               });
@@ -180,7 +180,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
     );
   }
   
-  _buildChart(Color color, Color shadowColor, String title, String count){
+  _buildChart(Color color, Color shadowColor, String title, String count) {
     return AspectRatio(
       aspectRatio: 3,
       child: MyCard(
@@ -236,29 +236,29 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
   List<DataPoint> data2 = [];
 
   // 数据变化图标会刷新，否则不会
-  _getRandomData(){
-    if (data.isEmpty){
-      for (int i = 0; i < 7; i++){
+  _getRandomData() {
+    if (data.isEmpty) {
+      for (int i = 0; i < 7; i++) {
         data.add(DataPoint<double>(value: Random.secure().nextInt(3000).toDouble(), xAxis: (i * 5).toDouble()));
       }
-      for (int i = 0; i < 7; i++){
+      for (int i = 0; i < 7; i++) {
         data1.add(DataPoint<double>(value: Random.secure().nextInt(3000).toDouble(), xAxis: (i * 5).toDouble()));
       }
-      for (int i = 0; i < 7; i++){
+      for (int i = 0; i < 7; i++) {
         data2.add(DataPoint<double>(value: Random.secure().nextInt(3000).toDouble(), xAxis: (i * 5).toDouble()));
       }
     }
 
-    if (_selectedIndex == 0){
+    if (_selectedIndex == 0) {
       return data;
-    }else if(_selectedIndex == 1){
+    } else if (_selectedIndex == 1) {
       return data1;
-    }else{
+    } else {
       return data2;
     }
   }
   
-  _buildGridView(){
+  _buildGridView() {
     return GridView.count(
       physics: ClampingScrollPhysics(),
       shrinkWrap: true,
@@ -267,19 +267,19 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
     );
   }
   
-  _buildCalendar(){
-    if (_selectedIndex == 0){
+  _buildCalendar() {
+    if (_selectedIndex == 0) {
       return _builderMonthCalendar();
-    }else if (_selectedIndex == 1){
+    } else if (_selectedIndex == 1) {
       return _builderCalendar();
-    }else if (_selectedIndex == 2){
+    } else if (_selectedIndex == 2) {
       return _builderWeekCalendar();
     }
   }
   
-  List<Widget> _buildWeeks(){
+  List<Widget> _buildWeeks() {
     List<Widget> widgets = [];
-    _weeks.forEach((str){
+    _weeks.forEach((str) {
       widgets.add(Center(
         child: Text(str, style: Theme.of(context).textTheme.subtitle),
       ));
@@ -292,7 +292,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
     List<DateTime> list;
     if (_isExpanded) {
       list = _currentMonthsDays;
-    }else{
+    } else {
       list = DateUtils.daysInWeek(_selectedDay);
     }
     dayWidgets.addAll(_buildWeeks());
@@ -305,7 +305,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
               // 不是本月的日期与超过当前日期的不可点击
               enable: day.day <= _initialDay.day && !DateUtils.isExtraDay(day, _initialDay),
               unSelectedTextColor: _unSelectedTextColor,
-              onTap: (){
+              onTap: () {
                 setState(() {
                   _selectedDay = day;
                 });
@@ -319,7 +319,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
 
   List<Widget> _builderMonthCalendar() {
     List<Widget> monthWidgets = [];
-    _monthList.forEach((month){
+    _monthList.forEach((month) {
       monthWidgets.add(
           Center(
             child: SelectedText(
@@ -327,7 +327,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
               selected: month == _selectedMonth,
               enable: month <= _initialDay.month,
               unSelectedTextColor: _unSelectedTextColor,
-              onTap: (){
+              onTap: () {
                 setState(() {
                   _selectedMonth = month;
                 });
@@ -348,7 +348,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
               day.day < 10 ? "0${day.day}" : day.day.toString(),
               selected: day.day == _selectedWeekDay,
               unSelectedTextColor: _unSelectedTextColor,
-              onTap: (){
+              onTap: () {
                 setState(() {
                   _selectedWeekDay = day.day;
                 });

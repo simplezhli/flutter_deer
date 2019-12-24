@@ -110,12 +110,12 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
               child: TabBar(
                 controller: _tabController,
                 isScrollable: true,
-                onTap: (index){
-                  if (myTabs[index].text.isEmpty){
+                onTap: (index) {
+                  if (myTabs[index].text.isEmpty) {
                     _tabController.animateTo(_index);
                     return;
                   }
-                  switch(index){
+                  switch(index) {
                     case 0:
                       _mList = _mGoodsSort;
                       break;
@@ -142,7 +142,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
               child: ListView.builder(
                 controller: _controller,
                 itemExtent: 48.0,
-                itemBuilder: (_, index){
+                itemBuilder: (_, index) {
                   return InkWell(
                     child: Container(
                       padding: EdgeInsets.symmetric(horizontal: 16.0),
@@ -163,11 +163,11 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                         ],
                       ),
                     ),
-                    onTap: (){
+                    onTap: () {
                       myTabs[_index] = Tab(text: _mList[index]["name"]);
                       _positions[_index] = index;
                       _index++;
-                      switch(_index){
+                      switch(_index) {
                         case 1:
                           _mList = _mGoodsSort1;
                           myTabs[1] = Tab(text: "请选择");
@@ -182,7 +182,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                           break;
                       }
                       setState(() {
-                        if (_index > 2){
+                        if (_index > 2) {
                           _index = 2;
                           widget.onSelected(_mList[index]["id"], _mList[index]["name"]);
                           NavigatorUtils.goBack(context);

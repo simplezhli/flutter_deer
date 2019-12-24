@@ -23,16 +23,16 @@ class DioUtils {
 
   static Dio _dio;
 
-  Dio getDio(){
+  Dio getDio() {
     return _dio;
   }
 
-  DioUtils._internal(){
+  DioUtils._internal() {
     var options = BaseOptions(
       connectTimeout: 15000,
       receiveTimeout: 15000,
       responseType: ResponseType.plain,
-      validateStatus: (status){
+      validateStatus: (status) {
         // 不使用http状态码判断状态，使用AdapterInterceptor来处理（适用于标准REST风格）
         return true;
       },
@@ -55,7 +55,7 @@ class DioUtils {
     /// 刷新Token
     _dio.interceptors.add(TokenInterceptor());
     /// 打印Log(生产模式去除)
-    if (!Constant.inProduction){
+    if (!Constant.inProduction) {
       _dio.interceptors.add(LoggingInterceptor());
     }
     /// 适配数据(根据自己的数据结构，可自行选择添加)
@@ -72,7 +72,7 @@ class DioUtils {
       /// 集成测试无法使用 isolate
       Map<String, dynamic> _map = Constant.isTest ? parseData(response.data.toString()) : await compute(parseData, response.data.toString());
       return BaseEntity.fromJson(_map);
-    }catch(e){
+    } catch(e) {
       print(e);
       return BaseEntity(ExceptionHandle.parse_error, "数据解析错误", null);
     }
@@ -98,21 +98,21 @@ class DioUtils {
         data: params,
         queryParameters: queryParameters,
         options: options,
-        cancelToken: cancelToken).then((BaseEntity<T> result){
-      if (result.code == 0){
-        if (isList){
-          if (onSuccessList != null){
+        cancelToken: cancelToken).then((BaseEntity<T> result) {
+      if (result.code == 0) {
+        if (isList) {
+          if (onSuccessList != null) {
             onSuccessList(result.listData);
           }
-        }else{
-          if (onSuccess != null){
+        } else {
+          if (onSuccess != null) {
             onSuccess(result.data);
           }
         }
-      }else{
+      } else {
         _onError(result.code, result.message, onError);
       }
-    }, onError: (e, _){
+    }, onError: (e, _) {
       _cancelLogPrint(e, url);
       NetError error = ExceptionHandle.handleException(e);
       _onError(error.code, error.msg, onError);
@@ -126,39 +126,39 @@ class DioUtils {
     Function(int code, String msg) onError,
     dynamic params, Map<String, dynamic> queryParameters, 
     CancelToken cancelToken, Options options, bool isList : false
-  }){
+  }) {
     String m = _getRequestMethod(method);
     Observable.fromFuture(_request<T>(m, url, data: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken))
         .asBroadcastStream()
-        .listen((result){
-      if (result.code == 0){
-        if (isList){
-          if (onSuccessList != null){
+        .listen((result) {
+      if (result.code == 0) {
+        if (isList) {
+          if (onSuccessList != null) {
             onSuccessList(result.listData);
           }
-        }else{
-          if (onSuccess != null){
+        } else {
+          if (onSuccess != null) {
             onSuccess(result.data);
           }
         }
-      }else{
+      } else {
         _onError(result.code, result.message, onError);
       }
-    }, onError: (e){
+    }, onError: (e) {
       _cancelLogPrint(e, url);
       NetError error = ExceptionHandle.handleException(e);
       _onError(error.code, error.msg, onError);
     });
   }
 
-  _cancelLogPrint(dynamic e, String url){
-    if (e is DioError && CancelToken.isCancel(e)){
+  _cancelLogPrint(dynamic e, String url) {
+    if (e is DioError && CancelToken.isCancel(e)) {
       Log.e("取消请求接口： $url");
     }
   }
 
-  _onError(int code, String msg, Function(int code, String mag) onError){
-    if (code == null){
+  _onError(int code, String msg, Function(int code, String mag) onError) {
+    if (code == null) {
       code = ExceptionHandle.unknown_error;
       msg = "未知异常";
     }
@@ -168,9 +168,9 @@ class DioUtils {
     }
   }
 
-  String _getRequestMethod(Method method){
+  String _getRequestMethod(Method method) {
     String m;
-    switch(method){
+    switch(method) {
       case Method.get:
         m = "GET";
         break;
@@ -194,7 +194,7 @@ class DioUtils {
   }
 }
 
-Map<String, dynamic> parseData(String data){
+Map<String, dynamic> parseData(String data) {
   return json.decode(data);
 }
 

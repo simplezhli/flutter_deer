@@ -57,8 +57,8 @@ class _PriceInputDialog extends State<PriceInputDialog>{
           ),
         ),
       ),
-      onPressed: (){
-        if (_controller.text.isEmpty){
+      onPressed: () {
+        if (_controller.text.isEmpty) {
           Toast.show("请输入${widget.title}");         
           return;
         }

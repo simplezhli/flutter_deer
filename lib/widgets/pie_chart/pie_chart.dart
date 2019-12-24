@@ -46,7 +46,7 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
   void didUpdateWidget(PieChart oldWidget) {
     super.didUpdateWidget(oldWidget);
     // 数据变化时执行动画
-    if (oldData != widget.data){
+    if (oldData != widget.data) {
       controller.forward(from: 0);
     }
   }
@@ -61,7 +61,7 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
   Widget build(BuildContext context) {
     oldData = widget.data;
     count = 0;
-    for (int i = 0; i < widget.data.length; i++){
+    for (int i = 0; i < widget.data.length; i++) {
       count += widget.data[i].number;
     }
     final bgColor = ThemeUtils.getBackgroundColor(context);
@@ -77,7 +77,7 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
       child: RepaintBoundary(
         child: AnimatedBuilder(
           animation: animation,
-          builder: (_, child){
+          builder: (_, child) {
             return CustomPaint(
               painter: PieChartPainter(
                   widget.data,
@@ -110,11 +110,11 @@ class PieChartPainter extends CustomPainter {
       return;
     }
     int count = 0;
-    for (int i = 0; i < data.length; i++){
+    for (int i = 0; i < data.length; i++) {
       count += data[i].number;
     }
     PieData pieData;
-    if (data.length == 11){
+    if (data.length == 11) {
       // 获取“其他”数据
       pieData = data[10];
       pieData.percentage = pieData.number / count;
@@ -125,13 +125,13 @@ class PieChartPainter extends CustomPainter {
    
     data.sort((left,right) => right.number.compareTo(left.number));
     // 由大到小给予颜色
-    for (int i = 0; i < data.length; i++){
+    for (int i = 0; i < data.length; i++) {
       this.data[i].color = Constant.colorList[i];
       this.data[i].percentage = this.data[i].number / count;
       // 排序后的数据输出
 //      print(data[i].toString());
     }
-    if (pieData != null){
+    if (pieData != null) {
       data.add(pieData);
     }
     _mPaint = new Paint();
@@ -160,7 +160,7 @@ class PieChartPainter extends CustomPainter {
     Offset offset = Offset(size.width / 2, size.height / 2);
     mCircle = Rect.fromCircle(center: offset, radius: mRadius);
     
-    for (int i = 0; i < data.length; i++){
+    for (int i = 0; i < data.length; i++) {
       _mPaint..color = data[i].color
         ..style = PaintingStyle.fill;
       canvas.drawArc(mCircle, prevAngle, totalAngle * data[i].percentage, true, _mPaint);
@@ -168,7 +168,7 @@ class PieChartPainter extends CustomPainter {
     }
     // 为了文字不被覆盖，在绘制完扇形后绘制文字
     prevAngle = -math.pi;
-    for (int i = 0; i < data.length; i++){
+    for (int i = 0; i < data.length; i++) {
       //计算扇形中心点的坐标
       var x = (size.height * 0.74 / 2) * math.cos(prevAngle + (totalAngle * data[i].percentage / 2));
       var y = (size.height * 0.74 / 2) * math.sin(prevAngle + (totalAngle * data[i].percentage / 2));

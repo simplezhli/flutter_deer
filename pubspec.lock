@@ -160,7 +160,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "310d4878ccd53440fac0606adb50065460325b0f"
+      resolved-ref: "308c2e0911ff45bfa3ecfde4fe23b4fa8fbe6203"
       url: "https://github.com/simplezhli/flutter_2d_amap.git"
     source: git
     version: "0.0.2"
@@ -363,7 +363,7 @@ packages:
       name: oktoast
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.2.1"
+    version: "2.3.0"
   package_config:
     dependency: transitive
     description:
@@ -461,7 +461,7 @@ packages:
       name: rational
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.3.6"
+    version: "0.3.7"
   rxdart:
     dependency: "direct main"
     description:

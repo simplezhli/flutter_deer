@@ -41,8 +41,8 @@ class _OrderListState extends State<OrderList> with AutomaticKeepAliveClientMixi
   Widget build(BuildContext context) {
     super.build(context);
     return NotificationListener(
-      onNotification: (ScrollNotification note){
-        if(note.metrics.pixels == note.metrics.maxScrollExtent){
+      onNotification: (ScrollNotification note) {
+        if (note.metrics.pixels == note.metrics.maxScrollExtent) {
           _loadMore();
         }
         return true;
@@ -93,7 +93,7 @@ class _OrderListState extends State<OrderList> with AutomaticKeepAliveClientMixi
     });
   }
 
-  bool _hasMore(){
+  bool _hasMore() {
     return _page < _maxPage;
   }
 
@@ -101,7 +101,7 @@ class _OrderListState extends State<OrderList> with AutomaticKeepAliveClientMixi
     if (_isLoading) {
       return;
     }
-    if (!_hasMore()){
+    if (!_hasMore()) {
       return;
     }
     _isLoading = true;

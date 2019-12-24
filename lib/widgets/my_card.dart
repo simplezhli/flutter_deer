@@ -21,15 +21,15 @@ class MyCard extends StatelessWidget {
     Color _backgroundColor;
     Color _shadowColor;
     bool isDark = ThemeUtils.isDark(context);
-    if (color == null){
+    if (color == null) {
       _backgroundColor = isDark ? Colours.dark_bg_gray_ : Colors.white;
-    }else{
+    } else {
       _backgroundColor = color;
     }
 
-    if (shadowColor == null){
+    if (shadowColor == null) {
       _shadowColor = isDark ? Colors.transparent : const Color(0x80DCE7FA);
-    }else{
+    } else {
       _shadowColor = isDark ? Colors.transparent : shadowColor;
     }
 

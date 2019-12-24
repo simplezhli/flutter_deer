@@ -28,7 +28,7 @@ class _StateLayoutState extends State<StateLayout> {
   
   @override
   Widget build(BuildContext context) {
-    switch (widget.type){
+    switch (widget.type) {
       case StateType.order:
         _img = "zwdd";
         _hintText = "暂无订单";

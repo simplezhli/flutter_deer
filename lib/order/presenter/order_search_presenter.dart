@@ -18,29 +18,29 @@ class OrderSearchPresenter extends BasePagePresenter<OrderSearchPageState> {
       url: HttpApi.search,
       queryParameters: params,
       isShow: isShowDialog,
-      onSuccess: (data){
-        if(data != null){
+      onSuccess: (data) {
+        if (data != null) {
           /// 一页30条数据，等于30条认为有下一页
           /// 具体的处理逻辑根据具体的接口情况处理，这部分可以抽离出来
           view.provider.setHasMore(data.items.length == 30);
-          if (page == 1){
+          if (page == 1) {
             /// 刷新
             view.provider.list.clear();
-            if (data.items.isEmpty){
+            if (data.items.isEmpty) {
               view.provider.setStateType(StateType.order);
-            }else{
+            } else {
               view.provider.addAll(data.items);
             }
-          }else{
+          } else {
             view.provider.addAll(data.items);
           }
-        }else{
+        } else {
           /// 加载失败
           view.provider.setHasMore(false);
           view.provider.setStateType(StateType.network);
         }
       },
-      onError: (_, __){
+      onError: (_, __) {
         /// 加载失败
         view.provider.setHasMore(false);
         view.provider.setStateType(StateType.network);

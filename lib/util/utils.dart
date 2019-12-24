@@ -1,5 +1,6 @@
 
 import 'package:barcode_scan/barcode_scan.dart';
+import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
@@ -24,7 +25,7 @@ class Utils {
     try {
       return await BarcodeScanner.scan();
     } catch (e) {
-      if (e is PlatformException){
+      if (e is PlatformException) {
         if (e.code == BarcodeScanner.CameraAccessDenied) {
           Toast.show("没有相机权限！");
         }
@@ -33,7 +34,11 @@ class Utils {
     return null;
   }
 
-  static KeyboardActionsConfig getKeyboardActionsConfig(BuildContext context, List<FocusNode> list){
+  static String formatPrice(String price, {format: MoneyFormat.END_INTEGER}){
+    return MoneyUtil.changeYWithUnit(NumUtil.getDoubleByValueStr(price), MoneyUnit.YUAN, format: format);
+  }
+
+  static KeyboardActionsConfig getKeyboardActionsConfig(BuildContext context, List<FocusNode> list) {
     return KeyboardActionsConfig(
       keyboardActionsPlatform: KeyboardActionsPlatform.IOS,
       keyboardBarColor: ThemeUtils.getKeyboardActionsColor(context),

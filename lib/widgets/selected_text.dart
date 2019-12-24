@@ -57,8 +57,8 @@ class SelectedText extends StatelessWidget {
     );
   }
 
-  _buildText(){
-    if (text.endsWith("月") || text.endsWith("日")){
+  _buildText() {
+    if (text.endsWith("月") || text.endsWith("日")) {
       return RichText(
           text: TextSpan(
             children: <TextSpan>[
@@ -67,12 +67,12 @@ class SelectedText extends StatelessWidget {
             ],
           )
       );
-    }else{
+    } else {
       return Text(text, style: TextStyle(color: getTextColor(), fontSize: fontSize));
     }
   }
 
-  getTextColor(){
+  getTextColor() {
     return enable ? (selected ? Colors.white : unSelectedTextColor) : Colours.text_gray_c;
   }
 }

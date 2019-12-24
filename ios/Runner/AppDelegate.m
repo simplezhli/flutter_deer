@@ -14,7 +14,7 @@
       if ([call.method isEqualToString:@"jumpAppStore"]) {
            NSURL *appUrl = [NSURL URLWithString:@"http://itunes.apple.com/us/app/id444934666"];
            [UIApplication.sharedApplication openURL:appUrl];
-      }else{
+      } else {
            result(FlutterMethodNotImplemented);
       }
   }];

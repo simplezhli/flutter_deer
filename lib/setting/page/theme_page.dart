@@ -28,7 +28,7 @@ class _ThemePageState extends State<ThemePage> {
   Widget build(BuildContext context) {
     String theme = flutter_stars.SpUtil.getString(Constant.theme);
     String themeMode;
-    switch(theme){
+    switch(theme) {
       case "Dark":
         themeMode = _list[1];
         break;
@@ -49,7 +49,7 @@ class _ThemePageState extends State<ThemePage> {
           separatorBuilder: (_, index) {
             return const Divider();
           },
-          itemBuilder: (_, index){
+          itemBuilder: (_, index) {
             return InkWell(
               onTap: () => Provider.of<ThemeProvider>(context).setTheme(index == 0 ? Themes.SYSTEM : (index == 1 ? Themes.DARK : Themes.LIGHT)),
               child: Container(

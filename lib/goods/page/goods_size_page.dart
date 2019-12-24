@@ -6,6 +6,7 @@ import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
@@ -41,13 +42,13 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
 
     // 获取Build完成状态监听
     var widgetsBinding = WidgetsBinding.instance;
-    widgetsBinding.addPostFrameCallback((callback){
+    widgetsBinding.addPostFrameCallback((callback) {
       _showHint();
     });
   }
 
   /// design/4商品/index.html#artboard18
-  _showHint(){
+  _showHint() {
     final RenderBox hint = _hintKey.currentContext.findRenderObject();
     final RenderBox overlay = Overlay.of(context).context.findRenderObject();
     var a =  hint.localToGlobal(Offset(50.0 , hint.size.height + 150.0), ancestor: overlay);
@@ -83,7 +84,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
         key: _hintKey,
         title: "商品规格",
         actionName: "保存",
-        onPressed: (){
+        onPressed: () {
           Toast.show("保存");
           NavigatorUtils.goBack(context);
         },
@@ -100,13 +101,13 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
             ),
             Gaps.vGap8,
             InkWell(
-              onTap: (){
+              onTap: () {
                 showDialog(
                     context: context,
                     barrierDismissible: false,
                     builder: (BuildContext context) {
                       return GoodsSizeDialog(
-                        onPressed: (name){
+                        onPressed: (name) {
                           setState(() {
                             _sizeName = name;
                             _isEdit = true;
@@ -135,7 +136,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
               ) : ListView.builder(
                 itemCount: goodsSizeList.length,
                 itemExtent: 107.0,
-                itemBuilder: (_, index){
+                itemBuilder: (_, index) {
                   return getGoodsSizeItem(index);
                 },
                 ),
@@ -143,7 +144,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
               child: MyButton(
-                onPressed: _isEdit ? (){
+                onPressed: _isEdit ? () {
                   NavigatorUtils.push(context, GoodsRouter.goodsSizeEditPage);
                 } : null,
                 text: "添加",
@@ -160,7 +161,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
   final SlidableController _slidableController = SlidableController();
 
   /// design/4商品/index.html#artboard19
-  Widget getGoodsSizeItem(int index){
+  Widget getGoodsSizeItem(int index) {
     return Slidable(
       key: Key(index.toString()),
       controller: _slidableController,
@@ -265,8 +266,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text("¥${goodsSizeList[index].price}",
-                            ),
+                            Text(Utils.formatPrice(goodsSizeList[index].price)),
                             const SizedBox(width: 50.0,),
                             Text(
                               "佣金${goodsSizeList[index].charges}元",

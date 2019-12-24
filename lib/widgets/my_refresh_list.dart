@@ -49,9 +49,9 @@ class _DeerListViewState extends State<DeerListView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: NotificationListener(
-        onNotification: (ScrollNotification note){
+        onNotification: (ScrollNotification note) {
           /// 确保是垂直方向滚动，且滑动至底部
-          if (note.metrics.pixels == note.metrics.maxScrollExtent && note.metrics.axis == Axis.vertical){
+          if (note.metrics.pixels == note.metrics.maxScrollExtent && note.metrics.axis == Axis.vertical) {
             _loadMore();
           }
           return true;
@@ -62,11 +62,11 @@ class _DeerListViewState extends State<DeerListView> {
             itemCount: widget.loadMore == null ? widget.itemCount : widget.itemCount + 1,
             padding: widget.padding,
             itemExtent: widget.itemExtent,
-            itemBuilder: (BuildContext context, int index){
+            itemBuilder: (BuildContext context, int index) {
               /// 不需要加载更多则不需要添加FootView
-              if (widget.loadMore == null){
+              if (widget.loadMore == null) {
                 return widget.itemBuilder(context, index);
-              }else{
+              } else {
                 return index < widget.itemCount ? widget.itemBuilder(context, index) : MoreWidget(widget.itemCount, widget.hasMore, widget.pageSize);
               }
             }
@@ -77,13 +77,13 @@ class _DeerListViewState extends State<DeerListView> {
   }
 
   Future _loadMore() async {
-    if (widget.loadMore == null){
+    if (widget.loadMore == null) {
       return;
     }
     if (_isLoading) {
       return;
     }
-    if (!widget.hasMore){
+    if (!widget.hasMore) {
       return;
     }
     _isLoading = true;

@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
     _nameController.text = FlutterStars.SpUtil.getString(Constant.phone);
   }
 
-  void _verify(){
+  void _verify() {
     String name = _nameController.text;
     String password = _passwordController.text;
     bool isClick = true;
@@ -50,14 +50,14 @@ class _LoginPageState extends State<LoginPage> {
     }
 
     /// 状态不一样在刷新，避免重复不必要的setState
-    if (isClick != _isClick){
+    if (isClick != _isClick) {
       setState(() {
         _isClick = isClick;
       });
     }
   }
   
-  void _login(){
+  void _login() {
     FlutterStars.SpUtil.putString(Constant.phone, _nameController.text);
     NavigatorUtils.push(context, StoreRouter.auditPage);
   }
@@ -68,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
       appBar: MyAppBar(
         isBack: false,
         actionName: '验证码登录',
-        onPressed: (){
+        onPressed: () {
           NavigatorUtils.push(context, LoginRouter.smsLoginPage);
         },
       ),
@@ -80,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
   
-  _buildBody(){
+  _buildBody() {
     return Padding(
       padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 20.0),
       child: Column(

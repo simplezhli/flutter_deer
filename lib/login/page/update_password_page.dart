@@ -28,7 +28,7 @@ class _UpdatePasswordPageState extends State<UpdatePasswordPage> {
     _newPwdController.addListener(_verify);
   }
 
-  void _verify(){
+  void _verify() {
     String oldPwd = _oldPwdController.text;
     String newPwd = _newPwdController.text;
     bool isClick = true;
@@ -38,14 +38,14 @@ class _UpdatePasswordPageState extends State<UpdatePasswordPage> {
     if (newPwd.isEmpty || newPwd.length < 6) {
       isClick = false;
     }
-    if (isClick != _isClick){
+    if (isClick != _isClick) {
       setState(() {
         _isClick = isClick;
       });
     }
   }
   
-  void _confirm(){
+  void _confirm() {
     Toast.show("修改成功！");
     NavigatorUtils.goBack(context);
   }

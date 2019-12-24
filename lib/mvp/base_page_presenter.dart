@@ -11,7 +11,7 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
 
   CancelToken _cancelToken;
 
-  BasePagePresenter(){
+  BasePagePresenter() {
     _cancelToken = CancelToken();
   }
   
@@ -27,7 +27,7 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
   @override
   void dispose() {
     /// 销毁时，将请求取消
-    if (!_cancelToken.isCancelled){
+    if (!_cancelToken.isCancelled) {
       _cancelToken.cancel();
     }
   }
@@ -45,26 +45,26 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
         queryParameters: queryParameters,
         options: options,
         cancelToken: cancelToken?? _cancelToken,
-        onSuccess: (data){
+        onSuccess: (data) {
           if (isClose) view.closeProgress();
           if (onSuccess != null) {
             onSuccess(data);
           }
         },
-        onSuccessList: (data){
+        onSuccessList: (data) {
           if (isClose) view.closeProgress();
           if (onSuccessList != null) {
             onSuccessList(data);
           }
         },
-        onError: (code, msg){
+        onError: (code, msg) {
           _onError(code, msg, onError);
         }
     );
   }
 
   void asyncRequestNetwork<T>(Method method, {@required String url, bool isShow : true, bool isClose: true, Function(T t) onSuccess, Function(List<T> list) onSuccessList, Function(int code, String msg) onError,
-    dynamic params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options, bool isList : false}){
+    dynamic params, Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options, bool isList : false}) {
     if (isShow) view.showProgress();
     DioUtils.instance.asyncRequestNetwork<T>(method, url,
         params: params,
@@ -72,19 +72,19 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
         options: options,
         cancelToken: cancelToken?? _cancelToken,
         isList: isList,
-        onSuccess: (data){
+        onSuccess: (data) {
           if (isClose) view.closeProgress();
           if (onSuccess != null) {
             onSuccess(data);
           }
         },
-        onSuccessList: (data){
+        onSuccessList: (data) {
           if (isClose) view.closeProgress();
           if (onSuccessList != null) {
             onSuccessList(data);
           }
         },
-        onError: (code, msg){
+        onError: (code, msg) {
           _onError(code, msg, onError);
         }
     );
@@ -102,20 +102,20 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
       await requestNetwork<String>(Method.post,
           url: HttpApi.upload,
           params: formData,
-          onSuccess: (data){
+          onSuccess: (data) {
             imgPath = data;
           }
       );
-    }catch(e){
+    } catch(e) {
       view.showToast("图片上传失败！");
     }
     return imgPath;
   }
 
-  _onError(int code, String msg, Function(int code, String msg) onError){
+  _onError(int code, String msg, Function(int code, String msg) onError) {
     /// 异常时直接关闭加载圈，不受isClose影响
     view.closeProgress();
-    if (code != ExceptionHandle.cancel_error){
+    if (code != ExceptionHandle.cancel_error) {
       view.showToast(msg);
     }
     /// 页面如果dispose，则不回调onError

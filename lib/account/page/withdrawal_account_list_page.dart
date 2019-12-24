@@ -33,7 +33,7 @@ class _WithdrawalAccountListPageState extends State<WithdrawalAccountListPage> {
       appBar: MyAppBar(
         centerTitle: "选择账号",
         actionName: "添加",
-        onPressed: (){
+        onPressed: () {
           NavigatorUtils.push(context, AccountRouter.addWithdrawalAccountPage);
         }
       ),
@@ -42,7 +42,7 @@ class _WithdrawalAccountListPageState extends State<WithdrawalAccountListPage> {
         separatorBuilder: (_, index) {
           return Divider(height: 0.6);
         },
-        itemBuilder: (_, index){
+        itemBuilder: (_, index) {
           return InkWell(
             onTap: () => NavigatorUtils.goBackWithParams(context, _list[index]),
             child: Container(

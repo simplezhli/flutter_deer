@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 import '../tools/test_utils.dart';
 
 void main([List<String> args = const <String>[]]) {
-  group('引导页：', (){
+  group('引导页：', () {
     FlutterDriver driver;
 
     // 测试之前连接程序
@@ -13,7 +13,7 @@ void main([List<String> args = const <String>[]]) {
       await driver.waitUntilFirstFrameRasterized();
     });
 
-    tearDown((){
+    tearDown(() {
       print('< Success');
     });
 

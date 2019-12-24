@@ -36,7 +36,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
     _passwordController.addListener(_verify);
   }
 
-  void _verify(){
+  void _verify() {
     String name = _nameController.text;
     String vCode = _vCodeController.text;
     String password = _passwordController.text;
@@ -50,14 +50,14 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
     if (password.isEmpty || password.length < 6) {
       isClick = false;
     }
-    if (isClick != _isClick){
+    if (isClick != _isClick) {
       setState(() {
         _isClick = isClick;
       });
     }
   }
   
-  void _reset(){
+  void _reset() {
     Toast.show("确认......");
   }
 
@@ -75,7 +75,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
     );
   }
 
-  _buildBody(){
+  _buildBody() {
     return Padding(
       padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 20.0),
       child: Column(
@@ -99,7 +99,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
             focusNode: _nodeText2,
             controller: _vCodeController,
             keyboardType: TextInputType.number,
-            getVCode: (){
+            getVCode: () {
               return Future.value(true);
             },
             maxLength: 6,

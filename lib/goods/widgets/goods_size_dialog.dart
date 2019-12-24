@@ -46,7 +46,7 @@ class _GoodsSizeDialog extends State<GoodsSizeDialog>{
           ),
         ),
       ),
-      onPressed: (){
+      onPressed: () {
         NavigatorUtils.goBack(context);
         widget.onPressed(_controller.text);
       },

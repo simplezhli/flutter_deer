@@ -36,7 +36,7 @@ class _RegisterPageState extends State<RegisterPage> {
     _passwordController.addListener(_verify);
   }
 
-  void _verify(){
+  void _verify() {
     String name = _nameController.text;
     String vCode = _vCodeController.text;
     String password = _passwordController.text;
@@ -50,14 +50,14 @@ class _RegisterPageState extends State<RegisterPage> {
     if (password.isEmpty || password.length < 6) {
       isClick = false;
     }
-    if (isClick != _isClick){
+    if (isClick != _isClick) {
       setState(() {
         _isClick = isClick;
       });
     }
   }
   
-  void _register(){
+  void _register() {
     Toast.show("点击注册");
   }
 
@@ -75,7 +75,7 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
   
-  _buildBody(){
+  _buildBody() {
     return Padding(
       padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 20.0),
       child: Column(
@@ -102,11 +102,11 @@ class _RegisterPageState extends State<RegisterPage> {
             controller: _vCodeController,
             keyboardType: TextInputType.number,
             getVCode: () async {
-              if (_nameController.text.length == 11){
+              if (_nameController.text.length == 11) {
                 Toast.show("并没有真正发送哦，直接登录吧！");
                 /// 一般可以在这里发送真正的请求，请求成功返回true
                 return true;
-              }else{
+              } else {
                 Toast.show("请输入有效的手机号");
                 return false;
               }

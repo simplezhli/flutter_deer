@@ -20,7 +20,7 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
       ),
       body: ListView.builder(
         itemCount: 8,
-        itemBuilder: (_, index){
+        itemBuilder: (_, index) {
           return StickyHeader(
             header: Container(
               alignment: Alignment.centerLeft,
@@ -37,8 +37,8 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
     );
   }
   
-  Widget _buildItem(int index){
-    List<Widget> list = List.generate(index + 1, (i){
+  Widget _buildItem(int index) {
+    List<Widget> list = List.generate(index + 1, (i) {
       return Container(
         height: 72.0,
         width: double.infinity,

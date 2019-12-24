@@ -29,7 +29,7 @@ class _PayTypeDialog extends State<PayTypeDialog>{
   List _selectValue;
   var _list = ["线上支付", "对公转账", "货到付款"];
 
-  Widget getItem(int index){
+  Widget getItem(int index) {
     _selectValue = widget.value ?? [0];
     return Material(
       type: MaterialType.transparency,
@@ -47,16 +47,16 @@ class _PayTypeDialog extends State<PayTypeDialog>{
             ],
           ),
         ),
-        onTap: (){
+        onTap: () {
           if (mounted) {
-            if (index == 0){
+            if (index == 0) {
               Toast.show("线上支付为必选项");
               return;
             }
             setState(() {
-              if (_selectValue.contains(index)){
+              if (_selectValue.contains(index)) {
                 _selectValue.remove(index);
-              }else{
+              } else {
                 _selectValue.add(index);
               }
             });
@@ -79,7 +79,7 @@ class _PayTypeDialog extends State<PayTypeDialog>{
           getItem(2),
         ],
       ),
-      onPressed: (){
+      onPressed: () {
         NavigatorUtils.goBack(context);
         widget.onPressed(_selectValue);
       },

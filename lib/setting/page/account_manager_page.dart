@@ -26,7 +26,7 @@ class _AccountManagerPageState extends State<AccountManagerPage> {
             children: <Widget>[
               ClickItem(
                 title: "店铺logo",
-                onTap: (){}
+                onTap: () {}
               ),
               Positioned(
                 top: 8.0,

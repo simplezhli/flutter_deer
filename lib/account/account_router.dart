@@ -34,7 +34,7 @@ class AccountRouter implements IRouterProvider{
     router.define(accountPage, handler: Handler(handlerFunc: (_, params) => AccountPage()));
     router.define(accountRecordListPage, handler: Handler(handlerFunc: (_, params) => AccountRecordListPage()));
     router.define(addWithdrawalAccountPage, handler: Handler(handlerFunc: (_, params) => AddWithdrawalAccountPage()));
-    router.define(bankSelectPage, handler: Handler(handlerFunc: (_, params){
+    router.define(bankSelectPage, handler: Handler(handlerFunc: (_, params) {
       int type = int.parse(params['type']?.first);
       return BankSelectPage(type: type);
     }));

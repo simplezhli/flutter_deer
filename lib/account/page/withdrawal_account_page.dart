@@ -35,7 +35,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
       appBar: MyAppBar(
         centerTitle: "提现账号",
         actionName: "添加",
-        onPressed: (){
+        onPressed: () {
           NavigatorUtils.push(context, AccountRouter.addWithdrawalAccountPage);
         }
       ),
@@ -45,14 +45,14 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
         padding: const EdgeInsets.symmetric(horizontal: 22.0),
         itemCount: _list.length,
         itemExtent: 151.0,
-        itemBuilder: (_, index){
+        itemBuilder: (_, index) {
           return Padding(
             padding: const EdgeInsets.only(top: 15.0),
             child: AccountCard(
               type: _list[index].type,
               child: InkWell(
                 //Toast.show("长按删除账号！");
-                onLongPress: (){
+                onLongPress: () {
                   _showDeleteBottomSheet(index);
                 },
                 child: SizedBox(
@@ -98,7 +98,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
     );
   }
 
-  _showDeleteBottomSheet(int index){
+  _showDeleteBottomSheet(int index) {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
@@ -124,7 +124,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                       child: FlatButton(
                         textColor: Theme.of(context).errorColor,
                         child: const Text("确认解绑", style: TextStyle(fontSize: Dimens.font_sp18)),
-                        onPressed: (){
+                        onPressed: () {
                           setState(() {
                             _list.removeAt(index);
                           });
@@ -139,7 +139,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                       child: FlatButton(
                         textColor: Colours.text_gray,
                         child: const Text("取消", style: TextStyle(fontSize: Dimens.font_sp18)),
-                        onPressed: (){
+                        onPressed: () {
                           NavigatorUtils.goBack(context);
                         },
                       ),

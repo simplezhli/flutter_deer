@@ -33,8 +33,8 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
   @override
   void initState() {
     super.initState();
-//    _controller.addListener((){
-//      if (_controller.text.isEmpty){
+//    _controller.addListener(() {
+//      if (_controller.text.isEmpty) {
 //        return;
 //      }
 //      // 点击EditableText将光标放置在后端
@@ -118,17 +118,17 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                         textAlign: TextAlign.center,
                         backgroundCursorColor: Colors.transparent,
                         style: TextStyle(color: Colors.transparent, fontSize: Dimens.font_sp18),
-                        onChanged: (v){
-                          for (int i = 0; i < _codeList.length; i ++){
-                            if (i < v.length){
+                        onChanged: (v) {
+                          for (int i = 0; i < _codeList.length; i ++) {
+                            if (i < v.length) {
                               _codeList[i] = v.substring(i, i + 1);
-                            }else{
+                            } else {
                               _codeList[i] = "";
                             }
                           }
-                          if (v.length == _codeList.length){
+                          if (v.length == _codeList.length) {
                             Toast.show("验证码：${_controller.text}");
-                            for (int i = 0; i < _codeList.length; i ++){
+                            for (int i = 0; i < _codeList.length; i ++) {
                               _codeList[i] = "";
                             }
                             _controller.text = "";
@@ -137,9 +137,9 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                         },
                       ),
                       GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           /// 一直怼，会有概率造成键盘抖动，加一个键盘时候弹出判断
-                          if (MediaQuery.of(context).viewInsets.bottom < 10){
+                          if (MediaQuery.of(context).viewInsets.bottom < 10) {
                             final focusScope = FocusScope.of(context);
                             focusScope.unfocus();
                             Future.delayed(Duration.zero, () => focusScope.requestFocus(_focusNode));
@@ -167,12 +167,12 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                     child: Text(_isClick ? "获取验证码" : "已发送($s s)", style: TextStyle(fontSize: Dimens.font_sp18)),
                     textColor: textColor,
                     disabledTextColor: Colours.text_gray,
-                    onPressed: _isClick ? (){
+                    onPressed: _isClick ? () {
                       setState(() {
                         s = _second;
                         _isClick = false;
                       });
-                      _subscription = Observable.periodic(Duration(seconds: 1), (i) => i).take(_second).listen((i){
+                      _subscription = Observable.periodic(Duration(seconds: 1), (i) => i).take(_second).listen((i) {
                         setState(() {
                           s = _second - i - 1;
                           _isClick = s < 1;
@@ -188,7 +188,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
     );
   }
 
-  Widget _buildInputWidget(int p, Color textColor){
+  Widget _buildInputWidget(int p, Color textColor) {
     return Container(
         height: 32.0,
         width: 32.0,

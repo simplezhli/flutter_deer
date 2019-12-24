@@ -29,7 +29,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
     _reset();
   }
 
-  _reset(){
+  _reset() {
     _list.clear();
     _list.add(FreightConfigModel("0", "", 1, false, ""));
     _list.add(FreightConfigModel("", "", 1, true, ""));
@@ -43,7 +43,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
       appBar: MyAppBar(
         title: "运费比例配置",
         actionName: "重置",
-        onPressed: (){
+        onPressed: () {
           setState(() {
             _reset();
           });
@@ -57,7 +57,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
               right: 16.0,
               bottom: 8.0,
               child: MyButton(
-                onPressed: (){
+                onPressed: () {
                   NavigatorUtils.goBack(context);
                 },
                 text: "完成",
@@ -71,7 +71,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
               child: ListView.builder(
                 itemExtent: 111.0,
                 padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-                itemBuilder: (_, index){
+                itemBuilder: (_, index) {
                   return _buildItem(index);
                 },
                 itemCount: _list.length,
@@ -84,10 +84,10 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
   }
   
   // 暂时没有对输入数据进行校验
-  _buildItem(int index){
+  _buildItem(int index) {
     return _list[index].isAdd ?
     GestureDetector(
-      onTap: (){
+      onTap: () {
         var config = _list[index - 1];
         if (config.max.isNotEmpty && config.min.isNotEmpty) {
           setState(() {
@@ -120,33 +120,33 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                   Text(index == 0 ? "订单金额小于" : (index == _list.length - 1 ? "订单金额不小于" : "订单金额区间")),
                   Expanded(
                     child: InkWell(
-                      onTap: (){
-                        if (index == 0 || index == _list.length - 1){
+                      onTap: () {
+                        if (index == 0 || index == _list.length - 1) {
                           showDialog(
                               context: context,
                               barrierDismissible: false,
                               builder: (BuildContext context) {
                                 return PriceInputDialog(
                                   title: "订单金额",
-                                  onPressed: (value){
+                                  onPressed: (value) {
                                     setState(() {
-                                      if (index == 0){
+                                      if (index == 0) {
                                         _list[index].max = value;
-                                      }else{
+                                      } else {
                                         _list[index].min = value;
                                       }
                                     });
                                   },
                                 );
                               });
-                        }else{
+                        } else {
                           showDialog(
                               context: context,
                               barrierDismissible: false,
                               builder: (BuildContext context) {
                                 return RangePriceInputDialog(
                                   title: "订单金额",
-                                  onPressed: (min, max){
+                                  onPressed: (min, max) {
                                     setState(() {
                                       _list[index].min = min;
                                       _list[index].max = max;
@@ -172,7 +172,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
               Row(
                 children: <Widget>[
                   InkWell(
-                    onTap: (){
+                    onTap: () {
                       setState(() {
                         _list[index].type = 1;
                       });
@@ -188,7 +188,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                   ),
                   Gaps.hGap16,
                   InkWell(
-                    onTap: (){
+                    onTap: () {
                       setState(() {
                         _list[index].type = 0;
                       });
@@ -204,14 +204,14 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                   ),
                   Expanded(
                     child: InkWell(
-                      onTap: (){
+                      onTap: () {
                         showDialog(
                             context: context,
                             barrierDismissible: false,
                             builder: (BuildContext context) {
                               return PriceInputDialog(
                                 title: _list[index].type == 1 ? "运费比率" : "运费金额",
-                                onPressed: (value){
+                                onPressed: (value) {
                                   setState(() {
                                     _list[index].price = value;
                                   });
@@ -235,23 +235,23 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
     );
   }
   
-  String _getPriceText(int index){
-    if (index == 0){
-      if (_list[index].max.isEmpty){
+  String _getPriceText(int index) {
+    if (index == 0) {
+      if (_list[index].max.isEmpty) {
         return "";
-      }else{
+      } else {
         return _list[index].max;
       }
-    }else if (index == _list.length - 1){
-      if (_list[index].min.isEmpty){
+    } else if (index == _list.length - 1) {
+      if (_list[index].min.isEmpty) {
         return "";
-      }else{
+      } else {
         return _list[index].min;
       }
-    }else{
-      if (_list[index].min.isEmpty || _list[index].max.isEmpty){
+    } else {
+      if (_list[index].min.isEmpty || _list[index].max.isEmpty) {
         return "";
-      }else{
+      } else {
         return _list[index].min + "~" + _list[index].max;
       }
     }

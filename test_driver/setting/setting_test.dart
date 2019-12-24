@@ -5,7 +5,7 @@ import '../tools/test_utils.dart';
 
 void main([List<String> args = const <String>[]]) {
 
-  group('设置部分：', (){
+  group('设置部分：', () {
     FlutterDriver driver;
 
     setUpAll(() async {
@@ -13,7 +13,7 @@ void main([List<String> args = const <String>[]]) {
       await driver.waitUntilFirstFrameRasterized();
     });
 
-    tearDown((){
+    tearDown(() {
       print('< Success');
     });
 
@@ -54,7 +54,7 @@ void main([List<String> args = const <String>[]]) {
       await Future.delayed(Duration(seconds: 2));
       await driver.tap(find.byTooltip('Back'));
       await delayed();
-      if (args.length == 1){
+      if (args.length == 1) {
         await driver.tap(find.byTooltip('Back'));
         await delayed();
         await driver.tap(find.byValueKey('订单'));

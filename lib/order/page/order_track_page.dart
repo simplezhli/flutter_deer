@@ -52,7 +52,7 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
   var _titleList = ["订单已完成", "开始配送", "等待配送", "收到新订单"];
   var _timeList = ["2018/08/30 13:30", "2018/08/30 11:30", "2018/08/30 9:30", "2018/08/30 9:00"];
   
-  Step _buildStep(int index){
+  Step _buildStep(int index) {
     Color primaryColor = Theme.of(context).primaryColor;
     return Step(
       title: Padding(

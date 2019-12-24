@@ -1,8 +1,10 @@
 
+import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/goods/models/goods_item_entity.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
+import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/menu_reveal.dart';
 
@@ -108,7 +110,7 @@ class GoodsItem extends StatelessWidget {
                           ],
                         ),
                         Gaps.vGap16,
-                        const Text("¥20.00")
+                        Text(Utils.formatPrice("20.00", format: MoneyFormat.NORMAL))
                       ],
                     ),
                   ),
@@ -142,7 +144,7 @@ class GoodsItem extends StatelessWidget {
         selectIndex != index ? Gaps.empty : Positioned.fill(
           child: AnimatedBuilder(
               animation: animation,
-              builder:(_, child){
+              builder:(_, child) {
                 bool isDark = ThemeUtils.isDark(context);
                 Color buttonColor = isDark ? Colours.dark_text : Colors.white;
                 return MenuReveal(

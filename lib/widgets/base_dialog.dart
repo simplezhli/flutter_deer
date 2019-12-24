@@ -68,7 +68,7 @@ class BaseDialog extends StatelessWidget{
                             ),
                           ),
                           textColor: Colours.text_gray,
-                          onPressed: (){
+                          onPressed: () {
                             NavigatorUtils.goBack(context);
                           },
                         ),
@@ -90,7 +90,7 @@ class BaseDialog extends StatelessWidget{
                             ),
                           ),
                           textColor: Theme.of(context).primaryColor,
-                          onPressed: (){
+                          onPressed: () {
                             onPressed();
                           },
                         ),

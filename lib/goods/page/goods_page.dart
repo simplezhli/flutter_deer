@@ -55,7 +55,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
         appBar: AppBar(
           actions: <Widget>[
             IconButton(
-              onPressed: (){
+              onPressed: () {
                 NavigatorUtils.push(context, GoodsRouter.goodsSearchPage);
               },
               icon: LoadAssetImage(
@@ -68,7 +68,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
             ),
             IconButton(
               key: _addKey,
-              onPressed: (){
+              onPressed: () {
                 _showAddMenu();
               },
               icon: LoadAssetImage(
@@ -88,7 +88,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
             GestureDetector(
               key: _buttonKey,
               child: Consumer<GoodsPageProvider>(
-                builder: (_, provider, __){
+                builder: (_, provider, __) {
                   return Row(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -112,8 +112,8 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
               // 隐藏点击效果
               color: ThemeUtils.getBackgroundColor(context),
               child: TabBar(
-                onTap: (index){
-                  if (!mounted){
+                onTap: (index) {
+                  if (!mounted) {
                     return;
                   }
                   _pageController.jumpToPage(index);
@@ -157,7 +157,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
   }
 
   /// design/4商品/index.html#artboard3
-  _showSortMenu(){
+  _showSortMenu() {
     // 获取点击控件的坐标
     final RenderBox button = _buttonKey.currentContext.findRenderObject();
     final RenderBox overlay = Overlay.of(context).context.findRenderObject();
@@ -188,7 +188,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
           child: ListView.builder(
             physics: ClampingScrollPhysics(),
             itemCount: _sortList.length + 1,
-            itemBuilder: (_, index){
+            itemBuilder: (_, index) {
               Color backgroundColor = ThemeUtils.getBackgroundColor(context);
               return index == _sortList.length ? Container(
                 color: backgroundColor,
@@ -212,7 +212,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                       ],
                     ),
                   ),
-                  onTap: (){
+                  onTap: () {
                     setState(() {
                       _sortIndex = index;
                     });
@@ -229,7 +229,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
   }
 
   /// design/4商品/index.html#artboard4
-  _showAddMenu(){
+  _showAddMenu() {
     final RenderBox button = _addKey.currentContext.findRenderObject();
     final RenderBox overlay = Overlay.of(context).context.findRenderObject();
     var a =  button.localToGlobal(Offset(button.size.width - 8.0, button.size.height - 12.0), ancestor: overlay);
@@ -262,7 +262,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
               height: 40.0,
               child: FlatButton.icon(
                 textColor: Theme.of(context).textTheme.body1.color,
-                onPressed: (){
+                onPressed: () {
                   NavigatorUtils.push(context, '${GoodsRouter.goodsEditPage}?isAdd=true&isScan=true', replace: true);
                 },
                 color: backgroundColor,
@@ -280,7 +280,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
               child: FlatButton.icon(
                 textColor: Theme.of(context).textTheme.body1.color,
                 color: backgroundColor,
-                onPressed: (){
+                onPressed: () {
                   NavigatorUtils.push(context, '${GoodsRouter.goodsEditPage}?isAdd=true', replace: true);
                 },
                 shape: RoundedRectangleBorder(
@@ -310,7 +310,7 @@ class _TabView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<GoodsPageProvider>(
-      builder: (_, provider, child){
+      builder: (_, provider, child) {
         return  Tab(
             child: SizedBox(
               width: 78.0,

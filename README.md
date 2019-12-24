@@ -2,7 +2,7 @@
 
 <img src="preview/logo.jpg"/>
 
-本项目为学习Flutter的练习项目（主要为UI练习）。
+本项目为个人学习Flutter的练习项目。
 
 通过设置、修改、组合自带部件以及自定义来实现具体的设计效果，满足日常开发的需求。
 
@@ -70,7 +70,7 @@ iOS需要自行下载代码运行。
     iOS可以执行命令`flutter build ios` 以创建`release`版本。
     Android可以执行命令`flutter build apk` 以创建`release`版本。
 
-- 由于部分三方插件的原因，本项目暂不支持web。
+- 由于部分插件的原因，本项目在web上支持不完善（主要为功能方面，UI问题不大）。有兴趣的可自行运行体验。
         
 - FlutterJsonBeanFactory插件使用可以查看[这篇文章](https://www.jianshu.com/p/e909f3f936d6)
 

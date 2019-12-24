@@ -19,10 +19,10 @@ public class MainActivity extends FlutterActivity {
     GeneratedPluginRegistrant.registerWith(this);
 
     new MethodChannel(getFlutterView(), "version").setMethodCallHandler((methodCall, result) -> {
-      if (methodCall.method.equals("install")){
+      if (methodCall.method.equals("install")) {
         String path = methodCall.argument("path");
         openFile(path);
-      }else {
+      } else {
         result.notImplemented();
       }
     });

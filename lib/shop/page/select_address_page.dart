@@ -39,10 +39,10 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
       resizeToAvoidBottomInset: false,
       appBar: SearchBar(
         hintText: "搜索地址",
-        onPressed: (text){
+        onPressed: (text) {
           _controller.animateTo(0.0, duration: Duration(milliseconds: 10), curve: Curves.ease);
           _index = 0;
-          if (_aMap2DController != null){
+          if (_aMap2DController != null) {
             _aMap2DController.search(text);
           }
         },
@@ -53,7 +53,7 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
             Expanded(
               flex: 9,
               child: AMap2DView(
-                onPoiSearched: (result){
+                onPoiSearched: (result) {
                   _controller.animateTo(0.0, duration: Duration(milliseconds: 10), curve: Curves.ease);
                   _index = 0;
                   _list = result;
@@ -61,7 +61,7 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
                    
                   });
                 },
-                onAMap2DViewCreated: (controller){
+                onAMap2DViewCreated: (controller) {
                   _aMap2DController = controller;
                 },
               ),
@@ -81,11 +81,11 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
                   separatorBuilder: (_, index) {
                     return const Divider();
                   },
-                  itemBuilder: (_, index){
+                  itemBuilder: (_, index) {
                     return InkWell(
-                      onTap: (){
+                      onTap: () {
                         _index = index;
-                        if (_aMap2DController != null){
+                        if (_aMap2DController != null) {
                           _aMap2DController.move(_list[index].latitude, _list[index].longitude);
                         }
                         setState(() {
@@ -117,7 +117,7 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
               ),
             ),
             MyButton(
-              onPressed: (){
+              onPressed: () {
                 NavigatorUtils.goBackWithParams(context, _list[_index]);
               },
               text: "确认选择地址",

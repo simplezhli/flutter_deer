@@ -39,7 +39,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
     return Scaffold(
       appBar: MyAppBar(
         actionName: _type ? "待配货" : "已配货",
-        onPressed: (){
+        onPressed: () {
           setState(() {
             _type = !_type;
           });
@@ -90,7 +90,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
     );
   }
   
-  _buildChart(){
+  _buildChart() {
     return AspectRatio(
       aspectRatio: 1.30,
       // 百分比布局
@@ -108,21 +108,21 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
   List<PieData> data1 = [];
 
   // 数据为前十名数据与剩余数量
-  _getRandomData(){
-    if (data.isEmpty){
-      for (int i = 0; i < 9; i++){
+  _getRandomData() {
+    if (data.isEmpty) {
+      for (int i = 0; i < 9; i++) {
         PieData pieData = PieData();
         pieData.name = "商品$i";
         pieData.number = Random.secure().nextInt(1000);
         data.add(pieData);
       }
-      for (int i = 0; i < 11; i++){
+      for (int i = 0; i < 11; i++) {
         PieData pieData = PieData();
-        if (i == 10){
+        if (i == 10) {
           pieData.name = "其他";
           pieData.number = Random.secure().nextInt(1000);
           pieData.color = Colours.text_gray_c;
-        }else{
+        } else {
           pieData.name = "商品$i";
           pieData.number = Random.secure().nextInt(1000);
         }
@@ -130,14 +130,14 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
       }
     }
 
-    if (_type){
+    if (_type) {
       return data;
-    }else{
+    } else {
       return data1;
     }
   }
   
-  _buildItem(int index){
+  _buildItem(int index) {
     return Container(
       margin: const EdgeInsets.only(bottom: 8.0),
       child: MyCard(
@@ -208,14 +208,14 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
     );
   }
  
-  _buildSelectedText(String text, int index){
+  _buildSelectedText(String text, int index) {
     Color unSelectedTextColor = ThemeUtils.isDark(context) ? Colors.white : Colours.dark_text_gray;
     return SelectedText(
       text,
       fontSize: Dimens.font_sp15,
       selected: _type && _selectedIndex == index,
       unSelectedTextColor: unSelectedTextColor,
-      onTap: _type ? (){
+      onTap: _type ? () {
         setState(() {
           _selectedIndex = index;
         });

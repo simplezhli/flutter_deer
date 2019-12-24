@@ -157,7 +157,7 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
   @override
   void initState() {
     //监听Widget是否绘制完毕
-    WidgetsBinding.instance.addPostFrameCallback((_){
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       final RenderBox renderBoxRed = _key.currentContext.findRenderObject();
       _offset = renderBoxRed.size.width / 2;
     });

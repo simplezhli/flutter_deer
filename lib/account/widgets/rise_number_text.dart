@@ -38,7 +38,7 @@ class _RiseNumberTextState extends State<RiseNumberText> with SingleTickerProvid
   void didUpdateWidget(RiseNumberText oldWidget) {
     super.didUpdateWidget(oldWidget);
     // 数据变化时执行动画
-    if (oldWidget.number != widget.number){
+    if (oldWidget.number != widget.number) {
       fromNumber = oldWidget.number;
       controller.forward(from: 0);
     }
@@ -54,7 +54,7 @@ class _RiseNumberTextState extends State<RiseNumberText> with SingleTickerProvid
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: animation,
-      builder: (_, __){
+      builder: (_, __) {
         // 数字默认从0增长。数据变化时，由之前数字为基础变化。
         return Text(
           (fromNumber + (animation.value * (widget.number - fromNumber))).toStringAsFixed(2).toString(),

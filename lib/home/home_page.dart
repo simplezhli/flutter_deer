@@ -34,7 +34,7 @@ class _HomeState extends State<Home> {
     initData();
   }
   
-  void initData(){
+  void initData() {
     _pageList = [
       OrderPage(),
       GoodsPage(),
@@ -43,8 +43,8 @@ class _HomeState extends State<Home> {
     ];
   }
 
-  List<BottomNavigationBarItem> _buildBottomNavigationBarItem(){
-    if (_list == null){
+  List<BottomNavigationBarItem> _buildBottomNavigationBarItem() {
+    if (_list == null) {
       var _tabImages = [
         [
           const LoadAssetImage("home/icon_order", width: 25.0, color: Colours.unselected_item_color,),
@@ -63,7 +63,7 @@ class _HomeState extends State<Home> {
           const LoadAssetImage("home/icon_shop", width: 25.0, color: Colours.app_main,),
         ]
       ];
-      _list = List.generate(4, (i){
+      _list = List.generate(4, (i) {
         return BottomNavigationBarItem(
             icon: _tabImages[i][0],
             activeIcon: _tabImages[i][1],
@@ -77,8 +77,8 @@ class _HomeState extends State<Home> {
     return _list;
   }
 
-  List<BottomNavigationBarItem> _buildDarkBottomNavigationBarItem(){
-    if (_listDark == null){
+  List<BottomNavigationBarItem> _buildDarkBottomNavigationBarItem() {
+    if (_listDark == null) {
       var _tabImagesDark = [
         [
           const LoadAssetImage("home/icon_order", width: 25.0),
@@ -98,7 +98,7 @@ class _HomeState extends State<Home> {
         ]
       ];
 
-      _listDark = List.generate(4, (i){
+      _listDark = List.generate(4, (i) {
         return BottomNavigationBarItem(
             icon: _tabImagesDark[i][0],
             activeIcon: _tabImagesDark[i][1],
@@ -114,7 +114,7 @@ class _HomeState extends State<Home> {
 
   DateTime  _lastTime;
   
-  Future<bool> _isExit(){
+  Future<bool> _isExit() {
     if (_lastTime == null || DateTime.now().difference(_lastTime) > Duration(milliseconds: 2500)) {
       _lastTime = DateTime.now();
       Toast.show("再次点击退出应用");
@@ -133,7 +133,7 @@ class _HomeState extends State<Home> {
         onWillPop: _isExit,
         child: Scaffold(
           bottomNavigationBar: Consumer<HomeProvider>(
-            builder: (_, provider, __){
+            builder: (_, provider, __) {
               return BottomNavigationBar(
                 backgroundColor: ThemeUtils.getBackgroundColor(context),
                 items: isDark ? _buildDarkBottomNavigationBarItem() : _buildBottomNavigationBarItem(),

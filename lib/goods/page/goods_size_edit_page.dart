@@ -114,7 +114,7 @@ class _GoodsSizeEditPageState extends State<GoodsSizeEditPage> {
             Padding(
               padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
               child: MyButton(
-                onPressed: (){
+                onPressed: () {
                   NavigatorUtils.goBack(context);
                 },
                 text: "确定",

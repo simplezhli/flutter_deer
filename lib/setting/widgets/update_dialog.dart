@@ -27,7 +27,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
   
   @override
   void dispose() {
-    if (!_cancelToken.isCancelled && _value != 1){
+    if (!_cancelToken.isCancelled && _value != 1) {
       _cancelToken.cancel();
     }
     super.dispose();
@@ -87,7 +87,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
                         width: 110.0,
                         height: 36.0,
                         child: FlatButton(
-                          onPressed: (){
+                          onPressed: () {
                             NavigatorUtils.goBack(context);
                           },
                           textColor: primaryColor,
@@ -111,11 +111,11 @@ class _UpdateDialogState extends State<UpdateDialog> {
                         width: 110.0,
                         height: 36.0,
                         child: FlatButton(
-                          onPressed: (){
-                            if (defaultTargetPlatform == TargetPlatform.iOS){
+                          onPressed: () {
+                            if (defaultTargetPlatform == TargetPlatform.iOS) {
                               NavigatorUtils.goBack(context);
                               VersionUtils.jumpAppStore();
-                            }else{
+                            } else {
                               setState(() {
                                 _isDownload = true;
                               });
@@ -157,20 +157,20 @@ class _UpdateDialogState extends State<UpdateDialog> {
       await Dio().download("http://oss.pgyer.com/094e0de740d62b7e95ba5d5f65ed3e99.apk?auth_key=1565257974-a4efb6d2f1f192f992c1bbcbe5097af8-0-aaa223d92592e2c753e522e028cc2fc0&response-content-disposition=attachment%3B+filename%3Dapp-release.apk",
         file.path,
         cancelToken: _cancelToken,
-        onReceiveProgress: (int count, int total){
+        onReceiveProgress: (int count, int total) {
           if (total != -1) {
             _value = count / total;
             setState(() {
 
             });
-            if (count == total){
+            if (count == total) {
               NavigatorUtils.goBack(context);
               VersionUtils.install(path);
             }
           }
         },
       );
-    }catch (e){
+    } catch (e) {
       Toast.show("下载失败!");
       print(e);
       setState(() {

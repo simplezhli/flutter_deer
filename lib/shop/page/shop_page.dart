@@ -28,7 +28,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
 
   UserProvider provider = UserProvider();
   
-  void setUser(UserEntity user){
+  void setUser(UserEntity user) {
     provider.setUser(user);
   }
   
@@ -42,7 +42,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
           appBar: AppBar(
             actions: <Widget>[
               IconButton(
-                onPressed: (){
+                onPressed: () {
                   NavigatorUtils.push(context, ShopRouter.messagePage);
                 },
                 icon: LoadAssetImage(
@@ -54,7 +54,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                 ),
               ),
               IconButton(
-                onPressed: (){
+                onPressed: () {
                   NavigatorUtils.push(context, SettingRouter.settingPage);
                 },
                 icon: LoadAssetImage(
@@ -128,7 +128,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                     childAspectRatio: 1.18
                   ),
                   itemCount: menuTitle.length,
-                  itemBuilder: (_, index){
+                  itemBuilder: (_, index) {
                     return InkWell(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -141,12 +141,12 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                           )
                         ],
                       ),
-                      onTap: (){
-                        if (index == 0){
+                      onTap: () {
+                        if (index == 0) {
                           NavigatorUtils.push(context, AccountRouter.accountRecordListPage);
-                        }else if (index == 1){
+                        } else if (index == 1) {
                           NavigatorUtils.push(context, AccountRouter.accountPage);
-                        }else if (index == 2){
+                        } else if (index == 2) {
                           NavigatorUtils.push(context, AccountRouter.withdrawalAccountPage);
                         }
                       },
@@ -174,7 +174,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                       childAspectRatio: 1.18
                   ),
                   itemCount: 1,
-                  itemBuilder: (_, index){
+                  itemBuilder: (_, index) {
                     return InkWell(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,

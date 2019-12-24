@@ -33,7 +33,7 @@ class _SearchBarState extends State<SearchBar> {
   SystemUiOverlayStyle overlayStyle = SystemUiOverlayStyle.light;
   TextEditingController _controller = TextEditingController();
 
-  Color getColor(){
+  Color getColor() {
     return overlayStyle == SystemUiOverlayStyle.light ? Colours.dark_text : Colours.text;
   }
   
@@ -54,7 +54,7 @@ class _SearchBarState extends State<SearchBar> {
                   width: 48.0,
                   height: 48.0,
                   child: InkWell(
-                    onTap: (){
+                    onTap: () {
                       FocusScope.of(context).unfocus();
                       Navigator.maybePop(context);
                     },
@@ -82,7 +82,7 @@ class _SearchBarState extends State<SearchBar> {
                       controller: _controller,
                       maxLines: 1,
                       textInputAction: TextInputAction.search,
-                      onSubmitted: (val){
+                      onSubmitted: (val) {
                         FocusScope.of(context).unfocus();
                         // 点击软键盘的动作按钮时的回调
                         widget.onPressed(val);
@@ -100,7 +100,7 @@ class _SearchBarState extends State<SearchBar> {
                             padding: const EdgeInsets.only(left: 16.0, top: 8.0, bottom: 8.0),
                             child: LoadAssetImage("order/order_delete", color: iconColor),
                           ),
-                          onTap: (){
+                          onTap: () {
                             /// https://github.com/flutter/flutter/issues/36324
                             SchedulerBinding.instance.addPostFrameCallback((_) {
                               _controller.text = "";
@@ -127,7 +127,7 @@ class _SearchBarState extends State<SearchBar> {
                   child: FlatButton(
                       textColor: isDark ?  Colours.dark_button_text : Colors.white,
                       color: isDark ?  Colours.dark_app_main : Colours.app_main,
-                      onPressed:(){
+                      onPressed:() {
                         FocusScope.of(context).unfocus();
                         widget.onPressed(_controller.text);
                       },

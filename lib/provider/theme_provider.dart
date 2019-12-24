@@ -14,9 +14,9 @@ class ThemeProvider extends ChangeNotifier {
     Themes.DARK: "Dark", Themes.LIGHT : "Light", Themes.SYSTEM : "System"
   };
   
-  void syncTheme(){
+  void syncTheme() {
     String theme = SpUtil.getString(Constant.theme);
-    if (theme.isNotEmpty && theme != themes[Themes.SYSTEM]){
+    if (theme.isNotEmpty && theme != themes[Themes.SYSTEM]) {
       notifyListeners();
     }
   }
@@ -28,7 +28,7 @@ class ThemeProvider extends ChangeNotifier {
 
   getTheme({bool isDarkMode: false}) {
     String theme = SpUtil.getString(Constant.theme);
-    switch(theme){
+    switch(theme) {
       case "Dark":
         isDarkMode = true;
         break;

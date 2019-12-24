@@ -26,7 +26,7 @@ abstract class BasePageState<T extends StatefulWidget, V extends BasePagePresent
   
   @override
   void closeProgress() {
-    if (mounted && _isShowDialog){
+    if (mounted && _isShowDialog) {
       _isShowDialog = false;
       NavigatorUtils.goBack(context);
     }
@@ -37,7 +37,7 @@ abstract class BasePageState<T extends StatefulWidget, V extends BasePagePresent
   @override
   void showProgress() {
     /// 避免重复弹出
-    if (mounted && !_isShowDialog){
+    if (mounted && !_isShowDialog) {
       _isShowDialog = true;
       try{
         showTransparentDialog(
@@ -54,7 +54,7 @@ abstract class BasePageState<T extends StatefulWidget, V extends BasePagePresent
               );
             }
         );
-      }catch(e){
+      } catch(e) {
         /// 异常原因主要是页面没有build完成就调用Progress。
         print(e);
       }

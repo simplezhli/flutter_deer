@@ -39,8 +39,8 @@ jobs:
           )
           xcrun simctl boot "${UDID:?No Simulator with this name found}"
       # The branch or tag ref that triggered the workflow will be checked out.
-      # https://github.com/actions/checkout
-      - uses: actions/checkout@v1
+      # https://github.com/marketplace/actions/checkout
+      - uses: actions/checkout@v2
       # Sets up a flutter environment.
       # https://github.com/marketplace/actions/flutter-action
       - uses: subosito/flutter-action@v1
@@ -60,15 +60,15 @@ jobs:
         api-level: [21, 29]
         target: [default]
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: subosito/flutter-action@v1
         with:
           flutter-version: '1.12.13+hotfix.5'
           channel: 'stable' # or: 'dev' or 'beta'
       - name: "Run Flutter Driver tests"
         # GitHub Action for installing, configuring and running Android Emulators (work only Mac OS)
-        # https://github.com/ReactiveCircus/android-emulator-runner
-        uses: reactivecircus/android-emulator-runner@v1
+        # https://github.com/marketplace/actions/android-emulator-runner
+        uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: ${{ matrix.api-level }}
           target: ${{ matrix.target }}

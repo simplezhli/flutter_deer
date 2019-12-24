@@ -59,7 +59,7 @@ class _MyTextFieldState extends State<MyTextField> {
     /// 获取初始化值
     _isShowDelete = widget.controller.text.isEmpty;
     /// 监听输入改变  
-    widget.controller.addListener((){
+    widget.controller.addListener(() {
       setState(() {
         _isShowDelete = widget.controller.text.isEmpty;
       });
@@ -76,12 +76,12 @@ class _MyTextFieldState extends State<MyTextField> {
 
   Future _getVCode() async {
     bool isSuccess = await widget.getVCode();
-    if (isSuccess != null && isSuccess){
+    if (isSuccess != null && isSuccess) {
       setState(() {
         s = second;
         _isClick = false;
       });
-      _subscription = Observable.periodic(Duration(seconds: 1), (i) => i).take(second).listen((i){
+      _subscription = Observable.periodic(Duration(seconds: 1), (i) => i).take(second).listen((i) {
         setState(() {
           s = second - i - 1;
           _isClick = s < 1;
@@ -92,7 +92,7 @@ class _MyTextFieldState extends State<MyTextField> {
   
   @override
   Widget build(BuildContext context) {
-    if (widget.config != null && defaultTargetPlatform == TargetPlatform.iOS){
+    if (widget.config != null && defaultTargetPlatform == TargetPlatform.iOS) {
       // 因Android平台输入法兼容问题，所以只配置IOS平台
       FormKeyboardActions.setKeyboardActions(context, widget.config);
     }
@@ -149,7 +149,7 @@ class _MyTextFieldState extends State<MyTextField> {
                 width: 18.0,
                 height: 18.0,
               ),
-              onTap: (){
+              onTap: () {
                 setState(() {
                   _isShowPwd = !_isShowPwd;
                 });

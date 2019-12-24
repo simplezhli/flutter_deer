@@ -40,7 +40,7 @@ class _AboutPageState extends State<AboutPage> {
       // 2s定时器
       _countdownTimer = Timer.periodic(Duration(seconds: 2), (timer) {
         // https://www.jianshu.com/p/e4106b829bff
-        if (!mounted){
+        if (!mounted) {
           return;
         }
         setState(() {

@@ -5,7 +5,7 @@ import '../tools/test_utils.dart';
 
 void main() {
 
-  group('账户部分：', (){
+  group('账户部分：', () {
     FlutterDriver driver;
 
     setUpAll(() async {
@@ -13,7 +13,7 @@ void main() {
       await driver.waitUntilFirstFrameRasterized();
     });
 
-    tearDown((){
+    tearDown(() {
       print('< Success');
     });
 

@@ -13,24 +13,24 @@ class TextStyles {
     fontSize: Dimens.font_sp16,
   );
   static const TextStyle textBold14 = const TextStyle(
-      fontSize: Dimens.font_sp14,
-      fontWeight: FontWeight.bold
+    fontSize: Dimens.font_sp14,
+    fontWeight: FontWeight.bold
   );
   static const TextStyle textBold16 = const TextStyle(
-      fontSize: Dimens.font_sp16,
-      fontWeight: FontWeight.bold
+    fontSize: Dimens.font_sp16,
+    fontWeight: FontWeight.bold
   );
   static const TextStyle textBold18 = const TextStyle(
     fontSize: Dimens.font_sp18,
     fontWeight: FontWeight.bold
   );
   static const TextStyle textBold24 = const TextStyle(
-      fontSize: 24.0,
-      fontWeight: FontWeight.bold
+    fontSize: 24.0,
+    fontWeight: FontWeight.bold
   );
   static const TextStyle textBold26 = const TextStyle(
-      fontSize: 26.0,
-      fontWeight: FontWeight.bold
+    fontSize: 26.0,
+    fontWeight: FontWeight.bold
   );
  
   static const TextStyle textGray14 = const TextStyle(

@@ -33,7 +33,7 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
     _vCodeController.addListener(_verify);
   }
 
-  void _verify(){
+  void _verify() {
     String name = _phoneController.text;
     String vCode = _vCodeController.text;
     bool isClick = true;
@@ -43,14 +43,14 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
     if (vCode.isEmpty || vCode.length < 6) {
       isClick = false;
     }
-    if (isClick != _isClick){
+    if (isClick != _isClick) {
       setState(() {
         _isClick = isClick;
       });
     }
   }
 
-  void _login(){
+  void _login() {
     Toast.show("去登录......");
   }
 
@@ -66,7 +66,7 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
     );
   }
   
-  _buildBody(){
+  _buildBody() {
     return Padding(
       padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 20.0),
       child: Column(
@@ -92,7 +92,7 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
             maxLength: 6,
             keyboardType: TextInputType.number,
             hintText: "请输入验证码",
-            getVCode: (){
+            getVCode: () {
               Toast.show('获取验证码');
               return Future.value(true);
             },

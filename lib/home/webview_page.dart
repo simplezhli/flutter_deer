@@ -31,9 +31,9 @@ class _WebViewPageState extends State<WebViewPage> {
         builder: (context, snapshot) {
           return WillPopScope(
             onWillPop: () async {
-              if (snapshot.hasData){
+              if (snapshot.hasData) {
                 bool canGoBack = await snapshot.data.canGoBack();
-                if (canGoBack){
+                if (canGoBack) {
                   // 网页可以返回时，优先返回上一页
                   snapshot.data.goBack();
                   return Future.value(false);

@@ -83,12 +83,12 @@ class _RangePriceInputDialog extends State<RangePriceInputDialog>{
           ],
         ),
       ),
-      onPressed: (){
-        if (_controller.text.isEmpty || _controller1.text.isEmpty){
+      onPressed: () {
+        if (_controller.text.isEmpty || _controller1.text.isEmpty) {
           Toast.show("请输入${widget.title}");
           return;
         }
-        if (double.parse(_controller.text) >= double.parse(_controller1.text)){
+        if (double.parse(_controller.text) >= double.parse(_controller1.text)) {
           Toast.show("最小金额不能大于最大金额!");
           return;
         }

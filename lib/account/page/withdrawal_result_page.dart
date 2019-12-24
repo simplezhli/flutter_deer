@@ -47,7 +47,7 @@ class _WithdrawalResultPageState extends State<WithdrawalResultPage> {
             Gaps.vGap12,
             Gaps.vGap12,
             MyButton(
-              onPressed: (){
+              onPressed: () {
                 NavigatorUtils.goBack(context);
               },
               text: "返回",

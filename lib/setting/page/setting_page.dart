@@ -23,7 +23,7 @@ class _SettingPageState extends State<SettingPage> {
   Widget build(BuildContext context) {
     String theme = flutter_stars.SpUtil.getString(Constant.theme);
     String themeMode;
-    switch(theme){
+    switch(theme) {
       case "Dark":
         themeMode = "开启";
         break;
@@ -49,7 +49,7 @@ class _SettingPageState extends State<SettingPage> {
           ClickItem(
             title: "清除缓存",
             content: "23.5MB",
-            onTap: (){}
+            onTap: () {}
           ),
           ClickItem(
             title: "夜间模式",
@@ -66,7 +66,7 @@ class _SettingPageState extends State<SettingPage> {
           ),
           ClickItem(
             title: "退出当前账号",
-            onTap: (){
+            onTap: () {
               showDialog(
                 context: context,
                 barrierDismissible: false,

@@ -38,8 +38,8 @@ class OrderSearchPageState extends BasePageState<OrderSearchPage, OrderSearchPre
       child: Scaffold(
         appBar: SearchBar(
           hintText: "请输入手机号或姓名查询",
-          onPressed: (text){
-            if (text.isEmpty){
+          onPressed: (text) {
+            if (text.isEmpty) {
               showToast("搜索关键字不能为空！");
               return;
             }
@@ -60,7 +60,7 @@ class OrderSearchPageState extends BasePageState<OrderSearchPage, OrderSearchPre
               loadMore: _loadMore,
               itemExtent: 50.0,
               hasMore: provider.hasMore,
-              itemBuilder: (_, index){
+              itemBuilder: (_, index) {
                 return Container(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   alignment: Alignment.centerLeft,

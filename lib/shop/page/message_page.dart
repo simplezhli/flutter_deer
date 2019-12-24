@@ -17,13 +17,13 @@ class _MessagePageState extends State<MessagePage> {
       appBar: MyAppBar(
         centerTitle: "消息",
         actionName: "全部已读",
-        onPressed: (){},
+        onPressed: () {},
       ),
       body: ListView.builder(
         itemCount: 20,
         physics: AlwaysScrollableScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        itemBuilder: (_, index){
+        itemBuilder: (_, index) {
           return Column(
             children: <Widget>[
               Gaps.vGap15,

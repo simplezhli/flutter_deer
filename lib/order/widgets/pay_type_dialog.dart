@@ -25,7 +25,7 @@ class _PayTypeDialog extends State<PayTypeDialog>{
   int _value = 0;
   var _list = ["未收款", "支付宝", "微信", "现金"];
 
-  Widget getItem(int index){
+  Widget getItem(int index) {
     return Material(
       type: MaterialType.transparency,
       child: InkWell(
@@ -50,7 +50,7 @@ class _PayTypeDialog extends State<PayTypeDialog>{
             ],
           ),
         ),
-        onTap: (){
+        onTap: () {
           if (mounted) {
             setState(() {
               _value = index;
@@ -75,7 +75,7 @@ class _PayTypeDialog extends State<PayTypeDialog>{
           getItem(3),
         ],
       ),
-      onPressed: (){
+      onPressed: () {
         NavigatorUtils.goBack(context);
         widget.onPressed(_value, _list[_value]);
       },

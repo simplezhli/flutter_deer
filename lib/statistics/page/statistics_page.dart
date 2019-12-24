@@ -65,24 +65,18 @@ class _StatisticsPageState extends State<StatisticsPage> {
                       fit: BoxFit.fill
                   )
               ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Column(
-                  children: <Widget>[
-                    MyCard(
-                      child: Container(
-                        alignment: Alignment.center,
-                        height: 120.0,
-                        child: Row(
-                          children: <Widget>[
-                            const _StatisticsTab("新订单(单)", "xdd", "80"),
-                            const _StatisticsTab("待配送(单)", "dps", "80"),
-                            const _StatisticsTab("今日交易额(元)", "jrjye", "8000.00"),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
+              child: Container(
+                margin: const EdgeInsets.symmetric(horizontal: 16.0),
+                alignment: Alignment.center,
+                height: 120.0,
+                child: MyCard(
+                  child: Row(
+                    children: <Widget>[
+                      const _StatisticsTab("新订单(单)", "xdd", "80"),
+                      const _StatisticsTab("待配送(单)", "dps", "80"),
+                      const _StatisticsTab("今日交易额(元)", "jrjye", "8000.00"),
+                    ],
+                  ),
                 ),
               ),
             )
@@ -129,10 +123,10 @@ class _StatisticsItem extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
             child: InkWell(
-              onTap: (){
-                if (index == 1 || index == 2){
+              onTap: () {
+                if (index == 1 || index == 2) {
                   NavigatorUtils.push(context, '${StatisticsRouter.orderStatisticsPage}?index=$index');
-                }else{
+                } else {
                   NavigatorUtils.push(context, StatisticsRouter.goodsStatisticsPage);
                 }
               },

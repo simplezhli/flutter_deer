@@ -89,7 +89,7 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
             Padding(
               padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
               child: MyButton(
-                onPressed: (){
+                onPressed: () {
                   NavigatorUtils.push(context, StoreRouter.auditResultPage);
                 },
                 text: "提交",
@@ -101,7 +101,7 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
     );
   }
 
-  _buildBody(){
+  _buildBody() {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: Column(
@@ -140,8 +140,8 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
           StoreSelectTextItem(
               title: "店铺地址",
               content: _address,
-              onTap: (){
-                NavigatorUtils.pushResult(context, ShopRouter.addressSelectPage, (result){
+              onTap: () {
+                NavigatorUtils.pushResult(context, ShopRouter.addressSelectPage, (result) {
                   setState(() {
                     PoiSearch model = result;
                     _address = model.provinceName + " " +
@@ -179,7 +179,7 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
   String _sortName = "";
   var _list = ["水果生鲜", "家用电器", "休闲食品", "茶酒饮料", "美妆个护", "粮油调味", "家庭清洁", "厨具用品", "儿童玩具", "床上用品"];
 
-  _showBottomSheet(){
+  _showBottomSheet() {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
@@ -188,14 +188,14 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
           child: ListView.builder(
             key: const Key('goods_sort'),
             itemExtent: 48.0,
-            itemBuilder: (_, index){
+            itemBuilder: (_, index) {
               return InkWell(
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   alignment: Alignment.centerLeft,
                   child: Text(_list[index]),
                 ),
-                onTap: (){
+                onTap: () {
                   setState(() {
                     _sortName = _list[index];
                   });

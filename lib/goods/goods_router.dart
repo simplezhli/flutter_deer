@@ -20,7 +20,7 @@ class GoodsRouter implements IRouterProvider{
   @override
   void initRouter(Router router) {
     router.define(goodsPage, handler: Handler(handlerFunc: (_, params) => GoodsPage()));
-    router.define(goodsEditPage, handler: Handler(handlerFunc: (_, params){
+    router.define(goodsEditPage, handler: Handler(handlerFunc: (_, params) {
       bool isAdd = params['isAdd']?.first == "true";
       bool isScan = params['isScan']?.first == "true";
       return GoodsEditPage(isAdd: isAdd, isScan: isScan,);

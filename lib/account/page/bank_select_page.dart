@@ -61,7 +61,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
           itemHeight: 40,
           suspensionWidget: null,
           suspensionHeight: 0,
-          indexBarBuilder:(context, list, onTouch){
+          indexBarBuilder:(context, list, onTouch) {
             return IndexBar(
               onTouch: onTouch,
               data: list,
@@ -73,7 +73,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
           header: widget.type == 0 ? AzListViewHeader(
             tag: "常用",
             height: 430, 
-            builder: (context){
+            builder: (_) {
               return _buildHeader();
             }
           ) : null,
@@ -82,7 +82,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
     );
   }
 
-  _buildHeader(){
+  _buildHeader() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -95,7 +95,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
             physics: NeverScrollableScrollPhysics(),
             itemExtent: 40.0,
             itemCount: _bankNameList.length,
-            itemBuilder: (_, index){
+            itemBuilder: (_, index) {
               return InkWell(
                 onTap: () => NavigatorUtils.goBackWithParams(context, BankModel(0, _bankNameList[index], "")),
                 child: Padding(

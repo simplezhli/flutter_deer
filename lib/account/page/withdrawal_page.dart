@@ -30,7 +30,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
     _controller.addListener(_verify);
   }
 
-  void _verify(){
+  void _verify() {
     String price = _controller.text;
     if (price.isEmpty || double.parse(price) < 1) {
       setState(() {
@@ -48,7 +48,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
     final TextStyle textTextStyle = Theme.of(context).textTheme.body1.copyWith(fontSize: Dimens.font_sp12);
 
     return WillPopScope(
-      onWillPop: (){
+      onWillPop: () {
         /// 拦截返回，关闭键盘，否则会造成上一页面短暂的组件溢出
         FocusScope.of(context).unfocus();
         return Future.value(true);
@@ -62,8 +62,8 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
             children: <Widget>[
               Gaps.vGap5,
               InkWell(
-                onTap: (){
-                  NavigatorUtils.pushResult(context, AccountRouter.withdrawalAccountListPage, (result){
+                onTap: () {
+                  NavigatorUtils.pushResult(context, AccountRouter.withdrawalAccountListPage, (result) {
                     setState(() {
                       _data = result;
                     });
@@ -148,7 +148,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                       children: <Widget>[
                         Text("最多可提现70元", style: Theme.of(context).textTheme.subtitle),
                         InkWell(
-                          onTap: (){
+                          onTap: () {
                             _controller.text = "70";
                           },
                           child: Text("全部提现", style: TextStyle(
@@ -168,7 +168,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                       ],
                     ),
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         setState(() {
                           _withdrawalType = 0;
                         });
@@ -210,7 +210,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                     ),
                     Gaps.line,
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         setState(() {
                           _withdrawalType = 1;
                         });
@@ -253,7 +253,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                     Gaps.vGap8,
                     MyButton(
                       key: const Key('提现'),
-                      onPressed: _isClick ? (){
+                      onPressed: _isClick ? () {
                         NavigatorUtils.push(context, AccountRouter.withdrawalResultPage);
                       } : null,
                       text: "提现",

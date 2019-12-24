@@ -15,7 +15,7 @@ class AuthInterceptor extends Interceptor{
   @override
   onRequest(RequestOptions options) {
     String accessToken = SpUtil.getString(Constant.accessToken);
-    if (accessToken.isNotEmpty){
+    if (accessToken.isNotEmpty) {
       options.headers["Authorization"] = "Bearer $accessToken";
     }
    
@@ -29,13 +29,13 @@ class TokenInterceptor extends Interceptor{
 
     Map<String, String> params = Map();
     params["refresh_token"] = SpUtil.getString(Constant.refreshToken);
-    try{
+    try {
       _tokenDio.options = DioUtils.instance.getDio().options;
       var response = await _tokenDio.post("lgn/refreshToken", data: params);
-      if (response.statusCode == ExceptionHandle.success){
+      if (response.statusCode == ExceptionHandle.success) {
         return json.decode(response.data.toString())["access_token"];
       }
-    }catch(e){
+    } catch(e) {
       Log.e("刷新Token失败！");
     }
     return null;
@@ -55,7 +55,7 @@ class TokenInterceptor extends Interceptor{
       SpUtil.putString(Constant.accessToken, accessToken);
       dio.interceptors.requestLock.unlock();
 
-      if (accessToken != null){{
+      if (accessToken != null) {
         // 重新请求失败接口
         var request = response.request;
         request.headers["Authorization"] = "Bearer $accessToken";
@@ -72,7 +72,7 @@ class TokenInterceptor extends Interceptor{
         } on DioError catch (e) {
           return e;
         }
-      }}
+      }
     }
     return super.onResponse(response);
   }
@@ -87,9 +87,9 @@ class LoggingInterceptor extends Interceptor{
   onRequest(RequestOptions options) {
     startTime = DateTime.now();
     Log.d("----------Start----------");
-    if (options.queryParameters.isEmpty){
+    if (options.queryParameters.isEmpty) {
       Log.d("RequestUrl: " + options.baseUrl + options.path);
-    }else{
+    } else {
       Log.d("RequestUrl: " + options.baseUrl + options.path + "?" + Transformer.urlEncodeMap(options.queryParameters));
     }
     Log.d("RequestMethod: " + options.method);
@@ -103,9 +103,9 @@ class LoggingInterceptor extends Interceptor{
   onResponse(Response response) {
     endTime = DateTime.now();
     int duration = endTime.difference(startTime).inMilliseconds;
-    if (response.statusCode == ExceptionHandle.success){
+    if (response.statusCode == ExceptionHandle.success) {
       Log.d("ResponseCode: ${response.statusCode}");
-    }else {
+    } else {
       Log.e("ResponseCode: ${response.statusCode}");
     }
     // 输出结果
@@ -141,51 +141,51 @@ class AdapterInterceptor extends Interceptor{
   
   @override
   onError(DioError err) {
-    if (err.response != null){
+    if (err.response != null) {
       adapterData(err.response);
     }
     return super.onError(err);
   }
 
-  Response adapterData(Response response){
+  Response adapterData(Response response) {
     String result;
     String content = response.data == null ? "" : response.data.toString();
     /// 成功时，直接格式化返回
-    if (response.statusCode == ExceptionHandle.success || response.statusCode == ExceptionHandle.success_not_content){
-      if (content == null || content.isEmpty){
+    if (response.statusCode == ExceptionHandle.success || response.statusCode == ExceptionHandle.success_not_content) {
+      if (content == null || content.isEmpty) {
         content = defaultText;
       }
       result = sprintf(successFormat, [content]);
       response.statusCode = ExceptionHandle.success;
-    }else{
-      if (response.statusCode == ExceptionHandle.not_found){
+    } else {
+      if (response.statusCode == ExceptionHandle.not_found) {
         /// 错误数据格式化后，按照成功数据返回
         result = sprintf(failureFormat, [response.statusCode, notFound]);
         response.statusCode = ExceptionHandle.success;
-      }else {
-        if (content == null || content.isEmpty){
+      } else {
+        if (content == null || content.isEmpty) {
           // 一般为网络断开等异常
           result = content;
-        }else {
+        } else {
           String msg;
           try {
             content = content.replaceAll("\\", "");
-            if (slash == content.substring(0, 1)){
+            if (slash == content.substring(0, 1)) {
               content = content.substring(1, content.length - 1);
             }
             Map<String, dynamic> map = json.decode(content);
-            if (map.containsKey(message)){
+            if (map.containsKey(message)) {
               msg = map[message];
-            }else if(map.containsKey(msg)){
+            } else if (map.containsKey(msg)) {
               msg = map[msg];
-            }else {
+            } else {
               msg = "未知异常";
             }
             result = sprintf(failureFormat, [response.statusCode, msg]);
             // 401 token失效时，单独处理，其他一律为成功
-            if (response.statusCode == ExceptionHandle.unauthorized){
+            if (response.statusCode == ExceptionHandle.unauthorized) {
               response.statusCode = ExceptionHandle.unauthorized;
-            }else {
+            } else {
               response.statusCode = ExceptionHandle.success;
             }
           } catch (e) {

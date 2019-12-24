@@ -101,33 +101,33 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
       onRefresh: _onRefresh,
       loadMore: _loadMore,
       hasMore: _page < _maxPage,
-      itemBuilder: (_, index){
+      itemBuilder: (_, index) {
         return GoodsItem(
           index: index,
           selectIndex: _selectIndex,
           item: _list[index],
           animation: _animation,
-          onTapMenu: (){
+          onTapMenu: () {
             // 开始执行动画
             _controller.forward(from: 0.0);
             setState(() {
               _selectIndex = index;
             });
           },
-          onTapMenuClose: (){
+          onTapMenuClose: () {
             _controller.reverse(from: 1.1);
             _selectIndex = -1;
           },
-          onTapEdit: (){
+          onTapEdit: () {
             setState(() {
               _selectIndex = -1;
             });
             NavigatorUtils.push(context, '${GoodsRouter.goodsEditPage}?isAdd=false');
           },
-          onTapOperation: (){
+          onTapOperation: () {
             Toast.show("下架");
           },
-          onTapDelete: (){
+          onTapDelete: () {
             _controller.reverse(from: 1.1);
             _selectIndex = -1;
             _showDeleteBottomSheet(index);
@@ -140,15 +140,15 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
   @override
   bool get wantKeepAlive => true;
 
-  _showDeleteBottomSheet(int index){
+  _showDeleteBottomSheet(int index) {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
         return GoodsDeleteBottomSheet(
-          onTapDelete: (){
+          onTapDelete: () {
             setState(() {
               _list.removeAt(index);
-              if (_list.isEmpty){
+              if (_list.isEmpty) {
                 _stateType = StateType.goods;
               }
             });

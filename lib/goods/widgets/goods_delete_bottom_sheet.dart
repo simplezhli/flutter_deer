@@ -37,7 +37,7 @@ class GoodsDeleteBottomSheet extends StatelessWidget {
                   child: FlatButton(
                     textColor: Theme.of(context).errorColor,
                     child: const Text("确认删除", style: TextStyle(fontSize: Dimens.font_sp18)),
-                    onPressed: (){
+                    onPressed: () {
                       NavigatorUtils.goBack(context);
                       onTapDelete();
                     },
@@ -50,7 +50,7 @@ class GoodsDeleteBottomSheet extends StatelessWidget {
                   child: FlatButton(
                     textColor: Colours.text_gray,
                     child: const Text("取消", style: TextStyle(fontSize: Dimens.font_sp18)),
-                    onPressed: (){
+                    onPressed: () {
                       NavigatorUtils.goBack(context);
                     },
                   ),

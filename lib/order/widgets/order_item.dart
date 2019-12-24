@@ -1,4 +1,5 @@
 
+import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/order/widgets/pay_type_dialog.dart';
@@ -85,7 +86,7 @@ class OrderItem extends StatelessWidget {
                           text: TextSpan(
                             style: textTextStyle,
                             children: <TextSpan>[
-                              TextSpan(text: '¥20.00'),
+                              TextSpan(text: Utils.formatPrice("20.00", format: MoneyFormat.NORMAL)),
                               TextSpan(text: '  共3件商品', style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp10)),
                             ],
                           )
@@ -117,8 +118,8 @@ class OrderItem extends StatelessWidget {
                       text: Constant.orderLeftButtonText[tabIndex],
                       textColor: isDark ? Colours.dark_text : Colours.text,
                       bgColor: isDark ? Colours.dark_material_bg : Colours.bg_gray,
-                      onTap: (){
-                        if (tabIndex >= 2){
+                      onTap: () {
+                        if (tabIndex >= 2) {
                           NavigatorUtils.push(context, OrderRouter.orderTrackPage);
                         }
                       },
@@ -130,14 +131,14 @@ class OrderItem extends StatelessWidget {
                       text: Constant.orderRightButtonText[tabIndex],
                       textColor: isDark ? Colours.dark_button_text : Colors.white,
                       bgColor: isDark ? Colours.dark_app_main : Colours.app_main,
-                      onTap: (){
-                        if (tabIndex == 2){
+                      onTap: () {
+                        if (tabIndex == 2) {
                           showDialog(
                               context: context,
                               barrierDismissible: false,
                               builder: (BuildContext context) {
                                 return PayTypeDialog(
-                                  onPressed: (index, type){
+                                  onPressed: (index, type) {
                                     Toast.show("收款类型：$type");
                                   },
                                 );
@@ -156,7 +157,7 @@ class OrderItem extends StatelessWidget {
     );
   }
 
-  void _showCallPhoneDialog(BuildContext context, String phone){
+  void _showCallPhoneDialog(BuildContext context, String phone) {
     showDialog(
         context: context,
         barrierDismissible: false,
@@ -170,7 +171,7 @@ class OrderItem extends StatelessWidget {
                 child: const Text('取消'),
               ),
               FlatButton(
-                onPressed: (){
+                onPressed: () {
                   Utils.launchTelURL(phone);
                   NavigatorUtils.goBack(context);
                 },

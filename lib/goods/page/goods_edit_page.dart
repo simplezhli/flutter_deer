@@ -48,8 +48,8 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_){
-      if (widget.isScan){
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (widget.isScan) {
         _scan();
       }
     });
@@ -57,7 +57,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
   
   void _scan() async {
     String code = await Utils.scan();
-    if (code != null){
+    if (code != null) {
       _codeController.text = code;
     }
   }
@@ -186,7 +186,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
             Padding(
               padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
               child: MyButton(
-                onPressed: (){
+                onPressed: () {
                   NavigatorUtils.goBack(context);
                 },
                 text: "提交",
@@ -198,14 +198,14 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
     );
   }
 
-  _showBottomSheet(){
+  _showBottomSheet() {
     showModalBottomSheet(
       context: context,
       /// 使用true则高度不受16分之9的最高限制
       isScrollControlled: true,
       builder: (BuildContext context) {
         return GoodsSortDialog(
-          onSelected: (_, name){
+          onSelected: (_, name) {
             setState(() {
               _goodsSortName = name;
             });

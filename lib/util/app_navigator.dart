@@ -38,9 +38,9 @@ class AppNavigator {
       MaterialPageRoute(
         builder: (BuildContext context) => scene,
       ),
-    ).then((result){
+    ).then((result) {
       // 页面返回result为null
-      if (result == null){
+      if (result == null) {
         return;
       }
       function(result);

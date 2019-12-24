@@ -27,7 +27,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
     return Scaffold(
       appBar: MyAppBar(
         actionName: '订单跟踪',
-        onPressed: (){
+        onPressed: () {
           NavigatorUtils.push(context, OrderRouter.orderTrackPage);
         },
       ),
@@ -97,7 +97,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                         // 禁用ListView滑动，使用外层的ScrollView滑动
                         physics: NeverScrollableScrollPhysics(),
                         itemCount: 2,
-                        itemBuilder: (_, index){
+                        itemBuilder: (_, index) {
                           return DecoratedBox(
                             decoration: BoxDecoration(
                                 border: Border(
@@ -167,7 +167,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                                   Text("x1", style: TextStyles.textSize12),
                                   Gaps.hGap16,
                                   Gaps.hGap16,
-                                  Text("¥25", style: TextStyles.textBold14),
+                                  Text(Utils.formatPrice("25"), style: TextStyles.textBold14),
                                 ],
                               ),
                             ),
@@ -175,15 +175,15 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                         },
                       ),
                       Gaps.vGap8,
-                      getGoodsInfoItem("共2件商品", "¥50"),
-                      getGoodsInfoItem("配送费", "¥5"),
-                      getGoodsInfoItem("立减", "-¥2.5", contentTextColor: red),
-                      getGoodsInfoItem("优惠券", "-¥2.5", contentTextColor: red),
-                      getGoodsInfoItem("社区币抵扣", "-¥2.5", contentTextColor: red),
-                      getGoodsInfoItem("佣金", "-¥1", contentTextColor: red),
+                      getGoodsInfoItem("共2件商品", Utils.formatPrice("50.00")),
+                      getGoodsInfoItem("配送费", Utils.formatPrice("5.00")),
+                      getGoodsInfoItem("立减", Utils.formatPrice("-2.50"), contentTextColor: red),
+                      getGoodsInfoItem("优惠券", Utils.formatPrice("-2.50"), contentTextColor: red),
+                      getGoodsInfoItem("社区币抵扣", Utils.formatPrice("-2.50"), contentTextColor: red),
+                      getGoodsInfoItem("佣金", Utils.formatPrice("-1.0"), contentTextColor: red),
                       Gaps.line,
                       Gaps.vGap8,
-                      getGoodsInfoItem("合计", "¥46.5"),
+                      getGoodsInfoItem("合计", Utils.formatPrice("46.50")),
                       Gaps.vGap8,
                       Gaps.line,
                       Gaps.vGap16,
@@ -235,7 +235,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                                   fontSize: Dimens.font_sp18
                               ),
                             ),
-                            onPressed: (){},
+                            onPressed: () {},
                           ),
                         ),
                         Gaps.hGap16,
@@ -250,7 +250,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                                   fontSize: Dimens.font_sp18
                               ),
                             ),
-                            onPressed: (){},
+                            onPressed: () {},
                           ),
                         )
                       ],
@@ -265,7 +265,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
     );
   }
 
-  Widget getOrderInfoItem(String title, String content){
+  Widget getOrderInfoItem(String title, String content) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 4.0),
       child: Row(
@@ -278,7 +278,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
     );
   }
   
-  Widget getGoodsInfoItem(String title, String content, {Color contentTextColor}){
+  Widget getGoodsInfoItem(String title, String content, {Color contentTextColor}) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(
@@ -294,7 +294,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
     );
   }
 
-  void _showCallPhoneDialog(String phone){
+  void _showCallPhoneDialog(String phone) {
     showDialog(
         context: context,
         barrierDismissible: false,
@@ -308,7 +308,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                 child: const Text('取消'),
               ),
               FlatButton(
-                onPressed: (){
+                onPressed: () {
                   Utils.launchTelURL(phone);
                   NavigatorUtils.goBack(context);
                 },

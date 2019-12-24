@@ -30,9 +30,9 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
   Widget build(BuildContext context) {
     Color _backgroundColor;
 
-    if (backgroundColor == null){
+    if (backgroundColor == null) {
       _backgroundColor = ThemeUtils.getBackgroundColor(context);
-    }else{
+    } else {
       _backgroundColor = backgroundColor;
     }
 
@@ -64,7 +64,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
                 ],
               ),
               isBack ? IconButton(
-                onPressed: (){
+                onPressed: () {
                   FocusScope.of(context).unfocus();
                   Navigator.maybePop(context);
                 },

@@ -65,7 +65,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                             content: _city.isEmpty ? "选择开户城市" : _city,
                             style: _city.isEmpty ? style: null,
                             onTap: () {
-                              NavigatorUtils.pushResult(context, AccountRouter.citySelectPage, (result){
+                              NavigatorUtils.pushResult(context, AccountRouter.citySelectPage, (result) {
                                 setState(() {
                                   CityModel model = result;
                                   _city = model.name;
@@ -78,7 +78,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                             content: _bank.isEmpty ? "选择开户银行" : _bank,
                             style: _bank.isEmpty ? style : null,
                             onTap: () {
-                              NavigatorUtils.pushResult(context, '${AccountRouter.bankSelectPage}?type=0', (result){
+                              NavigatorUtils.pushResult(context, '${AccountRouter.bankSelectPage}?type=0', (result) {
                                 setState(() {
                                   BankModel model = result;
                                   _bank = model.bankName;
@@ -91,7 +91,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                             content: _bank1.isEmpty ? "选择开户支行" : _bank1,
                             style: _bank1.isEmpty ? style : null,
                             onTap: () {
-                              NavigatorUtils.pushResult(context, '${AccountRouter.bankSelectPage}?type=1', (result){
+                              NavigatorUtils.pushResult(context, '${AccountRouter.bankSelectPage}?type=1', (result) {
                                 setState(() {
                                   BankModel model = result;
                                   _bank1 = model.bankName;
@@ -156,8 +156,8 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                     ),
                     textTheme: TextTheme(
                         button: TextStyle(
-                      fontSize: Dimens.font_sp14,
-                    )),
+                          fontSize: Dimens.font_sp14,
+                        )),
                   ),
                   child: Column(
                     children: <Widget>[
@@ -205,6 +205,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
               ),
             ),
           );
-        });
+        }
+    );        
   }
 }

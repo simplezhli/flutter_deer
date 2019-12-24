@@ -31,9 +31,9 @@ class _SplashPageState extends State<SplashPage> {
       await SpUtil.getInstance();
       // 由于SpUtil未初始化，所以MaterialApp获取的为默认主题配置，这里同步一下。
       Provider.of<ThemeProvider>(context).syncTheme();
-      if (SpUtil.getBool(Constant.keyGuide, defValue: true)){
+      if (SpUtil.getBool(Constant.keyGuide, defValue: true)) {
         /// 预先缓存图片，避免直接使用时因为首次加载造成闪动
-        _guideList.forEach((image){
+        _guideList.forEach((image) {
           precacheImage(ImageUtils.getAssetImage(image), context);
         });
       }
@@ -53,8 +53,8 @@ class _SplashPageState extends State<SplashPage> {
     });
   }
 
-  void _initSplash(){
-    _subscription = Observable.just(1).delay(Duration(milliseconds: 1500)).listen((_){
+  void _initSplash() {
+    _subscription = Observable.just(1).delay(Duration(milliseconds: 1500)).listen((_) {
       if (SpUtil.getBool(Constant.keyGuide, defValue: true)) {
         SpUtil.putBool(Constant.keyGuide, false);
         _initGuide();
@@ -64,7 +64,7 @@ class _SplashPageState extends State<SplashPage> {
     });
   }
 
-  _goLogin(){
+  _goLogin() {
     NavigatorUtils.push(context, LoginRouter.loginPage, replace: true);
   }
 
@@ -80,7 +80,7 @@ class _SplashPageState extends State<SplashPage> {
         key: const Key('swiper'),
         itemCount: _guideList.length,
         loop: false,
-        itemBuilder: (_, index){
+        itemBuilder: (_, index) {
           return LoadAssetImage(
             _guideList[index],
             key: Key(_guideList[index]),
@@ -89,8 +89,8 @@ class _SplashPageState extends State<SplashPage> {
             height: double.infinity,
           );
         },
-        onTap: (index){
-          if (index == _guideList.length - 1){
+        onTap: (index) {
+          if (index == _guideList.length - 1) {
             _goLogin();
           }
         },

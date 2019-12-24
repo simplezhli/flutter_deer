@@ -28,7 +28,7 @@ class TextFieldItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (config != null && defaultTargetPlatform == TargetPlatform.iOS){
+    if (config != null && defaultTargetPlatform == TargetPlatform.iOS) {
       // 因Android平台输入法兼容问题，所以只配置IOS平台
       FormKeyboardActions.setKeyboardActions(context, config);
     }
@@ -68,11 +68,11 @@ class TextFieldItem extends StatelessWidget {
     );
   }
 
-  _getInputFormatters(){
-    if (keyboardType == TextInputType.numberWithOptions(decimal: true)){
+  _getInputFormatters() {
+    if (keyboardType == TextInputType.numberWithOptions(decimal: true)) {
       return [UsNumberTextInputFormatter()];
     }
-    if (keyboardType == TextInputType.number || keyboardType == TextInputType.phone){
+    if (keyboardType == TextInputType.number || keyboardType == TextInputType.phone) {
       return [WhitelistingTextInputFormatter.digitsOnly];
     }
     return null;

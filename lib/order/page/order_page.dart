@@ -39,7 +39,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
     });
   }
 
-  _preCacheImage(){
+  _preCacheImage() {
     precacheImage(ImageUtils.getAssetImage("order/xdd_n"), context);
     precacheImage(ImageUtils.getAssetImage("order/dps_s"), context);
     precacheImage(ImageUtils.getAssetImage("order/dwc_s"), context);
@@ -107,7 +107,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
           brightness: Brightness.dark,
           actions: <Widget>[
             IconButton(
-              onPressed: (){
+              onPressed: () {
                 NavigatorUtils.push(context, OrderRouter.orderSearchPage);
               },
               tooltip: '搜索',
@@ -171,8 +171,8 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
                         const _TabView(3, '已完成'),
                         const _TabView(4, '已取消'),
                       ],
-                      onTap: (index){
-                        if (!mounted){
+                      onTap: (index) {
+                        if (!mounted) {
                           return;
                         }
                         _pageController.jumpToPage(index);
@@ -222,7 +222,7 @@ class _TabView extends StatelessWidget {
   Widget build(BuildContext context) {
     var imgList = ThemeUtils.isDark(context) ? darkImg : img;
     return Consumer<OrderPageProvider>(
-      builder: (_, provider, child){
+      builder: (_, provider, child) {
         int selectIndex = provider.index;
         return Stack(
           children: <Widget>[
