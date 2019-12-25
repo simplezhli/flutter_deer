@@ -44,11 +44,12 @@ class MyApp extends StatelessWidget {
         create: (_) => ThemeProvider(),
         child: Consumer<ThemeProvider>(
           builder: (_, provider, __) {
-            return MaterialApp (
+            return MaterialApp(
               title: 'Flutter Deer',
-              //showPerformanceOverlay: true, //显示性能标签
-              //debugShowCheckedModeBanner: false,
-              //checkerboardRasterCacheImages: true,
+//              showPerformanceOverlay: true, //显示性能标签
+//              debugShowCheckedModeBanner: false,
+//              checkerboardRasterCacheImages: true,
+//              showSemanticsDebugger: true, // 显示语义视图
               theme: provider.getTheme(),
               darkTheme: provider.getTheme(isDarkMode: true),
               home: home ?? SplashPage(),

@@ -3,12 +3,9 @@ package com.weilu.deer;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.elvishew.xlog.XLog;
-
 import java.io.File;
 
 import io.flutter.app.FlutterActivity;
-import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugins.GeneratedPluginRegistrant;
 

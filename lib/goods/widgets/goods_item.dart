@@ -52,7 +52,7 @@ class GoodsItem extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  LoadImage(item.icon, width: 72.0, height: 72.0),
+                  ExcludeSemantics(child: LoadImage(item.icon, width: 72.0, height: 72.0)),
                   Gaps.hGap8,
                   Expanded(
                     child: Column(
@@ -117,15 +117,20 @@ class GoodsItem extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
-                      GestureDetector(
-                        child: Container(
-                            key: Key('goods_menu_item_$index'),
-                            width: 24.0,
-                            height: 24.0,
-                            padding: const EdgeInsets.only(left: 8.0, bottom: 8.0),
-                            child: const LoadAssetImage("goods/ellipsis")
+                      Semantics(
+                        /// container属性为true，防止上方ExcludeSemantics去除此处语义
+                        container: true,
+                        label: '商品操作菜单',
+                        child: GestureDetector(
+                          child: Container(
+                              key: Key('goods_menu_item_$index'),
+                              width: 24.0,
+                              height: 24.0,
+                              padding: const EdgeInsets.only(left: 8.0, bottom: 8.0),
+                              child: const LoadAssetImage("goods/ellipsis")
+                          ),
+                          onTap: onTapMenu,
                         ),
-                        onTap: onTapMenu,
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 30.0),

@@ -127,11 +127,14 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
                         ),
                         Positioned(
                           right: 16.0,
-                          child: GestureDetector(
-                            child: ThemeUtils.isDark(context) ? 
-                            const LoadAssetImage("goods/icon_sm", width: 16.0, height: 16.0) : 
-                            const LoadAssetImage("goods/scanning", width: 16.0, height: 16.0),
-                            onTap: _scan,
+                          child: Semantics(
+                            label: '扫码',
+                            child: GestureDetector(
+                              child: ThemeUtils.isDark(context) ? 
+                              const LoadAssetImage("goods/icon_sm", width: 16.0, height: 16.0) : 
+                              const LoadAssetImage("goods/scanning", width: 16.0, height: 16.0),
+                              onTap: _scan,
+                            ),
                           ),
                         )
                       ],

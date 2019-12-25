@@ -77,13 +77,17 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(right: 4.0),
-                          child: Switch.adaptive(
-                            value: _check,
-                            onChanged: (bool val) {
-                              setState(() {
-                                _check = !_check;
-                              });
-                            },
+                          child: Semantics(
+                            label: '店铺营业开关',
+                            checked: true,
+                            child: Switch.adaptive(
+                              value: _check,
+                              onChanged: (bool val) {
+                                setState(() {
+                                  _check = !_check;
+                                });
+                              },
+                            ),
                           ),
                         )
                       ],

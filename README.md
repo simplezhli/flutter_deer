@@ -122,6 +122,8 @@ iOS需要自行下载代码运行。
 
 * [x] 深色模式支持。
 
+* [x] 添加`Semantics`（语义）
+
 ## 已知问题：
 
 - ListView在没有设置分割线的情况下，个别Item之间存在大约1像素的间隔。（[像素对齐问题](https://github.com/flutter/flutter/issues/14288)）

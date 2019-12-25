@@ -55,6 +55,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
         appBar: AppBar(
           actions: <Widget>[
             IconButton(
+              tooltip: '搜索商品',
               onPressed: () {
                 NavigatorUtils.push(context, GoodsRouter.goodsSearchPage);
               },
@@ -67,6 +68,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
               ),
             ),
             IconButton(
+              tooltip: '添加商品',
               key: _addKey,
               onPressed: () {
                 _showAddMenu();
@@ -85,26 +87,30 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
           key: _bodyKey,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            GestureDetector(
-              key: _buttonKey,
-              child: Consumer<GoodsPageProvider>(
-                builder: (_, provider, __) {
-                  return Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16.0, right: 8.0),
-                        child: Text(
-                          _sortList[_sortIndex],
-                          style: TextStyles.textBold24,
+            Semantics(
+              container: true,
+              label: '选择商品类型',
+              child: GestureDetector(
+                key: _buttonKey,
+                child: Consumer<GoodsPageProvider>(
+                  builder: (_, provider, __) {
+                    return Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(left: 16.0, right: 8.0),
+                          child: Text(
+                            _sortList[_sortIndex],
+                            style: TextStyles.textBold24,
+                          ),
                         ),
-                      ),
-                      LoadAssetImage("goods/expand", width: 16.0, height: 16.0, color: _iconColor,)
-                    ],
-                  );
-                },
+                        LoadAssetImage("goods/expand", width: 16.0, height: 16.0, color: _iconColor,)
+                      ],
+                    );
+                  },
+                ),
+                onTap: () => _showSortMenu(),
               ),
-              onTap: () => _showSortMenu(),
             ),
             Gaps.vGap16,
             Gaps.vGap8,

@@ -63,15 +63,20 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
       isShowBg: true,
       position: position,
       elevation: 0.0,
-      child: Container(
-        key: const Key('hint'),
-        width: 200.0,
-        height: 147.0,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: ImageUtils.getAssetImage("goods/ydss"),
-            fit: BoxFit.fitWidth
-          )
+      child: Semantics(
+        label: '弹出引导页',
+        hint: '向左滑动可删除列表，点击可关闭',
+        button: true,
+        child: Container(
+          key: const Key('hint'),
+          width: 200.0,
+          height: 147.0,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: ImageUtils.getAssetImage("goods/ydss"),
+              fit: BoxFit.fitWidth
+            )
+          ),
         ),
       )
     );
@@ -170,10 +175,13 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
       ///右侧的action
       secondaryActions: <Widget>[
         SlideAction(
-          child: Container(
-            width: 72.0,
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
-            child: LoadAssetImage("goods/goods_delete", key: Key('delete_$index'),),
+          child: Semantics(
+            label: '删除',
+            child: Container(
+              width: 72.0,
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: LoadAssetImage("goods/goods_delete", key: Key('delete_$index'),),
+            ),
           ),
           color: Theme.of(context).errorColor,
           onTap: () {

@@ -50,21 +50,24 @@ class _SearchBarState extends State<SearchBar> {
           child: Container(
             child: Row(
               children: <Widget>[
-                SizedBox(
-                  width: 48.0,
-                  height: 48.0,
-                  child: InkWell(
-                    onTap: () {
-                      FocusScope.of(context).unfocus();
-                      Navigator.maybePop(context);
-                    },
-                    borderRadius: BorderRadius.circular(24.0),
-                    child: Padding(
-                      key: const Key('search_back'),
-                      padding: const EdgeInsets.all(12.0),
-                      child: Image.asset(
-                        widget.backImg,
-                        color: getColor(),
+                Semantics(
+                  label: '返回',
+                  child: SizedBox(
+                    width: 48.0,
+                    height: 48.0,
+                    child: InkWell(
+                      onTap: () {
+                        FocusScope.of(context).unfocus();
+                        Navigator.maybePop(context);
+                      },
+                      borderRadius: BorderRadius.circular(24.0),
+                      child: Padding(
+                        key: const Key('search_back'),
+                        padding: const EdgeInsets.all(12.0),
+                        child: Image.asset(
+                          widget.backImg,
+                          color: getColor(),
+                        ),
                       ),
                     ),
                   ),
@@ -90,15 +93,20 @@ class _SearchBarState extends State<SearchBar> {
                       decoration: InputDecoration(
                         contentPadding: const EdgeInsets.only(top: 0.0, left: -8.0, right: -16.0, bottom: 14.0),
                         border: InputBorder.none,
-                        icon: Padding(
-                          padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 8.0),
-                          child: LoadAssetImage("order/order_search", color: iconColor,),
+                        icon: ExcludeSemantics(
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 8.0),
+                            child: LoadAssetImage("order/order_search", color: iconColor,),
+                          ),
                         ),
                         hintText: widget.hintText,
-                        suffixIcon: InkWell(
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 16.0, top: 8.0, bottom: 8.0),
-                            child: LoadAssetImage("order/order_delete", color: iconColor),
+                        suffixIcon: GestureDetector(
+                          child: Semantics(
+                            label: '清空',
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 16.0, top: 8.0, bottom: 8.0),
+                              child: LoadAssetImage("order/order_delete", color: iconColor),
+                            ),
                           ),
                           onTap: () {
                             /// https://github.com/flutter/flutter/issues/36324

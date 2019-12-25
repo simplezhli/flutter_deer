@@ -42,6 +42,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
           appBar: AppBar(
             actions: <Widget>[
               IconButton(
+                tooltip: '消息',
                 onPressed: () {
                   NavigatorUtils.push(context, ShopRouter.messagePage);
                 },
@@ -54,6 +55,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                 ),
               ),
               IconButton(
+                tooltip: '设置',
                 onPressed: () {
                   NavigatorUtils.push(context, SettingRouter.settingPage);
                 },
@@ -75,33 +77,35 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                 builder: (_, provider, __) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: Stack(
-                      children: <Widget>[
-                        const SizedBox(width: double.infinity, height: 56.0),
-                        const Text(
-                          "官方直营店",
-                          style: TextStyles.textBold24,
-                        ),
-                        Positioned(
-                            right: 0.0,
-                            child: CircleAvatar(
-                              radius: 28.0,
-                              backgroundColor: Colors.transparent,
-                              backgroundImage: ImageUtils.getImageProvider(provider.user?.avatarUrl, holderImg: 'shop/tx')
-                            )
-                        ),
-                        Positioned(
-                          top: 38.0,
-                          left: 0.0,
-                          child: Row(
-                            children: <Widget>[
-                              const LoadAssetImage("shop/zybq", width: 40.0, height: 16.0,),
-                              Gaps.hGap8,
-                              const Text("店铺账号:15000000000", style: TextStyles.textSize12)
-                            ],
+                    child: MergeSemantics(
+                      child: Stack(
+                        children: <Widget>[
+                          const SizedBox(width: double.infinity, height: 56.0),
+                          const Text(
+                            "官方直营店",
+                            style: TextStyles.textBold24,
                           ),
-                        ),
-                      ],
+                          Positioned(
+                              right: 0.0,
+                              child: CircleAvatar(
+                                radius: 28.0,
+                                backgroundColor: Colors.transparent,
+                                backgroundImage: ImageUtils.getImageProvider(provider.user?.avatarUrl, holderImg: 'shop/tx')
+                              )
+                          ),
+                          Positioned(
+                            top: 38.0,
+                            left: 0.0,
+                            child: Row(
+                              children: <Widget>[
+                                const LoadAssetImage("shop/zybq", width: 40.0, height: 16.0,),
+                                Gaps.hGap8,
+                                const Text("店铺账号:15000000000", style: TextStyles.textSize12)
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
@@ -111,11 +115,13 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
               Container(height: 0.6, width: double.infinity, margin: const EdgeInsets.only(left: 16.0), child: Gaps.line,),
               Gaps.vGap12,
               Gaps.vGap12,
-              const Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: const Text(
-                  "账户",
-                  style: TextStyles.textBold18,
+              const MergeSemantics(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: const Text(
+                    "账户",
+                    style: TextStyles.textBold18,
+                  ),
                 ),
               ),
               Flexible(
@@ -157,11 +163,13 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
               Container(height: 0.6, width: double.infinity, margin: const EdgeInsets.only(left: 16.0), child: Gaps.line,),
               Gaps.vGap12,
               Gaps.vGap12,
-              const Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: const Text(
-                  "店铺",
-                  style: TextStyles.textBold18,
+              const MergeSemantics(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: const Text(
+                    "店铺",
+                    style: TextStyles.textBold18,
+                  ),
                 ),
               ),
               Flexible(

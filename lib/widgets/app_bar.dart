@@ -46,22 +46,21 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
           child: Stack(
             alignment: Alignment.centerLeft,
             children: <Widget>[
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    alignment: centerTitle.isEmpty ? Alignment.centerLeft : Alignment.center,
-                    width: double.infinity,
-                    child: Text(
-                        title.isEmpty ? centerTitle : title,
-                        style: TextStyle(
-                          fontSize: Dimens.font_sp18,
-                          color: _overlayStyle == SystemUiOverlayStyle.light ?  Colours.dark_text : Colours.text,
-                        )
-                    ),
-                    padding: const EdgeInsets.symmetric(horizontal: 48.0),
-                  )
-                ],
+              Semantics(
+                namesRoute: true,
+                header: true,
+                child: Container(
+                  alignment: centerTitle.isEmpty ? Alignment.centerLeft : Alignment.center,
+                  width: double.infinity,
+                  child: Text(
+                      title.isEmpty ? centerTitle : title,
+                      style: TextStyle(
+                        fontSize: Dimens.font_sp18,
+                        color: _overlayStyle == SystemUiOverlayStyle.light ?  Colours.dark_text : Colours.text,
+                      )
+                  ),
+                  margin: const EdgeInsets.symmetric(horizontal: 48.0),
+                ),
               ),
               isBack ? IconButton(
                 onPressed: () {

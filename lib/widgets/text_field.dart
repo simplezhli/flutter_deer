@@ -133,27 +133,35 @@ class _MyTextFieldState extends State<MyTextField> {
         Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            _isShowDelete ? Gaps.empty : GestureDetector(
-              child: LoadAssetImage("login/qyg_shop_icon_delete",
-                key: Key('${widget.keyName}_delete'),
-                width: 18.0,
-                height: 18.0,
+            _isShowDelete ? Gaps.empty : Semantics(
+              label: '清空',
+              hint: '清空输入框',
+              child: GestureDetector(
+                child: LoadAssetImage("login/qyg_shop_icon_delete",
+                  key: Key('${widget.keyName}_delete'),
+                  width: 18.0,
+                  height: 40.0,
+                ),
+                onTap: () => widget.controller.text = "",
               ),
-              onTap: () => widget.controller.text = "",
             ),
             !widget.isInputPwd ? Gaps.empty : Gaps.hGap15,
-            !widget.isInputPwd ? Gaps.empty : GestureDetector(
-              child: LoadAssetImage(
-                _isShowPwd ? "login/qyg_shop_icon_display" : "login/qyg_shop_icon_hide",
-                key: Key('${widget.keyName}_showPwd'),
-                width: 18.0,
-                height: 18.0,
+            !widget.isInputPwd ? Gaps.empty : Semantics(
+              label: '密码可见开关',
+              hint: '密码是否可见',
+              child: GestureDetector(
+                child: LoadAssetImage(
+                  _isShowPwd ? "login/qyg_shop_icon_display" : "login/qyg_shop_icon_hide",
+                  key: Key('${widget.keyName}_showPwd'),
+                  width: 18.0,
+                  height: 40.0,
+                ),
+                onTap: () {
+                  setState(() {
+                    _isShowPwd = !_isShowPwd;
+                  });
+                },
               ),
-              onTap: () {
-                setState(() {
-                  _isShowPwd = !_isShowPwd;
-                });
-              },
             ),
             widget.getVCode == null ? Gaps.empty : Gaps.hGap15,
             widget.getVCode == null ? Gaps.empty :

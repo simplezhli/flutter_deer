@@ -46,18 +46,22 @@ class _InputTextPageState extends State<InputTextPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 21.0, left: 16.0, right: 16.0, bottom: 16.0),
-        child: TextField(
-          maxLength: 30,
-          maxLines: 5,
-          autofocus: true,
-          controller: _controller,
-          keyboardType: widget.keyboardType,
-          //style: TextStyles.textDark14,
-          decoration: InputDecoration(
-            hintText: widget.hintText,
-            border: InputBorder.none,
-            //hintStyle: TextStyles.textGrayC14
-          )
+        child: Semantics(
+          multiline: true,
+          maxValueLength: 30,
+          child: TextField(
+            maxLength: 30,
+            maxLines: 5,
+            autofocus: true,
+            controller: _controller,
+            keyboardType: widget.keyboardType,
+            //style: TextStyles.textDark14,
+            decoration: InputDecoration(
+              hintText: widget.hintText,
+              border: InputBorder.none,
+              //hintStyle: TextStyles.textGrayC14
+            )
+          ),
         ),
       ),
     );
