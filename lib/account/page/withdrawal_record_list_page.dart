@@ -21,16 +21,20 @@ class _WithdrawalRecordListPageState extends State<WithdrawalRecordListPage> {
       body: ListView.builder(
         itemCount: 8,
         itemBuilder: (_, index) {
-          return StickyHeader(
-            header: Container(
-              alignment: Alignment.centerLeft,
-              width: double.infinity,
-              color: ThemeUtils.getStickyHeaderColor(context),
-              padding: const EdgeInsets.only(left: 16.0),
-              height: 34.0,
-              child: Text("2018/06/0${index + 1}"),
+          return Semantics(
+            /// 将item默认合并的语义拆开，自行组合， 另一种方式见 account_record_list_page.dart
+            explicitChildNodes: true,
+            child: StickyHeader(
+              header: Container(
+                alignment: Alignment.centerLeft,
+                width: double.infinity,
+                color: ThemeUtils.getStickyHeaderColor(context),
+                padding: const EdgeInsets.only(left: 16.0),
+                height: 34.0,
+                child: Text("2018/06/0${index + 1}"),
+              ),
+              content: _buildItem(index),
             ),
-            content: _buildItem(index),
           );
         },
       ),
@@ -48,31 +52,33 @@ class _WithdrawalRecordListPageState extends State<WithdrawalRecordListPage> {
               bottom: Divider.createBorderSide(context, width: 0.8),
             )
         ),
-        child: Stack(
-          children: <Widget>[
-            Text(i % 2 == 0 ? "微信（唯鹿）" : "工商（尾号:4562 李一）"),
-            Positioned(
-                top: 0.0,
-                right: 0.0,
-                child: Text("-10.00", style: TextStyles.textBold14)
-            ),
-            Positioned(
-                bottom: 0.0,
-                left: 0.0,
-                child: Text(i % 2 == 0 ? "12:40:20" : "12:50:20", style: Theme.of(context).textTheme.subtitle)
-            ),
-            Positioned(
-                bottom: 0.0,
-                right: 0.0,
-                child: Text(i % 2 == 0 ? "审核失败" : "待审核", style: i % 2 == 0 ? TextStyle(
-                    fontSize: Dimens.font_sp12,
-                    color: Theme.of(context).errorColor
-                ) : const TextStyle(
-                    fontSize: Dimens.font_sp12,
-                    color: Color(0xFFFF8547)
-                ))
-            ),
-          ],
+        child: MergeSemantics(
+          child: Stack(
+            children: <Widget>[
+              Text(i % 2 == 0 ? "微信（唯鹿）" : "工商（尾号:4562 李一）"),
+              Positioned(
+                  top: 0.0,
+                  right: 0.0,
+                  child: Text("-10.00", style: TextStyles.textBold14)
+              ),
+              Positioned(
+                  bottom: 0.0,
+                  left: 0.0,
+                  child: Text(i % 2 == 0 ? "12:40:20" : "12:50:20", style: Theme.of(context).textTheme.subtitle)
+              ),
+              Positioned(
+                  bottom: 0.0,
+                  right: 0.0,
+                  child: Text(i % 2 == 0 ? "审核失败" : "待审核", style: i % 2 == 0 ? TextStyle(
+                      fontSize: Dimens.font_sp12,
+                      color: Theme.of(context).errorColor
+                  ) : const TextStyle(
+                      fontSize: Dimens.font_sp12,
+                      color: Color(0xFFFF8547)
+                  ))
+              ),
+            ],
+          ),
         ),
       );
     });

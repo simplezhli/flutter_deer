@@ -46,13 +46,16 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                         right: 16.0,
                         top: 16.0,
                         bottom: 16.0,
-                        child: InkWell(
-                          onTap: () => NavigatorUtils.goBack(context),
-                          child: const SizedBox(
-                            key: const Key('close'),
-                            height: 16.0,
-                            width: 16.0,
-                            child: const LoadAssetImage("goods/icon_dialog_close")
+                        child: Semantics(
+                          label: '关闭',
+                          child: GestureDetector(
+                            onTap: () => NavigatorUtils.goBack(context),
+                            child: const SizedBox(
+                              key: const Key('close'),
+                              height: 16.0,
+                              width: 16.0,
+                              child: const LoadAssetImage("goods/icon_dialog_close")
+                            ),
                           ),
                         ),
                       ),
@@ -97,7 +100,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                           color: (index == 9 || index == 11) ? color : null,
                           child: InkWell(
                             child: Center(
-                              child: index == 11 ? const LoadAssetImage("account/del", width: 32.0) : index == 9 ? Gaps.empty :
+                              child: index == 11 ? Semantics(label: '删除', child: const LoadAssetImage("account/del", width: 32.0)) : index == 9 ? Semantics(label: '无效', child: Gaps.empty) :
                               Text(_list[index].toString(), style: TextStyle(fontSize: 26.0)),
                             ),
                             onTap: () {

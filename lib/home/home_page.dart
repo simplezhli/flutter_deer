@@ -6,8 +6,8 @@ import 'package:flutter_deer/order/page/order_page.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/shop/page/shop_page.dart';
 import 'package:flutter_deer/statistics/page/statistics_page.dart';
+import 'package:flutter_deer/util/double_tap_back_exit_app.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
-import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:provider/provider.dart';
 
@@ -112,25 +112,12 @@ class _HomeState extends State<Home> {
     return _listDark;
   }
 
-  DateTime  _lastTime;
-  
-  Future<bool> _isExit() {
-    if (_lastTime == null || DateTime.now().difference(_lastTime) > Duration(milliseconds: 2500)) {
-      _lastTime = DateTime.now();
-      Toast.show("再次点击退出应用");
-      return Future.value(false);
-    } 
-    Toast.cancelToast();
-    return Future.value(true);
-  }
-  
   @override
   Widget build(BuildContext context) {
     bool isDark = ThemeUtils.isDark(context);
     return ChangeNotifierProvider<HomeProvider>(
       create: (_) => provider,
-      child: WillPopScope(
-        onWillPop: _isExit,
+      child: DoubleTapBackExitApp(
         child: Scaffold(
           bottomNavigationBar: Consumer<HomeProvider>(
             builder: (_, provider, __) {

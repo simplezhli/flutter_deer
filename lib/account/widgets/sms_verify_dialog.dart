@@ -87,12 +87,15 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                       Positioned(
                         top: 0.0,
                         right: 0.0,
-                        child: InkWell(
-                          onTap: () => NavigatorUtils.goBack(context),
-                          child: Container(
-                            padding: const EdgeInsets.only(top: 16.0, right: 16.0),
-                            child: const LoadAssetImage("goods/icon_dialog_close", width: 16.0, key: const Key('dialog_close'),),
-                          )
+                        child: Semantics(
+                          label: '关闭',
+                          child: GestureDetector(
+                            onTap: () => NavigatorUtils.goBack(context),
+                            child: Container(
+                              padding: const EdgeInsets.only(top: 16.0, right: 16.0),
+                              child: const LoadAssetImage("goods/icon_dialog_close", width: 16.0, key: const Key('dialog_close'),),
+                            )
+                          ),
                         ),
                       )
                     ],
@@ -136,22 +139,25 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                           setState(() {});
                         },
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          /// 一直怼，会有概率造成键盘抖动，加一个键盘时候弹出判断
-                          if (MediaQuery.of(context).viewInsets.bottom < 10) {
-                            final focusScope = FocusScope.of(context);
-                            focusScope.unfocus();
-                            Future.delayed(Duration.zero, () => focusScope.requestFocus(_focusNode));
-                          }
-                        },
-                        child: Container(
-                          key: const Key('vcode'),
-                          color: Colors.transparent,
-                          padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: List.generate(_codeList.length, (i) => _buildInputWidget(i, textColor))
+                      Semantics(
+                        label: '点击输入',
+                        child: GestureDetector(
+                          onTap: () {
+                            /// 一直怼，会有概率造成键盘抖动，加一个键盘时候弹出判断
+                            if (MediaQuery.of(context).viewInsets.bottom < 10) {
+                              final focusScope = FocusScope.of(context);
+                              focusScope.unfocus();
+                              Future.delayed(Duration.zero, () => focusScope.requestFocus(_focusNode));
+                            }
+                          },
+                          child: Container(
+                            key: const Key('vcode'),
+                            color: Colors.transparent,
+                            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: List.generate(_codeList.length, (i) => _buildInputWidget(i, textColor))
+                            ),
                           ),
                         ),
                       ),

@@ -54,25 +54,34 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                       Gaps.vGap16,
                       Row(
                         children: <Widget>[
-                          ClipOval(
-                            child: const LoadAssetImage("order/icon_avatar", width: 44.0, height: 44.0),
+                          // 忽略图片的语义
+                          ExcludeSemantics(
+                            child: ClipOval(
+                              child: const LoadAssetImage("order/icon_avatar", width: 44.0, height: 44.0),
+                            ),
                           ),
                           Gaps.hGap8,
                           Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text("郭李"),
-                                Gaps.vGap8,
-                                Text("15000000000"),
-                              ],
+                            // 合并Text的语义
+                            child: MergeSemantics(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text("郭李"),
+                                  Gaps.vGap8,
+                                  Text("15000000000"),
+                                ],
+                              ),
                             ),
                           ),
                           Gaps.vLine,
                           Gaps.hGap16,
-                          InkWell(
-                            child: const LoadAssetImage("order/icon_phone", width: 24.0, height: 24.0),
-                            onTap: () => _showCallPhoneDialog("15000000000"),
+                          Semantics(
+                            label: '拨打电话',
+                            child: GestureDetector(
+                              child: const LoadAssetImage("order/icon_phone", width: 24.0, height: 24.0),
+                              onTap: () => _showCallPhoneDialog("15000000000"),
+                            ),
                           )
                         ],
                       ),
@@ -266,30 +275,34 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
   }
 
   Widget getOrderInfoItem(String title, String content) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 4.0),
-      child: Row(
-        children: <Widget>[
-          Text(title, style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14)),
-          Gaps.hGap8,
-          Text(content)
-        ],
+    return MergeSemantics(
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 4.0),
+        child: Row(
+          children: <Widget>[
+            Text(title, style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14)),
+            Gaps.hGap8,
+            Text(content)
+          ],
+        ),
       ),
     );
   }
   
   Widget getGoodsInfoItem(String title, String content, {Color contentTextColor}) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Text(title),
-          Text(content, style: TextStyle(
-            color: contentTextColor ?? Theme.of(context).textTheme.body1.color,
-            fontWeight: FontWeight.bold
-          ))
-        ],
+    return MergeSemantics(
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text(title),
+            Text(content, style: TextStyle(
+              color: contentTextColor ?? Theme.of(context).textTheme.body1.color,
+              fontWeight: FontWeight.bold
+            ))
+          ],
+        ),
       ),
     );
   }

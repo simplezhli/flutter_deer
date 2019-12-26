@@ -6,23 +6,25 @@ import 'package:flutter_deer/common/common.dart';
 /// 输出Log工具类
 class Log{
 
+  static const String tag = 'X-LOG';
+  
   static init() {
     LogUtil.debuggable = !Constant.inProduction;
   }
 
-  static d(String msg, {tag: 'X-LOG'}) {
+  static d(String msg, {tag: tag}) {
     if (!Constant.inProduction) {
       LogUtil.v(msg, tag: tag);
     }
   }
 
-  static e(String msg, {tag: 'X-LOG'}) {
+  static e(String msg, {tag: tag}) {
     if (!Constant.inProduction) {
       LogUtil.e(msg, tag: tag);
     }
   }
 
-  static json(String msg, {tag: 'X-LOG'}) {
+  static json(String msg, {tag: tag}) {
     if (!Constant.inProduction) {
       var data = convert.json.decode(msg);
       if (data is Map) {
@@ -35,7 +37,7 @@ class Log{
   }
 
   // https://github.com/Milad-Akarie/pretty_dio_logger
-  static void _printMap(Map data, {tag: 'X-LOG', int tabs = 1, bool isListItem = false, bool isLast = false}) {
+  static void _printMap(Map data, {tag: tag, int tabs = 1, bool isListItem = false, bool isLast = false}) {
     final bool isRoot = tabs == 1;
     final initialIndent = _indent(tabs);
     tabs++;
@@ -70,7 +72,7 @@ class Log{
     LogUtil.v('$initialIndent}${isListItem && !isLast ? ',' : ''}', tag: tag);
   }
 
-  static void _printList(List list, {tag: 'X-LOG', int tabs = 1}) {
+  static void _printList(List list, {tag: tag, int tabs = 1}) {
     list.asMap().forEach((i, e) {
       final isLast = i == list.length - 1;
       if (e is Map) {

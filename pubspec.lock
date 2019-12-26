@@ -48,7 +48,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: d806560cd5226148488a55dcd36ff06f5e82b8b1
+      resolved-ref: fbd6ece45f079f7ec5f48532e668be2f70135904
       url: "https://github.com/simplezhli/flutter_barcode_reader.git"
     source: git
     version: "1.0.0"
@@ -160,7 +160,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "308c2e0911ff45bfa3ecfde4fe23b4fa8fbe6203"
+      resolved-ref: "40b0e5a73dea40f4264e3e274bb0ef4dd64c0689"
       url: "https://github.com/simplezhli/flutter_2d_amap.git"
     source: git
     version: "0.0.2"

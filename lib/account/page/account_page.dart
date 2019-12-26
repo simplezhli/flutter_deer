@@ -41,12 +41,14 @@ class _AccountPageState extends State<AccountPage> {
                 ),
                 Positioned.fill(
                   top: 37.0,
-                  child: Column(
-                    children: <Widget>[
-                      const Text("当前余额(元)", style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
-                      Gaps.vGap8,
-                      RiseNumberText(30.12, style: TextStyle(color: Colors.white, fontSize: 32.0, fontWeight: FontWeight.bold, fontFamily: 'RobotoThin')),
-                    ],
+                  child: MergeSemantics(
+                    child: Column(
+                      children: <Widget>[
+                        const Text("当前余额(元)", style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
+                        Gaps.vGap8,
+                        RiseNumberText(30.12, style: TextStyle(color: Colors.white, fontSize: 32.0, fontWeight: FontWeight.bold, fontFamily: 'RobotoThin')),
+                      ],
+                    ),
                   ),
                 ),
                 Positioned(
@@ -56,19 +58,23 @@ class _AccountPageState extends State<AccountPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Column(
-                        children: <Widget>[
-                          const Text("累计结算金额", style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
-                          Gaps.vGap8,
-                          RiseNumberText(NumUtil.getDoubleByValueStr("20000"), style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp14, fontWeight: FontWeight.bold, fontFamily: 'RobotoThin')),
-                        ],
+                      MergeSemantics(
+                        child: Column(
+                          children: <Widget>[
+                            const Text("累计结算金额", style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
+                            Gaps.vGap8,
+                            RiseNumberText(NumUtil.getDoubleByValueStr("20000"), style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp14, fontWeight: FontWeight.bold, fontFamily: 'RobotoThin')),
+                          ],
+                        ),
                       ),
-                      Column(
-                        children: <Widget>[
-                          const Text("累计发放佣金", style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
-                          Gaps.vGap8,
-                          RiseNumberText(0.02, style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp14, fontWeight: FontWeight.bold, fontFamily: 'RobotoThin')),
-                        ],
+                      MergeSemantics(
+                        child: Column(
+                          children: <Widget>[
+                            const Text("累计发放佣金", style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
+                            Gaps.vGap8,
+                            RiseNumberText(0.02, style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp14, fontWeight: FontWeight.bold, fontFamily: 'RobotoThin')),
+                          ],
+                        ),
                       ),
                     ],
                   ),
