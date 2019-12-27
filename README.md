@@ -126,6 +126,8 @@ iOS需要自行下载代码运行。
 
 ## 已知问题：
 
+- 1.12已知问题（#47462 #47270 #47021 #47137）
+
 - ListView在没有设置分割线的情况下，个别Item之间存在大约1像素的间隔。（[像素对齐问题](https://github.com/flutter/flutter/issues/14288)）
 
 - 在iOS手机上开启深色模式时，[无法将状态栏文字修改为黑色](https://github.com/flutter/flutter/issues/41067)。

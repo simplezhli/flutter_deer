@@ -36,7 +36,6 @@ android {
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
@@ -66,8 +65,6 @@ flutter {
 }
 
 dependencies {
-   androidTestImplementation 'androidx.test:runner:1.1.1'
-   androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-   api "com.elvishew:xlog:1.6.1"
+//   api "com.elvishew:xlog:1.6.1"
 }
