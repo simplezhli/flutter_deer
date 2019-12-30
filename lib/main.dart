@@ -67,6 +67,7 @@ class MyApp extends StatelessWidget {
           },
         ),
       ),
+      /// Toast 配置
       backgroundColor: Colors.black54,
       textPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
       radius: 20.0,

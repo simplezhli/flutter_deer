@@ -25,20 +25,20 @@ class GoodsSizePage extends StatefulWidget {
 class _GoodsSizePageState extends State<GoodsSizePage> {
   
   bool _isEdit = false;
-  String _sizeName = "商品规格名称";
+  String _sizeName = '商品规格名称';
   GlobalKey _hintKey = GlobalKey();
   
   @override
   void initState() {
     super.initState();
     goodsSizeList.clear();
-    goodsSizeList.add(new GoodsSizeModel("goods/goods_size_1", "黑色", 1000, "50.0", 2, "2", "2", "2"));
-    goodsSizeList.add(new GoodsSizeModel("goods/goods_size_2", "银色", 100, "51.0", 1, "", "2", "1"));
-    goodsSizeList.add(new GoodsSizeModel("goods/goods_size_1", "黑色1", 1050, "50.0", 2, "20", "2", ""));
-    goodsSizeList.add(new GoodsSizeModel("goods/goods_size_2", "银色1", 1000, "55.0", 2, "", "10", "2"));
-    goodsSizeList.add(new GoodsSizeModel("goods/goods_size_1", "黑色2", 500, "56", 2, "2", "2", "2"));
-    goodsSizeList.add(new GoodsSizeModel("goods/goods_size_2", "银色2", 110, "51.0", 2, "2", "1", ""));
-    goodsSizeList.add(new GoodsSizeModel("goods/goods_size_1", "黑色3", 10, "50.0", 2, "2", "2.5", ""));
+    goodsSizeList.add(new GoodsSizeModel('goods/goods_size_1', '黑色', 1000, '50.0', 2, '2', '2', '2'));
+    goodsSizeList.add(new GoodsSizeModel('goods/goods_size_2', '银色', 100, '51.0', 1, '', '2', '1'));
+    goodsSizeList.add(new GoodsSizeModel('goods/goods_size_1', '黑色1', 1050, '50.0', 2, '20', '2', ''));
+    goodsSizeList.add(new GoodsSizeModel('goods/goods_size_2', '银色1', 1000, '55.0', 2, '', '10', '2'));
+    goodsSizeList.add(new GoodsSizeModel('goods/goods_size_1', '黑色2', 500, '56', 2, '2', '2', '2'));
+    goodsSizeList.add(new GoodsSizeModel('goods/goods_size_2', '银色2', 110, '51.0', 2, '2', '1', ''));
+    goodsSizeList.add(new GoodsSizeModel('goods/goods_size_1', '黑色3', 10, '50.0', 2, '2', '2.5', ''));
 
     // 获取Build完成状态监听
     var widgetsBinding = WidgetsBinding.instance;
@@ -73,7 +73,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
           height: 147.0,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: ImageUtils.getAssetImage("goods/ydss"),
+              image: ImageUtils.getAssetImage('goods/ydss'),
               fit: BoxFit.fitWidth
             )
           ),
@@ -87,10 +87,10 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
     return Scaffold(
       appBar: MyAppBar(
         key: _hintKey,
-        title: "商品规格",
-        actionName: "保存",
+        title: '商品规格',
+        actionName: '保存',
         onPressed: () {
-          Toast.show("保存");
+          Toast.show('保存');
           NavigatorUtils.goBack(context);
         },
       ),
@@ -137,7 +137,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
             Expanded(
               child: goodsSizeList.isEmpty ? const StateLayout(
                 type: StateType.goods,
-                hintText: "暂无商品规格",
+                hintText: '暂无商品规格',
               ) : ListView.builder(
                 itemCount: goodsSizeList.length,
                 itemExtent: 107.0,
@@ -152,7 +152,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                 onPressed: _isEdit ? () {
                   NavigatorUtils.push(context, GoodsRouter.goodsSizeEditPage);
                 } : null,
-                text: "添加",
+                text: '添加',
               ),
             )
           ],
@@ -180,7 +180,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
             child: Container(
               width: 72.0,
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
-              child: LoadAssetImage("goods/goods_delete", key: Key('delete_$index'),),
+              child: LoadAssetImage('goods/goods_delete', key: Key('delete_$index'),),
             ),
           ),
           color: Theme.of(context).errorColor,
@@ -221,7 +221,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                               overflow: TextOverflow.ellipsis
                             ),
                             Text(
-                              "库存${goodsSizeList[index].stock}",
+                              '库存${goodsSizeList[index].stock}',
                               style: TextStyles.textSize12
                             ),
                          ],
@@ -241,7 +241,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                                 height: 16.0,
                                 alignment: Alignment.center,
                                 child: Text(
-                                  "立减${goodsSizeList[index].reducePrice}元",
+                                  '立减${goodsSizeList[index].reducePrice}元',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: Dimens.font_sp10
@@ -260,7 +260,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                                 height: 16.0,
                                 alignment: Alignment.center,
                                 child: Text(
-                                  "社区币抵扣${goodsSizeList[index].currencyPrice}元",
+                                  '社区币抵扣${goodsSizeList[index].currencyPrice}元',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: Dimens.font_sp10
@@ -277,11 +277,11 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                             Text(Utils.formatPrice(goodsSizeList[index].price)),
                             const SizedBox(width: 50.0,),
                             Text(
-                              "佣金${goodsSizeList[index].charges}元",
+                              '佣金${goodsSizeList[index].charges}元',
                               style: TextStyles.textSize12
                             ),
                             Text(
-                              "起购${goodsSizeList[index].minSaleNum}件",
+                              '起购${goodsSizeList[index].minSaleNum}件',
                               style: TextStyles.textSize12
                             ),
                           ],

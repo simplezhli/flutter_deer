@@ -59,7 +59,7 @@ class GoodsItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         const Text(
-                          "八月十五中秋月饼礼盒",
+                          '八月十五中秋月饼礼盒',
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis
                         ),
@@ -79,7 +79,7 @@ class GoodsItem extends StatelessWidget {
                                 height: 16.0,
                                 alignment: Alignment.center,
                                 child: const Text(
-                                  "立减",
+                                  '立减',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: Dimens.font_sp10
@@ -99,7 +99,7 @@ class GoodsItem extends StatelessWidget {
                                 height: 16.0,
                                 alignment: Alignment.center,
                                 child: const Text(
-                                  "社区币抵扣",
+                                  '社区币抵扣',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: Dimens.font_sp10
@@ -110,7 +110,7 @@ class GoodsItem extends StatelessWidget {
                           ],
                         ),
                         Gaps.vGap16,
-                        Text(Utils.formatPrice("20.00", format: MoneyFormat.NORMAL))
+                        Text(Utils.formatPrice('20.00', format: MoneyFormat.NORMAL))
                       ],
                     ),
                   ),
@@ -127,7 +127,7 @@ class GoodsItem extends StatelessWidget {
                               width: 24.0,
                               height: 24.0,
                               padding: const EdgeInsets.only(left: 8.0, bottom: 8.0),
-                              child: const LoadAssetImage("goods/ellipsis")
+                              child: const LoadAssetImage('goods/ellipsis')
                           ),
                           onTap: onTapMenu,
                         ),
@@ -135,7 +135,7 @@ class GoodsItem extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(top: 30.0),
                         child: Text(
-                          "特产美味",
+                          '特产美味',
                           style: Theme.of(context).textTheme.subtitle,
                         ),
                       )
@@ -183,21 +183,21 @@ class GoodsItem extends StatelessWidget {
                               key: Key('goods_edit_item_$index'),
                               textColor: isDark ?  Colours.dark_button_text : Colors.white,
                               color: isDark ?  Colours.dark_app_main : Colours.app_main,
-                              child: const Text("编辑"),
+                              child: const Text('编辑'),
                               onPressed: onTapEdit,
                             ),
                             FlatButton(
                               key: Key('goods_operation_item_$index'),
                               textColor: Colours.text,
                               color: buttonColor,
-                              child: const Text("下架"),
+                              child: const Text('下架'),
                               onPressed: onTapOperation,
                             ),
                             FlatButton(
                               key: Key('goods_delete_item_$index'),
                               textColor: Colours.text,
                               color: buttonColor,
-                              child: const Text("删除"),
+                              child: const Text('删除'),
                               onPressed: onTapDelete,
                             ),
                             Gaps.hGap15,

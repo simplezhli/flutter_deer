@@ -21,7 +21,7 @@ class GoodsPage extends StatefulWidget {
 
 class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin{
 
-  List<String> _sortList = ["全部商品", "个人护理", "饮料", "沐浴洗护", "厨房用具", "休闲食品", "生鲜水果", "酒水", "家庭清洁"];
+  List<String> _sortList = ['全部商品', '个人护理', '饮料', '沐浴洗护', '厨房用具', '休闲食品', '生鲜水果', '酒水', '家庭清洁'];
   TabController _tabController;
   PageController _pageController = PageController(initialPage: 0);
 
@@ -60,7 +60,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 NavigatorUtils.push(context, GoodsRouter.goodsSearchPage);
               },
               icon: LoadAssetImage(
-                "goods/search",
+                'goods/search',
                 key: const Key('search'),
                 width: 24.0,
                 height: 24.0,
@@ -74,7 +74,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 _showAddMenu();
               },
               icon: LoadAssetImage(
-                "goods/add",
+                'goods/add',
                 key: const Key('add'),
                 width: 24.0,
                 height: 24.0,
@@ -104,7 +104,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                             style: TextStyles.textBold24,
                           ),
                         ),
-                        LoadAssetImage("goods/expand", width: 16.0, height: 16.0, color: _iconColor,)
+                        LoadAssetImage('goods/expand', width: 16.0, height: 16.0, color: _iconColor,)
                       ],
                     );
                   },
@@ -133,9 +133,9 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 labelColor: Theme.of(context).primaryColor,
                 indicatorPadding: const EdgeInsets.only(left: 12.0, right: 36.0),
                 tabs: <Widget>[
-                  const _TabView("在售", 0),
-                  const _TabView("待售", 1),
-                  const _TabView("下架", 2),
+                  const _TabView('在售', 0),
+                  const _TabView('待售', 1),
+                  const _TabView('下架', 2),
                 ],
               ),
             ),
@@ -212,7 +212,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                           style: index == _sortIndex ? textStyle : null,
                         ),
                         Text(
-                          "($index)",
+                          '($index)',
                           style: index == _sortIndex ? textStyle : null,
                         ),
                       ],
@@ -222,7 +222,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                     setState(() {
                       _sortIndex = index;
                     });
-                    Toast.show("选择分类: ${_sortList[index]}");
+                    Toast.show('选择分类: ${_sortList[index]}');
                     NavigatorUtils.goBack(context);
                   },
                 ),
@@ -259,7 +259,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(right: 12.0),
-              child: LoadAssetImage("goods/jt", width: 8.0, height: 4.0,
+              child: LoadAssetImage('goods/jt', width: 8.0, height: 4.0,
                 color: ThemeUtils.getDarkColor(context, Colours.dark_bg_color),
               ),
             ),
@@ -275,8 +275,8 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(8.0), topRight: Radius.circular(8.0)),
                 ),  
-                icon: LoadAssetImage("goods/scanning", width: 16.0, height: 16.0, color: _iconColor,),
-                label: const Text("扫码添加")
+                icon: LoadAssetImage('goods/scanning', width: 16.0, height: 16.0, color: _iconColor,),
+                label: const Text('扫码添加')
               ),
             ),
             Container(width: 120.0, height: 0.6, color: Colours.line),
@@ -292,8 +292,8 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8.0), bottomRight: Radius.circular(8.0)),
                 ),
-                icon: LoadAssetImage("goods/add2", width: 16.0, height: 16.0, color: _iconColor,),
-                label: const Text("添加商品")
+                icon: LoadAssetImage('goods/add2', width: 16.0, height: 16.0, color: _iconColor,),
+                label: const Text('添加商品')
               ),
             ),
           ],
@@ -326,7 +326,7 @@ class _TabView extends StatelessWidget {
                   Text(tabName),
                   Offstage(offstage: provider.goodsCountList[index] == 0 || provider.index != index, child: Padding(
                     padding: const EdgeInsets.only(top: 1.0),
-                    child: Text(" (${provider.goodsCountList[index]}件)", style: TextStyle(fontSize: Dimens.font_sp12)),
+                    child: Text(' (${provider.goodsCountList[index]}件)', style: TextStyle(fontSize: Dimens.font_sp12)),
                   )),
                 ],
               ),

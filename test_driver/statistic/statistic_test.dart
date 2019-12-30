@@ -21,7 +21,7 @@ void main() {
       driver?.close();
     });
 
-    test("统计页测试",() async {
+    test('统计页测试',() async {
       await driver.tap(find.byValueKey('统计'));
       await delayed();
       await driver.scroll(find.byValueKey('statistic_list'), 0, -300, scrollDuration);
@@ -29,7 +29,7 @@ void main() {
       
     });
 
-    test("商品统计页测试",() async {
+    test('商品统计页测试',() async {
       await driver.tap(find.text('商品统计'));
       await delayed();
       await driver.tap(find.byValueKey('actionName'));
@@ -43,7 +43,7 @@ void main() {
       await driver.tap(find.byTooltip('Back'));
     });
 
-    test("订单统计页测试",() async {
+    test('订单统计页测试',() async {
       await driver.scroll(find.byValueKey('statistic_list'), 0, 300, scrollDuration);
       await delayed();
       await driver.tap(find.text('订单统计'));

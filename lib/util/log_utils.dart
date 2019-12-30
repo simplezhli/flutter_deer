@@ -6,7 +6,7 @@ import 'package:flutter_deer/common/common.dart';
 /// 输出Log工具类
 class Log{
 
-  static const String tag = 'X-LOG';
+  static const String tag = 'DEER-LOG';
   
   static init() {
     LogUtil.debuggable = !Constant.inProduction;

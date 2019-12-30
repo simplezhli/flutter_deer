@@ -41,7 +41,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
   bool _isExpanded = true;
   Color _unSelectedTextColor;
   
-  static const List<String> _weeks = const ["周一", "周二", "周三", "周四", "周五", "周六", "周日"];
+  static const List<String> _weeks = const ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
 
   @override
   void initState() {
@@ -63,7 +63,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
     _unSelectedTextColor = ThemeUtils.isDark(context) ? Colors.white : Colours.dark_text_gray;
     return Scaffold(
       appBar: MyAppBar(
-        centerTitle: widget.index == 1 ? "订单统计" : "交易额统计",
+        centerTitle: widget.index == 1 ? '订单统计' : '交易额统计',
       ),
       body: SingleChildScrollView(
         child: SafeArea(
@@ -91,7 +91,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                   Gaps.vLine,
                   Gaps.hGap12,
                   SelectedText(
-                    "${_initialDay.month.toString()}月",
+                    '${_initialDay.month.toString()}月',
                     key: const Key('month'),
                     fontSize: Dimens.font_sp15,
                     selected: _selectedIndex == 1,
@@ -106,7 +106,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                   Gaps.vLine,
                   Gaps.hGap12,
                   SelectedText(
-                    "${DateUtils.previousWeek(_initialDay)} -${DateUtils.apiDayFormat(_initialDay)}",
+                    '${DateUtils.previousWeek(_initialDay)} -${DateUtils.apiDayFormat(_initialDay)}',
                     key: const Key('day'),
                     fontSize: Dimens.font_sp15,
                     selected: _selectedIndex == 2,
@@ -146,7 +146,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                             child: Container(
                               height: 27.0,
                               alignment: Alignment.topCenter,
-                              child: LoadAssetImage("statistic/${_isExpanded ? "up" : "down"}", width: 16.0, color: ThemeUtils.getIconColor(context),),
+                              child: LoadAssetImage('statistic/${_isExpanded ? 'up' : 'down'}', width: 16.0, color: ThemeUtils.getIconColor(context),),
                             ),
                           ) : Gaps.empty,
                     ],
@@ -158,15 +158,15 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(widget.index == 1 ? "订单走势" : "交易额走势", style: TextStyles.textBold18),
+                    Text(widget.index == 1 ? '订单走势' : '交易额走势', style: TextStyles.textBold18),
                     Gaps.vGap16,
-                    _buildChart(Colours.app_main, const Color(0x805793FA), widget.index == 1 ? "全部订单" : "交易额(元)", "3000"),
+                    _buildChart(Colours.app_main, const Color(0x805793FA), widget.index == 1 ? '全部订单' : '交易额(元)', '3000'),
                     widget.index != 1 ? Gaps.empty : Column(
                       children: <Widget>[
                         Gaps.vGap16,
-                        _buildChart(const Color(0xFFFFAA33), const Color(0x80FFAA33), "完成订单", "2000"),
+                        _buildChart(const Color(0xFFFFAA33), const Color(0x80FFAA33), '完成订单', '2000'),
                         Gaps.vGap16,
-                        _buildChart(Theme.of(context).errorColor, const Color(0x80FF4759), "取消订单", "1000"),
+                        _buildChart(Theme.of(context).errorColor, const Color(0x80FF4759), '取消订单', '1000'),
                         Gaps.vGap16,
                       ],
                     )
@@ -190,7 +190,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
           padding: const EdgeInsets.all(16.0),
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: ImageUtils.getAssetImage("statistic/chart_fg"),
+                  image: ImageUtils.getAssetImage('statistic/chart_fg'),
                   fit: BoxFit.fill
               )
           ),
@@ -208,10 +208,10 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                 child: BezierChart(
                   bezierChartScale: BezierChartScale.CUSTOM,
                   xAxisCustomValues: const [0, 5, 10, 15, 20, 25, 30],
-                  footerValueBuilder: (double value) {return "";},
+                  footerValueBuilder: (double value) {return '';},
                   series: [
                     BezierLine(
-                      label: widget.index == 1 ? "单" : "元",
+                      label: widget.index == 1 ? '单' : '元',
                       data: _getRandomData()
                     ),
                   ],
@@ -300,7 +300,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
       dayWidgets.add(
           Center(
             child: SelectedText(
-              day.day < 10 ? "0${day.day}" : day.day.toString(),
+              day.day < 10 ? '0${day.day}' : day.day.toString(),
               selected:(day.day == _selectedDay.day && !DateUtils.isExtraDay(day, _initialDay)),
               // 不是本月的日期与超过当前日期的不可点击
               enable: day.day <= _initialDay.day && !DateUtils.isExtraDay(day, _initialDay),
@@ -323,7 +323,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
       monthWidgets.add(
           Center(
             child: SelectedText(
-              "$month月",
+              '$month月',
               selected: month == _selectedMonth,
               enable: month <= _initialDay.month,
               unSelectedTextColor: _unSelectedTextColor,
@@ -345,7 +345,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
       dayWidgets.add(
           Center(
             child: SelectedText(
-              day.day < 10 ? "0${day.day}" : day.day.toString(),
+              day.day < 10 ? '0${day.day}' : day.day.toString(),
               selected: day.day == _selectedWeekDay,
               unSelectedTextColor: _unSelectedTextColor,
               onTap: () {

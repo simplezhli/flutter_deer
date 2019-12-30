@@ -61,18 +61,18 @@ class _UpdateDialogState extends State<UpdateDialog> {
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.only(topLeft: const Radius.circular(8.0), topRight: const Radius.circular(8.0)),
                     image: DecorationImage(
-                      image: ImageUtils.getAssetImage("update_head",format: 'jpg'),
+                      image: ImageUtils.getAssetImage('update_head',format: 'jpg'),
                       fit: BoxFit.cover,
                     ),
                   )
                 ),
                 const Padding(
                   padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 16.0),
-                  child: const Text("新版本更新", style: TextStyles.textSize16),
+                  child: const Text('新版本更新', style: TextStyles.textSize16),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
-                  child: Text("1.又双叒修复了一大堆bug。\n\n2.祭天了多名程序猿。"),
+                  child: Text('1.又双叒修复了一大堆bug。\n\n2.祭天了多名程序猿。'),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 15.0, left: 15.0, right: 15.0 , top: 5.0),
@@ -102,7 +102,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
                               )
                           ),
                           child: Text(
-                            "残忍拒绝",
+                            '残忍拒绝',
                             style: TextStyle(fontSize: Dimens.font_sp16),
                           ),
                         ),
@@ -130,7 +130,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
                               borderRadius: BorderRadius.circular(18.0),
                           ),
                           child: Text(
-                            "立即更新",
+                            '立即更新',
                             style: TextStyle(fontSize: Dimens.font_sp16),
                           ),
                         ),
@@ -154,7 +154,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
       String path = DirectoryUtil.getStoragePath(fileName: 'deer', category: 'apk', format: 'apk');
       File file = File(path);
       /// 链接可能会失效
-      await Dio().download("https://54a0bf2343ff38bdc347780545bd8c9e.dd.cdntips.com/imtt.dd.qq.com/16891/apk/E664A57DD3EA0540676EFC830BFDDE97.apk",
+      await Dio().download('https://54a0bf2343ff38bdc347780545bd8c9e.dd.cdntips.com/imtt.dd.qq.com/16891/apk/E664A57DD3EA0540676EFC830BFDDE97.apk',
         file.path,
         cancelToken: _cancelToken,
         onReceiveProgress: (int count, int total) {
@@ -171,7 +171,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
         },
       );
     } catch (e) {
-      Toast.show("下载失败!");
+      Toast.show('下载失败!');
       print(e);
       setState(() {
         _isDownload = false;

@@ -23,16 +23,16 @@ class _WithdrawalAccountListPageState extends State<WithdrawalAccountListPage> {
   void initState() {
     super.initState();
     _list.clear();
-    _list.add(WithdrawalAccountModel("尾号5236 李艺", "工商银行", 0, "123"));
-    _list.add(WithdrawalAccountModel("唯鹿", "微信", 1, ""));
+    _list.add(WithdrawalAccountModel('尾号5236 李艺', '工商银行', 0, '123'));
+    _list.add(WithdrawalAccountModel('唯鹿', '微信', 1, ''));
   }
   
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(
-        centerTitle: "选择账号",
-        actionName: "添加",
+        centerTitle: '选择账号',
+        actionName: '添加',
         onPressed: () {
           NavigatorUtils.push(context, AccountRouter.addWithdrawalAccountPage);
         }
@@ -52,7 +52,7 @@ class _WithdrawalAccountListPageState extends State<WithdrawalAccountListPage> {
               alignment: Alignment.center,
               child: Row(
                 children: <Widget>[
-                  LoadAssetImage(_list[index].type == 0 ? "account/yhk" : "account/wechat", width: 24.0),
+                  LoadAssetImage(_list[index].type == 0 ? 'account/yhk' : 'account/wechat', width: 24.0),
                   Gaps.hGap16,
                   Expanded(
                     child: Column(
@@ -68,7 +68,7 @@ class _WithdrawalAccountListPageState extends State<WithdrawalAccountListPage> {
                   Offstage(
                     offstage: _selectIndex != index,
                     child: const LoadAssetImage(
-                      "account/selected",
+                      'account/selected',
                       height: 24.0,
                       width: 24.0,
                     ),

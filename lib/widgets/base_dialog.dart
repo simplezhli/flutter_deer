@@ -47,7 +47,7 @@ class BaseDialog extends StatelessWidget{
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 8.0),
                     child: Text(
-                      hiddenTitle ? "" : title,
+                      hiddenTitle ? '' : title,
                       style: TextStyles.textBold18,
                     ),
                   ),
@@ -62,7 +62,7 @@ class BaseDialog extends StatelessWidget{
                         height: 48.0,
                         child: FlatButton(
                           child: const Text(
-                            "取消",
+                            '取消',
                             style: TextStyle(
                                 fontSize: Dimens.font_sp18
                             ),
@@ -84,7 +84,7 @@ class BaseDialog extends StatelessWidget{
                         height: 48.0,
                         child: FlatButton(
                           child: const Text(
-                            "确定",
+                            '确定',
                             style: TextStyle(
                                 fontSize: Dimens.font_sp18
                             ),

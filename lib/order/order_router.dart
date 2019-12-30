@@ -10,10 +10,10 @@ import 'page/order_track_page.dart';
 
 class OrderRouter implements IRouterProvider{
 
-  static String orderPage = "/order";
-  static String orderInfoPage = "/order/info";
-  static String orderSearchPage = "/order/search";
-  static String orderTrackPage = "/order/track";
+  static String orderPage = '/order';
+  static String orderInfoPage = '/order/info';
+  static String orderSearchPage = '/order/search';
+  static String orderTrackPage = '/order/track';
   
   @override
   void initRouter(Router router) {

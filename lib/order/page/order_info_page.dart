@@ -42,13 +42,13 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       const Text(
-                        "暂未接单",
+                        '暂未接单',
                         style: TextStyles.textBold24,
                       ),
                       Gaps.vGap16,
                       Gaps.vGap16,
                       const Text(
-                        "客户信息",
+                        '客户信息',
                         style: TextStyles.textBold18,
                       ),
                       Gaps.vGap16,
@@ -57,7 +57,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                           // 忽略图片的语义
                           ExcludeSemantics(
                             child: ClipOval(
-                              child: const LoadAssetImage("order/icon_avatar", width: 44.0, height: 44.0),
+                              child: const LoadAssetImage('order/icon_avatar', width: 44.0, height: 44.0),
                             ),
                           ),
                           Gaps.hGap8,
@@ -67,9 +67,9 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
-                                  Text("郭李"),
+                                  Text('郭李'),
                                   Gaps.vGap8,
-                                  Text("15000000000"),
+                                  Text('15000000000'),
                                 ],
                               ),
                             ),
@@ -79,8 +79,8 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                           Semantics(
                             label: '拨打电话',
                             child: GestureDetector(
-                              child: const LoadAssetImage("order/icon_phone", width: 24.0, height: 24.0),
-                              onTap: () => _showCallPhoneDialog("15000000000"),
+                              child: const LoadAssetImage('order/icon_phone', width: 24.0, height: 24.0),
+                              onTap: () => _showCallPhoneDialog('15000000000'),
                             ),
                           )
                         ],
@@ -89,15 +89,15 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          const LoadAssetImage("order/icon_address", width: 16.0, height: 20.0),
+                          const LoadAssetImage('order/icon_address', width: 16.0, height: 20.0),
                           Gaps.hGap4,
-                          Expanded(child: Text("西安市雁塔区 鱼化寨街道唐兴路唐兴数码3楼318", maxLines: 2)),
+                          Expanded(child: Text('西安市雁塔区 鱼化寨街道唐兴路唐兴数码3楼318', maxLines: 2)),
                         ],
                       ),
                       Gaps.vGap16,
                       Gaps.vGap16,
                       const Text(
-                        "商品信息",
+                        '商品信息',
                         style: TextStyles.textBold18,
                       ),
                       ListView.builder(
@@ -119,7 +119,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Container(
-                                    child: const LoadAssetImage("order/icon_goods", width: 56.0, height: 56.0),
+                                    child: const LoadAssetImage('order/icon_goods', width: 56.0, height: 56.0),
                                     margin: const EdgeInsets.only(top: 5.0),
                                   ),
                                   Gaps.hGap8,
@@ -128,12 +128,12 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: <Widget>[
                                         Text(
-                                            index % 2 == 0 ? "泊泉雅花瓣·浪漫亲肤玫瑰沐浴乳" : "日本纳鲁火多橙饮",
+                                            index % 2 == 0 ? '泊泉雅花瓣·浪漫亲肤玫瑰沐浴乳' : '日本纳鲁火多橙饮',
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                         ),
                                         Gaps.vGap4,
-                                        Text(index % 2 == 0 ? "玫瑰香 520ml" : "125ml", style: Theme.of(context).textTheme.subtitle),
+                                        Text(index % 2 == 0 ? '玫瑰香 520ml' : '125ml', style: Theme.of(context).textTheme.subtitle),
                                         Gaps.vGap8,
                                         Row(
                                           children: <Widget>[
@@ -146,7 +146,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                                               height: 16.0,
                                               alignment: Alignment.center,
                                               child: Text(
-                                                "立减2.50元",
+                                                '立减2.50元',
                                                 style: const TextStyle(color: Colors.white, fontSize: Dimens.font_sp10,),
                                               ),
                                             ),
@@ -162,7 +162,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                                                 height: 16.0,
                                                 alignment: Alignment.center,
                                                 child: Text(
-                                                  "抵扣2.50元",
+                                                  '抵扣2.50元',
                                                   style: const TextStyle(color: Colors.white, fontSize: Dimens.font_sp10),
                                                 ),
                                               ),
@@ -173,10 +173,10 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                                     ),
                                   ),
                                   Gaps.hGap8,
-                                  Text("x1", style: TextStyles.textSize12),
+                                  Text('x1', style: TextStyles.textSize12),
                                   Gaps.hGap16,
                                   Gaps.hGap16,
-                                  Text(Utils.formatPrice("25"), style: TextStyles.textBold14),
+                                  Text(Utils.formatPrice('25'), style: TextStyles.textBold14),
                                 ],
                               ),
                             ),
@@ -184,29 +184,29 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                         },
                       ),
                       Gaps.vGap8,
-                      getGoodsInfoItem("共2件商品", Utils.formatPrice("50.00")),
-                      getGoodsInfoItem("配送费", Utils.formatPrice("5.00")),
-                      getGoodsInfoItem("立减", Utils.formatPrice("-2.50"), contentTextColor: red),
-                      getGoodsInfoItem("优惠券", Utils.formatPrice("-2.50"), contentTextColor: red),
-                      getGoodsInfoItem("社区币抵扣", Utils.formatPrice("-2.50"), contentTextColor: red),
-                      getGoodsInfoItem("佣金", Utils.formatPrice("-1.0"), contentTextColor: red),
+                      getGoodsInfoItem('共2件商品', Utils.formatPrice('50.00')),
+                      getGoodsInfoItem('配送费', Utils.formatPrice('5.00')),
+                      getGoodsInfoItem('立减', Utils.formatPrice('-2.50'), contentTextColor: red),
+                      getGoodsInfoItem('优惠券', Utils.formatPrice('-2.50'), contentTextColor: red),
+                      getGoodsInfoItem('社区币抵扣', Utils.formatPrice('-2.50'), contentTextColor: red),
+                      getGoodsInfoItem('佣金', Utils.formatPrice('-1.0'), contentTextColor: red),
                       Gaps.line,
                       Gaps.vGap8,
-                      getGoodsInfoItem("合计", Utils.formatPrice("46.50")),
+                      getGoodsInfoItem('合计', Utils.formatPrice('46.50')),
                       Gaps.vGap8,
                       Gaps.line,
                       Gaps.vGap16,
                       Gaps.vGap16,
                       const Text(
-                        "订单信息",
+                        '订单信息',
                         style: TextStyles.textBold18,
                       ),
                       Gaps.vGap12,
-                      getOrderInfoItem("订单编号:", "1256324856942"),
-                      getOrderInfoItem("下单时间:", "2018/08/26 12:20"),
-                      getOrderInfoItem("支付方式:", "在线支付/支付宝"),
-                      getOrderInfoItem("配送方式:", "送货上门"),
-                      getOrderInfoItem("客户备注:", "无"),
+                      getOrderInfoItem('订单编号:', '1256324856942'),
+                      getOrderInfoItem('下单时间:', '2018/08/26 12:20'),
+                      getOrderInfoItem('支付方式:', '在线支付/支付宝'),
+                      getOrderInfoItem('配送方式:', '送货上门'),
+                      getOrderInfoItem('客户备注:', '无'),
                       Gaps.vGap50,
                       Gaps.vGap50,
                     ],
@@ -239,7 +239,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                             color: isDark ? Colours.dark_material_bg : const Color(0xFFE1EAFA),
                             textColor: isDark ? Colours.dark_text : Colours.app_main,
                             child: const Text(
-                              "拒单",
+                              '拒单',
                               style: TextStyle(
                                   fontSize: Dimens.font_sp18
                               ),
@@ -254,7 +254,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                             color: blue,
                             textColor: isDark ? Colours.dark_button_text : Colors.white,
                             child: const Text(
-                              "接单",
+                              '接单',
                               style: TextStyle(
                                   fontSize: Dimens.font_sp18
                               ),

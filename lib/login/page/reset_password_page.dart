@@ -58,14 +58,14 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
   }
   
   void _reset() {
-    Toast.show("确认......");
+    Toast.show('确认......');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: const MyAppBar(
-          title: "忘记密码",
+          title: '忘记密码',
         ),
         body: defaultTargetPlatform == TargetPlatform.iOS ? FormKeyboardActions(
           child: _buildBody(),
@@ -82,7 +82,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           const Text(
-            "重置登录密码",
+            '重置登录密码',
             style: TextStyles.textBold26,
           ),
           Gaps.vGap16,
@@ -92,7 +92,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
             controller: _nameController,
             maxLength: 11,
             keyboardType: TextInputType.phone,
-            hintText: "请输入手机号",
+            hintText: '请输入手机号',
           ),
           Gaps.vGap8,
           MyTextField(
@@ -103,7 +103,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
               return Future.value(true);
             },
             maxLength: 6,
-            hintText: "请输入验证码",
+            hintText: '请输入验证码',
           ),
           Gaps.vGap8,
           MyTextField(
@@ -112,13 +112,13 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
             controller: _passwordController,
             maxLength: 16,
             keyboardType: TextInputType.visiblePassword,
-            hintText: "请输入密码",
+            hintText: '请输入密码',
           ),
           Gaps.vGap10,
           Gaps.vGap15,
           MyButton(
             onPressed: _isClick ? _reset : null,
-            text: "确认",
+            text: '确认',
           )
         ],
       ),

@@ -21,21 +21,21 @@ void main() {
       driver?.close();
     });
     
-    test("店铺审核资料页测试",() async {
-      await driver.tap(find.text("主营范围"));
+    test('店铺审核资料页测试',() async {
+      await driver.tap(find.text('主营范围'));
       final sortList = find.byValueKey('goods_sort');
       await delayed();
       
       await driver.scroll(sortList, 0.0, -300.0, scrollDuration);
       await delayed();
       await driver.scroll(sortList, 0.0, 300.0, scrollDuration);
-      await driver.tap(find.text("休闲食品"));
+      await driver.tap(find.text('休闲食品'));
 
       await delayed();
       await driver.tap(find.text('提交'));
     });
 
-    test("审核结果页测试",() async {
+    test('审核结果页测试',() async {
       await delayed();
       await driver.tap(find.text('进入'));
     });

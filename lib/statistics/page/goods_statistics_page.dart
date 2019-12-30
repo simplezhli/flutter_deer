@@ -38,7 +38,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(
-        actionName: _type ? "待配货" : "已配货",
+        actionName: _type ? '待配货' : '已配货',
         onPressed: () {
           setState(() {
             _type = !_type;
@@ -55,7 +55,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Gaps.vGap4,
-                Text(_type ? "已配货" : "待配货", style: TextStyles.textBold24),
+                Text(_type ? '已配货' : '待配货', style: TextStyles.textBold24),
                 Gaps.vGap16,
                 Gaps.vGap16,
                 Row(
@@ -64,16 +64,16 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                     Gaps.hGap12,
                     Gaps.vLine,
                     Gaps.hGap12,
-                    _buildSelectedText("${_initialDay.month.toString()}月", 1),
+                    _buildSelectedText('${_initialDay.month.toString()}月', 1),
                     Gaps.hGap12,
                     Gaps.vLine,
                     Gaps.hGap12,
-                    _buildSelectedText(_type ? "${DateUtils.previousWeek(_initialDay)} -${DateUtils.apiDayFormat(_initialDay)}" : "${_initialDay.day.toString()}日", 2),
+                    _buildSelectedText(_type ? '${DateUtils.previousWeek(_initialDay)} -${DateUtils.apiDayFormat(_initialDay)}' : '${_initialDay.day.toString()}日', 2),
                   ],
                 ),
                 Gaps.vGap8,
                 _buildChart(),
-                const Text("热销商品排行", style: TextStyles.textBold18),
+                const Text('热销商品排行', style: TextStyles.textBold18),
                 ListView.builder(
                   physics: ClampingScrollPhysics(),
                   padding: const EdgeInsets.only(top: 16.0, right: 16.0),
@@ -97,7 +97,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
       child: FractionallySizedBox(
         heightFactor: 0.8,
         child: PieChart(
-          name: _type ? "已配货" : "待配货",
+          name: _type ? '已配货' : '待配货',
           data: _getRandomData(),
         ),
       ),
@@ -112,18 +112,18 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
     if (data.isEmpty) {
       for (int i = 0; i < 9; i++) {
         PieData pieData = PieData();
-        pieData.name = "商品$i";
+        pieData.name = '商品$i';
         pieData.number = Random.secure().nextInt(1000);
         data.add(pieData);
       }
       for (int i = 0; i < 11; i++) {
         PieData pieData = PieData();
         if (i == 10) {
-          pieData.name = "其他";
+          pieData.name = '其他';
           pieData.number = Random.secure().nextInt(1000);
           pieData.color = Colours.text_gray_c;
         } else {
-          pieData.name = "商品$i";
+          pieData.name = '商品$i';
           pieData.number = Random.secure().nextInt(1000);
         }
         data1.add(pieData);
@@ -146,7 +146,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
           child: Row(
             children: <Widget>[
               index <= 2 ?
-              LoadAssetImage("statistic/${index == 0 ? "champion" : index == 1 ? "runnerup" : "thirdplace"}", width: 40.0,) :
+              LoadAssetImage('statistic/${index == 0 ? 'champion' : index == 1 ? 'runnerup' : 'thirdplace'}', width: 40.0,) :
               Container(
                 alignment: Alignment.center,
                 width: 18.0, height: 18.0,
@@ -155,7 +155,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                     shape: BoxShape.circle,
                     color: Constant.colorList[index]
                 ),
-                child: Text("${index + 1}", style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp12, fontWeight: FontWeight.bold)),
+                child: Text('${index + 1}', style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp12, fontWeight: FontWeight.bold)),
               ),
               Gaps.hGap4,
               Container(
@@ -164,7 +164,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                     borderRadius: BorderRadius.circular(4.0),
                     border: Border.all(color: const Color(0xFFF7F8FA), width: 0.6),
                     image: DecorationImage(
-                      image: ImageUtils.getAssetImage("order/icon_goods"),
+                      image: ImageUtils.getAssetImage('order/icon_goods'),
                       fit: BoxFit.fitWidth
                     )
                 ),
@@ -175,8 +175,8 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text("那鲁火多饮料", maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontWeight: FontWeight.bold, fontSize: Dimens.font_sp12)),
-                    Text("250ml", style: Theme.of(context).textTheme.subtitle),
+                    Text('那鲁火多饮料', maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontWeight: FontWeight.bold, fontSize: Dimens.font_sp12)),
+                    Text('250ml', style: Theme.of(context).textTheme.subtitle),
                   ],
                 ),
               ),
@@ -187,8 +187,8 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text("100件", style: Theme.of(context).textTheme.subtitle),
-                    Text("未支付", style: Theme.of(context).textTheme.subtitle),
+                    Text('100件', style: Theme.of(context).textTheme.subtitle),
+                    Text('未支付', style: Theme.of(context).textTheme.subtitle),
                   ],
                 ),
               ),
@@ -197,8 +197,8 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: _type ? MainAxisAlignment.center : MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text("400件", style: Theme.of(context).textTheme.subtitle),
-                  Offstage(offstage: _type, child: Text("已支付", style: Theme.of(context).textTheme.subtitle)),
+                  Text('400件', style: Theme.of(context).textTheme.subtitle),
+                  Offstage(offstage: _type, child: Text('已支付', style: Theme.of(context).textTheme.subtitle)),
                 ],
               ),
             ],

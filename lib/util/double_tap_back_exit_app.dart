@@ -33,7 +33,7 @@ class _DoubleTapBackExitAppState extends State<DoubleTapBackExitApp> {
   Future<bool> _isExit() {
     if (_lastTime == null || DateTime.now().difference(_lastTime) > widget.duration) {
       _lastTime = DateTime.now();
-      Toast.show("再次点击退出应用");
+      Toast.show('再次点击退出应用');
       return Future.value(false);
     }
     Toast.cancelToast();

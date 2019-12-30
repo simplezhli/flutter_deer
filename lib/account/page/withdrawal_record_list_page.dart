@@ -16,7 +16,7 @@ class _WithdrawalRecordListPageState extends State<WithdrawalRecordListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MyAppBar(
-        title: "提现记录",
+        title: '提现记录',
       ),
       body: ListView.builder(
         itemCount: 8,
@@ -31,7 +31,7 @@ class _WithdrawalRecordListPageState extends State<WithdrawalRecordListPage> {
                 color: ThemeUtils.getStickyHeaderColor(context),
                 padding: const EdgeInsets.only(left: 16.0),
                 height: 34.0,
-                child: Text("2018/06/0${index + 1}"),
+                child: Text('2018/06/0${index + 1}'),
               ),
               content: _buildItem(index),
             ),
@@ -55,21 +55,21 @@ class _WithdrawalRecordListPageState extends State<WithdrawalRecordListPage> {
         child: MergeSemantics(
           child: Stack(
             children: <Widget>[
-              Text(i % 2 == 0 ? "微信（唯鹿）" : "工商（尾号:4562 李一）"),
+              Text(i % 2 == 0 ? '微信（唯鹿）' : '工商（尾号:4562 李一）'),
               Positioned(
                   top: 0.0,
                   right: 0.0,
-                  child: Text("-10.00", style: TextStyles.textBold14)
+                  child: Text('-10.00', style: TextStyles.textBold14)
               ),
               Positioned(
                   bottom: 0.0,
                   left: 0.0,
-                  child: Text(i % 2 == 0 ? "12:40:20" : "12:50:20", style: Theme.of(context).textTheme.subtitle)
+                  child: Text(i % 2 == 0 ? '12:40:20' : '12:50:20', style: Theme.of(context).textTheme.subtitle)
               ),
               Positioned(
                   bottom: 0.0,
                   right: 0.0,
-                  child: Text(i % 2 == 0 ? "审核失败" : "待审核", style: i % 2 == 0 ? TextStyle(
+                  child: Text(i % 2 == 0 ? '审核失败' : '待审核', style: i % 2 == 0 ? TextStyle(
                       fontSize: Dimens.font_sp12,
                       color: Theme.of(context).errorColor
                   ) : const TextStyle(

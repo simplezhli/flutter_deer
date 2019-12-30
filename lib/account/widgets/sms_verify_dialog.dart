@@ -28,7 +28,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
 
   FocusNode _focusNode = FocusNode();
   TextEditingController _controller = TextEditingController();
-  List<String> _codeList = ["", "", "", "", "", ""];
+  List<String> _codeList = ['', '', '', '', '', ''];
   
   @override
   void initState() {
@@ -80,7 +80,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                         alignment: Alignment.center,
                         padding: const EdgeInsets.only(top: 22.0),
                         child: const Text(
-                          "短信验证",
+                          '短信验证',
                           style: TextStyles.textBold18,
                         ),
                       ),
@@ -93,7 +93,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                             onTap: () => NavigatorUtils.goBack(context),
                             child: Container(
                               padding: const EdgeInsets.only(top: 16.0, right: 16.0),
-                              child: const LoadAssetImage("goods/icon_dialog_close", width: 16.0, key: const Key('dialog_close'),),
+                              child: const LoadAssetImage('goods/icon_dialog_close', width: 16.0, key: const Key('dialog_close'),),
                             )
                           ),
                         ),
@@ -103,7 +103,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: const Text("本次操作需短信验证，验证码会发送至您的注册手机 15000000000", textAlign: TextAlign.center),
+                  child: const Text('本次操作需短信验证，验证码会发送至您的注册手机 15000000000', textAlign: TextAlign.center),
                 ),
                 Gaps.vGap16,
                 Expanded(
@@ -126,15 +126,15 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                             if (i < v.length) {
                               _codeList[i] = v.substring(i, i + 1);
                             } else {
-                              _codeList[i] = "";
+                              _codeList[i] = '';
                             }
                           }
                           if (v.length == _codeList.length) {
-                            Toast.show("验证码：${_controller.text}");
+                            Toast.show('验证码：${_controller.text}');
                             for (int i = 0; i < _codeList.length; i ++) {
-                              _codeList[i] = "";
+                              _codeList[i] = '';
                             }
-                            _controller.text = "";
+                            _controller.text = '';
                           }
                           setState(() {});
                         },
@@ -170,7 +170,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                   width: double.infinity,
                   height: 48.0,
                   child: FlatButton(
-                    child: Text(_isClick ? "获取验证码" : "已发送($s s)", style: TextStyle(fontSize: Dimens.font_sp18)),
+                    child: Text(_isClick ? '获取验证码' : '已发送($s s)', style: TextStyle(fontSize: Dimens.font_sp18)),
                     textColor: textColor,
                     disabledTextColor: Colours.text_gray,
                     onPressed: _isClick ? () {

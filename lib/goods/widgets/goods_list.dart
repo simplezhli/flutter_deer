@@ -55,19 +55,19 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
   }
 
   List<String> _imgList = [
-    "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3130502839,1206722360&fm=26&gp=0.jpg",
-    "", // 故意使用一张无效链接，触发默认显示图片
-    "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1762976310,1236462418&fm=26&gp=0.jpg",
-    "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3659255919,3211745976&fm=26&gp=0.jpg",
-    "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2085939314,235211629&fm=26&gp=0.jpg",
-    "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2441563887,1184810091&fm=26&gp=0.jpg"
+    'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3130502839,1206722360&fm=26&gp=0.jpg',
+    '', // 故意使用一张无效链接，触发默认显示图片
+    'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1762976310,1236462418&fm=26&gp=0.jpg',
+    'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3659255919,3211745976&fm=26&gp=0.jpg',
+    'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2085939314,235211629&fm=26&gp=0.jpg',
+    'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2441563887,1184810091&fm=26&gp=0.jpg'
   ];
 
   Future _onRefresh() async {
     await Future.delayed(Duration(seconds: 2), () {
       setState(() {
         _page = 1;
-        _list = List.generate(widget.index == 0 ? 3 : 10, (i) => GoodsItemEntity(icon: _imgList[i % 6], title: "八月十五中秋月饼礼盒", type: i % 3));
+        _list = List.generate(widget.index == 0 ? 3 : 10, (i) => GoodsItemEntity(icon: _imgList[i % 6], title: '八月十五中秋月饼礼盒', type: i % 3));
       });
       _setGoodsCount(_list.length);
     });
@@ -76,7 +76,7 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
   Future _loadMore() async {
     await Future.delayed(Duration(seconds: 2), () {
       setState(() {
-        _list.addAll(List.generate(10, (i) => GoodsItemEntity(icon: _imgList[i % 6], title: "八月十五中秋月饼礼盒", type: i % 3)));
+        _list.addAll(List.generate(10, (i) => GoodsItemEntity(icon: _imgList[i % 6], title: '八月十五中秋月饼礼盒', type: i % 3)));
         _page ++;
       });
       _setGoodsCount(_list.length);
@@ -125,7 +125,7 @@ class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixi
             NavigatorUtils.push(context, '${GoodsRouter.goodsEditPage}?isAdd=false');
           },
           onTapOperation: () {
-            Toast.show("下架");
+            Toast.show('下架');
           },
           onTapDelete: () {
             _controller.reverse(from: 1.1);

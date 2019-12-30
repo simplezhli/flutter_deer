@@ -52,14 +52,14 @@ class _PriceInputDialog extends State<PriceInputDialog>{
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.only(top: 0.0, left: 16.0, right: 16.0, bottom: 14.0),
             border: InputBorder.none,
-            hintText: "输入${widget.title}",
+            hintText: '输入${widget.title}',
             //hintStyle: TextStyles.textGrayC14,
           ),
         ),
       ),
       onPressed: () {
         if (_controller.text.isEmpty) {
-          Toast.show("请输入${widget.title}");         
+          Toast.show('请输入${widget.title}');         
           return;
         }
         NavigatorUtils.goBack(context);

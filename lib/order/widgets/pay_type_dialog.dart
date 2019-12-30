@@ -23,7 +23,7 @@ class PayTypeDialog extends StatefulWidget{
 class _PayTypeDialog extends State<PayTypeDialog>{
 
   int _value = 0;
-  var _list = ["未收款", "支付宝", "微信", "现金"];
+  var _list = ['未收款', '支付宝', '微信', '现金'];
 
   Widget getItem(int index) {
     return Material(
@@ -45,7 +45,7 @@ class _PayTypeDialog extends State<PayTypeDialog>{
               ),
               Offstage(
                   offstage: _value != index,
-                  child: const LoadAssetImage("order/ic_check", width: 16.0, height: 16.0)),
+                  child: const LoadAssetImage('order/ic_check', width: 16.0, height: 16.0)),
               Gaps.hGap16,
             ],
           ),
@@ -64,7 +64,7 @@ class _PayTypeDialog extends State<PayTypeDialog>{
   @override
   Widget build(BuildContext context) {
     return BaseDialog(
-      title: "收款方式",
+      title: '收款方式',
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         mainAxisSize: MainAxisSize.min,

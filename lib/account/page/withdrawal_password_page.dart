@@ -20,13 +20,13 @@ class _WithdrawalPasswordPageState extends State<WithdrawalPasswordPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MyAppBar(
-        centerTitle: "提现密码",
+        centerTitle: '提现密码',
       ),
       body: Column(
         children: <Widget>[
           Gaps.vGap5,
           ClickItem(
-            title: "修改密码",
+            title: '修改密码',
             onTap: () {
               showDialog(
                   context: context,
@@ -38,7 +38,7 @@ class _WithdrawalPasswordPageState extends State<WithdrawalPasswordPage> {
             }
           ),
           ClickItem(
-            title: "忘记密码",
+            title: '忘记密码',
             onTap: () {
               showElasticDialog(
                 context: context,
@@ -48,7 +48,7 @@ class _WithdrawalPasswordPageState extends State<WithdrawalPasswordPage> {
                     hiddenTitle: true,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: const Text("为了您的账户安全需先进行短信验证并设置提现密码。", textAlign: TextAlign.center),
+                      child: const Text('为了您的账户安全需先进行短信验证并设置提现密码。', textAlign: TextAlign.center),
                     ),
                     onPressed: () {
                       NavigatorUtils.goBack(context);

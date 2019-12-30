@@ -21,7 +21,7 @@ void main() {
       driver?.close();
     });
 
-    test("账户流水页测试",() async {
+    test('账户流水页测试',() async {
       await driver.tap(find.byValueKey('店铺'));
       await delayed();
       await driver.tap(find.text('账户流水'));
@@ -33,7 +33,7 @@ void main() {
       
     });
     
-    test("添加账号页测试",() async {
+    test('添加账号页测试',() async {
       await driver.tap(find.text('添加'));
       await delayed();
       await driver.tap(find.text('账号类型'));
@@ -61,7 +61,7 @@ void main() {
       await delayed();
     });
 
-    test("资金管理页测试",() async {
+    test('资金管理页测试',() async {
       await driver.tap(find.text('资金管理'));
       await delayed();
       await driver.tap(find.text('提现记录'));
@@ -70,7 +70,7 @@ void main() {
       await delayed();
     });
 
-    test("提现页测试",() async {
+    test('提现页测试',() async {
       await driver.tap(find.text('提现'));
       await delayed();
       await driver.tap(find.text('工商银行'));
@@ -87,7 +87,7 @@ void main() {
       await delayed();
     });
 
-    test("提现密码页测试",() async {
+    test('提现密码页测试',() async {
       await driver.tap(find.text('提现密码'));
       await delayed();
       await driver.tap(find.text('修改密码'));

@@ -26,22 +26,22 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
   bool _check = false;
   var _selectValue = [0];
   int _sendType = 0;
-  String _sendPrice = "0.00";
-  String _freePrice = "0.00";
-  String _phone = "";
-  String _shopIntroduction = "零食铺子坚果饮料美酒佳肴…";
-  String _securityService = "假一赔十";
-  String _address = "陕西省 西安市 长安区 郭杜镇郭北村韩林路圣方医院斜对面";
+  String _sendPrice = '0.00';
+  String _freePrice = '0.00';
+  String _phone = '';
+  String _shopIntroduction = '零食铺子坚果饮料美酒佳肴…';
+  String _securityService = '假一赔十';
+  String _address = '陕西省 西安市 长安区 郭杜镇郭北村韩林路圣方医院斜对面';
   
   _getPayType() {
-    String payType = "";
+    String payType = '';
     for (int s in _selectValue) {
       if (s == 0) {
-        payType = "$payType在线支付+";
+        payType = '$payType在线支付+';
       } else if (s == 1) {
-        payType = "$payType对公转账+";
+        payType = '$payType对公转账+';
       } else if (s == 2) {
-        payType = "$payType货到付款+";
+        payType = '$payType货到付款+';
       }
     }
     return payType.substring(0, payType.length - 1);
@@ -71,7 +71,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                         Padding(
                           padding: const EdgeInsets.only(left: 16.0),
                           child: Text(
-                            _check ? "正在营业" : "暂停营业",
+                            _check ? '正在营业' : '暂停营业',
                             style: TextStyles.textBold24,
                           ),
                         ),
@@ -96,17 +96,17 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                     Gaps.vGap16,
                     const Padding(
                       padding: const EdgeInsets.only(left: 16.0),
-                      child: const Text("基础设置", style: TextStyles.textBold18),
+                      child: const Text('基础设置', style: TextStyles.textBold18),
                     ),
                     Gaps.vGap16,
                     ClickItem(
-                      title: "店铺简介",
+                      title: '店铺简介',
                       content: _shopIntroduction,
                       onTap: () {
                         AppNavigator.pushResult(context,
                             InputTextPage(
-                              title: "店铺简介",
-                              hintText: "这里有一段完美的简介…",
+                              title: '店铺简介',
+                              hintText: '这里有一段完美的简介…',
                               content: _shopIntroduction,
                             ), (result) {
                               setState(() {
@@ -116,13 +116,13 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                       },
                     ),
                     ClickItem(
-                      title: "保障服务",
+                      title: '保障服务',
                       content: _securityService,
                       onTap: () {
                         AppNavigator.pushResult(context,
                           InputTextPage(
-                            title: "保障服务",
-                            hintText: "这里有一段完美的说明…",
+                            title: '保障服务',
+                            hintText: '这里有一段完美的说明…',
                             content: _securityService,
                           ), (result) {
                             setState(() {
@@ -132,7 +132,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                       },
                     ),
                     ClickItem(
-                      title: "支付方式",
+                      title: '支付方式',
                       content: _getPayType(),
                       onTap: () {
                         showElasticDialog(
@@ -154,12 +154,12 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                     Gaps.vGap16,
                     const Padding(
                       padding: const EdgeInsets.only(left: 16.0),
-                      child: const Text("运费设置", style: TextStyles.textBold18),
+                      child: const Text('运费设置', style: TextStyles.textBold18),
                     ),
                     Gaps.vGap16,
                     ClickItem(
-                      title: "运费配置",
-                      content: _sendType == 0 ? "运费满免配置" : "运费比例配置",
+                      title: '运费配置',
+                      content: _sendType == 0 ? '运费满免配置' : '运费比例配置',
                       onTap: () {
                         showElasticDialog(
                             context: context,
@@ -178,7 +178,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                     Offstage(
                       offstage: _sendType == 1,
                       child: ClickItem(
-                        title: "运费满免",
+                        title: '运费满免',
                         content: _freePrice,
                         onTap: () {
                           showDialog(
@@ -186,7 +186,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                               barrierDismissible: false,
                               builder: (BuildContext context) {
                                 return PriceInputDialog(
-                                  title: "配送费满免",
+                                  title: '配送费满免',
                                   onPressed: (value) {
                                     setState(() {
                                       _freePrice = value;
@@ -200,7 +200,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                     Offstage(
                       offstage: _sendType == 1,
                       child: ClickItem(
-                        title: "配送费用",
+                        title: '配送费用',
                         content: _sendPrice,
                         onTap: () {
                           showDialog(
@@ -208,7 +208,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                               barrierDismissible: false,
                               builder: (BuildContext context) {
                                 return PriceInputDialog(
-                                  title: "配送费用",
+                                  title: '配送费用',
                                   onPressed: (value) {
                                     setState(() {
                                       _sendPrice = value;
@@ -223,8 +223,8 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                       offstage: _sendType == 0,
                       child: ClickItem(
                         maxLines: 10,
-                        title: "运费比例",
-                        content: "1、订单金额<20元，配送费为订单金额的1%\n2、订单金额≥20元，配送费为订单金额的1%",
+                        title: '运费比例',
+                        content: '1、订单金额<20元，配送费为订单金额的1%\n2、订单金额≥20元，配送费为订单金额的1%',
                         onTap: () => NavigatorUtils.push(context, ShopRouter.freightConfigPage),
                       ),
                     ),
@@ -232,17 +232,17 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                     Gaps.vGap16,
                     const Padding(
                       padding: const EdgeInsets.only(left: 16.0),
-                      child: const Text("联系信息", style: TextStyles.textBold18,),
+                      child: const Text('联系信息', style: TextStyles.textBold18,),
                     ),
                     Gaps.vGap16,
                     ClickItem(
-                      title: "联系电话",
+                      title: '联系电话',
                       content: _phone,
                       onTap: () {
                         AppNavigator.pushResult(context, 
                             InputTextPage(
-                              title: "联系电话",
-                              hintText: "这里有一串神秘的数字…",
+                              title: '联系电话',
+                              hintText: '这里有一串神秘的数字…',
                               keyboardType: TextInputType.phone,
                               content: _phone,
                             ), (result) {
@@ -254,15 +254,15 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                     ),
                     ClickItem(
                       maxLines: 2,
-                      title: "店铺地址",
+                      title: '店铺地址',
                       content: _address,
                       onTap: () {
                         NavigatorUtils.pushResult(context, ShopRouter.addressSelectPage, (result) {
                           setState(() {
                             PoiSearch model = result;
-                            _address = model.provinceName + " " +
-                                model.cityName + " " +
-                                model.adName + " " +
+                            _address = model.provinceName + ' ' +
+                                model.cityName + ' ' +
+                                model.adName + ' ' +
                                 model.title;
                           });
                         });
@@ -279,7 +279,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                 onPressed: () {
                   NavigatorUtils.goBack(context);
                 },
-                text: "提交",
+                text: '提交',
               ),
             )
           ],

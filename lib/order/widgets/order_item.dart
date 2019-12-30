@@ -40,10 +40,10 @@ class OrderItem extends StatelessWidget {
                 Row(
                   children: <Widget>[
                     Expanded(
-                      child: Text("15000000000（郭李）"),
+                      child: Text('15000000000（郭李）'),
                     ),
                     Text(
-                      "货到付款",
+                      '货到付款',
                       style: TextStyle(
                           fontSize: Dimens.font_sp12,
                           color: Theme.of(context).errorColor
@@ -53,7 +53,7 @@ class OrderItem extends StatelessWidget {
                 ),
                 Gaps.vGap8,
                 Text(
-                  "西安市雁塔区 鱼化寨街道唐兴路唐兴数码3楼318",
+                  '西安市雁塔区 鱼化寨街道唐兴路唐兴数码3楼318',
                   style: Theme.of(context).textTheme.subtitle,
                 ),
                 Gaps.vGap8,
@@ -86,14 +86,14 @@ class OrderItem extends StatelessWidget {
                           text: TextSpan(
                             style: textTextStyle,
                             children: <TextSpan>[
-                              TextSpan(text: Utils.formatPrice("20.00", format: MoneyFormat.NORMAL)),
+                              TextSpan(text: Utils.formatPrice('20.00', format: MoneyFormat.NORMAL)),
                               TextSpan(text: '  共3件商品', style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp10)),
                             ],
                           )
                       ),
                     ),
                     Text(
-                      "2018.02.05 10:00",
+                      '2018.02.05 10:00',
                       style: TextStyles.textSize12,
                     ),
                   ],
@@ -104,17 +104,17 @@ class OrderItem extends StatelessWidget {
                 Row(
                   children: <Widget>[
                     OrderItemButton(
-                      key: Key("order_button_1_$index"),
-                      text: "联系客户",
+                      key: Key('order_button_1_$index'),
+                      text: '联系客户',
                       textColor: isDark ? Colours.dark_text : Colours.text,
                       bgColor: isDark ? Colours.dark_material_bg : Colours.bg_gray,
-                      onTap: () => _showCallPhoneDialog(context, "15000000000"),
+                      onTap: () => _showCallPhoneDialog(context, '15000000000'),
                     ),
                     Expanded(
                       child: Gaps.empty,
                     ),
                     OrderItemButton(
-                      key: Key("order_button_2_$index"),
+                      key: Key('order_button_2_$index'),
                       text: Constant.orderLeftButtonText[tabIndex],
                       textColor: isDark ? Colours.dark_text : Colours.text,
                       bgColor: isDark ? Colours.dark_material_bg : Colours.bg_gray,
@@ -127,7 +127,7 @@ class OrderItem extends StatelessWidget {
                     Constant.orderRightButtonText[tabIndex].length == 0 ? Gaps.empty : Gaps.hGap10,
                     Constant.orderRightButtonText[tabIndex].length == 0 ? Gaps.empty :
                     OrderItemButton(
-                      key: Key("order_button_3_$index"),
+                      key: Key('order_button_3_$index'),
                       text: Constant.orderRightButtonText[tabIndex],
                       textColor: isDark ? Colours.dark_button_text : Colors.white,
                       bgColor: isDark ? Colours.dark_app_main : Colours.app_main,
@@ -139,7 +139,7 @@ class OrderItem extends StatelessWidget {
                               builder: (BuildContext context) {
                                 return PayTypeDialog(
                                   onPressed: (index, type) {
-                                    Toast.show("收款类型：$type");
+                                    Toast.show('收款类型：$type');
                                   },
                                 );
                               }

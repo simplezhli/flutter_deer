@@ -8,8 +8,8 @@ import 'page/order_statistics_page.dart';
 
 class StatisticsRouter implements IRouterProvider{
 
-  static String orderStatisticsPage = "/statistics/order";
-  static String goodsStatisticsPage = "/statistics/goods";
+  static String orderStatisticsPage = '/statistics/order';
+  static String goodsStatisticsPage = '/statistics/goods';
   
   @override
   void initRouter(Router router) {

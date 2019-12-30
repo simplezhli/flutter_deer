@@ -46,7 +46,7 @@ class _UpdatePasswordPageState extends State<UpdatePasswordPage> {
   }
   
   void _confirm() {
-    Toast.show("修改成功！");
+    Toast.show('修改成功！');
     NavigatorUtils.goBack(context);
   }
   
@@ -54,7 +54,7 @@ class _UpdatePasswordPageState extends State<UpdatePasswordPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MyAppBar(
-        title: "修改密码",
+        title: '修改密码',
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 20.0),
@@ -62,12 +62,12 @@ class _UpdatePasswordPageState extends State<UpdatePasswordPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             const Text(
-              "重置登录密码",
+              '重置登录密码',
               style: TextStyles.textBold26,
             ),
             Gaps.vGap8,
             Text(
-              "设置账号 15000000000",
+              '设置账号 15000000000',
               style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp12),
             ),
             Gaps.vGap16,
@@ -77,7 +77,7 @@ class _UpdatePasswordPageState extends State<UpdatePasswordPage> {
               controller: _oldPwdController,
               maxLength: 16,
               keyboardType: TextInputType.visiblePassword,
-              hintText: "请确认旧密码",
+              hintText: '请确认旧密码',
             ),
             Gaps.vGap8,
             MyTextField(
@@ -85,13 +85,13 @@ class _UpdatePasswordPageState extends State<UpdatePasswordPage> {
               controller: _newPwdController,
               maxLength: 16,
               keyboardType: TextInputType.visiblePassword,
-              hintText: "请输入新密码",
+              hintText: '请输入新密码',
             ),
             Gaps.vGap10,
             Gaps.vGap15,
             MyButton(
               onPressed: _isClick ? _confirm : null,
-              text: "确认",
+              text: '确认',
             )
           ],
         ),

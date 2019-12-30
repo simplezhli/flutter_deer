@@ -26,7 +26,7 @@ class _GoodsSizeDialog extends State<GoodsSizeDialog>{
   @override
   Widget build(BuildContext context) {
     return BaseDialog(
-      title: "规格名称",
+      title: '规格名称',
       child: Container(
         height: 34.0,
         margin: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0.0),
@@ -41,7 +41,7 @@ class _GoodsSizeDialog extends State<GoodsSizeDialog>{
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.only(top: 0.0, left: 16.0, right: 16.0, bottom: 14.0),
             border: InputBorder.none,
-            hintText: "输入文字…",
+            hintText: '输入文字…',
             //hintStyle: TextStyles.textGrayC14,
           ),
         ),

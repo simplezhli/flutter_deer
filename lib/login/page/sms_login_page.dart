@@ -51,7 +51,7 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
   }
 
   void _login() {
-    Toast.show("去登录......");
+    Toast.show('去登录......');
   }
 
   @override
@@ -73,7 +73,7 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           const Text(
-            "验证码登录",
+            '验证码登录',
             style: TextStyles.textBold26,
           ),
           Gaps.vGap16,
@@ -83,7 +83,7 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
             controller: _phoneController,
             maxLength: 11,
             keyboardType: TextInputType.phone,
-            hintText: "请输入手机号",
+            hintText: '请输入手机号',
           ),
           Gaps.vGap8,
           MyTextField(
@@ -91,7 +91,7 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
             controller: _vCodeController,
             maxLength: 6,
             keyboardType: TextInputType.number,
-            hintText: "请输入验证码",
+            hintText: '请输入验证码',
             getVCode: () {
               Toast.show('获取验证码');
               return Future.value(true);
@@ -118,7 +118,7 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
           Gaps.vGap10,
           MyButton(
             onPressed: _isClick ? _login : null,
-            text: "登录",
+            text: '登录',
           ),
           Container(
             height: 40.0,

@@ -22,7 +22,7 @@ void main([List<String> args = const <String>[]]) {
       driver?.close();
     });
 
-    test("测试引导页滑动",() async {
+    test('测试引导页滑动',() async {
       final swiperFinder = find.byValueKey('swiper');
       /// 引导页的第三张图
       final imageFinder = find.byValueKey('app_start_3');
@@ -30,7 +30,7 @@ void main([List<String> args = const <String>[]]) {
       await driver.scrollUntilVisible(swiperFinder, imageFinder, dxScroll: -300);
     });
     
-    test("点击最后一张引导图",() async {
+    test('点击最后一张引导图',() async {
       final imageFinder = find.byValueKey('app_start_3');
       /// 点击第三张图片
       await driver.tap(imageFinder);

@@ -9,9 +9,9 @@ class BankModel extends ISuspensionBean{
   BankModel(this.id, this.bankName, this.firstLetter);
 
   BankModel.fromJsonMap(Map<String, dynamic> map):
-        id = map["id"],
-        bankName = map["bankName"],
-        firstLetter = map["firstLetter"];
+        id = map['id'],
+        bankName = map['bankName'],
+        firstLetter = map['firstLetter'];
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();

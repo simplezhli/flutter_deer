@@ -58,14 +58,14 @@ class _RegisterPageState extends State<RegisterPage> {
   }
   
   void _register() {
-    Toast.show("点击注册");
+    Toast.show('点击注册');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: const MyAppBar(
-          title: "注册",
+          title: '注册',
         ),
         body: defaultTargetPlatform == TargetPlatform.iOS ? FormKeyboardActions(
           child: _buildBody(),
@@ -82,7 +82,7 @@ class _RegisterPageState extends State<RegisterPage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           const Text(
-            "开启你的账号",
+            '开启你的账号',
             style: TextStyles.textBold26,
           ),
           Gaps.vGap16,
@@ -93,7 +93,7 @@ class _RegisterPageState extends State<RegisterPage> {
             controller: _nameController,
             maxLength: 11,
             keyboardType: TextInputType.phone,
-            hintText: "请输入手机号",
+            hintText: '请输入手机号',
           ),
           Gaps.vGap8,
           MyTextField(
@@ -103,16 +103,16 @@ class _RegisterPageState extends State<RegisterPage> {
             keyboardType: TextInputType.number,
             getVCode: () async {
               if (_nameController.text.length == 11) {
-                Toast.show("并没有真正发送哦，直接登录吧！");
+                Toast.show('并没有真正发送哦，直接登录吧！');
                 /// 一般可以在这里发送真正的请求，请求成功返回true
                 return true;
               } else {
-                Toast.show("请输入有效的手机号");
+                Toast.show('请输入有效的手机号');
                 return false;
               }
             },
             maxLength: 6,
-            hintText: "请输入验证码",
+            hintText: '请输入验证码',
           ),
           Gaps.vGap8,
           MyTextField(
@@ -123,14 +123,14 @@ class _RegisterPageState extends State<RegisterPage> {
             controller: _passwordController,
             keyboardType: TextInputType.visiblePassword,
             maxLength: 16,
-            hintText: "请输入密码",
+            hintText: '请输入密码',
           ),
           Gaps.vGap10,
           Gaps.vGap15,
           MyButton(
             key: const Key('register'),
             onPressed: _isClick ? _register : null,
-            text: "注册",
+            text: '注册',
           )
         ],
       ),

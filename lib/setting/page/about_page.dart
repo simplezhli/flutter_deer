@@ -61,7 +61,7 @@ class _AboutPageState extends State<AboutPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MyAppBar(
-        title: "关于我们",
+        title: '关于我们',
       ),
       body: Column(
         children: <Widget>[
@@ -75,13 +75,13 @@ class _AboutPageState extends State<AboutPage> {
           ),
           Gaps.vGap10,
           ClickItem(
-            title: "Github",
-            content: "Go Star",
-            onTap: () => NavigatorUtils.goWebViewPage(context, "Flutter Deer", "https://github.com/simplezhli/flutter_deer")
+            title: 'Github',
+            content: 'Go Star',
+            onTap: () => NavigatorUtils.goWebViewPage(context, 'Flutter Deer', 'https://github.com/simplezhli/flutter_deer')
           ),
           ClickItem(
-            title: "作者",
-            onTap: () => NavigatorUtils.goWebViewPage(context, "作者博客", "https://weilu.blog.csdn.net")
+            title: '作者',
+            onTap: () => NavigatorUtils.goWebViewPage(context, '作者博客', 'https://weilu.blog.csdn.net')
           ),
         ],
       ),

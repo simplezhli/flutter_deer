@@ -45,7 +45,7 @@ class AppNavigator {
       }
       function(result);
     }).catchError((error) {
-      print("$error");
+      print('$error');
     });
   }
 

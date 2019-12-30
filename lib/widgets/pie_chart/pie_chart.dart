@@ -14,8 +14,8 @@ class PieChart extends StatefulWidget {
     Key key,
     @required this.data,
     @required this.name
-  }) : assert(data != null, "The [data] argument must not be null."),
-       assert(name != null, "The [name] argument must not be null."),
+  }) : assert(data != null, 'The [data] argument must not be null.'),
+       assert(name != null, 'The [name] argument must not be null.'),
        super(key: key);
   
   final List<PieData> data;
@@ -93,7 +93,7 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
               children: <Widget>[
                 Text(widget.name, style: TextStyles.textBold16),
                 Gaps.vGap4,
-                Text("$count件")
+                Text('$count件')
               ],
             ),
           )

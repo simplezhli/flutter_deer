@@ -32,14 +32,14 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
   final FocusNode _nodeText2 = FocusNode();
   final FocusNode _nodeText3 = FocusNode();
 
-  String _address = "陕西省 西安市 雁塔区 高新六路201号";
+  String _address = '陕西省 西安市 雁塔区 高新六路201号';
   
   void _getImage() async{
     try {
       _imageFile = await ImagePicker.pickImage(source: ImageSource.gallery, maxWidth: 800, imageQuality: 95);
       setState(() {});
     } catch (e) {
-      Toast.show("没有权限，无法打开相册！");
+      Toast.show('没有权限，无法打开相册！');
     }
   }
 
@@ -61,7 +61,7 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
           focusNode: _nodeText3,
           closeWidget: Padding(
             padding: EdgeInsets.all(5.0),
-            child: const Text("关闭"),
+            child: const Text('关闭'),
           ),
         ),
       ],
@@ -73,7 +73,7 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
     return Scaffold(
       //resizeToAvoidBottomPadding: false,
       appBar: const MyAppBar(
-        centerTitle: "店铺审核资料",
+        centerTitle: '店铺审核资料',
       ),
       body: SafeArea(
         child: Column(
@@ -92,7 +92,7 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
                 onPressed: () {
                   NavigatorUtils.push(context, StoreRouter.auditResultPage);
                 },
-                text: "提交",
+                text: '提交',
               ),
             )
           ],
@@ -110,7 +110,7 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
           Gaps.vGap5,
           const Padding(
             padding: const EdgeInsets.only(left: 16.0),
-            child: const Text("店铺资料", style: TextStyles.textBold18),
+            child: const Text('店铺资料', style: TextStyles.textBold18),
           ),
           Gaps.vGap16,
           Center(
@@ -122,31 +122,31 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
           Gaps.vGap10,
           Center(
             child: Text(
-              "店主手持身份证或营业执照",
+              '店主手持身份证或营业执照',
               style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14),
             ),
           ),
           Gaps.vGap16,
           TextFieldItem(
               focusNode: _nodeText1,
-              title: "店铺名称",
-              hintText: "填写店铺名称"
+              title: '店铺名称',
+              hintText: '填写店铺名称'
           ),
           StoreSelectTextItem(
-              title: "主营范围",
+              title: '主营范围',
               content: _sortName,
               onTap: () => _showBottomSheet()
           ),
           StoreSelectTextItem(
-              title: "店铺地址",
+              title: '店铺地址',
               content: _address,
               onTap: () {
                 NavigatorUtils.pushResult(context, ShopRouter.addressSelectPage, (result) {
                   setState(() {
                     PoiSearch model = result;
-                    _address = model.provinceName + " " +
-                        model.cityName + " " +
-                        model.adName + " " +
+                    _address = model.provinceName + ' ' +
+                        model.cityName + ' ' +
+                        model.adName + ' ' +
                         model.title;
                   });
                 });
@@ -156,28 +156,28 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
           Gaps.vGap16,
           const Padding(
             padding: const EdgeInsets.only(left: 16.0),
-            child: const Text("店主信息", style: TextStyles.textBold18),
+            child: const Text('店主信息', style: TextStyles.textBold18),
           ),
           Gaps.vGap16,
           TextFieldItem(
               focusNode: _nodeText2,
-              title: "店主姓名",
-              hintText: "填写店主姓名"
+              title: '店主姓名',
+              hintText: '填写店主姓名'
           ),
           TextFieldItem(
               focusNode: _nodeText3,
               config: _buildConfig(context),
               keyboardType: TextInputType.phone,
-              title: "联系电话",
-              hintText: "填写店主联系电话"
+              title: '联系电话',
+              hintText: '填写店主联系电话'
           )
         ],
       ),
     );
   }
 
-  String _sortName = "";
-  var _list = ["水果生鲜", "家用电器", "休闲食品", "茶酒饮料", "美妆个护", "粮油调味", "家庭清洁", "厨具用品", "儿童玩具", "床上用品"];
+  String _sortName = '';
+  var _list = ['水果生鲜', '家用电器', '休闲食品', '茶酒饮料', '美妆个护', '粮油调味', '家庭清洁', '厨具用品', '儿童玩具', '床上用品'];
 
   _showBottomSheet() {
     showModalBottomSheet(

@@ -8,7 +8,7 @@ class ClickItem extends StatelessWidget {
     Key key,
     this.onTap,
     @required this.title,
-    this.content: "",
+    this.content: '',
     this.textAlign: TextAlign.start,
     this.maxLines: 1
   }): super(key: key);

@@ -15,8 +15,8 @@ class _MessagePageState extends State<MessagePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(
-        centerTitle: "消息",
-        actionName: "全部已读",
+        centerTitle: '消息',
+        actionName: '全部已读',
         onPressed: () {},
       ),
       body: ListView.builder(
@@ -27,7 +27,7 @@ class _MessagePageState extends State<MessagePage> {
           return Column(
             children: <Widget>[
               Gaps.vGap15,
-              Text("2019-5-31 17:19:36", style: Theme.of(context).textTheme.subtitle),
+              Text('2019-5-31 17:19:36', style: Theme.of(context).textTheme.subtitle),
               Gaps.vGap8,
               MyCard(
                 child: Padding(
@@ -37,7 +37,7 @@ class _MessagePageState extends State<MessagePage> {
                     children: <Widget>[
                       Row(
                         children: <Widget>[
-                          Expanded(child: Text("系统通知")),
+                          Expanded(child: Text('系统通知')),
                           Container(
                             margin: const EdgeInsets.only(right: 4.0),
                             height: 8.0,
@@ -53,7 +53,7 @@ class _MessagePageState extends State<MessagePage> {
                       Gaps.vGap8,
                       Gaps.line,
                       Gaps.vGap8,
-                      Text("供货商由于[商品缺货]原因，取消了采购订单。", style: TextStyles.textSize12),
+                      Text('供货商由于[商品缺货]原因，取消了采购订单。', style: TextStyles.textSize12),
                     ],
                   ),
                 ),

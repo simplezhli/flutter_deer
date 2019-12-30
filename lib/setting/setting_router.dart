@@ -9,10 +9,10 @@ import 'page/setting_page.dart';
 
 class SettingRouter implements IRouterProvider{
 
-  static String settingPage = "/setting";
-  static String aboutPage = "/setting/about";
-  static String themePage = "/setting/theme";
-  static String accountManagerPage = "/setting/accountManager";
+  static String settingPage = '/setting';
+  static String aboutPage = '/setting/about';
+  static String themePage = '/setting/theme';
+  static String accountManagerPage = '/setting/accountManager';
   
   @override
   void initRouter(Router router) {

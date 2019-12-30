@@ -12,7 +12,7 @@ class SelectedText extends StatelessWidget {
     this.unSelectedTextColor,
     this.enable : true,
     this.onTap
-  }): assert(unSelectedTextColor != null, "The [unSelectedTextColor] argument must not be null."),
+  }): assert(unSelectedTextColor != null, 'The [unSelectedTextColor] argument must not be null.'),
       super(key: key);
 
   final String text;
@@ -58,7 +58,7 @@ class SelectedText extends StatelessWidget {
   }
 
   _buildText() {
-    if (text.endsWith("月") || text.endsWith("日")) {
+    if (text.endsWith('月') || text.endsWith('日')) {
       return RichText(
           text: TextSpan(
             children: <TextSpan>[

@@ -27,7 +27,7 @@ class Utils {
     } catch (e) {
       if (e is PlatformException) {
         if (e.code == BarcodeScanner.CameraAccessDenied) {
-          Toast.show("没有相机权限！");
+          Toast.show('没有相机权限！');
         }
       }
     }
@@ -46,8 +46,8 @@ class Utils {
       actions: List.generate(list.length, (i) => KeyboardAction(
         focusNode: list[i],
         closeWidget: const Padding(
-          padding: const EdgeInsets.all(5.0),
-          child: const Text("关闭"),
+          padding: EdgeInsets.all(5.0),
+          child: Text('关闭'),
         ),
       )),
     );

@@ -38,7 +38,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                         alignment: Alignment.center,
                         padding: const EdgeInsets.symmetric(vertical: 16.0),
                         child: const Text(
-                          "设置提现密码",
+                          '设置提现密码',
                           style: TextStyles.textBold18,
                         ),
                       ),
@@ -54,7 +54,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                               key: const Key('close'),
                               height: 16.0,
                               width: 16.0,
-                              child: const LoadAssetImage("goods/icon_dialog_close")
+                              child: const LoadAssetImage('goods/icon_dialog_close')
                             ),
                           ),
                         ),
@@ -77,7 +77,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                           ),
                         ),
                         Gaps.vGap10,
-                        Text(("提现密码不可为连续、重复的数字。"), style: Theme.of(context).textTheme.subtitle),
+                        Text(('提现密码不可为连续、重复的数字。'), style: Theme.of(context).textTheme.subtitle),
                       ],
                     ),
                   ),
@@ -100,7 +100,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                           color: (index == 9 || index == 11) ? color : null,
                           child: InkWell(
                             child: Center(
-                              child: index == 11 ? Semantics(label: '删除', child: const LoadAssetImage("account/del", width: 32.0)) : index == 9 ? Semantics(label: '无效', child: Gaps.empty) :
+                              child: index == 11 ? Semantics(label: '删除', child: const LoadAssetImage('account/del', width: 32.0)) : index == 9 ? Semantics(label: '无效', child: Gaps.empty) :
                               Text(_list[index].toString(), style: TextStyle(fontSize: 26.0)),
                             ),
                             onTap: () {
@@ -111,7 +111,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                                 if (_index == 0) {
                                   return;
                                 }
-                                _codeList[_index - 1] = "";
+                                _codeList[_index - 1] = '';
                                 _index--;
                                 setState(() {
 
@@ -122,14 +122,14 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                               _index++;
                               if (_index == _codeList.length) {
 
-                                String code = "";
+                                String code = '';
                                 for (int i = 0; i < _codeList.length; i ++) {
                                   code = code + _codeList[i];
                                 }
-                                Toast.show("密码：$code");
+                                Toast.show('密码：$code');
                                 _index = 0;
                                 for (int i = 0; i < _codeList.length; i ++) {
-                                  _codeList[i] = "";
+                                  _codeList[i] = '';
                                 }
                               }
                               setState(() {
@@ -150,7 +150,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
   }
 
   int _index = 0;
-  List<String> _codeList = ["", "", "", "", "", ""];
+  List<String> _codeList = ['', '', '', '', '', ''];
 
   Widget _buildInputWidget(int p) {
     return Expanded(
@@ -161,7 +161,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                 right: Divider.createBorderSide(context, color: Colours.text_gray_c, width: 0.6),
               ) : null
           ),
-          child: Text(_codeList[p].isEmpty ? "" : "●", style: TextStyles.textSize12,)
+          child: Text(_codeList[p].isEmpty ? '' : '●', style: TextStyles.textSize12,)
       ),
     );
   }

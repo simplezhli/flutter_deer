@@ -39,7 +39,7 @@ class _InputTextPageState extends State<InputTextPage> {
     return Scaffold(
       appBar: MyAppBar(
         title: widget.title,
-        actionName: "完成",
+        actionName: '完成',
         onPressed: () {
           NavigatorUtils.goBackWithParams(context, _controller.text);
         },

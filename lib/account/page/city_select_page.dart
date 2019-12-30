@@ -55,7 +55,7 @@ class _CitySelectPageState extends State<CitySelectPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MyAppBar(
-        title: "开户地点",
+        title: '开户地点',
       ),
       body: SafeArea(
         child: AzListView(
@@ -87,7 +87,7 @@ class _CitySelectPageState extends State<CitySelectPage> {
         height: 40.0,
         child: Container(
           decoration: BoxDecoration(
-            border: (model.isShowSuspension && model.cityCode != "0483") ? Border(
+            border: (model.isShowSuspension && model.cityCode != '0483') ? Border(
               top: Divider.createBorderSide(context, width: 0.6),
             ) : null
           ),

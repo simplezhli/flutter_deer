@@ -87,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           const Text(
-            "密码登录",
+            '密码登录',
             style: TextStyles.textBold26,
           ),
           Gaps.vGap16,
@@ -97,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
             controller: _nameController,
             maxLength: 11,
             keyboardType: TextInputType.phone,
-            hintText: "请输入账号",
+            hintText: '请输入账号',
           ),
           Gaps.vGap8,
           MyTextField(
@@ -109,14 +109,14 @@ class _LoginPageState extends State<LoginPage> {
             controller: _passwordController,
             keyboardType: TextInputType.visiblePassword,
             maxLength: 16,
-            hintText: "请输入密码",
+            hintText: '请输入密码',
           ),
           Gaps.vGap10,
           Gaps.vGap15,
           MyButton(
             key: const Key('login'),
             onPressed: _isClick ? _login : null,
-            text: "登录",
+            text: '登录',
           ),
           Container(
             height: 40.0,

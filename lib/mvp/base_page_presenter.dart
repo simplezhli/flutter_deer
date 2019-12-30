@@ -92,12 +92,12 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
 
   /// 上传图片实现
   Future<String> uploadImg(File image) async{
-    String imgPath = "";
+    String imgPath = '';
     try{
       String path = image.path;
-      var name = path.substring(path.lastIndexOf("/") + 1);
+      var name = path.substring(path.lastIndexOf('/') + 1);
       FormData formData = FormData.fromMap({
-        "uploadIcon": await MultipartFile.fromFile(path, filename: name)
+        'uploadIcon': await MultipartFile.fromFile(path, filename: name)
       });
       await requestNetwork<String>(Method.post,
           url: HttpApi.upload,
@@ -107,7 +107,7 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
           }
       );
     } catch(e) {
-      view.showToast("图片上传失败！");
+      view.showToast('图片上传失败！');
     }
     return imgPath;
   }

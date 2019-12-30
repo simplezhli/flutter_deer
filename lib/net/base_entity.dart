@@ -27,9 +27,9 @@ class BaseEntity<T>{
   }
 
   S _generateOBJ<S>(json) {
-    if (S.toString() == "String") {
+    if (S.toString() == 'String') {
       return json.toString() as S;
-    } else if (T.toString() == "Map<dynamic, dynamic>") {
+    } else if (T.toString() == 'Map<dynamic, dynamic>') {
       return json as S;
     } else {
       return EntityFactory.generateOBJ(json);

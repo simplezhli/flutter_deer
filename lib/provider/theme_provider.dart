@@ -11,7 +11,7 @@ import 'package:flutter_deer/res/resources.dart';
 class ThemeProvider extends ChangeNotifier {
 
   static const Map<Themes, String> themes = {
-    Themes.DARK: "Dark", Themes.LIGHT : "Light", Themes.SYSTEM : "System"
+    Themes.DARK: 'Dark', Themes.LIGHT : 'Light', Themes.SYSTEM : 'System'
   };
   
   void syncTheme() {
@@ -29,10 +29,10 @@ class ThemeProvider extends ChangeNotifier {
   getTheme({bool isDarkMode: false}) {
     String theme = SpUtil.getString(Constant.theme);
     switch(theme) {
-      case "Dark":
+      case 'Dark':
         isDarkMode = true;
         break;
-      case "Light":
+      case 'Light':
         isDarkMode = false;
         break;
       default:

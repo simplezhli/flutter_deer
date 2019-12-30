@@ -21,7 +21,7 @@ void main() {
       driver?.close();
     });
 
-    test("店铺页测试",() async {
+    test('店铺页测试',() async {
       await driver.tap(find.byValueKey('店铺'));
       await delayed();
       await driver.tap(find.byValueKey('message'));
@@ -31,7 +31,7 @@ void main() {
       
     });
 
-    test("店铺设置页测试",() async {
+    test('店铺设置页测试',() async {
       await driver.tap(find.text('店铺设置'));
       await delayed();
       await driver.tap(find.text('店铺简介'));
@@ -62,7 +62,7 @@ void main() {
       await delayed();
     });
 
-    test("运费配置页测试",() async {
+    test('运费配置页测试',() async {
       await driver.tap(find.text('运费比例'));
       await delayed();
       await driver.tap(find.byValueKey('add'));

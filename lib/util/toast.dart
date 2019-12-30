@@ -8,9 +8,9 @@ class Toast {
       return;
     }
     showToast(
-        msg,
-        duration: Duration(milliseconds: duration),
-        dismissOtherToast: true
+      msg,
+      duration: Duration(milliseconds: duration),
+      dismissOtherToast: true
     );
   }
 

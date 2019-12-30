@@ -14,9 +14,9 @@ class _GoodsSearchPageState extends State<GoodsSearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: SearchBar(
-        hintText: "请输入商品名称查询",
+        hintText: '请输入商品名称查询',
         onPressed: (text) {
-          Toast.show("搜索内容：$text");
+          Toast.show('搜索内容：$text');
         },
       ),
       body: Container(

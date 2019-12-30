@@ -10,17 +10,17 @@ void main() {
     setUp(() {
       /// 测试配置
       dio = DioUtils.instance.getDio();
-      dio.options.baseUrl = "https://api.github.com/";
+      dio.options.baseUrl = 'https://api.github.com/';
     });
     
     test('getUsers', () async {
       await DioUtils.instance.requestNetwork<UserEntity>(
         Method.get, HttpApi.users, 
         onSuccess: (data) {
-          expect(data.name, "唯鹿");
+          expect(data.name, '唯鹿');
         },
         onError: (_, __) {
-          print("$_, $__");
+          print('$_, $__');
         }
       );
     });

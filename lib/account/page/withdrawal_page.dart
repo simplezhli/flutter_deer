@@ -22,7 +22,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
   TextEditingController _controller = TextEditingController();
   int _withdrawalType = 0;
   bool _isClick = false;
-  WithdrawalAccountModel _data = WithdrawalAccountModel("尾号5236 李艺", "工商银行", 0, "123");
+  WithdrawalAccountModel _data = WithdrawalAccountModel('尾号5236 李艺', '工商银行', 0, '123');
   
   @override
   void initState() {
@@ -55,7 +55,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
       },
       child: Scaffold(
         appBar: const MyAppBar(
-          title: "提现",
+          title: '提现',
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -76,7 +76,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                   alignment: Alignment.center,
                   child: Row(
                     children: <Widget>[
-                      LoadAssetImage(_data.type == 0 ? "account/yhk" : "account/wechat", width: 24.0),
+                      LoadAssetImage(_data.type == 0 ? 'account/yhk' : 'account/wechat', width: 24.0),
                       Gaps.hGap16,
                       Expanded(
                         child: Column(
@@ -102,8 +102,8 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        const Text("提现金额", style: TextStyles.textBold14),
-                        Text("单笔2万，单日2万", style: const TextStyle(fontSize: Dimens.font_sp12, color: Color(0xFFFF8547)))
+                        const Text('提现金额', style: TextStyles.textBold14),
+                        Text('单笔2万，单日2万', style: const TextStyle(fontSize: Dimens.font_sp12, color: Color(0xFFFF8547)))
                       ],
                     ),
                     Gaps.vGap8,
@@ -113,7 +113,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                           width: 15.0,
                           height: 40.0,
                           padding: const EdgeInsets.symmetric(vertical: 8.0),
-                          child: LoadAssetImage("account/rmb", color: ThemeUtils.getIconColor(context),)
+                          child: LoadAssetImage('account/rmb', color: ThemeUtils.getIconColor(context),)
                         ),
                         Gaps.hGap8,
                         Expanded(
@@ -133,8 +133,8 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                                 fontWeight: FontWeight.normal,
                                 color: Colours.text_gray_c
                               ),
-                              hintText: "不能少于1元",
-                              counterText: "",
+                              hintText: '不能少于1元',
+                              counterText: '',
                               border: InputBorder.none,
                             ),
                           ),
@@ -146,12 +146,12 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text("最多可提现70元", style: Theme.of(context).textTheme.subtitle),
+                        Text('最多可提现70元', style: Theme.of(context).textTheme.subtitle),
                         InkWell(
                           onTap: () {
-                            _controller.text = "70";
+                            _controller.text = '70';
                           },
-                          child: Text("全部提现", style: TextStyle(
+                          child: Text('全部提现', style: TextStyle(
                             fontSize: Dimens.font_sp12,
                             color: Theme.of(context).primaryColor,
                           ))
@@ -163,8 +163,8 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        const Text("转出方式", style: TextStyles.textBold14),
-                        const LoadAssetImage("account/sm", width: 16.0)
+                        const Text('转出方式', style: TextStyles.textBold14),
+                        const LoadAssetImage('account/sm', width: 16.0)
                       ],
                     ),
                     InkWell(
@@ -181,13 +181,13 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                             Positioned(
                               top: 18.0,
                               left: 0.0,
-                              child: LoadAssetImage(_withdrawalType == 0 ? "account/txxz" : "account/txwxz", width: 16.0)
+                              child: LoadAssetImage(_withdrawalType == 0 ? 'account/txxz' : 'account/txwxz', width: 16.0)
                             ),
                             Positioned(
                               top: 16.0,
                               left: 24.0,
                               right: 0.0,
-                              child: const Text("快速到账")
+                              child: const Text('快速到账')
                             ),
                             Positioned(
                               bottom: 16.0,
@@ -223,13 +223,13 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                             Positioned(
                               top: 18.0,
                               left: 0.0,
-                              child: LoadAssetImage(_withdrawalType == 1 ? "account/txxz" : "account/txwxz", width: 16.0)
+                              child: LoadAssetImage(_withdrawalType == 1 ? 'account/txxz' : 'account/txwxz', width: 16.0)
                             ),
                             Positioned(
                               top: 16.0,
                               left: 24.0,
                               right: 0.0,
-                              child: const Text("普通到账")
+                              child: const Text('普通到账')
                             ),
                             Positioned(
                               bottom: 16.0,
@@ -256,7 +256,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                       onPressed: _isClick ? () {
                         NavigatorUtils.push(context, AccountRouter.withdrawalResultPage);
                       } : null,
-                      text: "提现",
+                      text: '提现',
                     ),
                   ],
                 ),

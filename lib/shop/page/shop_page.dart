@@ -22,9 +22,9 @@ class ShopPage extends StatefulWidget {
 
 class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with AutomaticKeepAliveClientMixin<ShopPage>{
   
-  var menuTitle = ["账户流水", "资金管理", "提现账号"];
-  var menuImage = ["zhls", "zjgl", "txzh"];
-  var menuDarkImage = ["dark_zhls", "dark_zjgl", "dark_txzh"];
+  var menuTitle = ['账户流水', '资金管理', '提现账号'];
+  var menuImage = ['zhls', 'zjgl', 'txzh'];
+  var menuDarkImage = ['dark_zhls', 'dark_zjgl', 'dark_txzh'];
 
   UserProvider provider = UserProvider();
   
@@ -47,7 +47,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                   NavigatorUtils.push(context, ShopRouter.messagePage);
                 },
                 icon: LoadAssetImage(
-                  "shop/message",
+                  'shop/message',
                   key: const Key('message'),
                   width: 24.0,
                   height: 24.0,
@@ -60,7 +60,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                   NavigatorUtils.push(context, SettingRouter.settingPage);
                 },
                 icon: LoadAssetImage(
-                  "shop/setting",
+                  'shop/setting',
                   key: const Key('setting'),
                   width: 24.0,
                   height: 24.0,
@@ -82,7 +82,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                         children: <Widget>[
                           const SizedBox(width: double.infinity, height: 56.0),
                           const Text(
-                            "官方直营店",
+                            '官方直营店',
                             style: TextStyles.textBold24,
                           ),
                           Positioned(
@@ -98,9 +98,9 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                             left: 0.0,
                             child: Row(
                               children: <Widget>[
-                                const LoadAssetImage("shop/zybq", width: 40.0, height: 16.0,),
+                                const LoadAssetImage('shop/zybq', width: 40.0, height: 16.0,),
                                 Gaps.hGap8,
-                                const Text("店铺账号:15000000000", style: TextStyles.textSize12)
+                                const Text('店铺账号:15000000000', style: TextStyles.textSize12)
                               ],
                             ),
                           ),
@@ -119,7 +119,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: const Text(
-                    "账户",
+                    '账户',
                     style: TextStyles.textBold18,
                   ),
                 ),
@@ -139,7 +139,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          LoadAssetImage(ThemeUtils.isDark(context) ? "shop/${menuDarkImage[index]}" : "shop/${menuImage[index]}", width: 32.0),
+                          LoadAssetImage(ThemeUtils.isDark(context) ? 'shop/${menuDarkImage[index]}' : 'shop/${menuImage[index]}', width: 32.0),
                           Gaps.vGap4,
                           Text(
                             menuTitle[index],
@@ -167,7 +167,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: const Text(
-                    "店铺",
+                    '店铺',
                     style: TextStyles.textBold18,
                   ),
                 ),
@@ -187,10 +187,10 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          LoadAssetImage(ThemeUtils.isDark(context) ? "shop/dark_dpsz" : "shop/dpsz", width: 32.0),
+                          LoadAssetImage(ThemeUtils.isDark(context) ? 'shop/dark_dpsz' : 'shop/dpsz', width: 32.0),
                           Gaps.vGap4,
                           const Text(
-                            "店铺设置",
+                            '店铺设置',
                             style: TextStyles.textSize12,
                           )
                         ],

@@ -41,7 +41,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
       _imageFile = await ImagePicker.pickImage(source: ImageSource.gallery, maxWidth: 800);
       setState(() {});
     } catch (e) {
-      Toast.show("没有权限，无法打开相册！");
+      Toast.show('没有权限，无法打开相册！');
     }
   }
   
@@ -66,7 +66,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(
-        centerTitle: widget.isAdd ? "添加商品" : "编辑商品",
+        centerTitle: widget.isAdd ? '添加商品' : '编辑商品',
       ),
       body: SafeArea(
         child: Column(
@@ -84,7 +84,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
                     const Padding(
                       padding: const EdgeInsets.only(left: 16.0),
                       child: const Text(
-                        "基本信息",
+                        '基本信息',
                         style: TextStyles.textBold18,
                       ),
                     ),
@@ -99,31 +99,31 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
                     Gaps.vGap8,
                     Center(
                       child: Text(
-                        "点击添加商品图片",
+                        '点击添加商品图片',
                         style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14),
                       ),
                     ),
                     Gaps.vGap16,
                     TextFieldItem(
-                      title: "商品名称",
-                      hintText: "填写商品名称",
+                      title: '商品名称',
+                      hintText: '填写商品名称',
                     ),
                     TextFieldItem(
-                      title: "商品简介",
-                      hintText: "填写简短描述",
+                      title: '商品简介',
+                      hintText: '填写简短描述',
                     ),
                     TextFieldItem(
-                      title: "折后价格",
+                      title: '折后价格',
                       keyboardType: TextInputType.numberWithOptions(decimal: true),
-                      hintText: "填写商品单品折后价格",
+                      hintText: '填写商品单品折后价格',
                     ),
                     Stack(
                       alignment: Alignment.centerRight,
                       children: <Widget>[
                         TextFieldItem(
                           controller: _codeController,
-                          title: "商品条码",
-                          hintText: "选填",
+                          title: '商品条码',
+                          hintText: '选填',
                         ),
                         Positioned(
                           right: 16.0,
@@ -131,8 +131,8 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
                             label: '扫码',
                             child: GestureDetector(
                               child: ThemeUtils.isDark(context) ? 
-                              const LoadAssetImage("goods/icon_sm", width: 16.0, height: 16.0) : 
-                              const LoadAssetImage("goods/scanning", width: 16.0, height: 16.0),
+                              const LoadAssetImage('goods/icon_sm', width: 16.0, height: 16.0) : 
+                              const LoadAssetImage('goods/scanning', width: 16.0, height: 16.0),
                               onTap: _scan,
                             ),
                           ),
@@ -140,25 +140,25 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
                       ],
                     ),
                     TextFieldItem(
-                      title: "商品说明",
-                      hintText: "选填",
+                      title: '商品说明',
+                      hintText: '选填',
                     ),
                     Gaps.vGap16,
                     Gaps.vGap16,
                     const Padding(
                       padding: const EdgeInsets.only(left: 16.0),
                       child: const Text(
-                        "折扣立减",
+                        '折扣立减',
                         style: TextStyles.textBold18,
                       ),
                     ),
                     Gaps.vGap16,
                     TextFieldItem(
-                      title: "立减金额",
+                      title: '立减金额',
                       keyboardType: TextInputType.numberWithOptions(decimal: true)
                     ),
                     TextFieldItem(
-                      title: "折扣金额",
+                      title: '折扣金额',
                       keyboardType: TextInputType.numberWithOptions(decimal: true)
                     ),
                     Gaps.vGap16,
@@ -166,19 +166,19 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
                     const Padding(
                       padding: const EdgeInsets.only(left: 16.0),
                       child: const Text(
-                        "类型规格",
+                        '类型规格',
                         style: TextStyles.textBold18,
                       ),
                     ),
                     Gaps.vGap16,
                     ClickItem(
-                      title: "商品类型",
-                      content: _goodsSortName ?? "选择商品类型",
+                      title: '商品类型',
+                      content: _goodsSortName ?? '选择商品类型',
                       onTap: () => _showBottomSheet(),
                     ),
                     ClickItem(
-                      title: "商品规格",
-                      content: "对规格进行编辑",
+                      title: '商品规格',
+                      content: '对规格进行编辑',
                       onTap: () => NavigatorUtils.push(context, GoodsRouter.goodsSizePage),
                     ),
                     Gaps.vGap8,
@@ -192,7 +192,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
                 onPressed: () {
                   NavigatorUtils.goBack(context);
                 },
-                text: "提交",
+                text: '提交',
               ),
             )
           ],

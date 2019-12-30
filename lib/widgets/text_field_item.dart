@@ -14,7 +14,7 @@ class TextFieldItem extends StatelessWidget {
     this.controller,
     @required this.title,
     this.keyboardType: TextInputType.text,
-    this.hintText: "",
+    this.hintText: '',
     this.focusNode,
     this.config
   }): super(key: key);

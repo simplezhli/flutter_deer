@@ -27,7 +27,7 @@ class PayTypeDialog extends StatefulWidget{
 class _PayTypeDialog extends State<PayTypeDialog>{
 
   List _selectValue;
-  var _list = ["线上支付", "对公转账", "货到付款"];
+  var _list = ['线上支付', '对公转账', '货到付款'];
 
   Widget getItem(int index) {
     _selectValue = widget.value ?? [0];
@@ -42,7 +42,7 @@ class _PayTypeDialog extends State<PayTypeDialog>{
               Expanded(
                 child: Text(_list[index]),
               ),
-              LoadAssetImage(_selectValue.contains(index) ? "shop/xz" : "shop/xztm", width: 16.0, height: 16.0),
+              LoadAssetImage(_selectValue.contains(index) ? 'shop/xz' : 'shop/xztm', width: 16.0, height: 16.0),
               Gaps.hGap16,
             ],
           ),
@@ -50,7 +50,7 @@ class _PayTypeDialog extends State<PayTypeDialog>{
         onTap: () {
           if (mounted) {
             if (index == 0) {
-              Toast.show("线上支付为必选项");
+              Toast.show('线上支付为必选项');
               return;
             }
             setState(() {
@@ -69,7 +69,7 @@ class _PayTypeDialog extends State<PayTypeDialog>{
   @override
   Widget build(BuildContext context) {
     return BaseDialog(
-      title: "支付方式(多选)",
+      title: '支付方式(多选)',
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         mainAxisSize: MainAxisSize.min,

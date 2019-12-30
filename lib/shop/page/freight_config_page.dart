@@ -31,9 +31,9 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
 
   _reset() {
     _list.clear();
-    _list.add(FreightConfigModel("0", "", 1, false, ""));
-    _list.add(FreightConfigModel("", "", 1, true, ""));
-    _list.add(FreightConfigModel("", "-1", 1, false, ""));
+    _list.add(FreightConfigModel('0', '', 1, false, ''));
+    _list.add(FreightConfigModel('', '', 1, true, ''));
+    _list.add(FreightConfigModel('', '-1', 1, false, ''));
   }
   
   @override
@@ -41,8 +41,8 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: MyAppBar(
-        title: "运费比例配置",
-        actionName: "重置",
+        title: '运费比例配置',
+        actionName: '重置',
         onPressed: () {
           setState(() {
             _reset();
@@ -60,7 +60,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                 onPressed: () {
                   NavigatorUtils.goBack(context);
                 },
-                text: "完成",
+                text: '完成',
               ),
             ),
             Positioned(
@@ -91,10 +91,10 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
         var config = _list[index - 1];
         if (config.max.isNotEmpty && config.min.isNotEmpty) {
           setState(() {
-            _list.insert(_list.length - 2, FreightConfigModel("", "", 1, false, ""));
+            _list.insert(_list.length - 2, FreightConfigModel('', '', 1, false, ''));
           });
         } else {
-          Toast.show("请先完善上一个区间金额！");
+          Toast.show('请先完善上一个区间金额！');
           return;
         }
       },
@@ -106,7 +106,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
             color: ThemeUtils.isDark(context) ? Colours.dark_bg_gray : Colours.bg_gray,
             borderRadius: BorderRadius.circular(8.0),
           ),
-          child: const LoadAssetImage("shop/tj",)
+          child: const LoadAssetImage('shop/tj',)
       ),
     ) : Container(
       margin: const EdgeInsets.only(bottom: 8.0),
@@ -117,7 +117,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
             children: <Widget>[
               Row(
                 children: <Widget>[
-                  Text(index == 0 ? "订单金额小于" : (index == _list.length - 1 ? "订单金额不小于" : "订单金额区间")),
+                  Text(index == 0 ? '订单金额小于' : (index == _list.length - 1 ? '订单金额不小于' : '订单金额区间')),
                   Expanded(
                     child: InkWell(
                       onTap: () {
@@ -127,7 +127,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                               barrierDismissible: false,
                               builder: (BuildContext context) {
                                 return PriceInputDialog(
-                                  title: "订单金额",
+                                  title: '订单金额',
                                   onPressed: (value) {
                                     setState(() {
                                       if (index == 0) {
@@ -145,7 +145,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                               barrierDismissible: false,
                               builder: (BuildContext context) {
                                 return RangePriceInputDialog(
-                                  title: "订单金额",
+                                  title: '订单金额',
                                   onPressed: (min, max) {
                                     setState(() {
                                       _list[index].min = min;
@@ -157,13 +157,13 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                         }
                       },
                       child: Text(
-                        _getPriceText(index).isEmpty ? "订单金额" : _getPriceText(index),
+                        _getPriceText(index).isEmpty ? '订单金额' : _getPriceText(index),
                         key: Key('订单金额$index'),
                         textAlign: TextAlign.end,
                         style: _getPriceText(index).isEmpty ? Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14) : null),
                     )),
                   Gaps.hGap5,
-                  Text("元"),
+                  Text('元'),
                 ],
               ),
               Gaps.vGap15,
@@ -180,9 +180,9 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        LoadAssetImage(_list[index].type == 1 ? "shop/xzyf" : "shop/wxzyf", width: 16.0,),
+                        LoadAssetImage(_list[index].type == 1 ? 'shop/xzyf' : 'shop/wxzyf', width: 16.0,),
                         Gaps.hGap4,
-                        const Text("比率"),
+                        const Text('比率'),
                       ],
                     ),
                   ),
@@ -196,9 +196,9 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        LoadAssetImage(_list[index].type == 0 ? "shop/xzyf" : "shop/wxzyf", width: 16.0),
+                        LoadAssetImage(_list[index].type == 0 ? 'shop/xzyf' : 'shop/wxzyf', width: 16.0),
                         Gaps.hGap4,
-                        const Text("金额"),
+                        const Text('金额'),
                       ],
                     ),
                   ),
@@ -210,7 +210,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                             barrierDismissible: false,
                             builder: (BuildContext context) {
                               return PriceInputDialog(
-                                title: _list[index].type == 1 ? "运费比率" : "运费金额",
+                                title: _list[index].type == 1 ? '运费比率' : '运费金额',
                                 onPressed: (value) {
                                   setState(() {
                                     _list[index].price = value;
@@ -220,12 +220,12 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                             });
                       },
                       child: Text(
-                          _list[index].price.isEmpty ? (_list[index].type == 1 ? "运费比率" : "运费金额"): _list[index].price,
+                          _list[index].price.isEmpty ? (_list[index].type == 1 ? '运费比率' : '运费金额'): _list[index].price,
                         textAlign: TextAlign.end,
                         style: _list[index].price.isEmpty ? Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14) : null),
                     )),
                   Gaps.hGap5,
-                  Text(_list[index].type == 1 ? "%" : "元"),
+                  Text(_list[index].type == 1 ? '%' : '元'),
                 ],
               )
             ],
@@ -238,21 +238,21 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
   String _getPriceText(int index) {
     if (index == 0) {
       if (_list[index].max.isEmpty) {
-        return "";
+        return '';
       } else {
         return _list[index].max;
       }
     } else if (index == _list.length - 1) {
       if (_list[index].min.isEmpty) {
-        return "";
+        return '';
       } else {
         return _list[index].min;
       }
     } else {
       if (_list[index].min.isEmpty || _list[index].max.isEmpty) {
-        return "";
+        return '';
       } else {
-        return _list[index].min + "~" + _list[index].max;
+        return _list[index].min + '~' + _list[index].max;
       }
     }
   }

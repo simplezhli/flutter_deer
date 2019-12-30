@@ -17,7 +17,7 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MyAppBar(
-        centerTitle: "订单跟踪",
+        centerTitle: '订单跟踪',
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -28,9 +28,9 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
                 padding: const EdgeInsets.only(top: 21.0, left: 16.0, right: 16.0),
                 child: Row(
                   children: <Widget>[
-                    const Text("订单编号："),
+                    const Text('订单编号：'),
                     // 可选择文本组件（复制）
-                    SelectableText("14562364879", maxLines: 1,)
+                    SelectableText('14562364879', maxLines: 1,)
                   ],
                 )
               ),
@@ -49,8 +49,8 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
     );
   }
   
-  var _titleList = ["订单已完成", "开始配送", "等待配送", "收到新订单"];
-  var _timeList = ["2018/08/30 13:30", "2018/08/30 11:30", "2018/08/30 9:30", "2018/08/30 9:00"];
+  var _titleList = ['订单已完成', '开始配送', '等待配送', '收到新订单'];
+  var _timeList = ['2018/08/30 13:30', '2018/08/30 11:30', '2018/08/30 9:30', '2018/08/30 9:00'];
   
   Step _buildStep(int index) {
     Color primaryColor = Theme.of(context).primaryColor;
@@ -66,7 +66,7 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
         fontSize: Dimens.font_sp12,
         color: primaryColor,
       ) : Theme.of(context).textTheme.subtitle),
-      content: Text(""),
+      content: const Text(''),
       isActive: index == 0,
       // TODO 这里的状态图标无法修改，暂时使用原生的。应该可以复制Step代码修改一下。
       state: index == 0 ? StepState.complete : StepState.indexed, 

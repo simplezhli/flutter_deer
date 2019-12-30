@@ -16,7 +16,7 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MyAppBar(
-        centerTitle: "账户流水",
+        centerTitle: '账户流水',
       ),
       body: ListView.builder(
         itemCount: 8,
@@ -30,7 +30,7 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
               color: ThemeUtils.getStickyHeaderColor(context),
               padding: const EdgeInsets.only(left: 16.0),
               height: 34.0,
-              child: Text("2018/06/0${index + 1}"),
+              child: Text('2018/06/0${index + 1}'),
             ),
             content: _buildItem(index),
           );
@@ -54,11 +54,11 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
           index: index,
           child: Stack(
             children: <Widget>[
-              Text(i % 2 == 0 ? "采购订单结算营收" : "提现"),
+              Text(i % 2 == 0 ? '采购订单结算营收' : '提现'),
               Positioned(
                   top: 0.0,
                   right: 0.0,
-                  child: Text(i % 2 == 0 ? "+10.00" : "-10.00", style: i % 2 == 0 ? TextStyle(
+                  child: Text(i % 2 == 0 ? '+10.00' : '-10.00', style: i % 2 == 0 ? TextStyle(
                       color: Theme.of(context).errorColor,
                       fontWeight: FontWeight.bold
                   ) : TextStyles.textBold14)
@@ -66,12 +66,12 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
               Positioned(
                   bottom: 0.0,
                   left: 0.0,
-                  child: Text(i % 2 == 0 ? "18:20:10" : "18:20:11", style: Theme.of(context).textTheme.subtitle)
+                  child: Text(i % 2 == 0 ? '18:20:10' : '18:20:11', style: Theme.of(context).textTheme.subtitle)
               ),
               Positioned(
                   bottom: 0.0,
                   right: 0.0,
-                  child: Text("余额：20.00", style: Theme.of(context).textTheme.subtitle)
+                  child: Text('余额：20.00', style: Theme.of(context).textTheme.subtitle)
               ),
             ],
           ),

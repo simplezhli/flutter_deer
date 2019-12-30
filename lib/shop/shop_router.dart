@@ -10,11 +10,11 @@ import 'page/shop_setting_page.dart';
 
 class ShopRouter implements IRouterProvider{
 
-  static String shopPage = "/shop";
-  static String shopSettingPage = "/shop/shopSetting";
-  static String messagePage = "/shop/message";
-  static String freightConfigPage = "/shop/freightConfig";
-  static String addressSelectPage = "/shop/addressSelect";
+  static String shopPage = '/shop';
+  static String shopSettingPage = '/shop/shopSetting';
+  static String messagePage = '/shop/message';
+  static String freightConfigPage = '/shop/freightConfig';
+  static String addressSelectPage = '/shop/addressSelect';
   
   @override
   void initRouter(Router router) {

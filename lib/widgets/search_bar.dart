@@ -12,8 +12,8 @@ class SearchBar extends StatefulWidget implements PreferredSizeWidget{
 
   const SearchBar({
     Key key,
-    this.hintText: "",
-    this.backImg: "assets/images/ic_back_black.png",
+    this.hintText: '',
+    this.backImg: 'assets/images/ic_back_black.png',
     this.onPressed,
   }): super(key: key);
 
@@ -96,7 +96,7 @@ class _SearchBarState extends State<SearchBar> {
                         icon: ExcludeSemantics(
                           child: Padding(
                             padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 8.0),
-                            child: LoadAssetImage("order/order_search", color: iconColor,),
+                            child: LoadAssetImage('order/order_search', color: iconColor,),
                           ),
                         ),
                         hintText: widget.hintText,
@@ -105,13 +105,13 @@ class _SearchBarState extends State<SearchBar> {
                             label: '清空',
                             child: Padding(
                               padding: const EdgeInsets.only(left: 16.0, top: 8.0, bottom: 8.0),
-                              child: LoadAssetImage("order/order_delete", color: iconColor),
+                              child: LoadAssetImage('order/order_delete', color: iconColor),
                             ),
                           ),
                           onTap: () {
                             /// https://github.com/flutter/flutter/issues/36324
                             SchedulerBinding.instance.addPostFrameCallback((_) {
-                              _controller.text = "";
+                              _controller.text = '';
                             });
                           },
                         ),
@@ -139,7 +139,7 @@ class _SearchBarState extends State<SearchBar> {
                         FocusScope.of(context).unfocus();
                         widget.onPressed(_controller.text);
                       },
-                      child: Text("搜索", style: TextStyle(fontSize: Dimens.font_sp14)),
+                      child: Text('搜索', style: TextStyle(fontSize: Dimens.font_sp14)),
                   ),
                 ),
                 Gaps.hGap16,

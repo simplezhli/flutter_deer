@@ -14,7 +14,7 @@ class ThemePage extends StatefulWidget {
 
 class _ThemePageState extends State<ThemePage> {
 
-  var _list = ["跟随系统", "开启", "关闭"];
+  var _list = ['跟随系统', '开启', '关闭'];
 
   @override
   void initState() {
@@ -29,10 +29,10 @@ class _ThemePageState extends State<ThemePage> {
     String theme = flutter_stars.SpUtil.getString(Constant.theme);
     String themeMode;
     switch(theme) {
-      case "Dark":
+      case 'Dark':
         themeMode = _list[1];
         break;
-      case "Light":
+      case 'Light':
         themeMode = _list[2];
         break;
       default:
@@ -41,7 +41,7 @@ class _ThemePageState extends State<ThemePage> {
     }
     return Scaffold(
       appBar: const MyAppBar(
-        title: "夜间模式",
+        title: '夜间模式',
       ),
       body: ListView.separated(
           shrinkWrap: true,

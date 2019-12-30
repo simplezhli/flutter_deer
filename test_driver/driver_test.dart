@@ -19,5 +19,5 @@ void main() {
   statistic_test.main();
   shop_test.main();
   account_test.main();
-  setting_test.main(["backHome"]);
+  setting_test.main(['backHome']);
 }

@@ -43,7 +43,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
         expandedHeight: 100.0,
         pinned: true,
         flexibleSpace: MyFlexibleSpaceBar(
-          background: isDark ? Container(height: 115.0, color: Colours.dark_bg_color,) : const LoadAssetImage("statistic/statistic_bg",
+          background: isDark ? Container(height: 115.0, color: Colours.dark_bg_color,) : const LoadAssetImage('statistic/statistic_bg',
             width: double.infinity,
             height: 115.0,
             fit: BoxFit.fill,
@@ -61,7 +61,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
               decoration: BoxDecoration(
                   color: isDark ? Colours.dark_bg_color : null,
                   image: isDark ? null : DecorationImage(
-                      image: ImageUtils.getAssetImage("statistic/statistic_bg1"),
+                      image: ImageUtils.getAssetImage('statistic/statistic_bg1'),
                       fit: BoxFit.fill
                   )
               ),
@@ -72,9 +72,9 @@ class _StatisticsPageState extends State<StatisticsPage> {
                 child: MyCard(
                   child: Row(
                     children: <Widget>[
-                      const _StatisticsTab("新订单(单)", "xdd", "80"),
-                      const _StatisticsTab("待配送(单)", "dps", "80"),
-                      const _StatisticsTab("今日交易额(元)", "jrjye", "8000.00"),
+                      const _StatisticsTab('新订单(单)', 'xdd', '80'),
+                      const _StatisticsTab('待配送(单)', 'dps', '80'),
+                      const _StatisticsTab('今日交易额(元)', 'jrjye', '8000.00'),
                     ],
                   ),
                 ),
@@ -91,13 +91,13 @@ class _StatisticsPageState extends State<StatisticsPage> {
             children: <Widget>[
               Gaps.vGap16,
               Gaps.vGap16,
-              const Text("数据走势", style: TextStyles.textBold18),
+              const Text('数据走势', style: TextStyles.textBold18),
               Gaps.vGap16,
-              const _StatisticsItem("订单统计", "sjzs", 1),
+              const _StatisticsItem('订单统计', 'sjzs', 1),
               Gaps.vGap8,
-              const _StatisticsItem("交易额统计", "jyetj", 2),
+              const _StatisticsItem('交易额统计', 'jyetj', 2),
               Gaps.vGap8,
-              const _StatisticsItem("商品统计", "sptj", 3),
+              const _StatisticsItem('商品统计', 'sptj', 3),
             ],
           ),
         ),
@@ -139,11 +139,11 @@ class _StatisticsItem extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Text(title, style: TextStyles.textBold14),
-                          const LoadAssetImage("statistic/icon_selected", height: 16.0, width: 16.0)
+                          const LoadAssetImage('statistic/icon_selected', height: 16.0, width: 16.0)
                         ],
                       ),
                     ),
-                    Expanded(child: LoadAssetImage("statistic/$img", fit: BoxFit.fill))
+                    Expanded(child: LoadAssetImage('statistic/$img', fit: BoxFit.fill))
                   ],
                 ),
               ),
@@ -169,7 +169,7 @@ class _StatisticsTab extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            LoadAssetImage("statistic/$img", width: 40.0, height: 40.0),
+            LoadAssetImage('statistic/$img', width: 40.0, height: 40.0),
             Gaps.vGap4,
             Text(title, style: Theme.of(context).textTheme.subtitle),
             Gaps.vGap8,

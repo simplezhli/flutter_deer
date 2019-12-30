@@ -19,7 +19,7 @@ class MyTextField extends StatefulWidget {
     this.maxLength: 16,
     this.autoFocus: false,
     this.keyboardType: TextInputType.text,
-    this.hintText: "",
+    this.hintText: '',
     this.focusNode,
     this.isInputPwd: false,
     this.getVCode,
@@ -111,11 +111,11 @@ class _MyTextFieldState extends State<MyTextField> {
           keyboardType: widget.keyboardType,
           // 数字、手机号限制格式为0到9(白名单)， 密码限制不包含汉字（黑名单）
           inputFormatters: (widget.keyboardType == TextInputType.number || widget.keyboardType == TextInputType.phone) ? 
-          [WhitelistingTextInputFormatter(RegExp("[0-9]"))] : [BlacklistingTextInputFormatter(RegExp("[\u4e00-\u9fa5]"))],
+          [WhitelistingTextInputFormatter(RegExp('[0-9]'))] : [BlacklistingTextInputFormatter(RegExp('[\u4e00-\u9fa5]'))],
           decoration: InputDecoration(
               contentPadding: const EdgeInsets.symmetric(vertical: 16.0),
               hintText: widget.hintText,
-              counterText: "",
+              counterText: '',
               focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(
                       color: themeData.primaryColor,
@@ -137,12 +137,12 @@ class _MyTextFieldState extends State<MyTextField> {
               label: '清空',
               hint: '清空输入框',
               child: GestureDetector(
-                child: LoadAssetImage("login/qyg_shop_icon_delete",
+                child: LoadAssetImage('login/qyg_shop_icon_delete',
                   key: Key('${widget.keyName}_delete'),
                   width: 18.0,
                   height: 40.0,
                 ),
-                onTap: () => widget.controller.text = "",
+                onTap: () => widget.controller.text = '',
               ),
             ),
             !widget.isInputPwd ? Gaps.empty : Gaps.hGap15,
@@ -151,7 +151,7 @@ class _MyTextFieldState extends State<MyTextField> {
               hint: '密码是否可见',
               child: GestureDetector(
                 child: LoadAssetImage(
-                  _isShowPwd ? "login/qyg_shop_icon_display" : "login/qyg_shop_icon_hide",
+                  _isShowPwd ? 'login/qyg_shop_icon_display' : 'login/qyg_shop_icon_hide',
                   key: Key('${widget.keyName}_showPwd'),
                   width: 18.0,
                   height: 40.0,
@@ -188,7 +188,7 @@ class _MyTextFieldState extends State<MyTextField> {
                     )
                 ),
                 child: Text(
-                  _isClick ? "获取验证码" : "（$s s）",
+                  _isClick ? '获取验证码' : '（$s s）',
                   style: TextStyle(fontSize: Dimens.font_sp12),
                 ),
               ),                

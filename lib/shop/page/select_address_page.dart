@@ -29,7 +29,7 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
     super.initState();
     /// iOS配置key
     if (defaultTargetPlatform == TargetPlatform.iOS) {
-      Flutter2dAMap.setApiKey("4327916279bf45a044bb53b947442387");
+      Flutter2dAMap.setApiKey('4327916279bf45a044bb53b947442387');
     }
   }
   
@@ -38,7 +38,7 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: SearchBar(
-        hintText: "搜索地址",
+        hintText: '搜索地址',
         onPressed: (text) {
           _controller.animateTo(0.0, duration: Duration(milliseconds: 10), curve: Curves.ease);
           _index = 0;
@@ -99,9 +99,9 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
                           children: <Widget>[
                             Expanded(
                               child: Text(
-                                _list[index].provinceName + " " +
-                                    _list[index].cityName + " " +
-                                    _list[index].adName + " " +
+                                _list[index].provinceName + ' ' +
+                                    _list[index].cityName + ' ' +
+                                    _list[index].adName + ' ' +
                                     _list[index].title,
                               ),
                             ),
@@ -120,7 +120,7 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
               onPressed: () {
                 NavigatorUtils.goBackWithParams(context, _list[_index]);
               },
-              text: "确认选择地址",
+              text: '确认选择地址',
             )
           ],
         ),

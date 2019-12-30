@@ -15,14 +15,14 @@ class GoodsSizeModel {
       this.charges, this.currencyPrice);
 
   GoodsSizeModel.fromJsonMap(Map<String, dynamic> map):
-        icon = map["icon"],
-        sizeName = map["sizeName"],
-        stock = map["stock"],
-        price = map["price"],
-        minSaleNum = map["minSaleNum"],
-        reducePrice = map["reducePrice"],
-        charges = map["charges"],
-        currencyPrice = map["currencyPrice"];
+        icon = map['icon'],
+        sizeName = map['sizeName'],
+        stock = map['stock'],
+        price = map['price'],
+        minSaleNum = map['minSaleNum'],
+        reducePrice = map['reducePrice'],
+        charges = map['charges'],
+        currencyPrice = map['currencyPrice'];
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();

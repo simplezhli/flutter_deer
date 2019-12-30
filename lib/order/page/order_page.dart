@@ -40,11 +40,11 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
   }
 
   _preCacheImage() {
-    precacheImage(ImageUtils.getAssetImage("order/xdd_n"), context);
-    precacheImage(ImageUtils.getAssetImage("order/dps_s"), context);
-    precacheImage(ImageUtils.getAssetImage("order/dwc_s"), context);
-    precacheImage(ImageUtils.getAssetImage("order/ywc_s"), context);
-    precacheImage(ImageUtils.getAssetImage("order/yqx_s"), context);
+    precacheImage(ImageUtils.getAssetImage('order/xdd_n'), context);
+    precacheImage(ImageUtils.getAssetImage('order/dps_s'), context);
+    precacheImage(ImageUtils.getAssetImage('order/dwc_s'), context);
+    precacheImage(ImageUtils.getAssetImage('order/ywc_s'), context);
+    precacheImage(ImageUtils.getAssetImage('order/yqx_s'), context);
   }
 
   @override
@@ -111,7 +111,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
                 NavigatorUtils.push(context, OrderRouter.orderSearchPage);
               },
               tooltip: '搜索',
-              icon: LoadAssetImage("order/icon_search",
+              icon: LoadAssetImage('order/icon_search',
                 width: 22.0,
                 height: 22.0,
                 color: ThemeUtils.getIconColor(context),
@@ -125,7 +125,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
           floating: false, // 不随着滑动隐藏标题
           pinned: true, // 固定在顶部
           flexibleSpace: MyFlexibleSpaceBar(
-            background: isDark ? Container(height: 113.0, color: Colours.dark_bg_color,) : const LoadAssetImage("order/order_bg",
+            background: isDark ? Container(height: 113.0, color: Colours.dark_bg_color,) : const LoadAssetImage('order/order_bg',
               width: double.infinity,
               height: 113.0,
               fit: BoxFit.fill,
@@ -144,7 +144,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
               decoration: BoxDecoration(
                 color: isDark ? Colours.dark_bg_color : null,
                 image: isDark ? null : DecorationImage(
-                  image: ImageUtils.getAssetImage("order/order_bg1"),
+                  image: ImageUtils.getAssetImage('order/order_bg1'),
                   fit: BoxFit.fill
                 )
               ),
@@ -196,19 +196,19 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
 }
 
 var img = [
-  ["order/xdd_s", "order/xdd_n"],
-  ["order/dps_s", "order/dps_n"],
-  ["order/dwc_s", "order/dwc_n"],
-  ["order/ywc_s", "order/ywc_n"],
-  ["order/yqx_s", "order/yqx_n"]
+  ['order/xdd_s', 'order/xdd_n'],
+  ['order/dps_s', 'order/dps_n'],
+  ['order/dwc_s', 'order/dwc_n'],
+  ['order/ywc_s', 'order/ywc_n'],
+  ['order/yqx_s', 'order/yqx_n']
 ];
 
 var darkImg = [
-  ["order/dark/icon_xdd_s", "order/dark/icon_xdd_n"],
-  ["order/dark/icon_dps_s", "order/dark/icon_dps_n"],
-  ["order/dark/icon_dwc_s", "order/dark/icon_dwc_n"],
-  ["order/dark/icon_ywc_s", "order/dark/icon_ywc_n"],
-  ["order/dark/icon_yqx_s", "order/dark/icon_yqx_n"]
+  ['order/dark/icon_xdd_s', 'order/dark/icon_xdd_n'],
+  ['order/dark/icon_dps_s', 'order/dark/icon_dps_n'],
+  ['order/dark/icon_dwc_s', 'order/dark/icon_dwc_n'],
+  ['order/dark/icon_ywc_s', 'order/dark/icon_ywc_n'],
+  ['order/dark/icon_yqx_s', 'order/dark/icon_yqx_n']
 ];
 
 class _TabView extends StatelessWidget {
@@ -251,7 +251,7 @@ class _TabView extends StatelessWidget {
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5.5, vertical: 2.0),
-            child: Text("10", style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp12),),
+            child: Text('10', style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp12),),
           ),
         ) : Gaps.empty,
       )

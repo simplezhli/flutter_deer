@@ -24,17 +24,17 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
   void initState() {
     super.initState();
     _list.clear();
-    _list.add(WithdrawalAccountModel("唯鹿", "微信", 1, ""));
-    _list.add(WithdrawalAccountModel("李*", "工商银行", 0, "**** **** **** 5236"));
-    _list.add(WithdrawalAccountModel("李*", "渤海银行", 0, "**** **** **** 2165"));
+    _list.add(WithdrawalAccountModel('唯鹿', '微信', 1, ''));
+    _list.add(WithdrawalAccountModel('李*', '工商银行', 0, '**** **** **** 5236'));
+    _list.add(WithdrawalAccountModel('李*', '渤海银行', 0, '**** **** **** 2165'));
   }
   
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(
-        centerTitle: "提现账号",
-        actionName: "添加",
+        centerTitle: '提现账号',
+        actionName: '添加',
         onPressed: () {
           NavigatorUtils.push(context, AccountRouter.addWithdrawalAccountPage);
         }
@@ -51,7 +51,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
             child: AccountCard(
               type: _list[index].type,
               child: InkWell(
-                //Toast.show("长按删除账号！");
+                //Toast.show('长按删除账号！');
                 onLongPress: () {
                   _showDeleteBottomSheet(index);
                 },
@@ -69,7 +69,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(20.0),
                           ),
-                          child: LoadAssetImage(_list[index].type == 1 ? "account/wechat" : "account/yhk")
+                          child: LoadAssetImage(_list[index].type == 1 ? 'account/wechat' : 'account/yhk')
                         ),
                       ),
                       Positioned(
@@ -112,7 +112,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                       height: 52.0,
                       child: const Center(
                         child: const Text(
-                          "是否确认解绑，防止错误操作",
+                          '是否确认解绑，防止错误操作',
                           style: TextStyles.textSize16,
                         ),
                       ),
@@ -123,7 +123,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                       width: double.infinity,
                       child: FlatButton(
                         textColor: Theme.of(context).errorColor,
-                        child: const Text("确认解绑", style: TextStyle(fontSize: Dimens.font_sp18)),
+                        child: const Text('确认解绑', style: TextStyle(fontSize: Dimens.font_sp18)),
                         onPressed: () {
                           setState(() {
                             _list.removeAt(index);
@@ -138,7 +138,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                       width: double.infinity,
                       child: FlatButton(
                         textColor: Colours.text_gray,
-                        child: const Text("取消", style: TextStyle(fontSize: Dimens.font_sp18)),
+                        child: const Text('取消', style: TextStyle(fontSize: Dimens.font_sp18)),
                         onPressed: () {
                           NavigatorUtils.goBack(context);
                         },

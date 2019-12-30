@@ -24,7 +24,7 @@ class SendTypeDialog extends StatefulWidget{
 class _SendTypeDialog extends State<SendTypeDialog>{
 
   int _value = 0;
-  var _list = ["运费满免配置", "运费比例配置"];
+  var _list = ['运费满免配置', '运费比例配置'];
 
   Widget getItem(int index) {
     return Material(
@@ -46,7 +46,7 @@ class _SendTypeDialog extends State<SendTypeDialog>{
               ),
               Offstage(
                   offstage: _value != index,
-                  child: const LoadAssetImage("order/ic_check", width: 16.0, height: 16.0)),
+                  child: const LoadAssetImage('order/ic_check', width: 16.0, height: 16.0)),
               Gaps.hGap16,
             ],
           ),
@@ -65,7 +65,7 @@ class _SendTypeDialog extends State<SendTypeDialog>{
   @override
   Widget build(BuildContext context) {
     return BaseDialog(
-      title: "运费配置",
+      title: '运费配置',
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         mainAxisSize: MainAxisSize.min,

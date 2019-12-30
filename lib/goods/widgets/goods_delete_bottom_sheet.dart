@@ -25,7 +25,7 @@ class GoodsDeleteBottomSheet extends StatelessWidget {
                   height: 52.0,
                   child: const Center(
                     child: const Text(
-                      "是否确认删除，防止错误操作",
+                      '是否确认删除，防止错误操作',
                       style: TextStyles.textSize16,
                     ),
                   ),
@@ -36,7 +36,7 @@ class GoodsDeleteBottomSheet extends StatelessWidget {
                   width: double.infinity,
                   child: FlatButton(
                     textColor: Theme.of(context).errorColor,
-                    child: const Text("确认删除", style: TextStyle(fontSize: Dimens.font_sp18)),
+                    child: const Text('确认删除', style: TextStyle(fontSize: Dimens.font_sp18)),
                     onPressed: () {
                       NavigatorUtils.goBack(context);
                       onTapDelete();
@@ -49,7 +49,7 @@ class GoodsDeleteBottomSheet extends StatelessWidget {
                   width: double.infinity,
                   child: FlatButton(
                     textColor: Colours.text_gray,
-                    child: const Text("取消", style: TextStyle(fontSize: Dimens.font_sp18)),
+                    child: const Text('取消', style: TextStyle(fontSize: Dimens.font_sp18)),
                     onPressed: () {
                       NavigatorUtils.goBack(context);
                     },

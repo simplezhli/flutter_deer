@@ -21,7 +21,7 @@ class _AccountPageState extends State<AccountPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MyAppBar(
-        centerTitle: "资金管理",
+        centerTitle: '资金管理',
       ),
       body: Column(
         children: <Widget>[
@@ -34,7 +34,7 @@ class _AccountPageState extends State<AccountPage> {
                   margin: const EdgeInsets.symmetric(horizontal: 6.0),
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: ImageUtils.getAssetImage("account/bg"),
+                      image: ImageUtils.getAssetImage('account/bg'),
                       fit: BoxFit.fill
                     )
                   ),
@@ -44,7 +44,7 @@ class _AccountPageState extends State<AccountPage> {
                   child: MergeSemantics(
                     child: Column(
                       children: <Widget>[
-                        const Text("当前余额(元)", style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
+                        const Text('当前余额(元)', style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
                         Gaps.vGap8,
                         RiseNumberText(30.12, style: TextStyle(color: Colors.white, fontSize: 32.0, fontWeight: FontWeight.bold, fontFamily: 'RobotoThin')),
                       ],
@@ -61,16 +61,16 @@ class _AccountPageState extends State<AccountPage> {
                       MergeSemantics(
                         child: Column(
                           children: <Widget>[
-                            const Text("累计结算金额", style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
+                            const Text('累计结算金额', style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
                             Gaps.vGap8,
-                            RiseNumberText(NumUtil.getDoubleByValueStr("20000"), style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp14, fontWeight: FontWeight.bold, fontFamily: 'RobotoThin')),
+                            RiseNumberText(NumUtil.getDoubleByValueStr('20000'), style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp14, fontWeight: FontWeight.bold, fontFamily: 'RobotoThin')),
                           ],
                         ),
                       ),
                       MergeSemantics(
                         child: Column(
                           children: <Widget>[
-                            const Text("累计发放佣金", style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
+                            const Text('累计发放佣金', style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
                             Gaps.vGap8,
                             RiseNumberText(0.02, style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp14, fontWeight: FontWeight.bold, fontFamily: 'RobotoThin')),
                           ],
@@ -84,15 +84,15 @@ class _AccountPageState extends State<AccountPage> {
           ),
           Gaps.vGap5,
           ClickItem(
-            title: "提现",
+            title: '提现',
             onTap: () => NavigatorUtils.push(context, AccountRouter.withdrawalPage),
           ),
           ClickItem(
-            title: "提现记录",
+            title: '提现记录',
             onTap: () => NavigatorUtils.push(context, AccountRouter.withdrawalRecordListPage),
           ),
           ClickItem(
-            title: "提现密码",
+            title: '提现密码',
             onTap: () => NavigatorUtils.push(context, AccountRouter.withdrawalPasswordPage),
           ),
         ],

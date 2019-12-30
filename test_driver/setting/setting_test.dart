@@ -21,7 +21,7 @@ void main([List<String> args = const <String>[]]) {
       driver?.close();
     });
 
-    test("设置页测试",() async {
+    test('设置页测试',() async {
       await driver.tap(find.text('账号管理'));
       await delayed();
       await driver.tap(find.text('修改密码'));
@@ -36,7 +36,7 @@ void main([List<String> args = const <String>[]]) {
       await delayed();
     });
 
-    test("关于页面页测试",() async {
+    test('关于页面页测试',() async {
       await driver.tap(find.text('关于我们'));
       await delayed();
       await driver.tap(find.text('作者'));
@@ -47,7 +47,7 @@ void main([List<String> args = const <String>[]]) {
       await delayed();
     });
 
-    test("夜间模式页测试",() async {
+    test('夜间模式页测试',() async {
       await driver.tap(find.text('夜间模式'));
       await delayed();
       await driver.tap(find.text('开启'));

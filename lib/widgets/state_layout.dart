@@ -30,32 +30,32 @@ class _StateLayoutState extends State<StateLayout> {
   Widget build(BuildContext context) {
     switch (widget.type) {
       case StateType.order:
-        _img = "zwdd";
-        _hintText = "暂无订单";
+        _img = 'zwdd';
+        _hintText = '暂无订单';
         break;
       case StateType.goods:
-        _img = "zwsp";
-        _hintText = "暂无商品";
+        _img = 'zwsp';
+        _hintText = '暂无商品';
         break;
       case StateType.network:
-        _img = "zwwl";
-        _hintText = "无网络连接";
+        _img = 'zwwl';
+        _hintText = '无网络连接';
         break;
       case StateType.message:
-        _img = "zwxx";
-        _hintText = "暂无消息";
+        _img = 'zwxx';
+        _hintText = '暂无消息';
         break;
       case StateType.account:
-        _img = "zwzh";
-        _hintText = "马上添加提现账号吧";
+        _img = 'zwzh';
+        _hintText = '马上添加提现账号吧';
         break;
       case StateType.loading:
-        _img = "";
-        _hintText = "";
+        _img = '';
+        _hintText = '';
         break;
       case StateType.empty:
-        _img = "";
-        _hintText = "";
+        _img = '';
+        _hintText = '';
         break;
     }
     return Container(
@@ -73,7 +73,7 @@ class _StateLayoutState extends State<StateLayout> {
               width: 120.0,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: ImageUtils.getAssetImage("state/$_img"),
+                  image: ImageUtils.getAssetImage('state/$_img'),
                 ),
               ),
             ))

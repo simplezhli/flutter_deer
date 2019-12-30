@@ -1,4 +1,4 @@
-import "package:intl/intl.dart";
+import 'package:intl/intl.dart';
 
 import 'date_utils_.dart';
 
@@ -7,7 +7,7 @@ import 'date_utils_.dart';
 /// @Description: Date Util.
 class DateUtils {
   
-  static final DateFormat _apiDayFormat = new DateFormat("yy.MM.dd");
+  static final DateFormat _apiDayFormat = new DateFormat('yy.MM.dd');
   
   static String apiDayFormat(DateTime d) => _apiDayFormat.format(d);
 

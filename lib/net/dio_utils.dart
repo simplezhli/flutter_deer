@@ -36,7 +36,7 @@ class DioUtils {
         // 不使用http状态码判断状态，使用AdapterInterceptor来处理（适用于标准REST风格）
         return true;
       },
-      baseUrl: "https://api.github.com/",
+      baseUrl: 'https://api.github.com/',
 //      contentType: ContentType('application', 'x-www-form-urlencoded', charset: 'utf-8'),
     );
     _dio = Dio(options);
@@ -45,7 +45,7 @@ class DioUtils {
 //        (HttpClient client) {
 //      client.findProxy = (uri) {
 //        //proxy all request to localhost:8888
-//        return "PROXY 10.41.0.132:8888";
+//        return 'PROXY 10.41.0.132:8888';
 //      };
 //      client.badCertificateCallback =
 //          (X509Certificate cert, String host, int port) => true;
@@ -74,7 +74,7 @@ class DioUtils {
       return BaseEntity.fromJson(_map);
     } catch(e) {
       print(e);
-      return BaseEntity(ExceptionHandle.parse_error, "数据解析错误", null);
+      return BaseEntity(ExceptionHandle.parse_error, '数据解析错误', null);
     }
   }
 
@@ -153,16 +153,16 @@ class DioUtils {
 
   _cancelLogPrint(dynamic e, String url) {
     if (e is DioError && CancelToken.isCancel(e)) {
-      Log.e("取消请求接口： $url");
+      Log.e('取消请求接口： $url');
     }
   }
 
   _onError(int code, String msg, Function(int code, String mag) onError) {
     if (code == null) {
       code = ExceptionHandle.unknown_error;
-      msg = "未知异常";
+      msg = '未知异常';
     }
-    Log.e("接口请求异常： code: $code, mag: $msg");
+    Log.e('接口请求异常： code: $code, mag: $msg');
     if (onError != null) {
       onError(code, msg);
     }
@@ -172,22 +172,22 @@ class DioUtils {
     String m;
     switch(method) {
       case Method.get:
-        m = "GET";
+        m = 'GET';
         break;
       case Method.post:
-        m = "POST";
+        m = 'POST';
         break;
       case Method.put:
-        m = "PUT";
+        m = 'PUT';
         break;
       case Method.patch:
-        m = "PATCH";
+        m = 'PATCH';
         break;
       case Method.delete:
-        m = "DELETE";
+        m = 'DELETE';
         break;
       case Method.head:
-        m = "HEAD";
+        m = 'HEAD';
         break;
     }
     return m;

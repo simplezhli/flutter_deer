@@ -84,7 +84,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                   alignment: Alignment.center,
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: const Text(
-                    "商品分类",
+                    '商品分类',
                     style: TextStyles.textBold16,
                   ),
                 ),
@@ -94,7 +94,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                     child: const SizedBox(
                       height: 16.0,
                       width: 16.0,
-                      child: const LoadAssetImage("goods/icon_dialog_close")
+                      child: const LoadAssetImage('goods/icon_dialog_close')
                     ),
                   ),
                   right: 16.0,
@@ -150,32 +150,32 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                       child: Row(
                         children: <Widget>[
                           Text(
-                              _mList[index]["name"],
-                            style: _mList[index]["name"] == myTabs[_index].text ? TextStyle(
+                              _mList[index]['name'],
+                            style: _mList[index]['name'] == myTabs[_index].text ? TextStyle(
                               fontSize: Dimens.font_sp14,
                               color: Theme.of(context).primaryColor,
                             ) : null),
                           Gaps.hGap8,
                           Offstage(
-                            offstage: _mList[index]["name"] != myTabs[_index].text,
-                            child: const LoadAssetImage("goods/xz", height: 16.0, width: 16.0),
+                            offstage: _mList[index]['name'] != myTabs[_index].text,
+                            child: const LoadAssetImage('goods/xz', height: 16.0, width: 16.0),
                           )
                         ],
                       ),
                     ),
                     onTap: () {
-                      myTabs[_index] = Tab(text: _mList[index]["name"]);
+                      myTabs[_index] = Tab(text: _mList[index]['name']);
                       _positions[_index] = index;
                       _index++;
                       switch(_index) {
                         case 1:
                           _mList = _mGoodsSort1;
-                          myTabs[1] = Tab(text: "请选择");
-                          myTabs[2] = Tab(text: "");
+                          myTabs[1] = Tab(text: '请选择');
+                          myTabs[2] = Tab(text: '');
                           break;
                         case 2:
                           _mList = _mGoodsSort2;
-                          myTabs[2] = Tab(text: "请选择");
+                          myTabs[2] = Tab(text: '请选择');
                           break;
                         case 3:
                           _mList = _mGoodsSort2;
@@ -184,7 +184,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                       setState(() {
                         if (_index > 2) {
                           _index = 2;
-                          widget.onSelected(_mList[index]["id"], _mList[index]["name"]);
+                          widget.onSelected(_mList[index]['id'], _mList[index]['name']);
                           NavigatorUtils.goBack(context);
                         }
                       });

@@ -12,8 +12,8 @@ class LoadImage extends StatelessWidget {
     this.width, 
     this.height,
     this.fit: BoxFit.cover, 
-    this.format: "png",
-    this.holderImg: "none"
+    this.format: 'png',
+    this.holderImg: 'none'
   }): super(key: key);
   
   final String image;
@@ -25,7 +25,7 @@ class LoadImage extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    if (TextUtil.isEmpty(image) || image == "null") {
+    if (TextUtil.isEmpty(image) || image == 'null') {
       return LoadAssetImage(holderImg,
         height: height,
         width: width,
@@ -33,7 +33,7 @@ class LoadImage extends StatelessWidget {
         format: format
       );
     } else {
-      if (image.startsWith("http")) {
+      if (image.startsWith('http')) {
         return CachedNetworkImage(
           imageUrl: image,
           placeholder: (context, url) => LoadAssetImage(holderImg, height: height, width: width, fit: fit),

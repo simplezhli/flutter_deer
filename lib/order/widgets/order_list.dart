@@ -56,7 +56,7 @@ class _OrderListState extends State<OrderList> with AutomaticKeepAliveClientMixi
               /// 这里指定controller可以与外层NestedScrollView的滚动分离，避免一处滑动，5个Tab中的列表同步滑动。
               /// 这种方法的缺点是会重新layout列表
               controller: _index != provider.index ? _controller : null,
-              key: PageStorageKey<String>("$_index"),
+              key: PageStorageKey<String>('$_index'),
               slivers: <Widget>[
                 SliverOverlapInjector(
                   ///SliverAppBar的expandedHeight高度,避免重叠
@@ -71,7 +71,7 @@ class _OrderListState extends State<OrderList> with AutomaticKeepAliveClientMixi
             sliver: _list.isEmpty ? SliverFillRemaining(child: StateLayout(type: _stateType)) :
             SliverList(
               delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
-                return index < _list.length ? (index % 5 == 0 ? OrderItemTag(date: "2019年2月5日", orderTotal: 4) : OrderItem(key: Key('order_item_$index'), index: index, tabIndex: _index,))
+                return index < _list.length ? (index % 5 == 0 ? OrderItemTag(date: '2019年2月5日', orderTotal: 4) : OrderItem(key: Key('order_item_$index'), index: index, tabIndex: _index,))
                     : MoreWidget(_list.length, _hasMore(), 10);
               },
               childCount: _list.length + 1),

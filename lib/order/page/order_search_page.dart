@@ -37,10 +37,10 @@ class OrderSearchPageState extends BasePageState<OrderSearchPage, OrderSearchPre
       create: (_) => provider,
       child: Scaffold(
         appBar: SearchBar(
-          hintText: "请输入手机号或姓名查询",
+          hintText: '请输入手机号或姓名查询',
           onPressed: (text) {
             if (text.isEmpty) {
-              showToast("搜索关键字不能为空！");
+              showToast('搜索关键字不能为空！');
               return;
             }
             FocusScope.of(context).unfocus();

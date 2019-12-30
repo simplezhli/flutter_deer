@@ -22,7 +22,7 @@ class BezierLine {
   const BezierLine({
     this.lineColor = Colors.white,
     this.lineStrokeWidth = 2.0,
-    this.label = "",
+    this.label = '',
     this.onMissingValue,
     this.data,
   });
@@ -49,8 +49,8 @@ class BezierLine {
 
   @override
   int get hashCode => data
-      .map((val) => val.value?.toString() ?? "")
-      .reduce((val1, val2) => "$val1$val2")
+      .map((val) => val.value?.toString() ?? '')
+      .reduce((val1, val2) => '$val1$val2')
       .hashCode;
 }
 
@@ -67,5 +67,5 @@ class DataPoint<T> {
     this.xAxis,
   });
 
-  String toString() => "value: $value, xAxis: $xAxis";
+  String toString() => 'value: $value, xAxis: $xAxis';
 }

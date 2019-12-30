@@ -47,20 +47,20 @@ class _HomeState extends State<Home> {
     if (_list == null) {
       var _tabImages = [
         [
-          const LoadAssetImage("home/icon_order", width: 25.0, color: Colours.unselected_item_color,),
-          const LoadAssetImage("home/icon_order", width: 25.0, color: Colours.app_main,),
+          const LoadAssetImage('home/icon_order', width: 25.0, color: Colours.unselected_item_color,),
+          const LoadAssetImage('home/icon_order', width: 25.0, color: Colours.app_main,),
         ],
         [
-          const LoadAssetImage("home/icon_commodity", width: 25.0, color: Colours.unselected_item_color,),
-          const LoadAssetImage("home/icon_commodity", width: 25.0, color: Colours.app_main,),
+          const LoadAssetImage('home/icon_commodity', width: 25.0, color: Colours.unselected_item_color,),
+          const LoadAssetImage('home/icon_commodity', width: 25.0, color: Colours.app_main,),
         ],
         [
-          const LoadAssetImage("home/icon_statistics", width: 25.0, color: Colours.unselected_item_color,),
-          const LoadAssetImage("home/icon_statistics", width: 25.0, color: Colours.app_main,),
+          const LoadAssetImage('home/icon_statistics', width: 25.0, color: Colours.unselected_item_color,),
+          const LoadAssetImage('home/icon_statistics', width: 25.0, color: Colours.app_main,),
         ],
         [
-          const LoadAssetImage("home/icon_shop", width: 25.0, color: Colours.unselected_item_color,),
-          const LoadAssetImage("home/icon_shop", width: 25.0, color: Colours.app_main,),
+          const LoadAssetImage('home/icon_shop', width: 25.0, color: Colours.unselected_item_color,),
+          const LoadAssetImage('home/icon_shop', width: 25.0, color: Colours.app_main,),
         ]
       ];
       _list = List.generate(4, (i) {
@@ -81,20 +81,20 @@ class _HomeState extends State<Home> {
     if (_listDark == null) {
       var _tabImagesDark = [
         [
-          const LoadAssetImage("home/icon_order", width: 25.0),
-          const LoadAssetImage("home/icon_order", width: 25.0, color: Colours.dark_app_main,),
+          const LoadAssetImage('home/icon_order', width: 25.0),
+          const LoadAssetImage('home/icon_order', width: 25.0, color: Colours.dark_app_main,),
         ],
         [
-          const LoadAssetImage("home/icon_commodity", width: 25.0),
-          const LoadAssetImage("home/icon_commodity", width: 25.0, color: Colours.dark_app_main,),
+          const LoadAssetImage('home/icon_commodity', width: 25.0),
+          const LoadAssetImage('home/icon_commodity', width: 25.0, color: Colours.dark_app_main,),
         ],
         [
-          const LoadAssetImage("home/icon_statistics", width: 25.0),
-          const LoadAssetImage("home/icon_statistics", width: 25.0, color: Colours.dark_app_main,),
+          const LoadAssetImage('home/icon_statistics', width: 25.0),
+          const LoadAssetImage('home/icon_statistics', width: 25.0, color: Colours.dark_app_main,),
         ],
         [
-          const LoadAssetImage("home/icon_shop", width: 25.0),
-          const LoadAssetImage("home/icon_shop", width: 25.0, color: Colours.dark_app_main,),
+          const LoadAssetImage('home/icon_shop', width: 25.0),
+          const LoadAssetImage('home/icon_shop', width: 25.0, color: Colours.dark_app_main,),
         ]
       ];
 

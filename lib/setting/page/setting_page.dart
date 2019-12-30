@@ -24,48 +24,48 @@ class _SettingPageState extends State<SettingPage> {
     String theme = flutter_stars.SpUtil.getString(Constant.theme);
     String themeMode;
     switch(theme) {
-      case "Dark":
-        themeMode = "开启";
+      case 'Dark':
+        themeMode = '开启';
         break;
-      case "Light":
-        themeMode = "关闭";
+      case 'Light':
+        themeMode = '关闭';
         break;
       default:
-        themeMode = "跟随系统";
+        themeMode = '跟随系统';
         break;
     }
 
     return Scaffold(
       appBar: const MyAppBar(
-        centerTitle: "设置",
+        centerTitle: '设置',
       ),
       body: Column(
         children: <Widget>[
           Gaps.vGap5,
           ClickItem(
-            title: "账号管理",
+            title: '账号管理',
             onTap: () => NavigatorUtils.push(context, SettingRouter.accountManagerPage)
           ),
           ClickItem(
-            title: "清除缓存",
-            content: "23.5MB",
+            title: '清除缓存',
+            content: '23.5MB',
             onTap: () {}
           ),
           ClickItem(
-            title: "夜间模式",
+            title: '夜间模式',
             content: themeMode,
             onTap: () => NavigatorUtils.push(context, SettingRouter.themePage)
           ),
           ClickItem(
-            title: "检查更新",
+            title: '检查更新',
             onTap: () => _showUpdateDialog()
           ),
           ClickItem(
-            title: "关于我们",
+            title: '关于我们',
             onTap: () => NavigatorUtils.push(context, SettingRouter.aboutPage)
           ),
           ClickItem(
-            title: "退出当前账号",
+            title: '退出当前账号',
             onTap: () {
               showDialog(
                 context: context,

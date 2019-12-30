@@ -11,9 +11,9 @@ class OrderSearchPresenter extends BasePagePresenter<OrderSearchPageState> {
   Future search(String text, int page, bool isShowDialog) async{
    
     Map<String, String> params = Map();
-    params["q"] = text;
-    params["page"] = page.toString();
-    params["l"] = "Dart";
+    params['q'] = text;
+    params['page'] = page.toString();
+    params['l'] = 'Dart';
     await requestNetwork<SearchEntity>(Method.get,
       url: HttpApi.search,
       queryParameters: params,

@@ -24,8 +24,8 @@ class BankSelectPage extends StatefulWidget {
 class _BankSelectPageState extends State<BankSelectPage> {
 
   List<BankModel> _bankList = [];
-  List<String> _bankNameList = ["工商银行", "建设银行", "中国银行", "农业银行", "招商银行", "交通银行", "中信银行", "民生银行", "兴业银行", "浦发银行"];
-  List<String> _bankLogoList = ["gongshang", "jianhang", "zhonghang", "nonghang", "zhaohang", "jiaohang", "zhongxin", "minsheng", "xingye", "pufa"];
+  List<String> _bankNameList = ['工商银行', '建设银行', '中国银行', '农业银行', '招商银行', '交通银行', '中信银行', '民生银行', '兴业银行', '浦发银行'];
+  List<String> _bankLogoList = ['gongshang', 'jianhang', 'zhonghang', 'nonghang', 'zhaohang', 'jiaohang', 'zhongxin', 'minsheng', 'xingye', 'pufa'];
   
   @override
   void initState() {
@@ -51,7 +51,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(
-        title: widget.type == 0 ? "开户银行" : "选择支行",
+        title: widget.type == 0 ? '开户银行' : '选择支行',
       ),
       body: SafeArea(
         child: AzListView(
@@ -71,7 +71,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
             );
           },
           header: widget.type == 0 ? AzListViewHeader(
-            tag: "常用",
+            tag: '常用',
             height: 430, 
             builder: (_) {
               return _buildHeader();
@@ -88,7 +88,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 16.0),
-          child: Text("常用", style: Theme.of(context).textTheme.subtitle),
+          child: Text('常用', style: Theme.of(context).textTheme.subtitle),
         ),
         Expanded(
           child: ListView.builder(
@@ -97,12 +97,12 @@ class _BankSelectPageState extends State<BankSelectPage> {
             itemCount: _bankNameList.length,
             itemBuilder: (_, index) {
               return InkWell(
-                onTap: () => NavigatorUtils.goBackWithParams(context, BankModel(0, _bankNameList[index], "")),
+                onTap: () => NavigatorUtils.goBackWithParams(context, BankModel(0, _bankNameList[index], '')),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Row(
                     children: <Widget>[
-                      LoadAssetImage("account/${_bankLogoList[index]}",width: 24.0),
+                      LoadAssetImage('account/${_bankLogoList[index]}',width: 24.0),
                       Gaps.hGap8,
                       Text(_bankNameList[index]),
                     ],

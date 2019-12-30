@@ -21,7 +21,7 @@ void main() {
       driver?.close();
     });
     
-    test("滑动订单列表",() async {
+    test('滑动订单列表',() async {
       await driver.tap(find.byValueKey('订单'));
       
       // 水平滑动
@@ -40,7 +40,7 @@ void main() {
 
     });
 
-    test("订单操作",() async {
+    test('订单操作',() async {
       // 点击订单列表按钮
       await driver.tap(find.byValueKey('order_button_1_1'));
       await delayed();
@@ -52,7 +52,7 @@ void main() {
       await driver.scroll(find.byValueKey('order_list'), 0.0, 500.0, scrollDuration);
     });
 
-    test("订单详情页",() async {
+    test('订单详情页',() async {
       final orderItem = find.byValueKey('order_item_2');
       await driver.tap(orderItem);
       await driver.tap(find.text('订单跟踪'));
@@ -65,7 +65,7 @@ void main() {
       await delayed();
     });
 
-    test("订单搜索页测试",() async {
+    test('订单搜索页测试',() async {
       await driver.tap(find.byTooltip('搜索'));
       await driver.tap(find.byValueKey('srarch_text_field'));
       await driver.enterText('flutter');

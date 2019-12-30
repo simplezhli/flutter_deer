@@ -7,7 +7,7 @@ homepage: https://github.com/simplezhli/flutter_deer
 
 
 environment:
-  sdk: ">=2.5.0 <3.0.0"
+  sdk: ">=2.6.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -18,7 +18,7 @@ dependencies:
   # Toast插件 https://github.com/OpenFlutter/flutter_oktoast
   oktoast: ^2.3.0
   # 网络库 https://github.com/flutterchina/dio
-  dio: ^3.0.7
+  dio: ^3.0.8
   # https://github.com/ReactiveX/rxdart
   rxdart: ^0.22.5
   # Dart 常用工具类库 https://github.com/Sky24n/common_utils
