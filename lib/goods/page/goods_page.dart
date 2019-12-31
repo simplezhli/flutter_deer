@@ -24,8 +24,6 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
   List<String> _sortList = ['全部商品', '个人护理', '饮料', '沐浴洗护', '厨房用具', '休闲食品', '生鲜水果', '酒水', '家庭清洁'];
   TabController _tabController;
   PageController _pageController = PageController(initialPage: 0);
-
-  var _sortIndex = 0;
   
   GlobalKey _addKey = GlobalKey();
   GlobalKey _bodyKey = GlobalKey();
@@ -92,15 +90,20 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
               label: '选择商品类型',
               child: GestureDetector(
                 key: _buttonKey,
-                child: Consumer<GoodsPageProvider>(
-                  builder: (_, provider, __) {
+                /// 使用Selector避免同provider数据变化导致此处不必要的刷新
+                child: Selector<GoodsPageProvider, int>(
+                  selector: (_, provider) => provider.sortIndex,
+                  /// 精准判断刷新条件（provider 4.0新属性）
+//                  shouldRebuild: (previous, next) => previous != next,
+                  builder: (_, sortIndex, __) {
+                    // 只会触发sortIndex变化的刷新
                     return Row(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.only(left: 16.0, right: 8.0),
                           child: Text(
-                            _sortList[_sortIndex],
+                            _sortList[sortIndex],
                             style: TextStyles.textBold24,
                           ),
                         ),
@@ -209,19 +212,17 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                       children: <Widget>[
                         Text(
                           _sortList[index],
-                          style: index == _sortIndex ? textStyle : null,
+                          style: index == provider.sortIndex ? textStyle : null,
                         ),
                         Text(
                           '($index)',
-                          style: index == _sortIndex ? textStyle : null,
+                          style: index == provider.sortIndex ? textStyle : null,
                         ),
                       ],
                     ),
                   ),
                   onTap: () {
-                    setState(() {
-                      _sortIndex = index;
-                    });
+                    provider.setSortIndex(index);
                     Toast.show('选择分类: ${_sortList[index]}');
                     NavigatorUtils.goBack(context);
                   },
