@@ -7,7 +7,9 @@ import 'package:flutter_deer/login/login_router.dart';
 import 'package:flutter_deer/provider/theme_provider.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/image_utils.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -71,12 +73,15 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: _status == 0 ? Image.asset(
-        ImageUtils.getImgPath('start_page', format: 'jpg'),
-        width: double.infinity,
-        fit: BoxFit.fill,
-        height: double.infinity,
-      ) : Swiper(
+      color: ThemeUtils.getBackgroundColor(context),
+      child: _status == 0 ? FractionallyAlignedSizedBox(
+        heightFactor: 0.3,
+        widthFactor: 0.33,
+        leftFactor: 0.35,
+        bottomFactor: 0,
+        child: Image.asset(ImageUtils.getImgPath('logo'))
+      ) :
+      Swiper(
         key: const Key('swiper'),
         itemCount: _guideList.length,
         loop: false,
