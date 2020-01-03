@@ -77,9 +77,9 @@ class _SplashPageState extends State<SplashPage> {
       child: _status == 0 ? FractionallyAlignedSizedBox(
         heightFactor: 0.3,
         widthFactor: 0.33,
-        leftFactor: 0.35,
+        leftFactor: 0.33,
         bottomFactor: 0,
-        child: Image.asset(ImageUtils.getImgPath('logo'))
+        child: const LoadAssetImage('logo')
       ) :
       Swiper(
         key: const Key('swiper'),

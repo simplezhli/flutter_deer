@@ -50,7 +50,7 @@ dependencies:
   # 路由框架 https://github.com/theyakka/fluro
   fluro: ^1.5.1
   # 图片缓存 https://github.com/renefloor/flutter_cached_network_image
-  cached_network_image: ^2.0.0-rc
+  cached_network_image: ^2.0.0
   # 格式化String https://github.com/Naddiseo/dart-sprintf
   sprintf: ^4.0.2
   # 状态管理 https://github.com/rrousselGit/provider

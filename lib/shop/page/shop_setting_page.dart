@@ -79,7 +79,6 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                           padding: const EdgeInsets.only(right: 4.0),
                           child: Semantics(
                             label: '店铺营业开关',
-                            checked: true,
                             child: Switch.adaptive(
                               value: _check,
                               onChanged: (bool val) {

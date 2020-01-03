@@ -93,11 +93,9 @@ class _SearchBarState extends State<SearchBar> {
                       decoration: InputDecoration(
                         contentPadding: const EdgeInsets.only(top: 0.0, left: -8.0, right: -16.0, bottom: 14.0),
                         border: InputBorder.none,
-                        icon: ExcludeSemantics(
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 8.0),
-                            child: LoadAssetImage('order/order_search', color: iconColor,),
-                          ),
+                        icon: Padding(
+                          padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 8.0),
+                          child: LoadAssetImage('order/order_search', color: iconColor,),
                         ),
                         hintText: widget.hintText,
                         suffixIcon: GestureDetector(

@@ -82,6 +82,8 @@ class LoadAssetImage extends StatelessWidget {
       width: width,
       fit: fit,
       color: color,
+      /// 忽略图片语义
+      excludeFromSemantics: true,
     );
   }
 }

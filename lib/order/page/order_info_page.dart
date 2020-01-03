@@ -55,10 +55,8 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                       Row(
                         children: <Widget>[
                           // 忽略图片的语义
-                          ExcludeSemantics(
-                            child: ClipOval(
-                              child: const LoadAssetImage('order/icon_avatar', width: 44.0, height: 44.0),
-                            ),
+                          ClipOval(
+                            child: const LoadAssetImage('order/icon_avatar', width: 44.0, height: 44.0),
                           ),
                           Gaps.hGap8,
                           Expanded(
