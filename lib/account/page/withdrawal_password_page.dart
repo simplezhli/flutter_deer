@@ -28,12 +28,11 @@ class _WithdrawalPasswordPageState extends State<WithdrawalPasswordPage> {
           ClickItem(
             title: '修改密码',
             onTap: () {
-              showDialog(
-                  context: context,
-                  barrierDismissible: false,
-                  builder: (BuildContext context) {
-                    return WithdrawalPasswordSettingDialog();
-                  }
+              showModalBottomSheet(
+                context: context,
+                /// 使用true则高度不受16分之9的最高限制
+                isScrollControlled: true,
+                builder: (_) => WithdrawalPasswordSettingDialog()
               );
             }
           ),
@@ -66,11 +65,9 @@ class _WithdrawalPasswordPageState extends State<WithdrawalPasswordPage> {
   
   _showVerifyDialog() {
     showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context) {
-          return SMSVerifyDialog();
-        }
+      context: context,
+      barrierDismissible: false,
+      builder: (_) => SMSVerifyDialog()
     );
   }
 }

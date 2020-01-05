@@ -112,8 +112,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
               ),
             ),
             Padding(
-              padding:
-                  const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
+              padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
               child: MyButton(
                 onPressed: () => NavigatorUtils.goBack(context),
                 text: '确定',

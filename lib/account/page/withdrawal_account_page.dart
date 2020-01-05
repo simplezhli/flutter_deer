@@ -39,15 +39,13 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
           NavigatorUtils.push(context, AccountRouter.addWithdrawalAccountPage);
         }
       ),
-      body: _list.isEmpty ? const StateLayout(
-        type: StateType.account) : 
+      body: _list.isEmpty ? const StateLayout(type: StateType.account) :
       ListView.builder(
-        padding: const EdgeInsets.symmetric(horizontal: 22.0),
         itemCount: _list.length,
         itemExtent: 151.0,
         itemBuilder: (_, index) {
           return Padding(
-            padding: const EdgeInsets.only(top: 15.0),
+            padding: const EdgeInsets.only(top: 15.0, left: 22.0, right: 22.0),
             child: AccountCard(
               type: _list[index].type,
               child: InkWell(

@@ -81,11 +81,9 @@ class _SettingPageState extends State<SettingPage> {
 
   void _showUpdateDialog() {
     showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context) {
-          return UpdateDialog();
-        }
+      context: context,
+      barrierDismissible: false,
+      builder: (_) => UpdateDialog()
     );
   }
 }
