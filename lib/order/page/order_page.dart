@@ -70,26 +70,22 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
                 height: 105,
                 width: double.infinity,
                 child: isDark ? null : const DecoratedBox(
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(colors: const [Color(0xFF5793FA), Color(0xFF4647FA)])
-                    )
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(colors: const [Color(0xFF5793FA), Color(0xFF4647FA)])
+                  )
                 ),
               ),
             ),
             NestedScrollView(
               key: const Key('order_list'),
               physics: ClampingScrollPhysics(),
-              headerSliverBuilder: (context, innerBoxIsScrolled) {
-                return _sliverBuilder(context);
-              },
+              headerSliverBuilder: (context, innerBoxIsScrolled) => _sliverBuilder(context),
               body: PageView.builder(
                 key: const Key('pageView'),
                 itemCount: 5,
                 onPageChanged: _onPageChange,
                 controller: _pageController,
-                itemBuilder: (_, index) {
-                  return OrderList(index: index);
-                },
+                itemBuilder: (_, index) => OrderList(index: index)
               ),
             ),
           ],

@@ -30,6 +30,7 @@ class DeerListView extends StatefulWidget {
   final StateType stateType;
   /// 一页的数量，默认为10
   final int pageSize;
+  /// padding属性使用时注意会破坏原有的SafeArea，需要自行计算bottom大小
   final EdgeInsetsGeometry padding;
   final double itemExtent;
 

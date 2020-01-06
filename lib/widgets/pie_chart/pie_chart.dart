@@ -2,6 +2,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
@@ -80,21 +81,25 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
           builder: (_, child) {
             return CustomPaint(
               painter: PieChartPainter(
-                  widget.data,
-                  animation.value,
-                  bgColor
+                widget.data,
+                animation.value,
+                bgColor,
+                widget.name,
+                count
               ),
               child: child,
             );
           },
           child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Text(widget.name, style: TextStyles.textBold16),
-                Gaps.vGap4,
-                Text('$count件')
-              ],
+            child: ExcludeSemantics(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Text(widget.name, style: TextStyles.textBold16),
+                  Gaps.vGap4,
+                  Text('$count件')
+                ],
+              ),
             ),
           )
         ),
@@ -105,7 +110,7 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
 
 class PieChartPainter extends CustomPainter {
   
-  PieChartPainter(this.data, double angleFactor, this.bgColor) {
+  PieChartPainter(this.data, double angleFactor, this.bgColor, this.name, this.count) {
     if (data.length == null || data.isEmpty) {
       return;
     }
@@ -148,6 +153,11 @@ class PieChartPainter extends CustomPainter {
   // 起始角度
   double prevAngle;
   Color bgColor;
+  
+  // 总数量
+  int count;
+  // 图表名称
+  String name;
   
   @override
   void paint(Canvas canvas, Size size) {
@@ -207,5 +217,34 @@ class PieChartPainter extends CustomPainter {
   bool shouldRepaint(PieChartPainter oldDelegate) {
     // 由于动画需要重绘，所以返true。避免重绘，交由RepaintBoundary处理。你也可以判断动画是否执行完成来处理时候重绘
     return true;
+  }
+
+  @override
+  SemanticsBuilderCallback get semanticsBuilder => _buildSemantics;
+
+  /// 给饼状图上的各个扇形区域添加语义节点(为了便于阅读，将节点区域改为矩形)
+  List<CustomPainterSemantics> _buildSemantics(Size size) {
+    final List<CustomPainterSemantics> nodes = <CustomPainterSemantics>[];
+    double height = size.height / data.length;
+    for (int i = 0; i < data.length; i++) {
+      var percentage = ((data[i].percentage * 100).toStringAsFixed(1) + '%');
+      final CustomPainterSemantics node = CustomPainterSemantics(
+        rect: Rect.fromLTRB(
+          0, height * i,
+          size.width, height * i + height,
+        ),
+        properties: SemanticsProperties(
+          sortKey: OrdinalSortKey(i.toDouble()),
+          label: name + '$count件' + data[i].name + '占比'+ percentage,
+          readOnly: true,
+          textDirection: TextDirection.ltr,
+        ),
+        tags: const <SemanticsTag>{
+          SemanticsTag('pieChart-label'),
+        },
+      );
+      nodes.add(node);
+    }
+    return nodes;
   }
 }

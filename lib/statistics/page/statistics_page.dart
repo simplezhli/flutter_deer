@@ -120,32 +120,30 @@ class _StatisticsItem extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 2.14,
       child: MyCard(
-          child: MergeSemantics(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
-              child: GestureDetector(
-                onTap: () {
-                  if (index == 1 || index == 2) {
-                    NavigatorUtils.push(context, '${StatisticsRouter.orderStatisticsPage}?index=$index');
-                  } else {
-                    NavigatorUtils.push(context, StatisticsRouter.goodsStatisticsPage);
-                  }
-                },
-                child: Column(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Text(title, style: TextStyles.textBold14),
-                          const LoadAssetImage('statistic/icon_selected', height: 16.0, width: 16.0)
-                        ],
-                      ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
+            child: GestureDetector(
+              onTap: () {
+                if (index == 1 || index == 2) {
+                  NavigatorUtils.push(context, '${StatisticsRouter.orderStatisticsPage}?index=$index');
+                } else {
+                  NavigatorUtils.push(context, StatisticsRouter.goodsStatisticsPage);
+                }
+              },
+              child: Column(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(title, style: TextStyles.textBold14),
+                        const LoadAssetImage('statistic/icon_selected', height: 16.0, width: 16.0)
+                      ],
                     ),
-                    Expanded(child: LoadAssetImage('statistic/$img', fit: BoxFit.fill))
-                  ],
-                ),
+                  ),
+                  Expanded(child: LoadAssetImage('statistic/$img', fit: BoxFit.fill))
+                ],
               ),
             ),
           )

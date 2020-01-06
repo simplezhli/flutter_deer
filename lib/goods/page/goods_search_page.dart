@@ -19,8 +19,7 @@ class _GoodsSearchPageState extends State<GoodsSearchPage> {
           Toast.show('搜索内容：$text');
         },
       ),
-      body: Container(
-      ),
+      body: Container(),
     );
   }
 }

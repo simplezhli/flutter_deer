@@ -11,7 +11,8 @@ class SelectedText extends StatelessWidget {
     this.selected : false,
     this.unSelectedTextColor,
     this.enable : true,
-    this.onTap
+    this.onTap,
+    this.semanticsLabel
   }): assert(unSelectedTextColor != null, 'The [unSelectedTextColor] argument must not be null.'),
       super(key: key);
 
@@ -21,6 +22,7 @@ class SelectedText extends StatelessWidget {
   final Color unSelectedTextColor;
   final GestureTapCallback onTap;
   final bool enable;
+  final String semanticsLabel;
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +70,7 @@ class SelectedText extends StatelessWidget {
           )
       );
     } else {
-      return Text(text, style: TextStyle(color: getTextColor(), fontSize: fontSize));
+      return Text(text, semanticsLabel: semanticsLabel ,style: TextStyle(color: getTextColor(), fontSize: fontSize));
     }
   }
 

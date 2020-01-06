@@ -1,6 +1,7 @@
 
 import 'dart:math';
 
+import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/date_utils.dart';
@@ -143,10 +144,13 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                                 _isExpanded = !_isExpanded;
                               });
                             },
-                            child: Container(
-                              height: 27.0,
-                              alignment: Alignment.topCenter,
-                              child: LoadAssetImage('statistic/${_isExpanded ? 'up' : 'down'}', width: 16.0, color: ThemeUtils.getIconColor(context),),
+                            child: Semantics(
+                              label: _isExpanded ? '收起' : '展开',
+                              child: Container(
+                                height: 27.0,
+                                alignment: Alignment.topCenter,
+                                child: LoadAssetImage('statistic/${_isExpanded ? 'up' : 'down'}', width: 16.0, color: ThemeUtils.getIconColor(context),),
+                              ),
                             ),
                           ) : Gaps.empty,
                     ],
@@ -305,6 +309,8 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
               // 不是本月的日期与超过当前日期的不可点击
               enable: day.day <= _initialDay.day && !DateUtils.isExtraDay(day, _initialDay),
               unSelectedTextColor: _unSelectedTextColor,
+              /// 日历中的具体日期添加完整语义
+              semanticsLabel: DateUtil.getDateStrByDateTime(day, format: DateFormat.ZH_YEAR_MONTH_DAY),
               onTap: () {
                 setState(() {
                   _selectedDay = day;
@@ -348,6 +354,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
               day.day < 10 ? '0${day.day}' : day.day.toString(),
               selected: day.day == _selectedWeekDay,
               unSelectedTextColor: _unSelectedTextColor,
+              semanticsLabel: DateUtil.getDateStrByDateTime(day, format: DateFormat.ZH_YEAR_MONTH_DAY),
               onTap: () {
                 setState(() {
                   _selectedWeekDay = day.day;

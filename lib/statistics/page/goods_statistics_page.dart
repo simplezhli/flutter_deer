@@ -36,6 +36,20 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
 
   @override
   Widget build(BuildContext context) {
+    var time = Row(
+      children: <Widget>[
+        _buildSelectedText(_initialDay.year.toString(), 0),
+        Gaps.hGap12,
+        Gaps.vLine,
+        Gaps.hGap12,
+        _buildSelectedText('${_initialDay.month.toString()}月', 1),
+        Gaps.hGap12,
+        Gaps.vLine,
+        Gaps.hGap12,
+        _buildSelectedText(_type ? '${DateUtils.previousWeek(_initialDay)} -${DateUtils.apiDayFormat(_initialDay)}' : '${_initialDay.day.toString()}日', 2),
+      ],
+    );
+    
     return Scaffold(
       appBar: MyAppBar(
         actionName: _type ? '待配货' : '已配货',
@@ -49,7 +63,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
         key: const Key('goods_statistics_list'),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.only(left: 16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,25 +72,13 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                 Text(_type ? '已配货' : '待配货', style: TextStyles.textBold24),
                 Gaps.vGap16,
                 Gaps.vGap16,
-                Row(
-                  children: <Widget>[
-                    _buildSelectedText(_initialDay.year.toString(), 0),
-                    Gaps.hGap12,
-                    Gaps.vLine,
-                    Gaps.hGap12,
-                    _buildSelectedText('${_initialDay.month.toString()}月', 1),
-                    Gaps.hGap12,
-                    Gaps.vLine,
-                    Gaps.hGap12,
-                    _buildSelectedText(_type ? '${DateUtils.previousWeek(_initialDay)} -${DateUtils.apiDayFormat(_initialDay)}' : '${_initialDay.day.toString()}日', 2),
-                  ],
-                ),
+                _type ? time : MergeSemantics(child: time,), 
                 Gaps.vGap8,
                 _buildChart(),
                 const Text('热销商品排行', style: TextStyles.textBold18),
                 ListView.builder(
                   physics: ClampingScrollPhysics(),
-                  padding: const EdgeInsets.only(top: 16.0, right: 16.0),
+                  padding: const EdgeInsets.only(top: 16.0),
                   shrinkWrap: true,
                   itemCount: 10,
                   itemExtent: 76.0,

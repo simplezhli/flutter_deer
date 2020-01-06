@@ -108,18 +108,19 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
             InkWell(
               onTap: () {
                 showDialog(
-                    context: context,
-                    barrierDismissible: false,
-                    builder: (BuildContext context) {
-                      return GoodsSizeDialog(
-                        onPressed: (name) {
-                          setState(() {
-                            _sizeName = name;
-                            _isEdit = true;
-                          });
-                        },
-                      );
-                    });
+                  context: context,
+                  barrierDismissible: false,
+                  builder: (BuildContext context) {
+                    return GoodsSizeDialog(
+                      onPressed: (name) {
+                        setState(() {
+                          _sizeName = name;
+                          _isEdit = true;
+                        });
+                      },
+                    );
+                  }
+                );
               },
               child: RichText(
                 key: const Key('name_edit'),
