@@ -170,9 +170,9 @@ class GoodsItem extends StatelessWidget {
                             ),
                           ),
                           textTheme: TextTheme(
-                              button: TextStyle(
-                                fontSize: Dimens.font_sp16,
-                              )
+                            button: TextStyle(
+                              fontSize: Dimens.font_sp16,
+                            )
                           ),
                         ),
                         child: Row(

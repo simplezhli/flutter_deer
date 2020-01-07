@@ -22,9 +22,9 @@ class ShopPage extends StatefulWidget {
 
 class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with AutomaticKeepAliveClientMixin<ShopPage>{
   
-  var menuTitle = ['账户流水', '资金管理', '提现账号'];
-  var menuImage = ['zhls', 'zjgl', 'txzh'];
-  var menuDarkImage = ['dark_zhls', 'dark_zjgl', 'dark_txzh'];
+  var _menuTitle = ['账户流水', '资金管理', '提现账号'];
+  var _menuImage = ['zhls', 'zjgl', 'txzh'];
+  var _menuDarkImage = ['dark_zhls', 'dark_zjgl', 'dark_txzh'];
 
   UserProvider provider = UserProvider();
   
@@ -133,16 +133,16 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                     crossAxisCount: 4,
                     childAspectRatio: 1.18
                   ),
-                  itemCount: menuTitle.length,
+                  itemCount: _menuTitle.length,
                   itemBuilder: (_, index) {
                     return InkWell(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          LoadAssetImage(ThemeUtils.isDark(context) ? 'shop/${menuDarkImage[index]}' : 'shop/${menuImage[index]}', width: 32.0),
+                          LoadAssetImage(ThemeUtils.isDark(context) ? 'shop/${_menuDarkImage[index]}' : 'shop/${_menuImage[index]}', width: 32.0),
                           Gaps.vGap4,
                           Text(
-                            menuTitle[index],
+                            _menuTitle[index],
                             style: TextStyles.textSize12,
                           )
                         ],

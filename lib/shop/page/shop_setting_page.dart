@@ -174,8 +174,8 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                             });
                       },
                     ),
-                    Offstage(
-                      offstage: _sendType == 1,
+                    Visibility(
+                      visible: _sendType != 1,
                       child: ClickItem(
                         title: '运费满免',
                         content: _freePrice,
@@ -196,8 +196,8 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                         },
                       ),
                     ),
-                    Offstage(
-                      offstage: _sendType == 1,
+                    Visibility(
+                      visible: _sendType != 1,
                       child: ClickItem(
                         title: '配送费用',
                         content: _sendPrice,
@@ -218,8 +218,8 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                         },
                       ),
                     ),
-                    Offstage(
-                      offstage: _sendType == 0,
+                    Visibility(
+                      visible: _sendType != 0,
                       child: ClickItem(
                         maxLines: 10,
                         title: '运费比例',

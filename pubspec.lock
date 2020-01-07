@@ -704,7 +704,7 @@ packages:
       name: vm_service
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.2.0"
+    version: "2.3.1"
   vm_service_client:
     dependency: transitive
     description:
@@ -732,7 +732,7 @@ packages:
       name: webview_flutter
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.3.18+1"
+    version: "0.3.19+2"
   xml:
     dependency: transitive
     description:
@@ -749,4 +749,4 @@ packages:
     version: "2.2.0"
 sdks:
   dart: ">=2.6.0 <3.0.0"
-  flutter: ">=1.12.13+hotfix.4 <2.0.0"
+  flutter: ">=1.12.13+hotfix.5 <2.0.0"

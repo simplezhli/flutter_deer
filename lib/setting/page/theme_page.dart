@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/common/common.dart';
 import 'package:flustars/flustars.dart' as flutter_stars;
-import 'package:flutter_deer/common/themes.dart';
 import 'package:flutter_deer/provider/theme_provider.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:provider/provider.dart';
@@ -51,7 +50,7 @@ class _ThemePageState extends State<ThemePage> {
           },
           itemBuilder: (_, index) {
             return InkWell(
-              onTap: () => Provider.of<ThemeProvider>(context, listen: false).setTheme(index == 0 ? Themes.SYSTEM : (index == 1 ? Themes.DARK : Themes.LIGHT)),
+              onTap: () => Provider.of<ThemeProvider>(context, listen: false).setTheme(index == 0 ? ThemeMode.system : (index == 1 ? ThemeMode.dark : ThemeMode.light)),
               child: Container(
                 alignment: Alignment.centerLeft,
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),

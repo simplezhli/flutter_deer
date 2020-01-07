@@ -31,14 +31,14 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
   @override
   void initState() {
     super.initState();
-    goodsSizeList.clear();
-    goodsSizeList.add(new GoodsSizeModel('goods/goods_size_1', '黑色', 1000, '50.0', 2, '2', '2', '2'));
-    goodsSizeList.add(new GoodsSizeModel('goods/goods_size_2', '银色', 100, '51.0', 1, '', '2', '1'));
-    goodsSizeList.add(new GoodsSizeModel('goods/goods_size_1', '黑色1', 1050, '50.0', 2, '20', '2', ''));
-    goodsSizeList.add(new GoodsSizeModel('goods/goods_size_2', '银色1', 1000, '55.0', 2, '', '10', '2'));
-    goodsSizeList.add(new GoodsSizeModel('goods/goods_size_1', '黑色2', 500, '56', 2, '2', '2', '2'));
-    goodsSizeList.add(new GoodsSizeModel('goods/goods_size_2', '银色2', 110, '51.0', 2, '2', '1', ''));
-    goodsSizeList.add(new GoodsSizeModel('goods/goods_size_1', '黑色3', 10, '50.0', 2, '2', '2.5', ''));
+    _goodsSizeList.clear();
+    _goodsSizeList.add(new GoodsSizeModel('goods/goods_size_1', '黑色', 1000, '50.0', 2, '2', '2', '2'));
+    _goodsSizeList.add(new GoodsSizeModel('goods/goods_size_2', '银色', 100, '51.0', 1, '', '2', '1'));
+    _goodsSizeList.add(new GoodsSizeModel('goods/goods_size_1', '黑色1', 1050, '50.0', 2, '20', '2', ''));
+    _goodsSizeList.add(new GoodsSizeModel('goods/goods_size_2', '银色1', 1000, '55.0', 2, '', '10', '2'));
+    _goodsSizeList.add(new GoodsSizeModel('goods/goods_size_1', '黑色2', 500, '56', 2, '2', '2', '2'));
+    _goodsSizeList.add(new GoodsSizeModel('goods/goods_size_2', '银色2', 110, '51.0', 2, '2', '1', ''));
+    _goodsSizeList.add(new GoodsSizeModel('goods/goods_size_1', '黑色3', 10, '50.0', 2, '2', '2.5', ''));
 
     // 获取Build完成状态监听
     var widgetsBinding = WidgetsBinding.instance;
@@ -136,15 +136,13 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
             Gaps.vGap16,
             Gaps.vGap16,
             Expanded(
-              child: goodsSizeList.isEmpty ? const StateLayout(
+              child: _goodsSizeList.isEmpty ? const StateLayout(
                 type: StateType.goods,
                 hintText: '暂无商品规格',
               ) : ListView.builder(
-                itemCount: goodsSizeList.length,
+                itemCount: _goodsSizeList.length,
                 itemExtent: 107.0,
-                itemBuilder: (_, index) {
-                  return getGoodsSizeItem(index);
-                },
+                itemBuilder: (_, index) => _getGoodsSizeItem(index)
                 ),
             ),
             Padding(
@@ -162,12 +160,12 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
     );
   }
   
-  List<GoodsSizeModel> goodsSizeList = [];
+  List<GoodsSizeModel> _goodsSizeList = [];
   // 保留一个Slidable打开
   final SlidableController _slidableController = SlidableController();
 
   /// design/4商品/index.html#artboard19
-  Widget getGoodsSizeItem(int index) {
+  Widget _getGoodsSizeItem(int index) {
     return Slidable(
       key: Key(index.toString()),
       controller: _slidableController,
@@ -187,7 +185,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
           color: Theme.of(context).errorColor,
           onTap: () {
             setState(() {
-              goodsSizeList.removeAt(index);
+              _goodsSizeList.removeAt(index);
             });
           },
         ),
@@ -207,7 +205,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  LoadAssetImage(goodsSizeList[index].icon, width: 72.0, height: 72.0),
+                  LoadAssetImage(_goodsSizeList[index].icon, width: 72.0, height: 72.0),
                   Gaps.hGap8,
                   Expanded(
                     child: Column(
@@ -217,12 +215,12 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Text(
-                              goodsSizeList[index].sizeName,
+                                _goodsSizeList[index].sizeName,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis
                             ),
                             Text(
-                              '库存${goodsSizeList[index].stock}',
+                              '库存${_goodsSizeList[index].stock}',
                               style: TextStyles.textSize12
                             ),
                          ],
@@ -231,7 +229,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                         Row(
                           children: <Widget>[
                             Offstage(
-                              offstage: goodsSizeList[index].reducePrice.isEmpty,
+                              offstage: _goodsSizeList[index].reducePrice.isEmpty,
                               child: Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
                                 margin: const EdgeInsets.only(right: 4.0),
@@ -242,16 +240,13 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                                 height: 16.0,
                                 alignment: Alignment.center,
                                 child: Text(
-                                  '立减${goodsSizeList[index].reducePrice}元',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: Dimens.font_sp10
-                                  ),
+                                  '立减${_goodsSizeList[index].reducePrice}元',
+                                  style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp10),
                                 ),
                               ),
                             ),
                             Opacity(
-                              opacity: goodsSizeList[index].currencyPrice.isEmpty ? 0.0 : 1.0,
+                              opacity: _goodsSizeList[index].currencyPrice.isEmpty ? 0.0 : 1.0,
                               child: Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
                                 decoration: BoxDecoration(
@@ -261,11 +256,8 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                                 height: 16.0,
                                 alignment: Alignment.center,
                                 child: Text(
-                                  '社区币抵扣${goodsSizeList[index].currencyPrice}元',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: Dimens.font_sp10
-                                  ),
+                                  '社区币抵扣${_goodsSizeList[index].currencyPrice}元',
+                                  style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp10),
                                 ),
                               ),
                             )
@@ -275,14 +267,14 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text(Utils.formatPrice(goodsSizeList[index].price)),
+                            Text(Utils.formatPrice(_goodsSizeList[index].price)),
                             const SizedBox(width: 50.0,),
                             Text(
-                              '佣金${goodsSizeList[index].charges}元',
+                              '佣金${_goodsSizeList[index].charges}元',
                               style: TextStyles.textSize12
                             ),
                             Text(
-                              '起购${goodsSizeList[index].minSaleNum}件',
+                              '起购${_goodsSizeList[index].minSaleNum}件',
                               style: TextStyles.textSize12
                             ),
                           ],

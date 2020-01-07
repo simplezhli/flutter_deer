@@ -52,6 +52,7 @@ class MyApp extends StatelessWidget {
 //              showSemanticsDebugger: true, // 显示语义视图
               theme: provider.getTheme(),
               darkTheme: provider.getTheme(isDarkMode: true),
+              themeMode: provider.getThemeMode(),
               home: home ?? SplashPage(),
               onGenerateRoute: Application.router.generator,
               localizationsDelegates: const [

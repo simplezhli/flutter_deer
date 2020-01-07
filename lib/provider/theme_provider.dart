@@ -4,41 +4,39 @@ import 'package:flustars/flustars.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/common/common.dart';
-import 'package:flutter_deer/common/themes.dart';
 import 'package:flutter_deer/res/resources.dart';
-
 
 class ThemeProvider extends ChangeNotifier {
 
-  static const Map<Themes, String> themes = {
-    Themes.DARK: 'Dark', Themes.LIGHT : 'Light', Themes.SYSTEM : 'System'
+  static const Map<ThemeMode, String> themes = {
+    ThemeMode.dark: 'Dark', ThemeMode.light : 'Light', ThemeMode.system : 'System'
   };
   
   void syncTheme() {
     String theme = SpUtil.getString(Constant.theme);
-    if (theme.isNotEmpty && theme != themes[Themes.SYSTEM]) {
+    if (theme.isNotEmpty && theme != themes[ThemeMode.system]) {
       notifyListeners();
     }
   }
 
-  void setTheme(Themes theme) {
-    SpUtil.putString(Constant.theme, themes[theme]);
+  void setTheme(ThemeMode themeMode) {
+    SpUtil.putString(Constant.theme, themes[themeMode]);
     notifyListeners();
   }
 
-  getTheme({bool isDarkMode: false}) {
+  ThemeMode getThemeMode(){
     String theme = SpUtil.getString(Constant.theme);
     switch(theme) {
       case 'Dark':
-        isDarkMode = true;
-        break;
+        return ThemeMode.dark;
       case 'Light':
-        isDarkMode = false;
-        break;
+        return ThemeMode.light;
       default:
-        break;
+        return ThemeMode.system;
     }
+  }
 
+  getTheme({bool isDarkMode: false}) {
     return ThemeData(
       errorColor: isDarkMode ? Colours.dark_red : Colours.red,
       brightness: isDarkMode ? Brightness.dark : Brightness.light,
