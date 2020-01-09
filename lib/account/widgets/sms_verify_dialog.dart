@@ -22,7 +22,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
   /// 倒计时秒数
   final int _second = 60;
   /// 当前秒数
-  int s;
+  int _currentSecond;
   StreamSubscription _subscription;
   bool _isClick = true;
 
@@ -170,18 +170,18 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                   width: double.infinity,
                   height: 48.0,
                   child: FlatButton(
-                    child: Text(_isClick ? '获取验证码' : '已发送($s s)', style: TextStyle(fontSize: Dimens.font_sp18)),
+                    child: Text(_isClick ? '获取验证码' : '已发送($_currentSecond s)', style: TextStyle(fontSize: Dimens.font_sp18)),
                     textColor: textColor,
                     disabledTextColor: Colours.text_gray,
                     onPressed: _isClick ? () {
                       setState(() {
-                        s = _second;
+                        _currentSecond = _second;
                         _isClick = false;
                       });
                       _subscription = Observable.periodic(Duration(seconds: 1), (i) => i).take(_second).listen((i) {
                         setState(() {
-                          s = _second - i - 1;
-                          _isClick = s < 1;
+                          _currentSecond = _second - i - 1;
+                          _isClick = _currentSecond < 1;
                         });
                       });
                     }: null,

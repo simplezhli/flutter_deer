@@ -1,8 +1,8 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/order/page/order_list_page.dart';
 import 'package:flutter_deer/order/provider/order_page_provider.dart';
-import 'package:flutter_deer/order/widgets/order_list.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/image_utils.dart';
@@ -85,7 +85,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
                 itemCount: 5,
                 onPageChanged: _onPageChange,
                 controller: _pageController,
-                itemBuilder: (_, index) => OrderList(index: index)
+                itemBuilder: (_, index) => OrderListPage(index: index)
               ),
             ),
           ],

@@ -182,15 +182,15 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                         },
                       ),
                       Gaps.vGap8,
-                      getGoodsInfoItem('共2件商品', Utils.formatPrice('50.00')),
-                      getGoodsInfoItem('配送费', Utils.formatPrice('5.00')),
-                      getGoodsInfoItem('立减', Utils.formatPrice('-2.50'), contentTextColor: red),
-                      getGoodsInfoItem('优惠券', Utils.formatPrice('-2.50'), contentTextColor: red),
-                      getGoodsInfoItem('社区币抵扣', Utils.formatPrice('-2.50'), contentTextColor: red),
-                      getGoodsInfoItem('佣金', Utils.formatPrice('-1.0'), contentTextColor: red),
+                      _getGoodsInfoItem('共2件商品', Utils.formatPrice('50.00')),
+                      _getGoodsInfoItem('配送费', Utils.formatPrice('5.00')),
+                      _getGoodsInfoItem('立减', Utils.formatPrice('-2.50'), contentTextColor: red),
+                      _getGoodsInfoItem('优惠券', Utils.formatPrice('-2.50'), contentTextColor: red),
+                      _getGoodsInfoItem('社区币抵扣', Utils.formatPrice('-2.50'), contentTextColor: red),
+                      _getGoodsInfoItem('佣金', Utils.formatPrice('-1.0'), contentTextColor: red),
                       Gaps.line,
                       Gaps.vGap8,
-                      getGoodsInfoItem('合计', Utils.formatPrice('46.50')),
+                      _getGoodsInfoItem('合计', Utils.formatPrice('46.50')),
                       Gaps.vGap8,
                       Gaps.line,
                       Gaps.vGap16,
@@ -200,11 +200,11 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                         style: TextStyles.textBold18,
                       ),
                       Gaps.vGap12,
-                      getOrderInfoItem('订单编号:', '1256324856942'),
-                      getOrderInfoItem('下单时间:', '2018/08/26 12:20'),
-                      getOrderInfoItem('支付方式:', '在线支付/支付宝'),
-                      getOrderInfoItem('配送方式:', '送货上门'),
-                      getOrderInfoItem('客户备注:', '无'),
+                      _getOrderInfoItem('订单编号:', '1256324856942'),
+                      _getOrderInfoItem('下单时间:', '2018/08/26 12:20'),
+                      _getOrderInfoItem('支付方式:', '在线支付/支付宝'),
+                      _getOrderInfoItem('配送方式:', '送货上门'),
+                      _getOrderInfoItem('客户备注:', '无'),
                       Gaps.vGap50,
                       Gaps.vGap50,
                     ],
@@ -272,7 +272,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
     );
   }
 
-  Widget getOrderInfoItem(String title, String content) {
+  Widget _getOrderInfoItem(String title, String content) {
     return MergeSemantics(
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 4.0),
@@ -287,7 +287,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
     );
   }
   
-  Widget getGoodsInfoItem(String title, String content, {Color contentTextColor}) {
+  Widget _getGoodsInfoItem(String title, String content, {Color contentTextColor}) {
     return MergeSemantics(
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 8.0),

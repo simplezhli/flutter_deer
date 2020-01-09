@@ -20,18 +20,18 @@ class RiseNumberText extends StatefulWidget {
 
 class _RiseNumberTextState extends State<RiseNumberText> with SingleTickerProviderStateMixin {
 
-  Animation<double> animation;
-  AnimationController controller;
-  num fromNumber = 0;
+  Animation<double> _animation;
+  AnimationController _controller;
+  num _fromNumber = 0;
   
   @override
   void initState() {
     super.initState();
 
-    controller = AnimationController(duration: Duration(milliseconds: widget.duration), vsync: this);
-    final Animation curve = CurvedAnimation(parent: controller, curve: Curves.linear);
-    animation = Tween<double>(begin: 0, end: 1).animate(curve);
-    controller.forward(from: 0);
+    _controller = AnimationController(duration: Duration(milliseconds: widget.duration), vsync: this);
+    final Animation curve = CurvedAnimation(parent: _controller, curve: Curves.linear);
+    _animation = Tween<double>(begin: 0, end: 1).animate(curve);
+    _controller.forward(from: 0);
   }
 
   @override
@@ -39,25 +39,25 @@ class _RiseNumberTextState extends State<RiseNumberText> with SingleTickerProvid
     super.didUpdateWidget(oldWidget);
     // 数据变化时执行动画
     if (oldWidget.number != widget.number) {
-      fromNumber = oldWidget.number;
-      controller.forward(from: 0);
+      _fromNumber = oldWidget.number;
+      _controller.forward(from: 0);
     }
   }
 
   @override
   void dispose() {
-    controller?.dispose();
+    _controller?.dispose();
     super.dispose();
   }
   
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: animation,
+      animation: _animation,
       builder: (_, __) {
         // 数字默认从0增长。数据变化时，由之前数字为基础变化。
         return Text(
-          (fromNumber + (animation.value * (widget.number - fromNumber))).toStringAsFixed(2).toString(),
+          (_fromNumber + (_animation.value * (widget.number - _fromNumber))).toStringAsFixed(2).toString(),
           style: widget.style,
         );
       },

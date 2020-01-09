@@ -2,14 +2,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/order/provider/order_page_provider.dart';
 import 'package:flutter_deer/order/widgets/order_item.dart';
-import 'package:flutter_deer/order/widgets/order_item_tag.dart';
+import 'package:flutter_deer/order/widgets/order_tag_item.dart';
 import 'package:flutter_deer/widgets/my_refresh_list.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
 import 'package:provider/provider.dart';
 
-class OrderList extends StatefulWidget {
+class OrderListPage extends StatefulWidget {
 
-  const OrderList({
+  const OrderListPage({
     Key key,
     @required this.index,
   }): super(key: key);
@@ -17,10 +17,10 @@ class OrderList extends StatefulWidget {
   final int index;
   
   @override
-  _OrderListState createState() => _OrderListState();
+  _OrderListPageState createState() => _OrderListPageState();
 }
 
-class _OrderListState extends State<OrderList> with AutomaticKeepAliveClientMixin<OrderList>{
+class _OrderListPageState extends State<OrderListPage> with AutomaticKeepAliveClientMixin<OrderListPage>{
 
   /// 是否正在加载数据
   bool _isLoading = false;
@@ -71,7 +71,7 @@ class _OrderListState extends State<OrderList> with AutomaticKeepAliveClientMixi
             sliver: _list.isEmpty ? SliverFillRemaining(child: StateLayout(type: _stateType)) :
             SliverList(
               delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
-                return index < _list.length ? (index % 5 == 0 ? OrderItemTag(date: '2019年2月5日', orderTotal: 4) : OrderItem(key: Key('order_item_$index'), index: index, tabIndex: _index,))
+                return index < _list.length ? (index % 5 == 0 ? OrderTagItem(date: '2019年2月5日', orderTotal: 4) : OrderItem(key: Key('order_item_$index'), index: index, tabIndex: _index,))
                     : MoreWidget(_list.length, _hasMore(), 10);
               },
               childCount: _list.length + 1),

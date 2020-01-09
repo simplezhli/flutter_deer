@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/goods/page/goods_list_page.dart';
 import 'package:flutter_deer/goods/provider/goods_page_provider.dart';
-import 'package:flutter_deer/goods/widgets/goods_list.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
@@ -149,9 +149,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 itemCount: 3,
                 onPageChanged: _onPageChange,
                 controller: _pageController,
-                itemBuilder: (BuildContext context, int index) {
-                  return GoodsList(index: index);
-                },
+                itemBuilder: (_, int index) => GoodsListPage(index: index)
               ),
             )
           ],

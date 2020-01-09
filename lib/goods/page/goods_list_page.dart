@@ -10,12 +10,12 @@ import 'package:flutter_deer/widgets/state_layout.dart';
 import 'package:provider/provider.dart';
 
 import '../goods_router.dart';
-import 'goods_delete_bottom_sheet.dart';
-import 'goods_item.dart';
+import '../widgets/goods_delete_bottom_sheet.dart';
+import '../widgets/goods_item.dart';
 
-class GoodsList extends StatefulWidget {
+class GoodsListPage extends StatefulWidget {
   
-  const GoodsList({
+  const GoodsListPage({
     Key key,
     @required this.index
   }): super(key: key);
@@ -23,10 +23,10 @@ class GoodsList extends StatefulWidget {
   final int index;
   
   @override
-  _GoodsListState createState() => _GoodsListState();
+  _GoodsListPageState createState() => _GoodsListPageState();
 }
 
-class _GoodsListState extends State<GoodsList> with AutomaticKeepAliveClientMixin<GoodsList>, SingleTickerProviderStateMixin {
+class _GoodsListPageState extends State<GoodsListPage> with AutomaticKeepAliveClientMixin<GoodsListPage>, SingleTickerProviderStateMixin {
   
   int _selectIndex = -1;
   Animation<double> _animation;

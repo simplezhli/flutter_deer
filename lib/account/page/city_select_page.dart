@@ -30,7 +30,7 @@ class _CitySelectPageState extends State<CitySelectPage> {
     // loadString源码中有对json大小进行判断，json过大会使用compute处理，集成测试无法使用compute，所以这里修改源码单独判断处理。
     String jsonStr;
     if (Constant.isTest) {
-      jsonStr = await loadString('assets/data/city.json');
+      jsonStr = await _loadString('assets/data/city.json');
     } else {
       jsonStr = await rootBundle.loadString('assets/data/city.json');
     }
@@ -44,7 +44,7 @@ class _CitySelectPageState extends State<CitySelectPage> {
   }
 
   /// rootBundle.loadString源码修改
-  Future<String> loadString(String key, { bool cache = true }) async {
+  Future<String> _loadString(String key, { bool cache = true }) async {
     final ByteData data = await rootBundle.load(key);
     if (data == null)
       throw FlutterError('Unable to load asset: $key');

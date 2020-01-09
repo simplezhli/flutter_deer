@@ -29,7 +29,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
   TabController _tabController;
   ScrollController _controller = new ScrollController();
   // TabBar不能动态加载，所以初始化3个，其中两个文字置空，点击事件拦截住。
-  List<Tab> myTabs = <Tab>[Tab(text: '请选择'), Tab(text: ''), Tab(text: '')];
+  List<Tab> _myTabs = <Tab>[Tab(text: '请选择'), Tab(text: ''), Tab(text: '')];
   List _mGoodsSort = [];
   List _mGoodsSort1 = [];
   List _mGoodsSort2 = [];
@@ -41,7 +41,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
   @override
   void initState() {
     super.initState();
-    _tabController = new TabController(vsync: this, length: myTabs.length);
+    _tabController = new TabController(vsync: this, length: _myTabs.length);
     loadData();
   }
 
@@ -111,7 +111,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                 controller: _tabController,
                 isScrollable: true,
                 onTap: (index) {
-                  if (myTabs[index].text.isEmpty) {
+                  if (_myTabs[index].text.isEmpty) {
                     _tabController.animateTo(_index);
                     return;
                   }
@@ -134,7 +134,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                 indicatorSize: TabBarIndicatorSize.label,
                 unselectedLabelColor: ThemeUtils.isDark(context) ? Colours.text_gray : Colours.text,
                 labelColor: Theme.of(context).primaryColor,
-                tabs: myTabs,
+                tabs: _myTabs,
               ),
             ),
             Gaps.line,
@@ -151,31 +151,31 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                         children: <Widget>[
                           Text(
                               _mList[index]['name'],
-                            style: _mList[index]['name'] == myTabs[_index].text ? TextStyle(
+                            style: _mList[index]['name'] == _myTabs[_index].text ? TextStyle(
                               fontSize: Dimens.font_sp14,
                               color: Theme.of(context).primaryColor,
                             ) : null),
                           Gaps.hGap8,
                           Offstage(
-                            offstage: _mList[index]['name'] != myTabs[_index].text,
+                            offstage: _mList[index]['name'] != _myTabs[_index].text,
                             child: const LoadAssetImage('goods/xz', height: 16.0, width: 16.0),
                           )
                         ],
                       ),
                     ),
                     onTap: () {
-                      myTabs[_index] = Tab(text: _mList[index]['name']);
+                      _myTabs[_index] = Tab(text: _mList[index]['name']);
                       _positions[_index] = index;
                       _index++;
                       switch(_index) {
                         case 1:
                           _mList = _mGoodsSort1;
-                          myTabs[1] = Tab(text: '请选择');
-                          myTabs[2] = Tab(text: '');
+                          _myTabs[1] = Tab(text: '请选择');
+                          _myTabs[2] = Tab(text: '');
                           break;
                         case 2:
                           _mList = _mGoodsSort2;
-                          myTabs[2] = Tab(text: '请选择');
+                          _myTabs[2] = Tab(text: '请选择');
                           break;
                         case 3:
                           _mList = _mGoodsSort2;
