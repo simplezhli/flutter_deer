@@ -16,8 +16,8 @@ jobs:
       # A set of different configurations of the virtual environment.
       matrix:
         device:
-          - "iPhone 8 (13.1)"
-          - "iPhone 11 Pro Max (13.1)"
+          - "iPhone 8 (13.2.2)"
+          - "iPhone 11 Pro Max (13.2.2)"
       # When set to true, GitHub cancels all in-progress jobs if any matrix job
       # fails.
       fail-fast: false
