@@ -48,9 +48,9 @@ class _MyTextFieldState extends State<MyTextField> {
   bool _isShowDelete;
   bool _isClick = true;
   /// 倒计时秒数
-  final int second = 30;
+  final int _second = 30;
   /// 当前秒数
-  int s;
+  int _currentSecond;
   StreamSubscription _subscription;
 
   @override
@@ -78,13 +78,13 @@ class _MyTextFieldState extends State<MyTextField> {
     bool isSuccess = await widget.getVCode();
     if (isSuccess != null && isSuccess) {
       setState(() {
-        s = second;
+        _currentSecond = _second;
         _isClick = false;
       });
-      _subscription = Observable.periodic(Duration(seconds: 1), (i) => i).take(second).listen((i) {
+      _subscription = Observable.periodic(Duration(seconds: 1), (i) => i).take(_second).listen((i) {
         setState(() {
-          s = second - i - 1;
-          _isClick = s < 1;
+          _currentSecond = _second - i - 1;
+          _isClick = _currentSecond < 1;
         });
       });
     }
@@ -188,7 +188,7 @@ class _MyTextFieldState extends State<MyTextField> {
                     )
                 ),
                 child: Text(
-                  _isClick ? '获取验证码' : '（$s s）',
+                  _isClick ? '获取验证码' : '（$_currentSecond s）',
                   style: TextStyle(fontSize: Dimens.font_sp12),
                 ),
               ),                

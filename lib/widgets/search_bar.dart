@@ -30,17 +30,12 @@ class SearchBar extends StatefulWidget implements PreferredSizeWidget{
 
 class _SearchBarState extends State<SearchBar> {
 
-  SystemUiOverlayStyle overlayStyle = SystemUiOverlayStyle.light;
   TextEditingController _controller = TextEditingController();
 
-  Color getColor() {
-    return overlayStyle == SystemUiOverlayStyle.light ? Colours.dark_text : Colours.text;
-  }
-  
   @override
   Widget build(BuildContext context) {
     bool isDark = ThemeUtils.isDark(context);
-    overlayStyle = isDark ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark;
+    SystemUiOverlayStyle overlayStyle = isDark ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark;
     Color iconColor = isDark ? Colours.dark_text_gray : Colours.text_gray_c;
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: overlayStyle,
@@ -66,7 +61,7 @@ class _SearchBarState extends State<SearchBar> {
                         padding: const EdgeInsets.all(12.0),
                         child: Image.asset(
                           widget.backImg,
-                          color: getColor(),
+                          color: isDark ? Colours.dark_text : Colours.text,
                         ),
                       ),
                     ),

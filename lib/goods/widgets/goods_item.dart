@@ -81,8 +81,8 @@ class GoodsItem extends StatelessWidget {
                                 child: const Text(
                                   '立减',
                                   style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: Dimens.font_sp10
+                                    color: Colors.white,
+                                    fontSize: Dimens.font_sp10
                                   ),
                                 ),
                               ),

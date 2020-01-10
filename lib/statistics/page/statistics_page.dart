@@ -18,6 +18,7 @@ class StatisticsPage extends StatefulWidget {
 }
 
 class _StatisticsPageState extends State<StatisticsPage> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -119,17 +120,17 @@ class _StatisticsItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return AspectRatio(
       aspectRatio: 2.14,
-      child: MyCard(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
-            child: GestureDetector(
-              onTap: () {
-                if (index == 1 || index == 2) {
-                  NavigatorUtils.push(context, '${StatisticsRouter.orderStatisticsPage}?index=$index');
-                } else {
-                  NavigatorUtils.push(context, StatisticsRouter.goodsStatisticsPage);
-                }
-              },
+      child: GestureDetector(
+        onTap: () {
+          if (index == 1 || index == 2) {
+            NavigatorUtils.push(context, '${StatisticsRouter.orderStatisticsPage}?index=$index');
+          } else {
+            NavigatorUtils.push(context, StatisticsRouter.goodsStatisticsPage);
+          }
+        },
+        child: MyCard(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
               child: Column(
                 children: <Widget>[
                   Padding(
@@ -145,8 +146,8 @@ class _StatisticsItem extends StatelessWidget {
                   Expanded(child: LoadAssetImage('statistic/$img', fit: BoxFit.fill))
                 ],
               ),
-            ),
-          )
+            )
+        ),
       ),
     );
   }
