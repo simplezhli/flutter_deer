@@ -7,14 +7,14 @@ packages:
       name: _fe_analyzer_shared
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.3"
   analyzer:
     dependency: transitive
     description:
       name: analyzer
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.39.2+1"
+    version: "0.39.4"
   archive:
     dependency: transitive
     description:
@@ -160,10 +160,10 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: a76d8897b905f0e20172aaabe0b87d798c1c1d00
+      resolved-ref: "4e81236ce6415b623b7f21687d8ca0a545505cb9"
       url: "https://github.com/simplezhli/flutter_2d_amap.git"
     source: git
-    version: "0.0.2"
+    version: "0.0.3"
   flutter_cache_manager:
     dependency: transitive
     description:
@@ -188,6 +188,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.0.3"
+  flutter_plugin_android_lifecycle:
+    dependency: transitive
+    description:
+      name: flutter_plugin_android_lifecycle
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.4"
   flutter_slidable:
     dependency: "direct main"
     description:
@@ -265,7 +272,7 @@ packages:
       name: image_picker
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.6.2+3"
+    version: "0.6.3"
   intl:
     dependency: transitive
     description:
@@ -732,7 +739,7 @@ packages:
       name: webview_flutter
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.3.19+2"
+    version: "0.3.19+4"
   xml:
     dependency: transitive
     description:
