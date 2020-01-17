@@ -63,7 +63,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
         key: const Key('goods_statistics_list'),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,

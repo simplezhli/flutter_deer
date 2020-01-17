@@ -28,58 +28,33 @@ class _AccountPageState extends State<AccountPage> {
           Gaps.vGap5,
           AspectRatio(
             aspectRatio: 1.85,
-            child: Stack(
-              children: <Widget>[
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 6.0),
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: ImageUtils.getAssetImage('account/bg'),
-                      fit: BoxFit.fill
-                    )
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 6.0),
+              padding: const EdgeInsets.all(6.0),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: ImageUtils.getAssetImage('account/bg'),
+                  fit: BoxFit.fill
+                )
+              ),
+              child: Column(
+                children: <Widget>[
+                  const _AccountMoney(
+                    title: '当前余额(元)',
+                    money: '30.12',
+                    alignment: MainAxisAlignment.end,
+                    moneyTextStyle: const TextStyle(color: Colors.white, fontSize: 32.0, fontWeight: FontWeight.bold, fontFamily: 'RobotoThin'),
                   ),
-                ),
-                Positioned.fill(
-                  top: 37.0,
-                  child: MergeSemantics(
-                    child: Column(
+                  Expanded(
+                    child: Row(
                       children: <Widget>[
-                        const Text('当前余额(元)', style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
-                        Gaps.vGap8,
-                        RiseNumberText(30.12, style: TextStyle(color: Colors.white, fontSize: 32.0, fontWeight: FontWeight.bold, fontFamily: 'RobotoThin')),
+                        const _AccountMoney(title: '累计结算金额', money: '20000'),
+                        const _AccountMoney(title: '累计发放佣金', money: '0.02'),
                       ],
                     ),
                   ),
-                ),
-                Positioned(
-                  bottom: 37.0,
-                  left: 70.0,
-                  right: 70.0,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      MergeSemantics(
-                        child: Column(
-                          children: <Widget>[
-                            const Text('累计结算金额', style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
-                            Gaps.vGap8,
-                            RiseNumberText(NumUtil.getDoubleByValueStr('20000'), style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp14, fontWeight: FontWeight.bold, fontFamily: 'RobotoThin')),
-                          ],
-                        ),
-                      ),
-                      MergeSemantics(
-                        child: Column(
-                          children: <Widget>[
-                            const Text('累计发放佣金', style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
-                            Gaps.vGap8,
-                            RiseNumberText(0.02, style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp14, fontWeight: FontWeight.bold, fontFamily: 'RobotoThin')),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              ],
+                ],
+              ),
             ),
           ),
           Gaps.vGap5,
@@ -97,6 +72,40 @@ class _AccountPageState extends State<AccountPage> {
           ),
         ],
       )
+    );
+  }
+}
+
+class _AccountMoney extends StatelessWidget {
+  
+  const _AccountMoney({
+    Key key,
+    @required this.title,
+    @required this.money,
+    this.alignment,
+    this.moneyTextStyle
+  }): super(key: key);
+
+  final String title;
+  final String money;
+  final MainAxisAlignment alignment;
+  final TextStyle moneyTextStyle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: MergeSemantics(
+        child: Column(
+          mainAxisAlignment: alignment ?? MainAxisAlignment.center,
+          children: <Widget>[
+            /// 横向撑开Column，扩大语义区域
+            const SizedBox(width: double.infinity),
+            Text(title, style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
+            Gaps.vGap8,
+            RiseNumberText(NumUtil.getDoubleByValueStr(money), style: moneyTextStyle ?? TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp14, fontWeight: FontWeight.bold, fontFamily: 'RobotoThin')),
+          ],
+        ),
+      ),
     );
   }
 }
