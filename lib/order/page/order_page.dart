@@ -185,7 +185,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
   }
 
   PageController _pageController = PageController(initialPage: 0);
-  _onPageChange(int index) async{
+  _onPageChange(int index) async {
     provider.setIndex(index);
     _tabController.animateTo(index);
   }

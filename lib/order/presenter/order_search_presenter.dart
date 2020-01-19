@@ -8,13 +8,13 @@ import 'package:flutter_deer/widgets/state_layout.dart';
 
 class OrderSearchPresenter extends BasePagePresenter<OrderSearchPageState> {
 
-  Future search(String text, int page, bool isShowDialog) async{
+  Future search(String text, int page, bool isShowDialog) {
    
     Map<String, String> params = Map();
     params['q'] = text;
     params['page'] = page.toString();
     params['l'] = 'Dart';
-    await requestNetwork<SearchEntity>(Method.get,
+    return requestNetwork<SearchEntity>(Method.get,
       url: HttpApi.search,
       queryParameters: params,
       isShow: isShowDialog,

@@ -92,9 +92,9 @@ class DioUtils {
         Function(int code, String msg) onError,
         dynamic params, Map<String, dynamic> queryParameters, 
         CancelToken cancelToken, Options options, bool isList : false
-  }) async {
+  }) {
     String m = _getRequestMethod(method);
-    return await _request<T>(m, url,
+    return _request<T>(m, url,
         data: params,
         queryParameters: queryParameters,
         options: options,

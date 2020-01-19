@@ -36,7 +36,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
   String _goodsSortName;
   final TextEditingController _codeController = TextEditingController();
   
-  void _getImage() async{
+  void _getImage() async {
     try {
       _imageFile = await ImagePicker.pickImage(source: ImageSource.gallery, maxWidth: 800);
       setState(() {});

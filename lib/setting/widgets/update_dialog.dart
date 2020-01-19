@@ -37,7 +37,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
   Widget build(BuildContext context) {
     Color primaryColor = Theme.of(context).primaryColor;
     return WillPopScope(
-      onWillPop: () async{
+      onWillPop: () async {
         /// 使用false禁止返回键返回，达到强制升级目的
         return true;
       },

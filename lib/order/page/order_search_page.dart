@@ -85,7 +85,5 @@ class OrderSearchPageState extends BasePageState<OrderSearchPage, OrderSearchPre
   }
 
   @override
-  OrderSearchPresenter createPresenter() {
-    return OrderSearchPresenter();
-  }
+  OrderSearchPresenter createPresenter() => OrderSearchPresenter();
 }

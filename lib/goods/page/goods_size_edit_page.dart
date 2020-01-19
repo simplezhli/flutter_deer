@@ -22,7 +22,7 @@ class _GoodsSizeEditPageState extends State<GoodsSizeEditPage> {
 
   File _imageFile;
 
-  void _getImage() async{
+  void _getImage() async {
     try {
       _imageFile = await ImagePicker.pickImage(source: ImageSource.gallery, maxWidth: 600);
       setState(() {});

@@ -38,9 +38,9 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
   /// 返回Future 适用于刷新，加载更多
   Future requestNetwork<T>(Method method, {@required String url, bool isShow : true, bool isClose: true, Function(T t) onSuccess,
     Function(List<T> list) onSuccessList, Function(int code, String msg) onError, dynamic params, 
-    Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options, bool isList : false}) async {
+    Map<String, dynamic> queryParameters, CancelToken cancelToken, Options options, bool isList : false}) {
     if (isShow) view.showProgress();
-    await DioUtils.instance.requestNetwork<T>(method, url,
+    return DioUtils.instance.requestNetwork<T>(method, url,
         params: params,
         queryParameters: queryParameters,
         options: options,
@@ -91,7 +91,7 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
   }
 
   /// 上传图片实现
-  Future<String> uploadImg(File image) async{
+  Future<String> uploadImg(File image) async {
     String imgPath = '';
     try{
       String path = image.path;

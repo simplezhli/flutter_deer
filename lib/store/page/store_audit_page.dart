@@ -34,7 +34,7 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
 
   String _address = '陕西省 西安市 雁塔区 高新六路201号';
   
-  void _getImage() async{
+  void _getImage() async {
     try {
       _imageFile = await ImagePicker.pickImage(source: ImageSource.gallery, maxWidth: 800, imageQuality: 95);
       setState(() {});
