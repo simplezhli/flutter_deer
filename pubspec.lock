@@ -160,7 +160,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "4e81236ce6415b623b7f21687d8ca0a545505cb9"
+      resolved-ref: "5dacbb3cdb6071db18d6f4661c4337fc68a92a7b"
       url: "https://github.com/simplezhli/flutter_2d_amap.git"
     source: git
     version: "0.0.3"
@@ -454,7 +454,7 @@ packages:
       name: provider
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "4.0.1"
+    version: "4.0.2"
   pub_semver:
     dependency: transitive
     description:

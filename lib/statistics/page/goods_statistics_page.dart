@@ -2,7 +2,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/date_utils.dart';
 import 'package:flutter_deer/util/image_utils.dart';
@@ -155,7 +154,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                 margin: const EdgeInsets.symmetric(horizontal: 11.0),
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Constant.colorList[index]
+                    color: PieChart.colorList[index]
                 ),
                 child: Text('${index + 1}', style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp12, fontWeight: FontWeight.bold)),
               ),

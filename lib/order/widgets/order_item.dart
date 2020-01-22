@@ -1,7 +1,6 @@
 
 import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/order/widgets/pay_type_dialog.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
@@ -11,6 +10,9 @@ import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
 
 import '../order_router.dart';
+
+const List<String> orderLeftButtonText = ['拒单', '拒单', '订单跟踪', '订单跟踪', '订单跟踪'];
+const List<String> orderRightButtonText = ['接单', '开始配送', '完成', '', ''];
 
 class OrderItem extends StatelessWidget {
 
@@ -115,7 +117,7 @@ class OrderItem extends StatelessWidget {
                     ),
                     OrderItemButton(
                       key: Key('order_button_2_$index'),
-                      text: Constant.orderLeftButtonText[tabIndex],
+                      text: orderLeftButtonText[tabIndex],
                       textColor: isDark ? Colours.dark_text : Colours.text,
                       bgColor: isDark ? Colours.dark_material_bg : Colours.bg_gray,
                       onTap: () {
@@ -124,11 +126,11 @@ class OrderItem extends StatelessWidget {
                         }
                       },
                     ),
-                    Constant.orderRightButtonText[tabIndex].length == 0 ? Gaps.empty : Gaps.hGap10,
-                    Constant.orderRightButtonText[tabIndex].length == 0 ? Gaps.empty :
+                    orderRightButtonText[tabIndex].length == 0 ? Gaps.empty : Gaps.hGap10,
+                    orderRightButtonText[tabIndex].length == 0 ? Gaps.empty :
                     OrderItemButton(
                       key: Key('order_button_3_$index'),
-                      text: Constant.orderRightButtonText[tabIndex],
+                      text: orderRightButtonText[tabIndex],
                       textColor: isDark ? Colours.dark_button_text : Colors.white,
                       bgColor: isDark ? Colours.dark_app_main : Colours.app_main,
                       onTap: () {
