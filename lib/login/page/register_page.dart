@@ -67,7 +67,8 @@ class _RegisterPageState extends State<RegisterPage> {
         appBar: const MyAppBar(
           title: '注册',
         ),
-        body: defaultTargetPlatform == TargetPlatform.iOS ? FormKeyboardActions(
+        body: defaultTargetPlatform == TargetPlatform.iOS ? KeyboardActions(
+          config: Utils.getKeyboardActionsConfig(context, [_nodeText1, _nodeText2, _nodeText3]),
           child: _buildBody(),
         ) : SingleChildScrollView(
           child: _buildBody(),
@@ -89,7 +90,6 @@ class _RegisterPageState extends State<RegisterPage> {
           MyTextField(
             key: const Key('phone'),
             focusNode: _nodeText1,
-            config: Utils.getKeyboardActionsConfig(context, [_nodeText1, _nodeText2, _nodeText3]),
             controller: _nameController,
             maxLength: 11,
             keyboardType: TextInputType.phone,

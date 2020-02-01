@@ -100,7 +100,7 @@ packages:
       name: coverage
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.13.3+3"
+    version: "0.13.4"
   crypto:
     dependency: transitive
     description:
@@ -194,7 +194,7 @@ packages:
       name: flutter_plugin_android_lifecycle
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.4"
+    version: "1.0.5"
   flutter_slidable:
     dependency: "direct main"
     description:
@@ -307,7 +307,7 @@ packages:
       name: keyboard_actions
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.1.2"
+    version: "3.1.2"
   logging:
     dependency: transitive
     description:
@@ -405,7 +405,7 @@ packages:
       name: path_provider
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.5.1"
+    version: "1.6.0"
   pedantic:
     dependency: transitive
     description:
@@ -475,7 +475,7 @@ packages:
       name: rational
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.3.7"
+    version: "0.3.8"
   rxdart:
     dependency: "direct main"
     description:
@@ -489,7 +489,7 @@ packages:
       name: shared_preferences
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.5.6"
+    version: "0.5.6+1"
   shared_preferences_macos:
     dependency: transitive
     description:
@@ -620,7 +620,7 @@ packages:
       name: synchronized
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.1.1"
+    version: "2.2.0"
   term_glyph:
     dependency: transitive
     description:

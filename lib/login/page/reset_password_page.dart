@@ -67,7 +67,8 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
         appBar: const MyAppBar(
           title: '忘记密码',
         ),
-        body: defaultTargetPlatform == TargetPlatform.iOS ? FormKeyboardActions(
+        body: defaultTargetPlatform == TargetPlatform.iOS ? KeyboardActions(
+          config: Utils.getKeyboardActionsConfig(context, [_nodeText1, _nodeText2, _nodeText3]),
           child: _buildBody(),
         ) : SingleChildScrollView(
           child: _buildBody(),
@@ -88,7 +89,6 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
           Gaps.vGap16,
           MyTextField(
             focusNode: _nodeText1,
-            config: Utils.getKeyboardActionsConfig(context, [_nodeText1, _nodeText2, _nodeText3]),
             controller: _nameController,
             maxLength: 11,
             keyboardType: TextInputType.phone,

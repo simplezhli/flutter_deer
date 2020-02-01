@@ -58,7 +58,8 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MyAppBar(),
-      body: defaultTargetPlatform == TargetPlatform.iOS ? FormKeyboardActions(
+      body: defaultTargetPlatform == TargetPlatform.iOS ? KeyboardActions(
+        config: Utils.getKeyboardActionsConfig(context, [_nodeText1, _nodeText2]),
         child: _buildBody(),
       ) : SingleChildScrollView(
         child: _buildBody(),
@@ -79,7 +80,6 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
           Gaps.vGap16,
           MyTextField(
             focusNode: _nodeText1,
-            config: Utils.getKeyboardActionsConfig(context, [_nodeText1, _nodeText2]),
             controller: _phoneController,
             maxLength: 11,
             keyboardType: TextInputType.phone,

@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:keyboard_actions/keyboard_actions.dart';
 
 import 'load_image.dart';
 
@@ -23,7 +22,6 @@ class MyTextField extends StatefulWidget {
     this.focusNode,
     this.isInputPwd: false,
     this.getVCode,
-    this.config,
     this.keyName
   }): super(key: key);
 
@@ -35,7 +33,6 @@ class MyTextField extends StatefulWidget {
   final FocusNode focusNode;
   final bool isInputPwd;
   final Future<bool> Function() getVCode;
-  final KeyboardActionsConfig config;
   /// 用于集成测试寻找widget
   final String keyName;
   
@@ -92,10 +89,6 @@ class _MyTextFieldState extends State<MyTextField> {
   
   @override
   Widget build(BuildContext context) {
-    if (widget.config != null && defaultTargetPlatform == TargetPlatform.iOS) {
-      // 因Android平台输入法兼容问题，所以只配置IOS平台
-      FormKeyboardActions.setKeyboardActions(context, widget.config);
-    }
     ThemeData themeData = Theme.of(context);
     bool isDark = themeData.brightness == Brightness.dark;
     return Stack(

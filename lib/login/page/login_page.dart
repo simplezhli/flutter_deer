@@ -72,11 +72,12 @@ class _LoginPageState extends State<LoginPage> {
           NavigatorUtils.push(context, LoginRouter.smsLoginPage);
         },
       ),
-      body: defaultTargetPlatform == TargetPlatform.iOS ? FormKeyboardActions(
+      body: defaultTargetPlatform == TargetPlatform.iOS ? KeyboardActions(
+        config: Utils.getKeyboardActionsConfig(context, [_nodeText1, _nodeText2]),
         child: _buildBody(),
       ) : SingleChildScrollView(
         child: _buildBody(),
-      ) 
+      )
     );
   }
   
@@ -104,7 +105,6 @@ class _LoginPageState extends State<LoginPage> {
             key: const Key('password'),
             keyName: 'password',
             focusNode: _nodeText2,
-            config: Utils.getKeyboardActionsConfig(context, [_nodeText1, _nodeText2]),
             isInputPwd: true,
             controller: _passwordController,
             keyboardType: TextInputType.visiblePassword,

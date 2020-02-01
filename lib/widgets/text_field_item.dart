@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/number_text_input_formatter.dart';
-import 'package:keyboard_actions/keyboard_actions.dart';
 
 /// 封装输入框
 class TextFieldItem extends StatelessWidget {
@@ -16,7 +15,6 @@ class TextFieldItem extends StatelessWidget {
     this.keyboardType: TextInputType.text,
     this.hintText: '',
     this.focusNode,
-    this.config
   }): super(key: key);
 
   final TextEditingController controller;
@@ -24,14 +22,9 @@ class TextFieldItem extends StatelessWidget {
   final String hintText;
   final TextInputType keyboardType;
   final FocusNode focusNode;
-  final KeyboardActionsConfig config;
 
   @override
   Widget build(BuildContext context) {
-    if (config != null && defaultTargetPlatform == TargetPlatform.iOS) {
-      // 因Android平台输入法兼容问题，所以只配置IOS平台
-      FormKeyboardActions.setKeyboardActions(context, config);
-    }
     return Container(
       height: 50.0,
       margin:  const EdgeInsets.only(left: 16.0),

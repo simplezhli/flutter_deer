@@ -80,7 +80,9 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
           children: <Widget>[
             Expanded(
               flex: 1,
-              child: defaultTargetPlatform == TargetPlatform.iOS ? FormKeyboardActions(
+              child: defaultTargetPlatform == TargetPlatform.iOS ? KeyboardActions(
+                tapOutsideToDismiss: true, //键盘外部按下将其关闭
+                config: _buildConfig(context),
                 child: _buildBody()
               ) : SingleChildScrollView(
                 child: _buildBody()
@@ -166,7 +168,6 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
           ),
           TextFieldItem(
               focusNode: _nodeText3,
-              config: _buildConfig(context),
               keyboardType: TextInputType.phone,
               title: '联系电话',
               hintText: '填写店主联系电话'
