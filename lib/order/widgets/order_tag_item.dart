@@ -21,20 +21,20 @@ class OrderTagItem extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(top: 8.0),
       child: MyCard(
-          child: Container(
-            height: 34.0,
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Row(
-              children: <Widget>[
-                ThemeUtils.isDark(context) ? const LoadAssetImage('order/icon_calendar_dark', width: 14.0, height: 14.0) : 
-                const LoadAssetImage('order/icon_calendar', width: 14.0, height: 14.0),
-                Gaps.hGap10,
-                Text(date),
-                Expanded(child: Gaps.empty),
-                Text('$orderTotal单')
-              ],
-            ),
-          )
+        child: Container(
+          height: 34.0,
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Row(
+            children: <Widget>[
+              ThemeUtils.isDark(context) ? const LoadAssetImage('order/icon_calendar_dark', width: 14.0, height: 14.0) :
+              const LoadAssetImage('order/icon_calendar', width: 14.0, height: 14.0),
+              Gaps.hGap10,
+              Text(date),
+              Expanded(child: Gaps.empty),
+              Text('$orderTotal单')
+            ],
+          ),
+        )
       ),
     );
   }

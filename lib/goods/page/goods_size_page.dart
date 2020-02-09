@@ -166,6 +166,111 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
 
   /// design/4商品/index.html#artboard19
   Widget _getGoodsSizeItem(int index) {
+
+    // item
+    Widget widget = Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        LoadAssetImage(_goodsSizeList[index].icon, width: 72.0, height: 72.0),
+        Gaps.hGap8,
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                      _goodsSizeList[index].sizeName,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis
+                  ),
+                  Text(
+                      '库存${_goodsSizeList[index].stock}',
+                      style: TextStyles.textSize12
+                  ),
+                ],
+              ),
+              Gaps.vGap4,
+              Row(
+                children: <Widget>[
+                  Offstage(
+                    offstage: _goodsSizeList[index].reducePrice.isEmpty,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                      margin: const EdgeInsets.only(right: 4.0),
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).errorColor,
+                        borderRadius: BorderRadius.circular(2.0),
+                      ),
+                      height: 16.0,
+                      alignment: Alignment.center,
+                      child: Text(
+                        '立减${_goodsSizeList[index].reducePrice}元',
+                        style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp10),
+                      ),
+                    ),
+                  ),
+                  Opacity(
+                    opacity: _goodsSizeList[index].currencyPrice.isEmpty ? 0.0 : 1.0,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor,
+                        borderRadius: BorderRadius.circular(2.0),
+                      ),
+                      height: 16.0,
+                      alignment: Alignment.center,
+                      child: Text(
+                        '社区币抵扣${_goodsSizeList[index].currencyPrice}元',
+                        style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp10),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              Gaps.vGap16,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(Utils.formatPrice(_goodsSizeList[index].price)),
+                  const SizedBox(width: 50.0,),
+                  Text(
+                      '佣金${_goodsSizeList[index].charges}元',
+                      style: TextStyles.textSize12
+                  ),
+                  Text(
+                      '起购${_goodsSizeList[index].minSaleNum}件',
+                      style: TextStyles.textSize12
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+      ],
+    );
+
+    // item装饰
+    widget = InkWell(
+      onTap: () => NavigatorUtils.push(context, GoodsRouter.goodsSizeEditPage),
+      child: Container(
+        padding: const EdgeInsets.only(left: 16.0, top: 16.0),
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: Divider.createBorderSide(context, width: 0.8),
+            )
+          ),
+          child: Padding(
+            padding: const EdgeInsets.only(right: 16.0, bottom: 16.0),
+            child: widget
+          ),
+        ),
+      ),
+    );
+
+    // 侧滑删除
     return Slidable(
       key: Key(index.toString()),
       controller: _slidableController,
@@ -190,104 +295,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
           },
         ),
       ],
-      child: InkWell(
-        onTap: () => NavigatorUtils.push(context, GoodsRouter.goodsSizeEditPage),
-        child: Container(
-          padding: const EdgeInsets.only(left: 16.0, top: 16.0),
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-                border: Border(
-                  bottom: Divider.createBorderSide(context, width: 0.8),
-                )
-            ),
-            child: Padding(
-              padding: const EdgeInsets.only(right: 16.0, bottom: 16.0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  LoadAssetImage(_goodsSizeList[index].icon, width: 72.0, height: 72.0),
-                  Gaps.hGap8,
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Text(
-                                _goodsSizeList[index].sizeName,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis
-                            ),
-                            Text(
-                              '库存${_goodsSizeList[index].stock}',
-                              style: TextStyles.textSize12
-                            ),
-                         ],
-                        ),
-                        Gaps.vGap4,
-                        Row(
-                          children: <Widget>[
-                            Offstage(
-                              offstage: _goodsSizeList[index].reducePrice.isEmpty,
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                                margin: const EdgeInsets.only(right: 4.0),
-                                decoration: BoxDecoration(
-                                  color: Theme.of(context).errorColor,
-                                  borderRadius: BorderRadius.circular(2.0),
-                                ),
-                                height: 16.0,
-                                alignment: Alignment.center,
-                                child: Text(
-                                  '立减${_goodsSizeList[index].reducePrice}元',
-                                  style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp10),
-                                ),
-                              ),
-                            ),
-                            Opacity(
-                              opacity: _goodsSizeList[index].currencyPrice.isEmpty ? 0.0 : 1.0,
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                                decoration: BoxDecoration(
-                                  color: Theme.of(context).primaryColor,
-                                  borderRadius: BorderRadius.circular(2.0),
-                                ),
-                                height: 16.0,
-                                alignment: Alignment.center,
-                                child: Text(
-                                  '社区币抵扣${_goodsSizeList[index].currencyPrice}元',
-                                  style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp10),
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                        Gaps.vGap16,
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Text(Utils.formatPrice(_goodsSizeList[index].price)),
-                            const SizedBox(width: 50.0,),
-                            Text(
-                              '佣金${_goodsSizeList[index].charges}元',
-                              style: TextStyles.textSize12
-                            ),
-                            Text(
-                              '起购${_goodsSizeList[index].minSaleNum}件',
-                              style: TextStyles.textSize12
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
+      child: widget
     );
   }
 }

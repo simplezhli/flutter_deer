@@ -16,7 +16,7 @@ dependencies:
     sdk: flutter
  
   # Toast插件 https://github.com/OpenFlutter/flutter_oktoast
-  oktoast: ^2.3.0
+  oktoast: ^2.3.1
   # 网络库 https://github.com/flutterchina/dio
   dio: ^3.0.8
   # https://github.com/ReactiveX/rxdart
@@ -54,7 +54,7 @@ dependencies:
   # 格式化String https://github.com/Naddiseo/dart-sprintf
   sprintf: ^4.0.2
   # 状态管理 https://github.com/rrousselGit/provider
-  provider: ^4.0.2
+  provider: ^4.0.3
   # 高德2D地图插件 https://github.com/simplezhli/flutter_2d_amap
   flutter_2d_amap:
     git:
