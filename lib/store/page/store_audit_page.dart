@@ -51,18 +51,25 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
       actions: [
         KeyboardAction(
           focusNode: _nodeText1,
-          displayCloseWidget: false,
+          displayDoneButton: false,
         ),
         KeyboardAction(
           focusNode: _nodeText2,
-          displayCloseWidget: false,
+          displayDoneButton: false,
         ),
         KeyboardAction(
           focusNode: _nodeText3,
-          closeWidget: Padding(
-            padding: EdgeInsets.all(5.0),
-            child: const Text('关闭'),
-          ),
+          toolbarButtons: [
+            (node) {
+              return GestureDetector(
+                onTap: () => node.unfocus(),
+                child: Padding(
+                  padding: EdgeInsets.only(right: 16.0),
+                  child: const Text('关闭'),
+                ),
+              );
+            },
+          ],
         ),
       ],
     );

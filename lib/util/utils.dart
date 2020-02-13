@@ -45,10 +45,17 @@ class Utils {
       nextFocus: true,
       actions: List.generate(list.length, (i) => KeyboardAction(
         focusNode: list[i],
-        closeWidget: const Padding(
-          padding: EdgeInsets.all(5.0),
-          child: Text('关闭'),
-        ),
+        toolbarButtons: [
+          (node) {
+            return GestureDetector(
+              onTap: () => node.unfocus(),
+              child: Padding(
+                padding: EdgeInsets.only(right: 16.0),
+                child: const Text('关闭'),
+              ),
+            );
+          },
+        ],
       )),
     );
   }

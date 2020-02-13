@@ -100,7 +100,7 @@ packages:
       name: coverage
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.13.5"
+    version: "0.13.6"
   crypto:
     dependency: transitive
     description:
@@ -142,7 +142,7 @@ packages:
       name: fluro
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.5.1"
+    version: "1.5.2"
   flustars:
     dependency: "direct main"
     description:
@@ -307,7 +307,7 @@ packages:
       name: keyboard_actions
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "3.1.2"
+    version: "3.2.0"
   logging:
     dependency: transitive
     description:
@@ -454,7 +454,7 @@ packages:
       name: provider
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "4.0.3"
+    version: "4.0.4"
   pub_semver:
     dependency: transitive
     description:
@@ -564,7 +564,7 @@ packages:
       name: source_maps
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.10.8"
+    version: "0.10.9"
   source_span:
     dependency: transitive
     description:
@@ -756,4 +756,4 @@ packages:
     version: "2.2.0"
 sdks:
   dart: ">=2.6.0 <3.0.0"
-  flutter: ">=1.12.13+hotfix.5 <2.0.0"
+  flutter: ">=1.12.13+hotfix.5 <1.13.0"
