@@ -1,7 +1,5 @@
 # Flutter Deer
 
-[CSDN博客之星活动。微信或QQ打开，一天五票，感谢支持！](http://m234140.nofollow.ax.mvote.cn/opage/68ea3676-e445-1ca2-162d-3e2915feb14b.html)
-
 <img src="preview/logo.jpg"/>
 
 本项目为个人学习Flutter的练习项目。
