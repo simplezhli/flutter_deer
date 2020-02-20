@@ -38,28 +38,30 @@ class _WithdrawalPasswordPageState extends State<WithdrawalPasswordPage> {
           ),
           ClickItem(
             title: '忘记密码',
-            onTap: () {
-              showElasticDialog(
-                context: context,
-                barrierDismissible: false,
-                builder: (BuildContext context) {
-                  return BaseDialog(
-                    hiddenTitle: true,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: const Text('为了您的账户安全需先进行短信验证并设置提现密码。', textAlign: TextAlign.center),
-                    ),
-                    onPressed: () {
-                      NavigatorUtils.goBack(context);
-                      _showVerifyDialog();
-                    },
-                  );
-                }
-              );
-            }
+            onTap: () => _showHintDialog()
           ),
         ],
       ),
+    );
+  }
+
+  _showHintDialog() {
+    showElasticDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return BaseDialog(
+            hiddenTitle: true,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: const Text('为了您的账户安全需先进行短信验证并设置提现密码。', textAlign: TextAlign.center),
+            ),
+            onPressed: () {
+              NavigatorUtils.goBack(context);
+              _showVerifyDialog();
+            },
+          );
+        }
     );
   }
   

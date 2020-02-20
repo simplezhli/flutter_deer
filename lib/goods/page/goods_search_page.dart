@@ -15,9 +15,7 @@ class _GoodsSearchPageState extends State<GoodsSearchPage> {
     return Scaffold(
       appBar: SearchBar(
         hintText: '请输入商品名称查询',
-        onPressed: (text) {
-          Toast.show('搜索内容：$text');
-        },
+        onPressed: (text) => Toast.show('搜索内容：$text'),
       ),
       body: Container(),
     );

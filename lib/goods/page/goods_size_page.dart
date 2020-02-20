@@ -51,8 +51,8 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
   _showHint() {
     final RenderBox hint = _hintKey.currentContext.findRenderObject();
     final RenderBox overlay = Overlay.of(context).context.findRenderObject();
-    var a =  hint.localToGlobal(Offset(50.0 , hint.size.height + 150.0), ancestor: overlay);
-    var b =  hint.localToGlobal(hint.size.bottomLeft(Offset(50.0, 150.0)), ancestor: overlay);
+    var a = hint.localToGlobal(Offset(50.0, hint.size.height + 150.0), ancestor: overlay);
+    var b = hint.localToGlobal(hint.size.bottomLeft(Offset(50.0, 150.0)), ancestor: overlay);
     final RelativeRect position = RelativeRect.fromRect(
       Rect.fromPoints(a, b),
       Offset.zero & overlay.size,

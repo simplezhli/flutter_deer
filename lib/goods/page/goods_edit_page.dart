@@ -72,7 +72,6 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
         child: Column(
           children: <Widget>[
             Expanded(
-              flex: 1,
               child: SingleChildScrollView(
                 key: const Key('goods_edit_page'),
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
@@ -189,9 +188,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
             Padding(
               padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
               child: MyButton(
-                onPressed: () {
-                  NavigatorUtils.goBack(context);
-                },
+                onPressed: () => NavigatorUtils.goBack(context),
                 text: '提交',
               ),
             )

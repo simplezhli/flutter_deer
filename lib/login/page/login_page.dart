@@ -131,16 +131,16 @@ class _LoginPageState extends State<LoginPage> {
           ),
           Gaps.vGap16,
           Container(
-              alignment: Alignment.center,
-              child: GestureDetector(
-                child: Text(
-                  '还没账号？快去注册',
-                  style: TextStyle(
-                      color: Theme.of(context).primaryColor
-                  ),
+            alignment: Alignment.center,
+            child: GestureDetector(
+              child: Text(
+                '还没账号？快去注册',
+                style: TextStyle(
+                  color: Theme.of(context).primaryColor
                 ),
-                onTap: () => NavigatorUtils.push(context, LoginRouter.registerPage),
-              )
+              ),
+              onTap: () => NavigatorUtils.push(context, LoginRouter.registerPage),
+            )
           )
         ],
       ),

@@ -33,15 +33,11 @@ class _WithdrawalAccountListPageState extends State<WithdrawalAccountListPage> {
       appBar: MyAppBar(
         centerTitle: '选择账号',
         actionName: '添加',
-        onPressed: () {
-          NavigatorUtils.push(context, AccountRouter.addWithdrawalAccountPage);
-        }
+        onPressed: () => NavigatorUtils.push(context, AccountRouter.addWithdrawalAccountPage)
       ),
       body: ListView.separated(
         itemCount: _list.length,
-        separatorBuilder: (_, index) {
-          return Divider(height: 0.6);
-        },
+        separatorBuilder: (_, index) => Divider(height: 0.6),
         itemBuilder: (_, index) {
           return InkWell(
             onTap: () => NavigatorUtils.goBackWithParams(context, _list[index]),

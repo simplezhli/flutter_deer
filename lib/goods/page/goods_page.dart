@@ -316,20 +316,23 @@ class _TabView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<GoodsPageProvider>(
       builder: (_, provider, child) {
-        return  Tab(
-            child: SizedBox(
-              width: 78.0,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(tabName),
-                  Offstage(offstage: provider.goodsCountList[index] == 0 || provider.index != index, child: Padding(
+        return Tab(
+          child: SizedBox(
+            width: 78.0,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(tabName),
+                Offstage(
+                  offstage: provider.goodsCountList[index] == 0 || provider.index != index,
+                  child: Padding(
                     padding: const EdgeInsets.only(top: 1.0),
                     child: Text(' (${provider.goodsCountList[index]}件)', style: TextStyle(fontSize: Dimens.font_sp12)),
-                  )),
-                ],
-              ),
-            )
+                  )
+                ),
+              ],
+            ),
+          )
         );
       },
     );

@@ -41,7 +41,6 @@ class _GoodsSizeEditPageState extends State<GoodsSizeEditPage> {
         child: Column(
           children: <Widget>[
             Expanded(
-              flex: 1,
               child: SingleChildScrollView(
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                 physics: BouncingScrollPhysics(),

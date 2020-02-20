@@ -69,7 +69,8 @@ class _WithdrawalRecordListPageState extends State<WithdrawalRecordListPage> {
               Positioned(
                   bottom: 0.0,
                   right: 0.0,
-                  child: Text(i % 2 == 0 ? '审核失败' : '待审核', style: i % 2 == 0 ? TextStyle(
+                  child: Text(i % 2 == 0 ? '审核失败' : '待审核',
+                      style: i % 2 == 0 ? TextStyle(
                       fontSize: Dimens.font_sp12,
                       color: Theme.of(context).errorColor
                   ) : const TextStyle(

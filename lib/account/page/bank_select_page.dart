@@ -73,9 +73,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
           header: widget.type == 0 ? AzListViewHeader(
             tag: '常用',
             height: 430, 
-            builder: (_) {
-              return _buildHeader();
-            }
+            builder: (_) => _buildHeader()
           ) : null,
         ),
       ),

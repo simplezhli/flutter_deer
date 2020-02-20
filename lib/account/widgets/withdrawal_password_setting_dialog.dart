@@ -13,8 +13,10 @@ class WithdrawalPasswordSettingDialog extends StatefulWidget {
 }
 
 class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSettingDialog> {
-  
+
+  int _index = 0;
   var _list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0, 0];
+  List<String> _codeList = ['', '', '', '', '', ''];
   
   @override
   Widget build(BuildContext context) {
@@ -86,59 +88,58 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                 crossAxisSpacing: 0.6
               ),
               itemCount: 12,
-              itemBuilder: (_, index) {
-                final color = ThemeUtils.isDark(context) ? Colours.dark_bg_gray : Colours.dark_button_text;
-                return Material(
-                  color: (index == 9 || index == 11) ? color : null,
-                  child: InkWell(
-                    child: Center(
-                      child: index == 11 ? Semantics(label: '删除', child: const LoadAssetImage('account/del', width: 32.0)) : index == 9 ? Semantics(label: '无效', child: Gaps.empty) :
-                      Text(_list[index].toString(), style: TextStyle(fontSize: 26.0)),
-                    ),
-                    onTap: () {
-                      if (index == 9) {
-                        return;
-                      }
-                      if (index == 11) {
-                        if (_index == 0) {
-                          return;
-                        }
-                        _codeList[_index - 1] = '';
-                        _index--;
-                        setState(() {
-
-                        });
-                        return;
-                      }
-                      _codeList[_index] = _list[index].toString();
-                      _index++;
-                      if (_index == _codeList.length) {
-
-                        String code = '';
-                        for (int i = 0; i < _codeList.length; i ++) {
-                          code = code + _codeList[i];
-                        }
-                        Toast.show('密码：$code');
-                        _index = 0;
-                        for (int i = 0; i < _codeList.length; i ++) {
-                          _codeList[i] = '';
-                        }
-                      }
-                      setState(() {
-
-                      });
-                    },
-                  ),
-                );
-              },
+              itemBuilder: (_, index) => _buildButton(index)
             ),
           ),
       ],
     ));
   }
 
-  int _index = 0;
-  List<String> _codeList = ['', '', '', '', '', ''];
+  Widget _buildButton(int index) {
+    final color = ThemeUtils.isDark(context) ? Colours.dark_bg_gray : Colours.dark_button_text;
+    return Material(
+      color: (index == 9 || index == 11) ? color : null,
+      child: InkWell(
+        child: Center(
+          child: index == 11 ? Semantics(label: '删除', child: const LoadAssetImage('account/del', width: 32.0)) : index == 9 ? Semantics(label: '无效', child: Gaps.empty) :
+          Text(_list[index].toString(), style: TextStyle(fontSize: 26.0)),
+        ),
+        onTap: () {
+          if (index == 9) {
+            return;
+          }
+          if (index == 11) {
+            if (_index == 0) {
+              return;
+            }
+            _codeList[_index - 1] = '';
+            _index--;
+            setState(() {
+
+            });
+            return;
+          }
+          _codeList[_index] = _list[index].toString();
+          _index++;
+          if (_index == _codeList.length) {
+
+            String code = '';
+            for (int i = 0; i < _codeList.length; i ++) {
+              code = code + _codeList[i];
+            }
+            Toast.show('密码：$code');
+            _index = 0;
+            for (int i = 0; i < _codeList.length; i ++) {
+              _codeList[i] = '';
+            }
+          }
+          setState(() {
+
+          });
+        },
+      ),
+    );
+  }
 
   Widget _buildInputWidget(int p) {
     return Expanded(
