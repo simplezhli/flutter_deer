@@ -26,7 +26,7 @@ class _SendTypeDialog extends State<SendTypeDialog>{
   int _value = 0;
   var _list = ['运费满免配置', '运费比例配置'];
 
-  Widget getItem(int index) {
+  Widget _buildItem(int index) {
     return Material(
       type: MaterialType.transparency,
       child: InkWell(
@@ -69,10 +69,7 @@ class _SendTypeDialog extends State<SendTypeDialog>{
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          getItem(0),
-          getItem(1),
-        ],
+        children: List.generate(_list.length, (i) => _buildItem(i))
       ),
       onPressed: () {
         NavigatorUtils.goBack(context);

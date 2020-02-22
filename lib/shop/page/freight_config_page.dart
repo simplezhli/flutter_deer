@@ -71,9 +71,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
               child: ListView.builder(
                 itemExtent: 111.0,
                 padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-                itemBuilder: (_, index) {
-                  return _buildItem(index);
-                },
+                itemBuilder: (_, index) => _buildItem(index),
                 itemCount: _list.length,
               ),
             ),
@@ -122,38 +120,9 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                     child: InkWell(
                       onTap: () {
                         if (index == 0 || index == _list.length - 1) {
-                          showDialog(
-                              context: context,
-                              barrierDismissible: false,
-                              builder: (BuildContext context) {
-                                return PriceInputDialog(
-                                  title: '订单金额',
-                                  onPressed: (value) {
-                                    setState(() {
-                                      if (index == 0) {
-                                        _list[index].max = value;
-                                      } else {
-                                        _list[index].min = value;
-                                      }
-                                    });
-                                  },
-                                );
-                              });
+                          _showOrderPriceInputDialog(index);
                         } else {
-                          showDialog(
-                              context: context,
-                              barrierDismissible: false,
-                              builder: (BuildContext context) {
-                                return RangePriceInputDialog(
-                                  title: '订单金额',
-                                  onPressed: (min, max) {
-                                    setState(() {
-                                      _list[index].min = min;
-                                      _list[index].max = max;
-                                    });
-                                  },
-                                );
-                              });
+                          _showRangePriceInputDialog(index);
                         }
                       },
                       child: Text(
@@ -204,21 +173,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                   ),
                   Expanded(
                     child: InkWell(
-                      onTap: () {
-                        showDialog(
-                            context: context,
-                            barrierDismissible: false,
-                            builder: (BuildContext context) {
-                              return PriceInputDialog(
-                                title: _list[index].type == 1 ? '运费比率' : '运费金额',
-                                onPressed: (value) {
-                                  setState(() {
-                                    _list[index].price = value;
-                                  });
-                                },
-                              );
-                            });
-                      },
+                      onTap: () => _showFreightInputDialog(index),
                       child: Text(
                           _list[index].price.isEmpty ? (_list[index].type == 1 ? '运费比率' : '运费金额'): _list[index].price,
                         textAlign: TextAlign.end,
@@ -232,6 +187,62 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
           ),
         ),
       ),
+    );
+  }
+
+  _showOrderPriceInputDialog(int index) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return PriceInputDialog(
+          title: '订单金额',
+          onPressed: (value) {
+            setState(() {
+              if (index == 0) {
+                _list[index].max = value;
+              } else {
+                _list[index].min = value;
+              }
+            });
+          },
+        );
+      }
+    );
+  }
+
+  _showRangePriceInputDialog(int index) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return RangePriceInputDialog(
+          title: '订单金额',
+          onPressed: (min, max) {
+            setState(() {
+              _list[index].min = min;
+              _list[index].max = max;
+            });
+          },
+        );
+      }
+    );
+  }
+
+  _showFreightInputDialog(int index) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return PriceInputDialog(
+          title: _list[index].type == 1 ? '运费比率' : '运费金额',
+          onPressed: (value) {
+            setState(() {
+              _list[index].price = value;
+            });
+          },
+        );
+      }
     );
   }
   

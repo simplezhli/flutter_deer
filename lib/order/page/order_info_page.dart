@@ -51,9 +51,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                       textColor: isDark ? Colours.dark_text : Colours.app_main,
                       child: const Text(
                         '拒单',
-                        style: TextStyle(
-                            fontSize: Dimens.font_sp18
-                        ),
+                        style: TextStyle(fontSize: Dimens.font_sp18),
                       ),
                       onPressed: () {},
                     ),
@@ -66,9 +64,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                       textColor: isDark ? Colours.dark_button_text : Colors.white,
                       child: const Text(
                         '接单',
-                        style: TextStyle(
-                            fontSize: Dimens.font_sp18
-                        ),
+                        style: TextStyle(fontSize: Dimens.font_sp18),
                       ),
                       onPressed: () {},
                     ),
@@ -97,7 +93,6 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
         Gaps.vGap16,
         Row(
           children: <Widget>[
-            // 忽略图片的语义
             ClipOval(
               child: const LoadAssetImage('order/icon_avatar', width: 44.0, height: 44.0),
             ),
@@ -142,7 +137,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
           style: TextStyles.textBold18,
         ),
         ListView.builder(
-          // 如果滚动视图在滚动方向无界约束，那么shrinkWrap必须为true
+            // 如果滚动视图在滚动方向无界约束，那么shrinkWrap必须为true
             shrinkWrap: true,
             // 禁用ListView滑动，使用外层的ScrollView滑动
             physics: NeverScrollableScrollPhysics(),

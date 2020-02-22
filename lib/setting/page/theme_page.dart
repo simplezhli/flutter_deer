@@ -61,8 +61,8 @@ class _ThemePageState extends State<ThemePage> {
                       child: Text(_list[index]),
                     ),
                     Opacity(
-                        opacity: themeMode == _list[index] ? 1 : 0,
-                        child: Icon(Icons.done, color: Colors.blue)
+                      opacity: themeMode == _list[index] ? 1 : 0,
+                      child: Icon(Icons.done, color: Colors.blue)
                     )
                   ],
                 ),

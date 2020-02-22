@@ -29,7 +29,7 @@ class _PayTypeDialog extends State<PayTypeDialog>{
   List _selectValue;
   var _list = ['线上支付', '对公转账', '货到付款'];
 
-  Widget getItem(int index) {
+  Widget _buildItem(int index) {
     _selectValue = widget.value ?? [0];
     return Material(
       type: MaterialType.transparency,
@@ -73,11 +73,7 @@ class _PayTypeDialog extends State<PayTypeDialog>{
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          getItem(0),
-          getItem(1),
-          getItem(2),
-        ],
+        children: List.generate(_list.length, (i) => _buildItem(i))
       ),
       onPressed: () {
         NavigatorUtils.goBack(context);
