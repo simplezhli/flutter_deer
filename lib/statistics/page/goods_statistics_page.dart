@@ -59,32 +59,30 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
         },
       ),
       body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 15.0),
         key: const Key('goods_statistics_list'),
         child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Gaps.vGap4,
-                Text(_type ? '已配货' : '待配货', style: TextStyles.textBold24),
-                Gaps.vGap16,
-                Gaps.vGap16,
-                _type ? time : MergeSemantics(child: time,), 
-                Gaps.vGap8,
-                _buildChart(),
-                const Text('热销商品排行', style: TextStyles.textBold18),
-                ListView.builder(
-                  physics: ClampingScrollPhysics(),
-                  padding: const EdgeInsets.only(top: 16.0),
-                  shrinkWrap: true,
-                  itemCount: 10,
-                  itemExtent: 76.0,
-                  itemBuilder: (context, index) => _buildItem(index),
-                )
-              ],
-            ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Gaps.vGap4,
+              Text(_type ? '已配货' : '待配货', style: TextStyles.textBold24),
+              Gaps.vGap16,
+              Gaps.vGap16,
+              _type ? time : MergeSemantics(child: time,),
+              Gaps.vGap8,
+              _buildChart(),
+              const Text('热销商品排行', style: TextStyles.textBold18),
+              ListView.builder(
+                physics: ClampingScrollPhysics(),
+                padding: const EdgeInsets.only(top: 16.0),
+                shrinkWrap: true,
+                itemCount: 10,
+                itemExtent: 76.0,
+                itemBuilder: (context, index) => _buildItem(index),
+              )
+            ],
           ),
         ),
       ),

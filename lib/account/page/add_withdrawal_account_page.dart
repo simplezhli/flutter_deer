@@ -8,6 +8,7 @@ import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
+import 'package:flutter_deer/widgets/my_scroll_view.dart';
 import 'package:flutter_deer/widgets/store_select_text_item.dart';
 import 'package:flutter_deer/widgets/text_field_item.dart';
 
@@ -29,9 +30,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
   Widget build(BuildContext context) {
     TextStyle style = Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14);
 
-    var body = Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
+    var children = [
         Gaps.vGap5,
         StoreSelectTextItem(
           title: '账号类型',
@@ -98,31 +97,22 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
           child: Text(_isWechat ? '绑定本机当前登录的微信号' : '绑定持卡人本人的银行卡',
               style: Theme.of(context).textTheme.subtitle),
         ),
-      ],
-    );
+      ];
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: const MyAppBar(
         title: '添加账号',
       ),
-      body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            Expanded(
-              child: SingleChildScrollView(
-                child: body
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
-              child: MyButton(
-                onPressed: () => NavigatorUtils.goBack(context),
-                text: '确定',
-              ),
-            )
-          ],
-        ),
+      body: MyScrollView(
+        children: children,
+        bottomButton: Padding(
+          padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
+          child: MyButton(
+            onPressed: () => NavigatorUtils.goBack(context),
+            text: '确定',
+          ),
+        )
       ),
     );
   }

@@ -7,6 +7,7 @@ import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
+import 'package:flutter_deer/widgets/my_scroll_view.dart';
 
 import '../order_router.dart';
 
@@ -25,153 +26,138 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
     Color blue = Theme.of(context).primaryColor;
     bool isDark = ThemeUtils.isDark(context);
 
-    var bottomMenu = Positioned(
-      bottom: 0.0,
-      left: 0.0,
-      right: 0.0,
-      child: Material(
-        color: ThemeUtils.getBackgroundColor(context),
-        child: SafeArea(
-          child: Container(
-            height: 60.0,
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Theme(
-              data: Theme.of(context).copyWith(
-                  buttonTheme: ButtonThemeData(
-                    height: 44.0,
-                  )
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Expanded(
-                    flex: 1,
-                    child: FlatButton(
-                      color: isDark ? Colours.dark_material_bg : const Color(0xFFE1EAFA),
-                      textColor: isDark ? Colours.dark_text : Colours.app_main,
-                      child: const Text(
-                        '拒单',
-                        style: TextStyle(fontSize: Dimens.font_sp18),
-                      ),
-                      onPressed: () {},
-                    ),
-                  ),
-                  Gaps.hGap16,
-                  Expanded(
-                    flex: 1,
-                    child: FlatButton(
-                      color: blue,
-                      textColor: isDark ? Colours.dark_button_text : Colors.white,
-                      child: const Text(
-                        '接单',
-                        style: TextStyle(fontSize: Dimens.font_sp18),
-                      ),
-                      onPressed: () {},
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
+    var bottomMenu = Container(
+      height: 60.0,
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: Theme(
+        data: Theme.of(context).copyWith(
+            buttonTheme: ButtonThemeData(
+              height: 44.0,
+            )
         ),
-      ),
-    );
-
-    var body = Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        const Text(
-          '暂未接单',
-          style: TextStyles.textBold24,
-        ),
-        Gaps.vGap16,
-        Gaps.vGap16,
-        const Text(
-          '客户信息',
-          style: TextStyles.textBold18,
-        ),
-        Gaps.vGap16,
-        Row(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            ClipOval(
-              child: const LoadAssetImage('order/icon_avatar', width: 44.0, height: 44.0),
-            ),
-            Gaps.hGap8,
             Expanded(
-              // 合并Text的语义
-              child: MergeSemantics(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text('郭李'),
-                    Gaps.vGap8,
-                    Text('15000000000'),
-                  ],
+              flex: 1,
+              child: FlatButton(
+                color: isDark ? Colours.dark_material_bg : const Color(0xFFE1EAFA),
+                textColor: isDark ? Colours.dark_text : Colours.app_main,
+                child: const Text(
+                  '拒单',
+                  style: TextStyle(fontSize: Dimens.font_sp18),
                 ),
+                onPressed: () {},
               ),
             ),
-            Gaps.vLine,
             Gaps.hGap16,
-            Semantics(
-              label: '拨打电话',
-              child: GestureDetector(
-                child: const LoadAssetImage('order/icon_phone', width: 24.0, height: 24.0),
-                onTap: () => _showCallPhoneDialog('15000000000'),
+            Expanded(
+              flex: 1,
+              child: FlatButton(
+                color: blue,
+                textColor: isDark ? Colours.dark_button_text : Colors.white,
+                child: const Text(
+                  '接单',
+                  style: TextStyle(fontSize: Dimens.font_sp18),
+                ),
+                onPressed: () {},
               ),
             )
           ],
         ),
-        Gaps.vGap10,
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            const LoadAssetImage('order/icon_address', width: 16.0, height: 20.0),
-            Gaps.hGap4,
-            Expanded(child: Text('西安市雁塔区 鱼化寨街道唐兴路唐兴数码3楼318', maxLines: 2)),
-          ],
-        ),
-        Gaps.vGap16,
-        Gaps.vGap16,
-        const Text(
-          '商品信息',
-          style: TextStyles.textBold18,
-        ),
-        ListView.builder(
-            // 如果滚动视图在滚动方向无界约束，那么shrinkWrap必须为true
-            shrinkWrap: true,
-            // 禁用ListView滑动，使用外层的ScrollView滑动
-            physics: NeverScrollableScrollPhysics(),
-            itemCount: 2,
-            itemBuilder: (_, index) => _getOrderGoodsItem(index)
-        ),
-        Gaps.vGap8,
-        _getGoodsInfoItem('共2件商品', Utils.formatPrice('50.00')),
-        _getGoodsInfoItem('配送费', Utils.formatPrice('5.00')),
-        _getGoodsInfoItem('立减', Utils.formatPrice('-2.50'), contentTextColor: red),
-        _getGoodsInfoItem('优惠券', Utils.formatPrice('-2.50'), contentTextColor: red),
-        _getGoodsInfoItem('社区币抵扣', Utils.formatPrice('-2.50'), contentTextColor: red),
-        _getGoodsInfoItem('佣金', Utils.formatPrice('-1.0'), contentTextColor: red),
-        Gaps.line,
-        Gaps.vGap8,
-        _getGoodsInfoItem('合计', Utils.formatPrice('46.50')),
-        Gaps.vGap8,
-        Gaps.line,
-        Gaps.vGap16,
-        Gaps.vGap16,
-        const Text(
-          '订单信息',
-          style: TextStyles.textBold18,
-        ),
-        Gaps.vGap12,
-        _getOrderInfoItem('订单编号:', '1256324856942'),
-        _getOrderInfoItem('下单时间:', '2018/08/26 12:20'),
-        _getOrderInfoItem('支付方式:', '在线支付/支付宝'),
-        _getOrderInfoItem('配送方式:', '送货上门'),
-        _getOrderInfoItem('客户备注:', '无'),
-        Gaps.vGap50,
-        Gaps.vGap50,
-      ],
+      ),
     );
+
+    var children = [
+      const Text(
+        '暂未接单',
+        style: TextStyles.textBold24,
+      ),
+      Gaps.vGap16,
+      Gaps.vGap16,
+      const Text(
+        '客户信息',
+        style: TextStyles.textBold18,
+      ),
+      Gaps.vGap16,
+      Row(
+        children: <Widget>[
+          ClipOval(
+            child: const LoadAssetImage('order/icon_avatar', width: 44.0, height: 44.0),
+          ),
+          Gaps.hGap8,
+          Expanded(
+            // 合并Text的语义
+            child: MergeSemantics(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text('郭李'),
+                  Gaps.vGap8,
+                  Text('15000000000'),
+                ],
+              ),
+            ),
+          ),
+          Gaps.vLine,
+          Gaps.hGap16,
+          Semantics(
+            label: '拨打电话',
+            child: GestureDetector(
+              child: const LoadAssetImage('order/icon_phone', width: 24.0, height: 24.0),
+              onTap: () => _showCallPhoneDialog('15000000000'),
+            ),
+          )
+        ],
+      ),
+      Gaps.vGap10,
+      Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          const LoadAssetImage('order/icon_address', width: 16.0, height: 20.0),
+          Gaps.hGap4,
+          Expanded(child: Text('西安市雁塔区 鱼化寨街道唐兴路唐兴数码3楼318', maxLines: 2)),
+        ],
+      ),
+      Gaps.vGap16,
+      Gaps.vGap16,
+      const Text(
+        '商品信息',
+        style: TextStyles.textBold18,
+      ),
+      ListView.builder(
+        // 如果滚动视图在滚动方向无界约束，那么shrinkWrap必须为true
+          shrinkWrap: true,
+          // 禁用ListView滑动，使用外层的ScrollView滑动
+          physics: NeverScrollableScrollPhysics(),
+          itemCount: 2,
+          itemBuilder: (_, index) => _getOrderGoodsItem(index)
+      ),
+      Gaps.vGap8,
+      _getGoodsInfoItem('共2件商品', Utils.formatPrice('50.00')),
+      _getGoodsInfoItem('配送费', Utils.formatPrice('5.00')),
+      _getGoodsInfoItem('立减', Utils.formatPrice('-2.50'), contentTextColor: red),
+      _getGoodsInfoItem('优惠券', Utils.formatPrice('-2.50'), contentTextColor: red),
+      _getGoodsInfoItem('社区币抵扣', Utils.formatPrice('-2.50'), contentTextColor: red),
+      _getGoodsInfoItem('佣金', Utils.formatPrice('-1.0'), contentTextColor: red),
+      Gaps.line,
+      Gaps.vGap8,
+      _getGoodsInfoItem('合计', Utils.formatPrice('46.50')),
+      Gaps.vGap8,
+      Gaps.line,
+      Gaps.vGap16,
+      Gaps.vGap16,
+      const Text(
+        '订单信息',
+        style: TextStyles.textBold18,
+      ),
+      Gaps.vGap12,
+      _getOrderInfoItem('订单编号:', '1256324856942'),
+      _getOrderInfoItem('下单时间:', '2018/08/26 12:20'),
+      _getOrderInfoItem('支付方式:', '在线支付/支付宝'),
+      _getOrderInfoItem('配送方式:', '送货上门'),
+      _getOrderInfoItem('客户备注:', '无'),
+    ];
 
     return Scaffold(
       appBar: MyAppBar(
@@ -180,16 +166,12 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
           NavigatorUtils.push(context, OrderRouter.orderTrackPage);
         },
       ),
-      body: Stack(
-        children: <Widget>[
-          SingleChildScrollView(
-            key: const Key('order_info'),
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: body
-          ),
-          bottomMenu
-        ],
-      ),
+      body: MyScrollView(
+        key: const Key('order_info'),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        children: children,
+        bottomButton: bottomMenu,
+      )
     );
   }
 

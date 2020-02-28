@@ -49,6 +49,7 @@ class SelectedText extends StatelessWidget {
             )
         ) : null,
         child: Column(
+          // 此处为了宽度适应，高度撑满。
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[

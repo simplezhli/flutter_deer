@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
+import 'package:flutter_deer/widgets/my_scroll_view.dart';
 
 
 /// design/3订单/index.html#artboard10
@@ -19,33 +20,28 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
       appBar: const MyAppBar(
         centerTitle: '订单跟踪',
       ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(top: 21.0, left: 16.0, right: 16.0),
-                child: Row(
-                  children: <Widget>[
-                    const Text('订单编号：'),
-                    // 可选择文本组件（复制）
-                    SelectableText('14562364879', maxLines: 1,)
-                  ],
-                )
-              ),
-              Stepper(
-                physics: BouncingScrollPhysics(),
-                currentStep: 4 - 1,
-                controlsBuilder: (BuildContext context, {VoidCallback onStepContinue, VoidCallback onStepCancel}) {
-                  return Row(); //操作按钮置空
-                },
-                steps: List.generate(4, (i) => _buildStep(i)),
+      body: MyScrollView(
+        children: <Widget>[
+          Padding(
+              padding: const EdgeInsets.only(top: 21.0, left: 16.0, right: 16.0),
+              child: Row(
+                children: <Widget>[
+                  const Text('订单编号：'),
+                  // 可选择文本组件（复制）
+                  SelectableText('14562364879', maxLines: 1,)
+                ],
               )
-            ],
           ),
-        ),
-      ),
+          Stepper(
+            physics: BouncingScrollPhysics(),
+            currentStep: 4 - 1,
+            controlsBuilder: (BuildContext context, {VoidCallback onStepContinue, VoidCallback onStepCancel}) {
+              return Row(); //操作按钮置空
+            },
+            steps: List.generate(4, (i) => _buildStep(i)),
+          )
+        ],
+      )
     );
   }
   
