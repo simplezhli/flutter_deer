@@ -10,8 +10,8 @@ import 'package:flutter_deer/store/store_router.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
+import 'package:flutter_deer/widgets/my_scroll_view.dart';
 import 'package:flutter_deer/widgets/text_field.dart';
-import 'package:keyboard_actions/keyboard_actions.dart';
 
 import '../login_router.dart';
 
@@ -72,78 +72,71 @@ class _LoginPageState extends State<LoginPage> {
           NavigatorUtils.push(context, LoginRouter.smsLoginPage);
         },
       ),
-      body: defaultTargetPlatform == TargetPlatform.iOS ? KeyboardActions(
-        config: Utils.getKeyboardActionsConfig(context, [_nodeText1, _nodeText2]),
-        child: _buildBody(),
-      ) : SingleChildScrollView(
-        child: _buildBody(),
-      )
+      body: MyScrollView(
+        keyboardConfig: Utils.getKeyboardActionsConfig(context, [_nodeText1, _nodeText2]),
+        padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 20.0),
+        children: _buildBody(),
+      ),
     );
   }
   
   _buildBody() {
-    return Padding(
-      padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 20.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          const Text(
-            '密码登录',
-            style: TextStyles.textBold26,
+    return [
+      const Text(
+        '密码登录',
+        style: TextStyles.textBold26,
+      ),
+      Gaps.vGap16,
+      MyTextField(
+        key: const Key('phone'),
+        focusNode: _nodeText1,
+        controller: _nameController,
+        maxLength: 11,
+        keyboardType: TextInputType.phone,
+        hintText: '请输入账号',
+      ),
+      Gaps.vGap8,
+      MyTextField(
+        key: const Key('password'),
+        keyName: 'password',
+        focusNode: _nodeText2,
+        isInputPwd: true,
+        controller: _passwordController,
+        keyboardType: TextInputType.visiblePassword,
+        maxLength: 16,
+        hintText: '请输入密码',
+      ),
+      Gaps.vGap10,
+      Gaps.vGap15,
+      MyButton(
+        key: const Key('login'),
+        onPressed: _isClick ? _login : null,
+        text: '登录',
+      ),
+      Container(
+        height: 40.0,
+        alignment: Alignment.centerRight,
+        child: GestureDetector(
+          child: Text(
+            '忘记密码',
+            style: Theme.of(context).textTheme.subtitle,
           ),
-          Gaps.vGap16,
-          MyTextField(
-            key: const Key('phone'),
-            focusNode: _nodeText1,
-            controller: _nameController,
-            maxLength: 11,
-            keyboardType: TextInputType.phone,
-            hintText: '请输入账号',
-          ),
-          Gaps.vGap8,
-          MyTextField(
-            key: const Key('password'),
-            keyName: 'password',
-            focusNode: _nodeText2,
-            isInputPwd: true,
-            controller: _passwordController,
-            keyboardType: TextInputType.visiblePassword,
-            maxLength: 16,
-            hintText: '请输入密码',
-          ),
-          Gaps.vGap10,
-          Gaps.vGap15,
-          MyButton(
-            key: const Key('login'),
-            onPressed: _isClick ? _login : null,
-            text: '登录',
-          ),
-          Container(
-            height: 40.0,
-            alignment: Alignment.centerRight,
-            child: GestureDetector(
-              child: Text(
-                '忘记密码',
-                style: Theme.of(context).textTheme.subtitle,
-              ),
-              onTap: () => NavigatorUtils.push(context, LoginRouter.resetPasswordPage),
+          onTap: () => NavigatorUtils.push(context, LoginRouter.resetPasswordPage),
+        ),
+      ),
+      Gaps.vGap16,
+      Container(
+        alignment: Alignment.center,
+        child: GestureDetector(
+          child: Text(
+            '还没账号？快去注册',
+            style: TextStyle(
+                color: Theme.of(context).primaryColor
             ),
           ),
-          Gaps.vGap16,
-          Container(
-            alignment: Alignment.center,
-            child: GestureDetector(
-              child: Text(
-                '还没账号？快去注册',
-                style: TextStyle(
-                  color: Theme.of(context).primaryColor
-                ),
-              ),
-              onTap: () => NavigatorUtils.push(context, LoginRouter.registerPage),
-            )
-          )
-        ],
-      ),
-    );
+          onTap: () => NavigatorUtils.push(context, LoginRouter.registerPage),
+        )
+      )
+    ];
   }
 }
