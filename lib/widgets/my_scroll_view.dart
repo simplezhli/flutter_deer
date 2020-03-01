@@ -12,19 +12,19 @@ class MyScrollView extends StatelessWidget {
 
   const MyScrollView({
     Key key,
+    @required this.children,
     this.padding,
     this.physics: const BouncingScrollPhysics(),
     this.crossAxisAlignment: CrossAxisAlignment.start,
-    @required this.children,
     this.bottomButton,
     this.keyboardConfig,
     this.tapOutsideToDismiss: false
   }): super(key: key);
 
+  final List<Widget> children;
   final EdgeInsetsGeometry padding;
   final ScrollPhysics physics;
   final CrossAxisAlignment crossAxisAlignment;
-  final List<Widget> children;
   final Widget bottomButton;
   final KeyboardActionsConfig keyboardConfig;
   /// 键盘外部按下将其关闭
@@ -33,13 +33,13 @@ class MyScrollView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    Widget contents;
+    Widget contents = Column(
+      crossAxisAlignment: crossAxisAlignment,
+      children: children,
+    );
+
     if (defaultTargetPlatform == TargetPlatform.iOS && keyboardConfig != null) {
       /// iOS 键盘处理
-      contents = Column(
-        crossAxisAlignment: crossAxisAlignment,
-        children: children,
-      );
 
       if (padding != null) {
         contents = Padding(
@@ -58,10 +58,7 @@ class MyScrollView extends StatelessWidget {
       contents = SingleChildScrollView(
         padding: padding,
         physics: physics,
-        child: Column(
-          crossAxisAlignment: crossAxisAlignment,
-          children: children,
-        ),
+        child: contents,
       );
     }
 
@@ -71,13 +68,13 @@ class MyScrollView extends StatelessWidget {
           Expanded(
             child: contents
           ),
-          bottomButton
+          SafeArea(
+            child: bottomButton
+          )
         ],
       );
     }
 
-    return SafeArea(
-      child: contents
-    );
+    return contents;
   }
 }
