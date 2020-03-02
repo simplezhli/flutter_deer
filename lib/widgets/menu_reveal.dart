@@ -23,7 +23,7 @@ class MenuReveal extends StatelessWidget {
   }
 }
 
-class CircleRevealClipper extends CustomClipper<Rect>{
+class CircleRevealClipper extends CustomClipper<Rect> {
 
   final double revealPercent;
 

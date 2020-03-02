@@ -8,7 +8,7 @@ import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/base_dialog.dart';
 
 /// design/7店铺-店铺配置/index.html#artboard1
-class RangePriceInputDialog extends StatefulWidget{
+class RangePriceInputDialog extends StatefulWidget {
 
   RangePriceInputDialog({
     Key key,
@@ -24,7 +24,7 @@ class RangePriceInputDialog extends StatefulWidget{
   
 }
 
-class _RangePriceInputDialog extends State<RangePriceInputDialog>{
+class _RangePriceInputDialog extends State<RangePriceInputDialog> {
 
   TextEditingController _controller = TextEditingController();
   TextEditingController _controller1 = TextEditingController();

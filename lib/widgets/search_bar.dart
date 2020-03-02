@@ -8,7 +8,7 @@ import 'package:flutter_deer/util/theme_utils.dart';
 import 'load_image.dart';
 
 /// 搜索页的AppBar
-class SearchBar extends StatefulWidget implements PreferredSizeWidget{
+class SearchBar extends StatefulWidget implements PreferredSizeWidget {
 
   const SearchBar({
     Key key,

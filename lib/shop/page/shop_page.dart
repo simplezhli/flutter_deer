@@ -20,7 +20,7 @@ class ShopPage extends StatefulWidget {
   ShopPageState createState() => ShopPageState();
 }
 
-class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with AutomaticKeepAliveClientMixin<ShopPage>{
+class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with AutomaticKeepAliveClientMixin<ShopPage> {
   
   var _menuTitle = ['账户流水', '资金管理', '提现账号'];
   var _menuImage = ['zhls', 'zjgl', 'txzh'];

@@ -9,7 +9,7 @@ import 'package:flutter_deer/widgets/base_dialog.dart';
 
 
 /// design/7店铺-店铺配置/index.html#artboard3
-class PriceInputDialog extends StatefulWidget{
+class PriceInputDialog extends StatefulWidget {
 
   PriceInputDialog({
     Key key,
@@ -25,7 +25,7 @@ class PriceInputDialog extends StatefulWidget{
   
 }
 
-class _PriceInputDialog extends State<PriceInputDialog>{
+class _PriceInputDialog extends State<PriceInputDialog> {
 
   TextEditingController _controller = TextEditingController();
   

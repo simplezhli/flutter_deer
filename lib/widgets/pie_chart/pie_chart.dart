@@ -243,7 +243,7 @@ class PieChartPainter extends CustomPainter {
           readOnly: true,
           textDirection: TextDirection.ltr,
         ),
-        tags: const <SemanticsTag>{
+        tags: const <SemanticsTag> {
           SemanticsTag('pieChart-label'),
         },
       );

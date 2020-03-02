@@ -5,7 +5,7 @@ import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/base_dialog.dart';
 
 /// design/4商品/index.html#artboard10
-class GoodsSizeDialog extends StatefulWidget{
+class GoodsSizeDialog extends StatefulWidget {
 
   GoodsSizeDialog({
     Key key,
@@ -19,7 +19,7 @@ class GoodsSizeDialog extends StatefulWidget{
   
 }
 
-class _GoodsSizeDialog extends State<GoodsSizeDialog>{
+class _GoodsSizeDialog extends State<GoodsSizeDialog> {
 
   TextEditingController _controller = TextEditingController();
   

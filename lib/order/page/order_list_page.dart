@@ -20,7 +20,7 @@ class OrderListPage extends StatefulWidget {
   _OrderListPageState createState() => _OrderListPageState();
 }
 
-class _OrderListPageState extends State<OrderListPage> with AutomaticKeepAliveClientMixin<OrderListPage>{
+class _OrderListPageState extends State<OrderListPage> with AutomaticKeepAliveClientMixin<OrderListPage> {
 
   /// 是否正在加载数据
   bool _isLoading = false;

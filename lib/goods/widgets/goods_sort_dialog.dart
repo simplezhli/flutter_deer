@@ -28,7 +28,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
   int _index = 0;
   TabController _tabController;
   ScrollController _controller = new ScrollController();
-  // TabBar不能动态加载，所以初始化3个，其中两个文字置空，点击事件拦截住。
+  // TabBar初始化3个，其中两个文字置空。
   List<Tab> _myTabs = <Tab>[Tab(text: '请选择'), Tab(text: ''), Tab(text: '')];
   List _mGoodsSort = [];
   List _mGoodsSort1 = [];
@@ -112,6 +112,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                 isScrollable: true,
                 onTap: (index) {
                   if (_myTabs[index].text.isEmpty) {
+                    // 拦截点击事件
                     _tabController.animateTo(_index);
                     return;
                   }

@@ -5,7 +5,7 @@ import 'package:flutter_deer/res/styles.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/widgets/base_dialog.dart';
 
-class ExitDialog extends StatefulWidget{
+class ExitDialog extends StatefulWidget {
 
   ExitDialog({
     Key key,
@@ -16,7 +16,7 @@ class ExitDialog extends StatefulWidget{
   
 }
 
-class _ExitDialog extends State<ExitDialog>{
+class _ExitDialog extends State<ExitDialog> {
 
   @override
   Widget build(BuildContext context) {

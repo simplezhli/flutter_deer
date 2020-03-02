@@ -54,40 +54,38 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
         child: InkWell(
           // 长按删除账号
           onLongPress: () => _showDeleteBottomSheet(index),
-          child: SizedBox(
-            child: Stack(
-              children: <Widget>[
-                Positioned(
-                  top: 25.0,
-                  left: 24.0,
-                  child: Container(
-                      height: 40.0,
-                      width: 40.0,
-                      padding: const EdgeInsets.all(8.0),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      child: LoadAssetImage(_list[index].type == 1 ? 'account/wechat' : 'account/yhk')
-                  ),
+          child: Stack(
+            children: <Widget>[
+              Positioned(
+                top: 25.0,
+                left: 24.0,
+                child: Container(
+                    height: 40.0,
+                    width: 40.0,
+                    padding: const EdgeInsets.all(8.0),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                    child: LoadAssetImage(_list[index].type == 1 ? 'account/wechat' : 'account/yhk')
                 ),
-                Positioned(
-                  top: 22.0,
-                  left: 72.0,
-                  child: Text(_list[index].typeName, style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp18)),
-                ),
-                Positioned(
-                  top: 48.0,
-                  left: 72.0,
-                  child: Text(_list[index].name, style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp12)),
-                ),
-                Positioned(
-                  bottom: 24.0,
-                  left: 72.0,
-                  child: Text(_list[index].code, style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp18, letterSpacing: 1.0)),
-                ),
-              ],
-            ),
+              ),
+              Positioned(
+                top: 22.0,
+                left: 72.0,
+                child: Text(_list[index].typeName, style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp18)),
+              ),
+              Positioned(
+                top: 48.0,
+                left: 72.0,
+                child: Text(_list[index].name, style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp12)),
+              ),
+              Positioned(
+                bottom: 24.0,
+                left: 72.0,
+                child: Text(_list[index].code, style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp18, letterSpacing: 1.0)),
+              ),
+            ],
           ),
         ),
       ),
@@ -100,48 +98,46 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
       builder: (BuildContext context) {
         return Material(
           child: SafeArea(
-            child: Container(
-                height: 161.2,
-                child: Column(
-                  children: <Widget>[
-                    const SizedBox(
-                      height: 52.0,
-                      child: const Center(
-                        child: const Text(
-                          '是否确认解绑，防止错误操作',
-                          style: TextStyles.textSize16,
-                        ),
-                      ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                const SizedBox(
+                  height: 52.0,
+                  child: const Center(
+                    child: const Text(
+                      '是否确认解绑，防止错误操作',
+                      style: TextStyles.textSize16,
                     ),
-                    Gaps.line,
-                    Container(
-                      height: 54.0,
-                      width: double.infinity,
-                      child: FlatButton(
-                        textColor: Theme.of(context).errorColor,
-                        child: const Text('确认解绑', style: TextStyle(fontSize: Dimens.font_sp18)),
-                        onPressed: () {
-                          setState(() {
-                            _list.removeAt(index);
-                          });
-                          NavigatorUtils.goBack(context);
-                        },
-                      ),
-                    ),
-                    Gaps.line,
-                    Container(
-                      height: 54.0,
-                      width: double.infinity,
-                      child: FlatButton(
-                        textColor: Colours.text_gray,
-                        child: const Text('取消', style: TextStyle(fontSize: Dimens.font_sp18)),
-                        onPressed: () {
-                          NavigatorUtils.goBack(context);
-                        },
-                      ),
-                    ),
-                  ],
-                )
+                  ),
+                ),
+                Gaps.line,
+                Container(
+                  height: 54.0,
+                  width: double.infinity,
+                  child: FlatButton(
+                    textColor: Theme.of(context).errorColor,
+                    child: const Text('确认解绑', style: TextStyle(fontSize: Dimens.font_sp18)),
+                    onPressed: () {
+                      setState(() {
+                        _list.removeAt(index);
+                      });
+                      NavigatorUtils.goBack(context);
+                    },
+                  ),
+                ),
+                Gaps.line,
+                Container(
+                  height: 54.0,
+                  width: double.infinity,
+                  child: FlatButton(
+                    textColor: Colours.text_gray,
+                    child: const Text('取消', style: TextStyle(fontSize: Dimens.font_sp18)),
+                    onPressed: () {
+                      NavigatorUtils.goBack(context);
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
         );

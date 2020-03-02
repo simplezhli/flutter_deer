@@ -7,7 +7,7 @@ import 'package:flutter_deer/widgets/load_image.dart';
 
 
 /// design/7店铺-店铺配置/index.html#artboard9
-class SendTypeDialog extends StatefulWidget{
+class SendTypeDialog extends StatefulWidget {
 
   SendTypeDialog({
     Key key,
@@ -21,7 +21,7 @@ class SendTypeDialog extends StatefulWidget{
   
 }
 
-class _SendTypeDialog extends State<SendTypeDialog>{
+class _SendTypeDialog extends State<SendTypeDialog> {
 
   int _value = 0;
   var _list = ['运费满免配置', '运费比例配置'];
@@ -45,8 +45,8 @@ class _SendTypeDialog extends State<SendTypeDialog>{
                 ),
               ),
               Offstage(
-                  offstage: _value != index,
-                  child: const LoadAssetImage('order/ic_check', width: 16.0, height: 16.0)),
+                offstage: _value != index,
+                child: const LoadAssetImage('order/ic_check', width: 16.0, height: 16.0)),
               Gaps.hGap16,
             ],
           ),

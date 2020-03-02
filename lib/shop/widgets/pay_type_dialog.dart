@@ -8,7 +8,7 @@ import 'package:flutter_deer/widgets/load_image.dart';
 
 
 /// design/7店铺-店铺配置/index.html#artboard10
-class PayTypeDialog extends StatefulWidget{
+class PayTypeDialog extends StatefulWidget {
 
   PayTypeDialog({
     Key key,
@@ -24,7 +24,7 @@ class PayTypeDialog extends StatefulWidget{
   
 }
 
-class _PayTypeDialog extends State<PayTypeDialog>{
+class _PayTypeDialog extends State<PayTypeDialog> {
 
   List _selectValue;
   var _list = ['线上支付', '对公转账', '货到付款'];

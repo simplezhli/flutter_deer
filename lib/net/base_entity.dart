@@ -3,7 +3,7 @@ import 'package:flutter_deer/common/common.dart';
 
 import '../entity_factory.dart';
 
-class BaseEntity<T>{
+class BaseEntity<T> {
 
   int code;
   String message;

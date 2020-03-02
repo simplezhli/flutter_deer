@@ -75,68 +75,66 @@ class _LoginPageState extends State<LoginPage> {
       body: MyScrollView(
         keyboardConfig: Utils.getKeyboardActionsConfig(context, [_nodeText1, _nodeText2]),
         padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 20.0),
-        children: _buildBody(),
+        children: _buildBody,
       ),
     );
   }
   
-  _buildBody() {
-    return [
-      const Text(
-        '密码登录',
-        style: TextStyles.textBold26,
-      ),
-      Gaps.vGap16,
-      MyTextField(
-        key: const Key('phone'),
-        focusNode: _nodeText1,
-        controller: _nameController,
-        maxLength: 11,
-        keyboardType: TextInputType.phone,
-        hintText: '请输入账号',
-      ),
-      Gaps.vGap8,
-      MyTextField(
-        key: const Key('password'),
-        keyName: 'password',
-        focusNode: _nodeText2,
-        isInputPwd: true,
-        controller: _passwordController,
-        keyboardType: TextInputType.visiblePassword,
-        maxLength: 16,
-        hintText: '请输入密码',
-      ),
-      Gaps.vGap10,
-      Gaps.vGap15,
-      MyButton(
-        key: const Key('login'),
-        onPressed: _isClick ? _login : null,
-        text: '登录',
-      ),
-      Container(
-        height: 40.0,
-        alignment: Alignment.centerRight,
-        child: GestureDetector(
-          child: Text(
-            '忘记密码',
-            style: Theme.of(context).textTheme.subtitle,
-          ),
-          onTap: () => NavigatorUtils.push(context, LoginRouter.resetPasswordPage),
+  get _buildBody => [
+    const Text(
+      '密码登录',
+      style: TextStyles.textBold26,
+    ),
+    Gaps.vGap16,
+    MyTextField(
+      key: const Key('phone'),
+      focusNode: _nodeText1,
+      controller: _nameController,
+      maxLength: 11,
+      keyboardType: TextInputType.phone,
+      hintText: '请输入账号',
+    ),
+    Gaps.vGap8,
+    MyTextField(
+      key: const Key('password'),
+      keyName: 'password',
+      focusNode: _nodeText2,
+      isInputPwd: true,
+      controller: _passwordController,
+      keyboardType: TextInputType.visiblePassword,
+      maxLength: 16,
+      hintText: '请输入密码',
+    ),
+    Gaps.vGap10,
+    Gaps.vGap15,
+    MyButton(
+      key: const Key('login'),
+      onPressed: _isClick ? _login : null,
+      text: '登录',
+    ),
+    Container(
+      height: 40.0,
+      alignment: Alignment.centerRight,
+      child: GestureDetector(
+        child: Text(
+          '忘记密码',
+          style: Theme.of(context).textTheme.subtitle,
         ),
+        onTap: () => NavigatorUtils.push(context, LoginRouter.resetPasswordPage),
       ),
-      Gaps.vGap16,
-      Container(
-        alignment: Alignment.center,
-        child: GestureDetector(
-          child: Text(
-            '还没账号？快去注册',
-            style: TextStyle(
-                color: Theme.of(context).primaryColor
-            ),
+    ),
+    Gaps.vGap16,
+    Container(
+      alignment: Alignment.center,
+      child: GestureDetector(
+        child: Text(
+          '还没账号？快去注册',
+          style: TextStyle(
+            color: Theme.of(context).primaryColor
           ),
-          onTap: () => NavigatorUtils.push(context, LoginRouter.registerPage),
-        )
+        ),
+        onTap: () => NavigatorUtils.push(context, LoginRouter.registerPage),
       )
-    ];
-  }
+    )
+  ];
 }

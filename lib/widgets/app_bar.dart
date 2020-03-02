@@ -5,7 +5,7 @@ import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 
 /// 自定义AppBar
-class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
+class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   const MyAppBar({
     Key key,
