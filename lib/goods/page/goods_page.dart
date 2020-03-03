@@ -100,13 +100,12 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                     return Row(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(left: 16.0, right: 8.0),
-                          child: Text(
-                            _sortList[sortIndex],
-                            style: TextStyles.textBold24,
-                          ),
+                        Gaps.hGap16,
+                        Text(
+                          _sortList[sortIndex],
+                          style: TextStyles.textBold24,
                         ),
+                        Gaps.hGap8,
                         LoadAssetImage('goods/expand', width: 16.0, height: 16.0, color: _iconColor,)
                       ],
                     );

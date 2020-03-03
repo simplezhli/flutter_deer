@@ -37,8 +37,9 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
         content: _accountType,
         onTap: () => _showSelectAccountTypeDialog(),
       ),
-      Offstage(
-        offstage: _isWechat,
+      Visibility(
+        maintainState: true, /// 是为了保留填写信息，其实就是Offstage，这里只是展示另一种方法。
+        visible: !_isWechat,
         child: Column(
           children: <Widget>[
             TextFieldItem(

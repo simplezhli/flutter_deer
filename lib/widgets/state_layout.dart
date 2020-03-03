@@ -58,34 +58,31 @@ class _StateLayoutState extends State<StateLayout> {
         _hintText = '';
         break;
     }
-    return Container(
-      width: double.infinity,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          widget.type == StateType.loading ? const CupertinoActivityIndicator(radius: 16.0) :
-          (widget.type == StateType.empty ? Gaps.empty : 
-          Opacity(
-            opacity: ThemeUtils.isDark(context) ? 0.5 : 1,
-            child: Container(
-              height: 120.0,
-              width: 120.0,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: ImageUtils.getAssetImage('state/$_img'),
-                ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        widget.type == StateType.loading ? const CupertinoActivityIndicator(radius: 16.0) :
+        (widget.type == StateType.empty ? Gaps.empty :
+        Opacity(
+          opacity: ThemeUtils.isDark(context) ? 0.5 : 1,
+          child: Container(
+            height: 120.0,
+            width: 120.0,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: ImageUtils.getAssetImage('state/$_img'),
               ),
-            ))
-          ),
-          Gaps.vGap16,
-          Text(
-            widget.hintText ?? _hintText,
-            style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14),
-          ),
-          Gaps.vGap50,
-        ],
-      ),
+            ),
+          ))
+        ),
+        const SizedBox(width: double.infinity, height: Dimens.gap_dp16,),
+        Text(
+          widget.hintText ?? _hintText,
+          style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14),
+        ),
+        Gaps.vGap50,
+      ],
     );
   }
 }

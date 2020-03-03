@@ -43,9 +43,9 @@ class _PayTypeDialog extends State<PayTypeDialog> {
                   ) : null,
                 ),
               ),
-              Offstage(
-                  offstage: _value != index,
-                  child: const LoadAssetImage('order/ic_check', width: 16.0, height: 16.0)),
+              Visibility(
+                visible: _value == index,
+                child: const LoadAssetImage('order/ic_check', width: 16.0, height: 16.0)),
               Gaps.hGap16,
             ],
           ),

@@ -42,8 +42,8 @@ class BaseDialog extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                Offstage(
-                  offstage: hiddenTitle,
+                Visibility(
+                  visible: !hiddenTitle,
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 8.0),
                     child: Text(

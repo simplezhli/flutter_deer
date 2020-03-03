@@ -105,9 +105,9 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
                                     _list[index].title,
                               ),
                             ),
-                            Opacity(
-                                opacity: _index == index ? 1 : 0,
-                                child: Icon(Icons.done, color: Colors.blue)
+                            Visibility(
+                              visible: _index == index,
+                              child: const Icon(Icons.done, color: Colors.blue)
                             )
                           ],
                         ),

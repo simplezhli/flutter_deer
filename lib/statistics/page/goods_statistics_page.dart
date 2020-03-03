@@ -180,8 +180,8 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                 ),
               ),
               Gaps.hGap8,
-              Offstage(
-                offstage: _type,
+              Visibility(
+                visible: !_type,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -197,7 +197,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                 mainAxisAlignment: _type ? MainAxisAlignment.center : MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text('400件', style: Theme.of(context).textTheme.subtitle),
-                  Offstage(offstage: _type, child: Text('已支付', style: Theme.of(context).textTheme.subtitle)),
+                  Visibility(visible: !_type, child: Text('已支付', style: Theme.of(context).textTheme.subtitle)),
                 ],
               ),
             ],

@@ -36,5 +36,5 @@ class Gaps {
     child: const VerticalDivider(),
   );
   
-  static const Widget empty = const SizedBox();
+  static const Widget empty = const SizedBox.shrink();
 }

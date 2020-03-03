@@ -157,8 +157,8 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                               color: Theme.of(context).primaryColor,
                             ) : null),
                           Gaps.hGap8,
-                          Offstage(
-                            offstage: _mList[index]['name'] != _myTabs[_index].text,
+                          Visibility(
+                            visible: _mList[index]['name'] == _myTabs[_index].text,
                             child: const LoadAssetImage('goods/xz', height: 16.0, width: 16.0),
                           )
                         ],

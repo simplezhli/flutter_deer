@@ -61,8 +61,8 @@ class _WithdrawalAccountListPageState extends State<WithdrawalAccountListPage> {
                       ],
                     ),
                   ),
-                  Offstage(
-                    offstage: _selectIndex != index,
+                  Visibility(
+                    visible: _selectIndex == index,
                     child: const LoadAssetImage(
                       'account/selected',
                       height: 24.0,

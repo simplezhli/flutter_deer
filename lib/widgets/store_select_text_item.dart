@@ -35,19 +35,17 @@ class StoreSelectTextItem extends StatelessWidget {
         child: Row(
           children: <Widget>[
             Text(title),
+            Gaps.hGap16,
             Expanded(
-              flex: 1,
-              child: Padding(
-                padding: const EdgeInsets.only(right: 8.0, left: 16.0),
-                child: Text(
-                  content,
-                  maxLines: 2,
-                  textAlign: textAlign,
-                  overflow: TextOverflow.ellipsis,
-                  style: style
-                ),
+              child: Text(
+                content,
+                maxLines: 2,
+                textAlign: textAlign,
+                overflow: TextOverflow.ellipsis,
+                style: style
               ),
             ),
+            Gaps.hGap8,
             Images.arrowRight
           ],
         ),

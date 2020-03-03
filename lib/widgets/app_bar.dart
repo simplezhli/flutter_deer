@@ -38,6 +38,38 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
 
     SystemUiOverlayStyle _overlayStyle = ThemeData.estimateBrightnessForColor(_backgroundColor) == Brightness.dark
         ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark;
+
+    var back = isBack ? IconButton(
+      onPressed: () {
+        FocusScope.of(context).unfocus();
+        Navigator.maybePop(context);
+      },
+      tooltip: 'Back',
+      padding: const EdgeInsets.all(12.0),
+      icon: Image.asset(
+        backImg,
+        color: ThemeUtils.getIconColor(context),
+      ),
+    ) : Gaps.empty;
+
+    var action = actionName.isNotEmpty ? Positioned(
+      right: 0.0,
+      child: Theme(
+        data: Theme.of(context).copyWith(
+            buttonTheme: ButtonThemeData(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              minWidth: 60.0,
+            )
+        ),
+        child: FlatButton(
+          child: Text(actionName, key: const Key('actionName')),
+          textColor: ThemeUtils.isDark(context) ? Colours.dark_text : Colours.text,
+          highlightColor: Colors.transparent,
+          onPressed: onPressed,
+        ),
+      ),
+    ) : Gaps.empty;
+
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: _overlayStyle,
       child: Material(
@@ -53,42 +85,14 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
                   alignment: centerTitle.isEmpty ? Alignment.centerLeft : Alignment.center,
                   width: double.infinity,
                   child: Text(
-                      title.isEmpty ? centerTitle : title,
-                      style: TextStyle(fontSize: Dimens.font_sp18,)
+                    title.isEmpty ? centerTitle : title,
+                    style: TextStyle(fontSize: Dimens.font_sp18,)
                   ),
                   margin: const EdgeInsets.symmetric(horizontal: 48.0),
                 ),
               ),
-              isBack ? IconButton(
-                onPressed: () {
-                  FocusScope.of(context).unfocus();
-                  Navigator.maybePop(context);
-                },
-                tooltip: 'Back',
-                padding: const EdgeInsets.all(12.0),
-                icon: Image.asset(
-                  backImg,
-                  color: ThemeUtils.getIconColor(context),
-                ),
-              ) : Gaps.empty,
-              Positioned(
-                right: 0.0,
-                child: Theme(
-                  data: Theme.of(context).copyWith(
-                      buttonTheme: ButtonThemeData(
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                        minWidth: 60.0,
-                      )
-                  ),
-                  child: actionName.isEmpty ? Container() :
-                  FlatButton(
-                    child: Text(actionName, key: const Key('actionName')),
-                    textColor: ThemeUtils.isDark(context) ? Colours.dark_text : Colours.text,
-                    highlightColor: Colors.transparent,
-                    onPressed: onPressed,
-                  ),
-                ),
-              ),
+              back,
+              action,
             ],
           ),
         ),

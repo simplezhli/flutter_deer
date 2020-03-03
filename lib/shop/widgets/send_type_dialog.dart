@@ -44,8 +44,8 @@ class _SendTypeDialog extends State<SendTypeDialog> {
                   ) : null,
                 ),
               ),
-              Offstage(
-                offstage: _value != index,
+              Visibility(
+                visible: _value == index,
                 child: const LoadAssetImage('order/ic_check', width: 16.0, height: 16.0)),
               Gaps.hGap16,
             ],

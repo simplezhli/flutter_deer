@@ -59,29 +59,25 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
         children: <Widget>[
           Gaps.vGap5,
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0),
-                child: Text(
-                  _check ? '正在营业' : '暂停营业',
-                  style: TextStyles.textBold24,
+              Gaps.hGap16,
+              Text(
+                _check ? '正在营业' : '暂停营业',
+                style: TextStyles.textBold24,
+              ),
+              const Spacer(),
+              Semantics(
+                label: '店铺营业开关',
+                child: Switch.adaptive(
+                  value: _check,
+                  onChanged: (bool val) {
+                    setState(() {
+                      _check = !_check;
+                    });
+                  },
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 4.0),
-                child: Semantics(
-                  label: '店铺营业开关',
-                  child: Switch.adaptive(
-                    value: _check,
-                    onChanged: (bool val) {
-                      setState(() {
-                        _check = !_check;
-                      });
-                    },
-                  ),
-                ),
-              )
+              Gaps.hGap4,
             ],
           ),
           Gaps.vGap16,

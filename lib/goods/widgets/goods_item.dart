@@ -66,9 +66,9 @@ class GoodsItem extends StatelessWidget {
                         Gaps.vGap4,
                         Row(
                           children: <Widget>[
-                            Offstage(
-                              // 类似于gone
-                              offstage: item.type % 3 != 0,
+                            Visibility(
+                              // 默认为占位替换，类似于gone
+                              visible: item.type % 3 == 0,
                               child: Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
                                 margin: const EdgeInsets.only(right: 4.0),
