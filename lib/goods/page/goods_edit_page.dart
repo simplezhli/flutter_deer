@@ -2,6 +2,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/goods/provider/goods_sort_provider.dart';
 import 'package:flutter_deer/goods/widgets/goods_sort_dialog.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
@@ -187,6 +188,14 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
     );
   }
 
+  GoodsSortProvider _provider = GoodsSortProvider();
+
+  @override
+  void dispose() {
+    _provider.dispose();
+    super.dispose();
+  }
+
   _showBottomSheet() {
     showModalBottomSheet(
       context: context,
@@ -194,6 +203,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
       isScrollControlled: true,
       builder: (BuildContext context) {
         return GoodsSortDialog(
+          provider: _provider,
           onSelected: (_, name) {
             setState(() {
               _goodsSortName = name;

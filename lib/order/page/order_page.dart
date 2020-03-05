@@ -21,7 +21,7 @@ class OrderPage extends StatefulWidget {
   _OrderPageState createState() => _OrderPageState();
 }
 
-class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixin<OrderPage>, SingleTickerProviderStateMixin{
+class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixin<OrderPage>, SingleTickerProviderStateMixin {
 
   @override
   bool get wantKeepAlive => true;

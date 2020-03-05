@@ -1,6 +1,6 @@
 import 'package:azlistview/azlistview.dart';
 
-class BankModel extends ISuspensionBean{
+class BankModel extends ISuspensionBean {
 
   int id;
   String bankName;

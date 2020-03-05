@@ -79,7 +79,6 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       appBar: const MyAppBar(
         centerTitle: '店铺审核资料',
       ),

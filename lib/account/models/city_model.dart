@@ -1,6 +1,6 @@
 import 'package:azlistview/azlistview.dart';
 
-class CityModel extends ISuspensionBean{
+class CityModel extends ISuspensionBean {
 
   String name;
   String cityCode;

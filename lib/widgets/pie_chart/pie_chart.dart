@@ -30,7 +30,7 @@ class PieChart extends StatefulWidget {
   _PieChartState createState() => _PieChartState();
 }
 
-class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin{
+class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin {
 
   int count;
   Animation<double> animation;

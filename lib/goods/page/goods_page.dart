@@ -19,7 +19,7 @@ class GoodsPage extends StatefulWidget {
   _GoodsPageState createState() => _GoodsPageState();
 }
 
-class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin{
+class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
 
   List<String> _sortList = ['全部商品', '个人护理', '饮料', '沐浴洗护', '厨房用具', '休闲食品', '生鲜水果', '酒水', '家庭清洁'];
   TabController _tabController;
