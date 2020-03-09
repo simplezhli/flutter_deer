@@ -48,7 +48,7 @@ dependencies:
   # 曲线图表 https://github.com/aeyrium/bezier-chart
   # bezier_chart: ^1.0.7
   # 路由框架 https://github.com/theyakka/fluro
-  fluro: ^1.5.2
+  fluro: ^1.6.1
   # 图片缓存 https://github.com/renefloor/flutter_cached_network_image
   cached_network_image: ^2.0.0
   # 格式化String https://github.com/Naddiseo/dart-sprintf

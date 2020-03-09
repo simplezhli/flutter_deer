@@ -100,7 +100,7 @@ packages:
       name: coverage
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.13.7"
+    version: "0.13.8"
   crypto:
     dependency: transitive
     description:
@@ -142,7 +142,7 @@ packages:
       name: fluro
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.5.2"
+    version: "1.6.1"
   flustars:
     dependency: "direct main"
     description:
@@ -405,7 +405,21 @@ packages:
       name: path_provider
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.6.1"
+    version: "1.6.5"
+  path_provider_macos:
+    dependency: transitive
+    description:
+      name: path_provider_macos
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.0.4"
+  path_provider_platform_interface:
+    dependency: transitive
+    description:
+      name: path_provider_platform_interface
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.1"
   pedantic:
     dependency: transitive
     description:
@@ -585,7 +599,7 @@ packages:
       name: sqflite
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.2.1"
+    version: "1.2.2"
   stack_trace:
     dependency: transitive
     description:
@@ -725,7 +739,7 @@ packages:
       name: watcher
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.9.7+13"
+    version: "0.9.7+14"
   web_socket_channel:
     dependency: transitive
     description:
@@ -756,4 +770,4 @@ packages:
     version: "2.2.0"
 sdks:
   dart: ">=2.7.0 <3.0.0"
-  flutter: ">=1.12.13+hotfix.5 <1.13.0"
+  flutter: ">=1.12.13+hotfix.5 <1.16.0"
