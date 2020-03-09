@@ -66,16 +66,17 @@ class _SettingPageState extends State<SettingPage> {
           ),
           ClickItem(
             title: '退出当前账号',
-            onTap: () {
-              showDialog(
-                context: context,
-                barrierDismissible: false,
-                builder: (_) => ExitDialog()
-              );
-            }
+            onTap: () => _showExitDialog(),
           ),
         ],
       ),
+    );
+  }
+
+  void _showExitDialog() {
+    showDialog(
+      context: context,
+      builder: (_) => ExitDialog()
     );
   }
 
