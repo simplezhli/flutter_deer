@@ -110,11 +110,9 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                   );
                 },
               ),
-              Gaps.vGap12,
-              Gaps.vGap12,
+              Gaps.vGap24,
               Container(height: 0.6, width: double.infinity, margin: const EdgeInsets.only(left: 16.0), child: Gaps.line,),
-              Gaps.vGap12,
-              Gaps.vGap12,
+              Gaps.vGap24,
               const MergeSemantics(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -161,8 +159,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                 ),
               ),
               Container(height: 0.6, width: double.infinity, margin: const EdgeInsets.only(left: 16.0), child: Gaps.line,),
-              Gaps.vGap12,
-              Gaps.vGap12,
+              Gaps.vGap24,
               const MergeSemantics(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),

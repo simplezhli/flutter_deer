@@ -147,8 +147,7 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
           });
         }
       ),
-      Gaps.vGap16,
-      Gaps.vGap16,
+      Gaps.vGap32,
       const Padding(
         padding: const EdgeInsets.only(left: 16.0),
         child: const Text('店主信息', style: TextStyles.textBold18),

@@ -102,7 +102,15 @@ class _AccountMoney extends StatelessWidget {
             const SizedBox(width: double.infinity),
             Text(title, style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
             Gaps.vGap8,
-            RiseNumberText(NumUtil.getDoubleByValueStr(money), style: moneyTextStyle ?? TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp14, fontWeight: FontWeight.bold, fontFamily: 'RobotoThin')),
+            RiseNumberText(
+              NumUtil.getDoubleByValueStr(money),
+              style: moneyTextStyle ?? TextStyle(
+                color: Colours.text_disabled, 
+                fontSize: Dimens.font_sp14,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'RobotoThin'
+              )
+            ),
           ],
         ),
       ),

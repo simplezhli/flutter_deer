@@ -152,8 +152,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                 )
               ],
             ),
-            Gaps.vGap16,
-            Gaps.vGap16,
+            Gaps.vGap32,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -164,8 +163,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
             _buildWithdrawalType(0),
             Gaps.line,
             _buildWithdrawalType(1),
-            Gaps.vGap16,
-            Gaps.vGap8,
+            Gaps.vGap24,
             MyButton(
               key: const Key('提现'),
               onPressed: _isClick ? () {
@@ -203,25 +201,25 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                 child: Text(type == 0 ? '快速到账' : '普通到账')
             ),
             Positioned(
-                bottom: 16.0,
-                left: 24.0,
-                right: 0.0,
-                child: RichText(
-                  text: type == 0 ? TextSpan(
-                    text: '手续费按',
-                    style: Theme.of(context).textTheme.body1.copyWith(fontSize: Dimens.font_sp12),
-                    children: <TextSpan>[
-                      TextSpan(text: '0.3%', style: const TextStyle(color: Color(0xFFFF8547))),
-                      TextSpan(text: '收取'),
-                    ],
-                  ) : TextSpan(
-                    text: '预计',
-                    style: Theme.of(context).textTheme.body1.copyWith(fontSize: Dimens.font_sp12),
-                    children: <TextSpan>[
-                      TextSpan(text: 'T+1天到账(免手续费，T为工作日)', style: const TextStyle(color: Color(0xFFFF8547))),
-                    ],
-                  ),
-                )
+              bottom: 16.0,
+              left: 24.0,
+              right: 0.0,
+              child: RichText(
+                text: type == 0 ? TextSpan(
+                  text: '手续费按',
+                  style: Theme.of(context).textTheme.body1.copyWith(fontSize: Dimens.font_sp12),
+                  children: <TextSpan>[
+                    TextSpan(text: '0.3%', style: const TextStyle(color: Color(0xFFFF8547))),
+                    TextSpan(text: '收取'),
+                  ],
+                ) : TextSpan(
+                  text: '预计',
+                  style: Theme.of(context).textTheme.body1.copyWith(fontSize: Dimens.font_sp12),
+                  children: <TextSpan>[
+                    TextSpan(text: 'T+1天到账(免手续费，T为工作日)', style: const TextStyle(color: Color(0xFFFF8547))),
+                  ],
+                ),
+              )
             ),
           ],
         ),

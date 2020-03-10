@@ -66,7 +66,7 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
               Positioned(
                   bottom: 0.0,
                   left: 0.0,
-                  child: Text(i % 2 == 0 ? '18:20:10' : '18:20:11', style: Theme.of(context).textTheme.subtitle)
+                  child: Text(i % 2 == 0 ? '18:20:10' : '08:20:11', style: Theme.of(context).textTheme.subtitle)
               ),
               Positioned(
                   bottom: 0.0,

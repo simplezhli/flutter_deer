@@ -120,8 +120,7 @@ class _RegisterPageState extends State<RegisterPage> {
         maxLength: 16,
         hintText: '请输入密码',
       ),
-      Gaps.vGap10,
-      Gaps.vGap15,
+      Gaps.vGap24,
       MyButton(
         key: const Key('register'),
         onPressed: _isClick ? _register : null,

@@ -90,8 +90,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Gaps.vGap16,
-              Gaps.vGap16,
+              Gaps.vGap32,
               const Text('数据走势', style: TextStyles.textBold18),
               Gaps.vGap16,
               const _StatisticsItem('订单统计', 'sjzs', 1),

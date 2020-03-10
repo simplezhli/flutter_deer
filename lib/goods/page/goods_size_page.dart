@@ -99,7 +99,6 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Gaps.vGap16,
-            Gaps.vGap5,
             Text(
               _sizeName,
               style: TextStyles.textBold24,
@@ -133,8 +132,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                 )
               ),
             ),
-            Gaps.vGap16,
-            Gaps.vGap16,
+            Gaps.vGap32,
             Expanded(
               child: _goodsSizeList.isEmpty ? const StateLayout(
                 type: StateType.goods,

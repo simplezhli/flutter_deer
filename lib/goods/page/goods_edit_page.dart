@@ -85,9 +85,9 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
           Gaps.vGap16,
           Center(
             child: SelectedImage(
-                size: 96.0,
-                image: _imageFile,
-                onTap: _getImage
+              size: 96.0,
+              image: _imageFile,
+              onTap: _getImage
             ),
           ),
           Gaps.vGap8,
@@ -125,8 +125,8 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
                   label: '扫码',
                   child: GestureDetector(
                     child: ThemeUtils.isDark(context) ?
-                    const LoadAssetImage('goods/icon_sm', width: 16.0, height: 16.0) :
-                    const LoadAssetImage('goods/scanning', width: 16.0, height: 16.0),
+                      const LoadAssetImage('goods/icon_sm', width: 16.0, height: 16.0) :
+                      const LoadAssetImage('goods/scanning', width: 16.0, height: 16.0),
                     onTap: _scan,
                   ),
                 ),
@@ -137,8 +137,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
             title: '商品说明',
             hintText: '选填',
           ),
-          Gaps.vGap16,
-          Gaps.vGap16,
+          Gaps.vGap32,
           const Padding(
             padding: const EdgeInsets.only(left: 16.0),
             child: const Text(
@@ -148,15 +147,14 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
           ),
           Gaps.vGap16,
           TextFieldItem(
-              title: '立减金额',
-              keyboardType: TextInputType.numberWithOptions(decimal: true)
+            title: '立减金额',
+            keyboardType: TextInputType.numberWithOptions(decimal: true)
           ),
           TextFieldItem(
-              title: '折扣金额',
-              keyboardType: TextInputType.numberWithOptions(decimal: true)
+            title: '折扣金额',
+            keyboardType: TextInputType.numberWithOptions(decimal: true)
           ),
-          Gaps.vGap16,
-          Gaps.vGap16,
+          Gaps.vGap32,
           const Padding(
             padding: const EdgeInsets.only(left: 16.0),
             child: const Text(

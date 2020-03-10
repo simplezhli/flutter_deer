@@ -80,8 +80,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
               Gaps.hGap4,
             ],
           ),
-          Gaps.vGap16,
-          Gaps.vGap16,
+          Gaps.vGap32,
           const Padding(
             padding: const EdgeInsets.only(left: 16.0),
             child: const Text('基础设置', style: TextStyles.textBold18),
@@ -138,8 +137,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                   });
             },
           ),
-          Gaps.vGap16,
-          Gaps.vGap16,
+          Gaps.vGap32,
           const Padding(
             padding: const EdgeInsets.only(left: 16.0),
             child: const Text('运费设置', style: TextStyles.textBold18),
@@ -216,8 +214,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
               onTap: () => NavigatorUtils.push(context, ShopRouter.freightConfigPage),
             ),
           ),
-          Gaps.vGap16,
-          Gaps.vGap16,
+          Gaps.vGap32,
           const Padding(
             padding: const EdgeInsets.only(left: 16.0),
             child: const Text('联系信息', style: TextStyles.textBold18,),

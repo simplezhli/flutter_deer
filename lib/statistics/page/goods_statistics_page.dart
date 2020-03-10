@@ -68,8 +68,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
             children: <Widget>[
               Gaps.vGap4,
               Text(_type ? '已配货' : '待配货', style: TextStyles.textBold24),
-              Gaps.vGap16,
-              Gaps.vGap16,
+              Gaps.vGap32,
               _type ? time : MergeSemantics(child: time,),
               Gaps.vGap8,
               _buildChart(),

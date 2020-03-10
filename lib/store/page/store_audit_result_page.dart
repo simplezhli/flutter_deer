@@ -45,8 +45,7 @@ class _StoreAuditResultPageState extends State<StoreAuditResultPage> {
               '预计完成时间：02月28日',
               style: Theme.of(context).textTheme.subtitle,
             ),
-            Gaps.vGap12,
-            Gaps.vGap12,
+            Gaps.vGap24,
             MyButton(
               onPressed: () {
                 NavigatorUtils.push(context, Routes.home, clearStack: true);

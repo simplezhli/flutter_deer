@@ -105,8 +105,7 @@ class _LoginPageState extends State<LoginPage> {
       maxLength: 16,
       hintText: '请输入密码',
     ),
-    Gaps.vGap10,
-    Gaps.vGap15,
+    Gaps.vGap24,
     MyButton(
       key: const Key('login'),
       onPressed: _isClick ? _login : null,

@@ -108,8 +108,7 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
           onTap: () => NavigatorUtils.push(context, LoginRouter.registerPage),
         )
       ),
-      Gaps.vGap15,
-      Gaps.vGap10,
+      Gaps.vGap24,
       MyButton(
         onPressed: _isClick ? _login : null,
         text: '登录',

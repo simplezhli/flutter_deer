@@ -39,8 +39,7 @@ class BaseDialog extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  Gaps.vGap12,
-                  Gaps.vGap12,
+                  Gaps.vGap24,
                   Visibility(
                     visible: !hiddenTitle,
                     child: Padding(

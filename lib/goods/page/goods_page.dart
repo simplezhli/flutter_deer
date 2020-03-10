@@ -114,8 +114,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 onTap: () => _showSortMenu(),
               ),
             ),
-            Gaps.vGap16,
-            Gaps.vGap8,
+            Gaps.vGap24,
             Container(
               // 隐藏点击效果
               color: ThemeUtils.getBackgroundColor(context),

@@ -74,8 +74,7 @@ class _UpdatePasswordPageState extends State<UpdatePasswordPage> {
             '设置账号 15000000000',
             style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp12),
           ),
-          Gaps.vGap16,
-          Gaps.vGap16,
+          Gaps.vGap32,
           MyTextField(
             isInputPwd: true,
             focusNode: _nodeText1,
@@ -93,8 +92,7 @@ class _UpdatePasswordPageState extends State<UpdatePasswordPage> {
             keyboardType: TextInputType.visiblePassword,
             hintText: '请输入新密码',
           ),
-          Gaps.vGap10,
-          Gaps.vGap15,
+          Gaps.vGap24,
           MyButton(
             onPressed: _isClick ? _confirm : null,
             text: '确认',

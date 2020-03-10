@@ -109,8 +109,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
         keyboardType: TextInputType.visiblePassword,
         hintText: '请输入密码',
       ),
-      Gaps.vGap10,
-      Gaps.vGap15,
+      Gaps.vGap24,
       MyButton(
         onPressed: _isClick ? _reset : null,
         text: '确认',

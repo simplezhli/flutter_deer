@@ -91,8 +91,9 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
               itemBuilder: (_, index) => _buildButton(index)
             ),
           ),
-      ],
-    ));
+        ],
+      )
+    );
   }
 
   Widget _buildButton(int index) {

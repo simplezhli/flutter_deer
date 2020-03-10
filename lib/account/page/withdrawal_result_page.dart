@@ -44,8 +44,7 @@ class _WithdrawalResultPageState extends State<WithdrawalResultPage> {
               '5秒后返回提现页面',
               style: Theme.of(context).textTheme.subtitle,
             ),
-            Gaps.vGap12,
-            Gaps.vGap12,
+            Gaps.vGap24,
             MyButton(
               onPressed: () => NavigatorUtils.goBack(context),
               text: '返回',

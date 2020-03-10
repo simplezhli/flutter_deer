@@ -72,20 +72,19 @@ class _GoodsSizeEditPageState extends State<GoodsSizeEditPage> {
             hintText: '填写该分类折后价格',
           ),
           TextFieldItem(
-              title: '库存数量',
-              hintText: '填写该分类库存数量',
-              keyboardType: TextInputType.number
+            title: '库存数量',
+            hintText: '填写该分类库存数量',
+            keyboardType: TextInputType.number
           ),
           TextFieldItem(
-              title: '佣金金额',
-              keyboardType: TextInputType.numberWithOptions(decimal: true)
+            title: '佣金金额',
+            keyboardType: TextInputType.numberWithOptions(decimal: true)
           ),
           TextFieldItem(
-              title: '起购数量',
-              keyboardType: TextInputType.number
+            title: '起购数量',
+            keyboardType: TextInputType.number
           ),
-          Gaps.vGap16,
-          Gaps.vGap16,
+          Gaps.vGap32,
           const Padding(
             padding: const EdgeInsets.only(left: 16.0),
             child: const Text('折扣立减', style: TextStyles.textBold18),
