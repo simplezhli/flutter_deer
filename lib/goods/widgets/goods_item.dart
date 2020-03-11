@@ -123,17 +123,17 @@ class GoodsItem extends StatelessWidget {
                         label: '商品操作菜单',
                         child: GestureDetector(
                           child: Container(
-                              key: Key('goods_menu_item_$index'),
-                              width: 24.0,
-                              height: 24.0,
-                              padding: const EdgeInsets.only(left: 8.0, bottom: 8.0),
-                              child: const LoadAssetImage('goods/ellipsis')
+                            key: Key('goods_menu_item_$index'),
+                            width: 44.0,
+                            height: 44.0,
+                            padding: const EdgeInsets.only(left: 28.0, bottom: 28.0),
+                            child: const LoadAssetImage('goods/ellipsis')
                           ),
                           onTap: onTapMenu,
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 30.0),
+                        padding: const EdgeInsets.only(top: 10.0),
                         child: Text(
                           '特产美味',
                           style: Theme.of(context).textTheme.subtitle,

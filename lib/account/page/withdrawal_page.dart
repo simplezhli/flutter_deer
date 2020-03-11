@@ -138,21 +138,24 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
             Gaps.line,
             Gaps.vGap8,
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text('最多可提现70元', style: Theme.of(context).textTheme.subtitle),
-                InkWell(
-                    onTap: () {
-                      _controller.text = '70';
-                    },
+                GestureDetector(
+                  onTap: () {
+                    _controller.text = '70';
+                  },    
+                  child: SizedBox(
+                    height: 48.0,
                     child: Text('全部提现', style: TextStyle(
                       fontSize: Dimens.font_sp12,
                       color: Theme.of(context).primaryColor,
-                    ))
+                    )),
+                  )
                 )
               ],
             ),
-            Gaps.vGap32,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[

@@ -146,11 +146,11 @@ iOS需要自行下载代码运行。
 
 ## 已知问题：
 
-- 1.12.13+hotfix.5 已知问题（#47270 ~~#47635~~ ~~#47137~~ ~~#47462~~ ~~#47804~~ ~~#47021~~）。
-
 - ListView在没有设置分割线的情况下，个别Item之间存在大约1像素的间隔（[像素对齐问题](https://github.com/flutter/flutter/issues/14288)）。
 
 - 在iOS手机上开启深色模式时，[无法将状态栏文字修改为黑色](https://github.com/flutter/flutter/issues/41067)。
+
+- 1.12.13+hotfix.5 已知问题（~~#47270~~ ~~#47635~~ ~~#47137~~ ~~#47462~~ ~~#47804~~ ~~#47021~~）。
 
 - 1.9.1已支持，使用`keyboardType: TextInputType.visiblePassword`即可。~~输入框在不设置`obscureText`属性的情况下(false)，[无法弹出密码模式键盘](https://github.com/flutter/flutter/issues/31738)，可暂时使用`BlacklistingTextInputFormatter`去除可能会输入的中文。~~
 

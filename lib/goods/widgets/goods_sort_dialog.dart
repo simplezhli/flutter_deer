@@ -28,12 +28,12 @@ class GoodsSortDialog extends StatefulWidget {
 class GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProviderStateMixin {
   
   TabController _tabController;
-  ScrollController _controller = new ScrollController();
+  ScrollController _controller = ScrollController();
 
   @override
   void initState() {
     super.initState();
-    _tabController = new TabController(vsync: this, length: 3);
+    _tabController = TabController(vsync: this, length: 3);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       widget.provider.initData();
       _tabController.animateTo(widget.provider.index, duration: const Duration(microseconds: 0));

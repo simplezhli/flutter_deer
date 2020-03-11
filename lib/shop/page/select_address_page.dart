@@ -15,7 +15,7 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
   
   List<PoiSearch> _list = [];
   int _index = 0;
-  ScrollController _controller = new ScrollController();
+  ScrollController _controller = ScrollController();
   AMap2DController _aMap2DController;
 
   @override

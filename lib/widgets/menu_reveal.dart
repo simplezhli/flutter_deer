@@ -17,7 +17,7 @@ class MenuReveal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipOval(
-      clipper: new CircleRevealClipper(revealPercent),
+      clipper: CircleRevealClipper(revealPercent),
       child: child,
     );
   }
@@ -34,7 +34,7 @@ class CircleRevealClipper extends CustomClipper<Rect> {
   Rect getClip(Size size) {
 
     // 右上角的点击点为圆心
-    final epicenter = new Offset(size.width - 25.0, 25.0);
+    final epicenter = Offset(size.width - 25.0, 25.0);
 
     double theta = atan(epicenter.dy / epicenter.dx);
     final distanceToCorner = (epicenter.dy) / sin(theta);
@@ -42,7 +42,7 @@ class CircleRevealClipper extends CustomClipper<Rect> {
     final radius = distanceToCorner * revealPercent;
     final diameter = 2 * radius;
 
-    return new Rect.fromLTWH(epicenter.dx - radius, epicenter.dy - radius, diameter, diameter);
+    return Rect.fromLTWH(epicenter.dx - radius, epicenter.dy - radius, diameter, diameter);
   }
 
   @override

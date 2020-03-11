@@ -49,9 +49,9 @@ class _GoodsSizeEditPageState extends State<GoodsSizeEditPage> {
           Gaps.vGap16,
           Center(
             child: SelectedImage(
-                size: 96.0,
-                image: _imageFile,
-                onTap: _getImage
+              size: 96.0,
+              image: _imageFile,
+              onTap: _getImage
             ),
           ),
           Gaps.vGap8,

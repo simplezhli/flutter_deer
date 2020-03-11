@@ -32,13 +32,13 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
   void initState() {
     super.initState();
     _goodsSizeList.clear();
-    _goodsSizeList.add(new GoodsSizeModel('goods/goods_size_1', '黑色', 1000, '50.0', 2, '2', '2', '2'));
-    _goodsSizeList.add(new GoodsSizeModel('goods/goods_size_2', '银色', 100, '51.0', 1, '', '2', '1'));
-    _goodsSizeList.add(new GoodsSizeModel('goods/goods_size_1', '黑色1', 1050, '50.0', 2, '20', '2', ''));
-    _goodsSizeList.add(new GoodsSizeModel('goods/goods_size_2', '银色1', 1000, '55.0', 2, '', '10', '2'));
-    _goodsSizeList.add(new GoodsSizeModel('goods/goods_size_1', '黑色2', 500, '56', 2, '2', '2', '2'));
-    _goodsSizeList.add(new GoodsSizeModel('goods/goods_size_2', '银色2', 110, '51.0', 2, '2', '1', ''));
-    _goodsSizeList.add(new GoodsSizeModel('goods/goods_size_1', '黑色3', 10, '50.0', 2, '2', '2.5', ''));
+    _goodsSizeList.add(GoodsSizeModel('goods/goods_size_1', '黑色', 1000, '50.0', 2, '2', '2', '2'));
+    _goodsSizeList.add(GoodsSizeModel('goods/goods_size_2', '银色', 100, '51.0', 1, '', '2', '1'));
+    _goodsSizeList.add(GoodsSizeModel('goods/goods_size_1', '黑色1', 1050, '50.0', 2, '20', '2', ''));
+    _goodsSizeList.add(GoodsSizeModel('goods/goods_size_2', '银色1', 1000, '55.0', 2, '', '10', '2'));
+    _goodsSizeList.add(GoodsSizeModel('goods/goods_size_1', '黑色2', 500, '56', 2, '2', '2', '2'));
+    _goodsSizeList.add(GoodsSizeModel('goods/goods_size_2', '银色2', 110, '51.0', 2, '2', '1', ''));
+    _goodsSizeList.add(GoodsSizeModel('goods/goods_size_1', '黑色3', 10, '50.0', 2, '2', '2.5', ''));
 
     // 获取Build完成状态监听
     var widgetsBinding = WidgetsBinding.instance;
@@ -103,7 +103,6 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
               _sizeName,
               style: TextStyles.textBold24,
             ),
-            Gaps.vGap8,
             InkWell(
               onTap: () {
                 showDialog(
@@ -121,18 +120,22 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                   }
                 );
               },
-              child: RichText(
-                key: const Key('name_edit'),
-                text: TextSpan(
-                  text: '先对名称进行',
-                  style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14),
-                  children: <TextSpan>[
-                    TextSpan(text: '编辑', style: TextStyle(color: Theme.of(context).primaryColor)),
-                  ],
-                )
+              child: Padding(
+                // 扩大点击范围
+                padding: const EdgeInsets.all(8.0),
+                child: RichText(
+                  key: const Key('name_edit'),
+                  text: TextSpan(
+                    text: '先对名称进行',
+                    style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14),
+                    children: <TextSpan>[
+                      TextSpan(text: '编辑', style: TextStyle(color: Theme.of(context).primaryColor)),
+                    ],
+                  )
+                ),
               ),
             ),
-            Gaps.vGap32,
+            Gaps.vGap24,
             Expanded(
               child: _goodsSizeList.isEmpty ? const StateLayout(
                 type: StateType.goods,

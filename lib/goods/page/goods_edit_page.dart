@@ -23,7 +23,7 @@ import '../goods_router.dart';
 /// design/4商品/index.html#artboard5
 class GoodsEditPage extends StatefulWidget {
   
-  const GoodsEditPage({Key key, this.isAdd: true, this.isScan}) : super(key: key);
+  const GoodsEditPage({Key key, this.isAdd: true, this.isScan: false}) : super(key: key);
   
   final bool isAdd;
   final bool isScan;
@@ -120,13 +120,16 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
                 hintText: '选填',
               ),
               Positioned(
-                right: 16.0,
+                right: 0.0,
                 child: Semantics(
                   label: '扫码',
                   child: GestureDetector(
-                    child: ThemeUtils.isDark(context) ?
-                      const LoadAssetImage('goods/icon_sm', width: 16.0, height: 16.0) :
-                      const LoadAssetImage('goods/scanning', width: 16.0, height: 16.0),
+                    child: Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: ThemeUtils.isDark(context) ?
+                        const LoadAssetImage('goods/icon_sm', width: 16.0, height: 16.0) :
+                        const LoadAssetImage('goods/scanning', width: 16.0, height: 16.0),
+                    ),
                     onTap: _scan,
                   ),
                 ),

@@ -39,17 +39,20 @@ class TextFieldItem extends StatelessWidget {
           Text(title),
           Gaps.hGap16,
           Expanded(
-            child: TextField(
-              focusNode: focusNode,
-              keyboardType: keyboardType,
-              inputFormatters: _getInputFormatters(),
-              controller: controller,
-              //style: TextStyles.textDark14,
-              decoration: InputDecoration(
-                hintText: hintText,
-                border: InputBorder.none, //去掉下划线
-                //hintStyle: TextStyles.textGrayC14
-              )
+            child: Semantics(
+              label: hintText.isEmpty ? '请输入$title' : hintText,
+              child: TextField(
+                focusNode: focusNode,
+                keyboardType: keyboardType,
+                inputFormatters: _getInputFormatters(),
+                controller: controller,
+                //style: TextStyles.textDark14,
+                decoration: InputDecoration(
+                  hintText: hintText,
+                  border: InputBorder.none, //去掉下划线
+                  //hintStyle: TextStyles.textGrayC14
+                )
+              ),
             ),
           ),
           Gaps.hGap16

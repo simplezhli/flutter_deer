@@ -7,16 +7,16 @@ import 'date_utils_.dart';
 /// @Description: Date Util.
 class DateUtils {
   
-  static final DateFormat _apiDayFormat = new DateFormat('yy.MM.dd');
+  static final DateFormat _apiDayFormat = DateFormat('yy.MM.dd');
   
   static String apiDayFormat(DateTime d) => _apiDayFormat.format(d);
 
   static String previousWeek(DateTime w) {
-    return apiDayFormat(w.subtract(new Duration(days: 6)));
+    return apiDayFormat(w.subtract(Duration(days: 6)));
   }
 
   static DateTime nextDay(DateTime w) {
-    return w.add(new Duration(days: 1));
+    return w.add(Duration(days: 1));
   }
 
   static List<DateTime> daysInWeek(DateTime week) {

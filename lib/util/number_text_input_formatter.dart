@@ -23,9 +23,9 @@ class UsNumberTextInputFormatter extends TextInputFormatter {
       value = oldValue.text;
       selectionIndex = oldValue.selection.end;
     }
-    return new TextEditingValue(
+    return TextEditingValue(
       text: value,
-      selection: new TextSelection.collapsed(offset: selectionIndex),
+      selection: TextSelection.collapsed(offset: selectionIndex),
     );
   }
 }

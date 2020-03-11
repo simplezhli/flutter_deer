@@ -78,7 +78,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
                   padding: const EdgeInsets.only(bottom: 15.0, left: 15.0, right: 15.0 , top: 5.0),
                   child: _isDownload ? LinearProgressIndicator(
                     backgroundColor: Colours.line,
-                    valueColor: new AlwaysStoppedAnimation<Color>(primaryColor),
+                    valueColor: AlwaysStoppedAnimation<Color>(primaryColor),
                     value: _value,
                   ): Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

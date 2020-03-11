@@ -143,7 +143,7 @@ class PieChartPainter extends CustomPainter {
     if (pieData != null) {
       data.add(pieData);
     }
-    _mPaint = new Paint();
+    _mPaint = Paint();
     totalAngle = angleFactor * math.pi * 2;
   }
   

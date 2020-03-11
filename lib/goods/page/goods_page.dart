@@ -34,7 +34,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
   @override
   void initState() {
     super.initState();
-    _tabController = new TabController(vsync: this, length: 3);
+    _tabController = TabController(vsync: this, length: 3);
   }
 
   @override
@@ -117,6 +117,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
             Gaps.vGap24,
             Container(
               // 隐藏点击效果
+              padding: EdgeInsets.only(left: 16.0),
               color: ThemeUtils.getBackgroundColor(context),
               child: TabBar(
                 onTap: (index) {
@@ -129,10 +130,10 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 controller: _tabController,
                 labelStyle: TextStyles.textBold18,
                 indicatorSize: TabBarIndicatorSize.label,
-                labelPadding: const EdgeInsets.only(left: 16.0),
+                labelPadding: const EdgeInsets.only(left: 0.0),
                 unselectedLabelColor: ThemeUtils.isDark(context) ? Colours.text_gray : Colours.text,
                 labelColor: Theme.of(context).primaryColor,
-                indicatorPadding: const EdgeInsets.only(left: 12.0, right: 36.0),
+                indicatorPadding: const EdgeInsets.only(right: 98.0 - 36.0),
                 tabs: <Widget>[
                   const _TabView('在售', 0),
                   const _TabView('待售', 1),
@@ -316,7 +317,7 @@ class _TabView extends StatelessWidget {
       builder: (_, provider, child) {
         return Tab(
           child: SizedBox(
-            width: 78.0,
+            width: 98.0,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[

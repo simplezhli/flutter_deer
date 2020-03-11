@@ -80,7 +80,7 @@ class DioUtils {
 
   Options _checkOptions(method, options) {
     if (options == null) {
-      options = new Options();
+      options = Options();
     }
     options.method = method;
     return options;

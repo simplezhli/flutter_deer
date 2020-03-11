@@ -176,6 +176,18 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_goldens:
+    dependency: "direct dev"
+    description: flutter
+    source: sdk
+    version: "0.0.0"
+  flutter_goldens_client:
+    dependency: transitive
+    description:
+      path: "E:\\flutter\\packages\\flutter_goldens_client"
+      relative: true
+    source: path
+    version: "0.0.0"
   flutter_localizations:
     dependency: "direct main"
     description: flutter
