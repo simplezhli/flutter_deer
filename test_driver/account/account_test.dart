@@ -30,7 +30,9 @@ void main() {
       await delayed();
       await driver.tap(find.text('提现账号'));
       await delayed();
-      
+      await driver.tap(find.text('微信'));
+      await delayed();
+      await delayed();
     });
     
     test('添加账号页测试',() async {
