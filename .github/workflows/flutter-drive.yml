@@ -91,5 +91,5 @@ jobs:
           flutter-version: '1.12.13+hotfix.8'
           channel: 'stable'
       - run: "flutter pub get"
-      - name: "Run Flutter Unit Tests"
-          run: "flutter test test/accessibility_test.dart"
+      - name: "Run Flutter Accessibility Tests"
+        run: "flutter test test/accessibility_test.dart"
