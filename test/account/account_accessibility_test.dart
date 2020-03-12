@@ -36,7 +36,7 @@ void main() {
         await tester.pumpWidget(MaterialApp(home: page));
         await expectLater(tester, meetsGuideline(iOSTapTargetGuideline));
         handle.dispose();
-      }); // https://github.com/flutter/flutter/issues/42455
+      });
     });
   });
 
@@ -52,8 +52,7 @@ void main() {
     });
   });
 
-  /// 例如文字与背景对比度过低，就会报错。（这个测试仅为示例展示，由于本项目文字与背景遵照设计图，
-  /// 此项测试多处不通过，因此后面的模块不进行此项测试）
+  /// （这个测试仅为示例展示，由于本项目文字与背景遵照设计图，此项测试多处不通过，因此后面的模块不进行此项测试）
   group('account => 检测页面文本对比度是否满足最小值的准则', () {
     final List<ThemeData> themes = <ThemeData>[
       ThemeProvider().getTheme(),

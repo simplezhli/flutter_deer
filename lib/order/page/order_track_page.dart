@@ -28,7 +28,10 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
               children: <Widget>[
                 const Text('订单编号：'),
                 // 可选择文本组件（复制）
-                SelectableText('14562364879', maxLines: 1,)
+                Semantics(
+                  label: '长按复制订单编号',
+                  child: SelectableText('14562364879', maxLines: 1,)
+                )
               ],
             )
           ),

@@ -28,11 +28,10 @@ void main() {
         }
         await expectLater(tester, meetsGuideline(iOSTapTargetGuideline));
         handle.dispose();
-      }, skip: (name == 'goods_search_page' || name == 'goods_size_page'));
+      }, skip: (name == 'goods_search_page' || name == 'goods_size_page')); // https://github.com/flutter/flutter/issues/42455
     });
   });
 
-  /// 例如图片可点击，但没加语义，就会报错。
   group('goods => 检测页面可点击目标是否都有语义', () {
     map.forEach((name, page) {
       testWidgets(name, (WidgetTester tester) async {

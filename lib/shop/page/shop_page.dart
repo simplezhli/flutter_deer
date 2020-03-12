@@ -16,6 +16,14 @@ import 'package:provider/provider.dart';
 
 /// design/6店铺-账户/index.html#artboard0
 class ShopPage extends StatefulWidget {
+
+  const ShopPage({
+    Key key,
+    this.isAccessibilityTest: false,
+  }) : super(key : key);
+
+  final bool isAccessibilityTest;
+  
   @override
   ShopPageState createState() => ShopPageState();
 }

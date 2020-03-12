@@ -5,6 +5,6 @@ import 'package:flutter_deer/main.dart' as app;
 /// 集成测试运行 flutter drive --target=test_driver/driver.dart
 void main() {
   enableFlutterDriverExtension();
-  Constant.isTest = true;
+  Constant.isDriverTest = true;
   app.main();
 }

@@ -29,7 +29,7 @@ class _CitySelectPageState extends State<CitySelectPage> {
     // 获取城市列表
     // loadString源码中有对json大小进行判断，json过大会使用compute处理，集成测试无法使用compute，所以这里修改源码单独判断处理。
     String jsonStr;
-    if (Constant.isTest) {
+    if (Constant.isDriverTest) {
       jsonStr = await _loadString('assets/data/city.json');
     } else {
       jsonStr = await rootBundle.loadString('assets/data/city.json');

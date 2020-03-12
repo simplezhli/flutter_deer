@@ -688,192 +688,195 @@ class BezierChartState extends State<BezierChart>
   Widget build(BuildContext context) {
     //using `Listener` to fix the issue with single touch for multitouch gesture like pinch/zoom
     //https://github.com/flutter/flutter/issues/13102
-    return Container(
-      decoration: BoxDecoration(
-        // TODO 修改处
+    return Semantics(
+      label: '长按查看详细数据',
+      child: Container(
+        decoration: BoxDecoration(
+          // TODO 修改处
 //        color: widget.config.backgroundGradient != null
 //            ? null
 //            : widget.config.backgroundColor,
-        gradient: widget.config.backgroundGradient,
-      ),
-      alignment: Alignment.center,
-      child: Listener(
-        onPointerDown: (_) {
-          _touchFingers++;
-          if (_touchFingers > 1) {
-            setState(() {});
-          }
-        },
-        onPointerUp: (_) {
-          _touchFingers--;
-          if (_touchFingers < 2) {
-            setState(() {});
-          }
-        },
-        child: GestureDetector(
-          onLongPressStart: isPinchZoomActive ? null : _onDisplayIndicator,
-          onLongPressMoveUpdate: isPinchZoomActive ? null : _refreshPosition,
-          onScaleStart: (_) {
-            _previousScale = _currentScale;
+          gradient: widget.config.backgroundGradient,
+        ),
+        alignment: Alignment.center,
+        child: Listener(
+          onPointerDown: (_) {
+            _touchFingers++;
+            if (_touchFingers > 1) {
+              setState(() {});
+            }
           },
-          onScaleUpdate: _currentBezierChartScale != BezierChartScale.CUSTOM &&
-                  //Hourly chart doesn't support pinch/zoom for now
-                  _currentBezierChartScale != BezierChartScale.HOURLY &&
-                  !_displayIndicator
-              ? (details) => _onPinchZoom(_previousScale * details.scale)
-              : null,
-          onTap: isPinchZoomActive ? null : _onHideIndicator,
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              _contentWidth = _buildContentWidth(constraints);
-              final items = <Widget>[];
-              final maxHeight = constraints.biggest.height * 0.8;
-              items.add(
-                MySingleChildScrollView(
-                  controller: _scrollController,
-                  physics: isPinchZoomActive || !_isScrollable
-                      ? NeverScrollableScrollPhysics()
-                      : AlwaysScrollableScrollPhysics(),
-                  key: _keyScroll,
-                  scrollDirection: Axis.horizontal,
-                  padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-                  child: Align(
-                    alignment: Alignment(0.0, 0.7),
-                    child: CustomPaint(
-                      size: Size(
-                        _contentWidth,
-                        maxHeight,
-                      ),
-                      painter: _BezierChartPainter(
-                        config: widget.config,
-                        maxYValue: _yValues.last,
-                        minYValue: _yValues.first,
-                        bezierChartScale: _currentBezierChartScale,
-                        verticalIndicatorPosition: _verticalIndicatorPosition,
-                        series: computedSeries,
-                        showIndicator: _displayIndicator,
-                        animation: CurvedAnimation(
-                          parent: _animationController,
-                          curve: Interval(
-                            0.0,
-                            1.0,
-                            curve: Curves.elasticOut,
-                          ),
+          onPointerUp: (_) {
+            _touchFingers--;
+            if (_touchFingers < 2) {
+              setState(() {});
+            }
+          },
+          child: GestureDetector(
+            onLongPressStart: isPinchZoomActive ? null : _onDisplayIndicator,
+            onLongPressMoveUpdate: isPinchZoomActive ? null : _refreshPosition,
+            onScaleStart: (_) {
+              _previousScale = _currentScale;
+            },
+            onScaleUpdate: _currentBezierChartScale != BezierChartScale.CUSTOM &&
+                    //Hourly chart doesn't support pinch/zoom for now
+                    _currentBezierChartScale != BezierChartScale.HOURLY &&
+                    !_displayIndicator
+                ? (details) => _onPinchZoom(_previousScale * details.scale)
+                : null,
+            onTap: isPinchZoomActive ? null : _onHideIndicator,
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                _contentWidth = _buildContentWidth(constraints);
+                final items = <Widget>[];
+                final maxHeight = constraints.biggest.height * 0.8;
+                items.add(
+                  MySingleChildScrollView(
+                    controller: _scrollController,
+                    physics: isPinchZoomActive || !_isScrollable
+                        ? NeverScrollableScrollPhysics()
+                        : AlwaysScrollableScrollPhysics(),
+                    key: _keyScroll,
+                    scrollDirection: Axis.horizontal,
+                    padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+                    child: Align(
+                      alignment: Alignment(0.0, 0.7),
+                      child: CustomPaint(
+                        size: Size(
+                          _contentWidth,
+                          maxHeight,
                         ),
-                        xAxisDataPoints: _xAxisDataPoints,
-                        onDataPointSnap: _onDataPointSnap,
-                        maxWidth: MediaQuery.of(context).size.width,
-                        scrollOffset: _scrollController.hasClients
-                            ? _scrollController.offset
-                            : 0.0,
-                        footerValueBuilder: widget.footerValueBuilder,
-                        footerDateTimeBuilder: widget.footerDateTimeBuilder,
-                        onValueSelected: (val) {
-                          if (widget.onValueSelected != null) {
-                            if (_valueSelected == null) {
-                              _valueSelected = val;
-                              widget.onValueSelected(_valueSelected);
-                            } else {
-                              if (_valueSelected != val) {
+                        painter: _BezierChartPainter(
+                          config: widget.config,
+                          maxYValue: _yValues.last,
+                          minYValue: _yValues.first,
+                          bezierChartScale: _currentBezierChartScale,
+                          verticalIndicatorPosition: _verticalIndicatorPosition,
+                          series: computedSeries,
+                          showIndicator: _displayIndicator,
+                          animation: CurvedAnimation(
+                            parent: _animationController,
+                            curve: Interval(
+                              0.0,
+                              1.0,
+                              curve: Curves.elasticOut,
+                            ),
+                          ),
+                          xAxisDataPoints: _xAxisDataPoints,
+                          onDataPointSnap: _onDataPointSnap,
+                          maxWidth: MediaQuery.of(context).size.width,
+                          scrollOffset: _scrollController.hasClients
+                              ? _scrollController.offset
+                              : 0.0,
+                          footerValueBuilder: widget.footerValueBuilder,
+                          footerDateTimeBuilder: widget.footerDateTimeBuilder,
+                          onValueSelected: (val) {
+                            if (widget.onValueSelected != null) {
+                              if (_valueSelected == null) {
                                 _valueSelected = val;
                                 widget.onValueSelected(_valueSelected);
+                              } else {
+                                if (_valueSelected != val) {
+                                  _valueSelected = val;
+                                  widget.onValueSelected(_valueSelected);
+                                }
                               }
                             }
-                          }
-                        },
-                        onDateTimeSelected: (val) {
-                          if (widget.onDateTimeSelected != null) {
-                            if (_dateTimeSelected == null) {
-                              _dateTimeSelected = val;
-                              widget.onDateTimeSelected(_dateTimeSelected);
-                            } else {
-                              if (_dateTimeSelected != val) {
+                          },
+                          onDateTimeSelected: (val) {
+                            if (widget.onDateTimeSelected != null) {
+                              if (_dateTimeSelected == null) {
                                 _dateTimeSelected = val;
                                 widget.onDateTimeSelected(_dateTimeSelected);
+                              } else {
+                                if (_dateTimeSelected != val) {
+                                  _dateTimeSelected = val;
+                                  widget.onDateTimeSelected(_dateTimeSelected);
+                                }
                               }
                             }
-                          }
-                        },
+                          },
+                        ),
                       ),
                     ),
                   ),
-                ),
-              );
-              if (widget.config.displayYAxis) {
-                if (_yValues != null && _yValues.isNotEmpty) {
-                  //add a background container for the Y Axis
-                  items.add(Positioned(
-                    left: 0,
-                    top: 0,
-                    bottom: 0,
-                    child: Container(
-                      width: _yAxisWidth + 10,
-                      decoration: widget.config.backgroundGradient != null
-                          ? BoxDecoration(
-                              gradient: widget.config.backgroundGradient)
-                          : null,
-                      color: widget.config.backgroundGradient != null
-                          ? null
-                          : widget.config.backgroundColor,
-                    ),
-                  ));
-                }
-
-                final fontSize = widget.config.yAxisTextStyle?.fontSize ?? 8.0;
-                final maxValue = _yValues.last -
-                    (widget.config.startYAxisFromNonZeroValue
-                        ? _yValues.first
-                        : 0.0);
-                final steps = widget.config.stepsYAxis != null &&
-                        widget.config.stepsYAxis > 0
-                    ? widget.config.stepsYAxis
-                    : null;
-                _addYItem(double value, {Key key}) {
-                  items.add(
-                    Positioned(
-                      bottom: _getRealValue(
-                              value -
-                                  (widget.config.startYAxisFromNonZeroValue
-                                      ? _yValues.first
-                                      : 0.0),
-                              maxHeight - widget.config.footerHeight,
-                              maxValue) +
-                          widget.config.footerHeight +
-                          fontSize / 2,
-                      left: 10.0,
-                      child: Text(
-                        formatAsIntOrDouble(value),
-                        key: key,
-                        style: widget.config.yAxisTextStyle ??
-                            TextStyle(color: Colors.white, fontSize: fontSize),
+                );
+                if (widget.config.displayYAxis) {
+                  if (_yValues != null && _yValues.isNotEmpty) {
+                    //add a background container for the Y Axis
+                    items.add(Positioned(
+                      left: 0,
+                      top: 0,
+                      bottom: 0,
+                      child: Container(
+                        width: _yAxisWidth + 10,
+                        decoration: widget.config.backgroundGradient != null
+                            ? BoxDecoration(
+                                gradient: widget.config.backgroundGradient)
+                            : null,
+                        color: widget.config.backgroundGradient != null
+                            ? null
+                            : widget.config.backgroundColor,
                       ),
-                    ),
-                  );
-                }
+                    ));
+                  }
 
-                if (steps != null) {
-                  final max = _yValues.last;
-                  final min = widget.config.startYAxisFromNonZeroValue
-                      ? _yValues.first.ceil()
-                      : 0;
-                  for (int i = min; i < max + steps; i++) {
-                    if (i % steps == 0) {
-                      bool isLast = (i + steps) > max && (i + steps) >= (max + steps);
-                      _addYItem(i.toDouble(),
-                          key: isLast ? _keyLastYAxisItem : null);
+                  final fontSize = widget.config.yAxisTextStyle?.fontSize ?? 8.0;
+                  final maxValue = _yValues.last -
+                      (widget.config.startYAxisFromNonZeroValue
+                          ? _yValues.first
+                          : 0.0);
+                  final steps = widget.config.stepsYAxis != null &&
+                          widget.config.stepsYAxis > 0
+                      ? widget.config.stepsYAxis
+                      : null;
+                  _addYItem(double value, {Key key}) {
+                    items.add(
+                      Positioned(
+                        bottom: _getRealValue(
+                                value -
+                                    (widget.config.startYAxisFromNonZeroValue
+                                        ? _yValues.first
+                                        : 0.0),
+                                maxHeight - widget.config.footerHeight,
+                                maxValue) +
+                            widget.config.footerHeight +
+                            fontSize / 2,
+                        left: 10.0,
+                        child: Text(
+                          formatAsIntOrDouble(value),
+                          key: key,
+                          style: widget.config.yAxisTextStyle ??
+                              TextStyle(color: Colors.white, fontSize: fontSize),
+                        ),
+                      ),
+                    );
+                  }
+
+                  if (steps != null) {
+                    final max = _yValues.last;
+                    final min = widget.config.startYAxisFromNonZeroValue
+                        ? _yValues.first.ceil()
+                        : 0;
+                    for (int i = min; i < max + steps; i++) {
+                      if (i % steps == 0) {
+                        bool isLast = (i + steps) > max && (i + steps) >= (max + steps);
+                        _addYItem(i.toDouble(),
+                            key: isLast ? _keyLastYAxisItem : null);
+                      }
+                    }
+                  } else {
+                    for (double val in _yValues) {
+                      _addYItem(val,
+                          key: val == _yValues.last ? _keyLastYAxisItem : null);
                     }
                   }
-                } else {
-                  for (double val in _yValues) {
-                    _addYItem(val,
-                        key: val == _yValues.last ? _keyLastYAxisItem : null);
-                  }
                 }
-              }
-              return Stack(
-                children: items,
-              );
-            },
+                return Stack(
+                  children: items,
+                );
+              },
+            ),
           ),
         ),
       ),

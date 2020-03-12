@@ -99,11 +99,14 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
             ),
           ),
           Gaps.vLine,
-          Gaps.hGap16,
+          //Gaps.hGap16,
           Semantics(
             label: '拨打电话',
             child: GestureDetector(
-              child: const LoadAssetImage('order/icon_phone', width: 24.0, height: 24.0),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 20.0),
+                child: const LoadAssetImage('order/icon_phone', width: 24.0, height: 44.0),
+              ),
               onTap: () => _showCallPhoneDialog('15000000000'),
             ),
           )

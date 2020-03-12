@@ -11,6 +11,10 @@ class ShopPagePresenter extends BasePagePresenter<ShopPageState> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (view.widget.isAccessibilityTest) {
+        return;
+      }
+      
       /// 接口请求例子
       /// get请求参数queryParameters  post请求参数params
       asyncRequestNetwork<UserEntity>(Method.get,

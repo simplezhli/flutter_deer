@@ -9,6 +9,10 @@ import 'shop/shop_test.dart' as shop_test;
 import 'account/account_test.dart' as account_test;
 import 'goods/goods_test.dart' as goods_test;
 
+/// 集成测试
+/// 
+/// 测试运行 flutter drive --target=test_driver/driver.dart
+/// 
 /// 各模块统一运行，也可单独执行子模块测试
 void main() {
   splash_test.main();

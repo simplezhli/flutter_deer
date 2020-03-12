@@ -7,7 +7,7 @@ import 'package:flutter_deer/widgets/app_bar.dart';
 /// design/7店铺-店铺配置/index.html#artboard13
 class InputTextPage extends StatefulWidget {
 
-  InputTextPage({
+  const InputTextPage({
     Key key,
     @required this.title,
     this.content,

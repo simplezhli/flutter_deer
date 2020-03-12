@@ -70,7 +70,7 @@ class DioUtils {
     var response = await _dio.request(url, data: data, queryParameters: queryParameters, options: _checkOptions(method, options), cancelToken: cancelToken);
     try {
       /// 集成测试无法使用 isolate
-      Map<String, dynamic> _map = Constant.isTest ? parseData(response.data.toString()) : await compute(parseData, response.data.toString());
+      Map<String, dynamic> _map = Constant.isDriverTest ? parseData(response.data.toString()) : await compute(parseData, response.data.toString());
       return BaseEntity.fromJson(_map);
     } catch(e) {
       print(e);

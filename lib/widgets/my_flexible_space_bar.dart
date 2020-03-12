@@ -179,24 +179,15 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
     final double t = (1.0 - (settings.currentExtent - settings.minExtent) / deltaExtent).clamp(0.0, 1.0);
 
     // background image
-//    if (widget.background != null) {
-//      final double fadeStart = math.max(0.0, 1.0 - kToolbarHeight / deltaExtent);
-//      const double fadeEnd = 1.0;
-//      assert(fadeStart <= fadeEnd);
-//      final double opacity = 1.0 - Interval(fadeStart, fadeEnd).transform(t);
-//      if (opacity > 0.0) {
-        children.add(Positioned(
-          top: _getCollapsePadding(t, settings),
-          left: 0.0,
-          right: 0.0,
-          height: settings.maxExtent,
-          child: Opacity(
-            opacity: 1,
-            child: widget.background,
-          ),
-        ));
-//      }
-//    }
+    if (widget.background != null) {
+      children.add(Positioned(
+        top: _getCollapsePadding(t, settings),
+        left: 0.0,
+        right: 0.0,
+        height: settings.maxExtent,
+        child: widget.background,
+      ));
+    }
 
     if (widget.title != null) {
       Widget title;
