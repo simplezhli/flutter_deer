@@ -76,7 +76,7 @@ jobs:
           profile: Nexus 6
           script: "flutter drive --target=test_driver/driver.dart"
           
-  test:
+  accessibility_test:
     #The type of machine to run the job on. [windows,macos, ubuntu , self-hosted]
     runs-on: macos-latest
     #sequence of tasks called
