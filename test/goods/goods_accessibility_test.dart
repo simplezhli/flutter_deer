@@ -16,7 +16,7 @@ void main() {
   map['goods_size_page'] = GoodsSizePage();
   map['goods_size_edit_page'] = GoodsSizeEditPage();
   
-  group('goods => 检测页面可点击目标大小是否小于44 * 44', () {
+  group('goods => 检测页面可点击目标大小是否大于44 * 44', () {
     map.forEach((name, page) {
       testWidgets(name, (WidgetTester tester) async {
        

@@ -11,7 +11,7 @@ void main() {
   map['store_audit_page'] = StoreAuditPage();
   map['store_audit_result_page'] = StoreAuditResultPage();
 
-  group('store => 检测页面可点击目标大小是否小于44 * 44', () {
+  group('store => 检测页面可点击目标大小是否大于44 * 44', () {
     map.forEach((name, page) {
       testWidgets(name, (WidgetTester tester) async {
         final SemanticsHandle handle = tester.ensureSemantics();

@@ -29,7 +29,7 @@ void main() {
   map['withdrawal_record_list_page'] = WithdrawalRecordListPage();
   map['withdrawal_result_page'] = WithdrawalResultPage();
   
-  group('account => 检测页面可点击目标大小是否小于44 * 44', () {
+  group('account => 检测页面可点击目标大小是否大于44 * 44', () {
     map.forEach((name, page) {
       testWidgets(name, (WidgetTester tester) async {
         final SemanticsHandle handle = tester.ensureSemantics();

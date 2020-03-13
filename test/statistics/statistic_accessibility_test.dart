@@ -12,7 +12,7 @@ void main() {
   map['order_statistics_page'] = OrderStatisticsPage(1);
   map['goods_statistics_page'] = GoodsStatisticsPage();
   
-  group('statistics => 检测页面可点击目标大小是否小于44 * 44', () {
+  group('statistics => 检测页面可点击目标大小是否大于44 * 44', () {
     map.forEach((name, page) {
       testWidgets(name, (WidgetTester tester) async {
         final SemanticsHandle handle = tester.ensureSemantics();

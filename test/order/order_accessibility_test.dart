@@ -14,7 +14,7 @@ void main() {
   map['order_search_page'] = OrderSearchPage();
   map['order_track_page'] = OrderTrackPage();
   
-  group('order => 检测页面可点击目标大小是否小于44 * 44', () {
+  group('order => 检测页面可点击目标大小是否大于44 * 44', () {
     map.forEach((name, page) {
       testWidgets(name, (WidgetTester tester) async {
        

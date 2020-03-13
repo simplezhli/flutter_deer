@@ -18,7 +18,7 @@ void main() {
   map['input_text_page'] = InputTextPage(title: '测试', hintText: '输入测试内容');
   map['freight_config_page'] = FreightConfigPage();
 
-  group('shop => 检测页面可点击目标大小是否小于44 * 44', () {
+  group('shop => 检测页面可点击目标大小是否大于44 * 44', () {
     map.forEach((name, page) {
       testWidgets(name, (WidgetTester tester) async {
         final SemanticsHandle handle = tester.ensureSemantics();

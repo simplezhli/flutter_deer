@@ -8,7 +8,7 @@ import 'statistics/statistic_accessibility_test.dart' as statistic_test;
 import 'store/store_accessibility_test.dart' as store_test;
 
 /// 可访问性测试
-/// 1.检测页面可点击目标大小是否小于44 * 44
+/// 1.检测页面可点击目标大小是否大于44 * 44
 /// 2.检测页面可点击目标是否都有语义，例如图片可点击，但没加语义，就会报错。
 /// 3.检测页面文本对比度是否满足最小值的准则，例如文字与背景对比度过低，就会报错。（部分测试）
 /// 
