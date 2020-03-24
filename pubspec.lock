@@ -396,7 +396,7 @@ packages:
       name: package_config
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.9.1"
+    version: "1.9.2"
   package_resolver:
     dependency: transitive
     description:

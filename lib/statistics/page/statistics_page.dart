@@ -5,6 +5,7 @@ import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/statistics/statistics_router.dart';
 import 'package:flutter_deer/util/image_utils.dart';
+import 'package:flutter_deer/util/screen_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
@@ -45,7 +46,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
         pinned: true,
         flexibleSpace: MyFlexibleSpaceBar(
           background: isDark ? Container(height: 115.0, color: Colours.dark_bg_color,) : LoadAssetImage('statistic/statistic_bg',
-            width: MediaQuery.of(context).size.width,
+            width: Screen.width(context),
             height: 115.0,
             fit: BoxFit.fill,
           ),

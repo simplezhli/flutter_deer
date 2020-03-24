@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/goods/provider/goods_sort_provider.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/screen_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:provider/provider.dart';
@@ -50,7 +51,7 @@ class GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProvi
   Widget build(BuildContext context) {
     return Material(
       child: SizedBox(
-        height: MediaQuery.of(context).size.height * 11.0 / 16.0,
+        height: Screen.height(context) * 11.0 / 16.0,
         /// 为保留状态，选择ChangeNotifierProvider.value，销毁自己手动处理（见 goods_edit_page.dart ：dispose()）
         child: ChangeNotifierProvider<GoodsSortProvider>.value(
           value: widget.provider,
