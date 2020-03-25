@@ -9,7 +9,6 @@ import 'package:flutter_deer/util/screen_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
-import 'package:rxdart/rxdart.dart';
 
 /// design/6店铺-账户/index.html#artboard23
 /// 骚操作：借腹生子
@@ -181,7 +180,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                         _currentSecond = _second;
                         _isClick = false;
                       });
-                      _subscription = Observable.periodic(Duration(seconds: 1), (i) => i).take(_second).listen((i) {
+                      _subscription = Stream.periodic(Duration(seconds: 1), (i) => i).take(_second).listen((i) {
                         setState(() {
                           _currentSecond = _second - i - 1;
                           _isClick = _currentSecond < 1;

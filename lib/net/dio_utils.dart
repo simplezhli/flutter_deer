@@ -5,7 +5,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/util/log_utils.dart';
-import 'package:rxdart/rxdart.dart';
 import 'base_entity.dart';
 import 'error_handle.dart';
 import 'intercept.dart';
@@ -128,7 +127,7 @@ class DioUtils {
     CancelToken cancelToken, Options options, bool isList : false
   }) {
     String m = _getRequestMethod(method);
-    Observable.fromFuture(_request<T>(m, url, data: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken))
+    Stream.fromFuture(_request<T>(m, url, data: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken))
         .asBroadcastStream()
         .listen((result) {
       if (result.code == 0) {

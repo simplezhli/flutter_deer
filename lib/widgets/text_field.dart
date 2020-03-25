@@ -5,7 +5,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:rxdart/rxdart.dart';
 
 import 'load_image.dart';
 
@@ -78,7 +77,7 @@ class _MyTextFieldState extends State<MyTextField> {
         _currentSecond = _second;
         _isClick = false;
       });
-      _subscription = Observable.periodic(Duration(seconds: 1), (i) => i).take(_second).listen((i) {
+      _subscription = Stream.periodic(Duration(seconds: 1), (i) => i).take(_second).listen((i) {
         setState(() {
           _currentSecond = _second - i - 1;
           _isClick = _currentSecond < 1;
