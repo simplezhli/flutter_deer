@@ -6,6 +6,7 @@ import 'package:flutter_deer/order/provider/order_page_provider.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/image_utils.dart';
+import 'package:flutter_deer/util/screen_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
@@ -28,6 +29,8 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
   
   TabController _tabController;
   OrderPageProvider provider = OrderPageProvider();
+
+  int _lastReportedPage = 0;
   
   @override
   void initState() {
@@ -80,12 +83,25 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
               key: const Key('order_list'),
               physics: ClampingScrollPhysics(),
               headerSliverBuilder: (context, innerBoxIsScrolled) => _sliverBuilder(context),
-              body: PageView.builder(
-                key: const Key('pageView'),
-                itemCount: 5,
-                onPageChanged: _onPageChange,
-                controller: _pageController,
-                itemBuilder: (_, index) => OrderListPage(index: index)
+              body: NotificationListener<ScrollNotification>(
+                onNotification: (ScrollNotification notification) {
+                  /// PageView的onPageChanged是监听ScrollUpdateNotification，会造成滑动中卡顿。这里修改为监听滚动结束再更新、
+                  if (notification.depth == 0 && notification is ScrollEndNotification) {
+                    final PageMetrics metrics = notification.metrics;
+                    final int currentPage = metrics.page.round();
+                    if (currentPage != _lastReportedPage) {
+                      _lastReportedPage = currentPage;
+                      _onPageChange(currentPage);
+                    }
+                  }
+                  return false;
+                },
+                child: PageView.builder(
+                  key: const Key('pageView'),
+                  itemCount: 5,
+                  controller: _pageController,
+                  itemBuilder: (_, index) => OrderListPage(index: index)
+                ),
               ),
             ),
           ],
@@ -122,7 +138,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
           pinned: true, // 固定在顶部
           flexibleSpace: MyFlexibleSpaceBar(
             background: isDark ? Container(height: 113.0, color: Colours.dark_bg_color,) : LoadAssetImage('order/order_bg',
-              width: MediaQuery.of(context).size.width,
+              width: Screen.width(context),
               height: 113.0,
               fit: BoxFit.fill,
             ),

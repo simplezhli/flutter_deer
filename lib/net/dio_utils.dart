@@ -68,7 +68,7 @@ class DioUtils {
   }) async {
     var response = await _dio.request(url, data: data, queryParameters: queryParameters, options: _checkOptions(method, options), cancelToken: cancelToken);
     try {
-      /// 集成测试无法使用 isolate
+      /// 集成测试无法使用 isolate https://github.com/flutter/flutter/issues/24703
       Map<String, dynamic> _map = Constant.isDriverTest ? parseData(response.data.toString()) : await compute(parseData, response.data.toString());
       return BaseEntity.fromJson(_map);
     } catch(e) {
