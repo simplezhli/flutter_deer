@@ -29,6 +29,7 @@ class _GoodsSizeDialog extends State<GoodsSizeDialog> {
       title: '规格名称',
       child: Container(
         height: 34.0,
+        alignment: Alignment.center,
         margin: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0.0),
         decoration: BoxDecoration(
           color: ThemeUtils.getDialogTextFieldColor(context),
@@ -39,7 +40,8 @@ class _GoodsSizeDialog extends State<GoodsSizeDialog> {
           controller: _controller,
           maxLines: 1,
           decoration: InputDecoration(
-            contentPadding: const EdgeInsets.only(top: 0.0, left: 16.0, right: 16.0, bottom: 14.0),
+            isDense: true,
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
             border: InputBorder.none,
             hintText: '输入文字…',
             //hintStyle: TextStyles.textGrayC14,

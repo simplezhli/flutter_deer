@@ -62,8 +62,9 @@ class _RangePriceInputDialog extends State<RangePriceInputDialog> {
               alignment: Alignment.center,
               child: const Text('至'),
               padding: const EdgeInsets.symmetric(horizontal: 12.0),
-              color: Colors.white,
-              height: double.infinity),
+              color: ThemeUtils.getDialogBackgroundColor(context),
+              height: double.infinity
+            ),
             Expanded(
               child: TextField(
                 autofocus: true,

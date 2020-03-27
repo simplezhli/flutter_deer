@@ -35,6 +35,7 @@ class _PriceInputDialog extends State<PriceInputDialog> {
       title: widget.title,
       child: Container(
         height: 34.0,
+        alignment: Alignment.center,
         margin: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0.0),
         decoration: BoxDecoration(
           color: ThemeUtils.getDialogTextFieldColor(context),
@@ -50,7 +51,8 @@ class _PriceInputDialog extends State<PriceInputDialog> {
           // 金额限制数字格式
           inputFormatters: [UsNumberTextInputFormatter()],
           decoration: InputDecoration(
-            contentPadding: const EdgeInsets.only(top: 0.0, left: 16.0, right: 16.0, bottom: 14.0),
+            isDense: true,
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
             border: InputBorder.none,
             hintText: '输入${widget.title}',
             //hintStyle: TextStyles.textGrayC14,
