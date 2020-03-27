@@ -27,7 +27,11 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
   bool _isEdit = false;
   String _sizeName = '商品规格名称';
   GlobalKey _hintKey = GlobalKey();
-  
+
+  List<GoodsSizeModel> _goodsSizeList = [];
+  // 保留一个Slidable打开
+  SlidableController _slidableController = SlidableController();
+
   @override
   void initState() {
     super.initState();
@@ -160,11 +164,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
       ),
     );
   }
-  
-  List<GoodsSizeModel> _goodsSizeList = [];
-  // 保留一个Slidable打开
-  final SlidableController _slidableController = SlidableController();
-
+ 
   /// design/4商品/index.html#artboard19
   Widget _getGoodsSizeItem(int index) {
 
@@ -254,7 +254,13 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
 
     // item装饰
     widget = InkWell(
-      onTap: () => NavigatorUtils.push(context, GoodsRouter.goodsSizeEditPage),
+      onTap: () {
+        if (_slidableController.activeState != null) {
+          _slidableController.activeState.close();
+        } else {
+          NavigatorUtils.push(context, GoodsRouter.goodsSizeEditPage);
+        }
+      },
       child: Container(
         padding: const EdgeInsets.only(left: 16.0, top: 16.0),
         child: DecoratedBox(
