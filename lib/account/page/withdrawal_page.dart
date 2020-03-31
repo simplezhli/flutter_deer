@@ -22,7 +22,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
   
   TextEditingController _controller = TextEditingController();
   int _withdrawalType = 0;
-  bool _isClick = false;
+  bool _clickable = false;
   WithdrawalAccountModel _data = WithdrawalAccountModel('尾号5236 李艺', '工商银行', 0, '123');
   
   @override
@@ -35,12 +35,12 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
     String price = _controller.text;
     if (price.isEmpty || double.parse(price) < 1) {
       setState(() {
-        _isClick = false;
+        _clickable = false;
       });
       return;
     }
     setState(() {
-      _isClick = true;
+      _clickable = true;
     });
   }
 
@@ -169,7 +169,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
             Gaps.vGap24,
             MyButton(
               key: const Key('提现'),
-              onPressed: _isClick ? () {
+              onPressed: _clickable ? () {
                 NavigatorUtils.push(context, AccountRouter.withdrawalResultPage);
               } : null,
               text: '提现',

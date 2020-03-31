@@ -38,21 +38,20 @@ class _WebViewPageState extends State<WebViewPage> {
                   snapshot.data.goBack();
                   return Future.value(false);
                 }
-                return Future.value(true);
               }
               return Future.value(true);
             },
             child: Scaffold(
-                appBar: MyAppBar(
-                  centerTitle: widget.title,
-                ),
-                body: WebView(
-                  initialUrl: widget.url,
-                  javascriptMode: JavascriptMode.unrestricted,
-                  onWebViewCreated: (WebViewController webViewController) {
-                    _controller.complete(webViewController);
-                  },
-                )
+              appBar: MyAppBar(
+                centerTitle: widget.title,
+              ),
+              body: WebView(
+                initialUrl: widget.url,
+                javascriptMode: JavascriptMode.unrestricted,
+                onWebViewCreated: (WebViewController webViewController) {
+                  _controller.complete(webViewController);
+                },
+              )
             ),
           );
         }

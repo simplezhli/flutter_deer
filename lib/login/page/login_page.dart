@@ -27,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController _passwordController = TextEditingController();
   final FocusNode _nodeText1 = FocusNode();
   final FocusNode _nodeText2 = FocusNode();
-  bool _isClick = false;
+  bool _clickable = false;
 
   @override
   void initState() {
@@ -41,18 +41,18 @@ class _LoginPageState extends State<LoginPage> {
   void _verify() {
     String name = _nameController.text;
     String password = _passwordController.text;
-    bool isClick = true;
+    bool clickable = true;
     if (name.isEmpty || name.length < 11) {
-      isClick = false;
+      clickable = false;
     }
     if (password.isEmpty || password.length < 6) {
-      isClick = false;
+      clickable = false;
     }
 
     /// 状态不一样在刷新，避免重复不必要的setState
-    if (isClick != _isClick) {
+    if (clickable != _clickable) {
       setState(() {
-        _isClick = isClick;
+        _clickable = clickable;
       });
     }
   }
@@ -108,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
     Gaps.vGap24,
     MyButton(
       key: const Key('login'),
-      onPressed: _isClick ? _login : null,
+      onPressed: _clickable ? _login : null,
       text: '登录',
     ),
     Container(

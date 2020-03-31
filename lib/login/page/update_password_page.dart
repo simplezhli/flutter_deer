@@ -22,7 +22,7 @@ class _UpdatePasswordPageState extends State<UpdatePasswordPage> {
   TextEditingController _newPwdController = TextEditingController();
   final FocusNode _nodeText1 = FocusNode();
   final FocusNode _nodeText2 = FocusNode();
-  bool _isClick = false;
+  bool _clickable = false;
   
   @override
   void initState() {
@@ -35,16 +35,16 @@ class _UpdatePasswordPageState extends State<UpdatePasswordPage> {
   void _verify() {
     String oldPwd = _oldPwdController.text;
     String newPwd = _newPwdController.text;
-    bool isClick = true;
+    bool clickable = true;
     if (oldPwd.isEmpty || oldPwd.length < 6) {
-      isClick = false;
+      clickable = false;
     }
     if (newPwd.isEmpty || newPwd.length < 6) {
-      isClick = false;
+      clickable = false;
     }
-    if (isClick != _isClick) {
+    if (clickable != _clickable) {
       setState(() {
-        _isClick = isClick;
+        _clickable = clickable;
       });
     }
   }
@@ -94,7 +94,7 @@ class _UpdatePasswordPageState extends State<UpdatePasswordPage> {
           ),
           Gaps.vGap24,
           MyButton(
-            onPressed: _isClick ? _confirm : null,
+            onPressed: _clickable ? _confirm : null,
             text: '确认',
           )
         ],

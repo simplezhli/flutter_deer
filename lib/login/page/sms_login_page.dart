@@ -23,7 +23,7 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
   TextEditingController _vCodeController = TextEditingController();
   final FocusNode _nodeText1 = FocusNode();
   final FocusNode _nodeText2 = FocusNode();
-  bool _isClick = false;
+  bool _clickable = false;
   
   @override
   void initState() {
@@ -35,16 +35,16 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
   void _verify() {
     String name = _phoneController.text;
     String vCode = _vCodeController.text;
-    bool isClick = true;
+    bool clickable = true;
     if (name.isEmpty || name.length < 11) {
-      isClick = false;
+      clickable = false;
     }
     if (vCode.isEmpty || vCode.length < 6) {
-      isClick = false;
+      clickable = false;
     }
-    if (isClick != _isClick) {
+    if (clickable != _clickable) {
       setState(() {
-        _isClick = isClick;
+        _clickable = clickable;
       });
     }
   }
@@ -110,7 +110,7 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
       ),
       Gaps.vGap24,
       MyButton(
-        onPressed: _isClick ? _login : null,
+        onPressed: _clickable ? _login : null,
         text: '登录',
       ),
       Container(

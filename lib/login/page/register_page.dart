@@ -24,7 +24,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final FocusNode _nodeText1 = FocusNode();
   final FocusNode _nodeText2 = FocusNode();
   final FocusNode _nodeText3 = FocusNode();
-  bool _isClick = false;
+  bool _clickable = false;
   
   @override
   void initState() {
@@ -39,19 +39,19 @@ class _RegisterPageState extends State<RegisterPage> {
     String name = _nameController.text;
     String vCode = _vCodeController.text;
     String password = _passwordController.text;
-    bool isClick = true;
+    bool clickable = true;
     if (name.isEmpty || name.length < 11) {
-      isClick = false;
+      clickable = false;
     }
     if (vCode.isEmpty || vCode.length < 6) {
-      isClick = false;
+      clickable = false;
     }
     if (password.isEmpty || password.length < 6) {
-      isClick = false;
+      clickable = false;
     }
-    if (isClick != _isClick) {
+    if (clickable != _clickable) {
       setState(() {
-        _isClick = isClick;
+        _clickable = clickable;
       });
     }
   }
@@ -123,7 +123,7 @@ class _RegisterPageState extends State<RegisterPage> {
       Gaps.vGap24,
       MyButton(
         key: const Key('register'),
-        onPressed: _isClick ? _register : null,
+        onPressed: _clickable ? _register : null,
         text: '注册',
       )
     ];

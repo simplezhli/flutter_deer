@@ -255,6 +255,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
     // item装饰
     widget = InkWell(
       onTap: () {
+        /// 如果侧滑菜单打开，关闭侧滑菜单。否则跳转
         if (_slidableController.activeState != null) {
           _slidableController.activeState.close();
         } else {
