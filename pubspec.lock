@@ -48,10 +48,10 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: fbd6ece45f079f7ec5f48532e668be2f70135904
+      resolved-ref: "234183a26ab316efd7caca4bed77603afc2a7bf4"
       url: "https://github.com/simplezhli/flutter_barcode_reader.git"
     source: git
-    version: "1.0.0"
+    version: "2.0.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -284,7 +284,7 @@ packages:
       name: image_picker
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.6.3+4"
+    version: "0.6.4"
   intl:
     dependency: transitive
     description:
@@ -702,7 +702,7 @@ packages:
       name: url_launcher
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "5.4.1"
+    version: "5.4.2"
   url_launcher_macos:
     dependency: transitive
     description:
