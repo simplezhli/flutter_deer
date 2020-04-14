@@ -63,12 +63,12 @@ class SelectedText extends StatelessWidget {
   _buildText() {
     if (text.endsWith('月') || text.endsWith('日')) {
       return RichText(
-          text: TextSpan(
-            children: <TextSpan>[
-              TextSpan(text: text.substring(0, text.length - 1), style: TextStyle(color: getTextColor(), fontSize: fontSize)),
-              TextSpan(text: text.substring(text.length - 1), style: TextStyle(color: getTextColor(), fontSize: fontSize - 4.0)),
-            ],
-          )
+        text: TextSpan(
+          children: <TextSpan>[
+            TextSpan(text: text.substring(0, text.length - 1), style: TextStyle(color: getTextColor(), fontSize: fontSize)),
+            TextSpan(text: text.substring(text.length - 1), style: TextStyle(color: getTextColor(), fontSize: fontSize - 4.0)),
+          ],
+        )
       );
     } else {
       return Text(text, semanticsLabel: semanticsLabel ,style: TextStyle(color: getTextColor(), fontSize: fontSize));

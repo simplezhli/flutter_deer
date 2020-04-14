@@ -21,6 +21,53 @@ class BaseDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
+    var dialogTitle = Visibility(
+      visible: !hiddenTitle,
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 8.0),
+        child: Text(
+          hiddenTitle ? '' : title,
+          style: TextStyles.textBold18,
+        ),
+      ),
+    );
+    
+    var bottomButton = Row(
+      children: <Widget>[
+        _DialogButton(
+          text: '取消',
+          textColor: Colours.text_gray,
+          onPressed: () => NavigatorUtils.goBack(context),
+        ),
+        const SizedBox(
+          height: 48.0,
+          width: 0.6,
+          child: const VerticalDivider(),
+        ),
+        _DialogButton(
+          text: '确定',
+          textColor: Theme.of(context).primaryColor,
+          onPressed: onPressed,
+        ),
+      ],
+    );
+    
+    var body = Material(
+      borderRadius: BorderRadius.circular(8.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Gaps.vGap24,
+          dialogTitle,
+          Flexible(child: child),
+          Gaps.vGap8,
+          Gaps.line,
+          bottomButton,
+        ],
+      ),
+    );
+    
     return AnimatedPadding(
       padding: MediaQuery.of(context).viewInsets + const EdgeInsets.symmetric(horizontal: 40.0, vertical: 24.0),
       duration: const Duration(milliseconds: 120),
@@ -34,72 +81,39 @@ class BaseDialog extends StatelessWidget {
         child: Center(
           child: SizedBox(
             width: 270.0,
-            child: Material(
-              borderRadius: BorderRadius.circular(8.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Gaps.vGap24,
-                  Visibility(
-                    visible: !hiddenTitle,
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 8.0),
-                      child: Text(
-                        hiddenTitle ? '' : title,
-                        style: TextStyles.textBold18,
-                      ),
-                    ),
-                  ),
-                  Flexible(child: child),
-                  Gaps.vGap8,
-                  Gaps.line,
-                  Row(
-                    children: <Widget>[
-                      Expanded(
-                        child: SizedBox(
-                          height: 48.0,
-                          child: FlatButton(
-                            child: const Text(
-                              '取消',
-                              style: TextStyle(
-                                  fontSize: Dimens.font_sp18
-                              ),
-                            ),
-                            textColor: Colours.text_gray,
-                            onPressed: () {
-                              NavigatorUtils.goBack(context);
-                            },
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 48.0,
-                        width: 0.6,
-                        child: const VerticalDivider(),
-                      ),
-                      Expanded(
-                        child: SizedBox(
-                          height: 48.0,
-                          child: FlatButton(
-                            child: const Text(
-                              '确定',
-                              style: TextStyle(
-                                  fontSize: Dimens.font_sp18
-                              ),
-                            ),
-                            textColor: Theme.of(context).primaryColor,
-                            onPressed: () {
-                              onPressed();
-                            },
-                          ),
-                        ),
-                      )
-                    ],
-                  )
-                ],
-              ),
-            ),
+            child: body,
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class _DialogButton extends StatelessWidget {
+  
+  const _DialogButton({
+    Key key,
+    this.text,
+    this.textColor,
+    this.onPressed,
+  }): super(key: key);
+  
+  final String text;
+  final Color textColor;
+  final Function onPressed;
+  
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: SizedBox(
+        height: 48.0,
+        child: FlatButton(
+          child: Text(
+            text,
+            style: TextStyle(fontSize: Dimens.font_sp18),
+          ),
+          textColor: textColor,
+          onPressed: onPressed,
         ),
       ),
     );

@@ -35,11 +35,11 @@ class MyCard extends StatelessWidget {
 
     return DecoratedBox(
       decoration: BoxDecoration(
-          color: _backgroundColor,
-          borderRadius: BorderRadius.circular(8.0),
-          boxShadow: [
-            BoxShadow(color: _shadowColor, offset: Offset(0.0, 2.0), blurRadius: 8.0, spreadRadius: 0.0),
-          ]
+        color: _backgroundColor,
+        borderRadius: BorderRadius.circular(8.0),
+        boxShadow: [
+          BoxShadow(color: _shadowColor, offset: Offset(0.0, 2.0), blurRadius: 8.0, spreadRadius: 0.0),
+        ]
       ),
       child: child,
     );

@@ -70,6 +70,20 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
     ) : Gaps.empty;
 
+    var titleWidget = Semantics(
+      namesRoute: true,
+      header: true,
+      child: Container(
+        alignment: centerTitle.isEmpty ? Alignment.centerLeft : Alignment.center,
+        width: double.infinity,
+        child: Text(
+            title.isEmpty ? centerTitle : title,
+            style: TextStyle(fontSize: Dimens.font_sp18,)
+        ),
+        margin: const EdgeInsets.symmetric(horizontal: 48.0),
+      ),
+    );
+    
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: _overlayStyle,
       child: Material(
@@ -78,19 +92,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
           child: Stack(
             alignment: Alignment.centerLeft,
             children: <Widget>[
-              Semantics(
-                namesRoute: true,
-                header: true,
-                child: Container(
-                  alignment: centerTitle.isEmpty ? Alignment.centerLeft : Alignment.center,
-                  width: double.infinity,
-                  child: Text(
-                    title.isEmpty ? centerTitle : title,
-                    style: TextStyle(fontSize: Dimens.font_sp18,)
-                  ),
-                  margin: const EdgeInsets.symmetric(horizontal: 48.0),
-                ),
-              ),
+              titleWidget,
               back,
               action,
             ],
