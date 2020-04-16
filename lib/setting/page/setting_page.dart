@@ -2,10 +2,12 @@
 import 'package:flustars/flustars.dart' as flutter_stars;
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/common/common.dart';
+import 'package:flutter_deer/demo/overlay/main.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/setting/widgets/exit_dialog.dart';
 import 'package:flutter_deer/setting/widgets/update_dialog.dart';
+import 'package:flutter_deer/util/app_navigator.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
 
@@ -67,6 +69,10 @@ class _SettingPageState extends State<SettingPage> {
           ClickItem(
             title: '退出当前账号',
             onTap: () => _showExitDialog(),
+          ),
+          ClickItem(
+            title: '其他Demo',
+            onTap: () => AppNavigator.push(context, OverlayDemo()),
           ),
         ],
       ),
