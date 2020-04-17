@@ -45,11 +45,11 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                   label: '关闭',
                   child: GestureDetector(
                     onTap: () => NavigatorUtils.goBack(context),
-                    child: const SizedBox(
+                    child: const LoadAssetImage(
+                      'goods/icon_dialog_close',
                       key: const Key('close'),
-                      height: 16.0,
                       width: 16.0,
-                      child: const LoadAssetImage('goods/icon_dialog_close')
+                      height: 16.0,
                     ),
                   ),
                 ),

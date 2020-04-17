@@ -91,7 +91,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                           label: '关闭',
                           child: GestureDetector(
                             onTap: () => NavigatorUtils.goBack(context),
-                            child: Container(
+                            child: Padding(
                               padding: const EdgeInsets.only(top: 16.0, right: 16.0),
                               child: const LoadAssetImage('goods/icon_dialog_close', width: 16.0, key: const Key('dialog_close'),),
                             )
