@@ -76,9 +76,7 @@ iOS需要自行下载代码运行。
         
 - 因为页面有点多，一开始可能会导致部分页面无法找到。(可以执行集成测试命令`flutter drive --target=test_driver/driver.dart` 查看功能演示)
 
-- 我在代码中有添加设计图的相对路径，可以搜索或查找到对应页面，希望对你有帮助。
-
-- 该插件3.0+版本已不适用本项目。~~FlutterJsonBeanFactory插件使用可以查看[这篇文章](https://www.jianshu.com/p/e909f3f936d6)。~~
+- 我在页面注释中有添加设计图的相对路径，可以搜索或查找到对应页面，希望对你有帮助。
 
 ## 心得总结（推荐阅读）
 
@@ -95,6 +93,8 @@ iOS需要自行下载代码运行。
 - [说说Flutter中的Semantics](https://weilu.blog.csdn.net/article/details/103823259)
 
 - [说说Flutter中最熟悉的陌生人 —— Key](https://weilu.blog.csdn.net/article/details/104745624)
+
+- [玩玩Flutter的拖拽——实现一款万能遥控器](https://weilu.blog.csdn.net/article/details/105237677)
 
 - [Flutter动画曲线Curves 效果一览](https://weilu.blog.csdn.net/article/details/95632571)
     

@@ -7,14 +7,14 @@ packages:
       name: _fe_analyzer_shared
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.1.0"
+    version: "2.2.0"
   analyzer:
     dependency: transitive
     description:
       name: analyzer
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.39.6"
+    version: "0.39.7"
   archive:
     dependency: transitive
     description:
@@ -177,7 +177,7 @@ packages:
       name: flutter_cache_manager
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.2.0"
+    version: "1.2.2"
   flutter_driver:
     dependency: "direct dev"
     description: flutter
@@ -396,7 +396,7 @@ packages:
       name: oktoast
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.3.1+1"
+    version: "2.3.2"
   package_config:
     dependency: transitive
     description:
