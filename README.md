@@ -78,6 +78,8 @@ iOS需要自行下载代码运行。
 
 - 我在页面注释中有添加设计图的相对路径，可以搜索或查找到对应页面，希望对你有帮助。
 
+- 本项目使用FlutterJsonBeanFactory插件来生成Bean。FlutterJsonBeanFactory插件使用可以查看[这篇文章](https://www.jianshu.com/p/14cbcbaa74b7)。
+
 ## 心得总结（推荐阅读）
 
 - [Flutter开发中的一些Tips(一)](https://weilu.blog.csdn.net/article/details/90546727)

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/account/account_router.dart';
-import 'package:flutter_deer/account/models/bank_model.dart';
-import 'package:flutter_deer/account/models/city_model.dart';
+import 'package:flutter_deer/account/models/bank_entity.dart';
+import 'package:flutter_deer/account/models/city_entity.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
@@ -58,7 +58,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
               onTap: () {
                 NavigatorUtils.pushResult(context, AccountRouter.citySelectPage, (result) {
                   setState(() {
-                    CityModel model = result;
+                    CityEntity model = result;
                     _city = model.name;
                   });
                 });
@@ -71,7 +71,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
               onTap: () {
                 NavigatorUtils.pushResult(context, '${AccountRouter.bankSelectPage}?type=0', (result) {
                   setState(() {
-                    BankModel model = result;
+                    BankEntity model = result;
                     _bank = model.bankName;
                   });
                 });
@@ -84,7 +84,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
               onTap: () {
                 NavigatorUtils.pushResult(context, '${AccountRouter.bankSelectPage}?type=1', (result) {
                   setState(() {
-                    BankModel model = result;
+                    BankEntity model = result;
                     _bank1 = model.bankName;
                   });
                 });

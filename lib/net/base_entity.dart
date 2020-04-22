@@ -1,7 +1,6 @@
 
 import 'package:flutter_deer/common/common.dart';
-
-import '../entity_factory.dart';
+import 'package:flutter_deer/generated/json/base/json_convert_content.dart';
 
 class BaseEntity<T> {
 
@@ -32,7 +31,7 @@ class BaseEntity<T> {
     } else if (T.toString() == 'Map<dynamic, dynamic>') {
       return json as S;
     } else {
-      return EntityFactory.generateOBJ(json);
+      return JsonConvert.fromJsonAsT<S>(json);
     }
   }
 }

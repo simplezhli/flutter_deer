@@ -3,9 +3,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_deer/account/models/bank_model.dart';
+import 'package:flutter_deer/account/models/bank_entity.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:azlistview/azlistview.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
@@ -23,7 +24,7 @@ class BankSelectPage extends StatefulWidget {
 
 class _BankSelectPageState extends State<BankSelectPage> {
 
-  List<BankModel> _bankList = [];
+  List<BankEntity> _bankList = [];
   List<String> _bankNameList = ['工商银行', '建设银行', '中国银行', '农业银行', '招商银行', '交通银行', '中信银行', '民生银行', '兴业银行', '浦发银行'];
   List<String> _bankLogoList = ['gongshang', 'jianhang', 'zhonghang', 'nonghang', 'zhaohang', 'jiaohang', 'zhongxin', 'minsheng', 'xingye', 'pufa'];
   
@@ -38,7 +39,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
     rootBundle.loadString(widget.type == 0 ? 'assets/data/bank.json' : 'assets/data/bank_2.json').then((value) {
       List list = json.decode(value);
       list.forEach((value) {
-        _bankList.add(BankModel.fromJsonMap(value));
+        _bankList.add(BankEntity().fromJson(value));
       });
       SuspensionUtil.sortListBySuspensionTag(_bankList);
       setState(() {
@@ -67,7 +68,8 @@ class _BankSelectPageState extends State<BankSelectPage> {
               data: list,
               itemHeight: 25,
               touchDownColor: Colors.transparent,
-              textStyle: Theme.of(context).textTheme.subtitle
+              textStyle: Theme.of(context).textTheme.subtitle,
+              touchDownTextStyle: ThemeUtils.isDark(context) ? TextStyles.textSize12 : const TextStyle(fontSize: 12.0, color: Colors.black),
             );
           },
           header: widget.type == 0 ? AzListViewHeader(
@@ -95,7 +97,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
             itemCount: _bankNameList.length,
             itemBuilder: (_, index) {
               return InkWell(
-                onTap: () => NavigatorUtils.goBackWithParams(context, BankModel(0, _bankNameList[index], '')),
+                onTap: () => NavigatorUtils.goBackWithParams(context, BankEntity(id: 0, bankName: _bankNameList[index], firstLetter: '')),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Row(
@@ -114,7 +116,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
     );
   }
 
-  Widget _buildListItem(BankModel model) {
+  Widget _buildListItem(BankEntity model) {
     return InkWell(
       onTap: () => NavigatorUtils.goBackWithParams(context, model),
       child: Container(

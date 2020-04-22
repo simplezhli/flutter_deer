@@ -8,7 +8,7 @@ import 'package:flutter_deer/util/theme_utils.dart';
 import 'load_image.dart';
 
 /// 搜索页的AppBar
-class SearchBar extends StatelessWidget implements PreferredSizeWidget {
+class SearchBar extends StatefulWidget implements PreferredSizeWidget {
 
   const SearchBar({
     Key key,
@@ -22,9 +22,18 @@ class SearchBar extends StatelessWidget implements PreferredSizeWidget {
   final Function(String) onPressed;
 
   @override
-  Widget build(BuildContext context) {
-    TextEditingController _controller = TextEditingController();
+  _SearchBarState createState() => _SearchBarState();
 
+  @override
+  Size get preferredSize => Size.fromHeight(48.0);
+}
+
+class _SearchBarState extends State<SearchBar> {
+
+  TextEditingController _controller = TextEditingController();
+  
+  @override
+  Widget build(BuildContext context) {
     bool isDark = ThemeUtils.isDark(context);
     Color iconColor = isDark ? Colours.dark_text_gray : Colours.text_gray_c;
     
@@ -43,7 +52,7 @@ class SearchBar extends StatelessWidget implements PreferredSizeWidget {
             key: const Key('search_back'),
             padding: const EdgeInsets.all(12.0),
             child: Image.asset(
-              backImg,
+              widget.backImg,
               color: isDark ? Colours.dark_text : Colours.text,
             ),
           ),
@@ -67,7 +76,7 @@ class SearchBar extends StatelessWidget implements PreferredSizeWidget {
           onSubmitted: (val) {
             FocusScope.of(context).unfocus();
             // 点击软键盘的动作按钮时的回调
-            onPressed(val);
+            widget.onPressed(val);
           },
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.only(top: 0.0, left: -8.0, right: -16.0, bottom: 14.0),
@@ -76,7 +85,7 @@ class SearchBar extends StatelessWidget implements PreferredSizeWidget {
               padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 8.0),
               child: LoadAssetImage('order/order_search', color: iconColor,),
             ),
-            hintText: hintText,
+            hintText: widget.hintText,
             suffixIcon: GestureDetector(
               child: Semantics(
                 label: '清空',
@@ -114,7 +123,7 @@ class SearchBar extends StatelessWidget implements PreferredSizeWidget {
         color: isDark ?  Colours.dark_app_main : Colours.app_main,
         onPressed:() {
           FocusScope.of(context).unfocus();
-          onPressed(_controller.text);
+          widget.onPressed(_controller.text);
         },
         child: Text('搜索', style: TextStyle(fontSize: Dimens.font_sp14)),
       ),
@@ -140,7 +149,4 @@ class SearchBar extends StatelessWidget implements PreferredSizeWidget {
       ),
     );
   }
-
-  @override
-  Size get preferredSize => Size.fromHeight(48.0);
 }

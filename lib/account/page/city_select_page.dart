@@ -3,9 +3,11 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_deer/account/models/city_model.dart';
+import 'package:flutter_deer/account/models/city_entity.dart';
 import 'package:flutter_deer/common/common.dart';
+import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:azlistview/azlistview.dart';
 
@@ -17,7 +19,7 @@ class CitySelectPage extends StatefulWidget {
 
 class _CitySelectPageState extends State<CitySelectPage> {
 
-  List<CityModel> _cityList = [];
+  List<CityEntity> _cityList = [];
 
   @override
   void initState() {
@@ -36,7 +38,7 @@ class _CitySelectPageState extends State<CitySelectPage> {
     }
     List list = json.decode(jsonStr);
     list.forEach((value) {
-      _cityList.add(CityModel.fromJsonMap(value));
+      _cityList.add(CityEntity().fromJson(value));
     });
     setState(() {
 
@@ -71,7 +73,8 @@ class _CitySelectPageState extends State<CitySelectPage> {
               data: list,
               itemHeight: 18,
               touchDownColor: Colors.transparent,
-              textStyle: Theme.of(context).textTheme.subtitle
+              textStyle: Theme.of(context).textTheme.subtitle,
+              touchDownTextStyle: ThemeUtils.isDark(context) ? TextStyles.textSize12 : const TextStyle(fontSize: 12.0, color: Colors.black),
             );
           },
         ),
@@ -79,7 +82,7 @@ class _CitySelectPageState extends State<CitySelectPage> {
     );
   }
 
-  Widget _buildListItem(CityModel model) {
+  Widget _buildListItem(CityEntity model) {
     return InkWell(
       onTap: () => NavigatorUtils.goBackWithParams(context, model),
       child: Container(
