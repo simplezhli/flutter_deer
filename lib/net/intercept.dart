@@ -80,12 +80,12 @@ class TokenInterceptor extends Interceptor{
 
 class LoggingInterceptor extends Interceptor{
 
-  DateTime startTime;
-  DateTime endTime;
+  DateTime _startTime;
+  DateTime _endTime;
   
   @override
   onRequest(RequestOptions options) {
-    startTime = DateTime.now();
+    _startTime = DateTime.now();
     Log.d('----------Start----------');
     if (options.queryParameters.isEmpty) {
       Log.d('RequestUrl: ' + options.baseUrl + options.path);
@@ -101,8 +101,8 @@ class LoggingInterceptor extends Interceptor{
   
   @override
   onResponse(Response response) {
-    endTime = DateTime.now();
-    int duration = endTime.difference(startTime).inMilliseconds;
+    _endTime = DateTime.now();
+    int duration = _endTime.difference(_startTime).inMilliseconds;
     if (response.statusCode == ExceptionHandle.success) {
       Log.d('ResponseCode: ${response.statusCode}');
     } else {
@@ -123,15 +123,15 @@ class LoggingInterceptor extends Interceptor{
 
 class AdapterInterceptor extends Interceptor{
 
-  static const String msg = 'msg';
-  static const String slash = '\'';
-  static const String message = 'message';
+  static const String _kMsg = 'msg';
+  static const String _kSlash = '\'';
+  static const String _kMessage = 'message';
 
-  static const String defaultText = '\"无返回信息\"';
-  static const String notFound = '未找到查询信息';
+  static const String _kDefaultText = '\"无返回信息\"';
+  static const String _kNotFound = '未找到查询信息';
 
-  static const String failureFormat = '{\"code\":%d,\"message\":\"%s\"}';
-  static const String successFormat = '{\"code\":0,\"data\":%s,\"message\":\"\"}';
+  static const String _kFailureFormat = '{\"code\":%d,\"message\":\"%s\"}';
+  static const String _kSuccessFormat = '{\"code\":0,\"data\":%s,\"message\":\"\"}';
   
   @override
   onResponse(Response response) {
@@ -153,14 +153,14 @@ class AdapterInterceptor extends Interceptor{
     /// 成功时，直接格式化返回
     if (response.statusCode == ExceptionHandle.success || response.statusCode == ExceptionHandle.success_not_content) {
       if (content == null || content.isEmpty) {
-        content = defaultText;
+        content = _kDefaultText;
       }
-      result = sprintf(successFormat, [content]);
+      result = sprintf(_kSuccessFormat, [content]);
       response.statusCode = ExceptionHandle.success;
     } else {
       if (response.statusCode == ExceptionHandle.not_found) {
         /// 错误数据格式化后，按照成功数据返回
-        result = sprintf(failureFormat, [response.statusCode, notFound]);
+        result = sprintf(_kFailureFormat, [response.statusCode, _kNotFound]);
         response.statusCode = ExceptionHandle.success;
       } else {
         if (content == null || content.isEmpty) {
@@ -170,18 +170,18 @@ class AdapterInterceptor extends Interceptor{
           String msg;
           try {
             content = content.replaceAll("\\", '');
-            if (slash == content.substring(0, 1)) {
+            if (_kSlash == content.substring(0, 1)) {
               content = content.substring(1, content.length - 1);
             }
             Map<String, dynamic> map = json.decode(content);
-            if (map.containsKey(message)) {
-              msg = map[message];
-            } else if (map.containsKey(msg)) {
-              msg = map[msg];
+            if (map.containsKey(_kMessage)) {
+              msg = map[_kMessage];
+            } else if (map.containsKey(_kMsg)) {
+              msg = map[_kMsg];
             } else {
               msg = '未知异常';
             }
-            result = sprintf(failureFormat, [response.statusCode, msg]);
+            result = sprintf(_kFailureFormat, [response.statusCode, msg]);
             // 401 token失效时，单独处理，其他一律为成功
             if (response.statusCode == ExceptionHandle.unauthorized) {
               response.statusCode = ExceptionHandle.unauthorized;
@@ -191,7 +191,7 @@ class AdapterInterceptor extends Interceptor{
           } catch (e) {
             Log.d('异常信息：$e');
             // 解析异常直接按照返回原数据处理（一般为返回500,503 HTML页面代码）
-            result = sprintf(failureFormat, [response.statusCode, '服务器异常(${response.statusCode})']);
+            result = sprintf(_kFailureFormat, [response.statusCode, '服务器异常(${response.statusCode})']);
           }
         }
       }

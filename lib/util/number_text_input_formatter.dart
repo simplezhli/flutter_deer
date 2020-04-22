@@ -3,8 +3,10 @@ import 'package:flutter/services.dart';
 
 /// 只允许输入小数
 class UsNumberTextInputFormatter extends TextInputFormatter {
-  static const defaultDouble = 0.001;
-  static double strToFloat(String str, [double defaultValue = defaultDouble]) {
+  
+  static const _kDefaultDouble = 0.001;
+  
+  static double strToFloat(String str, [double defaultValue = _kDefaultDouble]) {
     try {
       return double.parse(str);
     } catch (e) {
@@ -19,7 +21,7 @@ class UsNumberTextInputFormatter extends TextInputFormatter {
     if (value == '.') {
       value = '0.';
       selectionIndex++;
-    } else if (value != '' && value != defaultDouble.toString() && strToFloat(value, defaultDouble) == defaultDouble) {
+    } else if (value != '' && value != _kDefaultDouble.toString() && strToFloat(value, _kDefaultDouble) == _kDefaultDouble) {
       value = oldValue.text;
       selectionIndex = oldValue.selection.end;
     }

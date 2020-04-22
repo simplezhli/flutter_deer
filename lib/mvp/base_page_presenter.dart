@@ -22,7 +22,7 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
   void didChangeDependencies() {}
 
   @override
-  void didUpdateWidgets<W>(W oldWidget) {}
+  void didUpdateWidgets<V>(V oldWidget) {}
 
   @override
   void dispose() {

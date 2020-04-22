@@ -14,7 +14,7 @@ abstract class BasePageState<T extends StatefulWidget, V extends BasePagePresent
   
   BasePageState() {
     presenter = createPresenter();
-    presenter.view = this;
+    presenter?.view = this;
   }
   
   V createPresenter();
@@ -87,7 +87,7 @@ abstract class BasePageState<T extends StatefulWidget, V extends BasePagePresent
   @override
   void didUpdateWidget(T oldWidget) {
     super.didUpdateWidget(oldWidget);
-    didUpdateWidgets<T>(oldWidget);
+    presenter?.didUpdateWidgets<T>(oldWidget);
   }
 
   @override
@@ -96,7 +96,4 @@ abstract class BasePageState<T extends StatefulWidget, V extends BasePagePresent
     presenter?.initState();
   }
 
-  void didUpdateWidgets<W>(W oldWidget) {
-    presenter?.didUpdateWidgets<W>(oldWidget);
-  }
 }
