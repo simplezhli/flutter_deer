@@ -72,6 +72,8 @@ iOS需要自行下载代码运行。
     iOS可以执行命令`flutter build ios` 以创建`release`版本。
     Android可以执行命令`flutter build apk` 以创建`release`版本。
 
+- iOS项目运行有问题可以在[iOS问题汇总](./iOS问题汇总.md)中尝试寻找解决办法。
+
 - 由于部分插件的原因，本项目在web上支持不完善（主要为功能方面，UI问题不大）。有兴趣的可自行运行体验。
         
 - 因为页面有点多，一开始可能会导致部分页面无法找到。(可以执行集成测试命令`flutter drive --target=test_driver/driver.dart` 查看功能演示)

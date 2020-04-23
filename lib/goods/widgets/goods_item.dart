@@ -122,12 +122,11 @@ class GoodsItem extends StatelessWidget {
                         container: true,
                         label: '商品操作菜单',
                         child: GestureDetector(
-                          behavior: HitTestBehavior.translucent,
                           child: Container(
                             key: Key('goods_menu_item_$index'),
                             width: 44.0,
                             height: 44.0,
-//                            color: Colors.transparent,
+                            color: Colors.transparent,
                             padding: const EdgeInsets.only(left: 28.0, bottom: 28.0),
                             child: const LoadAssetImage('goods/ellipsis')
                           ),

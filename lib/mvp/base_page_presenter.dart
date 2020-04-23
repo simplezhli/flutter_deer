@@ -1,28 +1,18 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
+import 'package:flutter_deer/mvp/base_presenter.dart';
 import 'package:flutter_deer/net/net.dart';
 import 'package:meta/meta.dart';
 
 import 'mvps.dart';
 
-class BasePagePresenter<V extends IMvpView> extends IPresenter {
-
-  V view;
+class BasePagePresenter<V extends IMvpView> extends BasePresenter<V> {
 
   CancelToken _cancelToken;
 
   BasePagePresenter() {
     _cancelToken = CancelToken();
   }
-  
-  @override
-  void deactivate() {}
-
-  @override
-  void didChangeDependencies() {}
-
-  @override
-  void didUpdateWidgets<V>(V oldWidget) {}
 
   @override
   void dispose() {
@@ -31,9 +21,6 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
       _cancelToken.cancel();
     }
   }
-
-  @override
-  void initState() {}
 
   /// 返回Future 适用于刷新，加载更多
   Future requestNetwork<T>(Method method, {@required String url, bool isShow : true, bool isClose: true, Function(T t) onSuccess,

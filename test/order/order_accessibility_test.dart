@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/order/page/order_info_page.dart';
 import 'package:flutter_deer/order/page/order_page.dart';
-import 'package:flutter_deer/order/page/order_search_page.dart';
 import 'package:flutter_deer/order/page/order_track_page.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -11,7 +10,6 @@ void main() {
   var map = Map<String, Widget>();
   map['order_page'] = OrderPage();
   map['order_info_page'] = OrderInfoPage();
-  map['order_search_page'] = OrderSearchPage();
   map['order_track_page'] = OrderTrackPage();
   
   group('order => 检测页面可点击目标大小是否大于44 * 44', () {
