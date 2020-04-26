@@ -12,21 +12,17 @@ import 'intercept.dart';
 /// @weilu https://github.com/simplezhli
 class DioUtils {
 
-  static final DioUtils _singleton = DioUtils._internal();
-
+  static final DioUtils _singleton = DioUtils._();
+  
   static DioUtils get instance => DioUtils();
 
-  factory DioUtils() {
-    return _singleton;
-  }
+  factory DioUtils() => _singleton;
 
   static Dio _dio;
 
-  Dio getDio() {
-    return _dio;
-  }
+  Dio get dio => _dio;
 
-  DioUtils._internal() {
+  DioUtils._() {
     var options = BaseOptions(
       connectTimeout: 15000,
       receiveTimeout: 15000,

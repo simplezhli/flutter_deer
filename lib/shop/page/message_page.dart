@@ -1,4 +1,5 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
@@ -11,6 +12,9 @@ class MessagePage extends StatefulWidget {
 }
 
 class _MessagePageState extends State<MessagePage> {
+  
+  final ScrollController _scrollController = ScrollController();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,11 +23,15 @@ class _MessagePageState extends State<MessagePage> {
         actionName: '全部已读',
         onPressed: () {},
       ),
-      body: ListView.builder(
-        itemCount: 20,
-        physics: AlwaysScrollableScrollPhysics(),
-        padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 28.0),
-        itemBuilder: (_, index) => _MessageItem()
+      body: Scrollbar( // 加个滚动条
+        controller: _scrollController,
+        child: ListView.builder(
+          itemCount: 20,
+          controller: _scrollController,
+          physics: AlwaysScrollableScrollPhysics(),
+          padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 28.0),
+          itemBuilder: (_, index) => _MessageItem()
+        ),
       ),
     );
   }

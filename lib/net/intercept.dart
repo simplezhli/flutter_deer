@@ -30,7 +30,7 @@ class TokenInterceptor extends Interceptor{
     Map<String, String> params = Map();
     params['refresh_token'] = SpUtil.getString(Constant.refreshToken);
     try {
-      _tokenDio.options = DioUtils.instance.getDio().options;
+      _tokenDio.options = DioUtils.instance.dio.options;
       var response = await _tokenDio.post('lgn/refreshToken', data: params);
       if (response.statusCode == ExceptionHandle.success) {
         return json.decode(response.data.toString())['access_token'];
@@ -48,7 +48,7 @@ class TokenInterceptor extends Interceptor{
     //401代表token过期
     if (response != null && response.statusCode == ExceptionHandle.unauthorized) {
       Log.d('-----------自动刷新Token------------');
-      Dio dio = DioUtils.instance.getDio();
+      Dio dio = DioUtils.instance.dio;
       dio.interceptors.requestLock.lock();
       String accessToken = await getToken(); // 获取新的accessToken
       Log.e('-----------NewToken: $accessToken ------------');

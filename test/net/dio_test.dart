@@ -9,7 +9,7 @@ void main() {
     Dio dio;
     setUp(() {
       /// 测试配置
-      dio = DioUtils.instance.getDio();
+      dio = DioUtils.instance.dio;
       dio.options.baseUrl = 'https://api.github.com/';
     });
     
