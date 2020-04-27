@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter_deer/mvp/base_page_state.dart';
+import 'package:flutter_deer/mvp/base_page.dart';
 import 'package:flutter_deer/mvp/power_presenter.dart';
 import 'package:flutter_deer/order/models/search_entity.dart';
 import 'package:flutter_deer/order/iview/order_search_iview.dart';
@@ -21,7 +21,7 @@ class OrderSearchPage extends StatefulWidget {
   _OrderSearchPageState createState() => _OrderSearchPageState();
 }
 
-class _OrderSearchPageState extends BasePageState<OrderSearchPage, PowerPresenter> implements OrderSearchIMvpView, ShopIMvpView {
+class _OrderSearchPageState extends State<OrderSearchPage> with BasePageMixin<OrderSearchPage, PowerPresenter> implements OrderSearchIMvpView, ShopIMvpView {
 
   BaseListProvider<SearchItem> provider = BaseListProvider<SearchItem>();
   

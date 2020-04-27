@@ -7,17 +7,12 @@ import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/progress_dialog.dart';
 import 'mvps.dart';
 
-abstract class BasePageState<T extends StatefulWidget, V extends BasePresenter> extends State<T> implements IMvpView {
+mixin BasePageMixin<T extends StatefulWidget, P extends BasePresenter> on State<T> implements IMvpView {
 
-  V presenter;
-  
-  BasePageState() {
-    presenter = createPresenter();
-    presenter?.view = this;
-  }
-  
-  V createPresenter();
+  P presenter;
 
+  P createPresenter();
+  
   @override
   BuildContext getContext() {
     return context;
@@ -38,7 +33,7 @@ abstract class BasePageState<T extends StatefulWidget, V extends BasePresenter> 
     /// 避免重复弹出
     if (mounted && !_isShowDialog) {
       _isShowDialog = true;
-      try{
+      try {
         showTransparentDialog(
             context: context,
             barrierDismissible: false,
@@ -67,32 +62,34 @@ abstract class BasePageState<T extends StatefulWidget, V extends BasePresenter> 
 
   @override
   void didChangeDependencies() {
-    super.didChangeDependencies();
     presenter?.didChangeDependencies();
+    super.didChangeDependencies();
   }
 
   @override
   void dispose() {
-    super.dispose();
     presenter?.dispose();
+    super.dispose();
   }
 
   @override
   void deactivate() {
-    super.deactivate();
     presenter?.deactivate();
+    super.deactivate();
   }
 
   @override
   void didUpdateWidget(T oldWidget) {
-    super.didUpdateWidget(oldWidget);
     presenter?.didUpdateWidgets<T>(oldWidget);
+    super.didUpdateWidget(oldWidget);
   }
 
   @override
   void initState() {
-    super.initState();
+    presenter = createPresenter();
+    presenter?.view = this;
     presenter?.initState();
+    super.initState();
   }
   
 }

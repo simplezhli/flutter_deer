@@ -1,16 +1,15 @@
 
-
+import 'package:flutter_deer/mvp/base_page.dart';
 import 'package:flutter_deer/mvp/base_page_presenter.dart';
-import 'package:flutter_deer/mvp/base_page_state.dart';
 import 'package:flutter_deer/mvp/base_presenter.dart';
 
 /// 管理多个Presenter，实现复用。
 class PowerPresenter<IMvpView> extends BasePresenter {
 
-  BasePageState _state;
+  BasePageMixin _state;
   List<BasePagePresenter> _presenters = [];
   
-  PowerPresenter(BasePageState state) {
+  PowerPresenter(BasePageMixin state) {
     this._state = state;
   }
 
