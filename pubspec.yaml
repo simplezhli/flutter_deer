@@ -54,7 +54,7 @@ dependencies:
   # 格式化String https://github.com/Naddiseo/dart-sprintf
   sprintf: ^4.0.2
   # 状态管理 https://github.com/rrousselGit/provider
-  provider: ^4.0.5
+  provider: ^4.0.5+1
   # 高德2D地图插件 https://github.com/simplezhli/flutter_2d_amap
   flutter_2d_amap:
     git:

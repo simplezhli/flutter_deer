@@ -48,7 +48,7 @@ jobs:
           flutter-version: '1.12.13+hotfix.9'
           channel: 'stable' # or: 'dev' or 'beta'
       - name: "Run Flutter Driver tests"
-        run: "flutter drive --target=test_driver/driver.dart"
+        run: "flutter drive --profile --target=test_driver/driver.dart"
         
   drive_android:
     # The type of machine to run the job on.
@@ -74,7 +74,7 @@ jobs:
           target: ${{ matrix.target }}
           arch: x86_64
           profile: Nexus 6
-          script: "flutter drive --target=test_driver/driver.dart"
+          script: "flutter drive --profile --target=test_driver/driver.dart"
           
   accessibility_test:
     #The type of machine to run the job on. [windows,macos, ubuntu , self-hosted]
