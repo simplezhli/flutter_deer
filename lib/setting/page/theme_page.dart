@@ -14,7 +14,8 @@ class ThemePage extends StatefulWidget {
 class _ThemePageState extends State<ThemePage> {
 
   var _list = ['跟随系统', '开启', '关闭'];
-
+//  StreamSubscription _subscription;
+  
   @override
   void initState() {
     super.initState();
@@ -22,6 +23,12 @@ class _ThemePageState extends State<ThemePage> {
       await flutter_stars.SpUtil.getInstance();
     });
   }
+//
+//  @override
+//  void dispose() {
+//    _subscription?.cancel();
+//    super.dispose();
+//  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +57,19 @@ class _ThemePageState extends State<ThemePage> {
           },
           itemBuilder: (_, index) {
             return InkWell(
-              onTap: () => Provider.of<ThemeProvider>(context, listen: false).setTheme(index == 0 ? ThemeMode.system : (index == 1 ? ThemeMode.dark : ThemeMode.light)),
+              onTap: () {
+                ThemeMode themeMode = index == 0 ? ThemeMode.system : (index == 1 ? ThemeMode.dark : ThemeMode.light);
+                Provider.of<ThemeProvider>(context, listen: false).setTheme(themeMode);
+                
+//                _subscription?.cancel();
+//                /// 主题切换动画200毫秒
+//                _subscription = Stream.value(1).delay(Duration(milliseconds: 200)).listen((_) {
+//                  if (!mounted) {
+//                    return;
+//                  }
+//                  ThemeUtils.setSystemNavigationBarStyle(context, themeMode);
+//                });
+              },
               child: Container(
                 alignment: Alignment.centerLeft,
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),

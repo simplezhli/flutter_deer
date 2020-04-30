@@ -134,7 +134,7 @@ class GoodsItem extends StatelessWidget {
     return Positioned.fill(
       child: AnimatedBuilder(
         animation: animation,
-        child: _buildGoodsMenuWidget(context),
+        child: _buildGoodsMenuContent(context),
         builder:(_, child) {
           return MenuReveal(
             revealPercent: animation.value,
@@ -145,7 +145,7 @@ class GoodsItem extends StatelessWidget {
     );
   }
 
-  _buildGoodsMenuWidget(BuildContext context) {
+  _buildGoodsMenuContent(BuildContext context) {
     bool isDark = ThemeUtils.isDark(context);
     Color buttonColor = isDark ? Colours.dark_text : Colors.white;
     return InkWell(

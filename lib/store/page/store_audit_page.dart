@@ -97,6 +97,8 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
           ),
         ),
       ),
+      /// 同时存在底部按钮与keyboardConfig配置时，为保证Android与iOS平台软键盘弹出高度正常，添加下面的代码。
+      resizeToAvoidBottomInset: defaultTargetPlatform != TargetPlatform.iOS,
     );
   }
 
