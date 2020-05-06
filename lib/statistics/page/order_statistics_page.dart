@@ -137,22 +137,21 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                         crossFadeState: _isExpanded ? CrossFadeState.showSecond : CrossFadeState.showFirst,
                         duration: const Duration(milliseconds: 300),
                       ),
-                      _selectedIndex == 1 ?
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                _isExpanded = !_isExpanded;
-                              });
-                            },
-                            child: Semantics(
-                              label: _isExpanded ? '收起' : '展开',
-                              child: Container(
-                                height: 27.0,
-                                alignment: Alignment.topCenter,
-                                child: LoadAssetImage('statistic/${_isExpanded ? 'up' : 'down'}', width: 16.0, color: ThemeUtils.getIconColor(context),),
-                              ),
-                            ),
-                          ) : Gaps.empty,
+                      if (_selectedIndex == 1) InkWell(
+                        onTap: () {
+                          setState(() {
+                            _isExpanded = !_isExpanded;
+                          });
+                        },
+                        child: Semantics(
+                          label: _isExpanded ? '收起' : '展开',
+                          child: Container(
+                            height: 27.0,
+                            alignment: Alignment.topCenter,
+                            child: LoadAssetImage('statistic/${_isExpanded ? 'up' : 'down'}', width: 16.0, color: ThemeUtils.getIconColor(context),),
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 ),

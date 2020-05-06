@@ -111,8 +111,8 @@ class MoreWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          hasMore ? const CupertinoActivityIndicator() : Gaps.empty,
-          hasMore ? Gaps.hGap5 : Gaps.empty,
+          if (hasMore) const CupertinoActivityIndicator(),
+          if (hasMore) Gaps.hGap5,
           /// 只有一页的时候，就不显示FooterView了
           Text(hasMore ? '正在加载中...' : (itemCount < pageSize ? '' : '没有了呦~'), style: style),
         ],
