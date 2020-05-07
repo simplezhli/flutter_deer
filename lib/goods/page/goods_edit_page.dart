@@ -94,7 +94,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
           Center(
             child: Text(
               '点击添加商品图片',
-              style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14),
+              style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp14),
             ),
           ),
           Gaps.vGap16,

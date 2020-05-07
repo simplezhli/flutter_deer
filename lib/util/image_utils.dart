@@ -3,7 +3,6 @@ import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter_deer/util/log_utils.dart';
 
 class ImageUtils {
   
@@ -19,7 +18,7 @@ class ImageUtils {
     if (TextUtil.isEmpty(imageUrl)) {
       return AssetImage(getImgPath(holderImg));
     }
-    return CachedNetworkImageProvider(imageUrl, errorListener: () => Log.e("图片加载失败！"));
+    return CachedNetworkImageProvider(imageUrl);
   }
 }
 

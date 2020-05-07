@@ -53,10 +53,10 @@ class ThemeProvider extends ChangeNotifier {
       textSelectionHandleColor: Colours.app_main,
       textTheme: TextTheme(
         // TextField输入文字颜色
-        subhead: isDarkMode ? TextStyles.textDark : TextStyles.text,
+        subtitle1: isDarkMode ? TextStyles.textDark : TextStyles.text,
         // Text文字样式
-        body1: isDarkMode ? TextStyles.textDark : TextStyles.text,
-        subtitle: isDarkMode ? TextStyles.textDarkGray12 : TextStyles.textGray12,
+        bodyText2: isDarkMode ? TextStyles.textDark : TextStyles.text,
+        subtitle2: isDarkMode ? TextStyles.textDarkGray12 : TextStyles.textGray12,
       ),
       inputDecorationTheme: InputDecorationTheme(
         hintStyle: isDarkMode ? TextStyles.textHint14 : TextStyles.textDarkGray14,

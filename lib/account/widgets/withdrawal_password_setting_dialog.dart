@@ -72,7 +72,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                   ),
                 ),
                 Gaps.vGap10,
-                Text(('提现密码不可为连续、重复的数字。'), style: Theme.of(context).textTheme.subtitle),
+                Text(('提现密码不可为连续、重复的数字。'), style: Theme.of(context).textTheme.subtitle2),
               ],
             ),
           ),

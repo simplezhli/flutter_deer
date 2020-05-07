@@ -73,7 +73,7 @@ class _CitySelectPageState extends State<CitySelectPage> {
               data: list,
               itemHeight: 18,
               touchDownColor: Colors.transparent,
-              textStyle: Theme.of(context).textTheme.subtitle,
+              textStyle: Theme.of(context).textTheme.subtitle2,
               touchDownTextStyle: ThemeUtils.isDark(context) ? TextStyles.textSize12 : const TextStyle(fontSize: 12.0, color: Colors.black),
             );
           },

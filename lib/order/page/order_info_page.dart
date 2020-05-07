@@ -181,7 +181,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
         padding: const EdgeInsets.symmetric(vertical: 4.0),
         child: Row(
           children: <Widget>[
-            Text(title, style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14)),
+            Text(title, style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp14)),
             Gaps.hGap8,
             Text(content)
           ],
@@ -209,7 +209,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                 overflow: TextOverflow.ellipsis,
               ),
               Gaps.vGap4,
-              Text(index % 2 == 0 ? '玫瑰香 520ml' : '125ml', style: Theme.of(context).textTheme.subtitle),
+              Text(index % 2 == 0 ? '玫瑰香 520ml' : '125ml', style: Theme.of(context).textTheme.subtitle2),
               Gaps.vGap8,
               Row(
                 children: <Widget>[
@@ -277,7 +277,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
           children: <Widget>[
             Text(title),
             Text(content, style: TextStyle(
-              color: contentTextColor ?? Theme.of(context).textTheme.body1.color,
+              color: contentTextColor ?? Theme.of(context).textTheme.bodyText2.color,
               fontWeight: FontWeight.bold
             ))
           ],

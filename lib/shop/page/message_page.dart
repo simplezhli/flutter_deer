@@ -49,7 +49,7 @@ class _MessageItemState extends State<_MessageItem> {
     return Column(
       children: <Widget>[
         Gaps.vGap15,
-        Text('2019-5-31 17:19:36', style: Theme.of(context).textTheme.subtitle),
+        Text('2019-5-31 17:19:36', style: Theme.of(context).textTheme.subtitle2),
         Gaps.vGap8,
         MyCard(
           child: Padding(

@@ -27,10 +27,13 @@ Future<T> showPopupWindow<T>({
   String label = semanticLabel;
   switch (defaultTargetPlatform) {
     case TargetPlatform.iOS:
+    case TargetPlatform.macOS:
       label = semanticLabel;
       break;
     case TargetPlatform.android:
     case TargetPlatform.fuchsia:
+    case TargetPlatform.linux:
+    case TargetPlatform.windows:
       label = semanticLabel ?? MaterialLocalizations.of(context)?.popupMenuLabel;
   }
 

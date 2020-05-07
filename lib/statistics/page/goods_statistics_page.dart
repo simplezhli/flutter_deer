@@ -174,7 +174,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text('那鲁火多饮料', maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontWeight: FontWeight.bold, fontSize: Dimens.font_sp12)),
-                    Text('250ml', style: Theme.of(context).textTheme.subtitle),
+                    Text('250ml', style: Theme.of(context).textTheme.subtitle2),
                   ],
                 ),
               ),
@@ -185,8 +185,8 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text('100件', style: Theme.of(context).textTheme.subtitle),
-                    Text('未支付', style: Theme.of(context).textTheme.subtitle),
+                    Text('100件', style: Theme.of(context).textTheme.subtitle2),
+                    Text('未支付', style: Theme.of(context).textTheme.subtitle2),
                   ],
                 ),
               ),
@@ -195,8 +195,8 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: _type ? MainAxisAlignment.center : MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text('400件', style: Theme.of(context).textTheme.subtitle),
-                  Visibility(visible: !_type, child: Text('已支付', style: Theme.of(context).textTheme.subtitle)),
+                  Text('400件', style: Theme.of(context).textTheme.subtitle2),
+                  Visibility(visible: !_type, child: Text('已支付', style: Theme.of(context).textTheme.subtitle2)),
                 ],
               ),
             ],

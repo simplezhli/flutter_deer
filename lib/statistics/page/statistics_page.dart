@@ -170,7 +170,7 @@ class _StatisticsTab extends StatelessWidget {
           children: <Widget>[
             LoadAssetImage('statistic/$img', width: 40.0, height: 40.0),
             Gaps.vGap4,
-            Text(title, style: Theme.of(context).textTheme.subtitle),
+            Text(title, style: Theme.of(context).textTheme.subtitle2),
             Gaps.vGap8,
             Text(content, style: const TextStyle(fontSize: Dimens.font_sp18)),
           ],

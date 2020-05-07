@@ -151,7 +151,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
     try {
       await DirectoryUtil.getInstance();
       DirectoryUtil.createStorageDirSync(category: 'apk');
-      String path = DirectoryUtil.getStoragePath(fileName: 'deer', category: 'apk', format: 'apk');
+      String path = DirectoryUtil.getStoragePath(fileName: 'deer', category: 'Download', format: 'apk');
       File file = File(path);
       /// 链接可能会失效
       await Dio().download('https://54a0bf2343ff38bdc347780545bd8c9e.dd.cdntips.com/imtt.dd.qq.com/16891/apk/E664A57DD3EA0540676EFC830BFDDE97.apk',

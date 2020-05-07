@@ -131,7 +131,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                   key: const Key('name_edit'),
                   text: TextSpan(
                     text: '先对名称进行',
-                    style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14),
+                    style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp14),
                     children: <TextSpan>[
                       TextSpan(text: '编辑', style: TextStyle(color: Theme.of(context).primaryColor)),
                     ],

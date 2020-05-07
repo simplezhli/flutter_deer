@@ -28,7 +28,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
   
   @override
   Widget build(BuildContext context) {
-    TextStyle style = Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14);
+    TextStyle style = Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp14);
 
     var children = [
       Gaps.vGap5,
@@ -96,7 +96,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
       Padding(
         padding: const EdgeInsets.only(top: 8.0, left: 16.0),
         child: Text(_isWechat ? '绑定本机当前登录的微信号' : '绑定持卡人本人的银行卡',
-            style: Theme.of(context).textTheme.subtitle),
+            style: Theme.of(context).textTheme.subtitle2),
       ),
     ];
 

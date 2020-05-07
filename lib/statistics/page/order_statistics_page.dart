@@ -284,7 +284,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
     List<Widget> widgets = [];
     _weeks.forEach((str) {
       widgets.add(Center(
-        child: Text(str, style: Theme.of(context).textTheme.subtitle),
+        child: Text(str, style: Theme.of(context).textTheme.subtitle2),
       ));
     });
     return widgets;

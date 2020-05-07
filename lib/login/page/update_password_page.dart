@@ -72,7 +72,7 @@ class _UpdatePasswordPageState extends State<UpdatePasswordPage> {
           Gaps.vGap8,
           Text(
             '设置账号 15000000000',
-            style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp12),
+            style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp12),
           ),
           Gaps.vGap32,
           MyTextField(

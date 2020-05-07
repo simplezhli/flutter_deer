@@ -64,7 +64,7 @@ class _WithdrawalRecordListPageState extends State<WithdrawalRecordListPage> {
               Positioned(
                   bottom: 0.0,
                   left: 0.0,
-                  child: Text(i % 2 == 0 ? '12:40:20' : '12:50:20', style: Theme.of(context).textTheme.subtitle)
+                  child: Text(i % 2 == 0 ? '12:40:20' : '12:50:20', style: Theme.of(context).textTheme.subtitle2)
               ),
               Positioned(
                   bottom: 0.0,

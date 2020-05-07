@@ -100,7 +100,7 @@ class GoodsItem extends StatelessWidget {
               padding: const EdgeInsets.only(top: 10.0),
               child: Text(
                 '特产美味',
-                style: Theme.of(context).textTheme.subtitle,
+                style: Theme.of(context).textTheme.subtitle2,
               ),
             )
           ],

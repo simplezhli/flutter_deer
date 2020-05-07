@@ -50,7 +50,7 @@ class ClickItem extends StatelessWidget {
                 maxLines: maxLines,
                 textAlign: maxLines == 1 ? TextAlign.right : textAlign,
                 overflow: TextOverflow.ellipsis,
-                style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14)
+                style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp14)
               ),
             ),
             Gaps.hGap8,

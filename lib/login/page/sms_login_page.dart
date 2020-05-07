@@ -98,7 +98,7 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
           child: RichText(
             text: TextSpan(
               text: '提示：未注册账号的手机号，请先',
-              style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14),
+              style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp14),
               children: <TextSpan>[
                 TextSpan(text: '注册', style: TextStyle(color: Theme.of(context).errorColor)),
                 TextSpan(text: '。'),
@@ -119,7 +119,7 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
         child: GestureDetector(
           child: Text(
             '忘记密码',
-            style: Theme.of(context).textTheme.subtitle,
+            style: Theme.of(context).textTheme.subtitle2,
           ),
           onTap: () => NavigatorUtils.push(context, LoginRouter.resetPasswordPage),
         ),

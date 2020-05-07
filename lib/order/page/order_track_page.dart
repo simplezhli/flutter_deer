@@ -59,12 +59,12 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
         child: Text(_titleList[index], style: index == 0 ? TextStyle(
           fontSize: Dimens.font_sp14,
           color: primaryColor,
-        ) : Theme.of(context).textTheme.body1),
+        ) : Theme.of(context).textTheme.bodyText2),
       ),
       subtitle: Text(_timeList[index], style: index == 0 ? TextStyle(
         fontSize: Dimens.font_sp12,
         color: primaryColor,
-      ) : Theme.of(context).textTheme.subtitle),
+      ) : Theme.of(context).textTheme.subtitle2),
       content: const Text(''),
       isActive: index == 0,
       // TODO 这里的状态图标无法修改，暂时使用原生的。应该可以复制Step代码修改一下。

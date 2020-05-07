@@ -116,8 +116,11 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
     switch (theme.platform) {
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
+      case TargetPlatform.linux:
+      case TargetPlatform.windows:
         return false;
       case TargetPlatform.iOS:
+      case TargetPlatform.macOS:
         return true;
     }
     return null;
@@ -190,17 +193,22 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
     }
 
     if (widget.title != null) {
+      final ThemeData theme = Theme.of(context);
       Widget title;
-      switch (defaultTargetPlatform) {
+      switch (theme.platform) {
         case TargetPlatform.iOS:
+        case TargetPlatform.macOS:
           title = widget.title;
           break;
-        case TargetPlatform.fuchsia:
         case TargetPlatform.android:
+        case TargetPlatform.fuchsia:
+        case TargetPlatform.linux:
+        case TargetPlatform.windows:
           title = Semantics(
             namesRoute: true,
             child: widget.title,
           );
+          break;
       }
 
       title = Container(
@@ -208,10 +216,9 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
         child: title,
       );
 
-      final ThemeData theme = Theme.of(context);
       final double opacity = settings.toolbarOpacity;
       if (opacity > 0.0) {
-        TextStyle titleStyle = theme.primaryTextTheme.title;
+        TextStyle titleStyle = theme.primaryTextTheme.headline6;
         titleStyle = titleStyle.copyWith(
             color: titleStyle.color.withOpacity(opacity),
             fontWeight: t != 0 ? FontWeight.normal : FontWeight.bold

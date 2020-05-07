@@ -62,9 +62,9 @@ iOS需要自行下载代码运行。
 
 [![Build Status](https://github.com/simplezhli/flutter_deer/workflows/flutter_deer%20driver/badge.svg?branch=master)](https://github.com/simplezhli/flutter_deer/actions?query=workflow%3A%22flutter_deer+driver%22+branch%3Amaster)
 
-    1. Flutter version 1.12.13+hotfix.9
+    1. Flutter version 1.17.0
      
-    2. Dart version 2.7.2
+    2. Dart version 2.8.1
 
 ## 注意事项
 
@@ -154,7 +154,7 @@ iOS需要自行下载代码运行。
 
 - ListView在没有设置分割线的情况下，个别Item之间存在大约1像素的间隔（[像素对齐问题](https://github.com/flutter/flutter/issues/14288)）。
 
-- 在iOS手机上开启深色模式时，[无法将状态栏文字修改为黑色](https://github.com/flutter/flutter/issues/41067)。
+- 1.17.0已修复。~~在iOS手机上开启深色模式时，[无法将状态栏文字修改为黑色](https://github.com/flutter/flutter/issues/41067)。~~
 
 - 1.12.13+hotfix.5 已知问题（~~#47804~~ ~~#47270~~ ~~#47635~~ ~~#47137~~ ~~#47462~~ ~~#47804~~ ~~#47021~~）。
 

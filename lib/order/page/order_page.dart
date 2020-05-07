@@ -114,7 +114,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
     return <Widget>[
       SliverOverlapAbsorber(
         handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-        child: SliverAppBar(
+        sliver: SliverAppBar(
           leading: Gaps.empty,
           brightness: Brightness.dark,
           actions: <Widget>[

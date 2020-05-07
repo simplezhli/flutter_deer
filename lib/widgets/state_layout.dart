@@ -79,7 +79,7 @@ class _StateLayoutState extends State<StateLayout> {
         const SizedBox(width: double.infinity, height: Dimens.gap_dp16,),
         Text(
           widget.hintText ?? _hintText,
-          style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14),
+          style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp14),
         ),
         Gaps.vGap50,
       ],

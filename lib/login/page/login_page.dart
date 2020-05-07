@@ -117,7 +117,7 @@ class _LoginPageState extends State<LoginPage> {
       child: GestureDetector(
         child: Text(
           '忘记密码',
-          style: Theme.of(context).textTheme.subtitle,
+          style: Theme.of(context).textTheme.subtitle2,
         ),
         onTap: () => NavigatorUtils.push(context, LoginRouter.resetPasswordPage),
       ),

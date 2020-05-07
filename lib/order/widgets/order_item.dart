@@ -27,7 +27,7 @@ class OrderItem extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    final TextStyle textTextStyle = Theme.of(context).textTheme.body1.copyWith(fontSize: Dimens.font_sp12);
+    final TextStyle textTextStyle = Theme.of(context).textTheme.bodyText2.copyWith(fontSize: Dimens.font_sp12);
     bool isDark = ThemeUtils.isDark(context);
     return Container(
       margin: const EdgeInsets.only(top: 8.0),
@@ -56,7 +56,7 @@ class OrderItem extends StatelessWidget {
                 Gaps.vGap8,
                 Text(
                   '西安市雁塔区 鱼化寨街道唐兴路唐兴数码3楼318',
-                  style: Theme.of(context).textTheme.subtitle,
+                  style: Theme.of(context).textTheme.subtitle2,
                 ),
                 Gaps.vGap8,
                 Gaps.line,
@@ -66,7 +66,7 @@ class OrderItem extends StatelessWidget {
                       style: textTextStyle,
                       children: <TextSpan>[
                         TextSpan(text: '清凉一度抽纸'),
-                        TextSpan(text: '  x1', style: Theme.of(context).textTheme.subtitle),
+                        TextSpan(text: '  x1', style: Theme.of(context).textTheme.subtitle2),
                       ],
                     )
                 ),
@@ -76,7 +76,7 @@ class OrderItem extends StatelessWidget {
                       style: textTextStyle,
                       children: <TextSpan>[
                         TextSpan(text: '清凉一度抽纸'),
-                        TextSpan(text: '  x2', style: Theme.of(context).textTheme.subtitle),
+                        TextSpan(text: '  x2', style: Theme.of(context).textTheme.subtitle2),
                       ],
                     )
                 ),
@@ -89,7 +89,7 @@ class OrderItem extends StatelessWidget {
                             style: textTextStyle,
                             children: <TextSpan>[
                               TextSpan(text: Utils.formatPrice('20.00', format: MoneyFormat.NORMAL)),
-                              TextSpan(text: '  共3件商品', style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp10)),
+                              TextSpan(text: '  共3件商品', style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp10)),
                             ],
                           )
                       ),

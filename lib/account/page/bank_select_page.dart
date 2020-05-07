@@ -68,7 +68,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
               data: list,
               itemHeight: 25,
               touchDownColor: Colors.transparent,
-              textStyle: Theme.of(context).textTheme.subtitle,
+              textStyle: Theme.of(context).textTheme.subtitle2,
               touchDownTextStyle: ThemeUtils.isDark(context) ? TextStyles.textSize12 : const TextStyle(fontSize: 12.0, color: Colors.black),
             );
           },
@@ -88,7 +88,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 16.0),
-          child: Text('常用', style: Theme.of(context).textTheme.subtitle),
+          child: Text('常用', style: Theme.of(context).textTheme.subtitle2),
         ),
         Expanded(
           child: ListView.builder(
