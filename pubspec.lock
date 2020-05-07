@@ -191,7 +191,7 @@ packages:
   flutter_goldens_client:
     dependency: transitive
     description:
-      path: "E:\\/flutter/packages/flutter_goldens_client"
+      path: "../../flutter/flutter/packages/flutter_goldens_client"
       relative: true
     source: path
     version: "0.0.0"

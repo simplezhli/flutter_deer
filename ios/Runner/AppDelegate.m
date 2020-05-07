@@ -8,7 +8,7 @@
   [GeneratedPluginRegistrant registerWithRegistry:self];
 
   FlutterViewController *controller = (FlutterViewController*)self.window.rootViewController;
-  FlutterMethodChannel *versionChannel = [FlutterMethodChannel methodChannelWithName:@"version" binaryMessenger:controller];
+  FlutterMethodChannel *versionChannel = [FlutterMethodChannel methodChannelWithName:@"version" binaryMessenger: controller];
     
   [versionChannel setMethodCallHandler:^(FlutterMethodCall * _Nonnull call, FlutterResult  _Nonnull result) {
       if ([call.method isEqualToString:@"jumpAppStore"]) {
