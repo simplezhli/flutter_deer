@@ -26,7 +26,7 @@ class OrderStatisticsPage extends StatefulWidget {
   _OrderStatisticsPageState createState() => _OrderStatisticsPageState();
 }
 
-class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
+class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerProviderStateMixin {
   
   int _selectedIndex = 2;
   DateTime _initialDay;
@@ -128,13 +128,19 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      AnimatedCrossFade(
-                        firstChild: _buildGridView(),
-                        secondChild:_buildGridView(),
-                        firstCurve: const Interval(0.0, 0.0, curve: Curves.fastOutSlowIn),
-                        secondCurve: const Interval(0.0, 0.0, curve: Curves.fastOutSlowIn),
-                        sizeCurve: Curves.decelerate,
-                        crossFadeState: _isExpanded ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+//                      AnimatedCrossFade(
+//                        firstChild: _buildCalendar(),
+//                        secondChild: _buildCalendar(),
+//                        firstCurve: const Interval(0.0, 0.0, curve: Curves.fastOutSlowIn),
+//                        secondCurve: const Interval(0.0, 0.0, curve: Curves.fastOutSlowIn),
+//                        sizeCurve: Curves.decelerate,
+//                        crossFadeState: _isExpanded ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+//                        duration: const Duration(milliseconds: 300),
+//                      ),
+                      AnimatedSize(
+                        child: _buildCalendar(),
+                        vsync: this,
+                        curve: Curves.decelerate,
                         duration: const Duration(milliseconds: 300),
                       ),
                       if (_selectedIndex == 1) InkWell(
@@ -260,24 +266,23 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
       return data2;
     }
   }
-  
-  _buildGridView() {
+
+  _buildCalendar() {
+    var children;
+    if (_selectedIndex == 0) {
+      children = _builderMonthCalendar();
+    } else if (_selectedIndex == 1) {
+      children = _builderCalendar();
+    } else if (_selectedIndex == 2) {
+      children = _builderWeekCalendar();
+    }
+    
     return GridView.count(
       physics: ClampingScrollPhysics(),
       shrinkWrap: true,
       crossAxisCount: 7,
-      children: _buildCalendar(),
+      children: children,
     );
-  }
-  
-  _buildCalendar() {
-    if (_selectedIndex == 0) {
-      return _builderMonthCalendar();
-    } else if (_selectedIndex == 1) {
-      return _builderCalendar();
-    } else if (_selectedIndex == 2) {
-      return _builderWeekCalendar();
-    }
   }
   
   List<Widget> _buildWeeks() {

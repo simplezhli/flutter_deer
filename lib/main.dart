@@ -46,9 +46,10 @@ class MyApp extends StatelessWidget {
             return MaterialApp(
               title: 'Flutter Deer',
 //              showPerformanceOverlay: true, //显示性能标签
-//              debugShowCheckedModeBanner: false,
+//              debugShowCheckedModeBanner: false, // 去除右上角debug的标签
 //              checkerboardRasterCacheImages: true,
 //              showSemanticsDebugger: true, // 显示语义视图
+//              checkerboardOffscreenLayers: true, // 检查离屏渲染
               theme: provider.getTheme(),
               darkTheme: provider.getTheme(isDarkMode: true),
               themeMode: provider.getThemeMode(),

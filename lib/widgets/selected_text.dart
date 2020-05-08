@@ -26,38 +26,44 @@ class SelectedText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      borderRadius: BorderRadius.circular(16.0),
-      onTap: enable ? onTap : null,
-      child: Container(
-        constraints: BoxConstraints(
-          minWidth: 32.0,
-          maxHeight: 32.0,
-          minHeight: 32.0,
-        ),
-        padding: EdgeInsets.symmetric(horizontal: fontSize > 14 ? 10.0 : 0.0),
-        decoration: selected ? BoxDecoration(
-            borderRadius: BorderRadius.circular(20.0),
+    var child = _buildText();
+    
+    if (enable) {
+      child = InkWell(
+        borderRadius: BorderRadius.circular(16.0),
+        onTap: onTap,
+        child: Container(
+          constraints: BoxConstraints(
+            minWidth: 32.0,
+            maxHeight: 32.0,
+            minHeight: 32.0,
+          ),
+          padding: EdgeInsets.symmetric(horizontal: fontSize > 14 ? 10.0 : 0.0),
+          decoration: selected ? BoxDecoration(
+              borderRadius: BorderRadius.circular(20.0),
 //            shape: BoxShape.circle,
-            boxShadow: ThemeUtils.isDark(context) ? null : const [
-              BoxShadow(color: Color(0x805793FA), offset: Offset(0.0, 2.0), blurRadius: 8.0, spreadRadius: 0.0),
+              boxShadow: ThemeUtils.isDark(context) ? null : const [
+                BoxShadow(color: Color(0x805793FA), offset: Offset(0.0, 2.0), blurRadius: 8.0, spreadRadius: 0.0),
+              ],
+              gradient: const LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: const [Color(0xFF5758FA), Color(0xFF5793FA)]
+              )
+          ) : null,
+          child: Column(
+            // 此处为了宽度适应，高度撑满。
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              child
             ],
-            gradient: const LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: const [Color(0xFF5758FA), Color(0xFF5793FA)]
-            )
-        ) : null,
-        child: Column(
-          // 此处为了宽度适应，高度撑满。
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            _buildText()
-          ],
+          ),
         ),
-      ),
-    );
+      );
+    }
+    
+    return child;
   }
 
   _buildText() {
