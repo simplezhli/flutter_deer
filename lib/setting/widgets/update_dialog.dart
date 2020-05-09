@@ -149,6 +149,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
   ///下载apk
   _download() async {
     try {
+      setInitDir(initStorageDir: true);
       await DirectoryUtil.getInstance();
       DirectoryUtil.createStorageDirSync(category: 'apk');
       String path = DirectoryUtil.getStoragePath(fileName: 'deer', category: 'Download', format: 'apk');

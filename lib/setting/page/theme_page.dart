@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/common/common.dart';
-import 'package:flustars/flustars.dart' as flutter_stars;
+import 'package:flustars/flustars.dart';
 import 'package:flutter_deer/provider/theme_provider.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:provider/provider.dart';
@@ -20,7 +20,7 @@ class _ThemePageState extends State<ThemePage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await flutter_stars.SpUtil.getInstance();
+      await SpUtil.getInstance();
     });
   }
 //
@@ -32,7 +32,7 @@ class _ThemePageState extends State<ThemePage> {
 
   @override
   Widget build(BuildContext context) {
-    String theme = flutter_stars.SpUtil.getString(Constant.theme);
+    String theme = SpUtil.getString(Constant.theme);
     String themeMode;
     switch(theme) {
       case 'Dark':

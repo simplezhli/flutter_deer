@@ -1,5 +1,5 @@
 
-import 'package:flustars/flustars.dart' as flutter_stars;
+import 'package:flustars/flustars.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/demo/overlay/main.dart';
@@ -23,7 +23,7 @@ class SettingPage extends StatefulWidget {
 class _SettingPageState extends State<SettingPage> {
   @override
   Widget build(BuildContext context) {
-    String theme = flutter_stars.SpUtil.getString(Constant.theme);
+    String theme = SpUtil.getString(Constant.theme);
     String themeMode;
     switch(theme) {
       case 'Dark':

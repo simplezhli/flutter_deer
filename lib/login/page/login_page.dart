@@ -2,7 +2,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flustars/flustars.dart' as FlutterStars;
+import 'package:flustars/flustars.dart';
 import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
@@ -35,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
     //监听输入改变  
     _nameController.addListener(_verify);
     _passwordController.addListener(_verify);
-    _nameController.text = FlutterStars.SpUtil.getString(Constant.phone);
+    _nameController.text = SpUtil.getString(Constant.phone);
   }
 
   void _verify() {
@@ -58,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
   }
   
   void _login() {
-    FlutterStars.SpUtil.putString(Constant.phone, _nameController.text);
+    SpUtil.putString(Constant.phone, _nameController.text);
     NavigatorUtils.push(context, StoreRouter.auditPage);
   }
   

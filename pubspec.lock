@@ -156,7 +156,7 @@ packages:
       name: flustars
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.2.6+1"
+    version: "0.3.2"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -191,7 +191,7 @@ packages:
   flutter_goldens_client:
     dependency: transitive
     description:
-      path: "../../flutter/flutter/packages/flutter_goldens_client"
+      path: "E:\\/flutter/packages/flutter_goldens_client"
       relative: true
     source: path
     version: "0.0.0"
