@@ -98,6 +98,8 @@ iOS需要自行下载代码运行。
 
 - [说说Flutter中最熟悉的陌生人 —— Key](https://weilu.blog.csdn.net/article/details/104745624)
 
+- [Flutter性能优化实践 —— UI篇](https://weilu.blog.csdn.net/article/details/106046434)
+
 - [玩玩Flutter的拖拽——实现一款万能遥控器](https://weilu.blog.csdn.net/article/details/105237677)
 
 - [Flutter动画曲线Curves 效果一览](https://weilu.blog.csdn.net/article/details/95632571)
