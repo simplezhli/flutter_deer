@@ -84,8 +84,9 @@ class _GoodsListPageState extends State<GoodsListPage> with AutomaticKeepAliveCl
   }
   
   _setGoodsCount(int count) {
-    GoodsPageProvider provider = Provider.of<GoodsPageProvider>(context, listen: false);
-    provider.setGoodsCount(count);
+//    Provider.of<GoodsPageProvider>(context, listen: false).setGoodsCount(count);
+    /// 与上方等价，provider 4.1.0添加的拓展方法
+    context.read<GoodsPageProvider>().setGoodsCount(count);
   }
 
   int _page = 1;

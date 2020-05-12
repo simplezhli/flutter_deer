@@ -32,7 +32,9 @@ class _SplashPageState extends State<SplashPage> {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await SpUtil.getInstance();
       // 由于SpUtil一开始未初始化，所以MaterialApp获取的为默认主题配置，这里同步一下。
-      Provider.of<ThemeProvider>(context, listen: false).syncTheme();
+//      Provider.of<ThemeProvider>(context, listen: false).syncTheme();
+      /// 与上方等价，provider 4.1.0添加的拓展方法
+      context.read<ThemeProvider>().syncTheme();
       if (SpUtil.getBool(Constant.keyGuide, defValue: true)) {
         /// 预先缓存图片，避免直接使用时因为首次加载造成闪动
         _guideList.forEach((image) {
