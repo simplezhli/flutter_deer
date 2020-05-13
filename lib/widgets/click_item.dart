@@ -8,9 +8,9 @@ class ClickItem extends StatelessWidget {
     Key key,
     this.onTap,
     @required this.title,
-    this.content: '',
-    this.textAlign: TextAlign.start,
-    this.maxLines: 1
+    this.content = '',
+    this.textAlign = TextAlign.start,
+    this.maxLines = 1
   }): super(key: key);
 
   final GestureTapCallback onTap;

@@ -7,7 +7,7 @@ class MyButton extends StatelessWidget {
 
   const MyButton({
     Key key,
-    this.text: '',
+    this.text = '',
     @required this.onPressed,
   }): super(key: key);
 

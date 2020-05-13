@@ -166,8 +166,6 @@ iOS需要自行下载代码运行。
 
 ## Thanks For
 
-- [flutter-go](https://github.com/alibaba/flutter-go)
-
 - [flutter_wanandroid](https://github.com/Sky24n/flutter_wanandroid)
 
 ## License

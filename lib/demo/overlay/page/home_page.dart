@@ -48,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: GestureDetector(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 26.0),
-              child: Text('需求说明：\n1.底部固定悬浮BottomNavigationBar点击切换时有移动动画。\n2.进入二级页面图标全灰，返回一级页面返回之前状态。\n3.二级页面内点击按钮，直接返回一级页面。\n\n点击文字进入下一页->', 
+              child: Text('功能说明：\n1.底部固定悬浮BottomNavigationBar点击切换时有移动动画。\n2.进入二级页面图标全灰，返回一级页面返回之前状态。\n3.二级页面内点击按钮，直接返回一级页面。\n\n点击文字进入下一页->', 
                 style: const TextStyle(fontSize: 15.0),
               ),
             ),

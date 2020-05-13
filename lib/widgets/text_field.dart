@@ -14,12 +14,12 @@ class MyTextField extends StatefulWidget {
   const MyTextField({
     Key key,
     @required this.controller,
-    this.maxLength: 16,
-    this.autoFocus: false,
-    this.keyboardType: TextInputType.text,
-    this.hintText: '',
+    this.maxLength = 16,
+    this.autoFocus = false,
+    this.keyboardType = TextInputType.text,
+    this.hintText = '',
     this.focusNode,
-    this.isInputPwd: false,
+    this.isInputPwd = false,
     this.getVCode,
     this.keyName
   }): super(key: key);

@@ -12,8 +12,8 @@ class SearchBar extends StatefulWidget implements PreferredSizeWidget {
 
   const SearchBar({
     Key key,
-    this.hintText: '',
-    this.backImg: 'assets/images/ic_back_black.png',
+    this.hintText = '',
+    this.backImg = 'assets/images/ic_back_black.png',
     this.onPressed,
   }): super(key: key);
 
@@ -30,7 +30,7 @@ class SearchBar extends StatefulWidget implements PreferredSizeWidget {
 
 class _SearchBarState extends State<SearchBar> {
 
-  TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
   
   @override
   Widget build(BuildContext context) {
@@ -95,7 +95,7 @@ class _SearchBarState extends State<SearchBar> {
                 ),
               ),
               onTap: () {
-                /// https://github.com/flutter/flutter/issues/36324
+                /// https://github.com/flutter/flutter/issues/35848
                 SchedulerBinding.instance.addPostFrameCallback((_) {
                   _controller.text = '';
                 });

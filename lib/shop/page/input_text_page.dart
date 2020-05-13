@@ -26,7 +26,7 @@ class InputTextPage extends StatefulWidget {
 
 class _InputTextPageState extends State<InputTextPage> {
 
-  TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
   
   @override
   void initState() {

@@ -18,7 +18,7 @@ Future<T> showPopupWindow<T>({
   @required BuildContext context,
   RelativeRect position,
   @required Widget child,
-  double elevation: 8.0,
+  double elevation = 8.0,
   String semanticLabel,
   bool fullWidth,
   bool isShowBg = false,
@@ -145,7 +145,7 @@ class _PopupWindow<T> extends StatelessWidget {
     Key key,
     this.route,
     this.semanticLabel,
-    this.fullWidth: false,
+    this.fullWidth = false,
   }) : super(key: key);
 
   final _PopupWindowRoute<T> route;

@@ -27,7 +27,7 @@ class PriceInputDialog extends StatefulWidget {
 
 class _PriceInputDialog extends State<PriceInputDialog> {
 
-  TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
   
   @override
   Widget build(BuildContext context) {

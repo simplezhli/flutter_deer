@@ -8,8 +8,8 @@ class StoreSelectTextItem extends StatelessWidget {
     Key key,
     this.onTap,
     @required this.title,
-    this.content: '',
-    this.textAlign: TextAlign.start,
+    this.content = '',
+    this.textAlign = TextAlign.start,
     this.style
   }): super(key: key);
 

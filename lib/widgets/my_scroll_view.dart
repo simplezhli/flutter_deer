@@ -16,12 +16,12 @@ class MyScrollView extends StatelessWidget {
     Key key,
     @required this.children,
     this.padding,
-    this.physics: const BouncingScrollPhysics(),
-    this.crossAxisAlignment: CrossAxisAlignment.start,
+    this.physics = const BouncingScrollPhysics(),
+    this.crossAxisAlignment = CrossAxisAlignment.start,
     this.bottomButton,
     this.keyboardConfig,
-    this.tapOutsideToDismiss: false,
-    this.overScroll: 16.0,
+    this.tapOutsideToDismiss = false,
+    this.overScroll = 16.0,
   }): super(key: key);
 
   final List<Widget> children;

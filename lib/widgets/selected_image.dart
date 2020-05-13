@@ -10,7 +10,7 @@ class SelectedImage extends StatelessWidget {
 
   const SelectedImage({
     Key key,
-    this.size : 80.0,
+    this.size = 80.0,
     this.onTap,
     this.image
   }): super(key: key);

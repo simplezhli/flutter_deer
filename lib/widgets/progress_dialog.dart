@@ -8,7 +8,7 @@ class ProgressDialog extends Dialog {
 
   const ProgressDialog({
     Key key,
-    this.hintText: '',
+    this.hintText = '',
   }):super(key: key);
 
   final String hintText;

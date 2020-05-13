@@ -10,12 +10,12 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MyAppBar({
     Key key,
     this.backgroundColor,
-    this.title: '',
-    this.centerTitle: '',
-    this.actionName: '',
-    this.backImg: 'assets/images/ic_back_black.png',
+    this.title = '',
+    this.centerTitle = '',
+    this.actionName = '',
+    this.backImg = 'assets/images/ic_back_black.png',
     this.onPressed,
-    this.isBack: true
+    this.isBack = true
   }): super(key: key);
 
   final Color backgroundColor;

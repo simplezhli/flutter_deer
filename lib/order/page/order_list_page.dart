@@ -28,7 +28,7 @@ class _OrderListPageState extends State<OrderListPage> with AutomaticKeepAliveCl
   final int _maxPage = 3;
   StateType _stateType = StateType.loading;
   int _index = 0;
-  ScrollController _controller = ScrollController();
+  final ScrollController _controller = ScrollController();
   
   @override
   void initState() {

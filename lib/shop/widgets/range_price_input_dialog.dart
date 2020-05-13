@@ -26,8 +26,8 @@ class RangePriceInputDialog extends StatefulWidget {
 
 class _RangePriceInputDialog extends State<RangePriceInputDialog> {
 
-  TextEditingController _controller = TextEditingController();
-  TextEditingController _controller1 = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller1 = TextEditingController();
   
   @override
   Widget build(BuildContext context) {
