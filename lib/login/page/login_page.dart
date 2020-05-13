@@ -23,8 +23,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   //定义一个controller
-  TextEditingController _nameController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   final FocusNode _nodeText1 = FocusNode();
   final FocusNode _nodeText2 = FocusNode();
   bool _clickable = false;
@@ -39,9 +39,9 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _verify() {
-    String name = _nameController.text;
-    String password = _passwordController.text;
-    bool clickable = true;
+    var name = _nameController.text;
+    var password = _passwordController.text;
+    var clickable = true;
     if (name.isEmpty || name.length < 11) {
       clickable = false;
     }
@@ -79,8 +79,8 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-  
-  get _buildBody => [
+
+  List<Widget> get _buildBody => [
     const Text(
       '密码登录',
       style: TextStyles.textBold26,

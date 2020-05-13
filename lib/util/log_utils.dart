@@ -8,23 +8,23 @@ class Log {
 
   static const String tag = 'DEER-LOG';
   
-  static init() {
+  static void init() {
     LogUtil.debuggable = !Constant.inProduction;
   }
 
-  static d(String msg, {tag: tag}) {
+  static void d(String msg, {String tag = tag}) {
     if (!Constant.inProduction) {
       LogUtil.v(msg, tag: tag);
     }
   }
 
-  static e(String msg, {tag: tag}) {
+  static void e(String msg, {String tag = tag}) {
     if (!Constant.inProduction) {
       LogUtil.e(msg, tag: tag);
     }
   }
 
-  static json(String msg, {tag: tag}) {
+  static void json(String msg, {String tag = tag}) {
     if (!Constant.inProduction) {
       var data = convert.json.decode(msg);
       if (data is Map) {
@@ -37,7 +37,7 @@ class Log {
   }
 
   // https://github.com/Milad-Akarie/pretty_dio_logger
-  static void _printMap(Map data, {tag: tag, int tabs = 1, bool isListItem = false, bool isLast = false}) {
+  static void _printMap(Map data, {String tag = tag, int tabs = 1, bool isListItem = false, bool isLast = false}) {
     final bool isRoot = tabs == 1;
     final initialIndent = _indent(tabs);
     tabs++;
@@ -72,16 +72,18 @@ class Log {
     LogUtil.v('$initialIndent}${isListItem && !isLast ? ',' : ''}', tag: tag);
   }
 
-  static void _printList(List list, {tag: tag, int tabs = 1}) {
+  static void _printList(List list, {String tag = tag, int tabs = 1}) {
     list.asMap().forEach((i, e) {
       final isLast = i == list.length - 1;
       if (e is Map) {
-        if (e.length == 0)
+        if (e.length == 0) {
           LogUtil.v('${_indent(tabs)}  $e${!isLast ? ',' : ''}', tag: tag);
-        else
+        } else {
           _printMap(e, tabs: tabs + 1, isListItem: true, isLast: isLast);
-      } else
+        }
+      } else {
         LogUtil.v('${_indent(tabs + 2)} $e${isLast ? '' : ','}', tag: tag);
+      }
     });
   }
 

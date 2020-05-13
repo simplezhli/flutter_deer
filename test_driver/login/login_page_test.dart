@@ -18,7 +18,7 @@ void main() {
     });
 
     tearDownAll(() async {
-      driver?.close();
+      await driver?.close();
     });
     
     test('登录页按钮点击',() async {

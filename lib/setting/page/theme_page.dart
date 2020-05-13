@@ -13,7 +13,7 @@ class ThemePage extends StatefulWidget {
 
 class _ThemePageState extends State<ThemePage> {
 
-  var _list = ['跟随系统', '开启', '关闭'];
+  final _list = ['跟随系统', '开启', '关闭'];
 //  StreamSubscription _subscription;
   
   @override

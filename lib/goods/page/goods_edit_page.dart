@@ -23,7 +23,7 @@ import '../goods_router.dart';
 /// design/4商品/index.html#artboard5
 class GoodsEditPage extends StatefulWidget {
   
-  const GoodsEditPage({Key key, this.isAdd: true, this.isScan: false}) : super(key: key);
+  const GoodsEditPage({Key key, this.isAdd = true, this.isScan = false}) : super(key: key);
   
   final bool isAdd;
   final bool isScan;
@@ -58,7 +58,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
   }
   
   void _scan() async {
-    String code = await Utils.scan();
+    var code = await Utils.scan();
     if (code != null) {
       _codeController.text = code;
     }
@@ -76,8 +76,8 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
         children: <Widget>[
           Gaps.vGap5,
           const Padding(
-            padding: const EdgeInsets.only(left: 16.0),
-            child: const Text(
+            padding: EdgeInsets.only(left: 16.0),
+            child: Text(
               '基本信息',
               style: TextStyles.textBold18,
             ),
@@ -142,8 +142,8 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
           ),
           Gaps.vGap32,
           const Padding(
-            padding: const EdgeInsets.only(left: 16.0),
-            child: const Text(
+            padding: EdgeInsets.only(left: 16.0),
+            child: Text(
               '折扣立减',
               style: TextStyles.textBold18,
             ),
@@ -159,8 +159,8 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
           ),
           Gaps.vGap32,
           const Padding(
-            padding: const EdgeInsets.only(left: 16.0),
-            child: const Text(
+            padding: EdgeInsets.only(left: 16.0),
+            child: Text(
               '类型规格',
               style: TextStyles.textBold18,
             ),
@@ -189,7 +189,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
     );
   }
 
-  GoodsSortProvider _provider = GoodsSortProvider();
+  final GoodsSortProvider _provider = GoodsSortProvider();
 
   @override
   void dispose() {
@@ -197,7 +197,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
     super.dispose();
   }
 
-  _showBottomSheet() {
+  void _showBottomSheet() {
     showModalBottomSheet(
       context: context,
       /// 使用true则高度不受16分之9的最高限制

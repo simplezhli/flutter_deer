@@ -28,7 +28,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
   
   @override
   Widget build(BuildContext context) {
-    TextStyle style = Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp14);
+    var style = Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp14);
 
     var children = [
       Gaps.vGap5,
@@ -58,7 +58,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
               onTap: () {
                 NavigatorUtils.pushResult(context, AccountRouter.citySelectPage, (result) {
                   setState(() {
-                    CityEntity model = result;
+                    var model = result as CityEntity;
                     _city = model.name;
                   });
                 });
@@ -71,7 +71,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
               onTap: () {
                 NavigatorUtils.pushResult(context, '${AccountRouter.bankSelectPage}?type=0', (result) {
                   setState(() {
-                    BankEntity model = result;
+                    var model = result as BankEntity;
                     _bank = model.bankName;
                   });
                 });
@@ -84,7 +84,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
               onTap: () {
                 NavigatorUtils.pushResult(context, '${AccountRouter.bankSelectPage}?type=1', (result) {
                   setState(() {
-                    BankEntity model = result;
+                    var model = result as BankEntity;
                     _bank1 = model.bankName;
                   });
                 });
@@ -118,7 +118,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
     );
   }
 
-  _dialogSelect(bool flag) {
+  void _dialogSelect(bool flag) {
     setState(() {
       _isWechat = flag;
     });
@@ -126,11 +126,11 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
   }
 
   /// design/6店铺-账户/index.html#artboard30
-  _showSelectAccountTypeDialog() {
+  void _showSelectAccountTypeDialog() {
     showElasticDialog(
         context: context,
         builder: (BuildContext context) {
-          Color textColor = Theme.of(context).primaryColor;
+          var textColor = Theme.of(context).primaryColor;
           return Material(
             type: MaterialType.transparency,
             child: Center(

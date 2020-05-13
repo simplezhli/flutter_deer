@@ -48,8 +48,9 @@ class _CitySelectPageState extends State<CitySelectPage> {
   /// rootBundle.loadString源码修改
   Future<String> _loadString(String key, { bool cache = true }) async {
     final ByteData data = await rootBundle.load(key);
-    if (data == null)
+    if (data == null) {
       throw FlutterError('Unable to load asset: $key');
+    }
     return utf8.decode(data.buffer.asUint8List());
   }
   

@@ -6,7 +6,7 @@ class MyBottomNavigationBar extends StatefulWidget {
   const MyBottomNavigationBar({
     Key key,
     this.selectedPosition = 0,
-    this.isShowIndicator: true,
+    this.isShowIndicator = true,
     @required this.selectedCallback,
   }) : super(key: key);
 
@@ -54,7 +54,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> with Tick
     });
     
     /// 设置动画时长
-    controller = new AnimationController(vsync: this, duration: const Duration(milliseconds: 333));
+    controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 333));
     
     if (widget.isShowIndicator) {
       selectedPosition = widget.selectedPosition;
@@ -66,7 +66,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> with Tick
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> children = [];
+    var children = <Widget>[];
     
     /// 背景
     var background = Container(
@@ -105,9 +105,9 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> with Tick
       ));
     }
 
-    for (int i = 0; i < iconList.length; i++) {
+    for (var i = 0; i < iconList.length; i++) {
       /// 图标中心点计算
-      Rect rect = Rect.fromCenter(
+      var rect = Rect.fromCenter(
         center: Offset(28.0 + (i * itemWidth), 28.0),
         width: (i == selectedPosition && widget.isShowIndicator) ? selectedIconHeight : normalIconHeight,
         height: (i == selectedPosition && widget.isShowIndicator) ? selectedIconHeight : normalIconHeight,

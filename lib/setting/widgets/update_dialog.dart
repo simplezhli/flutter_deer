@@ -21,7 +21,7 @@ class UpdateDialog extends StatefulWidget {
 
 class _UpdateDialogState extends State<UpdateDialog> {
   
-  CancelToken _cancelToken = CancelToken();
+  final CancelToken _cancelToken = CancelToken();
   bool _isDownload = false;
   double _value = 0;
   
@@ -59,7 +59,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
                   height: 120.0,
                   width: 280.0,
                   decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(topLeft: const Radius.circular(8.0), topRight: const Radius.circular(8.0)),
+                    borderRadius: const BorderRadius.only(topLeft: Radius.circular(8.0), topRight: Radius.circular(8.0)),
                     image: DecorationImage(
                       image: ImageUtils.getAssetImage('update_head',format: 'jpg'),
                       fit: BoxFit.cover,
@@ -67,8 +67,8 @@ class _UpdateDialogState extends State<UpdateDialog> {
                   )
                 ),
                 const Padding(
-                  padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 16.0),
-                  child: const Text('新版本更新', style: TextStyles.textSize16),
+                  padding: EdgeInsets.only(left: 15.0, right: 15.0, top: 16.0),
+                  child: Text('新版本更新', style: TextStyles.textSize16),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
@@ -147,7 +147,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
   }
   
   ///下载apk
-  _download() async {
+  void _download() async {
     try {
       setInitDir(initStorageDir: true);
       await DirectoryUtil.getInstance();

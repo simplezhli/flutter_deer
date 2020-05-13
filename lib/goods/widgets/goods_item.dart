@@ -28,11 +28,11 @@ class GoodsItem extends StatelessWidget {
   final GoodsItemEntity item;
   final int index;
   final int selectIndex;
-  final Function onTapMenu;
-  final Function onTapEdit;
-  final Function onTapOperation;
-  final Function onTapDelete;
-  final Function onTapMenuClose;
+  final VoidCallback onTapMenu;
+  final VoidCallback onTapEdit;
+  final VoidCallback onTapOperation;
+  final VoidCallback onTapDelete;
+  final VoidCallback onTapMenuClose;
   final Animation<double> animation;
   
   @override
@@ -130,7 +130,7 @@ class GoodsItem extends StatelessWidget {
     );
   }
   
-  _buildGoodsMenu(BuildContext context) {
+  Widget _buildGoodsMenu(BuildContext context) {
     return Positioned.fill(
       child: AnimatedBuilder(
         animation: animation,
@@ -145,9 +145,9 @@ class GoodsItem extends StatelessWidget {
     );
   }
 
-  _buildGoodsMenuContent(BuildContext context) {
-    bool isDark = ThemeUtils.isDark(context);
-    Color buttonColor = isDark ? Colours.dark_text : Colors.white;
+  Widget _buildGoodsMenuContent(BuildContext context) {
+    var isDark = ThemeUtils.isDark(context);
+    var buttonColor = isDark ? Colours.dark_text : Colors.white;
     return InkWell(
       onTap: onTapMenuClose,
       child: Container(

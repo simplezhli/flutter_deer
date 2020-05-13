@@ -189,7 +189,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
     );
   }
   
-  _buildChart(Color color, Color shadowColor, String title, String count) {
+  Widget _buildChart(Color color, Color shadowColor, String title, String count) {
     return AspectRatio(
       aspectRatio: 3,
       child: MyCard(
@@ -245,7 +245,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
   List<DataPoint> data2 = [];
 
   // 数据变化图标会刷新，否则不会
-  _getRandomData() {
+  List<DataPoint> _getRandomData() {
     if (data.isEmpty) {
       for (int i = 0; i < 7; i++) {
         data.add(DataPoint<double>(value: Random.secure().nextInt(3000).toDouble(), xAxis: (i * 5).toDouble()));
@@ -267,7 +267,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
     }
   }
 
-  _buildCalendar() {
+  Widget _buildCalendar() {
     var children;
     if (_selectedIndex == 0) {
       children = _builderMonthCalendar();

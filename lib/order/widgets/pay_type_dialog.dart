@@ -23,7 +23,7 @@ class PayTypeDialog extends StatefulWidget {
 class _PayTypeDialog extends State<PayTypeDialog> {
 
   int _value = 0;
-  var _list = ['未收款', '支付宝', '微信', '现金'];
+  final _list = ['未收款', '支付宝', '微信', '现金'];
 
   Widget _buildItem(int index) {
     return Material(

@@ -3,7 +3,7 @@ import 'package:oktoast/oktoast.dart';
 
 /// Toast工具类
 class Toast {
-  static show(String msg, {duration = 2000}) {
+  static void show(String msg, {int duration = 2000}) {
     if (msg == null) {
       return;
     }
@@ -14,7 +14,7 @@ class Toast {
     );
   }
 
-  static cancelToast() {
+  static void cancelToast() {
     dismissAllToast();
   }
 }

@@ -6,16 +6,16 @@ class GoodsItemEntity {
 	GoodsItemEntity({this.icon, this.title, this.type});
 
 	GoodsItemEntity.fromJson(Map<String, dynamic> json) {
-		icon = json['icon'];
-		title = json['title'];
-		type = json['type'];
+		icon = json['icon'] as String;
+		title = json['title'] as String;
+		type = json['type'] as int;
 	}
 
 	Map<String, dynamic> toJson() {
-		final Map<String, dynamic> data = new Map<String, dynamic>();
-		data['icon'] = this.icon;
-		data['title'] = this.title;
-		data['type'] = this.type;
+		final Map<String, dynamic> data = Map<String, dynamic>();
+		data['icon'] = icon;
+		data['title'] = title;
+		data['type'] = type;
 		return data;
 	}
 }

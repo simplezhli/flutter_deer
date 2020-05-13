@@ -22,8 +22,8 @@ class GoodsDeleteBottomSheet extends StatelessWidget {
           children: <Widget>[
             const SizedBox(
               height: 52.0,
-              child: const Center(
-                child: const Text(
+              child: Center(
+                child: Text(
                   '是否确认删除，防止错误操作',
                   style: TextStyles.textSize16,
                 ),

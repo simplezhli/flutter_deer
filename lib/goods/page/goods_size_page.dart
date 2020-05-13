@@ -26,11 +26,11 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
   
   bool _isEdit = false;
   String _sizeName = '商品规格名称';
-  GlobalKey _hintKey = GlobalKey();
+  final GlobalKey _hintKey = GlobalKey();
 
   List<GoodsSizeModel> _goodsSizeList = [];
   // 保留一个Slidable打开
-  SlidableController _slidableController = SlidableController();
+  final SlidableController _slidableController = SlidableController();
 
   @override
   void initState() {
@@ -52,7 +52,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
   }
 
   /// design/4商品/index.html#artboard18
-  _showHint() {
+  void _showHint() {
     final RenderBox hint = _hintKey.currentContext.findRenderObject();
     final RenderBox overlay = Overlay.of(context).context.findRenderObject();
     var a = hint.localToGlobal(Offset(50.0, hint.size.height + 150.0), ancestor: overlay);

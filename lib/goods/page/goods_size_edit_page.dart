@@ -44,7 +44,7 @@ class _GoodsSizeEditPageState extends State<GoodsSizeEditPage> {
           Gaps.vGap5,
           const Padding(
             padding: const EdgeInsets.only(left: 16.0),
-            child: const Text('基本信息', style: TextStyles.textBold18),
+            child: Text('基本信息', style: TextStyles.textBold18),
           ),
           Gaps.vGap16,
           Center(
@@ -87,7 +87,7 @@ class _GoodsSizeEditPageState extends State<GoodsSizeEditPage> {
           Gaps.vGap32,
           const Padding(
             padding: const EdgeInsets.only(left: 16.0),
-            child: const Text('折扣立减', style: TextStyles.textBold18),
+            child: Text('折扣立减', style: TextStyles.textBold18),
           ),
           Gaps.vGap16,
           TextFieldItem(

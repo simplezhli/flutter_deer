@@ -29,7 +29,7 @@ class GoodsSortDialog extends StatefulWidget {
 class GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProviderStateMixin {
   
   TabController _tabController;
-  ScrollController _controller = ScrollController();
+  final ScrollController _controller = ScrollController();
 
   @override
   void initState() {
@@ -150,7 +150,7 @@ class GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProvi
                     child: const SizedBox(
                         height: 16.0,
                         width: 16.0,
-                        child: const LoadAssetImage('goods/icon_dialog_close')
+                        child: LoadAssetImage('goods/icon_dialog_close')
                     ),
                   ),
                   right: 16.0,

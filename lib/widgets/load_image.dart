@@ -11,9 +11,9 @@ class LoadImage extends StatelessWidget {
     Key key,
     this.width, 
     this.height,
-    this.fit: BoxFit.cover, 
-    this.format: 'png',
-    this.holderImg: 'none'
+    this.fit = BoxFit.cover, 
+    this.format = 'png',
+    this.holderImg = 'none'
   }): super(key: key);
   
   final String image;
@@ -64,7 +64,7 @@ class LoadAssetImage extends StatelessWidget {
     this.cacheWidth,
     this.cacheHeight,
     this.fit,
-    this.format: 'png',
+    this.format = 'png',
     this.color
   }): super(key: key);
 

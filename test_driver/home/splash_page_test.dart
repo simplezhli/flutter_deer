@@ -19,7 +19,7 @@ void main([List<String> args = const <String>[]]) {
 
     // 在测试完成后，关闭程序的连接。
     tearDownAll(() async {
-      driver?.close();
+      await driver?.close();
     });
 
     test('测试引导页滑动',() async {

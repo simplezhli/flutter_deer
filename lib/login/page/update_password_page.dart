@@ -18,8 +18,8 @@ class UpdatePasswordPage extends StatefulWidget {
 
 class _UpdatePasswordPageState extends State<UpdatePasswordPage> {
   //定义一个controller
-  TextEditingController _oldPwdController = TextEditingController();
-  TextEditingController _newPwdController = TextEditingController();
+  final TextEditingController _oldPwdController = TextEditingController();
+  final TextEditingController _newPwdController = TextEditingController();
   final FocusNode _nodeText1 = FocusNode();
   final FocusNode _nodeText2 = FocusNode();
   bool _clickable = false;
@@ -33,9 +33,9 @@ class _UpdatePasswordPageState extends State<UpdatePasswordPage> {
   }
 
   void _verify() {
-    String oldPwd = _oldPwdController.text;
-    String newPwd = _newPwdController.text;
-    bool clickable = true;
+    var oldPwd = _oldPwdController.text;
+    var newPwd = _newPwdController.text;
+    var clickable = true;
     if (oldPwd.isEmpty || oldPwd.length < 6) {
       clickable = false;
     }

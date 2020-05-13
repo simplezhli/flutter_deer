@@ -42,7 +42,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
     });
   }
 
-  _preCacheImage() {
+  void _preCacheImage() {
     precacheImage(ImageUtils.getAssetImage('order/xdd_n'), context);
     precacheImage(ImageUtils.getAssetImage('order/dps_s'), context);
     precacheImage(ImageUtils.getAssetImage('order/dwc_s'), context);
@@ -201,7 +201,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
   }
 
   PageController _pageController = PageController(initialPage: 0);
-  _onPageChange(int index) async {
+  void _onPageChange(int index) async {
     provider.setIndex(index);
     _tabController.animateTo(index);
   }

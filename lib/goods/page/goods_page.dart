@@ -21,13 +21,13 @@ class GoodsPage extends StatefulWidget {
 
 class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
 
-  List<String> _sortList = ['全部商品', '个人护理', '饮料', '沐浴洗护', '厨房用具', '休闲食品', '生鲜水果', '酒水', '家庭清洁'];
+  final List<String> _sortList = ['全部商品', '个人护理', '饮料', '沐浴洗护', '厨房用具', '休闲食品', '生鲜水果', '酒水', '家庭清洁'];
   TabController _tabController;
-  PageController _pageController = PageController(initialPage: 0);
-  
-  GlobalKey _addKey = GlobalKey();
-  GlobalKey _bodyKey = GlobalKey();
-  GlobalKey _buttonKey = GlobalKey();
+  final PageController _pageController = PageController(initialPage: 0);
+
+  final GlobalKey _addKey = GlobalKey();
+  final GlobalKey _bodyKey = GlobalKey();
+  final GlobalKey _buttonKey = GlobalKey();
 
   GoodsPageProvider provider = GoodsPageProvider();
   
@@ -157,13 +157,13 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
     );
   }
 
-  _onPageChange(int index) {
+  void _onPageChange(int index) {
     _tabController.animateTo(index);
     provider.setIndex(index);
   }
 
   /// design/4商品/index.html#artboard3
-  _showSortMenu() {
+  void _showSortMenu() {
     // 获取点击控件的坐标
     final RenderBox button = _buttonKey.currentContext.findRenderObject();
     final RenderBox overlay = Overlay.of(context).context.findRenderObject();
@@ -233,7 +233,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
   }
 
   /// design/4商品/index.html#artboard4
-  _showAddMenu() {
+  void _showAddMenu() {
     final RenderBox button = _addKey.currentContext.findRenderObject();
     final RenderBox overlay = Overlay.of(context).context.findRenderObject();
     var a =  button.localToGlobal(Offset(button.size.width - 8.0, button.size.height - 12.0), ancestor: overlay);

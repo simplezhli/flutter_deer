@@ -7,7 +7,7 @@ class RiseNumberText extends StatefulWidget {
   const RiseNumberText(this.number,{
     Key key,
     this.style,
-    this.duration: 1200
+    this.duration = 1200
   }): super(key: key);
 
   final num number;
@@ -29,7 +29,7 @@ class _RiseNumberTextState extends State<RiseNumberText> with SingleTickerProvid
     super.initState();
 
     _controller = AnimationController(duration: Duration(milliseconds: widget.duration), vsync: this);
-    final Animation curve = CurvedAnimation(parent: _controller, curve: Curves.linear);
+    var curve = CurvedAnimation(parent: _controller, curve: Curves.linear);
     _animation = Tween<double>(begin: 0, end: 1).animate(curve);
     _controller.forward(from: 0);
   }

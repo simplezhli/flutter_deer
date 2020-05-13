@@ -7,7 +7,7 @@ class DoubleTapBackExitApp extends StatefulWidget {
   const DoubleTapBackExitApp({
     Key key,
     @required this.child,
-    this.duration: const Duration(milliseconds: 2500),
+    this.duration = const Duration(milliseconds: 2500),
   }): super(key: key);
 
   final Widget child;

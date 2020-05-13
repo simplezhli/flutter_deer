@@ -51,7 +51,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
     );
   }
 
-  _showDeleteBottomSheet(int index) {
+  void _showDeleteBottomSheet(int index) {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
@@ -62,8 +62,8 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
               children: <Widget>[
                 const SizedBox(
                   height: 52.0,
-                  child: const Center(
-                    child: const Text(
+                  child: Center(
+                    child: Text(
                       '是否确认解绑，防止错误操作',
                       style: TextStyles.textSize16,
                     ),

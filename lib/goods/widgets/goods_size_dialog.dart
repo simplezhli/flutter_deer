@@ -21,7 +21,7 @@ class GoodsSizeDialog extends StatefulWidget {
 
 class _GoodsSizeDialog extends State<GoodsSizeDialog> {
 
-  TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
   
   @override
   Widget build(BuildContext context) {

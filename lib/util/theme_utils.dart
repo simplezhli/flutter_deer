@@ -49,7 +49,7 @@ class ThemeUtils {
         _isDark = true;
       }
       print(_isDark);
-      SystemUiOverlayStyle systemUiOverlayStyle = SystemUiOverlayStyle(
+      var systemUiOverlayStyle = SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
         systemNavigationBarColor: _isDark ? Colours.dark_bg_color : Colors.white,
         systemNavigationBarIconBrightness: _isDark ? Brightness.light : Brightness.dark,

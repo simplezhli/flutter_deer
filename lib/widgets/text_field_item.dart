@@ -12,8 +12,8 @@ class TextFieldItem extends StatelessWidget {
     Key key,
     this.controller,
     @required this.title,
-    this.keyboardType: TextInputType.text,
-    this.hintText: '',
+    this.keyboardType = TextInputType.text,
+    this.hintText = '',
     this.focusNode,
   }): super(key: key);
 
@@ -61,7 +61,7 @@ class TextFieldItem extends StatelessWidget {
     );
   }
 
-  _getInputFormatters() {
+  List<TextInputFormatter> _getInputFormatters() {
     if (keyboardType == TextInputType.numberWithOptions(decimal: true)) {
       return [UsNumberTextInputFormatter()];
     }

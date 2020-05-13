@@ -10,7 +10,7 @@ class GoodsSortProvider extends ChangeNotifier {
 
   // TabBar初始化3个，其中两个文字置空。
   List<Tab> _myTabs = <Tab>[Tab(text: '请选择'), Tab(text: ''), Tab(text: '')];
-  get myTabs => _myTabs;
+  List<Tab> get myTabs => _myTabs;
 
   List _mGoodsSort = [];
   List _mGoodsSort1 = [];

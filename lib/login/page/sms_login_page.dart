@@ -18,9 +18,9 @@ class SMSLoginPage extends StatefulWidget {
 }
 
 class _SMSLoginPageState extends State<SMSLoginPage> {
-  
-  TextEditingController _phoneController = TextEditingController();
-  TextEditingController _vCodeController = TextEditingController();
+
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _vCodeController = TextEditingController();
   final FocusNode _nodeText1 = FocusNode();
   final FocusNode _nodeText2 = FocusNode();
   bool _clickable = false;
@@ -33,9 +33,9 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
   }
 
   void _verify() {
-    String name = _phoneController.text;
-    String vCode = _vCodeController.text;
-    bool clickable = true;
+    var name = _phoneController.text;
+    var vCode = _vCodeController.text;
+    var clickable = true;
     if (name.isEmpty || name.length < 11) {
       clickable = false;
     }
@@ -64,8 +64,8 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
       ),
     );
   }
-  
-  _buildBody() {
+
+  List<Widget> _buildBody() {
     return [
       const Text(
         '验证码登录',

@@ -13,8 +13,8 @@ import 'error_handle.dart';
 
 class AuthInterceptor extends Interceptor{
   @override
-  onRequest(RequestOptions options) {
-    String accessToken = SpUtil.getString(Constant.accessToken);
+  Future onRequest(RequestOptions options) {
+    var accessToken = SpUtil.getString(Constant.accessToken);
     if (accessToken.isNotEmpty) {
       options.headers['Authorization'] = 'Bearer $accessToken';
     }
@@ -44,7 +44,7 @@ class TokenInterceptor extends Interceptor{
   Dio _tokenDio = Dio();
 
   @override
-  onResponse(Response response) async {
+  Future<Object> onResponse(Response response) async {
     //401代表token过期
     if (response != null && response.statusCode == ExceptionHandle.unauthorized) {
       Log.d('-----------自动刷新Token------------');
@@ -84,7 +84,7 @@ class LoggingInterceptor extends Interceptor{
   DateTime _endTime;
   
   @override
-  onRequest(RequestOptions options) {
+  Future onRequest(RequestOptions options) {
     _startTime = DateTime.now();
     Log.d('----------Start----------');
     if (options.queryParameters.isEmpty) {
@@ -100,7 +100,7 @@ class LoggingInterceptor extends Interceptor{
   }
   
   @override
-  onResponse(Response response) {
+  Future onResponse(Response response) {
     _endTime = DateTime.now();
     int duration = _endTime.difference(_startTime).inMilliseconds;
     if (response.statusCode == ExceptionHandle.success) {
@@ -115,7 +115,7 @@ class LoggingInterceptor extends Interceptor{
   }
   
   @override
-  onError(DioError err) {
+  Future onError(DioError err) {
     Log.d('----------Error-----------');
     return super.onError(err);
   }
@@ -134,13 +134,13 @@ class AdapterInterceptor extends Interceptor{
   static const String _kSuccessFormat = '{\"code\":0,\"data\":%s,\"message\":\"\"}';
   
   @override
-  onResponse(Response response) {
+  Future onResponse(Response response) {
     Response r = adapterData(response);
     return super.onResponse(r);
   }
   
   @override
-  onError(DioError err) {
+  Future onError(DioError err) {
     if (err.response != null) {
       adapterData(err.response);
     }

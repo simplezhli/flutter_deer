@@ -10,12 +10,12 @@ class BaseDialog extends StatelessWidget {
     Key key,
     this.title,
     this.onPressed,
-    this.hiddenTitle : false,
+    this.hiddenTitle = false,
     @required this.child
   }) : super(key : key);
 
   final String title;
-  final Function onPressed;
+  final VoidCallback onPressed;
   final Widget child;
   final bool hiddenTitle;
 
@@ -43,7 +43,7 @@ class BaseDialog extends StatelessWidget {
         const SizedBox(
           height: 48.0,
           width: 0.6,
-          child: const VerticalDivider(),
+          child: VerticalDivider(),
         ),
         _DialogButton(
           text: '确定',
@@ -100,7 +100,7 @@ class _DialogButton extends StatelessWidget {
   
   final String text;
   final Color textColor;
-  final Function onPressed;
+  final VoidCallback onPressed;
   
   @override
   Widget build(BuildContext context) {

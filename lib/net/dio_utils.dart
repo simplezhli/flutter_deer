@@ -62,7 +62,7 @@ class DioUtils {
     dynamic data, Map<String, dynamic> queryParameters,
     CancelToken cancelToken, Options options
   }) async {
-    var response = await _dio.request(url, data: data, queryParameters: queryParameters, options: _checkOptions(method, options), cancelToken: cancelToken);
+    var response = await _dio.request<T>(url, data: data, queryParameters: queryParameters, options: _checkOptions(method, options), cancelToken: cancelToken);
     try {
       /// 集成测试无法使用 isolate https://github.com/flutter/flutter/issues/24703
       Map<String, dynamic> _map = Constant.isDriverTest ? parseData(response.data.toString()) : await compute(parseData, response.data.toString());
@@ -115,7 +115,7 @@ class DioUtils {
   }
 
   /// 统一处理(onSuccess返回T对象，onSuccessList返回List<T>)
-  asyncRequestNetwork<T>(Method method, String url, {
+  void asyncRequestNetwork<T>(Method method, String url, {
     Function(T t) onSuccess, 
     Function(List<T> list) onSuccessList, 
     Function(int code, String msg) onError,
@@ -146,13 +146,13 @@ class DioUtils {
     });
   }
 
-  _cancelLogPrint(dynamic e, String url) {
+  void _cancelLogPrint(dynamic e, String url) {
     if (e is DioError && CancelToken.isCancel(e)) {
       Log.e('取消请求接口： $url');
     }
   }
 
-  _onError(int code, String msg, Function(int code, String mag) onError) {
+  void _onError(int code, String msg, Function(int code, String mag) onError) {
     if (code == null) {
       code = ExceptionHandle.unknown_error;
       msg = '未知异常';

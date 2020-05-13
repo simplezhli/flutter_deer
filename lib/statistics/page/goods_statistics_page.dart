@@ -88,7 +88,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
     );
   }
   
-  _buildChart() {
+  Widget _buildChart() {
     return AspectRatio(
       aspectRatio: 1.30,
       // 百分比布局
@@ -106,7 +106,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
   List<PieData> data1 = [];
 
   // 数据为前十名数据与剩余数量
-  _getRandomData() {
+  List<PieData> _getRandomData() {
     if (data.isEmpty) {
       for (int i = 0; i < 9; i++) {
         PieData pieData = PieData();
@@ -134,8 +134,8 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
       return data1;
     }
   }
-  
-  _buildItem(int index) {
+
+  Widget _buildItem(int index) {
     return Container(
       margin: const EdgeInsets.only(bottom: 8.0),
       child: MyCard(
@@ -205,8 +205,8 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
       ),
     );
   }
- 
-  _buildSelectedText(String text, int index) {
+
+  Widget _buildSelectedText(String text, int index) {
     Color unSelectedTextColor = ThemeUtils.isDark(context) ? Colors.white : Colours.dark_text_gray;
     return SelectedText(
       text,

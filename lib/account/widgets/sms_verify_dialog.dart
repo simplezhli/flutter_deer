@@ -26,8 +26,8 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
   StreamSubscription _subscription;
   bool _clickable = true;
 
-  FocusNode _focusNode = FocusNode();
-  TextEditingController _controller = TextEditingController();
+  final FocusNode _focusNode = FocusNode();
+  final TextEditingController _controller = TextEditingController();
   List<String> _codeList = ['', '', '', '', '', ''];
   
   @override
@@ -53,7 +53,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
   
   @override
   Widget build(BuildContext context) {
-    Color textColor = Theme.of(context).primaryColor;
+    var textColor = Theme.of(context).primaryColor;
     return Scaffold(//创建透明层
       backgroundColor: Colors.transparent,//透明类型
       body: AnimatedContainer(
@@ -93,7 +93,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                             onTap: () => NavigatorUtils.goBack(context),
                             child: Padding(
                               padding: const EdgeInsets.only(top: 16.0, right: 16.0),
-                              child: const LoadAssetImage('goods/icon_dialog_close', width: 16.0, key: const Key('dialog_close'),),
+                              child: const LoadAssetImage('goods/icon_dialog_close', width: 16.0, key: Key('dialog_close'),),
                             )
                           ),
                         ),
@@ -124,7 +124,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                         backgroundCursorColor: Colors.transparent,
                         style: TextStyle(color: Colors.transparent, fontSize: Dimens.font_sp18),
                         onChanged: (v) {
-                          for (int i = 0; i < _codeList.length; i ++) {
+                          for (var i = 0; i < _codeList.length; i ++) {
                             if (i < v.length) {
                               _codeList[i] = v.substring(i, i + 1);
                             } else {
@@ -133,7 +133,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                           }
                           if (v.length == _codeList.length) {
                             Toast.show('验证码：${_controller.text}');
-                            for (int i = 0; i < _codeList.length; i ++) {
+                            for (var i = 0; i < _codeList.length; i ++) {
                               _codeList[i] = '';
                             }
                             _controller.text = '';

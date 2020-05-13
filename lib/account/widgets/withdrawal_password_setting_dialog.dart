@@ -16,7 +16,7 @@ class WithdrawalPasswordSettingDialog extends StatefulWidget {
 class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSettingDialog> {
 
   int _index = 0;
-  var _list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0, 0];
+  final _list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0, 0];
   List<String> _codeList = ['', '', '', '', '', ''];
   
   @override
@@ -47,7 +47,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                     onTap: () => NavigatorUtils.goBack(context),
                     child: const LoadAssetImage(
                       'goods/icon_dialog_close',
-                      key: const Key('close'),
+                      key: Key('close'),
                       width: 16.0,
                       height: 16.0,
                     ),
@@ -125,13 +125,13 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
           _index++;
           if (_index == _codeList.length) {
 
-            String code = '';
-            for (int i = 0; i < _codeList.length; i ++) {
+            var code = '';
+            for (var i = 0; i < _codeList.length; i ++) {
               code = code + _codeList[i];
             }
             Toast.show('密码：$code');
             _index = 0;
-            for (int i = 0; i < _codeList.length; i ++) {
+            for (var i = 0; i < _codeList.length; i ++) {
               _codeList[i] = '';
             }
           }

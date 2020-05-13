@@ -18,9 +18,9 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   //定义一个controller
-  TextEditingController _nameController = TextEditingController();
-  TextEditingController _vCodeController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _vCodeController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   final FocusNode _nodeText1 = FocusNode();
   final FocusNode _nodeText2 = FocusNode();
   final FocusNode _nodeText3 = FocusNode();
@@ -36,10 +36,10 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   void _verify() {
-    String name = _nameController.text;
-    String vCode = _vCodeController.text;
-    String password = _passwordController.text;
-    bool clickable = true;
+    var name = _nameController.text;
+    var vCode = _vCodeController.text;
+    var password = _passwordController.text;
+    var clickable = true;
     if (name.isEmpty || name.length < 11) {
       clickable = false;
     }
@@ -74,8 +74,8 @@ class _RegisterPageState extends State<RegisterPage> {
         ),
     );
   }
-  
-  _buildBody() {
+
+  List<Widget> _buildBody() {
     return [
       const Text(
         '开启你的账号',

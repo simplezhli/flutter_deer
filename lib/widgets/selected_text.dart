@@ -7,10 +7,10 @@ class SelectedText extends StatelessWidget {
 
   const SelectedText(this.text,{
     Key key,
-    this.fontSize : 14.0,
-    this.selected : false,
-    this.unSelectedTextColor,
-    this.enable : true,
+    this.fontSize = 14.0,
+    this.selected = false,
+    @required this.unSelectedTextColor,
+    this.enable = true,
     this.onTap,
     this.semanticsLabel
   }): assert(unSelectedTextColor != null, 'The [unSelectedTextColor] argument must not be null.'),
@@ -48,7 +48,7 @@ class SelectedText extends StatelessWidget {
               gradient: const LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: const [Color(0xFF5758FA), Color(0xFF5793FA)]
+                  colors: [Color(0xFF5758FA), Color(0xFF5793FA)]
               )
           ) : null,
           child: Column(
@@ -66,7 +66,7 @@ class SelectedText extends StatelessWidget {
     return child;
   }
 
-  _buildText() {
+  Widget _buildText() {
     if (text.endsWith('月') || text.endsWith('日')) {
       return RichText(
         text: TextSpan(
@@ -81,7 +81,7 @@ class SelectedText extends StatelessWidget {
     }
   }
 
-  getTextColor() {
+  Color getTextColor() {
     return enable ? (selected ? Colors.white : unSelectedTextColor) : Colours.text_gray_c;
   }
 }

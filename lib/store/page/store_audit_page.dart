@@ -102,7 +102,7 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
     );
   }
 
-  _buildBody() {
+  List<Widget> _buildBody() {
     return [
       Gaps.vGap5,
       const Padding(
@@ -170,9 +170,9 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
   }
 
   String _sortName = '';
-  var _list = ['水果生鲜', '家用电器', '休闲食品', '茶酒饮料', '美妆个护', '粮油调味', '家庭清洁', '厨具用品', '儿童玩具', '床上用品'];
+  final _list = ['水果生鲜', '家用电器', '休闲食品', '茶酒饮料', '美妆个护', '粮油调味', '家庭清洁', '厨具用品', '儿童玩具', '床上用品'];
 
-  _showBottomSheet() {
+  void _showBottomSheet() {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {

@@ -10,7 +10,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   
-  var map = Map<String, Widget>();
+  var map = <String, Widget>{};
   map['shop_page'] = ShopPage(isAccessibilityTest: true,);
   map['shop_setting_page'] = ShopSettingPage();
   map['select_address_page'] = AddressSelectPage();

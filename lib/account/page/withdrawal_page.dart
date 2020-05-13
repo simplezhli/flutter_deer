@@ -20,7 +20,7 @@ class WithdrawalPage extends StatefulWidget {
 
 class _WithdrawalPageState extends State<WithdrawalPage> {
   
-  TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
   int _withdrawalType = 0;
   bool _clickable = false;
   WithdrawalAccountModel _data = WithdrawalAccountModel('尾号5236 李艺', '工商银行', 0, '123');
@@ -32,7 +32,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
   }
 
   void _verify() {
-    String price = _controller.text;
+    var price = _controller.text;
     if (price.isEmpty || double.parse(price) < 1) {
       setState(() {
         _clickable = false;
@@ -64,7 +64,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
               onTap: () {
                 NavigatorUtils.pushResult(context, AccountRouter.withdrawalAccountListPage, (result) {
                   setState(() {
-                    _data = result;
+                    _data = result as WithdrawalAccountModel;
                   });
                 });
               },
@@ -180,7 +180,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
     );
   }
 
-  _buildWithdrawalType(int type) {
+  Widget _buildWithdrawalType(int type) {
     return InkWell(
       onTap: () {
         setState(() {

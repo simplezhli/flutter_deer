@@ -47,7 +47,7 @@ class _WithdrawalPasswordPageState extends State<WithdrawalPasswordPage> {
     );
   }
 
-  _showHintDialog() {
+  void _showHintDialog() {
     showElasticDialog(
         context: context,
         barrierDismissible: false,
@@ -66,8 +66,8 @@ class _WithdrawalPasswordPageState extends State<WithdrawalPasswordPage> {
         }
     );
   }
-  
-  _showVerifyDialog() {
+
+  void _showVerifyDialog() {
     showDialog(
       context: context,
       barrierDismissible: false,

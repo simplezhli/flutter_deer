@@ -12,8 +12,8 @@ class BaseEntity<T> {
   BaseEntity(this.code, this.message, this.data);
 
   BaseEntity.fromJson(Map<String, dynamic> json) {
-    code = json[Constant.code];
-    message = json[Constant.message];
+    code = json[Constant.code] as int;
+    message = json[Constant.message] as String;
     if (json.containsKey(Constant.data)) {
       if (json[Constant.data] is List) {
         (json[Constant.data] as List).forEach((item) {

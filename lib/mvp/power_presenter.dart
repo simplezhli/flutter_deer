@@ -10,11 +10,11 @@ class PowerPresenter<IMvpView> extends BasePresenter {
   List<BasePagePresenter> _presenters = [];
   
   PowerPresenter(BasePageMixin state) {
-    this._state = state;
+    _state = state;
   }
 
   void requestPresenter(List<BasePagePresenter> presenters) {
-    this._presenters = presenters;
+    _presenters = presenters;
     _presenters.forEach((presenter) => presenter.view = _state);
   }
   

@@ -66,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   } 
   
-  _buildBottomNavigation(BuildContext context) {
+  Widget _buildBottomNavigation(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     return Positioned(
       left: width * 0.2,

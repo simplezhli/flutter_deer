@@ -18,7 +18,7 @@ void main([List<String> args = const <String>[]]) {
     });
 
     tearDownAll(() async {
-      driver?.close();
+      await driver?.close();
     });
 
     test('设置页测试',() async {
