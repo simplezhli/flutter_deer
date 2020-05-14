@@ -32,7 +32,8 @@ class _GoodsListPageState extends State<GoodsListPage> with AutomaticKeepAliveCl
   Animation<double> _animation;
   AnimationController _controller;
   List<GoodsItemEntity> _list = [];
-
+  AnimationStatus _animationStatus = AnimationStatus.dismissed;
+  
   @override
   void initState() {
     super.initState();
@@ -40,7 +41,9 @@ class _GoodsListPageState extends State<GoodsListPage> with AutomaticKeepAliveCl
     _controller = AnimationController(duration: const Duration(milliseconds: 450), vsync: this);
     // 动画曲线
     var _curvedAnimation = CurvedAnimation(parent: _controller, curve: Curves.easeOutSine);
-    _animation = Tween(begin: 0.0, end: 1.1).animate(_curvedAnimation);
+    _animation = Tween(begin: 0.0, end: 1.1).animate(_curvedAnimation) ..addStatusListener((status) {
+      _animationStatus = status;
+    });
 
     //Item数量
     _maxPage = widget.index == 0 ? 1 : (widget.index == 1 ? 2 : 3);
@@ -109,14 +112,23 @@ class _GoodsListPageState extends State<GoodsListPage> with AutomaticKeepAliveCl
           item: _list[index],
           animation: _animation,
           onTapMenu: () {
-            // 开始执行动画
-            _controller.forward(from: 0.0);
+            /// 点击其他item时，重置状态
+            if (_selectIndex != index) {
+              _animationStatus = AnimationStatus.dismissed;
+            }
+            /// 避免动画中重复执行
+            if (_animationStatus == AnimationStatus.dismissed) {
+              // 开始执行动画
+              _controller.forward(from: 0.0);
+            }
             setState(() {
               _selectIndex = index;
             });
           },
           onTapMenuClose: () {
-            _controller.reverse(from: 1.1);
+            if (_animationStatus == AnimationStatus.completed) {
+              _controller.reverse(from: 1.1);
+            }
             _selectIndex = -1;
           },
           onTapEdit: () {

@@ -47,9 +47,9 @@ class GoodsItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               const Text(
-                  '八月十五中秋月饼礼盒',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis
+                '八月十五中秋月饼礼盒',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
               Gaps.vGap4,
               Row(
@@ -86,12 +86,12 @@ class GoodsItem extends StatelessWidget {
               label: '商品操作菜单',
               child: GestureDetector(
                 child: Container(
-                    key: Key('goods_menu_item_$index'),
-                    width: 44.0,
-                    height: 44.0,
-                    color: Colors.transparent,
-                    padding: const EdgeInsets.only(left: 28.0, bottom: 28.0),
-                    child: const LoadAssetImage('goods/ellipsis')
+                  key: Key('goods_menu_item_$index'),
+                  width: 44.0,
+                  height: 44.0,
+                  color: Colors.transparent,
+                  padding: const EdgeInsets.only(left: 28.0, bottom: 28.0),
+                  child: const LoadAssetImage('goods/ellipsis'),
                 ),
                 onTap: onTapMenu,
               ),
@@ -117,11 +117,11 @@ class GoodsItem extends StatelessWidget {
             decoration: BoxDecoration(
               border: Border(
                 bottom: Divider.createBorderSide(context, width: 0.8),
-              )
+              ),
             ),
             child: Padding(
               padding: const EdgeInsets.only(right: 16.0, bottom: 16.0),
-              child: child
+              child: child,
             ),
           ),
         ),
@@ -164,9 +164,9 @@ class GoodsItem extends StatelessWidget {
               ),
             ),
             textTheme: TextTheme(
-                button: TextStyle(
-                  fontSize: Dimens.font_sp16,
-                )
+              button: TextStyle(
+                fontSize: Dimens.font_sp16,
+              ),
             ),
           ),
           child: Row(
@@ -229,7 +229,7 @@ class _GoodsItemTag extends StatelessWidget {
         text,
         style: const TextStyle(
           color: Colors.white,
-          fontSize: Dimens.font_sp10
+          fontSize: Dimens.font_sp10,
         ),
       ),
     );

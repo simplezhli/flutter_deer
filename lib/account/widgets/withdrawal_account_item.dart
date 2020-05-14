@@ -114,9 +114,11 @@ class _WithdrawalAccountItemState extends State<WithdrawalAccountItem> with Sing
                 // 长按删除账号
                 onLongPress: () => widget.onLongPress(),
                 onTap: () {
+                  /// 避免动画中重复执行
                   if (_animationStatus == AnimationStatus.dismissed) {
                     _animationController.forward();
-                  } else {
+                  } 
+                  if (_animationStatus == AnimationStatus.completed) {
                     _animationController.reverse();
                   }
                 },
