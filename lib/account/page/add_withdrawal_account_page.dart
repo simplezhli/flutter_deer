@@ -29,7 +29,6 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
   @override
   Widget build(BuildContext context) {
     var style = Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp14);
-
     var children = [
       Gaps.vGap5,
       StoreSelectTextItem(
@@ -128,7 +127,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
   /// design/6店铺-账户/index.html#artboard30
   void _showSelectAccountTypeDialog() {
     /// 关闭输入法，避免弹出
-    FocusScope.of(context).unfocus();
+    FocusManager.instance.primaryFocus?.unfocus();
     showElasticDialog(
         context: context,
         builder: (BuildContext context) {

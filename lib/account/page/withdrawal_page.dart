@@ -49,7 +49,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
     return WillPopScope(
       onWillPop: () {
         /// 拦截返回，关闭键盘，否则会造成上一页面短暂的组件溢出
-        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
         return Future.value(true);
       },
       child: Scaffold(

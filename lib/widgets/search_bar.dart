@@ -31,6 +31,13 @@ class SearchBar extends StatefulWidget implements PreferredSizeWidget {
 class _SearchBarState extends State<SearchBar> {
 
   final TextEditingController _controller = TextEditingController();
+  final FocusNode _focus = FocusNode();
+
+  @override
+  void dispose() {
+    _focus.dispose();
+    super.dispose();
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -44,7 +51,7 @@ class _SearchBarState extends State<SearchBar> {
         height: 48.0,
         child: InkWell(
           onTap: () {
-            FocusScope.of(context).unfocus();
+            _focus.unfocus();
             Navigator.maybePop(context);
           },
           borderRadius: BorderRadius.circular(24.0),
@@ -71,10 +78,11 @@ class _SearchBarState extends State<SearchBar> {
           key: const Key('srarch_text_field'),
 //          autofocus: true,
           controller: _controller,
+          focusNode: _focus,
           maxLines: 1,
           textInputAction: TextInputAction.search,
           onSubmitted: (val) {
-            FocusScope.of(context).unfocus();
+            _focus.unfocus();
             // 点击软键盘的动作按钮时的回调
             widget.onPressed(val);
           },
@@ -122,7 +130,7 @@ class _SearchBarState extends State<SearchBar> {
         textColor: isDark ?  Colours.dark_button_text : Colors.white,
         color: isDark ?  Colours.dark_app_main : Colours.app_main,
         onPressed:() {
-          FocusScope.of(context).unfocus();
+          _focus.unfocus();
           widget.onPressed(_controller.text);
         },
         child: Text('搜索', style: TextStyle(fontSize: Dimens.font_sp14)),

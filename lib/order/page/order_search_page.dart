@@ -47,7 +47,6 @@ class _OrderSearchPageState extends State<OrderSearchPage> with BasePageMixin<Or
               showToast('搜索关键字不能为空！');
               return;
             }
-            FocusScope.of(context).unfocus();
             _keyword = text;
             provider.setStateType(StateType.loading);
             _page = 1;
