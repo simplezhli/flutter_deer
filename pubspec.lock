@@ -46,12 +46,10 @@ packages:
   barcode_scan:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "234183a26ab316efd7caca4bed77603afc2a7bf4"
-      url: "https://github.com/simplezhli/flutter_barcode_reader.git"
-    source: git
-    version: "2.0.0"
+      name: barcode_scan
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "3.0.1"
   boolean_selector:
     dependency: transitive
     description:
@@ -143,6 +141,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "5.1.0"
+  fixnum:
+    dependency: transitive
+    description:
+      name: fixnum
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.10.11"
   fluro:
     dependency: "direct main"
     description:
@@ -167,7 +172,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "5dacbb3cdb6071db18d6f4661c4337fc68a92a7b"
+      resolved-ref: "93e5d88db563266ec3b0f5eebc4b22b424e26d6b"
       url: "https://github.com/simplezhli/flutter_2d_amap.git"
     source: git
     version: "0.0.3"
@@ -382,14 +387,14 @@ packages:
       name: node_interop
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.3"
+    version: "1.1.1"
   node_io:
     dependency: transitive
     description:
       name: node_io
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.1+2"
+    version: "1.1.1"
   node_preamble:
     dependency: transitive
     description:
@@ -424,7 +429,7 @@ packages:
       name: path_provider
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.6.7"
+    version: "1.6.8"
   path_provider_macos:
     dependency: transitive
     description:
@@ -438,7 +443,7 @@ packages:
       name: path_provider_platform_interface
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.2"
   pedantic:
     dependency: transitive
     description:
@@ -481,13 +486,20 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.12"
+  protobuf:
+    dependency: transitive
+    description:
+      name: protobuf
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.1"
   provider:
     dependency: "direct main"
     description:
       name: provider
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "4.1.1"
+    version: "4.1.2"
   pub_semver:
     dependency: transitive
     description:
@@ -522,7 +534,7 @@ packages:
       name: shared_preferences
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.5.7+1"
+    version: "0.5.7+2"
   shared_preferences_macos:
     dependency: transitive
     description:
@@ -536,7 +548,7 @@ packages:
       name: shared_preferences_platform_interface
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.3"
+    version: "1.0.4"
   shared_preferences_web:
     dependency: transitive
     description:
@@ -730,14 +742,14 @@ packages:
       name: url_launcher_platform_interface
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.6"
+    version: "1.0.7"
   url_launcher_web:
     dependency: transitive
     description:
       name: url_launcher_web
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.1.1+4"
+    version: "0.1.1+5"
   uuid:
     dependency: transitive
     description:
@@ -758,7 +770,7 @@ packages:
       name: vm_service
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "4.0.2"
+    version: "4.0.4"
   vm_service_client:
     dependency: transitive
     description:
@@ -793,7 +805,7 @@ packages:
       name: webkit_inspection_protocol
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.5.3"
+    version: "0.5.4"
   webview_flutter:
     dependency: "direct main"
     description:
@@ -817,4 +829,4 @@ packages:
     version: "2.2.1"
 sdks:
   dart: ">=2.7.0 <3.0.0"
-  flutter: ">=1.17.0 <2.0.0"
+  flutter: ">=1.16.0 <2.0.0"
