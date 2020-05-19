@@ -24,18 +24,18 @@ class Utils {
   /// 调起二维码扫描页
   static Future<String> scan() async {
     try {
-      var options = ScanOptions(
-        strings: const {
-          "cancel": "取消",
-          "flash_on": "开启闪光灯",
-          "flash_off": "关闭闪光灯",
-        },
-      );
-      var result = await BarcodeScanner.scan(options: options);
-      return result.rawContent;
+//      var options = ScanOptions(
+//        strings: const {
+//          "cancel": "取消",
+//          "flash_on": "开启闪光灯",
+//          "flash_off": "关闭闪光灯",
+//        },
+//      );
+      var result = await BarcodeScanner.scan();
+      return result;
     } catch (e) {
       if (e is PlatformException) {
-        if (e.code == BarcodeScanner.cameraAccessDenied) {
+        if (e.code == BarcodeScanner.CameraAccessDenied) {
           Toast.show('没有相机权限！');
         }
       }

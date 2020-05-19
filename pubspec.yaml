@@ -56,7 +56,9 @@ dependencies:
   # 状态管理 https://github.com/rrousselGit/provider
   provider: ^4.1.2
   # 扫码 https://github.com/apptreesoftware/flutter_barcode_reader
-  barcode_scan: 3.0.1
+  barcode_scan:
+    git:
+      url: https://github.com/simplezhli/flutter_barcode_reader.git
   # 高德2D地图插件 https://github.com/simplezhli/flutter_2d_amap
   flutter_2d_amap:
     git:

@@ -1,5 +1,7 @@
 # Uncomment this line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '9.0'
+
+source 'https://github.com/CocoaPods/Specs.git'
 
 # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
@@ -76,7 +78,8 @@ target 'Runner' do
 end
 
 # Prevent Cocoapods from embedding a second Flutter framework and causing an error with the new Xcode build system.
-install! 'cocoapods', :disable_input_output_paths => true
+# https://flutter.dev/docs/development/ios-project-migration
+# install! 'cocoapods', :disable_input_output_paths => true
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
