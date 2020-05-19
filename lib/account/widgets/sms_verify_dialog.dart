@@ -48,6 +48,8 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
   @override
   void dispose() {
     _subscription?.cancel();
+    _focusNode.dispose();
+    _controller.dispose();
     super.dispose();
   }
   

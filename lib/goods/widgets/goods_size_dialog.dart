@@ -22,6 +22,12 @@ class GoodsSizeDialog extends StatefulWidget {
 class _GoodsSizeDialog extends State<GoodsSizeDialog> {
 
   final TextEditingController _controller = TextEditingController();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
   
   @override
   Widget build(BuildContext context) {

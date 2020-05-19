@@ -38,6 +38,17 @@ class _LoginPageState extends State<LoginPage> {
     _nameController.text = SpUtil.getString(Constant.phone);
   }
 
+  @override
+  void dispose() {
+    _nameController.removeListener(_verify);
+    _passwordController.removeListener(_verify);
+    _nameController.dispose();
+    _passwordController.dispose();
+    _nodeText1.dispose();
+    _nodeText2.dispose();
+    super.dispose();
+  }
+
   void _verify() {
     var name = _nameController.text;
     var password = _passwordController.text;

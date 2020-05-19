@@ -28,6 +28,13 @@ class _RangePriceInputDialog extends State<RangePriceInputDialog> {
 
   final TextEditingController _controller = TextEditingController();
   final TextEditingController _controller1 = TextEditingController();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    _controller1.dispose();
+    super.dispose();
+  }
   
   @override
   Widget build(BuildContext context) {

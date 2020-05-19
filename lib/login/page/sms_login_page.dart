@@ -32,6 +32,17 @@ class _SMSLoginPageState extends State<SMSLoginPage> {
     _vCodeController.addListener(_verify);
   }
 
+  @override
+  void dispose() {
+    _phoneController.removeListener(_verify);
+    _vCodeController.removeListener(_verify);
+    _phoneController.dispose();
+    _vCodeController.dispose();
+    _nodeText1.dispose();
+    _nodeText2.dispose();
+    super.dispose();
+  }
+
   void _verify() {
     var name = _phoneController.text;
     var vCode = _vCodeController.text;

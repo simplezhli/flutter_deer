@@ -34,6 +34,20 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
     _vCodeController.addListener(_verify);
     _passwordController.addListener(_verify);
   }
+  
+  @override
+  void dispose() {
+    _nameController.removeListener(_verify);
+    _vCodeController.removeListener(_verify);
+    _passwordController.removeListener(_verify);
+    _nameController.dispose();
+    _vCodeController.dispose();
+    _passwordController.dispose();
+    _nodeText1.dispose();
+    _nodeText2.dispose();
+    _nodeText3.dispose();
+    super.dispose();
+  }
 
   void _verify() {
     var name = _nameController.text;

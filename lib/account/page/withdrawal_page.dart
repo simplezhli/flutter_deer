@@ -31,6 +31,13 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
     _controller.addListener(_verify);
   }
 
+  @override
+  void dispose() {
+    _controller.removeListener(_verify);
+    _controller.dispose();
+    super.dispose();
+  }
+  
   void _verify() {
     var price = _controller.text;
     if (price.isEmpty || double.parse(price) < 1) {

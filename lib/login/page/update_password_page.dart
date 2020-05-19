@@ -32,6 +32,17 @@ class _UpdatePasswordPageState extends State<UpdatePasswordPage> {
     _newPwdController.addListener(_verify);
   }
 
+  @override
+  void dispose() {
+    _oldPwdController.removeListener(_verify);
+    _newPwdController.removeListener(_verify);
+    _oldPwdController.dispose();
+    _newPwdController.dispose();
+    _nodeText1.dispose();
+    _nodeText2.dispose();
+    super.dispose();
+  }
+  
   void _verify() {
     var oldPwd = _oldPwdController.text;
     var newPwd = _newPwdController.text;

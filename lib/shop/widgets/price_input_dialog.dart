@@ -28,6 +28,12 @@ class PriceInputDialog extends StatefulWidget {
 class _PriceInputDialog extends State<PriceInputDialog> {
 
   final TextEditingController _controller = TextEditingController();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
   
   @override
   Widget build(BuildContext context) {

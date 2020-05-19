@@ -194,6 +194,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
   @override
   void dispose() {
     _provider.dispose();
+    _codeController.dispose();
     super.dispose();
   }
 
