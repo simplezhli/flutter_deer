@@ -203,7 +203,8 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
   PageController _pageController = PageController(initialPage: 0);
   void _onPageChange(int index) async {
     provider.setIndex(index);
-    _tabController.animateTo(index);
+    /// 这里没有指示器，所以缩短过渡动画时间，减少不必要的刷新
+    _tabController.animateTo(index, duration: const Duration(milliseconds: 0));
   }
 }
 
@@ -233,40 +234,37 @@ class _TabView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var imgList = ThemeUtils.isDark(context) ? darkImg : img;
-    return Consumer<OrderPageProvider>(
-      builder: (_, provider, child) {
-        int selectIndex = provider.index;
-        return Stack(
-          children: <Widget>[
-            Container(
-              width: 46.0,
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  LoadAssetImage(selectIndex == index ? imgList[index][0] : imgList[index][1], width: 24.0, height: 24.0,),
-                  Gaps.vGap4,
-                  Text(text)
-                ],
-              ),
+    return Stack(
+      children: <Widget>[
+        Container(
+          width: 46.0,
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              /// 使用context.select替代Consumer
+              LoadAssetImage(context.select<OrderPageProvider, int>((value) => value.index) == index ? 
+              imgList[index][0] : 
+              imgList[index][1], width: 24.0, height: 24.0,),
+              Gaps.vGap4,
+              Text(text)
+            ],
+          ),
+        ),
+        Positioned(
+          right: 0.0,
+          child: index < 3 ? DecoratedBox(
+            decoration: BoxDecoration(
+              color: Theme.of(context).errorColor,
+              borderRadius: BorderRadius.circular(11.0),
             ),
-            child
-          ],
-        );
-      },
-      child: Positioned(
-        right: 0.0,
-        child: index < 3 ? DecoratedBox(
-          decoration: BoxDecoration(
-            color: Theme.of(context).errorColor,
-            borderRadius: BorderRadius.circular(11.0),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5.5, vertical: 2.0),
-            child: Text('10', style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp12),),
-          ),
-        ) : Gaps.empty,
-      )
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 5.5, vertical: 2.0),
+              child: Text('10', style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp12),),
+            ),
+          ) : Gaps.empty,
+        )
+      ],
     );
   }
 }

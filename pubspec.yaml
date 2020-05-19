@@ -20,7 +20,7 @@ dependencies:
   # 网络库 https://github.com/flutterchina/dio
   dio: ^3.0.9
   # https://github.com/ReactiveX/rxdart
-  rxdart: ^0.24.0
+  rxdart: ^0.24.1
   # Dart 常用工具类库 https://github.com/Sky24n/common_utils
   common_utils: ^1.1.3
   # Flutter 常用工具类库 https://github.com/Sky24n/flustars

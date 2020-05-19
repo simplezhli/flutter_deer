@@ -30,7 +30,7 @@ class GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProvi
   
   TabController _tabController;
   final ScrollController _controller = ScrollController();
-
+  
   @override
   void initState() {
     super.initState();
@@ -76,7 +76,7 @@ class GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProvi
                         }
                         provider.setList(index);
                         provider.setIndex(index);
-                        _controller.animateTo(provider.positions[provider.index] * 48.0, duration: Duration(milliseconds: 10), curve: Curves.ease);
+                        _controller.animateTo(provider.positions[provider.index] * 48.0, duration: const Duration(milliseconds: 10), curve: Curves.ease);
                       },
                       indicatorSize: TabBarIndicatorSize.label,
                       unselectedLabelColor: ThemeUtils.isDark(context) ? Colours.text_gray : Colours.text,
@@ -122,7 +122,7 @@ class GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProvi
                               widget.onSelected(provider.mList[index]['id'], provider.mList[index]['name']);
                               NavigatorUtils.goBack(context);
                             }
-                            _controller.animateTo(0.0, duration: Duration(milliseconds: 100), curve: Curves.ease);
+                            _controller.animateTo(0.0, duration: const Duration(milliseconds: 100), curve: Curves.ease);
                             _tabController.animateTo(provider.index);
                           },
                         );

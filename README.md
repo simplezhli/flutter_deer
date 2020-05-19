@@ -8,8 +8,6 @@
 
 本项目设计图见design目录，你可以通过我提供的设计图有目标的去练习。所有的实现仅是个人的学习理解，如果有更好的实现方案欢迎交流。
 
-推荐：用Flutter实现的遥控拖拽交互！觉得不错，给个小星星吧！ [Github地址](https://github.com/simplezhli/flutter_remote_control)
-
 ## 预览
 
 部分页面效果如下：

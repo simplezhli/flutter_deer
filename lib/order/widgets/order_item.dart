@@ -161,28 +161,29 @@ class OrderItem extends StatelessWidget {
 
   void _showCallPhoneDialog(BuildContext context, String phone) {
     showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: const Text('提示'),
-            content: Text('是否拨打：$phone ?'),
-            actions: <Widget>[
-              FlatButton(
-                onPressed: () => NavigatorUtils.goBack(context),
-                child: const Text('取消'),
-              ),
-              FlatButton(
-                onPressed: () {
-                  Utils.launchTelURL(phone);
-                  NavigatorUtils.goBack(context);
-                },
-                textColor: Theme.of(context).errorColor,
-                child: const Text('拨打'),
-              ),
-            ],
-          );
-        });
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('提示'),
+          content: Text('是否拨打：$phone ?'),
+          actions: <Widget>[
+            FlatButton(
+              onPressed: () => NavigatorUtils.goBack(context),
+              child: const Text('取消'),
+            ),
+            FlatButton(
+              onPressed: () {
+                Utils.launchTelURL(phone);
+                NavigatorUtils.goBack(context);
+              },
+              textColor: Theme.of(context).errorColor,
+              child: const Text('拨打'),
+            ),
+          ],
+        );
+      },
+    );
   }
 
 }
