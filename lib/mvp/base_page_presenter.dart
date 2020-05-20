@@ -32,6 +32,7 @@ class BasePagePresenter<V extends IMvpView> extends BasePresenter<V> {
         queryParameters: queryParameters,
         options: options,
         cancelToken: cancelToken?? _cancelToken,
+        isList: isList,
         onSuccess: (data) {
           if (isClose) view.closeProgress();
           if (onSuccess != null) {
