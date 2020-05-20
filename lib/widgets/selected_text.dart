@@ -40,16 +40,16 @@ class SelectedText extends StatelessWidget {
           ),
           padding: EdgeInsets.symmetric(horizontal: fontSize > 14 ? 10.0 : 0.0),
           decoration: selected ? BoxDecoration(
-              borderRadius: BorderRadius.circular(20.0),
+            borderRadius: BorderRadius.circular(20.0),
 //            shape: BoxShape.circle,
-              boxShadow: ThemeUtils.isDark(context) ? null : const [
-                BoxShadow(color: Color(0x805793FA), offset: Offset(0.0, 2.0), blurRadius: 8.0, spreadRadius: 0.0),
-              ],
-              gradient: const LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [Color(0xFF5758FA), Color(0xFF5793FA)]
-              )
+            boxShadow: ThemeUtils.isDark(context) ? null : const [
+              BoxShadow(color: Color(0x805793FA), offset: Offset(0.0, 2.0), blurRadius: 8.0, spreadRadius: 0.0),
+            ],
+            gradient: const LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Color(0xFF5758FA), Color(0xFF5793FA)]
+            ),
           ) : null,
           child: Column(
             // 此处为了宽度适应，高度撑满。

@@ -28,9 +28,9 @@ class StoreSelectTextItem extends StatelessWidget {
         margin: const EdgeInsets.only(right: 8.0, left: 16.0),
         width: double.infinity,
         decoration: BoxDecoration(
-            border: Border(
-              bottom: Divider.createBorderSide(context, width: 0.6),
-            )
+          border: Border(
+            bottom: Divider.createBorderSide(context, width: 0.6),
+          ),
         ),
         child: Row(
           children: <Widget>[

@@ -25,39 +25,41 @@ class TextFieldItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var child = Row(
+      children: <Widget>[
+        Text(title),
+        Gaps.hGap16,
+        Expanded(
+          child: Semantics(
+            label: hintText.isEmpty ? '请输入$title' : hintText,
+            child: TextField(
+              focusNode: focusNode,
+              keyboardType: keyboardType,
+              inputFormatters: _getInputFormatters(),
+              controller: controller,
+              //style: TextStyles.textDark14,
+              decoration: InputDecoration(
+                hintText: hintText,
+                border: InputBorder.none, //去掉下划线
+                //hintStyle: TextStyles.textGrayC14
+              ),
+            ),
+          ),
+        ),
+        Gaps.hGap16
+      ],
+    );
+    
     return Container(
       height: 50.0,
       margin: const EdgeInsets.only(left: 16.0),
       width: double.infinity,
       decoration: BoxDecoration(
-          border: Border(
-            bottom: Divider.createBorderSide(context, width: 0.6),
-          )
+        border: Border(
+          bottom: Divider.createBorderSide(context, width: 0.6),
+        ),
       ),
-      child: Row(
-        children: <Widget>[
-          Text(title),
-          Gaps.hGap16,
-          Expanded(
-            child: Semantics(
-              label: hintText.isEmpty ? '请输入$title' : hintText,
-              child: TextField(
-                focusNode: focusNode,
-                keyboardType: keyboardType,
-                inputFormatters: _getInputFormatters(),
-                controller: controller,
-                //style: TextStyles.textDark14,
-                decoration: InputDecoration(
-                  hintText: hintText,
-                  border: InputBorder.none, //去掉下划线
-                  //hintStyle: TextStyles.textGrayC14
-                )
-              ),
-            ),
-          ),
-          Gaps.hGap16
-        ],
-      ),
+      child: child,
     );
   }
 

@@ -56,10 +56,10 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       right: 0.0,
       child: Theme(
         data: Theme.of(context).copyWith(
-            buttonTheme: ButtonThemeData(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              minWidth: 60.0,
-            )
+          buttonTheme: ButtonThemeData(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            minWidth: 60.0,
+          ),
         ),
         child: FlatButton(
           child: Text(actionName, key: const Key('actionName')),
@@ -77,8 +77,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         alignment: centerTitle.isEmpty ? Alignment.centerLeft : Alignment.center,
         width: double.infinity,
         child: Text(
-            title.isEmpty ? centerTitle : title,
-            style: TextStyle(fontSize: Dimens.font_sp18,)
+          title.isEmpty ? centerTitle : title,
+          style: TextStyle(fontSize: Dimens.font_sp18,),
         ),
         margin: const EdgeInsets.symmetric(horizontal: 48.0),
       ),

@@ -16,7 +16,7 @@ CocoaPods 1.8后将CDN切换为默认的spec repo源。
 
 ### 解决方法：
 
-1.podfile文件中添加source源：
+1.Podfile文件中添加source源：
 
 ```
 source 'https://github.com/CocoaPods/Specs.git'
@@ -37,7 +37,10 @@ source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 在host文件中添加：
 
 ```
-199.232.4.133 raw.githubusercontent.com
+151.101.76.133 raw.githubusercontent.com
 ```
 
+如果这个ip无效，可以根据这个[查询真实IP](https://www.cnblogs.com/ljcgood66/p/12852044.html)自行查询。
+
 参考：https://www.ioiox.com/archives/62.html
+     https://mirrors.tuna.tsinghua.edu.cn/help/CocoaPods/

@@ -48,6 +48,24 @@ class _DeerListViewState extends State<DeerListView> {
   
   @override
   Widget build(BuildContext context) {
+    var child = RefreshIndicator(
+      onRefresh: widget.onRefresh,
+      child: widget.itemCount == 0 ? 
+      StateLayout(type: widget.stateType) : 
+      ListView.builder(
+        itemCount: widget.loadMore == null ? widget.itemCount : widget.itemCount + 1,
+        padding: widget.padding,
+        itemExtent: widget.itemExtent,
+        itemBuilder: (BuildContext context, int index) {
+          /// 不需要加载更多则不需要添加FootView
+          if (widget.loadMore == null) {
+            return widget.itemBuilder(context, index);
+          } else {
+            return index < widget.itemCount ? widget.itemBuilder(context, index) : MoreWidget(widget.itemCount, widget.hasMore, widget.pageSize);
+          }
+        },
+      ),
+    );
     return SafeArea(
       child: NotificationListener(
         onNotification: (ScrollNotification note) {
@@ -57,22 +75,7 @@ class _DeerListViewState extends State<DeerListView> {
           }
           return true;
         },
-        child: RefreshIndicator(
-          onRefresh: widget.onRefresh,
-          child: widget.itemCount == 0 ? StateLayout(type: widget.stateType) : ListView.builder(
-            itemCount: widget.loadMore == null ? widget.itemCount : widget.itemCount + 1,
-            padding: widget.padding,
-            itemExtent: widget.itemExtent,
-            itemBuilder: (BuildContext context, int index) {
-              /// 不需要加载更多则不需要添加FootView
-              if (widget.loadMore == null) {
-                return widget.itemBuilder(context, index);
-              } else {
-                return index < widget.itemCount ? widget.itemBuilder(context, index) : MoreWidget(widget.itemCount, widget.hasMore, widget.pageSize);
-              }
-            }
-          )
-        ),
+        child: child,
       ),
     );
   }

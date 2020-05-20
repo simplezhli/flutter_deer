@@ -39,7 +39,7 @@ class MyCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(8.0),
         boxShadow: [
           BoxShadow(color: _shadowColor, offset: Offset(0.0, 2.0), blurRadius: 8.0, spreadRadius: 0.0),
-        ]
+        ],
       ),
       child: child,
     );
