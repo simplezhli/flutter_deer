@@ -1,0 +1,21 @@
+{
+  "@@last_modified": "2020-05-21T14:42:13.170264",
+  "title": "Flutter Deer",
+  "@title": {
+    "description": "Title for the application",
+    "type": "text",
+    "placeholders": {}
+  },
+  "verificationCodeLogin": "Verification Code Login",
+  "@verificationCodeLogin": {
+    "description": "Title for the Login page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "passwordLogin": "Password Login",
+  "@passwordLogin": {
+    "description": "Password Login",
+    "type": "text",
+    "placeholders": {}
+  }
+}
