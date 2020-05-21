@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flustars/flustars.dart';
 import 'package:flutter_deer/common/common.dart';
+import 'package:flutter_deer/localization/app_localizations.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/store/store_router.dart';
@@ -78,7 +79,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       appBar: MyAppBar(
         isBack: false,
-        actionName: '验证码登录',
+        actionName: AppLocalizations.of(context).verificationCodeLogin,
         onPressed: () {
           NavigatorUtils.push(context, LoginRouter.smsLoginPage);
         },
@@ -92,8 +93,8 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   List<Widget> get _buildBody => [
-    const Text(
-      '密码登录',
+    Text(
+      AppLocalizations.of(context).passwordLogin,
       style: TextStyles.textBold26,
     ),
     Gaps.vGap16,

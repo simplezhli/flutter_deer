@@ -11,6 +11,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:flutter_deer/home/splash_page.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_deer/localization/app_localizations.dart';
 
 void main() {
 //  debugProfileBuildsEnabled = true;
@@ -56,6 +57,7 @@ class MyApp extends StatelessWidget {
               home: home ?? SplashPage(),
               onGenerateRoute: Application.router.generator,
               localizationsDelegates: const [
+                AppLocalizationsDelegate(),
                 GlobalMaterialLocalizations.delegate,
                 GlobalWidgetsLocalizations.delegate,
                 GlobalCupertinoLocalizations.delegate,
