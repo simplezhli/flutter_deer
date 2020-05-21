@@ -1,5 +1,6 @@
 {
   "title": "Flutter Deer",
   "verificationCodeLogin": "verification code login",
-  "passwordLogin": "Password Login"
+  "passwordLogin": "Password Login",
+  "login": "Login"
 }

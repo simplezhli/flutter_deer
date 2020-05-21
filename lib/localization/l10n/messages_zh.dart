@@ -21,6 +21,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "login" : MessageLookupByLibrary.simpleMessage("登录"),
     "passwordLogin" : MessageLookupByLibrary.simpleMessage("密码登录"),
     "title" : MessageLookupByLibrary.simpleMessage("Flutter Deer"),
     "verificationCodeLogin" : MessageLookupByLibrary.simpleMessage("验证码登录")

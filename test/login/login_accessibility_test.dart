@@ -5,6 +5,7 @@ import 'package:flutter_deer/login/page/register_page.dart';
 import 'package:flutter_deer/login/page/reset_password_page.dart';
 import 'package:flutter_deer/login/page/sms_login_page.dart';
 import 'package:flutter_deer/login/page/update_password_page.dart';
+import 'package:flutter_deer/main.dart';
 import 'package:flutter_deer/provider/theme_provider.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -24,7 +25,7 @@ void main() {
     map.forEach((name, page) {
       testWidgets(name, (WidgetTester tester) async {
         final SemanticsHandle handle = tester.ensureSemantics();
-        await tester.pumpWidget(MaterialApp(home: page, theme: themeData,));
+        await tester.pumpWidget(MyApp(home: page, theme: themeData,));
         await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
         handle.dispose();
       });

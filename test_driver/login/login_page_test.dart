@@ -22,7 +22,7 @@ void main() {
     });
     
     test('登录页按钮点击',() async {
-      await driver.tap(find.text('验证码登录'));
+      await driver.tap(find.byValueKey('actionName'));
       await delayed();
       await driver.tap(find.byTooltip('Back'));
       await delayed();

@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2020-05-21T14:42:13.170264",
+  "@@last_modified": "2020-05-21T14:44:59.467",
   "title": "Flutter Deer",
   "@title": {
     "description": "Title for the application",
@@ -15,6 +15,12 @@
   "passwordLogin": "Password Login",
   "@passwordLogin": {
     "description": "Password Login",
+    "type": "text",
+    "placeholders": {}
+  },
+  "login": "Login",
+  "@login": {
+    "description": "Login",
     "type": "text",
     "placeholders": {}
   }

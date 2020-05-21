@@ -51,6 +51,16 @@ class AppLocalizations {
       locale: localeName
     );
   }
+
+  String get login {
+    return Intl.message(
+      'Login',
+      name: 'login',
+      desc: 'Login',
+      locale: localeName,
+    );
+  }
+  
 }
 
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

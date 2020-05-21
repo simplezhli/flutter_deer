@@ -121,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
     MyButton(
       key: const Key('login'),
       onPressed: _clickable ? _login : null,
-      text: '登录',
+      text: AppLocalizations.of(context).login,
     ),
     Container(
       height: 40.0,
