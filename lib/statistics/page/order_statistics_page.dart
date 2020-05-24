@@ -314,7 +314,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
               enable: day.day <= _initialDay.day && !DateUtils.isExtraDay(day, _initialDay),
               unSelectedTextColor: _unSelectedTextColor,
               /// 日历中的具体日期添加完整语义
-              semanticsLabel: DateUtil.getDateStrByDateTime(day, format: DateFormat.ZH_YEAR_MONTH_DAY),
+              semanticsLabel: DateUtil.formatDate(day, format: DataFormats.zh_y_mo_d),
               onTap: () {
                 setState(() {
                   _selectedDay = day;
@@ -358,7 +358,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
               day.day < 10 ? '0${day.day}' : day.day.toString(),
               selected: day.day == _selectedWeekDay,
               unSelectedTextColor: _unSelectedTextColor,
-              semanticsLabel: DateUtil.getDateStrByDateTime(day, format: DateFormat.ZH_YEAR_MONTH_DAY),
+              semanticsLabel: DateUtil.formatDate(day, format: DataFormats.zh_y_mo_d),
               onTap: () {
                 setState(() {
                   _selectedWeekDay = day.day;

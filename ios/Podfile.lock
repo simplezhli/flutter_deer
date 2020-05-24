@@ -9,6 +9,7 @@ PODS:
   - barcode_scan (0.0.1):
     - Flutter
     - MTBBarcodeScanner
+    - SwiftProtobuf
   - Flutter (1.0.0)
   - flutter_2d_amap (0.0.1):
     - AMap2DMap
@@ -36,6 +37,7 @@ PODS:
   - sqflite (0.0.1):
     - Flutter
     - FMDB (~> 2.7.2)
+  - SwiftProtobuf (1.9.0)
   - url_launcher (0.0.1):
     - Flutter
   - url_launcher_macos (0.0.1):
@@ -70,6 +72,7 @@ SPEC REPOS:
     - AMapSearch
     - FMDB
     - MTBBarcodeScanner
+    - SwiftProtobuf
 
 EXTERNAL SOURCES:
   barcode_scan:
@@ -108,7 +111,7 @@ SPEC CHECKSUMS:
   AMapFoundation: 9ed923193b357ebb30a073e9fe255d3c24054d5a
   AMapLocation: c566d448285cd502c1e313063d9e2460bd4d7100
   AMapSearch: a048bcca3bf0b8083345070e1f193f814bd8dc01
-  barcode_scan: 33f586d02270046fc6559135038b34b5754eaa4f
+  barcode_scan: a5c27959edfafaa0c771905bad0b29d6d39e4479
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   flutter_2d_amap: c17f503c128646126c12f394cee379930a058796
   flutter_plugin_android_lifecycle: dc0b544e129eebb77a6bfb1239d4d1c673a60a35
@@ -121,11 +124,12 @@ SPEC CHECKSUMS:
   shared_preferences_macos: f3f29b71ccbb56bf40c9dd6396c9acf15e214087
   shared_preferences_web: 141cce0c3ed1a1c5bf2a0e44f52d31eeb66e5ea9
   sqflite: 4001a31ff81d210346b500c55b17f4d6c7589dd0
+  SwiftProtobuf: ecbec1be9036d15655f6b3443a1c4ea693c97932
   url_launcher: 6fef411d543ceb26efce54b05a0a40bfd74cbbef
   url_launcher_macos: fd7894421cd39320dce5f292fc99ea9270b2a313
   url_launcher_web: e5527357f037c87560776e36436bf2b0288b965c
   webview_flutter: d2b4d6c66968ad042ad94cbb791f5b72b4678a96
 
-PODFILE CHECKSUM: 7423c279f796a2ce5124fdf029d1083417bd059a
+PODFILE CHECKSUM: cbb136d137a1c41868d521434d1b69bf7d3253ab
 
 COCOAPODS: 1.9.1

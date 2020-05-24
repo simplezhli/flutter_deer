@@ -9,7 +9,7 @@ class Log {
   static const String tag = 'DEER-LOG';
   
   static void init() {
-    LogUtil.debuggable = !Constant.inProduction;
+    LogUtil.init(isDebug: !Constant.inProduction);
   }
 
   static void d(String msg, {String tag = tag}) {
