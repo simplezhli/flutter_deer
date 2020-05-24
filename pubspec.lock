@@ -46,12 +46,10 @@ packages:
   barcode_scan:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "234183a26ab316efd7caca4bed77603afc2a7bf4"
-      url: "https://github.com/simplezhli/flutter_barcode_reader.git"
-    source: git
-    version: "2.0.0"
+      name: barcode_scan
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "3.0.1"
   boolean_selector:
     dependency: transitive
     description:
@@ -150,6 +148,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "5.1.0"
+  fixnum:
+    dependency: transitive
+    description:
+      name: fixnum
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.10.11"
   fluro:
     dependency: "direct main"
     description:
@@ -198,7 +203,7 @@ packages:
   flutter_goldens_client:
     dependency: transitive
     description:
-      path: "../../../flutter/packages/flutter_goldens_client"
+      path: "../../flutter/flutter/packages/flutter_goldens_client"
       relative: true
     source: path
     version: "0.0.0"
@@ -495,6 +500,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.12"
+  protobuf:
+    dependency: transitive
+    description:
+      name: protobuf
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.1"
   provider:
     dependency: "direct main"
     description:
