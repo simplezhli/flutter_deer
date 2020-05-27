@@ -179,10 +179,10 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: a64770b6716be9b1cd889b102d41729aaf72d933
+      resolved-ref: f0dff4e0e74a51bc401561e89bc6d01c51db83b3
       url: "https://github.com/simplezhli/flutter_2d_amap.git"
     source: git
-    version: "0.0.4"
+    version: "0.1.0"
   flutter_cache_manager:
     dependency: transitive
     description:
@@ -203,7 +203,7 @@ packages:
   flutter_goldens_client:
     dependency: transitive
     description:
-      path: "../../flutter/flutter/packages/flutter_goldens_client"
+      path: "../../../flutter/packages/flutter_goldens_client"
       relative: true
     source: path
     version: "0.0.0"
@@ -225,7 +225,7 @@ packages:
       name: flutter_plugin_android_lifecycle
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.7"
+    version: "1.0.8"
   flutter_slidable:
     dependency: "direct main"
     description:
@@ -415,7 +415,7 @@ packages:
       name: node_preamble
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.4.8"
+    version: "1.4.9"
   oktoast:
     dependency: "direct main"
     description:
@@ -443,14 +443,14 @@ packages:
       name: path_provider
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.6.8"
+    version: "1.6.9"
   path_provider_macos:
     dependency: transitive
     description:
       name: path_provider_macos
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.0.4+2"
+    version: "0.0.4+3"
   path_provider_platform_interface:
     dependency: transitive
     description:
@@ -479,6 +479,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.2.1"
+  platform_detect:
+    dependency: transitive
+    description:
+      name: platform_detect
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.4.0"
   plugin_platform_interface:
     dependency: transitive
     description:
@@ -548,14 +555,14 @@ packages:
       name: shared_preferences
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.5.7+2"
+    version: "0.5.7+3"
   shared_preferences_macos:
     dependency: transitive
     description:
       name: shared_preferences_macos
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.0.1+8"
+    version: "0.0.1+9"
   shared_preferences_platform_interface:
     dependency: transitive
     description:
@@ -569,7 +576,7 @@ packages:
       name: shared_preferences_web
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.1.2+5"
+    version: "0.1.2+7"
   shelf:
     dependency: transitive
     description:
@@ -707,7 +714,7 @@ packages:
       name: test
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.14.3"
+    version: "1.14.4"
   test_api:
     dependency: transitive
     description:
@@ -749,7 +756,7 @@ packages:
       name: url_launcher_macos
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.0.1+5"
+    version: "0.0.1+7"
   url_launcher_platform_interface:
     dependency: transitive
     description:
@@ -763,7 +770,7 @@ packages:
       name: url_launcher_web
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.1.1+5"
+    version: "0.1.1+6"
   uuid:
     dependency: transitive
     description:
@@ -819,7 +826,7 @@ packages:
       name: webkit_inspection_protocol
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.5.4"
+    version: "0.7.2"
   webview_flutter:
     dependency: "direct main"
     description:
