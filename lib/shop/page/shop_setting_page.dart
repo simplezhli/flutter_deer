@@ -107,15 +107,15 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
             content: _securityService,
             onTap: () {
               AppNavigator.pushResult(context,
-                  InputTextPage(
-                    title: '保障服务',
-                    hintText: '这里有一段完美的说明…',
-                    content: _securityService,
-                  ), (result) {
-                    setState(() {
-                      _securityService =result.toString();
-                    });
+                InputTextPage(
+                  title: '保障服务',
+                  hintText: '这里有一段完美的说明…',
+                  content: _securityService,
+                ), (result) {
+                  setState(() {
+                    _securityService =result.toString();
                   });
+                });
             },
           ),
           ClickItem(
@@ -123,18 +123,18 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
             content: _getPayType(),
             onTap: () {
               showElasticDialog(
-                  context: context,
-                  barrierDismissible: false,
-                  builder: (BuildContext context) {
-                    return PayTypeDialog(
-                      value: _selectValue,
-                      onPressed: (value) {
-                        setState(() {
-                          _selectValue = value;
-                        });
-                      },
-                    );
-                  });
+                context: context,
+                barrierDismissible: false,
+                builder: (BuildContext context) {
+                  return PayTypeDialog(
+                    value: _selectValue,
+                    onPressed: (value) {
+                      setState(() {
+                        _selectValue = value;
+                      });
+                    },
+                  );
+                });
             },
           ),
           Gaps.vGap32,
@@ -148,17 +148,17 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
             content: _sendType == 0 ? '运费满免配置' : '运费比例配置',
             onTap: () {
               showElasticDialog(
-                  context: context,
-                  barrierDismissible: false,
-                  builder: (BuildContext context) {
-                    return SendTypeDialog(
-                      onPressed: (i, value) {
-                        setState(() {
-                          _sendType = i;
-                        });
-                      },
-                    );
-                  });
+                context: context,
+                barrierDismissible: false,
+                builder: (BuildContext context) {
+                  return SendTypeDialog(
+                    onPressed: (i, value) {
+                      setState(() {
+                        _sendType = i;
+                      });
+                    },
+                  );
+                });
             },
           ),
           Visibility(
@@ -168,18 +168,18 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
               content: _freePrice,
               onTap: () {
                 showDialog(
-                    context: context,
-                    barrierDismissible: false,
-                    builder: (BuildContext context) {
-                      return PriceInputDialog(
-                        title: '配送费满免',
-                        onPressed: (value) {
-                          setState(() {
-                            _freePrice = value;
-                          });
-                        },
-                      );
-                    });
+                  context: context,
+                  barrierDismissible: false,
+                  builder: (BuildContext context) {
+                    return PriceInputDialog(
+                      title: '配送费满免',
+                      onPressed: (value) {
+                        setState(() {
+                          _freePrice = value;
+                        });
+                      },
+                    );
+                  });
               },
             ),
           ),
@@ -190,18 +190,18 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
               content: _sendPrice,
               onTap: () {
                 showDialog(
-                    context: context,
-                    barrierDismissible: false,
-                    builder: (BuildContext context) {
-                      return PriceInputDialog(
-                        title: '配送费用',
-                        onPressed: (value) {
-                          setState(() {
-                            _sendPrice = value;
-                          });
-                        },
-                      );
-                    });
+                  context: context,
+                  barrierDismissible: false,
+                  builder: (BuildContext context) {
+                    return PriceInputDialog(
+                      title: '配送费用',
+                      onPressed: (value) {
+                        setState(() {
+                          _sendPrice = value;
+                        });
+                      },
+                    );
+                  },);
               },
             ),
           ),

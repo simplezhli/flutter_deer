@@ -80,7 +80,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                 itemCount: 10,
                 itemExtent: 76.0,
                 itemBuilder: (context, index) => _buildItem(index),
-              )
+              ),
             ],
           ),
         ),
@@ -159,12 +159,12 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
               Container(
                 height: 36.0, width: 36.0,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4.0),
-                    border: Border.all(color: const Color(0xFFF7F8FA), width: 0.6),
-                    image: DecorationImage(
-                      image: ImageUtils.getAssetImage('order/icon_goods'),
-                      fit: BoxFit.fitWidth
-                    )
+                  borderRadius: BorderRadius.circular(4.0),
+                  border: Border.all(color: const Color(0xFFF7F8FA), width: 0.6),
+                  image: DecorationImage(
+                    image: ImageUtils.getAssetImage('order/icon_goods'),
+                    fit: BoxFit.fitWidth,
+                  ),
                 ),
               ),
               Gaps.hGap8,

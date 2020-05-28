@@ -61,11 +61,11 @@ class _StatisticsPageState extends State<StatisticsPage> {
         delegate: SliverAppBarDelegate(
             DecoratedBox(
               decoration: BoxDecoration(
-                  color: isDark ? Colours.dark_bg_color : null,
-                  image: isDark ? null : DecorationImage(
-                      image: ImageUtils.getAssetImage('statistic/statistic_bg1'),
-                      fit: BoxFit.fill
-                  )
+                color: isDark ? Colours.dark_bg_color : null,
+                image: isDark ? null : DecorationImage(
+                  image: ImageUtils.getAssetImage('statistic/statistic_bg1'),
+                  fit: BoxFit.fill,
+                ),
               ),
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -129,24 +129,24 @@ class _StatisticsItem extends StatelessWidget {
           }
         },
         child: MyCard(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
-              child: Column(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(title, style: TextStyles.textBold14),
-                        const LoadAssetImage('statistic/icon_selected', height: 16.0, width: 16.0)
-                      ],
-                    ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
+            child: Column(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(title, style: TextStyles.textBold14),
+                      const LoadAssetImage('statistic/icon_selected', height: 16.0, width: 16.0)
+                    ],
                   ),
-                  Expanded(child: LoadAssetImage('statistic/$img', fit: BoxFit.fill))
-                ],
-              ),
-            )
+                ),
+                Expanded(child: LoadAssetImage('statistic/$img', fit: BoxFit.fill))
+              ],
+            ),
+          ),
         ),
       ),
     );

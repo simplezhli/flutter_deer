@@ -46,9 +46,9 @@ class SelectedText extends StatelessWidget {
               BoxShadow(color: Color(0x805793FA), offset: Offset(0.0, 2.0), blurRadius: 8.0, spreadRadius: 0.0),
             ],
             gradient: const LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Color(0xFF5758FA), Color(0xFF5793FA)]
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Color(0xFF5758FA), Color(0xFF5793FA)],
             ),
           ) : null,
           child: Column(
@@ -74,10 +74,13 @@ class SelectedText extends StatelessWidget {
             TextSpan(text: text.substring(0, text.length - 1), style: TextStyle(color: getTextColor(), fontSize: fontSize)),
             TextSpan(text: text.substring(text.length - 1), style: TextStyle(color: getTextColor(), fontSize: fontSize - 4.0)),
           ],
-        )
+        ),
       );
     } else {
-      return Text(text, semanticsLabel: semanticsLabel ,style: TextStyle(color: getTextColor(), fontSize: fontSize));
+      return Text(text,
+        semanticsLabel: semanticsLabel,
+        style: TextStyle(color: getTextColor(), fontSize: fontSize),
+      );
     }
   }
 

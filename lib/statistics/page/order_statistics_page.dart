@@ -76,48 +76,15 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
               Row(
                 children: <Widget>[
                   Gaps.hGap16,
-                  SelectedText(
-                    _initialDay.year.toString(),
-                    key: const Key('year'),
-                    fontSize: Dimens.font_sp15,
-                    selected: _selectedIndex == 0,
-                    unSelectedTextColor: _unSelectedTextColor,
-                    onTap: () {
-                      setState(() {
-                        _selectedIndex = 0;
-                      });
-                    },
-                  ),
+                  _buildButton(_initialDay.year.toString(), const Key('year'), 0),
                   Gaps.hGap12,
                   Gaps.vLine,
                   Gaps.hGap12,
-                  SelectedText(
-                    '${_initialDay.month.toString()}月',
-                    key: const Key('month'),
-                    fontSize: Dimens.font_sp15,
-                    selected: _selectedIndex == 1,
-                    unSelectedTextColor: _unSelectedTextColor,
-                    onTap: () {
-                      setState(() {
-                        _selectedIndex = 1;
-                      });
-                    },
-                  ),
+                  _buildButton('${_initialDay.month.toString()}月', const Key('month'), 1),
                   Gaps.hGap12,
                   Gaps.vLine,
                   Gaps.hGap12,
-                  SelectedText(
-                    '${DateUtils.previousWeek(_initialDay)} -${DateUtils.apiDayFormat(_initialDay)}',
-                    key: const Key('day'),
-                    fontSize: Dimens.font_sp15,
-                    selected: _selectedIndex == 2,
-                    unSelectedTextColor: _unSelectedTextColor,
-                    onTap: () {
-                      setState(() {
-                        _selectedIndex = 2;
-                      });
-                    },
-                  ),
+                  _buildButton('${DateUtils.previousWeek(_initialDay)} -${DateUtils.apiDayFormat(_initialDay)}', const Key('day'), 2),
                 ],
               ),
               Gaps.vGap16,
@@ -189,7 +156,56 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
     );
   }
   
+  Widget _buildButton(String text, Key key, int index) {
+    return SelectedText(
+      text,
+      key: key,
+      fontSize: Dimens.font_sp15,
+      selected: _selectedIndex == index,
+      unSelectedTextColor: _unSelectedTextColor,
+      onTap: () {
+        setState(() {
+          _selectedIndex = index;
+        });
+      },
+    );
+  }
+  
   Widget _buildChart(Color color, Color shadowColor, String title, String count) {
+    
+    var body = Column(
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text(title, style: TextStyle(color: Colors.white)),
+            Text(count, style: TextStyle(color: Colors.white)),
+          ],
+        ),
+        Gaps.vGap4,
+        Expanded(
+          child: BezierChart(
+            bezierChartScale: BezierChartScale.CUSTOM,
+            xAxisCustomValues: const [0, 5, 10, 15, 20, 25, 30],
+            footerValueBuilder: (double value) {return '';},
+            series: [
+              BezierLine(
+                label: widget.index == 1 ? '单' : '元',
+                data: _getRandomData(),
+              ),
+            ],
+            config: BezierChartConfig(
+              footerHeight: 0,
+              showVerticalIndicator: false,
+              verticalIndicatorFixedPosition: false,
+              snap: true,
+              backgroundColor: color,
+            ),
+          ),
+        ),
+      ],
+    );
+    
     return AspectRatio(
       aspectRatio: 3,
       child: MyCard(
@@ -198,43 +214,12 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
         child: Container(
           padding: const EdgeInsets.all(16.0),
           decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: ImageUtils.getAssetImage('statistic/chart_fg'),
-                  fit: BoxFit.fill
-              )
+            image: DecorationImage(
+              image: ImageUtils.getAssetImage('statistic/chart_fg'),
+              fit: BoxFit.fill,
+            ),
           ),
-          child: Column(
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(title, style: TextStyle(color: Colors.white)),
-                  Text(count, style: TextStyle(color: Colors.white)),
-                ],
-              ),
-              Gaps.vGap4,
-              Expanded(
-                child: BezierChart(
-                  bezierChartScale: BezierChartScale.CUSTOM,
-                  xAxisCustomValues: const [0, 5, 10, 15, 20, 25, 30],
-                  footerValueBuilder: (double value) {return '';},
-                  series: [
-                    BezierLine(
-                      label: widget.index == 1 ? '单' : '元',
-                      data: _getRandomData()
-                    ),
-                  ],
-                  config: BezierChartConfig(
-                    footerHeight: 0,
-                    showVerticalIndicator: false,
-                    verticalIndicatorFixedPosition: false,
-                    snap: true,
-                    backgroundColor: color
-                  ),
-                )
-              )
-            ],
-          ),
+          child: body,
         ),
       ),
     );
@@ -306,22 +291,22 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
     dayWidgets.addAll(_buildWeeks());
     list.forEach((day) {
       dayWidgets.add(
-          Center(
-            child: SelectedText(
-              day.day < 10 ? '0${day.day}' : day.day.toString(),
-              selected:(day.day == _selectedDay.day && !DateUtils.isExtraDay(day, _initialDay)),
-              // 不是本月的日期与超过当前日期的不可点击
-              enable: day.day <= _initialDay.day && !DateUtils.isExtraDay(day, _initialDay),
-              unSelectedTextColor: _unSelectedTextColor,
-              /// 日历中的具体日期添加完整语义
-              semanticsLabel: DateUtil.formatDate(day, format: DataFormats.zh_y_mo_d),
-              onTap: () {
-                setState(() {
-                  _selectedDay = day;
-                });
-              },
-            ),
-          )
+        Center(
+          child: SelectedText(
+            day.day.toString().padLeft(2, '0'), // 不足2位左边补0
+            selected:(day.day == _selectedDay.day && !DateUtils.isExtraDay(day, _initialDay)),
+            // 不是本月的日期与超过当前日期的不可点击
+            enable: day.day <= _initialDay.day && !DateUtils.isExtraDay(day, _initialDay),
+            unSelectedTextColor: _unSelectedTextColor,
+            /// 日历中的具体日期添加完整语义
+            semanticsLabel: DateUtil.formatDate(day, format: DataFormats.zh_y_mo_d),
+            onTap: () {
+              setState(() {
+                _selectedDay = day;
+              });
+            },
+          ),
+        ),
       );
     });
     return dayWidgets;
@@ -331,19 +316,19 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
     List<Widget> monthWidgets = [];
     _monthList.forEach((month) {
       monthWidgets.add(
-          Center(
-            child: SelectedText(
-              '$month月',
-              selected: month == _selectedMonth,
-              enable: month <= _initialDay.month,
-              unSelectedTextColor: _unSelectedTextColor,
-              onTap: () {
-                setState(() {
-                  _selectedMonth = month;
-                });
-              },
-            ),
-          )
+        Center(
+          child: SelectedText(
+            '$month月',
+            selected: month == _selectedMonth,
+            enable: month <= _initialDay.month,
+            unSelectedTextColor: _unSelectedTextColor,
+            onTap: () {
+              setState(() {
+                _selectedMonth = month;
+              });
+            },
+          ),
+        ),
       );
     });
     return monthWidgets;
@@ -353,19 +338,19 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
     List<Widget> dayWidgets = [];
     _weeksDays.forEach((day) {
       dayWidgets.add(
-          Center(
-            child: SelectedText(
-              day.day < 10 ? '0${day.day}' : day.day.toString(),
-              selected: day.day == _selectedWeekDay,
-              unSelectedTextColor: _unSelectedTextColor,
-              semanticsLabel: DateUtil.formatDate(day, format: DataFormats.zh_y_mo_d),
-              onTap: () {
-                setState(() {
-                  _selectedWeekDay = day.day;
-                });
-              },
-            ),
-          )
+        Center(
+          child: SelectedText(
+            day.day.toString().padLeft(2, '0'),
+            selected: day.day == _selectedWeekDay,
+            unSelectedTextColor: _unSelectedTextColor,
+            semanticsLabel: DateUtil.formatDate(day, format: DataFormats.zh_y_mo_d),
+            onTap: () {
+              setState(() {
+                _selectedWeekDay = day.day;
+              });
+            },
+          ),
+        ),
       );       
     });
     return dayWidgets;
