@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2020-05-21T14:44:59.467",
+  "@@last_modified": "2020-05-25T17:51:51.234285",
   "title": "Flutter Deer",
   "@title": {
     "description": "Title for the application",
@@ -21,6 +21,30 @@
   "login": "Login",
   "@login": {
     "description": "Login",
+    "type": "text",
+    "placeholders": {}
+  },
+  "forgotPasswordLink": "Forgot Password",
+  "@forgotPasswordLink": {
+    "description": "Forgot Password",
+    "type": "text",
+    "placeholders": {}
+  },
+  "inputPasswordHint": "Please enter the password",
+  "@inputPasswordHint": {
+    "description": "Please enter the password",
+    "type": "text",
+    "placeholders": {}
+  },
+  "inputUsernameHint": "Please input Username",
+  "@inputUsernameHint": {
+    "description": "Please input Username",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noAccountRegisterLink": "No account yet? Register now",
+  "@noAccountRegisterLink": {
+    "description": "No account yet? Register now",
     "type": "text",
     "placeholders": {}
   }

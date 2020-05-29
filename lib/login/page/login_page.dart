@@ -104,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
       controller: _nameController,
       maxLength: 11,
       keyboardType: TextInputType.phone,
-      hintText: '请输入账号',
+      hintText: AppLocalizations.of(context).inputUsernameHint,
     ),
     Gaps.vGap8,
     MyTextField(
@@ -115,7 +115,7 @@ class _LoginPageState extends State<LoginPage> {
       controller: _passwordController,
       keyboardType: TextInputType.visiblePassword,
       maxLength: 16,
-      hintText: '请输入密码',
+      hintText: AppLocalizations.of(context).inputPasswordHint,
     ),
     Gaps.vGap24,
     MyButton(
@@ -128,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
       alignment: Alignment.centerRight,
       child: GestureDetector(
         child: Text(
-          '忘记密码',
+          AppLocalizations.of(context).forgotPasswordLink,
           style: Theme.of(context).textTheme.subtitle2,
         ),
         onTap: () => NavigatorUtils.push(context, LoginRouter.resetPasswordPage),
@@ -139,7 +139,7 @@ class _LoginPageState extends State<LoginPage> {
       alignment: Alignment.center,
       child: GestureDetector(
         child: Text(
-          '还没账号？快去注册',
+          AppLocalizations.of(context).noAccountRegisterLink,
           style: TextStyle(
             color: Theme.of(context).primaryColor
           ),

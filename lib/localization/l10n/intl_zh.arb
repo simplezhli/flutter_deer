@@ -2,5 +2,10 @@
   "title": "Flutter Deer",
   "verificationCodeLogin": "验证码登录",
   "passwordLogin": "密码登录",
-  "login": "登录"
+  "login": "登录",
+  "forgotPassword": "忘记密码",
+  "inputPassword": "请输入密码",
+  "inputUsername": "请输入账号",
+  "noAccountRegister": "还没账号？快去注册",
+  "register": "注册"
 }

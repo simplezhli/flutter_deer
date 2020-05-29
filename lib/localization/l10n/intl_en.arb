@@ -2,5 +2,10 @@
   "title": "Flutter Deer",
   "verificationCodeLogin": "verification code login",
   "passwordLogin": "Password Login",
-  "login": "Login"
+  "login": "Login",
+  "forgotPassword": "Forgot Password",
+  "inputPassword": "Please enter the password",
+  "inputUsername": "Please input Username",
+  "noAccountRegister": "No account yet? Register now",
+  "register": "Register"
 }

@@ -2,6 +2,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_deer/localization/app_localizations.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/util/utils.dart';
@@ -91,8 +92,8 @@ class _RegisterPageState extends State<RegisterPage> {
 
   List<Widget> _buildBody() {
     return [
-      const Text(
-        '开启你的账号',
+      Text(
+        AppLocalizations.of(context).openYourAccount,
         style: TextStyles.textBold26,
       ),
       Gaps.vGap16,
@@ -102,7 +103,7 @@ class _RegisterPageState extends State<RegisterPage> {
         controller: _nameController,
         maxLength: 11,
         keyboardType: TextInputType.phone,
-        hintText: '请输入手机号',
+        hintText: AppLocalizations.of(context).inputPhoneHint,
       ),
       Gaps.vGap8,
       MyTextField(
@@ -112,16 +113,16 @@ class _RegisterPageState extends State<RegisterPage> {
         keyboardType: TextInputType.number,
         getVCode: () async {
           if (_nameController.text.length == 11) {
-            Toast.show('并没有真正发送哦，直接登录吧！');
+            Toast.show(AppLocalizations.of(context).verificationButton);
             /// 一般可以在这里发送真正的请求，请求成功返回true
             return true;
           } else {
-            Toast.show('请输入有效的手机号');
+            Toast.show(AppLocalizations.of(context).inputPhoneInvalid);
             return false;
           }
         },
         maxLength: 6,
-        hintText: '请输入验证码',
+        hintText: AppLocalizations.of(context).inputVerificationcodeHint,
       ),
       Gaps.vGap8,
       MyTextField(
@@ -132,13 +133,13 @@ class _RegisterPageState extends State<RegisterPage> {
         controller: _passwordController,
         keyboardType: TextInputType.visiblePassword,
         maxLength: 16,
-        hintText: '请输入密码',
+        hintText: AppLocalizations.of(context).inputPasswordHint,
       ),
       Gaps.vGap24,
       MyButton(
         key: const Key('register'),
         onPressed: _clickable ? _register : null,
-        text: '注册',
+        text: AppLocalizations.of(context).register,
       )
     ];
   }
