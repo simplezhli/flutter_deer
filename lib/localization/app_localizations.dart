@@ -60,7 +60,97 @@ class AppLocalizations {
       locale: localeName,
     );
   }
+
+  String get forgotPasswordLink {
+    return Intl.message(
+      'Forgot Password',
+      name: 'forgotPasswordLink',
+      desc: 'Forgot Password',
+      locale: localeName
+    );
+  }
+
+  String get inputPasswordHint {
+    return Intl.message(
+      'Please enter the password',
+      name: 'inputPasswordHint',
+      desc: 'Please enter the password',
+      locale: localeName
+    );
+  }
+
+  String get inputUsernameHint {
+    return Intl.message(
+      'Please input Username',
+      name: 'inputUsernameHint',
+      desc: 'Please input Username',
+      locale: localeName
+    );
+  }
+
+  String get noAccountRegisterLink {
+    return Intl.message(
+      'No account yet? Register now',
+      name: 'noAccountRegisterLink',
+      desc: 'No account yet? Register now',
+      locale: localeName
+    );
+  }
   
+  String get register {
+    return Intl.message(
+      'Register',
+      name: 'register',
+      desc: 'Register',
+      locale: localeName
+    );
+  }
+
+  String get openYourAccount {
+    return Intl.message(
+      'Open your account', // 开启你的账号 
+      name: 'openYourAccount',
+      desc: 'Open your account',
+      locale: localeName
+    );
+  }
+
+  String get inputPhoneHint {
+    return Intl.message(
+      'Please enter phone number', // 请输入手机号
+      name: 'inputPhoneHint',
+      desc: 'Please enter phone number',
+      locale: localeName
+    );
+  }
+
+  String get inputVerificationcodeHint {
+    return Intl.message(
+      'Please enter verification code', // 请输入验证码
+      name: 'inputVerificationCodeHint',
+      desc: 'Please enter verification code',
+      locale: localeName
+    );
+  }
+
+  String get inputPhoneInvalid {
+    return Intl.message(
+      'Please input valid mobile phone number', // 请输入有效的手机号
+      name: 'inputPhoneInvalid',
+      desc: 'Please input valid mobile phone number',
+      locale: localeName
+    );
+  }
+
+  String get verificationButton {
+    return Intl.message(
+      'Not really sent, just log in!', // 并没有真正发送哦，直接登录吧！
+      name: 'verificationButton',
+      desc: 'Not really sent, just log in!',
+      locale: localeName
+    );
+  }
+
 }
 
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
