@@ -1,7 +1,12 @@
+import 'package:dio/dio.dart';
 import 'package:fluro/fluro.dart';
+import 'package:flustars/flustars.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_deer/common/common.dart';
+import 'package:flutter_deer/net/dio_utils.dart';
+import 'package:flutter_deer/net/intercept.dart';
 import 'package:flutter_deer/provider/theme_provider.dart';
 import 'package:flutter_deer/routers/application.dart';
 import 'package:flutter_deer/routers/routers.dart';
@@ -13,11 +18,14 @@ import 'package:flutter_deer/home/splash_page.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_deer/localization/app_localizations.dart';
 
-void main() {
+Future<void> main() async {
 //  debugProfileBuildsEnabled = true;
 //  debugPaintLayerBordersEnabled = true;
 //  debugProfilePaintsEnabled = true;
 //  debugRepaintRainbowEnabled = true;
+  WidgetsFlutterBinding.ensureInitialized();
+  /// sp初始化
+  await SpUtil.getInstance();
   runApp(MyApp());
   // 透明状态栏
   if (Device.isAndroid) {
@@ -33,9 +41,28 @@ class MyApp extends StatelessWidget {
   
   MyApp({this.home, this.theme}) {
     Log.init();
+    initDio();
     final router = Router();
     Routes.configureRoutes(router);
     Application.router = router;
+  }
+  
+  void initDio() {
+    List<Interceptor> interceptors = [];
+    /// 统一添加身份验证请求头
+    interceptors.add(AuthInterceptor());
+    /// 刷新Token
+    interceptors.add(TokenInterceptor());
+    /// 打印Log(生产模式去除)
+    if (!Constant.inProduction) {
+      interceptors.add(LoggingInterceptor());
+    }
+    /// 适配数据(根据自己的数据结构，可自行选择添加)
+    interceptors.add(AdapterInterceptor());
+    setInitDio(
+      baseUrl: 'https://api.github.com/',
+      interceptors: interceptors,
+    );
   }
   
   @override

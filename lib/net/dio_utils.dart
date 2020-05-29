@@ -7,7 +7,28 @@ import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/util/log_utils.dart';
 import 'base_entity.dart';
 import 'error_handle.dart';
-import 'intercept.dart';
+
+
+int _connectTimeout = 15000;
+int _receiveTimeout = 15000;
+int _sendTimeout = 10000;
+String _baseUrl;
+List<Interceptor> _interceptors = [];
+
+/// 初始化Dio配置
+void setInitDio({
+  int connectTimeout,
+  int receiveTimeout,
+  int sendTimeout,
+  String baseUrl,
+  List<Interceptor> interceptors,
+}) {
+  _connectTimeout = connectTimeout ?? _connectTimeout;
+  _receiveTimeout = receiveTimeout ?? _receiveTimeout;
+  _sendTimeout = sendTimeout ?? _sendTimeout;
+  _baseUrl = baseUrl ?? _baseUrl;
+  _interceptors = interceptors ?? _interceptors;
+}
 
 /// @weilu https://github.com/simplezhli
 class DioUtils {
@@ -23,18 +44,19 @@ class DioUtils {
   Dio get dio => _dio;
 
   DioUtils._() {
-    var options = BaseOptions(
-      connectTimeout: 15000,
-      receiveTimeout: 15000,
+    var _options = BaseOptions(
+      connectTimeout: _connectTimeout,
+      receiveTimeout: _receiveTimeout,
+      sendTimeout: _sendTimeout,
       responseType: ResponseType.plain,
       validateStatus: (status) {
         // 不使用http状态码判断状态，使用AdapterInterceptor来处理（适用于标准REST风格）
         return true;
       },
-      baseUrl: 'https://api.github.com/',
-//      contentType: ContentType('application', 'x-www-form-urlencoded', charset: 'utf-8'),
+      baseUrl: _baseUrl,
+//  contentType: ContentType('application', 'x-www-form-urlencoded', charset: 'utf-8'),
     );
-    _dio = Dio(options);
+    _dio = Dio(_options);
     /// Fiddler抓包代理配置 https://www.jianshu.com/p/d831b1f7c45b
 //    (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
 //        (HttpClient client) {
@@ -45,16 +67,11 @@ class DioUtils {
 //      client.badCertificateCallback =
 //          (X509Certificate cert, String host, int port) => true;
 //    };
-    /// 统一添加身份验证请求头
-    _dio.interceptors.add(AuthInterceptor());
-    /// 刷新Token
-    _dio.interceptors.add(TokenInterceptor());
-    /// 打印Log(生产模式去除)
-    if (!Constant.inProduction) {
-      _dio.interceptors.add(LoggingInterceptor());
-    }
-    /// 适配数据(根据自己的数据结构，可自行选择添加)
-    _dio.interceptors.add(AdapterInterceptor());
+    
+    /// 添加拦截器
+    _interceptors.forEach((interceptor) {
+      _dio.interceptors.add(interceptor);
+    });
   }
 
   // 数据返回格式统一，统一处理异常
@@ -82,11 +99,11 @@ class DioUtils {
   }
 
   Future requestNetwork<T>(Method method, String url, {
-        Function(T t) onSuccess, 
-        Function(List<T> list) onSuccessList, 
-        Function(int code, String msg) onError,
-        dynamic params, Map<String, dynamic> queryParameters, 
-        CancelToken cancelToken, Options options, bool isList : false
+    Function(T t) onSuccess,
+    Function(List<T> list) onSuccessList,
+    Function(int code, String msg) onError,
+    dynamic params, Map<String, dynamic> queryParameters,
+    CancelToken cancelToken, Options options, bool isList : false
   }) {
     String m = _getRequestMethod(method);
     return _request<T>(m, url,

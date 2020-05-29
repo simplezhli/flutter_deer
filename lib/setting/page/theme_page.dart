@@ -16,13 +16,6 @@ class _ThemePageState extends State<ThemePage> {
   final _list = ['跟随系统', '开启', '关闭'];
 //  StreamSubscription _subscription;
   
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await SpUtil.getInstance();
-    });
-  }
 //
 //  @override
 //  void dispose() {

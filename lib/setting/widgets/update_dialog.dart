@@ -64,7 +64,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
                       image: ImageUtils.getAssetImage('update_head',format: 'jpg'),
                       fit: BoxFit.cover,
                     ),
-                  )
+                  ),
                 ),
                 const Padding(
                   padding: EdgeInsets.only(left: 15.0, right: 15.0, top: 16.0),
@@ -95,11 +95,11 @@ class _UpdateDialogState extends State<UpdateDialog> {
                           disabledTextColor: Colors.white,
                           disabledColor: Colours.text_gray_c,
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18.0),
-                              side: BorderSide(
-                                color: primaryColor,
-                                width: 0.8,
-                              )
+                            borderRadius: BorderRadius.circular(18.0),
+                            side: BorderSide(
+                              color: primaryColor,
+                              width: 0.8,
+                            ),
                           ),
                           child: Text(
                             '残忍拒绝',
