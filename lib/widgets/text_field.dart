@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_deer/localization/app_localizations.dart';
 import 'package:flutter_deer/res/resources.dart';
 
 import 'load_image.dart';
@@ -167,6 +168,7 @@ class _MyTextFieldState extends State<MyTextField> {
         ),
       ),
       child: FlatButton(
+        key: const Key('getVerificationCode'),
         onPressed: _clickable ? _getVCode : null,
         textColor: themeData.primaryColor,
         color: Colors.transparent,
@@ -180,7 +182,7 @@ class _MyTextFieldState extends State<MyTextField> {
           ),
         ),
         child: Text(
-          _clickable ? '获取验证码' : '（$_currentSecond s）',
+          _clickable ? AppLocalizations.of(context).getVerificationCode : '（$_currentSecond s）',
           style: TextStyle(fontSize: Dimens.font_sp12),
         ),
       ),

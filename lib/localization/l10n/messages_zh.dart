@@ -21,9 +21,20 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "forgotPasswordLink" : MessageLookupByLibrary.simpleMessage("忘记密码"),
+    "inputPasswordHint" : MessageLookupByLibrary.simpleMessage("请输入密码"),
+    "inputPhoneHint" : MessageLookupByLibrary.simpleMessage("请输入手机号"),
+    "inputPhoneInvalid" : MessageLookupByLibrary.simpleMessage("请输入有效的手机号"),
+    "inputUsernameHint" : MessageLookupByLibrary.simpleMessage("请输入账号"),
+    "inputVerificationCodeHint" : MessageLookupByLibrary.simpleMessage("请输入验证码"),
     "login" : MessageLookupByLibrary.simpleMessage("登录"),
+    "noAccountRegisterLink" : MessageLookupByLibrary.simpleMessage("还没账号？快去注册"),
+    "openYourAccount" : MessageLookupByLibrary.simpleMessage("开启你的账号"),
     "passwordLogin" : MessageLookupByLibrary.simpleMessage("密码登录"),
+    "register" : MessageLookupByLibrary.simpleMessage("注册"),
     "title" : MessageLookupByLibrary.simpleMessage("Flutter Deer"),
-    "verificationCodeLogin" : MessageLookupByLibrary.simpleMessage("验证码登录")
+    "verificationButton" : MessageLookupByLibrary.simpleMessage("并没有真正发送哦，直接登录吧！"),
+    "verificationCodeLogin" : MessageLookupByLibrary.simpleMessage("验证码登录"),
+    "getVerificationCode" : MessageLookupByLibrary.simpleMessage("获取验证码")
   };
 }

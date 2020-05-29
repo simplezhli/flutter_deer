@@ -124,7 +124,7 @@ class AppLocalizations {
     );
   }
 
-  String get inputVerificationcodeHint {
+  String get inputVerificationCodeHint {
     return Intl.message(
       'Please enter verification code', // 请输入验证码
       name: 'inputVerificationCodeHint',
@@ -151,6 +151,14 @@ class AppLocalizations {
     );
   }
 
+  String get getVerificationCode {
+    return Intl.message(
+        'Get verification code', // 获取验证码
+        name: 'getVerificationCode',
+        desc: 'Get verification code',
+        locale: localeName
+    );
+  }
 }
 
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

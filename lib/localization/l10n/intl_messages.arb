@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2020-05-25T17:51:51.234285",
+  "@@last_modified": "2020-05-29T16:55:56.054100",
   "title": "Flutter Deer",
   "@title": {
     "description": "Title for the application",
@@ -47,5 +47,47 @@
     "description": "No account yet? Register now",
     "type": "text",
     "placeholders": {}
-  }
+  },
+  "register": "Register",
+  "@register": {
+    "description": "Register",
+    "type": "text",
+    "placeholders": {}
+  },
+  "openYourAccount": "Open your account",
+  "@openYourAccount": {
+    "description": "Open your account",
+    "type": "text",
+    "placeholders": {}
+  },
+  "inputPhoneHint": "Please enter phone number",
+  "@inputPhoneHint": {
+    "description": "Please enter phone number",
+    "type": "text",
+    "placeholders": {}
+  },
+  "inputVerificationCodeHint": "Please enter verification code",
+  "@inputVerificationCodeHint": {
+    "description": "Please enter verification code",
+    "type": "text",
+    "placeholders": {}
+  },
+  "inputPhoneInvalid": "Please input valid mobile phone number",
+  "@inputPhoneInvalid": {
+    "description": "Please input valid mobile phone number",
+    "type": "text",
+    "placeholders": {}
+  },
+  "verificationButton": "Not really sent, just log in!",
+  "@verificationButton": {
+    "description": "Not really sent, just log in!",
+    "type": "text",
+    "placeholders": {}
+  },
+  "getVerificationCode": "Get verification code",
+  "@getVerificationCode": {
+    "description": "Get verification code",
+    "type": "text",
+    "placeholders": {}
+  }    
 }

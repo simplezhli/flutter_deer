@@ -129,6 +129,7 @@ class _LoginPageState extends State<LoginPage> {
       child: GestureDetector(
         child: Text(
           AppLocalizations.of(context).forgotPasswordLink,
+          key: const Key('forgotPassword'),
           style: Theme.of(context).textTheme.subtitle2,
         ),
         onTap: () => NavigatorUtils.push(context, LoginRouter.resetPasswordPage),
@@ -140,6 +141,7 @@ class _LoginPageState extends State<LoginPage> {
       child: GestureDetector(
         child: Text(
           AppLocalizations.of(context).noAccountRegisterLink,
+          key: const Key('noAccountRegister'),
           style: TextStyle(
             color: Theme.of(context).primaryColor
           ),

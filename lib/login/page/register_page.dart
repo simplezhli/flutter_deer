@@ -78,8 +78,8 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const MyAppBar(
-          title: '注册',
+        appBar: MyAppBar(
+          title: AppLocalizations.of(context).register,
         ),
         body: MyScrollView(
           keyboardConfig: Utils.getKeyboardActionsConfig(context, [_nodeText1, _nodeText2, _nodeText3]),
@@ -122,7 +122,7 @@ class _RegisterPageState extends State<RegisterPage> {
           }
         },
         maxLength: 6,
-        hintText: AppLocalizations.of(context).inputVerificationcodeHint,
+        hintText: AppLocalizations.of(context).inputVerificationCodeHint,
       ),
       Gaps.vGap8,
       MyTextField(
