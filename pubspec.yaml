@@ -23,7 +23,7 @@ dependencies:
   # https://github.com/ReactiveX/rxdart
   rxdart: ^0.24.1
   # Dart 常用工具类库 https://github.com/Sky24n/common_utils
-  common_utils: ^1.2.0
+  common_utils: 1.2.1
   # Flutter 常用工具类库 https://github.com/Sky24n/flustars
   flustars: ^0.3.2
   # Flutter 轮播图 https://github.com/best-flutter/flutter_swiper
