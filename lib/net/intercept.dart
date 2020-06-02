@@ -11,10 +11,10 @@ import 'package:sprintf/sprintf.dart';
 import 'dio_utils.dart';
 import 'error_handle.dart';
 
-class AuthInterceptor extends Interceptor{
+class AuthInterceptor extends Interceptor {
   @override
   Future onRequest(RequestOptions options) {
-    var accessToken = SpUtil.getString(Constant.accessToken);
+    final String accessToken = SpUtil.getString(Constant.accessToken);
     if (accessToken.isNotEmpty) {
       options.headers['Authorization'] = 'Bearer $accessToken';
     }
@@ -23,15 +23,15 @@ class AuthInterceptor extends Interceptor{
   }
 }
 
-class TokenInterceptor extends Interceptor{
+class TokenInterceptor extends Interceptor {
 
   Future<String> getToken() async {
 
-    Map<String, String> params = Map();
+    final Map<String, String> params = <String, String>{};
     params['refresh_token'] = SpUtil.getString(Constant.refreshToken);
     try {
       _tokenDio.options = DioUtils.instance.dio.options;
-      var response = await _tokenDio.post('lgn/refreshToken', data: params);
+      final Response response = await _tokenDio.post('lgn/refreshToken', data: params);
       if (response.statusCode == ExceptionHandle.success) {
         return json.decode(response.data.toString())['access_token'];
       }
@@ -48,21 +48,21 @@ class TokenInterceptor extends Interceptor{
     //401代表token过期
     if (response != null && response.statusCode == ExceptionHandle.unauthorized) {
       Log.d('-----------自动刷新Token------------');
-      Dio dio = DioUtils.instance.dio;
+      final Dio dio = DioUtils.instance.dio;
       dio.interceptors.requestLock.lock();
-      String accessToken = await getToken(); // 获取新的accessToken
+      final String accessToken = await getToken(); // 获取新的accessToken
       Log.e('-----------NewToken: $accessToken ------------');
       SpUtil.putString(Constant.accessToken, accessToken);
       dio.interceptors.requestLock.unlock();
 
       if (accessToken != null) {
         // 重新请求失败接口
-        var request = response.request;
+        final RequestOptions request = response.request;
         request.headers['Authorization'] = 'Bearer $accessToken';
         try {
           Log.e('----------- 重新请求接口 ------------');
           /// 避免重复执行拦截器，使用tokenDio
-          var response = await _tokenDio.request(request.path,
+          final Response response = await _tokenDio.request(request.path,
               data: request.data,
               queryParameters: request.queryParameters,
               cancelToken: request.cancelToken,

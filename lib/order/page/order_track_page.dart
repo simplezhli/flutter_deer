@@ -36,7 +36,7 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
             )
           ),
           Stepper(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             currentStep: 4 - 1,
             controlsBuilder: (BuildContext context, {VoidCallback onStepContinue, VoidCallback onStepCancel}) {
               return Row(); //操作按钮置空
@@ -48,11 +48,11 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
     );
   }
   
-  var _titleList = ['订单已完成', '开始配送', '等待配送', '收到新订单'];
-  var _timeList = ['2018/08/30 13:30', '2018/08/30 11:30', '2018/08/30 9:30', '2018/08/30 9:00'];
+  final List<String> _titleList = ['订单已完成', '开始配送', '等待配送', '收到新订单'];
+  final List<String> _timeList = ['2018/08/30 13:30', '2018/08/30 11:30', '2018/08/30 9:30', '2018/08/30 9:00'];
   
   Step _buildStep(int index) {
-    Color primaryColor = Theme.of(context).primaryColor;
+    final Color primaryColor = Theme.of(context).primaryColor;
     return Step(
       title: Padding(
         padding: const EdgeInsets.only(top: 15.0),

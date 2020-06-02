@@ -17,7 +17,7 @@ class WithdrawalAccountPage extends StatefulWidget {
 
 class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
   
-  List<WithdrawalAccountModel> _list = [];
+  final List<WithdrawalAccountModel> _list = [];
   
   @override
   void initState() {

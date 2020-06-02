@@ -4,7 +4,7 @@ import 'package:flutter_deer/demo/overlay/page/test_page.dart';
 import 'package:flutter_deer/demo/overlay/route/application.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  const MyHomePage({Key key, this.title}) : super(key: key);
 
   final String title;
 
@@ -46,16 +46,16 @@ class _MyHomePageState extends State<MyHomePage> {
         color: Colors.amber,
         child: Center(
           child: GestureDetector(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 26.0),
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 26.0),
               child: Text('功能说明：\n1.底部固定悬浮BottomNavigationBar点击切换时有移动动画。\n2.进入二级页面图标全灰，返回一级页面返回之前状态。\n3.二级页面内点击按钮，直接返回一级页面。\n\n点击文字进入下一页->', 
-                style: const TextStyle(fontSize: 15.0),
+                style: TextStyle(fontSize: 15.0),
               ),
             ),
             onTap: () {
-              Navigator.push(
+              Navigator.push<TestPage>(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<TestPage>(
                   builder: (BuildContext context) => TestPage(),
                 ),
               );
@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
   } 
   
   Widget _buildBottomNavigation(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
+    double width = MediaQuery.of(context).size.width;
     return Positioned(
       left: width * 0.2,
       right: width * 0.2,

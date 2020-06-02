@@ -20,7 +20,7 @@ class ShopPage extends StatefulWidget {
 
   const ShopPage({
     Key key,
-    this.isAccessibilityTest: false,
+    this.isAccessibilityTest = false,
   }) : super(key : key);
 
   final bool isAccessibilityTest;
@@ -31,9 +31,9 @@ class ShopPage extends StatefulWidget {
 
 class _ShopPageState extends State<ShopPage> with BasePageMixin<ShopPage, ShopPagePresenter>, AutomaticKeepAliveClientMixin<ShopPage> implements ShopIMvpView {
   
-  var _menuTitle = ['账户流水', '资金管理', '提现账号'];
-  var _menuImage = ['zhls', 'zjgl', 'txzh'];
-  var _menuDarkImage = ['dark_zhls', 'dark_zjgl', 'dark_txzh'];
+  final List<String> _menuTitle = ['账户流水', '资金管理', '提现账号'];
+  final List<String> _menuImage = ['zhls', 'zjgl', 'txzh'];
+  final List<String> _menuDarkImage = ['dark_zhls', 'dark_zjgl', 'dark_txzh'];
 
   UserProvider provider = UserProvider();
   
@@ -139,7 +139,7 @@ class _ShopPageState extends State<ShopPage> with BasePageMixin<ShopPage, ShopPa
                 child: GridView.builder(
                   shrinkWrap: true,
                   padding: const EdgeInsets.fromLTRB(8.0, 0, 8.0, 12.0),
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 4,
                     childAspectRatio: 1.18
@@ -186,7 +186,7 @@ class _ShopPageState extends State<ShopPage> with BasePageMixin<ShopPage, ShopPa
                 child: GridView.builder(
                   shrinkWrap: true,
                   padding: const EdgeInsets.fromLTRB(8.0, 0, 8.0, 12.0),
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 4,
                       childAspectRatio: 1.18

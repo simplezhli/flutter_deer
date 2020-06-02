@@ -22,18 +22,18 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
   
   @override
   Widget build(BuildContext context) {
-    Color red = Theme.of(context).errorColor;
-    Color blue = Theme.of(context).primaryColor;
-    bool isDark = ThemeUtils.isDark(context);
+    final Color red = Theme.of(context).errorColor;
+    final Color blue = Theme.of(context).primaryColor;
+    final bool isDark = ThemeUtils.isDark(context);
 
-    var bottomMenu = Container(
+    Widget bottomMenu = Container(
       height: 60.0,
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Theme(
         data: Theme.of(context).copyWith(
-            buttonTheme: ButtonThemeData(
-              height: 44.0,
-            )
+          buttonTheme: const ButtonThemeData(
+            height: 44.0,
+          ),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -68,7 +68,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
       ),
     );
 
-    var children = [
+    List<Widget> children = [
       const Text(
         '暂未接单',
         style: TextStyles.textBold24,
@@ -81,8 +81,8 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
       Gaps.vGap16,
       Row(
         children: <Widget>[
-          ClipOval(
-            child: const LoadAssetImage('order/icon_avatar', width: 44.0, height: 44.0),
+          const ClipOval(
+            child: LoadAssetImage('order/icon_avatar', width: 44.0, height: 44.0),
           ),
           Gaps.hGap8,
           Expanded(
@@ -91,9 +91,9 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('郭李'),
+                  const Text('郭李'),
                   Gaps.vGap8,
-                  Text('15000000000'),
+                  const Text('15000000000'),
                 ],
               ),
             ),
@@ -103,9 +103,9 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
           Semantics(
             label: '拨打电话',
             child: GestureDetector(
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20.0),
-                child: const LoadAssetImage('order/icon_phone', width: 24.0, height: 44.0),
+              child: const Padding(
+                padding: EdgeInsets.only(left: 20.0),
+                child: LoadAssetImage('order/icon_phone', width: 24.0, height: 44.0),
               ),
               onTap: () => _showCallPhoneDialog('15000000000'),
             ),
@@ -118,7 +118,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
         children: <Widget>[
           const LoadAssetImage('order/icon_address', width: 16.0, height: 20.0),
           Gaps.hGap4,
-          Expanded(child: Text('西安市雁塔区 鱼化寨街道唐兴路唐兴数码3楼318', maxLines: 2)),
+          const Expanded(child: Text('西安市雁塔区 鱼化寨街道唐兴路唐兴数码3楼318', maxLines: 2)),
         ],
       ),
       Gaps.vGap32,
@@ -130,7 +130,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
         // 如果滚动视图在滚动方向无界约束，那么shrinkWrap必须为true
           shrinkWrap: true,
           // 禁用ListView滑动，使用外层的ScrollView滑动
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           itemCount: 2,
           itemBuilder: (_, index) => _getOrderGoodsItem(index)
       ),
@@ -237,9 +237,9 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                       ),
                       height: 16.0,
                       alignment: Alignment.center,
-                      child: Text(
+                      child: const Text(
                         '抵扣2.50元',
-                        style: const TextStyle(color: Colors.white, fontSize: Dimens.font_sp10),
+                        style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp10),
                       ),
                     ),
                   )

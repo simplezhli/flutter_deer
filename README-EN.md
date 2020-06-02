@@ -94,6 +94,8 @@ iOS needs to download the code to run.
 
 - [玩玩Flutter的拖拽——实现一款万能遥控器](https://weilu.blog.csdn.net/article/details/105237677)
 
+- [玩玩Flutter Web —— 实现高德地图插件](https://weilu.blog.csdn.net/article/details/106465792)
+
 - [Flutter动画曲线Curves 效果一览](https://weilu.blog.csdn.net/article/details/95632571)
     
 ## Tripartite library used

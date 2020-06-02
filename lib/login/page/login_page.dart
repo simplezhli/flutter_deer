@@ -51,9 +51,9 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _verify() {
-    var name = _nameController.text;
-    var password = _passwordController.text;
-    var clickable = true;
+    final String name = _nameController.text;
+    final String  password = _passwordController.text;
+    bool clickable = true;
     if (name.isEmpty || name.length < 11) {
       clickable = false;
     }
@@ -85,14 +85,14 @@ class _LoginPageState extends State<LoginPage> {
         },
       ),
       body: MyScrollView(
-        keyboardConfig: Utils.getKeyboardActionsConfig(context, [_nodeText1, _nodeText2]),
-        padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 20.0),
+        keyboardConfig: Utils.getKeyboardActionsConfig(context, <FocusNode>[_nodeText1, _nodeText2]),
+        padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 20.0),
         children: _buildBody,
       ),
     );
   }
 
-  List<Widget> get _buildBody => [
+  List<Widget> get _buildBody => <Widget>[
     Text(
       AppLocalizations.of(context).passwordLogin,
       style: TextStyles.textBold26,

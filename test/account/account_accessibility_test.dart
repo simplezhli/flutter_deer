@@ -16,7 +16,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   
-  var map = Map<String, Widget>();
+  final Map<String, Widget> map = <String, Widget>{};
   map['account_page'] = AccountPage();
   map['account_record_list_page'] = AccountRecordListPage();
   map['add_withdrawal_account_page'] = AddWithdrawalAccountPage();
@@ -75,11 +75,10 @@ void main() {
           await tester.pumpWidget(MaterialApp(theme: theme, home: page));
           await expectLater(tester, meetsGuideline(textContrastGuideline));
           handle.dispose();
-        }, skip: (
-            name == 'add_withdrawal_account_page' || 
+        }, skip:
+            name == 'add_withdrawal_account_page' ||
             name == 'withdrawal_page' ||
             name == 'withdrawal_result_page'
-          )
         ); // https://github.com/flutter/flutter/issues/21647
       });
     }

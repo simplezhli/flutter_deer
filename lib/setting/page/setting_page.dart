@@ -23,7 +23,7 @@ class SettingPage extends StatefulWidget {
 class _SettingPageState extends State<SettingPage> {
   @override
   Widget build(BuildContext context) {
-    String theme = SpUtil.getString(Constant.theme);
+    final String theme = SpUtil.getString(Constant.theme);
     String themeMode;
     switch(theme) {
       case 'Dark':

@@ -21,8 +21,8 @@ class GoodsSortProvider extends ChangeNotifier {
   get mList => _mList;
 
   /// 三级联动选择的position
-  var _positions = [0, 0, 0];
-  get positions => _positions;
+  List<int> _positions = [0, 0, 0];
+  List<int> get positions => _positions;
 
 
   void setIndex(int index) {

@@ -31,20 +31,20 @@ class AccountRouter implements IRouterProvider{
   
   @override
   void initRouter(Router router) {
-    router.define(accountPage, handler: Handler(handlerFunc: (_, params) => AccountPage()));
-    router.define(accountRecordListPage, handler: Handler(handlerFunc: (_, params) => AccountRecordListPage()));
-    router.define(addWithdrawalAccountPage, handler: Handler(handlerFunc: (_, params) => AddWithdrawalAccountPage()));
+    router.define(accountPage, handler: Handler(handlerFunc: (_, __) => AccountPage()));
+    router.define(accountRecordListPage, handler: Handler(handlerFunc: (_, __) => AccountRecordListPage()));
+    router.define(addWithdrawalAccountPage, handler: Handler(handlerFunc: (_, __) => AddWithdrawalAccountPage()));
     router.define(bankSelectPage, handler: Handler(handlerFunc: (_, params) {
-      var type = int.parse(params['type']?.first);
+      final int type = int.parse(params['type']?.first);
       return BankSelectPage(type: type);
     }));
-    router.define(citySelectPage, handler: Handler(handlerFunc: (_, params) => CitySelectPage()));
-    router.define(withdrawalAccountListPage, handler: Handler(handlerFunc: (_, params) => WithdrawalAccountListPage()));
-    router.define(withdrawalAccountPage, handler: Handler(handlerFunc: (_, params) => WithdrawalAccountPage()));
-    router.define(withdrawalPage, handler: Handler(handlerFunc: (_, params) => WithdrawalPage()));
-    router.define(withdrawalPasswordPage, handler: Handler(handlerFunc: (_, params) => WithdrawalPasswordPage()));
-    router.define(withdrawalRecordListPage, handler: Handler(handlerFunc: (_, params) => WithdrawalRecordListPage()));
-    router.define(withdrawalResultPage, handler: Handler(handlerFunc: (_, params) => WithdrawalResultPage()));
+    router.define(citySelectPage, handler: Handler(handlerFunc: (_, __) => CitySelectPage()));
+    router.define(withdrawalAccountListPage, handler: Handler(handlerFunc: (_, __) => WithdrawalAccountListPage()));
+    router.define(withdrawalAccountPage, handler: Handler(handlerFunc: (_, __) => WithdrawalAccountPage()));
+    router.define(withdrawalPage, handler: Handler(handlerFunc: (_, __) => WithdrawalPage()));
+    router.define(withdrawalPasswordPage, handler: Handler(handlerFunc: (_, __) => WithdrawalPasswordPage()));
+    router.define(withdrawalRecordListPage, handler: Handler(handlerFunc: (_, __) => WithdrawalRecordListPage()));
+    router.define(withdrawalResultPage, handler: Handler(handlerFunc: (_, __) => WithdrawalResultPage()));
   }
   
 }

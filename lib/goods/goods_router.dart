@@ -19,15 +19,15 @@ class GoodsRouter implements IRouterProvider{
   
   @override
   void initRouter(Router router) {
-    router.define(goodsPage, handler: Handler(handlerFunc: (_, params) => GoodsPage()));
+    router.define(goodsPage, handler: Handler(handlerFunc: (_, __) => GoodsPage()));
     router.define(goodsEditPage, handler: Handler(handlerFunc: (_, params) {
-      var isAdd = params['isAdd']?.first == 'true';
-      var isScan = params['isScan']?.first == 'true';
+      final bool isAdd = params['isAdd']?.first == 'true';
+      final bool isScan = params['isScan']?.first == 'true';
       return GoodsEditPage(isAdd: isAdd, isScan: isScan,);
     }));
-    router.define(goodsSearchPage, handler: Handler(handlerFunc: (_, params) => GoodsSearchPage()));
-    router.define(goodsSizePage, handler: Handler(handlerFunc: (_, params) => GoodsSizePage()));
-    router.define(goodsSizeEditPage, handler: Handler(handlerFunc: (_, params) => GoodsSizeEditPage()));
+    router.define(goodsSearchPage, handler: Handler(handlerFunc: (_, __) => GoodsSearchPage()));
+    router.define(goodsSizePage, handler: Handler(handlerFunc: (_, __) => GoodsSizePage()));
+    router.define(goodsSizeEditPage, handler: Handler(handlerFunc: (_, __) => GoodsSizeEditPage()));
   }
   
 }

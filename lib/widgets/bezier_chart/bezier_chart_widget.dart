@@ -734,8 +734,8 @@ class BezierChartState extends State<BezierChart>
                   MySingleChildScrollView(
                     controller: _scrollController,
                     physics: isPinchZoomActive || !_isScrollable
-                        ? NeverScrollableScrollPhysics()
-                        : AlwaysScrollableScrollPhysics(),
+                        ? const NeverScrollableScrollPhysics()
+                        : const AlwaysScrollableScrollPhysics(),
                     key: _keyScroll,
                     scrollDirection: Axis.horizontal,
                     padding: EdgeInsets.symmetric(horizontal: horizontalPadding),

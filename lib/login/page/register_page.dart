@@ -51,10 +51,10 @@ class _RegisterPageState extends State<RegisterPage> {
   }
   
   void _verify() {
-    var name = _nameController.text;
-    var vCode = _vCodeController.text;
-    var password = _passwordController.text;
-    var clickable = true;
+    final String name = _nameController.text;
+    final String  vCode = _vCodeController.text;
+    final String  password = _passwordController.text;
+    bool clickable = true;
     if (name.isEmpty || name.length < 11) {
       clickable = false;
     }
@@ -82,16 +82,16 @@ class _RegisterPageState extends State<RegisterPage> {
           title: AppLocalizations.of(context).register,
         ),
         body: MyScrollView(
-          keyboardConfig: Utils.getKeyboardActionsConfig(context, [_nodeText1, _nodeText2, _nodeText3]),
+          keyboardConfig: Utils.getKeyboardActionsConfig(context, <FocusNode>[_nodeText1, _nodeText2, _nodeText3]),
           crossAxisAlignment: CrossAxisAlignment.center,
-          padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 20.0),
+          padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 20.0),
           children: _buildBody(),
         ),
     );
   }
 
   List<Widget> _buildBody() {
-    return [
+    return <Widget>[
       Text(
         AppLocalizations.of(context).openYourAccount,
         style: TextStyles.textBold26,

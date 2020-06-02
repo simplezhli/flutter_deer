@@ -8,8 +8,8 @@ import 'package:flutter_deer/setting/page/theme_page.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  
-  var map = Map<String, Widget>();
+
+  final Map<String, Widget> map = <String, Widget>{};
   map['about_page'] = AboutPage();
   map['account_manager_page'] = AccountManagerPage();
   map['setting_page'] = SettingPage();

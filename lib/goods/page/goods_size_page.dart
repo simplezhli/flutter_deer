@@ -28,7 +28,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
   String _sizeName = '商品规格名称';
   final GlobalKey _hintKey = GlobalKey();
 
-  List<GoodsSizeModel> _goodsSizeList = [];
+  final List<GoodsSizeModel> _goodsSizeList = [];
   // 保留一个Slidable打开
   final SlidableController _slidableController = SlidableController();
 
@@ -45,16 +45,15 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
     _goodsSizeList.add(GoodsSizeModel('goods/goods_size_1', '黑色3', 10, '50.0', 2, '2', '2.5', ''));
 
     // 获取Build完成状态监听
-    var widgetsBinding = WidgetsBinding.instance;
-    widgetsBinding.addPostFrameCallback((callback) {
+    WidgetsBinding.instance.addPostFrameCallback((callback) {
       _showHint();
     });
   }
 
   /// design/4商品/index.html#artboard18
   void _showHint() {
-    final RenderBox hint = _hintKey.currentContext.findRenderObject();
-    final RenderBox overlay = Overlay.of(context).context.findRenderObject();
+    final RenderBox hint = _hintKey.currentContext.findRenderObject() as RenderBox;
+    final RenderBox overlay = Overlay.of(context).context.findRenderObject() as RenderBox;
     var a = hint.localToGlobal(Offset(50.0, hint.size.height + 150.0), ancestor: overlay);
     var b = hint.localToGlobal(hint.size.bottomLeft(Offset(50.0, 150.0)), ancestor: overlay);
     final RelativeRect position = RelativeRect.fromRect(

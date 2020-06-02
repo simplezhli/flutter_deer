@@ -64,9 +64,9 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
             (node) {
               return GestureDetector(
                 onTap: () => node.unfocus(),
-                child: Padding(
+                child: const Padding(
                   padding: EdgeInsets.only(right: 16.0),
-                  child: const Text('关闭'),
+                  child: Text('关闭'),
                 ),
               );
             },
@@ -140,7 +140,7 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
         onTap: () {
           NavigatorUtils.pushResult(context, ShopRouter.addressSelectPage, (result) {
             setState(() {
-              PoiSearch model = result;
+              final PoiSearch model = result as PoiSearch;
               _address = model.provinceName + ' ' +
                   model.cityName + ' ' +
                   model.adName + ' ' +
@@ -170,10 +170,10 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
   }
 
   String _sortName = '';
-  final _list = ['水果生鲜', '家用电器', '休闲食品', '茶酒饮料', '美妆个护', '粮油调味', '家庭清洁', '厨具用品', '儿童玩具', '床上用品'];
+  final List<String> _list = ['水果生鲜', '家用电器', '休闲食品', '茶酒饮料', '美妆个护', '粮油调味', '家庭清洁', '厨具用品', '儿童玩具', '床上用品'];
 
   void _showBottomSheet() {
-    showModalBottomSheet(
+    showModalBottomSheet<dynamic>(
       context: context,
       builder: (BuildContext context) {
         return SizedBox(

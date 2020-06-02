@@ -88,7 +88,7 @@ class _OrderListPageState extends State<OrderListPage> with AutomaticKeepAliveCl
 
   List _list = [];
 
-  Future _onRefresh() async {
+  Future<void> _onRefresh() async {
     await Future.delayed(Duration(seconds: 2), () {
       setState(() {
         _page = 1;
@@ -101,7 +101,7 @@ class _OrderListPageState extends State<OrderListPage> with AutomaticKeepAliveCl
     return _page < _maxPage;
   }
 
-  Future _loadMore() async {
+  Future<void> _loadMore() async {
     if (_isLoading) {
       return;
     }

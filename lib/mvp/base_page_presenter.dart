@@ -82,9 +82,9 @@ class BasePagePresenter<V extends IMvpView> extends BasePresenter<V> {
   Future<String> uploadImg(File image) async {
     String imgPath = '';
     try{
-      String path = image.path;
-      var name = path.substring(path.lastIndexOf('/') + 1);
-      var formData = FormData.fromMap({
+      final String path = image.path;
+      final String name = path.substring(path.lastIndexOf('/') + 1);
+      final FormData formData = FormData.fromMap({
         'uploadIcon': await MultipartFile.fromFile(path, filename: name)
       });
       await requestNetwork<String>(Method.post,

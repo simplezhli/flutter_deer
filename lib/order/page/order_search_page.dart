@@ -56,7 +56,7 @@ class _OrderSearchPageState extends State<OrderSearchPage> with BasePageMixin<Or
         body: Consumer<BaseListProvider<SearchItem>>(
           builder: (_, provider, __) {
             return DeerListView(
-              key: Key('order_search_list'),
+              key: const Key('order_search_list'),
               itemCount: provider.list.length,
               stateType: provider.stateType,
               onRefresh: _onRefresh,
@@ -77,12 +77,12 @@ class _OrderSearchPageState extends State<OrderSearchPage> with BasePageMixin<Or
     );
   }
 
-  Future _onRefresh() async {
+  Future<void> _onRefresh() async {
     _page = 1;
     await _orderSearchPresenter.search(_keyword, _page, false);
   }
 
-  Future _loadMore() async {
+  Future<void> _loadMore() async {
     _page++;
     await _orderSearchPresenter.search(_keyword, _page, false);
   }
@@ -92,7 +92,7 @@ class _OrderSearchPageState extends State<OrderSearchPage> with BasePageMixin<Or
 
   @override
   PowerPresenter createPresenter() {
-    PowerPresenter powerPresenter = PowerPresenter(this);
+    final PowerPresenter powerPresenter = PowerPresenter(this);
     _orderSearchPresenter = OrderSearchPresenter();
     _shopPagePresenter = ShopPagePresenter();
     powerPresenter.requestPresenter([_orderSearchPresenter, _shopPagePresenter]);

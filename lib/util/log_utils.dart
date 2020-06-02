@@ -26,7 +26,7 @@ class Log {
 
   static void json(String msg, {String tag = tag}) {
     if (!Constant.inProduction) {
-      var data = convert.json.decode(msg);
+      final data = convert.json.decode(msg);
       if (data is Map) {
         _printMap(data);
       } else if (data is List) {
@@ -39,13 +39,13 @@ class Log {
   // https://github.com/Milad-Akarie/pretty_dio_logger
   static void _printMap(Map data, {String tag = tag, int tabs = 1, bool isListItem = false, bool isLast = false}) {
     final bool isRoot = tabs == 1;
-    final initialIndent = _indent(tabs);
+    final String initialIndent = _indent(tabs);
     tabs++;
 
     if (isRoot || isListItem) LogUtil.v('$initialIndent{', tag: tag);
 
     data.keys.toList().asMap().forEach((index, key) {
-      final isLast = index == data.length - 1;
+      final bool isLast = index == data.length - 1;
       var value = data[key];
       if (value is String) value = '\"$value\"';
       if (value is Map) {
@@ -74,7 +74,7 @@ class Log {
 
   static void _printList(List list, {String tag = tag, int tabs = 1}) {
     list.asMap().forEach((i, e) {
-      final isLast = i == list.length - 1;
+      final bool isLast = i == list.length - 1;
       if (e is Map) {
         if (e.length == 0) {
           LogUtil.v('${_indent(tabs)}  $e${!isLast ? ',' : ''}', tag: tag);

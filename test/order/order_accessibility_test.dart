@@ -6,8 +6,8 @@ import 'package:flutter_deer/order/page/order_track_page.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  
-  var map = Map<String, Widget>();
+
+  final Map<String, Widget> map = <String, Widget>{};
   map['order_page'] = OrderPage();
   map['order_info_page'] = OrderInfoPage();
   map['order_track_page'] = OrderTrackPage();

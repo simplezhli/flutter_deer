@@ -19,7 +19,7 @@ class CitySelectPage extends StatefulWidget {
 
 class _CitySelectPageState extends State<CitySelectPage> {
 
-  List<CityEntity> _cityList = [];
+  final List<CityEntity> _cityList = [];
 
   @override
   void initState() {

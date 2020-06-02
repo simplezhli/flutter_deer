@@ -28,7 +28,7 @@ class _MessagePageState extends State<MessagePage> {
         child: ListView.builder(
           itemCount: 20,
           controller: _scrollController,
-          physics: AlwaysScrollableScrollPhysics(),
+          physics: const AlwaysScrollableScrollPhysics(),
           padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 28.0),
           itemBuilder: (_, index) => _MessageItem(),
         ),

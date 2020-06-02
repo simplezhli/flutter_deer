@@ -20,7 +20,7 @@ class PieChart extends StatefulWidget {
   
   final List<PieData> data;
   final String name;
-  static const List<Color> colorList = [
+  static const List<Color> colorList = <Color>[
     Color(0xFFFFD147), Color(0xFFA9DAF2), Color(0xFFFAAF64),
     Color(0xFF7087FA), Color(0xFFA0E65C), Color(0xFF5CE6A1), Color(0xFFA364FA),
     Color(0xFFDA61F2), Color(0xFFFA64AE), Color(0xFFFA6464),
@@ -41,8 +41,8 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
   void initState() {
     super.initState();
 
-    controller = AnimationController(duration: Duration(milliseconds: 800), vsync: this);
-    final Animation curve = CurvedAnimation(parent: controller, curve: Curves.decelerate);
+    controller = AnimationController(duration: const Duration(milliseconds: 800), vsync: this);
+    final Animation<double> curve = CurvedAnimation(parent: controller, curve: Curves.decelerate);
     animation = Tween<double>(begin: 0, end: 1).animate(curve);
     controller.forward(from: 0);
   }
@@ -69,14 +69,14 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
     for (int i = 0; i < widget.data.length; i++) {
       count += widget.data[i].number;
     }
-    final bgColor = ThemeUtils.getBackgroundColor(context);
-    final shadowColor = ThemeUtils.isDark(context) ? Colours.dark_bg_gray : Color(0x80C8DAFA);
+    final Color bgColor = ThemeUtils.getBackgroundColor(context);
+    final Color shadowColor = ThemeUtils.isDark(context) ? Colours.dark_bg_gray : const Color(0x80C8DAFA);
     return Container(
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: bgColor,
-        boxShadow: [
-          BoxShadow(color: shadowColor, offset: Offset(0.0, 4.0), blurRadius: 8.0, spreadRadius: 0.0),
+        boxShadow: <BoxShadow>[
+          BoxShadow(color: shadowColor, offset: const Offset(0.0, 4.0), blurRadius: 8.0, spreadRadius: 0.0),
         ],
       ),
       child: RepaintBoundary(
@@ -135,8 +135,8 @@ class PieChartPainter extends CustomPainter {
     data.sort((left,right) => right.number.compareTo(left.number));
     // 由大到小给予颜色
     for (int i = 0; i < data.length; i++) {
-      this.data[i].color = PieChart.colorList[i];
-      this.data[i].percentage = this.data[i].number / count;
+      data[i].color = PieChart.colorList[i];
+      data[i].percentage = data[i].number / count;
       // 排序后的数据输出
 //      print(data[i].toString());
     }
@@ -171,7 +171,7 @@ class PieChartPainter extends CustomPainter {
     prevAngle = -math.pi;
     mRadius = math.min(size.width, size.height) / 2 - 4;
     // 圆心
-    Offset offset = Offset(size.width / 2, size.height / 2);
+    final Offset offset = Offset(size.width / 2, size.height / 2);
     mCircle = Rect.fromCircle(center: offset, radius: mRadius);
     
     for (int i = 0; i < data.length; i++) {
@@ -184,10 +184,10 @@ class PieChartPainter extends CustomPainter {
     prevAngle = -math.pi;
     for (int i = 0; i < data.length; i++) {
       //计算扇形中心点的坐标
-      var x = (size.height * 0.74 / 2) * math.cos(prevAngle + (totalAngle * data[i].percentage / 2));
-      var y = (size.height * 0.74 / 2) * math.sin(prevAngle + (totalAngle * data[i].percentage / 2));
+      final double x = (size.height * 0.74 / 2) * math.cos(prevAngle + (totalAngle * data[i].percentage / 2));
+      final double y = (size.height * 0.74 / 2) * math.sin(prevAngle + (totalAngle * data[i].percentage / 2));
       // 保留一位小数
-      var percentage = ((data[i].percentage * 100).toStringAsFixed(1) + '%');
+      final String percentage = (data[i].percentage * 100).toStringAsFixed(1) + '%';
       drawPercentage(canvas, percentage, x, y, size);
       prevAngle = prevAngle + totalAngle * data[i].percentage;
     }
@@ -206,10 +206,10 @@ class PieChartPainter extends CustomPainter {
   }
 
   void drawPercentage(Canvas context, String percentage, double x, double y, Size size) {
-    TextSpan span = TextSpan(
+    final TextSpan span = TextSpan(
         style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp12),
         text: percentage);
-    TextPainter tp = TextPainter(
+    final TextPainter tp = TextPainter(
         text: span,
         textAlign: TextAlign.left,
         textDirection: TextDirection.rtl);
@@ -229,9 +229,9 @@ class PieChartPainter extends CustomPainter {
   /// 给饼状图上的各个扇形区域添加语义节点(为了便于阅读，将节点区域改为矩形)
   List<CustomPainterSemantics> _buildSemantics(Size size) {
     final List<CustomPainterSemantics> nodes = <CustomPainterSemantics>[];
-    double height = size.height / data.length;
+    final double height = size.height / data.length;
     for (int i = 0; i < data.length; i++) {
-      var percentage = ((data[i].percentage * 100).toStringAsFixed(1) + '%');
+      final String percentage = (data[i].percentage * 100).toStringAsFixed(1) + '%';
       final CustomPainterSemantics node = CustomPainterSemantics(
         rect: Rect.fromLTRB(
           0, height * i,

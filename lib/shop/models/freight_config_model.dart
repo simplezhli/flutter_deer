@@ -11,11 +11,11 @@ class FreightConfigModel {
       this.isAdd, this.price);
 
   FreightConfigModel.fromJsonMap(Map<String, dynamic> map):
-        min = map['min'],
-        max = map['max'],
-        type = map['type'],
-        isAdd = map['isAdd'],
-        price = map['price'];
+        min = map['min'] as String,
+        max = map['max'] as String,
+        type = map['type'] as int,
+        isAdd = map['isAdd'] as bool,
+        price = map['price'] as String;
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();

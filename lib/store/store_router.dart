@@ -13,8 +13,8 @@ class StoreRouter implements IRouterProvider{
   
   @override
   void initRouter(Router router) {
-    router.define(auditPage, handler: Handler(handlerFunc: (_, params) => StoreAuditPage()));
-    router.define(auditResultPage, handler: Handler(handlerFunc: (_, params) => StoreAuditResultPage()));
+    router.define(auditPage, handler: Handler(handlerFunc: (_, __) => StoreAuditPage()));
+    router.define(auditResultPage, handler: Handler(handlerFunc: (_, __) => StoreAuditResultPage()));
   }
   
 }

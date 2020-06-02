@@ -13,7 +13,7 @@ class ThemeProvider extends ChangeNotifier {
   };
   
   void syncTheme() {
-    var theme = SpUtil.getString(Constant.theme);
+    final String theme = SpUtil.getString(Constant.theme);
     if (theme.isNotEmpty && theme != themes[ThemeMode.system]) {
       notifyListeners();
     }
@@ -25,7 +25,7 @@ class ThemeProvider extends ChangeNotifier {
   }
 
   ThemeMode getThemeMode(){
-    var theme = SpUtil.getString(Constant.theme);
+    final String theme = SpUtil.getString(Constant.theme);
     switch(theme) {
       case 'Dark':
         return ThemeMode.dark;

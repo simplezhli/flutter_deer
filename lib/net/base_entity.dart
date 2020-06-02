@@ -16,7 +16,7 @@ class BaseEntity<T> {
     message = json[Constant.message] as String;
     if (json.containsKey(Constant.data)) {
       if (json[Constant.data] is List) {
-        (json[Constant.data] as List).forEach((item) {
+        json[Constant.data].forEach((Object item) {
           listData.add(_generateOBJ<T>(item));
         });
       } else {
@@ -25,7 +25,7 @@ class BaseEntity<T> {
     }
   }
 
-  S _generateOBJ<S>(json) {
+  S _generateOBJ<S>(Object json) {
     if (S.toString() == 'String') {
       return json.toString() as S;
     } else if (T.toString() == 'Map<dynamic, dynamic>') {

@@ -54,9 +54,9 @@ class _WithdrawalPasswordPageState extends State<WithdrawalPasswordPage> {
         builder: (BuildContext context) {
           return BaseDialog(
             hiddenTitle: true,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: const Text('为了您的账户安全需先进行短信验证并设置提现密码。', textAlign: TextAlign.center),
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              child: Text('为了您的账户安全需先进行短信验证并设置提现密码。', textAlign: TextAlign.center),
             ),
             onPressed: () {
               NavigatorUtils.goBack(context);

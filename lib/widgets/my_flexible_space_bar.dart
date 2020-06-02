@@ -153,7 +153,7 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
     return null;
   }
 
-  GlobalKey _key = GlobalKey();
+  final GlobalKey _key = GlobalKey();
 
   double _offset = 0;
 
@@ -161,7 +161,7 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
   void initState() {
     //监听Widget是否绘制完毕
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      final RenderBox renderBoxRed = _key.currentContext.findRenderObject();
+      final RenderBox renderBoxRed = _key.currentContext.findRenderObject() as RenderBox;
       _offset = renderBoxRed.size.width / 2;
     });
     super.initState();
@@ -169,7 +169,7 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
     final FlexibleSpaceBarSettings settings = context.dependOnInheritedWidgetOfExactType<FlexibleSpaceBarSettings>();
     assert(settings != null, 'A FlexibleSpaceBar must be wrapped in the widget returned by FlexibleSpaceBar.createSettings().');
 
@@ -179,7 +179,7 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
 
     // 0.0 -> Expanded
     // 1.0 -> Collapsed to toolbar
-    final double t = (1.0 - (settings.currentExtent - settings.minExtent) / deltaExtent).clamp(0.0, 1.0);
+    final double t = (1.0 - (settings.currentExtent - settings.minExtent) / deltaExtent).clamp(0.0, 1.0) as double;
 
     // background image
     if (widget.background != null) {
@@ -230,7 +230,7 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
               bottom: 16.0,
             );
         final double scaleValue = Tween<double>(begin: 1.5, end: 1.0).transform(t);
-        double width = (size.width - 32.0) / 2 - _offset;
+        final double width = (size.width - 32.0) / 2 - _offset;
         final Matrix4 scaleTransform = Matrix4.identity()
           ..scale(scaleValue, scaleValue, 1.0)..translate(t * width, 0.0);
         final Alignment titleAlignment = _getTitleAlignment(false);

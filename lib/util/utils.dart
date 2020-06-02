@@ -13,7 +13,7 @@ class Utils {
 
   /// 调起拨号页
   static void launchTelURL(String phone) async {
-    String url = 'tel:'+ phone;
+    final String url = 'tel:'+ phone;
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -24,14 +24,14 @@ class Utils {
   /// 调起二维码扫描页
   static Future<String> scan() async {
     try {
-      var options = ScanOptions(
-        strings: const {
-          "cancel": "取消",
-          "flash_on": "开启闪光灯",
-          "flash_off": "关闭闪光灯",
+      const ScanOptions options = ScanOptions(
+        strings: {
+          'cancel': '取消',
+          'flash_on': '开启闪光灯',
+          'flash_off': '关闭闪光灯',
         },
       );
-      var result = await BarcodeScanner.scan(options: options);
+      final ScanResult result = await BarcodeScanner.scan(options: options);
       return result.rawContent;
     } catch (e) {
       if (e is PlatformException) {
@@ -43,7 +43,7 @@ class Utils {
     return null;
   }
 
-  static String formatPrice(String price, {format: MoneyFormat.END_INTEGER}){
+  static String formatPrice(String price, {MoneyFormat format = MoneyFormat.END_INTEGER}){
     return MoneyUtil.changeYWithUnit(NumUtil.getDoubleByValueStr(price), MoneyUnit.YUAN, format: format);
   }
 
@@ -57,9 +57,9 @@ class Utils {
           (node) {
             return GestureDetector(
               onTap: () => node.unfocus(),
-              child: Padding(
+              child: const Padding(
                 padding: EdgeInsets.only(right: 16.0),
-                child: const Text('关闭'),
+                child: Text('关闭'),
               ),
             );
           },
@@ -151,7 +151,7 @@ Widget _buildDialogTransitions(BuildContext context, Animation<double> animation
         end: Offset.zero
       ).animate(CurvedAnimation(
         parent: animation,
-        curve: animation.status != AnimationStatus.forward ? Curves.easeOutBack: ElasticOutCurve(0.85),
+        curve: animation.status != AnimationStatus.forward ? Curves.easeOutBack: const ElasticOutCurve(0.85),
       )),
       child: child,
     ),

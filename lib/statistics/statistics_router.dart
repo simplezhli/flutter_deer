@@ -14,10 +14,10 @@ class StatisticsRouter implements IRouterProvider{
   @override
   void initRouter(Router router) {
     router.define(orderStatisticsPage, handler: Handler(handlerFunc: (_, params) {
-      var index = int.parse(params['index']?.first);
+      final int index = int.parse(params['index']?.first);
       return OrderStatisticsPage(index);
     }));
-    router.define(goodsStatisticsPage, handler: Handler(handlerFunc: (_, params) => GoodsStatisticsPage()));
+    router.define(goodsStatisticsPage, handler: Handler(handlerFunc: (_, __) => GoodsStatisticsPage()));
   }
   
 }

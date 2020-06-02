@@ -165,17 +165,17 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
   /// design/4商品/index.html#artboard3
   void _showSortMenu() {
     // 获取点击控件的坐标
-    final RenderBox button = _buttonKey.currentContext.findRenderObject();
-    final RenderBox overlay = Overlay.of(context).context.findRenderObject();
+    final RenderBox button = _buttonKey.currentContext.findRenderObject() as RenderBox;
+    final RenderBox overlay = Overlay.of(context).context.findRenderObject() as RenderBox;
     // 获得控件左下方的坐标
-    var a =  button.localToGlobal(Offset(0.0, button.size.height + 12.0), ancestor: overlay);
+    final Offset a =  button.localToGlobal(Offset(0.0, button.size.height + 12.0), ancestor: overlay);
     // 获得控件右下方的坐标
-    var b =  button.localToGlobal(button.size.bottomLeft(Offset(0, 12.0)), ancestor: overlay);
+    final Offset b =  button.localToGlobal(button.size.bottomLeft(const Offset(0, 12.0)), ancestor: overlay);
     final RelativeRect position = RelativeRect.fromRect(
       Rect.fromPoints(a, b),
       Offset.zero & overlay.size,
     );
-    final RenderBox body = _bodyKey.currentContext.findRenderObject();
+    final RenderBox body = _bodyKey.currentContext.findRenderObject() as RenderBox;
 
     TextStyle textStyle = TextStyle(
       fontSize: Dimens.font_sp14,
@@ -192,7 +192,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
           color: const Color(0x99000000),
           height: body.size.height - button.size.height - 12.0,
           child: ListView.builder(
-            physics: ClampingScrollPhysics(),
+            physics: const ClampingScrollPhysics(),
             itemCount: _sortList.length + 1,
             itemBuilder: (_, index) {
               Color backgroundColor = ThemeUtils.getBackgroundColor(context);
@@ -234,8 +234,8 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
 
   /// design/4商品/index.html#artboard4
   void _showAddMenu() {
-    final RenderBox button = _addKey.currentContext.findRenderObject();
-    final RenderBox overlay = Overlay.of(context).context.findRenderObject();
+    final RenderBox button = _addKey.currentContext.findRenderObject() as RenderBox;
+    final RenderBox overlay = Overlay.of(context).context.findRenderObject() as RenderBox;
     var a =  button.localToGlobal(Offset(button.size.width - 8.0, button.size.height - 12.0), ancestor: overlay);
     var b =  button.localToGlobal(button.size.bottomLeft(Offset(0, - 12.0)), ancestor: overlay);
     final RelativeRect position = RelativeRect.fromRect(
@@ -287,7 +287,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 onPressed: () {
                   NavigatorUtils.push(context, '${GoodsRouter.goodsEditPage}?isAdd=true', replace: true);
                 },
-                shape: RoundedRectangleBorder(
+                shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8.0), bottomRight: Radius.circular(8.0)),
                 ),
                 icon: LoadAssetImage('goods/add2', width: 16.0, height: 16.0, color: _iconColor,),

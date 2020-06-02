@@ -6,8 +6,8 @@ import 'package:flutter_deer/statistics/page/statistics_page.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  
-  var map = Map<String, Widget>();
+
+  final Map<String, Widget> map = <String, Widget>{};
   map['statistics_page'] = StatisticsPage();
   map['order_statistics_page'] = OrderStatisticsPage(1);
   map['goods_statistics_page'] = GoodsStatisticsPage();

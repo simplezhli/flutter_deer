@@ -79,7 +79,7 @@ class DioUtils {
     dynamic data, Map<String, dynamic> queryParameters,
     CancelToken cancelToken, Options options
   }) async {
-    var response = await _dio.request(url, data: data, queryParameters: queryParameters, options: _checkOptions(method, options), cancelToken: cancelToken);
+    final Response response = await _dio.request(url, data: data, queryParameters: queryParameters, options: _checkOptions(method, options), cancelToken: cancelToken);
     try {
       /// 集成测试无法使用 isolate https://github.com/flutter/flutter/issues/24703
       Map<String, dynamic> _map = Constant.isDriverTest ? parseData(response.data.toString()) : await compute(parseData, response.data.toString());
@@ -90,10 +90,8 @@ class DioUtils {
     }
   }
 
-  Options _checkOptions(method, options) {
-    if (options == null) {
-      options = Options();
-    }
+  Options _checkOptions(String method, Options options) {
+    options ??= Options();
     options.method = method;
     return options;
   }
@@ -158,7 +156,7 @@ class DioUtils {
       }
     }, onError: (e) {
       _cancelLogPrint(e, url);
-      NetError error = ExceptionHandle.handleException(e);
+      final NetError error = ExceptionHandle.handleException(e);
       _onError(error.code, error.msg, onError);
     });
   }

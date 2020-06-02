@@ -21,7 +21,7 @@ class FreightConfigPage extends StatefulWidget {
 
 class _FreightConfigPageState extends State<FreightConfigPage> {
   
-  List<FreightConfigModel> _list = [];
+  final List<FreightConfigModel> _list = [];
   
   @override
   void initState() {
@@ -29,7 +29,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
     _reset();
   }
 
-  _reset() {
+ void  _reset() {
     _list.clear();
     _list.add(FreightConfigModel('0', '', 1, false, ''));
     _list.add(FreightConfigModel('', '', 1, true, ''));
@@ -82,7 +82,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
   }
   
   // 暂时没有对输入数据进行校验
-  _buildItem(int index) {
+  Widget _buildItem(int index) {
     return _list[index].isAdd ?
     Semantics(
       label: '添加区间',
@@ -139,7 +139,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                       ),
                     )),
                   Gaps.hGap5,
-                  Text('元'),
+                  const Text('元'),
                 ],
               ),
               Gaps.vGap15,
@@ -207,7 +207,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
     );
   }
 
-  _showOrderPriceInputDialog(int index) {
+  void _showOrderPriceInputDialog(int index) {
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -228,7 +228,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
     );
   }
 
-  _showRangePriceInputDialog(int index) {
+  void _showRangePriceInputDialog(int index) {
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -246,7 +246,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
     );
   }
 
-  _showFreightInputDialog(int index) {
+  void _showFreightInputDialog(int index) {
     showDialog(
       context: context,
       barrierDismissible: false,

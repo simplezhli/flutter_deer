@@ -100,6 +100,8 @@ iOS需要自行下载代码运行。
 
 - [玩玩Flutter的拖拽——实现一款万能遥控器](https://weilu.blog.csdn.net/article/details/105237677)
 
+- [玩玩Flutter Web —— 实现高德地图插件](https://weilu.blog.csdn.net/article/details/106465792)
+
 - [Flutter动画曲线Curves 效果一览](https://weilu.blog.csdn.net/article/details/95632571)
     
 ## 使用到的三方库

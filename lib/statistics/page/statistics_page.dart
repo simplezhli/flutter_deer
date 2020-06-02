@@ -25,7 +25,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
     return Scaffold(
       body: CustomScrollView(
         key: const Key('statistic_list'),
-        physics: ClampingScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         slivers: _sliverBuilder(),
       ),
     );
@@ -73,10 +73,10 @@ class _StatisticsPageState extends State<StatisticsPage> {
                 height: 120.0,
                 child: MyCard(
                   child: Row(
-                    children: <Widget>[
-                      const _StatisticsTab('新订单(单)', 'xdd', '80'),
-                      const _StatisticsTab('待配送(单)', 'dps', '80'),
-                      const _StatisticsTab('今日交易额(元)', 'jrjye', '8000.00'),
+                    children: const <Widget>[
+                      _StatisticsTab('新订单(单)', 'xdd', '80'),
+                      _StatisticsTab('待配送(单)', 'dps', '80'),
+                      _StatisticsTab('今日交易额(元)', 'jrjye', '8000.00'),
                     ],
                   ),
                 ),

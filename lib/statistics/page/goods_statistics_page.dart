@@ -69,12 +69,12 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
               Gaps.vGap4,
               Text(_type ? '已配货' : '待配货', style: TextStyles.textBold24),
               Gaps.vGap32,
-              _type ? time : MergeSemantics(child: time,),
+              if (_type) time else MergeSemantics(child: time,),
               Gaps.vGap8,
               _buildChart(),
               const Text('热销商品排行', style: TextStyles.textBold18),
               ListView.builder(
-                physics: ClampingScrollPhysics(),
+                physics: const ClampingScrollPhysics(),
                 padding: const EdgeInsets.only(top: 16.0),
                 shrinkWrap: true,
                 itemCount: 10,
@@ -109,13 +109,13 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
   List<PieData> _getRandomData() {
     if (data.isEmpty) {
       for (int i = 0; i < 9; i++) {
-        PieData pieData = PieData();
+        final PieData pieData = PieData();
         pieData.name = '商品$i';
         pieData.number = Random.secure().nextInt(1000);
         data.add(pieData);
       }
       for (int i = 0; i < 11; i++) {
-        PieData pieData = PieData();
+        final PieData pieData = PieData();
         if (i == 10) {
           pieData.name = '其他';
           pieData.number = Random.secure().nextInt(1000);
@@ -143,9 +143,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
           padding: const EdgeInsets.fromLTRB(8.0, 16.0, 16.0, 16.0),
           child: Row(
             children: <Widget>[
-              index <= 2 ?
-              LoadAssetImage('statistic/${index == 0 ? 'champion' : index == 1 ? 'runnerup' : 'thirdplace'}', width: 40.0,) :
-              Container(
+              if (index <= 2) LoadAssetImage('statistic/${index == 0 ? 'champion' : index == 1 ? 'runnerup' : 'thirdplace'}', width: 40.0,) else Container(
                 alignment: Alignment.center,
                 width: 18.0, height: 18.0,
                 margin: const EdgeInsets.symmetric(horizontal: 11.0),
@@ -207,7 +205,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
   }
 
   Widget _buildSelectedText(String text, int index) {
-    Color unSelectedTextColor = ThemeUtils.isDark(context) ? Colors.white : Colours.dark_text_gray;
+    final Color unSelectedTextColor = ThemeUtils.isDark(context) ? Colors.white : Colours.dark_text_gray;
     return SelectedText(
       text,
       fontSize: Dimens.font_sp15,

@@ -81,7 +81,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
             color: Theme.of(context).dividerTheme.color,
             child: GridView.builder(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
                 childAspectRatio: 1.953,

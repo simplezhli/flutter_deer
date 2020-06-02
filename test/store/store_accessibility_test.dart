@@ -6,8 +6,8 @@ import 'package:flutter_deer/store/page/store_audit_result_page.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  
-  var map = Map<String, Widget>();
+
+  final Map<String, Widget> map = <String, Widget>{};
   map['store_audit_page'] = StoreAuditPage();
   map['store_audit_result_page'] = StoreAuditResultPage();
 
@@ -23,7 +23,7 @@ void main() {
   });
   
   group('store => 检测页面可点击目标是否都有语义', () {
-    ThemeData themeData = ThemeProvider().getTheme();
+    final ThemeData themeData = ThemeProvider().getTheme();
     map.forEach((name, page) {
       testWidgets(name, (WidgetTester tester) async {
         final SemanticsHandle handle = tester.ensureSemantics();

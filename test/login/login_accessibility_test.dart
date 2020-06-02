@@ -10,8 +10,8 @@ import 'package:flutter_deer/provider/theme_provider.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  
-  var map = Map<String, Widget>();
+
+  final Map<String, Widget> map = <String, Widget>{};
   map['login_page'] = LoginPage();
   map['register_page'] = RegisterPage();
   map['reset_password_page.dart'] = ResetPasswordPage();
@@ -21,7 +21,7 @@ void main() {
   /// 这里就不检测页面可点击目标大小了，因为不符合。。。
   
   group('login => 检测页面可点击目标是否都有语义', () {
-    ThemeData themeData = ThemeProvider().getTheme();
+    final ThemeData themeData = ThemeProvider().getTheme();
     map.forEach((name, page) {
       testWidgets(name, (WidgetTester tester) async {
         final SemanticsHandle handle = tester.ensureSemantics();

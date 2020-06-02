@@ -81,13 +81,13 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
             ),
             NestedScrollView(
               key: const Key('order_list'),
-              physics: ClampingScrollPhysics(),
+              physics: const ClampingScrollPhysics(),
               headerSliverBuilder: (context, innerBoxIsScrolled) => _sliverBuilder(context),
               body: NotificationListener<ScrollNotification>(
                 onNotification: (ScrollNotification notification) {
                   /// PageView的onPageChanged是监听ScrollUpdateNotification，会造成滑动中卡顿。这里修改为监听滚动结束再更新、
                   if (notification.depth == 0 && notification is ScrollEndNotification) {
-                    final PageMetrics metrics = notification.metrics;
+                    final PageMetrics metrics = notification.metrics as PageMetrics;
                     final int currentPage = metrics.page.round();
                     if (currentPage != _lastReportedPage) {
                       _lastReportedPage = currentPage;
@@ -177,11 +177,11 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
                       ),
                       indicatorColor: Colors.transparent,
                       tabs: const <Widget>[
-                        const _TabView(0, '新订单'),
-                        const _TabView(1, '待配送'),
-                        const _TabView(2, '待完成'),
-                        const _TabView(3, '已完成'),
-                        const _TabView(4, '已取消'),
+                        _TabView(0, '新订单'),
+                        _TabView(1, '待配送'),
+                        _TabView(2, '待完成'),
+                        _TabView(3, '已完成'),
+                        _TabView(4, '已取消'),
                       ],
                       onTap: (index) {
                         if (!mounted) {
@@ -200,7 +200,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
     ];
   }
 
-  PageController _pageController = PageController(initialPage: 0);
+  final PageController _pageController = PageController(initialPage: 0);
   void _onPageChange(int index) async {
     provider.setIndex(index);
     /// 这里没有指示器，所以缩短过渡动画时间，减少不必要的刷新
@@ -208,7 +208,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
   }
 }
 
-var img = [
+List<List<String>> img = [
   ['order/xdd_s', 'order/xdd_n'],
   ['order/dps_s', 'order/dps_n'],
   ['order/dwc_s', 'order/dwc_n'],
@@ -216,7 +216,7 @@ var img = [
   ['order/yqx_s', 'order/yqx_n']
 ];
 
-var darkImg = [
+List<List<String>> darkImg = [
   ['order/dark/icon_xdd_s', 'order/dark/icon_xdd_n'],
   ['order/dark/icon_dps_s', 'order/dark/icon_dps_n'],
   ['order/dark/icon_dwc_s', 'order/dark/icon_dwc_n'],
@@ -233,7 +233,7 @@ class _TabView extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    var imgList = ThemeUtils.isDark(context) ? darkImg : img;
+    final List<List<String>> imgList = ThemeUtils.isDark(context) ? darkImg : img;
     return Stack(
       children: <Widget>[
         Container(

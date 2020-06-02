@@ -19,11 +19,11 @@ class LoginRouter implements IRouterProvider{
   
   @override
   void initRouter(Router router) {
-    router.define(loginPage, handler: Handler(handlerFunc: (_, params) => LoginPage()));
-    router.define(registerPage, handler: Handler(handlerFunc: (_, params) => RegisterPage()));
-    router.define(smsLoginPage, handler: Handler(handlerFunc: (_, params) => SMSLoginPage()));
-    router.define(resetPasswordPage, handler: Handler(handlerFunc: (_, params) => ResetPasswordPage()));
-    router.define(updatePasswordPage, handler: Handler(handlerFunc: (_, params) => UpdatePasswordPage()));
+    router.define(loginPage, handler: Handler(handlerFunc: (_, __) => LoginPage()));
+    router.define(registerPage, handler: Handler(handlerFunc: (_, __) => RegisterPage()));
+    router.define(smsLoginPage, handler: Handler(handlerFunc: (_, __) => SMSLoginPage()));
+    router.define(resetPasswordPage, handler: Handler(handlerFunc: (_, __) => ResetPasswordPage()));
+    router.define(updatePasswordPage, handler: Handler(handlerFunc: (_, __) => UpdatePasswordPage()));
   }
   
 }

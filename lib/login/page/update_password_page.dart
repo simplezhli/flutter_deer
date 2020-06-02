@@ -44,9 +44,9 @@ class _UpdatePasswordPageState extends State<UpdatePasswordPage> {
   }
   
   void _verify() {
-    var oldPwd = _oldPwdController.text;
-    var newPwd = _newPwdController.text;
-    var clickable = true;
+    final String oldPwd = _oldPwdController.text;
+    final String newPwd = _newPwdController.text;
+    bool clickable = true;
     if (oldPwd.isEmpty || oldPwd.length < 6) {
       clickable = false;
     }
@@ -72,9 +72,9 @@ class _UpdatePasswordPageState extends State<UpdatePasswordPage> {
         title: '修改密码',
       ),
       body: MyScrollView(
-        keyboardConfig: Utils.getKeyboardActionsConfig(context, [_nodeText1, _nodeText2]),
+        keyboardConfig: Utils.getKeyboardActionsConfig(context, <FocusNode>[_nodeText1, _nodeText2]),
         crossAxisAlignment: CrossAxisAlignment.center,
-        padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 20.0),
+        padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 20.0),
         children: <Widget>[
           const Text(
             '重置登录密码',

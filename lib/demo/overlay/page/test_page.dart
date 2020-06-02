@@ -12,17 +12,17 @@ class _TestPageState extends State<TestPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Test Page'),
+        title: const Text('Test Page'),
       ),
       body: Container(
         color: Colors.tealAccent,
         child: Center(
           child: GestureDetector(
-            child: Text('Test Page', style: const TextStyle(fontSize: 22.0),),
+            child: const Text('Test Page', style: TextStyle(fontSize: 22.0),),
             onTap: () {
-              Navigator.push(
+              Navigator.push<TestPage>(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<TestPage>(
                   builder: (BuildContext context) => TestPage(),
                 ),
               );

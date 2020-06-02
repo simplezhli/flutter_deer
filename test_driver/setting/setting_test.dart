@@ -40,7 +40,7 @@ void main([List<String> args = const <String>[]]) {
       await driver.tap(find.text('关于我们'));
       await delayed();
       await driver.tap(find.text('作者'));
-      await Future.delayed(Duration(seconds: 3));
+      await Future<dynamic>.delayed(const Duration(seconds: 3));
       await driver.tap(find.byTooltip('Back'));
       await delayed();
       await driver.tap(find.byTooltip('Back'));
@@ -51,7 +51,7 @@ void main([List<String> args = const <String>[]]) {
       await driver.tap(find.text('夜间模式'));
       await delayed();
       await driver.tap(find.text('开启'));
-      await Future.delayed(Duration(seconds: 2));
+      await Future<dynamic>.delayed(const Duration(seconds: 2));
       await driver.tap(find.byTooltip('Back'));
       await delayed();
       if (args.length == 1) {

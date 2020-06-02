@@ -25,7 +25,7 @@ class ShopSettingPage extends StatefulWidget {
 class _ShopSettingPageState extends State<ShopSettingPage> {
 
   bool _check = false;
-  var _selectValue = [0];
+  List<int> _selectValue = [0];
   int _sendType = 0;
   String _sendPrice = '0.00';
   String _freePrice = '0.00';
@@ -34,7 +34,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
   String _securityService = '假一赔十';
   String _address = '陕西省 西安市 长安区 郭杜镇郭北村韩林路圣方医院斜对面';
   
-  _getPayType() {
+  String _getPayType() {
     String payType = '';
     for (int s in _selectValue) {
       if (s == 0) {
@@ -82,8 +82,8 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
           ),
           Gaps.vGap32,
           const Padding(
-            padding: const EdgeInsets.only(left: 16.0),
-            child: const Text('基础设置', style: TextStyles.textBold18),
+            padding: EdgeInsets.only(left: 16.0),
+            child: Text('基础设置', style: TextStyles.textBold18),
           ),
           Gaps.vGap16,
           ClickItem(
@@ -130,7 +130,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                     value: _selectValue,
                     onPressed: (value) {
                       setState(() {
-                        _selectValue = value;
+                        _selectValue = value.cast<int>();
                       });
                     },
                   );
@@ -244,7 +244,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
             onTap: () {
               NavigatorUtils.pushResult(context, ShopRouter.addressSelectPage, (result) {
                 setState(() {
-                  PoiSearch model = result;
+                  final PoiSearch model = result as PoiSearch;
                   _address = model.provinceName + ' ' +
                       model.cityName + ' ' +
                       model.adName + ' ' +

@@ -37,7 +37,7 @@ class GoodsItem extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    var child = Row(
+    Row child = Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         ExcludeSemantics(child: LoadImage(item.icon, width: 72.0, height: 72.0)),
@@ -125,7 +125,7 @@ class GoodsItem extends StatelessWidget {
             ),
           ),
         ),
-        selectIndex != index ? Gaps.empty : _buildGoodsMenu(context),
+        if (selectIndex != index) Gaps.empty else _buildGoodsMenu(context),
       ],
     );
   }
@@ -146,8 +146,8 @@ class GoodsItem extends StatelessWidget {
   }
 
   Widget _buildGoodsMenuContent(BuildContext context) {
-    var isDark = ThemeUtils.isDark(context);
-    var buttonColor = isDark ? Colours.dark_text : Colors.white;
+    final bool isDark = ThemeUtils.isDark(context);
+    final Color buttonColor = isDark ? Colours.dark_text : Colors.white;
     return InkWell(
       onTap: onTapMenuClose,
       child: Container(

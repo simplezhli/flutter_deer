@@ -9,8 +9,8 @@ import 'package:flutter_deer/shop/page/shop_setting_page.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  
-  var map = <String, Widget>{};
+
+  final Map<String, Widget> map = <String, Widget>{};
   map['shop_page'] = ShopPage(isAccessibilityTest: true,);
   map['shop_setting_page'] = ShopSettingPage();
   map['select_address_page'] = AddressSelectPage();

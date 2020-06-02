@@ -141,7 +141,7 @@ class _HomeState extends State<Home> {
             controller: _pageController,
             onPageChanged: _onPageChanged,
             children: _pageList,
-            physics: NeverScrollableScrollPhysics(), // 禁止滑动
+            physics: const NeverScrollableScrollPhysics(), // 禁止滑动
           )
         ),
       ),

@@ -12,7 +12,7 @@ import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
 import 'package:flutter_deer/widgets/selected_text.dart';
 import 'package:flutter_deer/widgets/bezier_chart/bezier_chart.dart';
-import 'package:flutter_deer/util/date_utils_.dart' as Date;
+import 'package:flutter_deer/util/date_utils_.dart' as date;
 
 /// design/5统计/index.html#artboard1
 /// design/5统计/index.html#artboard6
@@ -38,11 +38,11 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
   DateTime _selectedDay;
   // 年视图中选择的月份
   int _selectedMonth;
-  List _monthList = [];
+  final List<int> _monthList = [];
   bool _isExpanded = true;
   Color _unSelectedTextColor;
   
-  static const List<String> _weeks = const ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
+  static const List<String> _weeks = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
 
   @override
   void initState() {
@@ -51,7 +51,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
     _selectedWeekDay = _initialDay.day;
     _selectedDay = _initialDay;
     _selectedMonth = _initialDay.month;
-    _weeksDays = Date.Utils.daysInRange(Date.Utils.previousWeek(_initialDay), DateUtils.nextDay(_initialDay)).toList().sublist(1, 8);
+    _weeksDays = date.Utils.daysInRange(date.Utils.previousWeek(_initialDay), DateUtils.nextDay(_initialDay)).toList().sublist(1, 8);
     _currentMonthsDays = DateUtils.daysInMonth(_initialDay);
     _monthList.clear();
     for (int i = 1; i < 13; i ++) {
@@ -137,7 +137,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
                     Text(widget.index == 1 ? '订单走势' : '交易额走势', style: TextStyles.textBold18),
                     Gaps.vGap16,
                     _buildChart(Colours.app_main, const Color(0x805793FA), widget.index == 1 ? '全部订单' : '交易额(元)', '3000'),
-                    widget.index != 1 ? Gaps.empty : Column(
+                    if (widget.index == 1) Column(
                       children: <Widget>[
                         Gaps.vGap16,
                         _buildChart(const Color(0xFFFFAA33), const Color(0x80FFAA33), '完成订单', '2000'),
@@ -173,7 +173,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
   
   Widget _buildChart(Color color, Color shadowColor, String title, String count) {
     
-    var body = Column(
+    final Column body = Column(
       children: <Widget>[
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -186,7 +186,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
         Expanded(
           child: BezierChart(
             bezierChartScale: BezierChartScale.CUSTOM,
-            xAxisCustomValues: const [0, 5, 10, 15, 20, 25, 30],
+            xAxisCustomValues: const <double>[0, 5, 10, 15, 20, 25, 30],
             footerValueBuilder: (double value) {return '';},
             series: [
               BezierLine(
@@ -253,7 +253,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
   }
 
   Widget _buildCalendar() {
-    var children;
+    List<Widget> children;
     if (_selectedIndex == 0) {
       children = _builderMonthCalendar();
     } else if (_selectedIndex == 1) {
@@ -263,7 +263,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
     }
     
     return GridView.count(
-      physics: ClampingScrollPhysics(),
+      physics: const ClampingScrollPhysics(),
       shrinkWrap: true,
       crossAxisCount: 7,
       children: children,
@@ -335,7 +335,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
   }
   
   List<Widget> _builderWeekCalendar() {
-    List<Widget> dayWidgets = [];
+    final List<Widget> dayWidgets = [];
     _weeksDays.forEach((day) {
       dayWidgets.add(
         Center(

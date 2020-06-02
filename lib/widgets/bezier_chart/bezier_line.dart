@@ -67,5 +67,6 @@ class DataPoint<T> {
     this.xAxis,
   });
 
+  @override
   String toString() => 'value: $value, xAxis: $xAxis';
 }

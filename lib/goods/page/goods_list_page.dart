@@ -67,7 +67,7 @@ class _GoodsListPageState extends State<GoodsListPage> with AutomaticKeepAliveCl
   ];
 
   Future _onRefresh() async {
-    await Future.delayed(Duration(seconds: 2), () {
+    await Future.delayed(const Duration(seconds: 2), () {
       setState(() {
         _page = 1;
         _list = List.generate(widget.index == 0 ? 3 : 10, (i) => GoodsItemEntity(icon: _imgList[i % 6], title: '八月十五中秋月饼礼盒', type: i % 3));
@@ -77,7 +77,7 @@ class _GoodsListPageState extends State<GoodsListPage> with AutomaticKeepAliveCl
   }
 
   Future _loadMore() async {
-    await Future.delayed(Duration(seconds: 2), () {
+    await Future.delayed(const Duration(seconds: 2), () {
       setState(() {
         _list.addAll(List.generate(10, (i) => GoodsItemEntity(icon: _imgList[i % 6], title: '八月十五中秋月饼礼盒', type: i % 3)));
         _page ++;

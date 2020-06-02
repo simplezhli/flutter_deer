@@ -8,8 +8,8 @@ import 'package:flutter_deer/goods/page/goods_size_page.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  
-  var map = Map<String, Widget>();
+
+  final Map<String, Widget> map = <String, Widget>{};
   map['goods_page'] = GoodsPage();
   map['goods_edit_page'] = GoodsEditPage();
   map['goods_search_page'] = GoodsSearchPage();
