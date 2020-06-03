@@ -48,7 +48,7 @@ class _DeerListViewState extends State<DeerListView> {
   
   @override
   Widget build(BuildContext context) {
-    var child = RefreshIndicator(
+    Widget child = RefreshIndicator(
       onRefresh: widget.onRefresh,
       child: widget.itemCount == 0 ? 
       StateLayout(type: widget.stateType) : 
@@ -80,7 +80,7 @@ class _DeerListViewState extends State<DeerListView> {
     );
   }
 
-  Future _loadMore() async {
+  Future<void> _loadMore() async {
     if (widget.loadMore == null) {
       return;
     }
@@ -107,7 +107,7 @@ class MoreWidget extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    final style = ThemeUtils.isDark(context) ? TextStyles.textGray14 : const TextStyle(color: Color(0x8A000000));
+    final TextStyle style = ThemeUtils.isDark(context) ? TextStyles.textGray14 : const TextStyle(color: Color(0x8A000000));
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Row(

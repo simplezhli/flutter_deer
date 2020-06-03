@@ -20,7 +20,7 @@ class MyCard extends StatelessWidget {
   Widget build(BuildContext context) {
     Color _backgroundColor;
     Color _shadowColor;
-    bool isDark = ThemeUtils.isDark(context);
+    final bool isDark = ThemeUtils.isDark(context);
     if (color == null) {
       _backgroundColor = isDark ? Colours.dark_bg_gray_ : Colors.white;
     } else {
@@ -38,7 +38,7 @@ class MyCard extends StatelessWidget {
         color: _backgroundColor,
         borderRadius: BorderRadius.circular(8.0),
         boxShadow: [
-          BoxShadow(color: _shadowColor, offset: Offset(0.0, 2.0), blurRadius: 8.0, spreadRadius: 0.0),
+          BoxShadow(color: _shadowColor, offset: const Offset(0.0, 2.0), blurRadius: 8.0, spreadRadius: 0.0),
         ],
       ),
       child: child,

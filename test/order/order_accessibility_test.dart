@@ -20,10 +20,9 @@ void main() {
         await tester.pumpWidget(MaterialApp(home: page));
         await expectLater(tester, meetsGuideline(iOSTapTargetGuideline));
         handle.dispose();
-      }, skip: (name == 'order_search_page' ||
+      }, skip: name == 'order_search_page' ||
           name == 'order_track_page' ||
           name == 'order_page'
-        )
       ); // https://github.com/flutter/flutter/issues/42455
     });
   });

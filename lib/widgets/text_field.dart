@@ -83,7 +83,7 @@ class _MyTextFieldState extends State<MyTextField> {
         _currentSecond = _second;
         _clickable = false;
       });
-      _subscription = Stream.periodic(Duration(seconds: 1), (i) => i).take(_second).listen((i) {
+      _subscription = Stream.periodic(const Duration(seconds: 1), (int i) => i).take(_second).listen((int i) {
         setState(() {
           _currentSecond = _second - i - 1;
           _clickable = _currentSecond < 1;
@@ -94,10 +94,10 @@ class _MyTextFieldState extends State<MyTextField> {
   
   @override
   Widget build(BuildContext context) {
-    ThemeData themeData = Theme.of(context);
-    bool isDark = themeData.brightness == Brightness.dark;
-    
-    var textField = TextField(
+    final ThemeData themeData = Theme.of(context);
+    final bool isDark = themeData.brightness == Brightness.dark;
+
+    final TextField textField = TextField(
       focusNode: widget.focusNode,
       maxLength: widget.maxLength,
       obscureText: widget.isInputPwd ? !_isShowPwd : false,
@@ -127,7 +127,7 @@ class _MyTextFieldState extends State<MyTextField> {
       ),
     );
     
-    var clear = Semantics(
+    Widget clear = Semantics(
       label: '清空',
       hint: '清空输入框',
       child: GestureDetector(
@@ -139,8 +139,8 @@ class _MyTextFieldState extends State<MyTextField> {
         onTap: () => widget.controller.text = '',
       ),
     );
-    
-    var pwdVisible = Semantics(
+
+    Widget pwdVisible = Semantics(
       label: '密码可见开关',
       hint: '密码是否可见',
       child: GestureDetector(
@@ -157,11 +157,11 @@ class _MyTextFieldState extends State<MyTextField> {
         },
       ),
     );
-    
-    var getVCodeButton = Theme(
+
+    Widget getVCodeButton = Theme(
       data: Theme.of(context).copyWith(
-        buttonTheme: ButtonThemeData(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        buttonTheme: const ButtonThemeData(
+          padding: EdgeInsets.symmetric(horizontal: 8.0),
           height: 26.0,
           minWidth: 76.0,
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
@@ -195,11 +195,11 @@ class _MyTextFieldState extends State<MyTextField> {
         Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            _isShowDelete ? Gaps.empty : clear,
-            !widget.isInputPwd ? Gaps.empty : Gaps.hGap15,
-            !widget.isInputPwd ? Gaps.empty : pwdVisible,
-            widget.getVCode == null ? Gaps.empty : Gaps.hGap15,
-            widget.getVCode == null ? Gaps.empty : getVCodeButton,
+            if (_isShowDelete) Gaps.empty else clear,
+            if (!widget.isInputPwd) Gaps.empty else Gaps.hGap15,
+            if (!widget.isInputPwd) Gaps.empty else pwdVisible,
+            if (widget.getVCode == null) Gaps.empty else Gaps.hGap15,
+            if (widget.getVCode == null) Gaps.empty else getVCodeButton,
           ],
         )
       ],

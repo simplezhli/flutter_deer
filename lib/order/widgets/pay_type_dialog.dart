@@ -8,7 +8,7 @@ import 'package:flutter_deer/widgets/load_image.dart';
 /// design/3订单/index.html#artboard5
 class PayTypeDialog extends StatefulWidget {
 
-  PayTypeDialog({
+  const PayTypeDialog({
     Key key,
     this.onPressed,
   }) : super(key : key);

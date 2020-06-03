@@ -151,8 +151,8 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
       ),
       Gaps.vGap32,
       const Padding(
-        padding: const EdgeInsets.only(left: 16.0),
-        child: const Text('店主信息', style: TextStyles.textBold18),
+        padding:EdgeInsets.only(left: 16.0),
+        child: Text('店主信息', style: TextStyles.textBold18),
       ),
       Gaps.vGap16,
       TextFieldItem(

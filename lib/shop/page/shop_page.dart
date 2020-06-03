@@ -128,8 +128,8 @@ class _ShopPageState extends State<ShopPage> with BasePageMixin<ShopPage, ShopPa
               Gaps.vGap24,
               const MergeSemantics(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: const Text(
+                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Text(
                     '账户',
                     style: TextStyles.textBold18,
                   ),
@@ -140,7 +140,7 @@ class _ShopPageState extends State<ShopPage> with BasePageMixin<ShopPage, ShopPa
                   shrinkWrap: true,
                   padding: const EdgeInsets.fromLTRB(8.0, 0, 8.0, 12.0),
                   physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 4,
                     childAspectRatio: 1.18
                   ),
@@ -175,8 +175,8 @@ class _ShopPageState extends State<ShopPage> with BasePageMixin<ShopPage, ShopPa
               Gaps.vGap24,
               const MergeSemantics(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: const Text(
+                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Text(
                     '店铺',
                     style: TextStyles.textBold18,
                   ),
@@ -187,7 +187,7 @@ class _ShopPageState extends State<ShopPage> with BasePageMixin<ShopPage, ShopPa
                   shrinkWrap: true,
                   padding: const EdgeInsets.fromLTRB(8.0, 0, 8.0, 12.0),
                   physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 4,
                       childAspectRatio: 1.18
                   ),

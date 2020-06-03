@@ -62,9 +62,11 @@ class _StateLayoutState extends State<StateLayout> {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        widget.type == StateType.loading ? const CupertinoActivityIndicator(radius: 16.0) :
-        (widget.type == StateType.empty ? Gaps.empty :
-        Opacity(
+        if (widget.type == StateType.loading) 
+          const CupertinoActivityIndicator(radius: 16.0) 
+        else 
+          widget.type == StateType.empty ? 
+          Gaps.empty : Opacity(
           opacity: ThemeUtils.isDark(context) ? 0.5 : 1,
           child: Container(
             height: 120.0,
@@ -74,8 +76,7 @@ class _StateLayoutState extends State<StateLayout> {
                 image: ImageUtils.getAssetImage('state/$_img'),
               ),
             ),
-          ))
-        ),
+          )),
         const SizedBox(width: double.infinity, height: Dimens.gap_dp16,),
         Text(
           widget.hintText ?? _hintText,

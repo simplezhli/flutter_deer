@@ -7,7 +7,7 @@ import 'package:flutter_deer/widgets/base_dialog.dart';
 
 class ExitDialog extends StatefulWidget {
 
-  ExitDialog({
+  const ExitDialog({
     Key key,
   }) : super(key : key);
 

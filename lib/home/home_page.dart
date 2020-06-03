@@ -20,8 +20,8 @@ class _HomeState extends State<Home> {
 
   List<Widget> _pageList;
   
-  final _appBarTitles = ['订单', '商品', '统计', '店铺'];
-  final _pageController = PageController();
+  final List<String> _appBarTitles = ['订单', '商品', '统计', '店铺'];
+  final PageController _pageController = PageController();
 
   HomeProvider provider = HomeProvider();
 
@@ -114,7 +114,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    var isDark = ThemeUtils.isDark(context);
+    final bool isDark = ThemeUtils.isDark(context);
     return ChangeNotifierProvider<HomeProvider>(
       create: (_) => provider,
       child: DoubleTapBackExitApp(

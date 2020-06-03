@@ -83,7 +83,9 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
                     return const Divider();
                   },
                   itemBuilder: (_, index) {
-                    return InkWell(
+                    return _AddressItem(
+                      isSelected: _index == index,
+                      date: _list[index],
                       onTap: () {
                         _index = index;
                         if (_aMap2DController != null) {
@@ -92,27 +94,6 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
                         setState(() {
                         });
                       },
-                      child: Container(
-                        alignment: Alignment.centerLeft,
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                        height: 50.0,
-                        child: Row(
-                          children: <Widget>[
-                            Expanded(
-                              child: Text(
-                                _list[index].provinceName + ' ' +
-                                    _list[index].cityName + ' ' +
-                                    _list[index].adName + ' ' +
-                                    _list[index].title,
-                              ),
-                            ),
-                            Visibility(
-                              visible: _index == index,
-                              child: const Icon(Icons.done, color: Colors.blue)
-                            )
-                          ],
-                        ),
-                      ),
                     );
                   }
               ),
@@ -129,3 +110,46 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
     );
   }
 }
+
+class _AddressItem extends StatelessWidget {
+
+  const _AddressItem({
+    Key key,
+    @required this.date,
+    this.isSelected = false,
+    this.onTap,
+  }) : super(key: key);
+
+  final PoiSearch date;
+  final bool isSelected;
+  final GestureTapCallback onTap;
+  
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        alignment: Alignment.centerLeft,
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        height: 50.0,
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: Text(
+                date.provinceName + ' ' +
+                date.cityName + ' ' +
+                date.adName + ' ' +
+                date.title,
+              ),
+            ),
+            Visibility(
+              visible: isSelected,
+              child: const Icon(Icons.done, color: Colors.blue),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+

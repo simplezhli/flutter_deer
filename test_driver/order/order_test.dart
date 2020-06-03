@@ -25,14 +25,14 @@ void main() {
       await driver.tap(find.byValueKey('订单'));
       
       // 水平滑动
-      final pageView = find.byValueKey('pageView');
+      final SerializableFinder pageView = find.byValueKey('pageView');
       await driver.scroll(pageView, -400.0, 0, scrollDuration);
       await delayed();
       await driver.scroll(pageView, -400.0, 0, scrollDuration);
       await delayed();
-      final orderList = find.byValueKey('order_list');
+      final SerializableFinder orderList = find.byValueKey('order_list');
       await driver.waitFor(orderList);
-      final orderItem = find.byValueKey('order_item_7');
+      final SerializableFinder orderItem = find.byValueKey('order_item_7');
       await delayed();
       // 垂直滑动
       await driver.scrollUntilVisible(orderList, orderItem, dyScroll: -400);
@@ -53,7 +53,7 @@ void main() {
     });
 
     test('订单详情页',() async {
-      final orderItem = find.byValueKey('order_item_2');
+      final SerializableFinder orderItem = find.byValueKey('order_item_2');
       await driver.tap(orderItem);
       await driver.tap(find.text('订单跟踪'));
       await delayed();
@@ -67,10 +67,10 @@ void main() {
 
     test('订单搜索页测试',() async {
       await driver.tap(find.byTooltip('搜索'));
-      await driver.tap(find.byValueKey('srarch_text_field'));
+      await driver.tap(find.byValueKey('search_text_field'));
       await driver.enterText('flutter');
       await driver.tap(find.text('搜索'));
-      final orderList = find.byValueKey('order_search_list');
+      final SerializableFinder orderList = find.byValueKey('order_search_list');
       await driver.waitFor(orderList);
       await driver.scroll(orderList, 0.0, -300.0, scrollDuration);
       await delayed();

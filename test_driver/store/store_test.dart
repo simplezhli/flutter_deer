@@ -23,7 +23,7 @@ void main() {
     
     test('店铺审核资料页测试',() async {
       await driver.tap(find.text('主营范围'));
-      final sortList = find.byValueKey('goods_sort');
+      final SerializableFinder sortList = find.byValueKey('goods_sort');
       await delayed();
       
       await driver.scroll(sortList, 0.0, -300.0, scrollDuration);

@@ -23,15 +23,15 @@ void main([List<String> args = const <String>[]]) {
     });
 
     test('测试引导页滑动',() async {
-      final swiperFinder = find.byValueKey('swiper');
+      final SerializableFinder swiperFinder = find.byValueKey('swiper');
       /// 引导页的第三张图
-      final imageFinder = find.byValueKey('app_start_3');
+      final SerializableFinder imageFinder = find.byValueKey('app_start_3');
       await delayed();
       await driver.scrollUntilVisible(swiperFinder, imageFinder, dxScroll: -300);
     });
     
     test('点击最后一张引导图',() async {
-      final imageFinder = find.byValueKey('app_start_3');
+      final SerializableFinder imageFinder = find.byValueKey('app_start_3');
       /// 点击第三张图片
       await driver.tap(imageFinder);
       await delayed();

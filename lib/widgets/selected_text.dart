@@ -26,14 +26,14 @@ class SelectedText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var child = _buildText();
+    Widget child = _buildText();
     
     if (enable) {
       child = InkWell(
         borderRadius: BorderRadius.circular(16.0),
         onTap: onTap,
         child: Container(
-          constraints: BoxConstraints(
+          constraints: const BoxConstraints(
             minWidth: 32.0,
             maxHeight: 32.0,
             minHeight: 32.0,

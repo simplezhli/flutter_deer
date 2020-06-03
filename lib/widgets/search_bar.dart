@@ -25,7 +25,7 @@ class SearchBar extends StatefulWidget implements PreferredSizeWidget {
   _SearchBarState createState() => _SearchBarState();
 
   @override
-  Size get preferredSize => Size.fromHeight(48.0);
+  Size get preferredSize => const Size.fromHeight(48.0);
 }
 
 class _SearchBarState extends State<SearchBar> {
@@ -42,10 +42,10 @@ class _SearchBarState extends State<SearchBar> {
   
   @override
   Widget build(BuildContext context) {
-    bool isDark = ThemeUtils.isDark(context);
-    Color iconColor = isDark ? Colours.dark_text_gray : Colours.text_gray_c;
+    final bool isDark = ThemeUtils.isDark(context);
+    final Color iconColor = isDark ? Colours.dark_text_gray : Colours.text_gray_c;
     
-    var back = Semantics(
+    Widget back = Semantics(
       label: '返回',
       child: SizedBox(
         width: 48.0,
@@ -68,7 +68,7 @@ class _SearchBarState extends State<SearchBar> {
       ),
     );
     
-    var textField = Expanded(
+    Widget textField = Expanded(
       child: Container(
         height: 32.0,
         decoration: BoxDecoration(
@@ -76,7 +76,7 @@ class _SearchBarState extends State<SearchBar> {
           borderRadius: BorderRadius.circular(4.0),
         ),
         child: TextField(
-          key: const Key('srarch_text_field'),
+          key: const Key('search_text_field'),
 //          autofocus: true,
           controller: _controller,
           focusNode: _focus,
@@ -115,7 +115,7 @@ class _SearchBarState extends State<SearchBar> {
       ),
     );
     
-    var search = Theme(
+    Widget search = Theme(
       data: Theme.of(context).copyWith(
         buttonTheme: ButtonThemeData(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),

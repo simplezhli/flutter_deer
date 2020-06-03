@@ -10,7 +10,7 @@ class OrderSearchPresenter extends BasePagePresenter<OrderSearchIMvpView> {
 
   Future search(String text, int page, bool isShowDialog) {
    
-    var params = <String, String>{};
+    final Map<String, String> params = <String, String>{};
     params['q'] = text;
     params['page'] = page.toString();
     params['l'] = 'Dart';

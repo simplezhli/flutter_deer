@@ -126,9 +126,8 @@ class OrderItem extends StatelessWidget {
                         }
                       },
                     ),
-                    orderRightButtonText[tabIndex].length == 0 ? Gaps.empty : Gaps.hGap10,
-                    orderRightButtonText[tabIndex].length == 0 ? Gaps.empty :
-                    OrderItemButton(
+                    if (orderRightButtonText[tabIndex].isEmpty) Gaps.empty else Gaps.hGap10,
+                    if (orderRightButtonText[tabIndex].isEmpty) Gaps.empty else OrderItemButton(
                       key: Key('order_button_3_$index'),
                       text: orderRightButtonText[tabIndex],
                       textColor: isDark ? Colours.dark_button_text : Colors.white,
@@ -211,13 +210,13 @@ class OrderItemButton extends StatelessWidget {
         alignment: Alignment.center,
         padding: const EdgeInsets.symmetric(horizontal: 14.0),
         decoration: BoxDecoration(
-            color: bgColor,
-            borderRadius: BorderRadius.circular(4.0)
+          color: bgColor,
+          borderRadius: BorderRadius.circular(4.0),
         ),
-        constraints: BoxConstraints(
-            minWidth: 64.0,
-            maxHeight: 30.0,
-            minHeight: 30.0
+        constraints: const BoxConstraints(
+          minWidth: 64.0,
+          maxHeight: 30.0,
+          minHeight: 30.0,
         ),
         child: Text(text, style: TextStyle(fontSize: Dimens.font_sp14, color: textColor),),
       ),

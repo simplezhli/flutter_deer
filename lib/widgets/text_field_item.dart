@@ -25,7 +25,7 @@ class TextFieldItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var child = Row(
+    final Row child = Row(
       children: <Widget>[
         Text(title),
         Gaps.hGap16,

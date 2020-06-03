@@ -26,7 +26,7 @@ void main() {
       await delayed();
       await driver.tap(find.text('待售'));
       await delayed();
-      final pageView = find.byValueKey('pageView');
+      final SerializableFinder pageView = find.byValueKey('pageView');
       await driver.scroll(pageView, 400.0, 0, scrollDuration);
       await delayed();
       

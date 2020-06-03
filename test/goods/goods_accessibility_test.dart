@@ -28,7 +28,7 @@ void main() {
         }
         await expectLater(tester, meetsGuideline(iOSTapTargetGuideline));
         handle.dispose();
-      }, skip: (name == 'goods_search_page' || name == 'goods_size_page')); // https://github.com/flutter/flutter/issues/42455
+      }, skip: name == 'goods_search_page' || name == 'goods_size_page'); // https://github.com/flutter/flutter/issues/42455
     });
   });
 

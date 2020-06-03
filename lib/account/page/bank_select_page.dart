@@ -25,8 +25,16 @@ class BankSelectPage extends StatefulWidget {
 class _BankSelectPageState extends State<BankSelectPage> {
 
   final List<BankEntity> _bankList = [];
-  final List<String> _bankNameList = ['工商银行', '建设银行', '中国银行', '农业银行', '招商银行', '交通银行', '中信银行', '民生银行', '兴业银行', '浦发银行'];
-  final List<String> _bankLogoList = ['gongshang', 'jianhang', 'zhonghang', 'nonghang', 'zhaohang', 'jiaohang', 'zhongxin', 'minsheng', 'xingye', 'pufa'];
+  final List<String> _bankNameList = [
+    '工商银行', '建设银行', '中国银行', '农业银行', 
+    '招商银行', '交通银行', '中信银行', '民生银行', 
+    '兴业银行', '浦发银行'
+  ];
+  final List<String> _bankLogoList = [
+    'gongshang', 'jianhang', 'zhonghang', 'nonghang', 
+    'zhaohang', 'jiaohang', 'zhongxin', 'minsheng',
+    'xingye', 'pufa'
+  ];
   
   @override
   void initState() {

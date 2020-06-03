@@ -12,7 +12,7 @@ class InputTextPage extends StatefulWidget {
     @required this.title,
     this.content,
     this.hintText,
-    this.keyboardType: TextInputType.text,
+    this.keyboardType = TextInputType.text,
   }) : super(key : key);
 
   final String title;

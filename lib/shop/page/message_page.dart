@@ -59,7 +59,7 @@ class _MessageItemState extends State<_MessageItem> {
               children: <Widget>[
                 Row(
                   children: <Widget>[
-                    Expanded(child: Text('系统通知')),
+                    const Expanded(child: Text('系统通知')),
                     Container(
                       margin: const EdgeInsets.only(right: 4.0),
                       height: 8.0,

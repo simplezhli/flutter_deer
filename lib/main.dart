@@ -29,7 +29,7 @@ Future<void> main() async {
   runApp(MyApp());
   // 透明状态栏
   if (Device.isAndroid) {
-    SystemUiOverlayStyle systemUiOverlayStyle = SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+    final SystemUiOverlayStyle systemUiOverlayStyle = SystemUiOverlayStyle(statusBarColor: Colors.transparent);
     SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
   }
 }
@@ -42,13 +42,13 @@ class MyApp extends StatelessWidget {
   MyApp({this.home, this.theme}) {
     Log.init();
     initDio();
-    final router = Router();
+    final Router router = Router();
     Routes.configureRoutes(router);
     Application.router = router;
   }
   
   void initDio() {
-    List<Interceptor> interceptors = [];
+    final List<Interceptor> interceptors = [];
     /// 统一添加身份验证请求头
     interceptors.add(AuthInterceptor());
     /// 刷新Token
@@ -90,7 +90,7 @@ class MyApp extends StatelessWidget {
                 GlobalWidgetsLocalizations.delegate,
                 GlobalCupertinoLocalizations.delegate,
               ],
-              supportedLocales: const [
+              supportedLocales: const <Locale>[
                 Locale('zh', 'CN'),
                 Locale('en', 'US')
               ],

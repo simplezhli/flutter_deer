@@ -131,7 +131,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
     showElasticDialog(
         context: context,
         builder: (BuildContext context) {
-          var textColor = Theme.of(context).primaryColor;
+          final Color textColor = Theme.of(context).primaryColor;
           return Material(
             type: MaterialType.transparency,
             child: Center(

@@ -16,12 +16,12 @@ class ProgressDialog extends Dialog {
   @override
   Widget build(BuildContext context) {
     
-    var progress = Column(
+    Widget progress = Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Theme(
           data: ThemeData(
-            cupertinoOverrideTheme: CupertinoThemeData(
+            cupertinoOverrideTheme: const CupertinoThemeData(
               brightness: Brightness.dark, // 局部指定夜间模式，加载圈颜色会设置为白色
             ),
           ),
@@ -38,8 +38,8 @@ class ProgressDialog extends Dialog {
         child: Container(
           height: 88.0,
           width: 120.0,
-          decoration: ShapeDecoration(
-            color: const Color(0xFF3A3A3A),
+          decoration: const ShapeDecoration(
+            color: Color(0xFF3A3A3A),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(8.0)),
             ),

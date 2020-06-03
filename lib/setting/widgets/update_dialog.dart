@@ -35,7 +35,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
   
   @override
   Widget build(BuildContext context) {
-    Color primaryColor = Theme.of(context).primaryColor;
+    final Color primaryColor = Theme.of(context).primaryColor;
     return WillPopScope(
       onWillPop: () async {
         /// 使用false禁止返回键返回，达到强制升级目的
@@ -70,8 +70,8 @@ class _UpdateDialogState extends State<UpdateDialog> {
                   padding: EdgeInsets.only(left: 15.0, right: 15.0, top: 16.0),
                   child: Text('新版本更新', style: TextStyles.textSize16),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
                   child: Text('1.又双叒修复了一大堆bug。\n\n2.祭天了多名程序猿。'),
                 ),
                 Padding(
@@ -101,7 +101,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
                               width: 0.8,
                             ),
                           ),
-                          child: Text(
+                          child: const Text(
                             '残忍拒绝',
                             style: TextStyle(fontSize: Dimens.font_sp16),
                           ),
@@ -129,7 +129,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18.0),
                           ),
-                          child: Text(
+                          child: const Text(
                             '立即更新',
                             style: TextStyle(fontSize: Dimens.font_sp16),
                           ),
@@ -147,7 +147,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
   }
   
   ///下载apk
-  void _download() async {
+  Future<void> _download() async {
     try {
       setInitDir(initStorageDir: true);
       await DirectoryUtil.getInstance();
