@@ -35,18 +35,18 @@ mixin BasePageMixin<T extends StatefulWidget, P extends BasePresenter> on State<
       _isShowDialog = true;
       try {
         showTransparentDialog(
-            context: context,
-            barrierDismissible: false,
-            builder:(_) {
-              return WillPopScope(
-                onWillPop: () async {
-                  // 拦截到返回键，证明dialog被手动关闭
-                  _isShowDialog = false;
-                  return Future.value(true);
-                },
-                child: const ProgressDialog(hintText: '正在加载...'),
-              );
-            }
+          context: context,
+          barrierDismissible: false,
+          builder:(_) {
+            return WillPopScope(
+              onWillPop: () async {
+                // 拦截到返回键，证明dialog被手动关闭
+                _isShowDialog = false;
+                return Future.value(true);
+              },
+              child: buildProgress(),
+            );
+          },
         );
       } catch(e) {
         /// 异常原因主要是页面没有build完成就调用Progress。
@@ -59,6 +59,9 @@ mixin BasePageMixin<T extends StatefulWidget, P extends BasePresenter> on State<
   void showToast(String string) {
     Toast.show(string);
   }
+  
+  /// 可自定义Progress
+  Widget buildProgress() => const ProgressDialog(hintText: '正在加载...');
 
   @override
   void didChangeDependencies() {

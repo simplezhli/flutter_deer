@@ -8,7 +8,7 @@ import 'package:flutter_deer/util/log_utils.dart';
 import 'base_entity.dart';
 import 'error_handle.dart';
 
-
+/// 默认dio配置
 int _connectTimeout = 15000;
 int _receiveTimeout = 15000;
 int _sendTimeout = 10000;
@@ -30,6 +30,10 @@ void setInitDio({
   _interceptors = interceptors ?? _interceptors;
 }
 
+typedef NetSuccessCallback<T> = Function(T data);
+typedef NetSuccessListCallback<T> = Function(List<T> data);
+typedef NetErrorCallback = Function(int code, String msg);
+
 /// @weilu https://github.com/simplezhli
 class DioUtils {
 
@@ -44,7 +48,7 @@ class DioUtils {
   Dio get dio => _dio;
 
   DioUtils._() {
-    var _options = BaseOptions(
+    BaseOptions _options = BaseOptions(
       connectTimeout: _connectTimeout,
       receiveTimeout: _receiveTimeout,
       sendTimeout: _sendTimeout,
@@ -76,10 +80,18 @@ class DioUtils {
 
   // 数据返回格式统一，统一处理异常
   Future<BaseEntity<T>> _request<T>(String method, String url, {
-    dynamic data, Map<String, dynamic> queryParameters,
-    CancelToken cancelToken, Options options
+    dynamic data,
+    Map<String, dynamic> queryParameters,
+    CancelToken cancelToken,
+    Options options,
   }) async {
-    final Response response = await _dio.request(url, data: data, queryParameters: queryParameters, options: _checkOptions(method, options), cancelToken: cancelToken);
+    final Response response = await _dio.request(
+      url,
+      data: data,
+      queryParameters: queryParameters,
+      options: _checkOptions(method, options),
+      cancelToken: cancelToken,
+    );
     try {
       /// 集成测试无法使用 isolate https://github.com/flutter/flutter/issues/24703
       Map<String, dynamic> _map = Constant.isDriverTest ? parseData(response.data.toString()) : await compute(parseData, response.data.toString());
@@ -97,18 +109,22 @@ class DioUtils {
   }
 
   Future requestNetwork<T>(Method method, String url, {
-    Function(T t) onSuccess,
-    Function(List<T> list) onSuccessList,
-    Function(int code, String msg) onError,
-    dynamic params, Map<String, dynamic> queryParameters,
-    CancelToken cancelToken, Options options, bool isList : false
+    NetSuccessCallback<T> onSuccess,
+    NetSuccessListCallback<T> onSuccessList,
+    NetErrorCallback onError,
+    dynamic params, 
+    Map<String, dynamic> queryParameters,
+    CancelToken cancelToken, 
+    Options options, 
+    bool isList: false,
   }) {
     String m = _getRequestMethod(method);
     return _request<T>(m, url,
-        data: params,
-        queryParameters: queryParameters,
-        options: options,
-        cancelToken: cancelToken).then((BaseEntity<T> result) {
+      data: params,
+      queryParameters: queryParameters,
+      options: options,
+      cancelToken: cancelToken,
+    ).then((BaseEntity<T> result) {
       if (result.code == 0) {
         if (isList) {
           if (onSuccessList != null) {
@@ -129,17 +145,24 @@ class DioUtils {
     });
   }
 
-  /// 统一处理(onSuccess返回T对象，onSuccessList返回List<T>)
+  /// 统一处理(onSuccess返回T对象，onSuccessList返回 List<T>)
   void asyncRequestNetwork<T>(Method method, String url, {
-    Function(T t) onSuccess, 
-    Function(List<T> list) onSuccessList, 
-    Function(int code, String msg) onError,
-    dynamic params, Map<String, dynamic> queryParameters, 
-    CancelToken cancelToken, Options options, bool isList : false
+    NetSuccessCallback<T> onSuccess,
+    NetSuccessListCallback<T> onSuccessList,
+    NetErrorCallback onError,
+    dynamic params, 
+    Map<String, dynamic> queryParameters, 
+    CancelToken cancelToken, 
+    Options options, 
+    bool isList: false,
   }) {
     String m = _getRequestMethod(method);
-    Stream.fromFuture(_request<T>(m, url, data: params, queryParameters: queryParameters, options: options, cancelToken: cancelToken))
-        .asBroadcastStream()
+    Stream.fromFuture(_request<T>(m, url,
+      data: params,
+      queryParameters: queryParameters,
+      options: options,
+      cancelToken: cancelToken,
+    )).asBroadcastStream()
         .listen((result) {
       if (result.code == 0) {
         if (isList) {
@@ -167,7 +190,7 @@ class DioUtils {
     }
   }
 
-  void _onError(int code, String msg, Function(int code, String mag) onError) {
+  void _onError(int code, String msg, NetErrorCallback onError) {
     if (code == null) {
       code = ExceptionHandle.unknown_error;
       msg = '未知异常';

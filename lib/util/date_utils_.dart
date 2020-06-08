@@ -2,7 +2,7 @@ library utils;
 
 import 'package:intl/intl.dart';
 
-/// date_utils : https://github.com/apptreesoftware/date_utils
+/// date_utils（version：0.1.0+2） : https://github.com/apptreesoftware/date_utils
 class Utils {
   static final DateFormat _monthFormat = new DateFormat('MMMM yyyy');
   static final DateFormat _dayFormat = new DateFormat('dd');
