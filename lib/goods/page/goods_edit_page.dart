@@ -36,12 +36,15 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
 
   File _imageFile;
   String _goodsSortName;
+  final ImagePicker picker = ImagePicker();
   final TextEditingController _codeController = TextEditingController();
-  
-  void _getImage() async {
+
+  Future<void> _getImage() async {
     try {
-      _imageFile = await ImagePicker.pickImage(source: ImageSource.gallery, maxWidth: 800);
-      setState(() {});
+      PickedFile pickedFile = await picker.getImage(source: ImageSource.gallery, maxWidth: 800);
+      setState(() {
+        _imageFile = File(pickedFile.path);
+      });
     } catch (e) {
       Toast.show('没有权限，无法打开相册！');
     }

@@ -151,7 +151,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
     try {
       setInitDir(initStorageDir: true);
       await DirectoryUtil.getInstance();
-      DirectoryUtil.createStorageDirSync(category: 'apk');
+      DirectoryUtil.createStorageDirSync(category: 'Download');
       String path = DirectoryUtil.getStoragePath(fileName: 'deer', category: 'Download', format: 'apk');
       File file = File(path);
       /// 链接可能会失效

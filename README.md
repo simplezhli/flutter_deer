@@ -60,9 +60,9 @@ iOS需要自行下载代码运行。
 
 [![Build Status](https://github.com/simplezhli/flutter_deer/workflows/flutter_deer%20driver/badge.svg?branch=master)](https://github.com/simplezhli/flutter_deer/actions?query=workflow%3A%22flutter_deer+driver%22+branch%3Amaster)
 
-    1. Flutter version 1.17.2
+    1. Flutter version 1.17.3
      
-    2. Dart version 2.8.3
+    2. Dart version 2.8.4
 
 ## 注意事项
 
@@ -153,6 +153,8 @@ iOS需要自行下载代码运行。
 * [ ] Web端支持。
 
 ## 已知问题：
+
+- 1.17.0已知问题(~~#25767~~)。
 
 - ListView在没有设置分割线的情况下，个别Item之间存在大约1像素的间隔（[像素对齐问题](https://github.com/flutter/flutter/issues/14288)）。
 

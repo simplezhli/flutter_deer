@@ -32,13 +32,15 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
   final FocusNode _nodeText1 = FocusNode();
   final FocusNode _nodeText2 = FocusNode();
   final FocusNode _nodeText3 = FocusNode();
-
+  final ImagePicker picker = ImagePicker();
   String _address = '陕西省 西安市 雁塔区 高新六路201号';
   
-  void _getImage() async {
+  Future<void> _getImage() async {
     try {
-      _imageFile = await ImagePicker.pickImage(source: ImageSource.gallery, maxWidth: 800, imageQuality: 95);
-      setState(() {});
+      PickedFile pickedFile = await picker.getImage(source: ImageSource.gallery, maxWidth: 800, imageQuality: 95);
+      setState(() {
+        _imageFile = File(pickedFile.path);
+      });
     } catch (e) {
       Toast.show('没有权限，无法打开相册！');
     }

@@ -22,11 +22,14 @@ class GoodsSizeEditPage extends StatefulWidget {
 class _GoodsSizeEditPageState extends State<GoodsSizeEditPage> {
 
   File _imageFile;
+  final ImagePicker picker = ImagePicker();
 
-  void _getImage() async {
+  Future<void> _getImage() async {
     try {
-      _imageFile = await ImagePicker.pickImage(source: ImageSource.gallery, maxWidth: 600);
-      setState(() {});
+      PickedFile pickedFile = await picker.getImage(source: ImageSource.gallery, maxWidth: 600);
+      setState(() {
+        _imageFile = File(pickedFile.path);
+      });
     } catch (e) {
       Toast.show('没有权限，无法打开相册！');
     }

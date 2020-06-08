@@ -118,13 +118,13 @@ class _SearchBarState extends State<SearchBar> {
     Widget search = Theme(
       data: Theme.of(context).copyWith(
         buttonTheme: ButtonThemeData(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            height: 32.0,
-            minWidth: 44.0,
-            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap, // 距顶部距离为0
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(4.0),
-            )
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          height: 32.0,
+          minWidth: 44.0,
+          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap, // 距顶部距离为0
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(4.0),
+          ),
         ),
       ),
       child: FlatButton(
@@ -153,7 +153,7 @@ class _SearchBarState extends State<SearchBar> {
                 Gaps.hGap16,
               ],
             ),
-          )
+          ),
         ),
       ),
     );
