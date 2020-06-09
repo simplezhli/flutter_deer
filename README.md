@@ -30,6 +30,7 @@
 * 基于`dio` （3.x 版本）的网络请求封装
 * 完整的集成测试、可访问性测试。
 * 支持深色模式
+* 本地化（感谢 @ghedwards）
 * 使用`Sliver` 系列组件实现复杂滚动效果
 * 使用高德地图定位选择地址（支持Web）
 * 输入框等部件的处理封装
@@ -129,6 +130,7 @@ iOS需要自行下载代码运行。
 | [bezier_chart](https://github.com/aeyrium/bezier-chart)               | **曲线图表**       |
 | [sprintf](https://github.com/Naddiseo/dart-sprintf)                   | **格式化String**   |
 | [barcode_scan](https://github.com/apptreesoftware/flutter_barcode_reader)     | **扫码功能** |
+| [intl](https://github.com/dart-lang/intl)     | **本地化** |
 
 详细内容可以参看[pubspec.yaml](https://github.com/simplezhli/flutter_deer/blob/master/pubspec.yaml)文件    
 

@@ -14,8 +14,8 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  # Localization
-  intl: ^0.16.0
+  # Localization https://github.com/dart-lang/intl
+  intl: ^0.16.1
   # Toast插件 https://github.com/OpenFlutter/flutter_oktoast
   oktoast: ^2.3.2
   # 网络库 https://github.com/flutterchina/dio
@@ -42,12 +42,8 @@ dependencies:
   sticky_headers: ^0.1.8+1
   # 城市选择列表 https://github.com/flutterchina/azlistview
   azlistview: ^0.1.2
-  # 用于日历功能 https://github.com/apptreesoftware/date_utils
-  # date_utils: ^0.1.0+2
   # 手势识别 https://github.com/aleksanderwozniak/simple_gesture_detector
   simple_gesture_detector: ^0.1.4
-  # 曲线图表 https://github.com/aeyrium/bezier-chart
-  # bezier_chart: ^1.0.7
   # 路由框架 https://github.com/theyakka/fluro
   fluro: ^1.6.3
   # 图片缓存 https://github.com/renefloor/flutter_cached_network_image
@@ -62,10 +58,6 @@ dependencies:
   flutter_2d_amap:
     git:
       url: https://github.com/simplezhli/flutter_2d_amap.git
-
-#  barcode_scan:
-#    git:
-#      url: https://github.com/simplezhli/flutter_barcode_reader.git
       
 dev_dependencies:
   # Widget测试

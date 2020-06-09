@@ -187,9 +187,11 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
           child: BezierChart(
             bezierChartScale: BezierChartScale.CUSTOM,
             xAxisCustomValues: const <double>[0, 5, 10, 15, 20, 25, 30],
-            footerValueBuilder: (double value) {return '';},
+            footerValueBuilder: (double value) => '',
+            bubbleLabelValueBuilder: (double value) => '\n',
             series: [
               BezierLine(
+                dataPointStrokeColor: color,
                 label: widget.index == 1 ? '单' : '元',
                 data: _getRandomData(),
               ),

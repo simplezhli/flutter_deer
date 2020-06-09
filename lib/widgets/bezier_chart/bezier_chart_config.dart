@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 /// Type of Bezier line Chart
 enum BezierChartScale {
@@ -9,6 +10,15 @@ enum BezierChartScale {
 
   ///numbers sorted in an increasing way.
   CUSTOM,
+}
+
+enum BezierChartAggregation {
+  AVERAGE,
+  SUM,
+  FIRST,
+  COUNT,
+  MAX,
+  MIN,
 }
 
 ///`BezierChartConfig` allows the customization of the `BezierChart` widget
@@ -23,6 +33,9 @@ class BezierChartConfig {
   ///`true` if you want to keep the info indicator in a fixed position
   final bool verticalIndicatorFixedPosition;
 
+  ///`true` if you want to display the vertical line in full height
+  final bool verticalLineFullHeight;
+
   ///Color of the bubble indicator, it's white by default
   final Color bubbleIndicatorColor;
 
@@ -31,6 +44,9 @@ class BezierChartConfig {
 
   ///TextStyle for the value displayed inside the bubble indicator
   final TextStyle bubbleIndicatorValueStyle;
+
+  ///NumberFormat for the value displayed inside the bubble indicator
+  final NumberFormat bubbleIndicatorValueFormat;
 
   ///TextStyle for the label displayed inside the bubble indicator
   final TextStyle bubbleIndicatorLabelStyle;
@@ -80,6 +96,15 @@ class BezierChartConfig {
   ///Color for the vertical line in each X point, only works when `displayLinesXAxis` is true
   final Color xLinesColor;
 
+  ///`true` if you want do display the dot when there is no value specified (The values inside `onMissingValue`)
+  final bool displayDataPointWhenNoValue;
+
+  ///The physics for horizontal ScrollView
+  final ScrollPhysics physics;
+
+  ///`true` if you want do update bubble info on tap action instead of long press. This option will disable tap to hide bubble action
+  final bool updatePositionOnTap;
+
   BezierChartConfig({
     this.verticalIndicatorStrokeWidth = 2.0,
     this.verticalIndicatorColor = Colors.black,
@@ -100,6 +125,7 @@ class BezierChartConfig {
     this.displayLinesXAxis = false,
     this.stepsYAxis,
     this.xLinesColor = Colors.grey,
+    this.displayDataPointWhenNoValue = true,
     this.bubbleIndicatorLabelStyle = const TextStyle(
       color: Colors.grey,
       fontWeight: FontWeight.w700,
@@ -115,5 +141,10 @@ class BezierChartConfig {
       fontWeight: FontWeight.bold,
       fontSize: 11,
     ),
-  });
+    this.bubbleIndicatorValueFormat,
+    this.physics = const AlwaysScrollableScrollPhysics(),
+    this.updatePositionOnTap = false,
+    bool verticalLineFullHeight,
+  }) : this.verticalLineFullHeight =
+      verticalLineFullHeight ?? verticalIndicatorFixedPosition;
 }

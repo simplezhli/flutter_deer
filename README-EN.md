@@ -28,6 +28,7 @@ The effect of some pages is as follows:
 * Network request encapsulation based on `dio` (version 3.x)
 * Driver testing, accessibility testing.
 * Support dark mode
+* Localization（Thanks @ghedwards）  
 * Use `Sliver` series of components to achieve complex scrolling effects
 * Use amap Positioning to select address
 * Pull down to refresh + pull up to load more
@@ -123,6 +124,7 @@ iOS needs to download the code to run.
 | [bezier_chart](https://github.com/aeyrium/bezier-chart)               | **Bezier chart**       |
 | [sprintf](https://github.com/Naddiseo/dart-sprintf)                   | **Format String**   |
 | [barcode_scan](https://github.com/apptreesoftware/flutter_barcode_reader)     | **Scan code** |
+| [intl](https://github.com/dart-lang/intl)     | **Localization** |
 
 For details, please refer to the [pubspec.yaml](https://github.com/simplezhli/flutter_deer/blob/master/pubspec.yaml) file.  
 
