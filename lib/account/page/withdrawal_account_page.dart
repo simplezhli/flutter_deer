@@ -52,7 +52,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
   }
 
   void _showDeleteBottomSheet(int index) {
-    showModalBottomSheet(
+    showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext context) {
         return Material(

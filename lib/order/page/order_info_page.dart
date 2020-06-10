@@ -287,7 +287,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
   }
 
   void _showCallPhoneDialog(String phone) {
-    showDialog(
+    showDialog<void>(
         context: context,
         barrierDismissible: false,
         builder: (BuildContext context) {

@@ -202,7 +202,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
   }
 
   void _showBottomSheet() {
-    showModalBottomSheet(
+    showModalBottomSheet<void>(
       context: context,
       /// 使用true则高度不受16分之9的最高限制
       isScrollControlled: true,

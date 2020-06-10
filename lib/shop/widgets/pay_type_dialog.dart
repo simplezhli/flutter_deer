@@ -10,14 +10,14 @@ import 'package:flutter_deer/widgets/load_image.dart';
 /// design/7店铺-店铺配置/index.html#artboard10
 class PayTypeDialog extends StatefulWidget {
 
-  PayTypeDialog({
+  const PayTypeDialog({
     Key key,
     this.value,
     this.onPressed,
   }) : super(key : key);
 
   final List<int> value;
-  final Function(List) onPressed;
+  final Function(List<int>) onPressed;
   
   @override
   _PayTypeDialog createState() => _PayTypeDialog();
@@ -26,11 +26,11 @@ class PayTypeDialog extends StatefulWidget {
 
 class _PayTypeDialog extends State<PayTypeDialog> {
 
-  List _selectValue;
-  var _list = ['线上支付', '对公转账', '货到付款'];
+  List<int> _selectValue;
+  final List<String> _list = <String>['线上支付', '对公转账', '货到付款'];
 
   Widget _buildItem(int index) {
-    _selectValue = widget.value ?? [0];
+    _selectValue = widget.value ?? <int>[0];
     return Material(
       type: MaterialType.transparency,
       child: InkWell(

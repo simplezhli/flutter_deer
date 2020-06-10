@@ -34,7 +34,7 @@ mixin BasePageMixin<T extends StatefulWidget, P extends BasePresenter> on State<
     if (mounted && !_isShowDialog) {
       _isShowDialog = true;
       try {
-        showTransparentDialog(
+        showTransparentDialog<void>(
           context: context,
           barrierDismissible: false,
           builder:(_) {

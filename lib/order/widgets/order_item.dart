@@ -134,7 +134,7 @@ class OrderItem extends StatelessWidget {
                       bgColor: isDark ? Colours.dark_app_main : Colours.app_main,
                       onTap: () {
                         if (tabIndex == 2) {
-                          showDialog(
+                          showDialog<void>(
                               context: context,
                               barrierDismissible: false,
                               builder: (BuildContext context) {
@@ -159,7 +159,7 @@ class OrderItem extends StatelessWidget {
   }
 
   void _showCallPhoneDialog(BuildContext context, String phone) {
-    showDialog(
+    showDialog<void>(
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) {

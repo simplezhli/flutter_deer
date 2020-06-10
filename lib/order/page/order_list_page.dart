@@ -86,10 +86,10 @@ class _OrderListPageState extends State<OrderListPage> with AutomaticKeepAliveCl
     );
   }
 
-  List _list = [];
+  List<String> _list = <String>[];
 
   Future<void> _onRefresh() async {
-    await Future.delayed(Duration(seconds: 2), () {
+    await Future.delayed(const Duration(seconds: 2), () {
       setState(() {
         _page = 1;
         _list = List.generate(10, (i) => 'newItem：$i');
@@ -109,7 +109,7 @@ class _OrderListPageState extends State<OrderListPage> with AutomaticKeepAliveCl
       return;
     }
     _isLoading = true;
-    await Future.delayed(Duration(seconds: 2), () {
+    await Future.delayed(const Duration(seconds: 2), () {
       setState(() {
         _list.addAll(List.generate(10, (i) => 'newItem：$i'));
         _page ++;

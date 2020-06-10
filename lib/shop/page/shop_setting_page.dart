@@ -122,7 +122,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
             title: '支付方式',
             content: _getPayType(),
             onTap: () {
-              showElasticDialog(
+              showElasticDialog<void>(
                 context: context,
                 barrierDismissible: false,
                 builder: (BuildContext context) {
@@ -139,15 +139,15 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
           ),
           Gaps.vGap32,
           const Padding(
-            padding: const EdgeInsets.only(left: 16.0),
-            child: const Text('运费设置', style: TextStyles.textBold18),
+            padding: EdgeInsets.only(left: 16.0),
+            child: Text('运费设置', style: TextStyles.textBold18),
           ),
           Gaps.vGap16,
           ClickItem(
             title: '运费配置',
             content: _sendType == 0 ? '运费满免配置' : '运费比例配置',
             onTap: () {
-              showElasticDialog(
+              showElasticDialog<void>(
                 context: context,
                 barrierDismissible: false,
                 builder: (BuildContext context) {
@@ -167,7 +167,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
               title: '运费满免',
               content: _freePrice,
               onTap: () {
-                showDialog(
+                showDialog<void>(
                   context: context,
                   barrierDismissible: false,
                   builder: (BuildContext context) {
@@ -189,7 +189,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
               title: '配送费用',
               content: _sendPrice,
               onTap: () {
-                showDialog(
+                showDialog<void>(
                   context: context,
                   barrierDismissible: false,
                   builder: (BuildContext context) {
@@ -216,8 +216,8 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
           ),
           Gaps.vGap32,
           const Padding(
-            padding: const EdgeInsets.only(left: 16.0),
-            child: const Text('联系信息', style: TextStyles.textBold18,),
+            padding: EdgeInsets.only(left: 16.0),
+            child: Text('联系信息', style: TextStyles.textBold18,),
           ),
           Gaps.vGap16,
           ClickItem(

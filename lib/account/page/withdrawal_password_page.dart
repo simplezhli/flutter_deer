@@ -28,7 +28,7 @@ class _WithdrawalPasswordPageState extends State<WithdrawalPasswordPage> {
           ClickItem(
             title: '修改密码',
             onTap: () {
-              showModalBottomSheet(
+              showModalBottomSheet<void>(
                 context: context,
                 /// 禁止拖动关闭
                 enableDrag: false,
@@ -48,7 +48,7 @@ class _WithdrawalPasswordPageState extends State<WithdrawalPasswordPage> {
   }
 
   void _showHintDialog() {
-    showElasticDialog(
+    showElasticDialog<void>(
         context: context,
         barrierDismissible: false,
         builder: (BuildContext context) {
@@ -68,7 +68,7 @@ class _WithdrawalPasswordPageState extends State<WithdrawalPasswordPage> {
   }
 
   void _showVerifyDialog() {
-    showDialog(
+    showDialog<void>(
       context: context,
       barrierDismissible: false,
       builder: (_) => SMSVerifyDialog()

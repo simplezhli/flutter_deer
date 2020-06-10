@@ -36,8 +36,8 @@ class LoadImage extends StatelessWidget {
       if (image.startsWith('http')) {
         return CachedNetworkImage(
           imageUrl: image,
-          placeholder: (context, url) => LoadAssetImage(holderImg, height: height, width: width, fit: fit),
-          errorWidget: (context, url, error) => LoadAssetImage(holderImg, height: height, width: width, fit: fit),
+          placeholder: (_, __) => LoadAssetImage(holderImg, height: height, width: width, fit: fit),
+          errorWidget: (_, __, dynamic error) => LoadAssetImage(holderImg, height: height, width: width, fit: fit),
           width: width,
           height: height,
           fit: fit,

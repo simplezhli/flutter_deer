@@ -128,7 +128,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
   void _showSelectAccountTypeDialog() {
     /// 关闭输入法，避免弹出
     FocusManager.instance.primaryFocus?.unfocus();
-    showElasticDialog(
+    showElasticDialog<void>(
         context: context,
         builder: (BuildContext context) {
           final Color textColor = Theme.of(context).primaryColor;

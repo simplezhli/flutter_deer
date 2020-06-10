@@ -175,7 +175,7 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
   final List<String> _list = ['水果生鲜', '家用电器', '休闲食品', '茶酒饮料', '美妆个护', '粮油调味', '家庭清洁', '厨具用品', '儿童玩具', '床上用品'];
 
   void _showBottomSheet() {
-    showModalBottomSheet<dynamic>(
+    showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext context) {
         return SizedBox(

@@ -60,7 +60,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
       Rect.fromPoints(a, b),
       Offset.zero & overlay.size,
     );
-    showPopupWindow(
+    showPopupWindow<void>(
       context: context,
       fullWidth: false,
       isShowBg: true,
@@ -108,7 +108,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
             ),
             InkWell(
               onTap: () {
-                showDialog(
+                showDialog<void>(
                   context: context,
                   barrierDismissible: false,
                   builder: (BuildContext context) {

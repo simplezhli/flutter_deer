@@ -88,7 +88,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
       label: '添加区间',
       child: GestureDetector(
         onTap: () {
-          var config = _list[index - 1];
+          final FreightConfigModel config = _list[index - 1];
           if (config.max.isNotEmpty && config.min.isNotEmpty) {
             setState(() {
               _list.insert(_list.length - 2, FreightConfigModel('', '', 1, false, ''));
@@ -208,7 +208,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
   }
 
   void _showOrderPriceInputDialog(int index) {
-    showDialog(
+    showDialog<void>(
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) {
@@ -229,7 +229,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
   }
 
   void _showRangePriceInputDialog(int index) {
-    showDialog(
+    showDialog<void>(
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) {
@@ -247,7 +247,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
   }
 
   void _showFreightInputDialog(int index) {
-    showDialog(
+    showDialog<void>(
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) {

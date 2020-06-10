@@ -75,9 +75,9 @@ iOS需要自行下载代码运行。
 
 - 由于部分插件的原因，本项目在web上支持不完善（主要为功能方面，UI问题不大）。有兴趣的可自行运行体验。
         
-- 因为页面有点多，一开始可能会导致部分页面无法找到。(可以执行集成测试命令`flutter drive --profile --target=test_driver/driver.dart` 查看功能演示)
+- 可以执行集成测试命令`flutter drive --profile --target=test_driver/driver.dart` 查看功能演示。
 
-- 我在页面注释中有添加设计图的相对路径，可以搜索或查找到对应页面，希望对你有帮助。
+- 因为页面有点多，一开始可能会导致页面无法与设计图对应上。我在代码注释中有添加设计图的相对路径，可以搜索或查找到对应页面，希望对你有帮助。
 
 - 本项目使用FlutterJsonBeanFactory插件来生成Bean。FlutterJsonBeanFactory插件使用可以查看[这篇文章](https://www.jianshu.com/p/14cbcbaa74b7)。
 

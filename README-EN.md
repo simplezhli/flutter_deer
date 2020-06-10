@@ -69,7 +69,7 @@ iOS needs to download the code to run.
 
 - Due to some plug-ins, this project has imperfect support on the web (mainly in terms of functionality, and UI issues are minor). Those who are interested can run the experience by themselves.
         
-- Because there are a lot of pages, some pages may not be found at the beginning. (You can execute integration test commands to `flutter drive --profile --target=test_driver/driver.dart` view function demonstrations)
+- You can execute integration test commands to `flutter drive --profile --target=test_driver/driver.dart` view function demonstrations.
 
 - I have added a relative path to the design drawings in the page notes. I can search or find the corresponding page. I hope it will help you.
 

@@ -16,13 +16,13 @@ class NavigatorUtils {
   static void pushResult(BuildContext context, String path, Function(Object) function,
       {bool replace = false, bool clearStack = false}) {
     unfocus();
-    Application.router.navigateTo(context, path, replace: replace, clearStack: clearStack, transition: TransitionType.native).then((result) {
+    Application.router.navigateTo(context, path, replace: replace, clearStack: clearStack, transition: TransitionType.native).then((Object result) {
       // 页面返回result为null
       if (result == null) {
         return;
       }
       function(result);
-    }).catchError((error) {
+    }).catchError((dynamic error) {
       print('$error');
     });
   }
@@ -34,9 +34,9 @@ class NavigatorUtils {
   }
 
   /// 带参数返回
-  static void goBackWithParams(BuildContext context, result) {
+  static void goBackWithParams(BuildContext context, Object result) {
     unfocus();
-    Navigator.pop(context, result);
+    Navigator.pop<Object>(context, result);
   }
   
   /// 跳到WebView页

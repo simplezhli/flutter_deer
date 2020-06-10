@@ -154,7 +154,7 @@ class _GoodsListPageState extends State<GoodsListPage> with AutomaticKeepAliveCl
   bool get wantKeepAlive => true;
 
   void _showDeleteBottomSheet(int index) {
-    showModalBottomSheet(
+    showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext context) {
         return GoodsDeleteBottomSheet(

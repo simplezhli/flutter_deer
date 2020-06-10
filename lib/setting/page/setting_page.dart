@@ -80,14 +80,14 @@ class _SettingPageState extends State<SettingPage> {
   }
 
   void _showExitDialog() {
-    showDialog(
+    showDialog<void>(
       context: context,
-      builder: (_) => ExitDialog()
+      builder: (_) => const ExitDialog()
     );
   }
 
   void _showUpdateDialog() {
-    showDialog(
+    showDialog<void>(
       context: context,
       barrierDismissible: false,
       builder: (_) => UpdateDialog()

@@ -181,7 +181,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
       fontSize: Dimens.font_sp14,
       color: Theme.of(context).primaryColor,
     );
-    showPopupWindow(
+    showPopupWindow<void>(
       context: context,
       fullWidth: true,
       position: position,
@@ -244,7 +244,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
     );
     final Color backgroundColor = ThemeUtils.getBackgroundColor(context);
     final Color _iconColor = ThemeUtils.getIconColor(context);
-    showPopupWindow(
+    showPopupWindow<void>(
       context: context,
       fullWidth: false,
       isShowBg: true,
