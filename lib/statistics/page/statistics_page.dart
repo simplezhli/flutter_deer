@@ -59,30 +59,30 @@ class _StatisticsPageState extends State<StatisticsPage> {
       SliverPersistentHeader(
         pinned: true,
         delegate: SliverAppBarDelegate(
-            DecoratedBox(
-              decoration: BoxDecoration(
-                color: isDark ? Colours.dark_bg_color : null,
-                image: isDark ? null : DecorationImage(
-                  image: ImageUtils.getAssetImage('statistic/statistic_bg1'),
-                  fit: BoxFit.fill,
+          DecoratedBox(
+            decoration: BoxDecoration(
+              color: isDark ? Colours.dark_bg_color : null,
+              image: isDark ? null : DecorationImage(
+                image: ImageUtils.getAssetImage('statistic/statistic_bg1'),
+                fit: BoxFit.fill,
+              ),
+            ),
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 16.0),
+              alignment: Alignment.center,
+              height: 120.0,
+              child: MyCard(
+                child: Row(
+                  children: const <Widget>[
+                    _StatisticsTab('新订单(单)', 'xdd', '80'),
+                    _StatisticsTab('待配送(单)', 'dps', '80'),
+                    _StatisticsTab('今日交易额(元)', 'jrjye', '8000.00'),
+                  ],
                 ),
               ),
-              child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 16.0),
-                alignment: Alignment.center,
-                height: 120.0,
-                child: MyCard(
-                  child: Row(
-                    children: const <Widget>[
-                      _StatisticsTab('新订单(单)', 'xdd', '80'),
-                      _StatisticsTab('待配送(单)', 'dps', '80'),
-                      _StatisticsTab('今日交易额(元)', 'jrjye', '8000.00'),
-                    ],
-                  ),
-                ),
-              ),
-            )
-            , 120.0
+            ),
+          )
+          , 120.0,
         ),
       ),
       SliverToBoxAdapter(

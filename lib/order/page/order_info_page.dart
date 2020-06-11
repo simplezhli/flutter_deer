@@ -128,11 +128,11 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
       ),
       ListView.builder(
         // 如果滚动视图在滚动方向无界约束，那么shrinkWrap必须为true
-          shrinkWrap: true,
-          // 禁用ListView滑动，使用外层的ScrollView滑动
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: 2,
-          itemBuilder: (_, index) => _getOrderGoodsItem(index)
+        shrinkWrap: true,
+        // 禁用ListView滑动，使用外层的ScrollView滑动
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: 2,
+        itemBuilder: (_, index) => _getOrderGoodsItem(index),
       ),
       Gaps.vGap8,
       _getGoodsInfoItem('共2件商品', Utils.formatPrice('50.00')),

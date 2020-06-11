@@ -62,7 +62,7 @@ class _OrderListPageState extends State<OrderListPage> with AutomaticKeepAliveCl
                   ///SliverAppBar的expandedHeight高度,避免重叠
                   handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
                 ),
-                child
+                child,
               ],
             );
           },

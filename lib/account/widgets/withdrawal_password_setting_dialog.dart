@@ -86,7 +86,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                 crossAxisCount: 3,
                 childAspectRatio: 1.953,
                 mainAxisSpacing: 0.6,
-                crossAxisSpacing: 0.6
+                crossAxisSpacing: 0.6,
               ),
               itemCount: 12,
               itemBuilder: (_, index) => _buildButton(index)
