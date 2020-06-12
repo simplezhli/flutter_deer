@@ -55,6 +55,7 @@ android {
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.release
             // https://github.com/flutter/flutter/issues/47462  #48015
+            // #58967 gradle 4.0.0
             shrinkResources false
             zipAlignEnabled false
             minifyEnabled false

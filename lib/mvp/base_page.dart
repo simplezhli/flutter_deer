@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/mvp/base_presenter.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/log_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/progress_dialog.dart';
@@ -66,29 +67,34 @@ mixin BasePageMixin<T extends StatefulWidget, P extends BasePresenter> on State<
   @override
   void didChangeDependencies() {
     presenter?.didChangeDependencies();
+    Log.d('$T ==> didChangeDependencies');
     super.didChangeDependencies();
   }
 
   @override
   void dispose() {
     presenter?.dispose();
+    Log.d('$T ==> dispose');
     super.dispose();
   }
 
   @override
   void deactivate() {
     presenter?.deactivate();
+    Log.d('$T ==> deactivate');
     super.deactivate();
   }
 
   @override
   void didUpdateWidget(T oldWidget) {
     presenter?.didUpdateWidgets<T>(oldWidget);
+    Log.d('$T ==> didUpdateWidgets');
     super.didUpdateWidget(oldWidget);
   }
 
   @override
   void initState() {
+    Log.d('$T ==> initState');
     presenter = createPresenter();
     presenter?.view = this;
     presenter?.initState();

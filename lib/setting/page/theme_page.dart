@@ -43,18 +43,15 @@ class _ThemePageState extends State<ThemePage> {
         title: '夜间模式',
       ),
       body: ListView.separated(
-          shrinkWrap: true,
-          itemCount: _list.length,
-          separatorBuilder: (_, index) {
-            return const Divider();
-          },
-          itemBuilder: (_, index) {
-            return InkWell(
-              onTap: () {
-                ThemeMode themeMode = index == 0 ? ThemeMode.system : (index == 1 ? ThemeMode.dark : ThemeMode.light);
+        itemCount: _list.length,
+        separatorBuilder: (_, index) => const Divider(),
+        itemBuilder: (_, index) {
+          return InkWell(
+            onTap: () {
+              ThemeMode themeMode = index == 0 ? ThemeMode.system : (index == 1 ? ThemeMode.dark : ThemeMode.light);
 //                Provider.of<ThemeProvider>(context, listen: false).setTheme(themeMode);
-                /// 与上方等价，provider 4.1.0添加的拓展方法
-                context.read<ThemeProvider>().setTheme(themeMode);
+              /// 与上方等价，provider 4.1.0添加的拓展方法
+              context.read<ThemeProvider>().setTheme(themeMode);
 //                _subscription?.cancel();
 //                /// 主题切换动画200毫秒
 //                _subscription = Stream.value(1).delay(Duration(milliseconds: 200)).listen((_) {
@@ -63,25 +60,25 @@ class _ThemePageState extends State<ThemePage> {
 //                  }
 //                  ThemeUtils.setSystemNavigationBarStyle(context, themeMode);
 //                });
-              },
-              child: Container(
-                alignment: Alignment.centerLeft,
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                height: 50.0,
-                child: Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Text(_list[index]),
-                    ),
-                    Opacity(
+            },
+            child: Container(
+              alignment: Alignment.centerLeft,
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              height: 50.0,
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Text(_list[index]),
+                  ),
+                  Opacity(
                       opacity: themeMode == _list[index] ? 1 : 0,
                       child: Icon(Icons.done, color: Colors.blue)
-                    )
-                  ],
-                ),
+                  )
+                ],
               ),
-            );
-          }
+            ),
+          );
+        },
       ),
     );
   }

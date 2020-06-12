@@ -76,26 +76,23 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
 //                child: CircularProgressIndicator(),
 //              ) : 
               ListView.separated(
-                  controller: _controller,
-                  shrinkWrap: true,
-                  itemCount: _list.length,
-                  separatorBuilder: (_, index) {
-                    return const Divider();
-                  },
-                  itemBuilder: (_, index) {
-                    return _AddressItem(
-                      isSelected: _index == index,
-                      date: _list[index],
-                      onTap: () {
-                        _index = index;
-                        if (_aMap2DController != null) {
-                          _aMap2DController.move(_list[index].latitude, _list[index].longitude);
-                        }
-                        setState(() {
-                        });
-                      },
-                    );
-                  }
+                controller: _controller,
+                itemCount: _list.length,
+                separatorBuilder: (_, index) => const Divider(),
+                itemBuilder: (_, index) {
+                  return _AddressItem(
+                    isSelected: _index == index,
+                    date: _list[index],
+                    onTap: () {
+                      _index = index;
+                      if (_aMap2DController != null) {
+                        _aMap2DController.move(_list[index].latitude, _list[index].longitude);
+                      }
+                      setState(() {
+                      });
+                    },
+                  );
+                },
               ),
             ),
             MyButton(

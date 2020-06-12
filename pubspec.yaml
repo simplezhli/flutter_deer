@@ -57,6 +57,7 @@ dependencies:
   # 高德2D地图插件 https://github.com/simplezhli/flutter_2d_amap
   flutter_2d_amap:
     git:
+      ref: 323fcf8
       url: https://github.com/simplezhli/flutter_2d_amap.git
       
 dev_dependencies:
