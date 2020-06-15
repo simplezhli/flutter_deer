@@ -8,6 +8,7 @@ import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/net/dio_utils.dart';
 import 'package:flutter_deer/net/intercept.dart';
 import 'package:flutter_deer/provider/theme_provider.dart';
+import 'package:flutter_deer/routers/404.dart';
 import 'package:flutter_deer/routers/application.dart';
 import 'package:flutter_deer/routers/routers.dart';
 import 'package:flutter_deer/util/device_utils.dart';
@@ -99,6 +100,12 @@ class MyApp extends StatelessWidget {
                 return MediaQuery(
                   data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0), // 或者 MediaQueryData.fromWindow(WidgetsBinding.instance.window).copyWith(textScaleFactor: 1.0),
                   child: child,
+                );
+              },
+              /// 因为使用了fluro，这里设置主要针对Web
+              onUnknownRoute: (_) {
+                return MaterialPageRoute(
+                  builder: (BuildContext context) => PageNotFound(),
                 );
               },
             );

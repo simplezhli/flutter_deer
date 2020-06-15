@@ -28,7 +28,7 @@ class Routes {
     router.notFoundHandler = Handler(
       handlerFunc: (BuildContext context, Map<String, List<String>> params) {
         debugPrint('未找到目标页');
-        return WidgetNotFound();
+        return PageNotFound();
       });
 
     router.define(home, handler: Handler(
