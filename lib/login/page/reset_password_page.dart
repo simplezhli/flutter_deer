@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_deer/localization/app_localizations.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/util/utils.dart';
@@ -71,14 +72,14 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
   }
   
   void _reset() {
-    Toast.show('确认......');
+    Toast.show(AppLocalizations.of(context).confirm);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MyAppBar(
-        title: '忘记密码',
+      appBar: MyAppBar(
+        title: AppLocalizations.of(context).forgotPasswordLink,
       ),
       body: MyScrollView(
         keyboardConfig: Utils.getKeyboardActionsConfig(context, <FocusNode>[_nodeText1, _nodeText2, _nodeText3]),
@@ -91,8 +92,8 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
 
   List<Widget> _buildBody() {
     return <Widget>[
-      const Text(
-        '重置登录密码',
+      Text(
+        AppLocalizations.of(context).resetLoginPassword,
         style: TextStyles.textBold26,
       ),
       Gaps.vGap16,
@@ -101,7 +102,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
         controller: _nameController,
         maxLength: 11,
         keyboardType: TextInputType.phone,
-        hintText: '请输入手机号',
+        hintText: AppLocalizations.of(context).inputPhoneHint,
       ),
       Gaps.vGap8,
       MyTextField(
@@ -112,7 +113,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
           return Future.value(true);
         },
         maxLength: 6,
-        hintText: '请输入验证码',
+        hintText: AppLocalizations.of(context).inputVerificationCodeHint,
       ),
       Gaps.vGap8,
       MyTextField(
@@ -121,12 +122,12 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
         controller: _passwordController,
         maxLength: 16,
         keyboardType: TextInputType.visiblePassword,
-        hintText: '请输入密码',
+        hintText: AppLocalizations.of(context).inputPasswordHint,
       ),
       Gaps.vGap24,
       MyButton(
         onPressed: _clickable ? _reset : null,
-        text: '确认',
+        text: AppLocalizations.of(context).confirm,
       )
     ];
   }

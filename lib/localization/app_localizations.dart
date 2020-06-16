@@ -147,16 +147,42 @@ class AppLocalizations {
       'Not really sent, just log in!', // 并没有真正发送哦，直接登录吧！
       name: 'verificationButton',
       desc: 'Not really sent, just log in!',
-      locale: localeName
+      locale: localeName,
     );
   }
 
   String get getVerificationCode {
     return Intl.message(
-        'Get verification code', // 获取验证码
-        name: 'getVerificationCode',
-        desc: 'Get verification code',
+      'Get verification code', // 获取验证码
+      name: 'getVerificationCode',
+      desc: 'Get verification code',
+      locale: localeName,
+    );
+  }
+
+  String get resetLoginPassword {
+    return Intl.message(
+      'Reset Login Password', // 获取验证码
+      name: 'resetLoginPassword',
+      desc: 'Reset login password',
+      locale: localeName,
+    );
+  }
+  //Note: Unregistered mobile phone number, please
+  String get registeredTips {
+    return Intl.message(
+        'Unregistered mobile phone number, please ',
+        name: 'registeredTips',
+        desc: 'Registered Tips',
         locale: localeName
+    );
+  }
+  
+  String get confirm {
+    return Intl.message(
+      'Confirm',
+      name: 'confirm',
+      locale: localeName,
     );
   }
 }

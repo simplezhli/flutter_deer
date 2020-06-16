@@ -34,7 +34,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "register" : MessageLookupByLibrary.simpleMessage("Register"),
     "title" : MessageLookupByLibrary.simpleMessage("Flutter Deer"),
     "verificationButton" : MessageLookupByLibrary.simpleMessage("Not really sent, just log in!"),
-    "verificationCodeLogin" : MessageLookupByLibrary.simpleMessage("verification code login"),
-    "getVerificationCode" : MessageLookupByLibrary.simpleMessage("Get verification code")
+    "verificationCodeLogin" : MessageLookupByLibrary.simpleMessage("Verification Code Login"),
+    "getVerificationCode" : MessageLookupByLibrary.simpleMessage("Get verification code"),
+    "confirm" : MessageLookupByLibrary.simpleMessage("Confirm"),
+    "resetLoginPassword" : MessageLookupByLibrary.simpleMessage("Reset Login Password"),
+    "registeredTips" : MessageLookupByLibrary.simpleMessage("Unregistered mobile phone number, please ")
   };
 }

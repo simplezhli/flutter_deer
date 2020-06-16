@@ -1,6 +1,6 @@
 {
   "title": "Flutter Deer",
-  "verificationCodeLogin": "verification code login",
+  "verificationCodeLogin": "Verification Code Login",
   "passwordLogin": "Password Login",
   "login": "Login",
   "forgotPasswordLink": "Forgot Password",
@@ -14,4 +14,7 @@
   "inputPhoneInvalid": "Please input valid mobile phone number",
   "verificationButton": "Not really sent, just log in!",
   "getVerificationCode": "Get verification code",
+  "confirm": "Confirm",
+  "resetLoginPassword": "Reset Login Password",
+  "registeredTips": "Unregistered mobile phone number, please "
 }

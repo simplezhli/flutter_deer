@@ -89,5 +89,22 @@
     "description": "Get verification code",
     "type": "text",
     "placeholders": {}
-  }    
+  },
+  "confirm": "Confirm",
+  "@confirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetLoginPassword": "Reset Login Password",
+  "@resetLoginPassword": {
+    "description": "Reset login password",
+    "type": "text",
+    "placeholders": {}
+  },
+  "registeredTips": "Unregistered mobile phone number, please ",
+  "@registeredTips": {
+    "description": "Registered Tips",
+    "type": "text",
+    "placeholders": {}
+  }
 }

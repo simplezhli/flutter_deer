@@ -35,6 +35,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "title" : MessageLookupByLibrary.simpleMessage("Flutter Deer"),
     "verificationButton" : MessageLookupByLibrary.simpleMessage("并没有真正发送哦，直接登录吧！"),
     "verificationCodeLogin" : MessageLookupByLibrary.simpleMessage("验证码登录"),
-    "getVerificationCode" : MessageLookupByLibrary.simpleMessage("获取验证码")
+    "getVerificationCode" : MessageLookupByLibrary.simpleMessage("获取验证码"),
+    "confirm" : MessageLookupByLibrary.simpleMessage("确认"),
+    "resetLoginPassword" : MessageLookupByLibrary.simpleMessage("重置登录密码"),
+    "registeredTips" : MessageLookupByLibrary.simpleMessage("提示：未注册账号的手机号，请先")
   };
 }
