@@ -64,6 +64,10 @@
 **/ios/ServiceDefinitions.json
 **/ios/Runner/GeneratedPluginRegistrant.*
 **/ios/Flutter/flutter_export_environment.sh
+**/ios/Flutter/.last_build_id
+
+# Web related
+lib/generated_plugin_registrant.dart
 
 # Exceptions to above rules.
 !**/ios/**/default.mode1v3

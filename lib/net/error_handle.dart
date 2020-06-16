@@ -29,6 +29,9 @@ class ExceptionHandle {
         if (e is HttpException) {
           return NetError(http_error, '服务器异常！');
         }
+        if (e is FormatException) {
+          return NetError(parse_error, '数据解析错误！');
+        }
         return NetError(net_error, '网络异常，请检查你的网络！');
       } else if (error.type == DioErrorType.CONNECT_TIMEOUT ||
           error.type == DioErrorType.SEND_TIMEOUT ||
