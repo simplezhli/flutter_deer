@@ -52,7 +52,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
 
   @override
   void dispose() {
-    _tabController?.dispose();
+    _tabController.dispose();
     super.dispose();
   }
 

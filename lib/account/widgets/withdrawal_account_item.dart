@@ -41,6 +41,12 @@ class _WithdrawalAccountItemState extends State<WithdrawalAccountItem> with Sing
   }
   
   @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+  
+  @override
   Widget build(BuildContext context) {
     var front = Stack(
       children: <Widget>[

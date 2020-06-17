@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/util/change_notifier_manage.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
 
@@ -14,7 +15,13 @@ class MessagePage extends StatefulWidget {
 class _MessagePageState extends State<MessagePage> {
   
   final ScrollController _scrollController = ScrollController();
-  
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

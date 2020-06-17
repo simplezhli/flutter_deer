@@ -44,6 +44,7 @@ class GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProvi
   @override
   void dispose() {
     _tabController.dispose();
+    _controller.dispose();
     super.dispose();
   }
   

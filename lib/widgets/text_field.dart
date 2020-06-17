@@ -52,11 +52,11 @@ class _MyTextFieldState extends State<MyTextField> {
 
   @override
   void initState() {
-    super.initState();
     /// 获取初始化值
     _isShowDelete = widget.controller.text.isEmpty;
     /// 监听输入改变  
     widget.controller.addListener(isEmpty);
+    super.initState();
   }
   
   void isEmpty() {
@@ -71,9 +71,9 @@ class _MyTextFieldState extends State<MyTextField> {
   
   @override
   void dispose() {
-    super.dispose();
     _subscription?.cancel();
     widget.controller?.removeListener(isEmpty);
+    super.dispose();
   }
 
   Future _getVCode() async {

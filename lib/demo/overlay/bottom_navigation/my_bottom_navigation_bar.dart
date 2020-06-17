@@ -155,7 +155,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> with Tick
 
   @override
   void dispose() {
-    super.dispose();
     controller.dispose();
+    super.dispose();
   }
 }
