@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/localization/app_localizations.dart';
+import 'package:flutter_deer/util/change_notifier_manage.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/util/utils.dart';
@@ -17,7 +18,7 @@ class ResetPasswordPage extends StatefulWidget {
   _ResetPasswordPageState createState() => _ResetPasswordPageState();
 }
 
-class _ResetPasswordPageState extends State<ResetPasswordPage> {
+class _ResetPasswordPageState extends State<ResetPasswordPage> with ChangeNotifierMixin<ResetPasswordPage> {
   //定义一个controller
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _vCodeController = TextEditingController();
@@ -26,28 +27,18 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
   final FocusNode _nodeText2 = FocusNode();
   final FocusNode _nodeText3 = FocusNode();
   bool _clickable = false;
-  
+
   @override
-  void initState() {
-    super.initState();
-    //监听输入改变  
-    _nameController.addListener(_verify);
-    _vCodeController.addListener(_verify);
-    _passwordController.addListener(_verify);
-  }
-  
-  @override
-  void dispose() {
-    _nameController.removeListener(_verify);
-    _vCodeController.removeListener(_verify);
-    _passwordController.removeListener(_verify);
-    _nameController.dispose();
-    _vCodeController.dispose();
-    _passwordController.dispose();
-    _nodeText1.dispose();
-    _nodeText2.dispose();
-    _nodeText3.dispose();
-    super.dispose();
+  Map<ChangeNotifier, List<VoidCallback>> changeNotifier() {
+    final List<VoidCallback> callbacks = [_verify];
+    return {
+      _nameController: callbacks,
+      _vCodeController: callbacks,
+      _passwordController: callbacks,
+      _nodeText1: null,
+      _nodeText2: null,
+      _nodeText3: null,
+    };
   }
 
   void _verify() {

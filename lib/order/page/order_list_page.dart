@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/order/provider/order_page_provider.dart';
 import 'package:flutter_deer/order/widgets/order_item.dart';
 import 'package:flutter_deer/order/widgets/order_tag_item.dart';
+import 'package:flutter_deer/util/change_notifier_manage.dart';
 import 'package:flutter_deer/widgets/my_refresh_list.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
 import 'package:provider/provider.dart';
@@ -20,21 +21,26 @@ class OrderListPage extends StatefulWidget {
   _OrderListPageState createState() => _OrderListPageState();
 }
 
-class _OrderListPageState extends State<OrderListPage> with AutomaticKeepAliveClientMixin<OrderListPage> {
+class _OrderListPageState extends State<OrderListPage> with AutomaticKeepAliveClientMixin<OrderListPage>, ChangeNotifierMixin<OrderListPage>{
 
+  final ScrollController _controller = ScrollController();
+  StateType _stateType = StateType.loading;
   /// 是否正在加载数据
   bool _isLoading = false;
-  int _page = 1;
   final int _maxPage = 3;
-  StateType _stateType = StateType.loading;
+  int _page = 1;
   int _index = 0;
-  final ScrollController _controller = ScrollController();
   
   @override
   void initState() {
     super.initState();
     _index = widget.index;
     _onRefresh();
+  }
+
+  @override
+  Map<ChangeNotifier, List<VoidCallback>> changeNotifier() {
+    return {_controller: null};
   }
   
   @override

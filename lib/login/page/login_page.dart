@@ -8,6 +8,7 @@ import 'package:flutter_deer/localization/app_localizations.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/store/store_router.dart';
+import 'package:flutter_deer/util/change_notifier_manage.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
@@ -22,7 +23,7 @@ class LoginPage extends StatefulWidget {
   _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<LoginPage> with ChangeNotifierMixin<LoginPage> {
   //定义一个controller
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -31,23 +32,20 @@ class _LoginPageState extends State<LoginPage> {
   bool _clickable = false;
 
   @override
-  void initState() {
-    super.initState();
-    //监听输入改变  
-    _nameController.addListener(_verify);
-    _passwordController.addListener(_verify);
-    _nameController.text = SpUtil.getString(Constant.phone);
+  Map<ChangeNotifier, List<VoidCallback>> changeNotifier() {
+    final List<VoidCallback> callbacks = [_verify];
+    return {
+      _nameController: callbacks,
+      _passwordController: callbacks,
+      _nodeText1: null,
+      _nodeText2: null,
+    };
   }
 
   @override
-  void dispose() {
-    _nameController.removeListener(_verify);
-    _passwordController.removeListener(_verify);
-    _nameController.dispose();
-    _passwordController.dispose();
-    _nodeText1.dispose();
-    _nodeText2.dispose();
-    super.dispose();
+  void initState() {
+    super.initState();
+    _nameController.text = SpUtil.getString(Constant.phone);
   }
 
   void _verify() {

@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/localization/app_localizations.dart';
+import 'package:flutter_deer/util/change_notifier_manage.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/toast.dart';
@@ -20,32 +21,25 @@ class SMSLoginPage extends StatefulWidget {
   _SMSLoginPageState createState() => _SMSLoginPageState();
 }
 
-class _SMSLoginPageState extends State<SMSLoginPage> {
+class _SMSLoginPageState extends State<SMSLoginPage> with ChangeNotifierMixin<SMSLoginPage> {
 
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _vCodeController = TextEditingController();
   final FocusNode _nodeText1 = FocusNode();
   final FocusNode _nodeText2 = FocusNode();
   bool _clickable = false;
-  
-  @override
-  void initState() {
-    super.initState();
-    _phoneController.addListener(_verify);
-    _vCodeController.addListener(_verify);
-  }
 
   @override
-  void dispose() {
-    _phoneController.removeListener(_verify);
-    _vCodeController.removeListener(_verify);
-    _phoneController.dispose();
-    _vCodeController.dispose();
-    _nodeText1.dispose();
-    _nodeText2.dispose();
-    super.dispose();
+  Map<ChangeNotifier, List<VoidCallback>> changeNotifier() {
+    final List<VoidCallback> callbacks = [_verify];
+    return {
+      _phoneController: callbacks,
+      _vCodeController: callbacks,
+      _nodeText1: null,
+      _nodeText2: null,
+    };
   }
-
+ 
   void _verify() {
     final String name = _phoneController.text;
     final String vCode = _vCodeController.text;

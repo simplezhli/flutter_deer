@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/util/change_notifier_manage.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/toast.dart';
@@ -16,31 +17,23 @@ class UpdatePasswordPage extends StatefulWidget {
   _UpdatePasswordPageState createState() => _UpdatePasswordPageState();
 }
 
-class _UpdatePasswordPageState extends State<UpdatePasswordPage> {
+class _UpdatePasswordPageState extends State<UpdatePasswordPage> with ChangeNotifierMixin<UpdatePasswordPage> {
   //定义一个controller
   final TextEditingController _oldPwdController = TextEditingController();
   final TextEditingController _newPwdController = TextEditingController();
   final FocusNode _nodeText1 = FocusNode();
   final FocusNode _nodeText2 = FocusNode();
   bool _clickable = false;
-  
-  @override
-  void initState() {
-    super.initState();
-    //监听输入改变  
-    _oldPwdController.addListener(_verify);
-    _newPwdController.addListener(_verify);
-  }
 
   @override
-  void dispose() {
-    _oldPwdController.removeListener(_verify);
-    _newPwdController.removeListener(_verify);
-    _oldPwdController.dispose();
-    _newPwdController.dispose();
-    _nodeText1.dispose();
-    _nodeText2.dispose();
-    super.dispose();
+  Map<ChangeNotifier, List<VoidCallback>> changeNotifier() {
+    final List<VoidCallback> callbacks = [_verify];
+    return {
+      _oldPwdController: callbacks,
+      _newPwdController: callbacks,
+      _nodeText1: null,
+      _nodeText2: null,
+    };
   }
   
   void _verify() {
