@@ -61,7 +61,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.only(topLeft: Radius.circular(8.0), topRight: Radius.circular(8.0)),
                     image: DecorationImage(
-                      image: ImageUtils.getAssetImage('update_head', format: 'jpg'),
+                      image: ImageUtils.getAssetImage('update_head', format: ImageFormat.jpg),
                       fit: BoxFit.cover,
                     ),
                   ),

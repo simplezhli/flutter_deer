@@ -34,7 +34,7 @@ class _SplashPageState extends State<SplashPage> {
       if (SpUtil.getBool(Constant.keyGuide, defValue: true)) {
         /// 预先缓存图片，避免直接使用时因为首次加载造成闪动
         _guideList.forEach((image) {
-          precacheImage(ImageUtils.getAssetImage(image), context);
+          precacheImage(ImageUtils.getAssetImage(image, format: ImageFormat.webp), context);
         });
       }
       _initSplash();
@@ -91,6 +91,7 @@ class _SplashPageState extends State<SplashPage> {
             fit: BoxFit.cover,
             width: double.infinity,
             height: double.infinity,
+            format: ImageFormat.webp,
           );
         },
         onTap: (index) {

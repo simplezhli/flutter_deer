@@ -12,7 +12,7 @@ class LoadImage extends StatelessWidget {
     this.width, 
     this.height,
     this.fit = BoxFit.cover, 
-    this.format = 'png',
+    this.format = ImageFormat.png,
     this.holderImg = 'none'
   }): super(key: key);
   
@@ -20,7 +20,7 @@ class LoadImage extends StatelessWidget {
   final double width;
   final double height;
   final BoxFit fit;
-  final String format;
+  final ImageFormat format;
   final String holderImg;
   
   @override
@@ -44,10 +44,10 @@ class LoadImage extends StatelessWidget {
         );
       } else {
         return LoadAssetImage(image,
-            height: height,
-            width: width,
-            fit: fit,
-            format: format
+          height: height,
+          width: width,
+          fit: fit,
+          format: format,
         );
       }
     }
@@ -64,7 +64,7 @@ class LoadAssetImage extends StatelessWidget {
     this.cacheWidth,
     this.cacheHeight,
     this.fit,
-    this.format = 'png',
+    this.format = ImageFormat.png,
     this.color
   }): super(key: key);
 
@@ -74,7 +74,7 @@ class LoadAssetImage extends StatelessWidget {
   final int cacheWidth;
   final int cacheHeight;
   final BoxFit fit;
-  final String format;
+  final ImageFormat format;
   final Color color;
   
   @override

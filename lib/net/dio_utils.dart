@@ -124,8 +124,7 @@ class DioUtils {
     Options options, 
     bool isList = false,
   }) {
-    final String m = _getRequestMethod(method);
-    return _request<T>(m, url,
+    return _request<T>(method.value, url,
       data: params,
       queryParameters: queryParameters,
       options: options,
@@ -162,8 +161,7 @@ class DioUtils {
     Options options, 
     bool isList = false,
   }) {
-    final String m = _getRequestMethod(method);
-    Stream.fromFuture(_request<T>(m, url,
+    Stream.fromFuture(_request<T>(method.value, url,
       data: params,
       queryParameters: queryParameters,
       options: options,
@@ -206,31 +204,6 @@ class DioUtils {
       onError(code, msg);
     }
   }
-
-  String _getRequestMethod(Method method) {
-    String m;
-    switch(method) {
-      case Method.get:
-        m = 'GET';
-        break;
-      case Method.post:
-        m = 'POST';
-        break;
-      case Method.put:
-        m = 'PUT';
-        break;
-      case Method.patch:
-        m = 'PATCH';
-        break;
-      case Method.delete:
-        m = 'DELETE';
-        break;
-      case Method.head:
-        m = 'HEAD';
-        break;
-    }
-    return m;
-  }
 }
 
 Map<String, dynamic> parseData(String data) {
@@ -244,4 +217,10 @@ enum Method {
   patch,
   delete,
   head
+}
+
+/// 使用拓展枚举替代 switch判断取值
+/// https://zhuanlan.zhihu.com/p/98545689
+extension MethodExtension on Method {
+  String get value => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD'][this.index];
 }
