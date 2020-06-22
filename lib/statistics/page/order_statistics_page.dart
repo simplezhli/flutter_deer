@@ -4,13 +4,13 @@ import 'dart:math';
 import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/statistics/widgets/selected_text.dart';
 import 'package:flutter_deer/util/date_utils.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
-import 'package:flutter_deer/widgets/selected_text.dart';
 import 'package:flutter_deer/widgets/bezier_chart/bezier_chart.dart';
 import 'package:flutter_deer/util/date_utils_.dart' as date;
 
@@ -157,7 +157,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
   }
   
   Widget _buildButton(String text, Key key, int index) {
-    return SelectedText(
+    return SelectedDate(
       text,
       key: key,
       fontSize: Dimens.font_sp15,
@@ -294,7 +294,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
     list.forEach((day) {
       dayWidgets.add(
         Center(
-          child: SelectedText(
+          child: SelectedDate(
             day.day.toString().padLeft(2, '0'), // 不足2位左边补0
             selected:(day.day == _selectedDay.day && !DateUtils.isExtraDay(day, _initialDay)),
             // 不是本月的日期与超过当前日期的不可点击
@@ -319,7 +319,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
     _monthList.forEach((month) {
       monthWidgets.add(
         Center(
-          child: SelectedText(
+          child: SelectedDate(
             '$month月',
             selected: month == _selectedMonth,
             enable: month <= _initialDay.month,
@@ -341,7 +341,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
     _weeksDays.forEach((day) {
       dayWidgets.add(
         Center(
-          child: SelectedText(
+          child: SelectedDate(
             day.day.toString().padLeft(2, '0'),
             selected: day.day == _selectedWeekDay,
             unSelectedTextColor: _unSelectedTextColor,

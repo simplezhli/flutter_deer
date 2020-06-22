@@ -11,7 +11,7 @@ import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/my_scroll_view.dart';
-import 'package:flutter_deer/widgets/text_field.dart';
+import 'package:flutter_deer/login/widgets/my_text_field.dart';
 
 import '../login_router.dart';
 

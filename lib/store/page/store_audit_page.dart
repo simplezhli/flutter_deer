@@ -12,7 +12,7 @@ import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/my_scroll_view.dart';
 import 'package:flutter_deer/widgets/selected_image.dart';
-import 'package:flutter_deer/widgets/store_select_text_item.dart';
+import 'package:flutter_deer/widgets/selected_item.dart';
 import 'package:flutter_deer/widgets/text_field_item.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_deer/res/resources.dart';
@@ -131,12 +131,12 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
         title: '店铺名称',
         hintText: '填写店铺名称'
       ),
-      StoreSelectTextItem(
+      SelectedItem(
         title: '主营范围',
         content: _sortName,
         onTap: () => _showBottomSheet()
       ),
-      StoreSelectTextItem(
+      SelectedItem(
         title: '店铺地址',
         content: _address,
         onTap: () {

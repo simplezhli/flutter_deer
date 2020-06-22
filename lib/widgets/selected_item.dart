@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 
-class StoreSelectTextItem extends StatelessWidget {
+class SelectedItem extends StatelessWidget {
 
-  const StoreSelectTextItem({
+  const SelectedItem({
     Key key,
     this.onTap,
     @required this.title,

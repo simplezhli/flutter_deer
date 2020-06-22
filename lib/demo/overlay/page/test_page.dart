@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/demo/widgets/neumorphic.dart';
 
 class TestPage extends StatefulWidget {
   
@@ -14,11 +15,11 @@ class _TestPageState extends State<TestPage> {
       appBar: AppBar(
         title: const Text('Test Page'),
       ),
-      body: Container(
-        color: Colors.tealAccent,
-        child: Center(
+      backgroundColor: Colors.blueGrey.shade200,
+      body: Center(
+        child: NeumorphicContainer(
           child: GestureDetector(
-            child: const Text('Test Page', style: TextStyle(fontSize: 22.0),),
+            child: const Text('点击跳转', style: TextStyle(fontSize: 18.0, color: Colors.white70),),
             onTap: () {
               Navigator.push<TestPage>(
                 context,
@@ -27,7 +28,7 @@ class _TestPageState extends State<TestPage> {
                 ),
               );
             },
-          )
+          ),
         ),
       )
     );

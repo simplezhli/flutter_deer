@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/statistics/widgets/selected_text.dart';
 import 'package:flutter_deer/util/date_utils.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
@@ -11,7 +12,6 @@ import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_card.dart';
 import 'package:flutter_deer/widgets/pie_chart/pie_chart.dart';
 import 'package:flutter_deer/widgets/pie_chart/pie_data.dart';
-import 'package:flutter_deer/widgets/selected_text.dart';
 
 /// design/5统计/index.html#artboard11
 class GoodsStatisticsPage extends StatefulWidget {
@@ -206,7 +206,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
 
   Widget _buildSelectedText(String text, int index) {
     final Color unSelectedTextColor = ThemeUtils.isDark(context) ? Colors.white : Colours.dark_text_gray;
-    return SelectedText(
+    return SelectedDate(
       text,
       fontSize: Dimens.font_sp15,
       selected: _type && _selectedIndex == index,

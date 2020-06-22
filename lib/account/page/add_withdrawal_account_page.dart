@@ -9,7 +9,7 @@ import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/my_scroll_view.dart';
-import 'package:flutter_deer/widgets/store_select_text_item.dart';
+import 'package:flutter_deer/widgets/selected_item.dart';
 import 'package:flutter_deer/widgets/text_field_item.dart';
 
 
@@ -31,7 +31,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
     var style = Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp14);
     var children = [
       Gaps.vGap5,
-      StoreSelectTextItem(
+      SelectedItem(
         title: '账号类型',
         content: _accountType,
         onTap: () => _showSelectAccountTypeDialog(),
@@ -50,7 +50,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
               keyboardType: TextInputType.number,
               hintText: '填写银行卡号',
             ),
-            StoreSelectTextItem(
+            SelectedItem(
               title: '开  户  地',
               content: _city.isEmpty ? '选择开户城市' : _city,
               style: _city.isEmpty ? style: null,
@@ -63,7 +63,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                 });
               },
             ),
-            StoreSelectTextItem(
+            SelectedItem(
               title: '银行名称',
               content: _bank.isEmpty ? '选择开户银行' : _bank,
               style: _bank.isEmpty ? style : null,
@@ -76,7 +76,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                 });
               },
             ),
-            StoreSelectTextItem(
+            SelectedItem(
               title: '支行名称',
               content: _bank1.isEmpty ? '选择开户支行' : _bank1,
               style: _bank1.isEmpty ? style : null,

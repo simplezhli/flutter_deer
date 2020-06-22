@@ -10,7 +10,7 @@ import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/my_scroll_view.dart';
-import 'package:flutter_deer/widgets/text_field.dart';
+import 'package:flutter_deer/login/widgets/my_text_field.dart';
 
 /// design/1注册登录/index.html#artboard11
 class RegisterPage extends StatefulWidget {

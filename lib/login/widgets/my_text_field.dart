@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/localization/app_localizations.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/widgets/load_image.dart';
 
-import 'load_image.dart';
 
 /// 登录模块的输入框封装
 class MyTextField extends StatefulWidget {

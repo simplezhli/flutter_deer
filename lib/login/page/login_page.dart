@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flustars/flustars.dart';
 import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/localization/app_localizations.dart';
+import 'package:flutter_deer/login/widgets/my_text_field.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/store/store_router.dart';
@@ -13,7 +14,6 @@ import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/my_scroll_view.dart';
-import 'package:flutter_deer/widgets/text_field.dart';
 
 import '../login_router.dart';
 

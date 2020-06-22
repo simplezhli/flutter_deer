@@ -6,7 +6,8 @@ import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
-import 'package:flutter_deer/widgets/menu_reveal.dart';
+
+import 'menu_reveal.dart';
 
 
 /// design/4商品/index.html#artboard1
