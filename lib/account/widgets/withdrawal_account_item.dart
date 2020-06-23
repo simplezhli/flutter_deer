@@ -54,14 +54,14 @@ class _WithdrawalAccountItemState extends State<WithdrawalAccountItem> with Sing
           top: 25.0,
           left: 24.0,
           child: Container(
-              height: 40.0,
-              width: 40.0,
-              padding: const EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-              child: LoadAssetImage(widget.data.type == 1 ? 'account/wechat' : 'account/yhk')
+            height: 40.0,
+            width: 40.0,
+            padding: const EdgeInsets.all(8.0),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            child: LoadAssetImage(widget.data.type == 1 ? 'account/wechat' : 'account/yhk'),
           ),
         ),
         Positioned(
@@ -104,8 +104,9 @@ class _WithdrawalAccountItemState extends State<WithdrawalAccountItem> with Sing
         ),
       ),
     );
-    return Padding(
-      padding: const EdgeInsets.only(top: 15.0, left: 22.0, right: 22.0),
+    return Container(
+      height: 152.0,
+      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 22.0),
       child: AnimatedBuilder(
         animation: _animation,
         builder: (_, child) {

@@ -18,6 +18,8 @@ class WithdrawalAccountPage extends StatefulWidget {
 class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
   
   final List<WithdrawalAccountModel> _list = [];
+  final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
+  final Duration _kDuration = Duration(milliseconds: 300);
   
   @override
   void initState() {
@@ -34,21 +36,66 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
       appBar: MyAppBar(
         centerTitle: '提现账号',
         actionName: '添加',
-        onPressed: () => NavigatorUtils.push(context, AccountRouter.addWithdrawalAccountPage)
-      ),
-      body: _list.isEmpty ? const StateLayout(type: StateType.account) :
-      ListView.builder(
-        itemCount: _list.length,
-        itemExtent: 151.0,
-        itemBuilder: (_, index) {
-          return WithdrawalAccountItem(
-            key: ObjectKey( _list[index]), /// 这里注意必须添加key，原因见： https://weilu.blog.csdn.net/article/details/104745624
-            data: _list[index], 
-            onLongPress: () => _showDeleteBottomSheet(index),
-          );
+        onPressed: () {
+          NavigatorUtils.pushResult(context, AccountRouter.addWithdrawalAccountPage, (result) {
+            _insertItem(0);
+          });
         }
       ),
+      body: _list.isEmpty ? const StateLayout(type: StateType.account) :
+      AnimatedList(
+        key: _listKey,
+        padding: const EdgeInsets.only(top: 8.0),
+        initialItemCount: _list.length,
+        itemBuilder: (_, index, animation) => sizeItem(_list[index], index, animation),
+      ),
     );
+  }
+  
+  Widget sizeItem(WithdrawalAccountModel data, int index, Animation<double> animation) {
+    /// item插入、移除动画 
+    return SizeTransition(
+      axisAlignment: 1.0,
+      sizeFactor: animation,
+      child: WithdrawalAccountItem(
+        key: ObjectKey(data), /// 这里注意必须添加key，原因见： https://weilu.blog.csdn.net/article/details/104745624
+        data: data,
+        onLongPress: () => _showDeleteBottomSheet(index),
+      ),
+    );
+  }
+  
+  void _removeItem(int index) {
+    /// 先移除数据
+    WithdrawalAccountModel item = _list.removeAt(index);
+    _listKey.currentState.removeItem(
+      index, (_, animation) => sizeItem(item, 0, animation), /// 构建移除Widget
+      duration: _kDuration,
+    );
+    if (_list.isEmpty) {
+      Future.delayed(_kDuration, () {
+        if (mounted) {
+          setState(() {
+
+          });
+        }
+      });
+    }
+  }
+
+  void _insertItem(int index) {
+    WithdrawalAccountModel item = WithdrawalAccountModel('weilu_deer', '微信', 1, '');
+    _list.insert(index, item);
+    if (_list.length == 1) {
+      setState(() {
+
+      });
+    } else {
+      _listKey.currentState.insertItem(
+        index,
+        duration: _kDuration,
+      );
+    }
   }
 
   void _showDeleteBottomSheet(int index) {
@@ -77,9 +124,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                     textColor: Theme.of(context).errorColor,
                     child: const Text('确认解绑', style: TextStyle(fontSize: Dimens.font_sp18)),
                     onPressed: () {
-                      setState(() {
-                        _list.removeAt(index);
-                      });
+                      _removeItem(index);
                       NavigatorUtils.goBack(context);
                     },
                   ),

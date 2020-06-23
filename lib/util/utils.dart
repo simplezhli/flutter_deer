@@ -151,7 +151,8 @@ Widget _buildDialogTransitions(BuildContext context, Animation<double> animation
         end: Offset.zero
       ).animate(CurvedAnimation(
         parent: animation,
-        curve: animation.status != AnimationStatus.forward ? Curves.easeOutBack: const ElasticOutCurve(0.85),
+        curve: const ElasticOutCurve(0.85),
+        reverseCurve: Curves.easeOutBack,
       )),
       child: child,
     ),
