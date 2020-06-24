@@ -28,13 +28,11 @@ class BasePagePresenter<V extends IMvpView> extends BasePresenter<V> {
     bool isShow = true,
     bool isClose = true,
     NetSuccessCallback<T> onSuccess,
-    NetSuccessListCallback<T> onSuccessList,
     NetErrorCallback onError,
     dynamic params,
     Map<String, dynamic> queryParameters,
     CancelToken cancelToken,
     Options options,
-    bool isList = false,
   }) {
     if (isShow) view.showProgress();
     return DioUtils.instance.requestNetwork<T>(method, url,
@@ -42,17 +40,10 @@ class BasePagePresenter<V extends IMvpView> extends BasePresenter<V> {
       queryParameters: queryParameters,
       options: options,
       cancelToken: cancelToken?? _cancelToken,
-      isList: isList,
       onSuccess: (data) {
         if (isClose) view.closeProgress();
         if (onSuccess != null) {
           onSuccess(data);
-        }
-      },
-      onSuccessList: (data) {
-        if (isClose) view.closeProgress();
-        if (onSuccessList != null) {
-          onSuccessList(data);
         }
       },
       onError: (code, msg) {
@@ -66,13 +57,11 @@ class BasePagePresenter<V extends IMvpView> extends BasePresenter<V> {
     bool isShow = true,
     bool isClose = true,
     NetSuccessCallback<T> onSuccess,
-    NetSuccessListCallback<T> onSuccessList,
     NetErrorCallback onError,
     dynamic params,
     Map<String, dynamic> queryParameters,
     CancelToken cancelToken,
     Options options, 
-    bool isList = false,
   }) {
     if (isShow) view.showProgress();
     DioUtils.instance.asyncRequestNetwork<T>(method, url,
@@ -80,17 +69,10 @@ class BasePagePresenter<V extends IMvpView> extends BasePresenter<V> {
       queryParameters: queryParameters,
       options: options,
       cancelToken: cancelToken?? _cancelToken,
-      isList: isList,
       onSuccess: (data) {
         if (isClose) view.closeProgress();
         if (onSuccess != null) {
           onSuccess(data);
-        }
-      },
-      onSuccessList: (data) {
-        if (isClose) view.closeProgress();
-        if (onSuccessList != null) {
-          onSuccessList(data);
         }
       },
       onError: (code, msg) {

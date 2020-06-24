@@ -116,13 +116,11 @@ class DioUtils {
 
   Future requestNetwork<T>(Method method, String url, {
     NetSuccessCallback<T> onSuccess,
-    NetSuccessListCallback<T> onSuccessList,
     NetErrorCallback onError,
     dynamic params, 
     Map<String, dynamic> queryParameters,
     CancelToken cancelToken, 
     Options options, 
-    bool isList = false,
   }) {
     return _request<T>(method.value, url,
       data: params,
@@ -131,14 +129,8 @@ class DioUtils {
       cancelToken: cancelToken,
     ).then((BaseEntity<T> result) {
       if (result.code == 0) {
-        if (isList) {
-          if (onSuccessList != null) {
-            onSuccessList(result.listData);
-          }
-        } else {
-          if (onSuccess != null) {
-            onSuccess(result.data);
-          }
+        if (onSuccess != null) {
+          onSuccess(result.data);
         }
       } else {
         _onError(result.code, result.message, onError);
@@ -153,13 +145,11 @@ class DioUtils {
   /// 统一处理(onSuccess返回T对象，onSuccessList返回 List<T>)
   void asyncRequestNetwork<T>(Method method, String url, {
     NetSuccessCallback<T> onSuccess,
-    NetSuccessListCallback<T> onSuccessList,
     NetErrorCallback onError,
     dynamic params, 
     Map<String, dynamic> queryParameters, 
     CancelToken cancelToken, 
     Options options, 
-    bool isList = false,
   }) {
     Stream.fromFuture(_request<T>(method.value, url,
       data: params,
@@ -169,14 +159,8 @@ class DioUtils {
     )).asBroadcastStream()
         .listen((result) {
       if (result.code == 0) {
-        if (isList) {
-          if (onSuccessList != null) {
-            onSuccessList(result.listData);
-          }
-        } else {
-          if (onSuccess != null) {
-            onSuccess(result.data);
-          }
+        if (onSuccess != null) {
+          onSuccess(result.data);
         }
       } else {
         _onError(result.code, result.message, onError);

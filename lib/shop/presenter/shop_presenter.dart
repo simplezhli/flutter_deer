@@ -1,9 +1,11 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/account/models/city_entity.dart';
 import 'package:flutter_deer/mvp/base_page_presenter.dart';
 import 'package:flutter_deer/net/net.dart';
 import 'package:flutter_deer/shop/models/user_entity.dart';
 import 'package:flutter_deer/shop/iview/shop_iview.dart';
+import 'package:flutter_deer/util/log_utils.dart';
 
 
 class ShopPagePresenter extends BasePagePresenter<ShopIMvpView> {
@@ -26,4 +28,15 @@ class ShopPagePresenter extends BasePagePresenter<ShopIMvpView> {
     });
   }
  
+  void testListData() {
+    /// 测试返回List类型数据解析
+    asyncRequestNetwork<List<CityEntity>>(Method.get,
+      url: HttpApi.subscriptions,
+      onSuccess: (data) {
+        data.forEach((element) {
+          Log.d(element.name);
+        });
+      },
+    );
+  }
 }
