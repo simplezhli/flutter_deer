@@ -26,7 +26,7 @@ class Log {
 
   static void json(String msg, {String tag = tag}) {
     if (!Constant.inProduction) {
-      final data = convert.json.decode(msg);
+      final dynamic data = convert.json.decode(msg);
       if (data is Map) {
         _printMap(data);
       } else if (data is List) {

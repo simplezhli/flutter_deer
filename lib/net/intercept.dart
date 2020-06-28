@@ -149,10 +149,10 @@ class AdapterInterceptor extends Interceptor{
 
   Response adapterData(Response response) {
     String result;
-    String content = response.data == null ? '' : response.data.toString();
+    String content = response.data?.toString() ?? '';
     /// 成功时，直接格式化返回
     if (response.statusCode == ExceptionHandle.success || response.statusCode == ExceptionHandle.success_not_content) {
-      if (content == null || content.isEmpty) {
+      if (content.isEmpty) {
         content = _kDefaultText;
       }
       result = sprintf(_kSuccessFormat, [content]);
@@ -163,7 +163,7 @@ class AdapterInterceptor extends Interceptor{
         result = sprintf(_kFailureFormat, [response.statusCode, _kNotFound]);
         response.statusCode = ExceptionHandle.success;
       } else {
-        if (content == null || content.isEmpty) {
+        if (content.isEmpty) {
           // 一般为网络断开等异常
           result = content;
         } else {

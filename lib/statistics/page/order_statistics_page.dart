@@ -296,7 +296,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
         Center(
           child: SelectedDate(
             day.day.toString().padLeft(2, '0'), // 不足2位左边补0
-            selected:(day.day == _selectedDay.day && !DateUtils.isExtraDay(day, _initialDay)),
+            selected: day.day == _selectedDay.day && !DateUtils.isExtraDay(day, _initialDay),
             // 不是本月的日期与超过当前日期的不可点击
             enable: day.day <= _initialDay.day && !DateUtils.isExtraDay(day, _initialDay),
             unSelectedTextColor: _unSelectedTextColor,

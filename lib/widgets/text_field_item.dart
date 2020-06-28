@@ -64,7 +64,7 @@ class TextFieldItem extends StatelessWidget {
   }
 
   List<TextInputFormatter> _getInputFormatters() {
-    if (keyboardType == TextInputType.numberWithOptions(decimal: true)) {
+    if (keyboardType == const TextInputType.numberWithOptions(decimal: true)) {
       return [UsNumberTextInputFormatter()];
     }
     if (keyboardType == TextInputType.number || keyboardType == TextInputType.phone) {

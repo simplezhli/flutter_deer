@@ -21,8 +21,8 @@ class BaseDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-    var dialogTitle = Visibility(
+
+    Widget dialogTitle = Visibility(
       visible: !hiddenTitle,
       child: Padding(
         padding: const EdgeInsets.only(bottom: 8.0),
@@ -32,8 +32,8 @@ class BaseDialog extends StatelessWidget {
         ),
       ),
     );
-    
-    var bottomButton = Row(
+
+    Widget bottomButton = Row(
       children: <Widget>[
         _DialogButton(
           text: '取消',
@@ -53,7 +53,7 @@ class BaseDialog extends StatelessWidget {
       ],
     );
     
-    var body = Material(
+    Widget body = Material(
       borderRadius: BorderRadius.circular(8.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,

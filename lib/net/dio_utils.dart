@@ -103,7 +103,7 @@ class DioUtils {
       final Map<String, dynamic> _map = isCompute ? await compute(parseData, data) : parseData(data);
       return BaseEntity<T>.fromJson(_map);
     } catch(e) {
-      debugPrint(e);
+      debugPrint(e.toString());
       return BaseEntity<T>(ExceptionHandle.parse_error, '数据解析错误！', null);
     }
   }
@@ -191,7 +191,7 @@ class DioUtils {
 }
 
 Map<String, dynamic> parseData(String data) {
-  return json.decode(data);
+  return json.decode(data) as Map<String, dynamic>;
 }
 
 enum Method {
@@ -206,5 +206,5 @@ enum Method {
 /// 使用拓展枚举替代 switch判断取值
 /// https://zhuanlan.zhihu.com/p/98545689
 extension MethodExtension on Method {
-  String get value => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD'][this.index];
+  String get value => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD'][index];
 }

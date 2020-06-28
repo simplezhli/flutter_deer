@@ -6,7 +6,7 @@ import 'package:flutter_deer/routers/fluro_navigator.dart';
 ///https://github.com/elileo1/flutter_travel_friends/blob/master/lib/widget/PopupWindow.dart
 ///
 /// weilu update： 去除了IntrinsicWidth限制，添加了默认蒙版
-const Duration _kWindowDuration = const Duration(milliseconds: 0);
+const Duration _kWindowDuration = Duration(milliseconds: 0);
 const double _kWindowCloseIntervalEnd = 2.0 / 3.0;
 const double _kWindowMaxWidth = 240.0;
 const double _kWindowMinWidth = 48.0;

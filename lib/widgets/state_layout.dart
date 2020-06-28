@@ -72,11 +72,11 @@ extension StateTypeExtension on StateType {
     'zwdd', 'zwsp', 
     'zwwl', 'zwxx', 
     'zwzh', '', '']
-  [this.index];
+  [index];
   
   String get hintText => [
     '暂无订单', '暂无商品', 
     '无网络连接', '暂无消息', 
     '马上添加提现账号吧', '', ''
-  ][this.index];
+  ][index];
 }

@@ -54,7 +54,7 @@ class ClickItem extends StatelessWidget {
     child = Container(
       margin: const EdgeInsets.only(left: 15.0),
       padding: const EdgeInsets.fromLTRB(0, 15.0, 15.0, 15.0),
-      constraints: BoxConstraints(
+      constraints: const BoxConstraints(
         maxHeight: double.infinity,
         minHeight: 50.0,
       ),

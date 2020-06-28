@@ -30,5 +30,5 @@ enum ImageFormat {
 }
 
 extension ImageFormatExtension on ImageFormat {
-  String get value => ['png', 'jpg', 'gif', 'webp'][this.index];
+  String get value => ['png', 'jpg', 'gif', 'webp'][index];
 }
