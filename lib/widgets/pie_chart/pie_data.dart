@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class PieData{
+class PieData {
   /// 颜色
   Color color;
   /// 百分比

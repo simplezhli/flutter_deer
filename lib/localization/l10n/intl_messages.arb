@@ -36,9 +36,9 @@
     "type": "text",
     "placeholders": {}
   },
-  "inputUsernameHint": "Please input Username",
+  "inputUsernameHint": "Please input username",
   "@inputUsernameHint": {
-    "description": "Please input Username",
+    "description": "Please input username",
     "type": "text",
     "placeholders": {}
   },

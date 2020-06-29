@@ -13,10 +13,9 @@ class ThemePage extends StatefulWidget {
 
 class _ThemePageState extends State<ThemePage> {
 
-  final _list = ['跟随系统', '开启', '关闭'];
+  final List<String> _list = ['跟随系统', '开启', '关闭'];
 //  StreamSubscription _subscription;
   
-//
 //  @override
 //  void dispose() {
 //    _subscription?.cancel();
@@ -49,17 +48,17 @@ class _ThemePageState extends State<ThemePage> {
           return InkWell(
             onTap: () {
               ThemeMode themeMode = index == 0 ? ThemeMode.system : (index == 1 ? ThemeMode.dark : ThemeMode.light);
-//                Provider.of<ThemeProvider>(context, listen: false).setTheme(themeMode);
+//              Provider.of<ThemeProvider>(context, listen: false).setTheme(themeMode);
               /// 与上方等价，provider 4.1.0添加的拓展方法
               context.read<ThemeProvider>().setTheme(themeMode);
-//                _subscription?.cancel();
-//                /// 主题切换动画200毫秒
-//                _subscription = Stream.value(1).delay(Duration(milliseconds: 200)).listen((_) {
-//                  if (!mounted) {
-//                    return;
-//                  }
-//                  ThemeUtils.setSystemNavigationBarStyle(context, themeMode);
-//                });
+//              _subscription?.cancel();
+//              /// 主题切换动画200毫秒
+//              _subscription = Stream.value(1).delay(Duration(milliseconds: 200)).listen((_) {
+//                if (!mounted) {
+//                  return;
+//                }
+//                ThemeUtils.setSystemNavigationBarStyle(context, themeMode);
+//              });
             },
             child: Container(
               alignment: Alignment.centerLeft,
@@ -71,8 +70,8 @@ class _ThemePageState extends State<ThemePage> {
                     child: Text(_list[index]),
                   ),
                   Opacity(
-                      opacity: themeMode == _list[index] ? 1 : 0,
-                      child: Icon(Icons.done, color: Colors.blue)
+                    opacity: themeMode == _list[index] ? 1 : 0,
+                    child: Icon(Icons.done, color: Colors.blue),
                   )
                 ],
               ),

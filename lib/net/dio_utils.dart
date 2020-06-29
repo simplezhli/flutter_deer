@@ -59,7 +59,7 @@ class DioUtils {
         return true;
       },
       baseUrl: _baseUrl,
-//  contentType: ContentType('application', 'x-www-form-urlencoded', charset: 'utf-8'),
+//      contentType: Headers.formUrlEncodedContentType, // 适用于post form表单提交
     );
     _dio = Dio(_options);
     /// Fiddler抓包代理配置 https://www.jianshu.com/p/d831b1f7c45b

@@ -81,9 +81,9 @@ class AppLocalizations {
 
   String get inputUsernameHint {
     return Intl.message(
-      'Please input Username',
+      'Please input username',
       name: 'inputUsernameHint',
-      desc: 'Please input Username',
+      desc: 'Please input username',
       locale: localeName
     );
   }

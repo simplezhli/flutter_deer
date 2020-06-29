@@ -25,7 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "inputPasswordHint" : MessageLookupByLibrary.simpleMessage("Please enter the password"),
     "inputPhoneHint" : MessageLookupByLibrary.simpleMessage("Please enter phone number"),
     "inputPhoneInvalid" : MessageLookupByLibrary.simpleMessage("Please input valid mobile phone number"),
-    "inputUsernameHint" : MessageLookupByLibrary.simpleMessage("Please input Username"),
+    "inputUsernameHint" : MessageLookupByLibrary.simpleMessage("Please input username"),
     "inputVerificationCodeHint" : MessageLookupByLibrary.simpleMessage("Please enter verification code"),
     "login" : MessageLookupByLibrary.simpleMessage("Login"),
     "noAccountRegisterLink" : MessageLookupByLibrary.simpleMessage("No account yet? Register now"),
