@@ -109,7 +109,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                 cursorWidth: 0,
                 textAlign: TextAlign.center,
                 backgroundCursorColor: Colors.transparent,
-                style: TextStyle(color: Colors.transparent, fontSize: Dimens.font_sp18),
+                style: const TextStyle(color: Colors.transparent, fontSize: Dimens.font_sp18),
                 onChanged: (v) {
                   for (var i = 0; i < _codeList.length; i ++) {
                     if (i < v.length) {
