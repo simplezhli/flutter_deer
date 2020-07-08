@@ -30,6 +30,7 @@ class _OrderListPageState extends State<OrderListPage> with AutomaticKeepAliveCl
   final int _maxPage = 3;
   int _page = 1;
   int _index = 0;
+  List<String> _list = <String>[];
   
   @override
   void initState() {
@@ -91,8 +92,6 @@ class _OrderListPageState extends State<OrderListPage> with AutomaticKeepAliveCl
       ),
     );
   }
-
-  List<String> _list = <String>[];
 
   Future<void> _onRefresh() async {
     await Future.delayed(const Duration(seconds: 2), () {

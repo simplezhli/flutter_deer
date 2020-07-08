@@ -18,8 +18,9 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
+  static const double _imageSize = 25.0;
+
   List<Widget> _pageList;
-  
   final List<String> _appBarTitles = ['订单', '商品', '统计', '店铺'];
   final PageController _pageController = PageController();
 
@@ -33,6 +34,12 @@ class _HomeState extends State<Home> {
     super.initState();
     initData();
   }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
   
   void initData() {
     _pageList = [
@@ -45,25 +52,25 @@ class _HomeState extends State<Home> {
 
   List<BottomNavigationBarItem> _buildBottomNavigationBarItem() {
     if (_list == null) {
-      var _tabImages = [
+      var _tabImages = const [
         [
-          const LoadAssetImage('home/icon_order', width: 25.0, color: Colours.unselected_item_color,),
-          const LoadAssetImage('home/icon_order', width: 25.0, color: Colours.app_main,),
+          LoadAssetImage('home/icon_order', width: _imageSize, color: Colours.unselected_item_color,),
+          LoadAssetImage('home/icon_order', width: _imageSize, color: Colours.app_main,),
         ],
         [
-          const LoadAssetImage('home/icon_commodity', width: 25.0, color: Colours.unselected_item_color,),
-          const LoadAssetImage('home/icon_commodity', width: 25.0, color: Colours.app_main,),
+          LoadAssetImage('home/icon_commodity', width: _imageSize, color: Colours.unselected_item_color,),
+          LoadAssetImage('home/icon_commodity', width: _imageSize, color: Colours.app_main,),
         ],
         [
-          const LoadAssetImage('home/icon_statistics', width: 25.0, color: Colours.unselected_item_color,),
-          const LoadAssetImage('home/icon_statistics', width: 25.0, color: Colours.app_main,),
+          LoadAssetImage('home/icon_statistics', width: _imageSize, color: Colours.unselected_item_color,),
+          LoadAssetImage('home/icon_statistics', width: _imageSize, color: Colours.app_main,),
         ],
         [
-          const LoadAssetImage('home/icon_shop', width: 25.0, color: Colours.unselected_item_color,),
-          const LoadAssetImage('home/icon_shop', width: 25.0, color: Colours.app_main,),
+          LoadAssetImage('home/icon_shop', width: _imageSize, color: Colours.unselected_item_color,),
+          LoadAssetImage('home/icon_shop', width: _imageSize, color: Colours.app_main,),
         ]
       ];
-      _list = List.generate(4, (i) {
+      _list = List.generate(_tabImages.length, (i) {
         return BottomNavigationBarItem(
             icon: _tabImages[i][0],
             activeIcon: _tabImages[i][1],
@@ -79,26 +86,26 @@ class _HomeState extends State<Home> {
 
   List<BottomNavigationBarItem> _buildDarkBottomNavigationBarItem() {
     if (_listDark == null) {
-      var _tabImagesDark = [
+      var _tabImagesDark = const [
         [
-          const LoadAssetImage('home/icon_order', width: 25.0),
-          const LoadAssetImage('home/icon_order', width: 25.0, color: Colours.dark_app_main,),
+          LoadAssetImage('home/icon_order', width: _imageSize),
+          LoadAssetImage('home/icon_order', width: _imageSize, color: Colours.dark_app_main,),
         ],
         [
-          const LoadAssetImage('home/icon_commodity', width: 25.0),
-          const LoadAssetImage('home/icon_commodity', width: 25.0, color: Colours.dark_app_main,),
+          LoadAssetImage('home/icon_commodity', width: _imageSize),
+          LoadAssetImage('home/icon_commodity', width: _imageSize, color: Colours.dark_app_main,),
         ],
         [
-          const LoadAssetImage('home/icon_statistics', width: 25.0),
-          const LoadAssetImage('home/icon_statistics', width: 25.0, color: Colours.dark_app_main,),
+          LoadAssetImage('home/icon_statistics', width: _imageSize),
+          LoadAssetImage('home/icon_statistics', width: _imageSize, color: Colours.dark_app_main,),
         ],
         [
-          const LoadAssetImage('home/icon_shop', width: 25.0),
-          const LoadAssetImage('home/icon_shop', width: 25.0, color: Colours.dark_app_main,),
+          LoadAssetImage('home/icon_shop', width: _imageSize),
+          LoadAssetImage('home/icon_shop', width: _imageSize, color: Colours.dark_app_main,),
         ]
       ];
 
-      _listDark = List.generate(4, (i) {
+      _listDark = List.generate(_tabImagesDark.length, (i) {
         return BottomNavigationBarItem(
             icon: _tabImagesDark[i][0],
             activeIcon: _tabImagesDark[i][1],
@@ -138,18 +145,14 @@ class _HomeState extends State<Home> {
           ),
           // 使用PageView的原因参看 https://zhuanlan.zhihu.com/p/58582876
           body: PageView(
-            controller: _pageController,
-            onPageChanged: _onPageChanged,
-            children: _pageList,
             physics: const NeverScrollableScrollPhysics(), // 禁止滑动
+            controller: _pageController,
+            onPageChanged: (int index) => provider.value = index,
+            children: _pageList,
           )
         ),
       ),
     );
-  }
-
-  void _onPageChanged(int index) {
-    provider.value = index;
   }
 
 }

@@ -105,7 +105,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
               ),
             ),
           ],
-      ),
+        ),
       ),
     );
   }
@@ -152,49 +152,48 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
       SliverPersistentHeader(
         pinned: true,
         delegate: SliverAppBarDelegate(
-            DecoratedBox(
-              decoration: BoxDecoration(
+          DecoratedBox(
+            decoration: BoxDecoration(
                 color: isDark ? Colours.dark_bg_color : null,
                 image: isDark ? null : DecorationImage(
-                  image: ImageUtils.getAssetImage('order/order_bg1'),
-                  fit: BoxFit.fill
+                    image: ImageUtils.getAssetImage('order/order_bg1'),
+                    fit: BoxFit.fill
                 )
-              ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: MyCard(
-                  child: Container(
-                    height: 80.0,
-                    padding: const EdgeInsets.only(top: 8.0),
-                    child: TabBar(
-                      labelPadding: const EdgeInsets.symmetric(horizontal: 0),
-                      controller: _tabController,
-                      labelColor: ThemeUtils.isDark(context) ? Colours.dark_text : Colours.text,
-                      unselectedLabelColor: ThemeUtils.isDark(context) ? Colours.dark_text_gray : Colours.text,
-                      labelStyle: TextStyles.textBold14,
-                      unselectedLabelStyle: const TextStyle(
-                        fontSize: Dimens.font_sp14,
-                      ),
-                      indicatorColor: Colors.transparent,
-                      tabs: const <Widget>[
-                        _TabView(0, '新订单'),
-                        _TabView(1, '待配送'),
-                        _TabView(2, '待完成'),
-                        _TabView(3, '已完成'),
-                        _TabView(4, '已取消'),
-                      ],
-                      onTap: (index) {
-                        if (!mounted) {
-                          return;
-                        }
-                        _pageController.jumpToPage(index);
-                      },
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: MyCard(
+                child: Container(
+                  height: 80.0,
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: TabBar(
+                    labelPadding: const EdgeInsets.symmetric(horizontal: 0),
+                    controller: _tabController,
+                    labelColor: ThemeUtils.isDark(context) ? Colours.dark_text : Colours.text,
+                    unselectedLabelColor: ThemeUtils.isDark(context) ? Colours.dark_text_gray : Colours.text,
+                    labelStyle: TextStyles.textBold14,
+                    unselectedLabelStyle: const TextStyle(
+                      fontSize: Dimens.font_sp14,
                     ),
+                    indicatorColor: Colors.transparent,
+                    tabs: const <Widget>[
+                      _TabView(0, '新订单'),
+                      _TabView(1, '待配送'),
+                      _TabView(2, '待完成'),
+                      _TabView(3, '已完成'),
+                      _TabView(4, '已取消'),
+                    ],
+                    onTap: (index) {
+                      if (!mounted) {
+                        return;
+                      }
+                      _pageController.jumpToPage(index);
+                    },
                   ),
                 ),
               ),
-            )
-            , 80.0
+            ),
+          ), 80.0,
         ),
       ),
     ];

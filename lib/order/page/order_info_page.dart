@@ -194,9 +194,9 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
     var item = Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Container(
+        Padding(
           child: const LoadAssetImage('order/icon_goods', width: 56.0, height: 56.0),
-          margin: const EdgeInsets.only(top: 5.0),
+          padding: const EdgeInsets.only(top: 5.0),
         ),
         Gaps.hGap8,
         Expanded(
@@ -288,27 +288,28 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
 
   void _showCallPhoneDialog(String phone) {
     showDialog<void>(
-        context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: const Text('提示'),
-            content: Text('是否拨打：$phone ?'),
-            actions: <Widget>[
-              FlatButton(
-                onPressed: () => NavigatorUtils.goBack(context),
-                child: const Text('取消'),
-              ),
-              FlatButton(
-                onPressed: () {
-                  Utils.launchTelURL(phone);
-                  NavigatorUtils.goBack(context);
-                },
-                textColor: Theme.of(context).errorColor,
-                child: const Text('拨打'),
-              ),
-            ],
-          );
-        });
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('提示'),
+          content: Text('是否拨打：$phone ?'),
+          actions: <Widget>[
+            FlatButton(
+              onPressed: () => NavigatorUtils.goBack(context),
+              child: const Text('取消'),
+            ),
+            FlatButton(
+              onPressed: () {
+                Utils.launchTelURL(phone);
+                NavigatorUtils.goBack(context);
+              },
+              textColor: Theme.of(context).errorColor,
+              child: const Text('拨打'),
+            ),
+          ],
+        );
+      }
+    );
   }
 }

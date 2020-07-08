@@ -18,8 +18,8 @@ class OrderTagItem extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(top: 8.0),
+    return Padding(
+      padding: const EdgeInsets.only(top: 8.0),
       child: MyCard(
         child: Container(
           height: 34.0,

@@ -136,8 +136,8 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
   }
 
   Widget _buildItem(int index) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 8.0),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8.0),
       child: MyCard(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(8.0, 16.0, 16.0, 16.0),
@@ -145,7 +145,8 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
             children: <Widget>[
               if (index <= 2) LoadAssetImage('statistic/${index == 0 ? 'champion' : index == 1 ? 'runnerup' : 'thirdplace'}', width: 40.0,) else Container(
                 alignment: Alignment.center,
-                width: 18.0, height: 18.0,
+                width: 18.0,
+                height: 18.0,
                 margin: const EdgeInsets.symmetric(horizontal: 11.0),
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
@@ -155,7 +156,8 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
               ),
               Gaps.hGap4,
               Container(
-                height: 36.0, width: 36.0,
+                height: 36.0,
+                width: 36.0,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4.0),
                   border: Border.all(color: const Color(0xFFF7F8FA), width: 0.6),

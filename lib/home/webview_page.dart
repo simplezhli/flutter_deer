@@ -27,21 +27,21 @@ class _WebViewPageState extends State<WebViewPage> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<WebViewController>(
-        future: _controller.future,
-        builder: (context, snapshot) {
-          return WillPopScope(
-            onWillPop: () async {
-              if (snapshot.hasData) {
-                var canGoBack = await snapshot.data.canGoBack();
-                if (canGoBack) {
-                  // 网页可以返回时，优先返回上一页
-                  await snapshot.data.goBack();
-                  return Future.value(false);
-                }
+      future: _controller.future,
+      builder: (context, snapshot) {
+        return WillPopScope(
+          onWillPop: () async {
+            if (snapshot.hasData) {
+              bool canGoBack = await snapshot.data.canGoBack();
+              if (canGoBack) {
+                // 网页可以返回时，优先返回上一页
+                await snapshot.data.goBack();
+                return Future.value(false);
               }
-              return Future.value(true);
-            },
-            child: Scaffold(
+            }
+            return Future.value(true);
+          },
+          child: Scaffold(
               appBar: MyAppBar(
                 centerTitle: widget.title,
               ),
@@ -52,9 +52,9 @@ class _WebViewPageState extends State<WebViewPage> {
                   _controller.complete(webViewController);
                 },
               )
-            ),
-          );
-        }
+          ),
+        );
+      }
     );
   }
 
