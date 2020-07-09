@@ -181,13 +181,13 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                      _goodsSizeList[index].sizeName,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis
+                    _goodsSizeList[index].sizeName,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   Text(
-                      '库存${_goodsSizeList[index].stock}',
-                      style: TextStyles.textSize12
+                    '库存${_goodsSizeList[index].stock}',
+                    style: TextStyles.textSize12,
                   ),
                 ],
               ),
@@ -236,12 +236,12 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                   Text(Utils.formatPrice(_goodsSizeList[index].price)),
                   const SizedBox(width: 50.0,),
                   Text(
-                      '佣金${_goodsSizeList[index].charges}元',
-                      style: TextStyles.textSize12
+                    '佣金${_goodsSizeList[index].charges}元',
+                    style: TextStyles.textSize12,
                   ),
                   Text(
-                      '起购${_goodsSizeList[index].minSaleNum}件',
-                      style: TextStyles.textSize12
+                    '起购${_goodsSizeList[index].minSaleNum}件',
+                    style: TextStyles.textSize12,
                   ),
                 ],
               )

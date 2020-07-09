@@ -42,16 +42,16 @@ class _WebViewPageState extends State<WebViewPage> {
             return Future.value(true);
           },
           child: Scaffold(
-              appBar: MyAppBar(
-                centerTitle: widget.title,
-              ),
-              body: WebView(
-                initialUrl: widget.url,
-                javascriptMode: JavascriptMode.unrestricted,
-                onWebViewCreated: (WebViewController webViewController) {
-                  _controller.complete(webViewController);
-                },
-              )
+            appBar: MyAppBar(
+              centerTitle: widget.title,
+            ),
+            body: WebView(
+              initialUrl: widget.url,
+              javascriptMode: JavascriptMode.unrestricted,
+              onWebViewCreated: (WebViewController webViewController) {
+                _controller.complete(webViewController);
+              },
+            ),
           ),
         );
       }

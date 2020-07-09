@@ -48,35 +48,37 @@ class _WithdrawalRecordListPageState extends State<WithdrawalRecordListPage> {
         width: double.infinity,
         padding: const EdgeInsets.all(15.0),
         decoration: BoxDecoration(
-            border: Border(
-              bottom: Divider.createBorderSide(context, width: 0.8),
-            )
+          border: Border(
+            bottom: Divider.createBorderSide(context, width: 0.8),
+          ),
         ),
         child: MergeSemantics(
           child: Stack(
             children: <Widget>[
               Text(i % 2 == 0 ? '微信（唯鹿）' : '工商（尾号:4562 李一）'),
               Positioned(
-                  top: 0.0,
-                  right: 0.0,
-                  child: Text('-10.00', style: TextStyles.textBold14)
+                top: 0.0,
+                right: 0.0,
+                child: Text('-10.00', style: TextStyles.textBold14),
               ),
               Positioned(
-                  bottom: 0.0,
-                  left: 0.0,
-                  child: Text(i % 2 == 0 ? '12:40:20' : '12:50:20', style: Theme.of(context).textTheme.subtitle2)
+                bottom: 0.0,
+                left: 0.0,
+                child: Text(i % 2 == 0 ? '12:40:20' : '12:50:20', style: Theme.of(context).textTheme.subtitle2),
               ),
               Positioned(
-                  bottom: 0.0,
-                  right: 0.0,
-                  child: Text(i % 2 == 0 ? '审核失败' : '待审核',
-                      style: i % 2 == 0 ? TextStyle(
+                bottom: 0.0,
+                right: 0.0,
+                child: Text(
+                  i % 2 == 0 ? '审核失败' : '待审核',
+                  style: i % 2 == 0 ? TextStyle(
                       fontSize: Dimens.font_sp12,
                       color: Theme.of(context).errorColor
                   ) : const TextStyle(
                       fontSize: Dimens.font_sp12,
                       color: Color(0xFFFF8547)
-                  ))
+                  ),
+                ),
               ),
             ],
           ),

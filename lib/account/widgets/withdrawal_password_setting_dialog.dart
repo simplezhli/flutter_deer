@@ -146,13 +146,13 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
   Widget _buildInputWidget(int p) {
     return Expanded(
       child: Container(
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-              border: p != 5 ? Border(
-                right: Divider.createBorderSide(context, color: Colours.text_gray_c, width: 0.6),
-              ) : null
-          ),
-          child: Text(_codeList[p].isEmpty ? '' : '●', style: TextStyles.textSize12,)
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          border: p != 5 ? Border(
+            right: Divider.createBorderSide(context, color: Colours.text_gray_c, width: 0.6),
+          ) : null,
+        ),
+        child: Text(_codeList[p].isEmpty ? '' : '●', style: TextStyles.textSize12,),
       ),
     );
   }

@@ -149,9 +149,9 @@ class GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProvi
                   child: InkWell(
                     onTap: () => NavigatorUtils.goBack(context),
                     child: const SizedBox(
-                        height: 16.0,
-                        width: 16.0,
-                        child: LoadAssetImage('goods/icon_dialog_close')
+                      height: 16.0,
+                      width: 16.0,
+                      child: LoadAssetImage('goods/icon_dialog_close'),
                     ),
                   ),
                   right: 16.0,

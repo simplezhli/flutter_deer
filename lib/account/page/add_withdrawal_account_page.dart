@@ -94,8 +94,10 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
       ),
       Padding(
         padding: const EdgeInsets.only(top: 8.0, left: 16.0),
-        child: Text(_isWechat ? '绑定本机当前登录的微信号' : '绑定持卡人本人的银行卡',
-            style: Theme.of(context).textTheme.subtitle2),
+        child: Text(
+          _isWechat ? '绑定本机当前登录的微信号' : '绑定持卡人本人的银行卡',
+          style: Theme.of(context).textTheme.subtitle2,
+        ),
       ),
     ];
 
@@ -129,78 +131,78 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
     /// 关闭输入法，避免弹出
     FocusManager.instance.primaryFocus?.unfocus();
     showElasticDialog<void>(
-        context: context,
-        builder: (BuildContext context) {
-          final Color textColor = Theme.of(context).primaryColor;
-          return Material(
-            type: MaterialType.transparency,
-            child: Center(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: ThemeUtils.getDialogBackgroundColor(context),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                width: 270.0,
-                height: 190.0,
-                padding: const EdgeInsets.only(top: 24.0),
-                child: Theme(
-                  data: Theme.of(context).copyWith(
-                    buttonTheme: ButtonThemeData(
-                      minWidth: double.infinity,
-                    ),
-                    textTheme: TextTheme(
+      context: context,
+      builder: (BuildContext context) {
+        final Color textColor = Theme.of(context).primaryColor;
+        return Material(
+          type: MaterialType.transparency,
+          child: Center(
+            child: Container(
+              decoration: BoxDecoration(
+                color: ThemeUtils.getDialogBackgroundColor(context),
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              width: 270.0,
+              height: 190.0,
+              padding: const EdgeInsets.only(top: 24.0),
+              child: Theme(
+                data: Theme.of(context).copyWith(
+                  buttonTheme: ButtonThemeData(
+                    minWidth: double.infinity,
+                  ),
+                  textTheme: TextTheme(
                       button: TextStyle(
                         fontSize: Dimens.font_sp14,
                       )
+                  ),
+                ),
+                child: Column(
+                  children: <Widget>[
+                    const Text(
+                      '账号类型',
+                      style: TextStyles.textBold18,
                     ),
-                  ),
-                  child: Column(
-                    children: <Widget>[
-                      const Text(
-                        '账号类型',
-                        style: TextStyles.textBold18,
+                    Gaps.vGap16,
+                    Gaps.line,
+                    Expanded(
+                      child: FlatButton(
+                        child: const Text('微信'),
+                        textColor: textColor,
+                        onPressed: () {
+                          _accountType = '微信';
+                          _dialogSelect(true);
+                        },
                       ),
-                      Gaps.vGap16,
-                      Gaps.line,
-                      Expanded(
-                        child: FlatButton(
-                          child: const Text('微信'),
-                          textColor: textColor,
-                          onPressed: () {
-                            _accountType = '微信';
-                            _dialogSelect(true);
-                          },
-                        ),
+                    ),
+                    Gaps.line,
+                    Expanded(
+                      child: FlatButton(
+                        child: const Text('银行卡(对私账户)'),
+                        textColor: textColor,
+                        onPressed: () {
+                          _accountType = '银行卡(对私账户)';
+                          _dialogSelect(false);
+                        },
                       ),
-                      Gaps.line,
-                      Expanded(
-                        child: FlatButton(
-                          child: const Text('银行卡(对私账户)'),
-                          textColor: textColor,
-                          onPressed: () {
-                            _accountType = '银行卡(对私账户)';
-                            _dialogSelect(false);
-                          },
-                        ),
+                    ),
+                    Gaps.line,
+                    Expanded(
+                      child: FlatButton(
+                        child: const Text('银行卡(对公账户)'),
+                        textColor: textColor,
+                        onPressed: () {
+                          _accountType = '银行卡(对公账户)';
+                          _dialogSelect(false);
+                        },
                       ),
-                      Gaps.line,
-                      Expanded(
-                        child: FlatButton(
-                          child: const Text('银行卡(对公账户)'),
-                          textColor: textColor,
-                          onPressed: () {
-                            _accountType = '银行卡(对公账户)';
-                            _dialogSelect(false);
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),
-          );
-        }
+          ),
+        );
+      },
     );        
   }
 }

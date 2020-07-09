@@ -46,9 +46,9 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
         width: double.infinity,
         padding: const EdgeInsets.all(15.0),
         decoration: BoxDecoration(
-            border: Border(
-              bottom: Divider.createBorderSide(context, width: 0.8),
-            )
+          border: Border(
+            bottom: Divider.createBorderSide(context, width: 0.8),
+          ),
         ),
         child: IndexedSemantics(
           index: index,
@@ -56,22 +56,22 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
             children: <Widget>[
               Text(i % 2 == 0 ? '采购订单结算营收' : '提现'),
               Positioned(
-                  top: 0.0,
-                  right: 0.0,
-                  child: Text(i % 2 == 0 ? '+10.00' : '-10.00', style: i % 2 == 0 ? TextStyle(
-                      color: Theme.of(context).errorColor,
-                      fontWeight: FontWeight.bold
-                  ) : TextStyles.textBold14)
+                top: 0.0,
+                right: 0.0,
+                child: Text(i % 2 == 0 ? '+10.00' : '-10.00', style: i % 2 == 0 ? TextStyle(
+                    color: Theme.of(context).errorColor,
+                    fontWeight: FontWeight.bold
+                ) : TextStyles.textBold14),
               ),
               Positioned(
-                  bottom: 0.0,
-                  left: 0.0,
-                  child: Text(i % 2 == 0 ? '18:20:10' : '08:20:11', style: Theme.of(context).textTheme.subtitle2)
+                bottom: 0.0,
+                left: 0.0,
+                child: Text(i % 2 == 0 ? '18:20:10' : '08:20:11', style: Theme.of(context).textTheme.subtitle2),
               ),
               Positioned(
-                  bottom: 0.0,
-                  right: 0.0,
-                  child: Text('余额：20.00', style: Theme.of(context).textTheme.subtitle2)
+                bottom: 0.0,
+                right: 0.0,
+                child: Text('余额：20.00', style: Theme.of(context).textTheme.subtitle2),
               ),
             ],
           ),

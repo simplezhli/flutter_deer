@@ -49,21 +49,21 @@ class _WithdrawalPasswordPageState extends State<WithdrawalPasswordPage> {
 
   void _showHintDialog() {
     showElasticDialog<void>(
-        context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context) {
-          return BaseDialog(
-            hiddenTitle: true,
-            child: const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
-              child: Text('为了您的账户安全需先进行短信验证并设置提现密码。', textAlign: TextAlign.center),
-            ),
-            onPressed: () {
-              NavigatorUtils.goBack(context);
-              _showVerifyDialog();
-            },
-          );
-        }
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return BaseDialog(
+          hiddenTitle: true,
+          child: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: Text('为了您的账户安全需先进行短信验证并设置提现密码。', textAlign: TextAlign.center),
+          ),
+          onPressed: () {
+            NavigatorUtils.goBack(context);
+            _showVerifyDialog();
+          },
+        );
+      },
     );
   }
 

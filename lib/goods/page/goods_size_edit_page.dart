@@ -94,12 +94,12 @@ class _GoodsSizeEditPageState extends State<GoodsSizeEditPage> {
           ),
           Gaps.vGap16,
           TextFieldItem(
-              title: '立减金额',
-              keyboardType: TextInputType.number
+            title: '立减金额',
+            keyboardType: TextInputType.number,
           ),
           TextFieldItem(
-              title: '抵扣金额',
-              keyboardType: TextInputType.number
+            title: '抵扣金额',
+            keyboardType: TextInputType.number,
           ),
           Gaps.vGap8,
         ],

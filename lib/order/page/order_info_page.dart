@@ -257,9 +257,9 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
 
     return DecoratedBox(
       decoration: BoxDecoration(
-          border: Border(
-            bottom: Divider.createBorderSide(context, width: 0.8),
-          )
+        border: Border(
+          bottom: Divider.createBorderSide(context, width: 0.8),
+        ),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16.0),
