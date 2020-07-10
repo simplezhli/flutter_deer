@@ -5,20 +5,38 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
+import 'package:flutter_deer/util/toast.dart';
+import 'package:image_picker/image_picker.dart';
 
-class SelectedImage extends StatelessWidget {
+class SelectedImage extends StatefulWidget {
 
   const SelectedImage({
     Key key,
     this.size = 80.0,
-    this.onTap,
-    this.image
   }): super(key: key);
 
   final double size;
-  final GestureTapCallback onTap;
-  final File image;
-  
+
+  @override
+  SelectedImageState createState() => SelectedImageState();
+}
+
+class SelectedImageState extends State<SelectedImage> {
+
+  File imageFile;
+  final ImagePicker picker = ImagePicker();
+
+  Future<void> _getImage() async {
+    try {
+      PickedFile pickedFile = await picker.getImage(source: ImageSource.gallery, maxWidth: 800);
+      setState(() {
+        imageFile = File(pickedFile.path);
+      });
+    } catch (e) {
+      Toast.show('没有权限，无法打开相册！');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Semantics(
@@ -26,17 +44,17 @@ class SelectedImage extends StatelessWidget {
       hint: '跳转相册选择图片',
       child: InkWell(
         borderRadius: BorderRadius.circular(16.0),
-        onTap: onTap,
+        onTap: _getImage,
         child: Container(
-          width: size,
-          height: size,
+          width: widget.size,
+          height: widget.size,
           decoration: BoxDecoration(
             // 图片圆角展示
             borderRadius: BorderRadius.circular(16.0),
             image: DecorationImage(
-              image: image == null ? ImageUtils.getAssetImage('store/icon_zj') : FileImage(image),
+              image: imageFile == null ? ImageUtils.getAssetImage('store/icon_zj') : FileImage(imageFile),
               fit: BoxFit.cover,
-              colorFilter: image == null ? ColorFilter.mode(ThemeUtils.getDarkColor(context, Colours.dark_unselected_item_color), BlendMode.srcIn) : null
+              colorFilter: imageFile == null ? ColorFilter.mode(ThemeUtils.getDarkColor(context, Colours.dark_unselected_item_color), BlendMode.srcIn) : null
             ),
           ),
         ),

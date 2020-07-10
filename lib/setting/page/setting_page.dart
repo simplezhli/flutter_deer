@@ -8,7 +8,7 @@ import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/setting/widgets/exit_dialog.dart';
 import 'package:flutter_deer/setting/widgets/update_dialog.dart';
 import 'package:flutter_deer/util/app_navigator.dart';
-import 'package:flutter_deer/widgets/app_bar.dart';
+import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
 
 import '../setting_router.dart';

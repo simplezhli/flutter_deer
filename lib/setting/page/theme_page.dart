@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/common/common.dart';
 import 'package:flustars/flustars.dart';
 import 'package:flutter_deer/provider/theme_provider.dart';
-import 'package:flutter_deer/widgets/app_bar.dart';
+import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:provider/provider.dart';
 
 class ThemePage extends StatefulWidget {

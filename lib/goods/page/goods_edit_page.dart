@@ -1,12 +1,9 @@
 
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/goods/provider/goods_sort_provider.dart';
 import 'package:flutter_deer/goods/widgets/goods_sort_dialog.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
-import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/util/utils.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
@@ -14,9 +11,8 @@ import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/my_scroll_view.dart';
 import 'package:flutter_deer/widgets/selected_image.dart';
 import 'package:flutter_deer/widgets/text_field_item.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/widgets/app_bar.dart';
+import 'package:flutter_deer/widgets/my_app_bar.dart';
 
 import '../goods_router.dart';
 
@@ -34,22 +30,9 @@ class GoodsEditPage extends StatefulWidget {
 
 class _GoodsEditPageState extends State<GoodsEditPage> {
 
-  File _imageFile;
   String _goodsSortName;
-  final ImagePicker picker = ImagePicker();
   final TextEditingController _codeController = TextEditingController();
 
-  Future<void> _getImage() async {
-    try {
-      PickedFile pickedFile = await picker.getImage(source: ImageSource.gallery, maxWidth: 800);
-      setState(() {
-        _imageFile = File(pickedFile.path);
-      });
-    } catch (e) {
-      Toast.show('没有权限，无法打开相册！');
-    }
-  }
-  
   @override
   void initState() {
     super.initState();
@@ -89,8 +72,6 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
           Center(
             child: SelectedImage(
               size: 96.0,
-              image: _imageFile,
-              onTap: _getImage
             ),
           ),
           Gaps.vGap8,

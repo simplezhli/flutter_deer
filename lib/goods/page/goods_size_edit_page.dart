@@ -1,16 +1,12 @@
 
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/my_scroll_view.dart';
 import 'package:flutter_deer/widgets/selected_image.dart';
 import 'package:flutter_deer/widgets/text_field_item.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/widgets/app_bar.dart';
+import 'package:flutter_deer/widgets/my_app_bar.dart';
 
 /// design/4商品/index.html#artboard14
 class GoodsSizeEditPage extends StatefulWidget {
@@ -20,20 +16,6 @@ class GoodsSizeEditPage extends StatefulWidget {
 }
 
 class _GoodsSizeEditPageState extends State<GoodsSizeEditPage> {
-
-  File _imageFile;
-  final ImagePicker picker = ImagePicker();
-
-  Future<void> _getImage() async {
-    try {
-      PickedFile pickedFile = await picker.getImage(source: ImageSource.gallery, maxWidth: 600);
-      setState(() {
-        _imageFile = File(pickedFile.path);
-      });
-    } catch (e) {
-      Toast.show('没有权限，无法打开相册！');
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +35,6 @@ class _GoodsSizeEditPageState extends State<GoodsSizeEditPage> {
           Center(
             child: SelectedImage(
               size: 96.0,
-              image: _imageFile,
-              onTap: _getImage
             ),
           ),
           Gaps.vGap8,
