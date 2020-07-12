@@ -2,7 +2,7 @@
 import 'package:flustars/flustars.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/common/common.dart';
-import 'package:flutter_deer/demo/overlay/main.dart';
+import 'package:flutter_deer/demo/ripple/main.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/setting/widgets/exit_dialog.dart';
@@ -72,7 +72,7 @@ class _SettingPageState extends State<SettingPage> {
           ),
           ClickItem(
             title: '其他Demo',
-            onTap: () => AppNavigator.push(context, OverlayDemo()),
+            onTap: () => AppNavigator.push(context, RippleAnimationDemo()),
           ),
         ],
       ),

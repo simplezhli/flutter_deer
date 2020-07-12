@@ -29,9 +29,11 @@ class SelectedImageState extends State<SelectedImage> {
   Future<void> _getImage() async {
     try {
       PickedFile pickedFile = await picker.getImage(source: ImageSource.gallery, maxWidth: 800);
-      setState(() {
-        imageFile = File(pickedFile.path);
-      });
+      if (pickedFile != null) {
+        setState(() {
+          imageFile = File(pickedFile.path);
+        });
+      }
     } catch (e) {
       Toast.show('没有权限，无法打开相册！');
     }
