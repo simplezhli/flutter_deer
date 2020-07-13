@@ -45,7 +45,7 @@ jobs:
       # https://github.com/marketplace/actions/flutter-action
       - uses: subosito/flutter-action@v1
         with:
-          flutter-version: '1.17.3'
+          flutter-version: '1.17.5'
           channel: 'stable' # or: 'dev' or 'beta'
       - name: "Run Flutter Driver tests"
         run: "flutter drive --target=test_driver/driver.dart"
@@ -63,7 +63,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: subosito/flutter-action@v1
         with:
-          flutter-version: '1.17.3'
+          flutter-version: '1.17.5'
           channel: 'stable' # or: 'dev' or 'beta'
       - name: "Run Flutter Driver tests"
         # GitHub Action for installing, configuring and running Android Emulators (work only Mac OS)
@@ -88,7 +88,7 @@ jobs:
       # https://github.com/marketplace/actions/flutter-action
       - uses: subosito/flutter-action@v1
         with:
-          flutter-version: '1.17.3'
+          flutter-version: '1.17.5'
           channel: 'stable'
       - run: "flutter pub get"
       - name: "Run Flutter Accessibility Tests"
