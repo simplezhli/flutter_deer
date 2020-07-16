@@ -11,7 +11,7 @@ import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:flustars/flustars.dart';
+import 'package:sp_util/sp_util.dart';
 
 class SplashPage extends StatefulWidget {
   @override

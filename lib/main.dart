@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:fluro/fluro.dart';
-import 'package:flustars/flustars.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -18,6 +17,7 @@ import 'package:oktoast/oktoast.dart';
 import 'package:flutter_deer/home/splash_page.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_deer/localization/app_localizations.dart';
+import 'package:sp_util/sp_util.dart';
 
 Future<void> main() async {
 //  debugProfileBuildsEnabled = true;

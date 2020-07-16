@@ -3,7 +3,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:flustars/flustars.dart';
+import 'package:sp_util/sp_util.dart';
 import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/util/log_utils.dart';
 import 'package:sprintf/sprintf.dart';

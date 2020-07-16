@@ -2,7 +2,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flustars/flustars.dart';
+import 'package:sp_util/sp_util.dart';
 import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/localization/app_localizations.dart';
 import 'package:flutter_deer/login/widgets/my_text_field.dart';
