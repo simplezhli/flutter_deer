@@ -39,15 +39,15 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
       keyboardBarColor: ThemeUtils.getKeyboardActionsColor(context),
       nextFocus: true,
       actions: [
-        KeyboardAction(
+        KeyboardActionsItem(
           focusNode: _nodeText1,
           displayDoneButton: false,
         ),
-        KeyboardAction(
+        KeyboardActionsItem(
           focusNode: _nodeText2,
           displayDoneButton: false,
         ),
-        KeyboardAction(
+        KeyboardActionsItem(
           focusNode: _nodeText3,
           toolbarButtons: [
             (node) {

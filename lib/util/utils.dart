@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
-import 'package:keyboard_actions/keyboard_action.dart';
+import 'package:keyboard_actions/keyboard_actions_item.dart';
 import 'package:keyboard_actions/keyboard_actions_config.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -51,7 +51,7 @@ class Utils {
     return KeyboardActionsConfig(
       keyboardBarColor: ThemeUtils.getKeyboardActionsColor(context),
       nextFocus: true,
-      actions: List.generate(list.length, (i) => KeyboardAction(
+      actions: List.generate(list.length, (i) => KeyboardActionsItem(
         focusNode: list[i],
         toolbarButtons: [
           (node) {
