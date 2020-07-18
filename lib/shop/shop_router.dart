@@ -1,6 +1,6 @@
 
 import 'package:fluro/fluro.dart';
-import 'package:flutter_deer/routers/router_init.dart';
+import 'package:flutter_deer/routers/i_router.dart';
 
 import 'page/freight_config_page.dart';
 import 'page/message_page.dart';
