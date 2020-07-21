@@ -2,8 +2,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
+import 'package:flutter_deer/widgets/load_image.dart';
 
 /// design/9暂无状态页面/index.html#artboard3
 class StateLayout extends StatelessWidget {
@@ -29,14 +29,9 @@ class StateLayout extends StatelessWidget {
           if (type != StateType.empty)
             Opacity(
               opacity: ThemeUtils.isDark(context) ? 0.5 : 1,
-              child: Container(
-                height: 120.0,
-                width: 120.0,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: ImageUtils.getAssetImage('state/${type.img}'),
-                  ),
-                ),
+              child: LoadAssetImage(
+                'state/${type.img}',
+                width: 120,
               ),
             ),
         const SizedBox(width: double.infinity, height: Dimens.gap_dp16,),

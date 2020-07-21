@@ -27,37 +27,7 @@ class _AccountPageState extends State<AccountPage> {
         child: Column(
           children: <Widget>[
             Gaps.vGap5,
-            AspectRatio(
-              aspectRatio: 1.85,
-              child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 6.0),
-                padding: const EdgeInsets.all(6.0),
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: ImageUtils.getAssetImage('account/bg'),
-                    fit: BoxFit.fill
-                  )
-                ),
-                child: Column(
-                  children: <Widget>[
-                    const _AccountMoney(
-                      title: '当前余额(元)',
-                      money: '30.12',
-                      alignment: MainAxisAlignment.end,
-                      moneyTextStyle: const TextStyle(color: Colors.white, fontSize: 32.0, fontWeight: FontWeight.bold, fontFamily: 'RobotoThin'),
-                    ),
-                    Expanded(
-                      child: Row(
-                        children: <Widget>[
-                          const _AccountMoney(title: '累计结算金额', money: '20000'),
-                          const _AccountMoney(title: '累计发放佣金', money: '0.02'),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            _buildCard(),
             Gaps.vGap5,
             ClickItem(
               title: '提现',
@@ -74,6 +44,40 @@ class _AccountPageState extends State<AccountPage> {
           ],
         ),
       )
+    );
+  }
+
+  Widget _buildCard() {
+    return AspectRatio(
+      aspectRatio: 1.85,
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 6.0),
+        padding: const EdgeInsets.all(6.0),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: ImageUtils.getAssetImage('account/bg'),
+            fit: BoxFit.fill,
+          ),
+        ),
+        child: Column(
+          children: <Widget>[
+            const _AccountMoney(
+              title: '当前余额(元)',
+              money: '30.12',
+              alignment: MainAxisAlignment.end,
+              moneyTextStyle: const TextStyle(color: Colors.white, fontSize: 32.0, fontWeight: FontWeight.bold, fontFamily: 'RobotoThin'),
+            ),
+            Expanded(
+              child: Row(
+                children: <Widget>[
+                  const _AccountMoney(title: '累计结算金额', money: '20000'),
+                  const _AccountMoney(title: '累计发放佣金', money: '0.02'),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
