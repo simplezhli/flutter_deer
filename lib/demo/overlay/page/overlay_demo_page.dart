@@ -3,16 +3,19 @@ import 'package:flutter_deer/demo/overlay/bottom_navigation/my_bottom_navigation
 import 'package:flutter_deer/demo/overlay/page/test_page.dart';
 import 'package:flutter_deer/demo/overlay/route/application.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key key, this.title}) : super(key: key);
 
-  final String title;
+/// 需求说明： 底部固定悬浮BottomNavigationBar，点击切换时有移动动画。
+/// 进入二级页面图标全灰，返回一级页面返回之前状态。
+/// 二级页面内点击按钮，直接返回一级页面。
+///
+/// 本例包含自定义BottomNavigationBar，路由监听及Overlay悬浮用法。
+class OverlayDemoPage extends StatefulWidget {
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _OverlayDemoPageState createState() => _OverlayDemoPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _OverlayDemoPageState extends State<OverlayDemoPage> {
 
   OverlayEntry _overlayEntry;
 
@@ -40,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text('Overlay Demo'),
       ),
       body: Container(
         color: Colors.amber,

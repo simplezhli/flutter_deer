@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/res/resources.dart';
 import 'dart:math' as math show sin, pi, sqrt;
 
+import 'package:flutter_deer/util/theme_utils.dart';
+
+/// https://medium.com/flutterdevs/ripple-animation-in-flutter-3421cbd66a18
 class RipplesAnimation extends StatefulWidget {
   const RipplesAnimation({
     Key key,
@@ -65,7 +69,8 @@ class _RipplesAnimationState extends State<RipplesAnimation> with TickerProvider
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Flutter Ripple Demo"),
+        backgroundColor: ThemeUtils.isDark(context) ? Colours.dark_bg_color : Colors.blue,
+        title: Text('Ripple Demo'),
       ),
       body: Center(
         child: CustomPaint(

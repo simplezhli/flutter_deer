@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key key, this.title}) : super(key: key);
+
+/// 博客：https://weilu.blog.csdn.net/article/details/107132031
+class FocusDemoPage extends StatefulWidget {
+  const FocusDemoPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _FocusDemoPageState createState() => _FocusDemoPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _FocusDemoPageState extends State<FocusDemoPage> {
 
 
   final FocusNode _focusNode = FocusNode();
@@ -25,6 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
     print('${widget.title} build');
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: ThemeUtils.isDark(context) ? Colours.dark_bg_color : Colors.blue,
         title: Text(widget.title),
       ),
       body: Column(
@@ -49,10 +54,10 @@ class _MyHomePageState extends State<MyHomePage> {
           FlatButton(
             child: Text('Push TestPage'),
             onPressed: () {
-              Navigator.push<MyHomePage>(
+              Navigator.push<FocusDemoPage>(
                 context,
-                MaterialPageRoute<MyHomePage>(
-                  builder: (BuildContext context) => MyHomePage(title: 'Test Page'),
+                MaterialPageRoute<FocusDemoPage>(
+                  builder: (BuildContext context) => FocusDemoPage(title: 'Test Page'),
                 ),
               );
             },
