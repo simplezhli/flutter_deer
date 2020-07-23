@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/fix_ios_input_formatter.dart';
 import 'package:flutter_deer/widgets/my_app_bar.dart';
 
 
@@ -61,6 +62,7 @@ class _InputTextPageState extends State<InputTextPage> {
             autofocus: true,
             controller: _controller,
             keyboardType: widget.keyboardType,
+            inputFormatters: [FixIOSTextInputFormatter()],
             //style: TextStyles.textDark14,
             decoration: InputDecoration(
               hintText: widget.hintText,
