@@ -111,10 +111,10 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
             Row(
               children: <Widget>[
                 Container(
-                    width: 15.0,
-                    height: 40.0,
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: LoadAssetImage('account/rmb', color: ThemeUtils.getIconColor(context),)
+                  width: 15.0,
+                  height: 40.0,
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: LoadAssetImage('account/rmb', color: ThemeUtils.getIconColor(context),),
                 ),
                 Gaps.hGap8,
                 Expanded(
@@ -124,15 +124,15 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                     keyboardType: TextInputType.numberWithOptions(decimal: true),
                     inputFormatters: [UsNumberTextInputFormatter()],
                     style: TextStyle(
-                        fontSize: 32.0,
-                        fontWeight: FontWeight.bold
+                      fontSize: 32.0,
+                      fontWeight: FontWeight.bold,
                     ),
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.only(bottom: 8.0),
                       hintStyle: TextStyle(
-                          fontSize: Dimens.font_sp14,
-                          fontWeight: FontWeight.normal,
-                          color: Colours.text_gray_c
+                        fontSize: Dimens.font_sp14,
+                        fontWeight: FontWeight.normal,
+                        color: Colours.text_gray_c,
                       ),
                       hintText: '不能少于1元',
                       counterText: '',
@@ -200,15 +200,15 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
         child: Stack(
           children: <Widget>[
             Positioned(
-                top: 18.0,
-                left: 0.0,
-                child: LoadAssetImage(_withdrawalType == type ? 'account/txxz' : 'account/txwxz', width: 16.0)
+              top: 18.0,
+              left: 0.0,
+              child: LoadAssetImage(_withdrawalType == type ? 'account/txxz' : 'account/txwxz', width: 16.0),
             ),
             Positioned(
-                top: 16.0,
-                left: 24.0,
-                right: 0.0,
-                child: Text(type == 0 ? '快速到账' : '普通到账')
+              top: 16.0,
+              left: 24.0,
+              right: 0.0,
+              child: Text(type == 0 ? '快速到账' : '普通到账'),
             ),
             Positioned(
               bottom: 16.0,

@@ -35,7 +35,7 @@ dependencies:
   # 图片选择插件 https://github.com/flutter/plugins/tree/master/packages/image_picker
   image_picker: 0.6.7+4
   # 侧滑删除 https://github.com/letsar/flutter_slidable
-  flutter_slidable: ^0.5.4
+  flutter_slidable: ^0.5.5
   # WebView插件 https://github.com/flutter/plugins/tree/master/packages/webview_flutter
   webview_flutter: 0.3.22+1
   # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions

@@ -19,7 +19,7 @@ import 'package:flutter_deer/store/store_router.dart';
 class Routes {
 
   static String home = '/home';
-  static String webViewPage = '/webview';
+  static String webViewPage = '/webView';
 
   static final List<IRouterProvider> _listRouter = [];
 

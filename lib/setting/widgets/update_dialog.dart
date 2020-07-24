@@ -45,107 +45,111 @@ class _UpdateDialogState extends State<UpdateDialog> {
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.transparent,
         body: Center(
-          child: Container(
-            decoration: BoxDecoration(
-              color: ThemeUtils.getDialogBackgroundColor(context),
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            width: 280.0,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Container(
-                  height: 120.0,
-                  width: 280.0,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(topLeft: Radius.circular(8.0), topRight: Radius.circular(8.0)),
-                    image: DecorationImage(
-                      image: ImageUtils.getAssetImage('update_head', format: ImageFormat.jpg),
-                      fit: BoxFit.cover,
-                    ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Container(
+                height: 120.0,
+                width: 280.0,
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.only(topLeft: Radius.circular(8.0), topRight: Radius.circular(8.0)),
+                  image: DecorationImage(
+                    image: ImageUtils.getAssetImage('update_head', format: ImageFormat.jpg),
+                    fit: BoxFit.cover,
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 15.0, right: 15.0, top: 16.0),
-                  child: Text('新版本更新', style: TextStyles.textSize16),
+              ),
+              Container(
+                width: 280.0,
+                decoration: BoxDecoration(
+                  color: ThemeUtils.getDialogBackgroundColor(context),
+                  borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(8.0), bottomRight: Radius.circular(8.0))
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
-                  child: Text('1.又双叒修复了一大堆bug。\n\n2.祭天了多名程序猿。'),
+                padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text('新版本更新', style: TextStyles.textSize16),
+                    Gaps.vGap10,
+                    Text('1.又双叒修复了一大堆bug。\n\n2.祭天了多名程序猿。'),
+                    Gaps.vGap15,
+                    _isDownload ? LinearProgressIndicator(
+                      backgroundColor: Colours.line,
+                      valueColor: AlwaysStoppedAnimation<Color>(primaryColor),
+                      value: _value,
+                    ) : _buildButton(context),
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 15.0, left: 15.0, right: 15.0 , top: 5.0),
-                  child: _isDownload ? LinearProgressIndicator(
-                    backgroundColor: Colours.line,
-                    valueColor: AlwaysStoppedAnimation<Color>(primaryColor),
-                    value: _value,
-                  ): Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Container(
-                        width: 110.0,
-                        height: 36.0,
-                        child: FlatButton(
-                          onPressed: () {
-                            NavigatorUtils.goBack(context);
-                          },
-                          textColor: primaryColor,
-                          color: Colors.transparent,
-                          disabledTextColor: Colors.white,
-                          disabledColor: Colours.text_gray_c,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18.0),
-                            side: BorderSide(
-                              color: primaryColor,
-                              width: 0.8,
-                            ),
-                          ),
-                          child: const Text(
-                            '残忍拒绝',
-                            style: TextStyle(fontSize: Dimens.font_sp16),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: 110.0,
-                        height: 36.0,
-                        child: FlatButton(
-                          onPressed: () {
-                            if (defaultTargetPlatform == TargetPlatform.iOS) {
-                              NavigatorUtils.goBack(context);
-                              VersionUtils.jumpAppStore();
-                            } else {
-                              setState(() {
-                                _isDownload = true;
-                              });
-                              _download();
-                            }
-                          },
-                          textColor: Colors.white,
-                          color: primaryColor,
-                          disabledTextColor: Colors.white,
-                          disabledColor: Colours.text_gray_c,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18.0),
-                          ),
-                          child: const Text(
-                            '立即更新',
-                            style: TextStyle(fontSize: Dimens.font_sp16),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                )
-              ],
-            )
+              ),
+            ],
           ),
         )
       ),
     );
   }
-  
+
+  Widget _buildButton(BuildContext context) {
+    final Color primaryColor = Theme.of(context).primaryColor;
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Container(
+          width: 110.0,
+          height: 36.0,
+          child: FlatButton(
+            onPressed: () {
+              NavigatorUtils.goBack(context);
+            },
+            textColor: primaryColor,
+            color: Colors.transparent,
+            disabledTextColor: Colors.white,
+            disabledColor: Colours.text_gray_c,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(18.0),
+              side: BorderSide(
+                color: primaryColor,
+                width: 0.8,
+              ),
+            ),
+            child: const Text(
+              '残忍拒绝',
+              style: TextStyle(fontSize: Dimens.font_sp16),
+            ),
+          ),
+        ),
+        Container(
+          width: 110.0,
+          height: 36.0,
+          child: FlatButton(
+            onPressed: () {
+              if (defaultTargetPlatform == TargetPlatform.iOS) {
+                NavigatorUtils.goBack(context);
+                VersionUtils.jumpAppStore();
+              } else {
+                setState(() {
+                  _isDownload = true;
+                });
+                _download();
+              }
+            },
+            textColor: Colors.white,
+            color: primaryColor,
+            disabledTextColor: Colors.white,
+            disabledColor: Colours.text_gray_c,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(18.0),
+            ),
+            child: const Text(
+              '立即更新',
+              style: TextStyle(fontSize: Dimens.font_sp16),
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
   ///下载apk
   Future<void> _download() async {
     try {
