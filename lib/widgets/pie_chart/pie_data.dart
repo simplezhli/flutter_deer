@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class PieData{
+class PieData {
   /// 颜色
   Color color;
   /// 百分比
@@ -11,6 +11,6 @@ class PieData{
   String name;
   
   @override
-  String toString() => "name: $name, color: $color, "
-      "number: $number, percentage: $percentage";
+  String toString() => 'name: $name, color: $color, '
+      'number: $number, percentage: $percentage';
 }

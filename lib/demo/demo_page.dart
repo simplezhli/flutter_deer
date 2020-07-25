@@ -1,0 +1,42 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_deer/demo/focus/focus_demo_page.dart';
+import 'package:flutter_deer/demo/overlay/overlay_main.dart';
+import 'package:flutter_deer/demo/ripple/home_page.dart';
+import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/util/app_navigator.dart';
+import 'package:flutter_deer/widgets/click_item.dart';
+import 'package:flutter_deer/widgets/my_app_bar.dart';
+
+
+class DemoPage extends StatefulWidget {
+  @override
+  _DemoPageState createState() => _DemoPageState();
+}
+
+class _DemoPageState extends State<DemoPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: const MyAppBar(
+        centerTitle: 'Demo',
+      ),
+      body: Column(
+        children: <Widget>[
+          Gaps.vGap5,
+          ClickItem(
+            title: 'Overlay',
+            onTap: () => AppNavigator.push(context, OverlayDemo()),
+          ),
+          ClickItem(
+            title: 'Focus',
+            onTap: () => AppNavigator.push(context, FocusDemoPage(title: 'Focus Demo')),
+          ),
+          ClickItem(
+            title: 'RipplesAnimation',
+            onTap: () => AppNavigator.push(context, RipplesAnimation()),
+          ),
+        ],
+      ),
+    );
+  }
+}

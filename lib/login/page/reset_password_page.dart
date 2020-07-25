@@ -1,14 +1,15 @@
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_deer/localization/app_localizations.dart';
+import 'package:flutter_deer/util/change_notifier_manage.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/util/utils.dart';
-import 'package:flutter_deer/widgets/app_bar.dart';
+import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
-import 'package:flutter_deer/widgets/text_field.dart';
-import 'package:keyboard_actions/keyboard_actions.dart';
+import 'package:flutter_deer/widgets/my_scroll_view.dart';
+import 'package:flutter_deer/login/widgets/my_text_field.dart';
 
 
 /// design/1注册登录/index.html#artboard9
@@ -17,110 +18,108 @@ class ResetPasswordPage extends StatefulWidget {
   _ResetPasswordPageState createState() => _ResetPasswordPageState();
 }
 
-class _ResetPasswordPageState extends State<ResetPasswordPage> {
+class _ResetPasswordPageState extends State<ResetPasswordPage> with ChangeNotifierMixin<ResetPasswordPage> {
   //定义一个controller
-  TextEditingController _nameController = TextEditingController();
-  TextEditingController _vCodeController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _vCodeController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   final FocusNode _nodeText1 = FocusNode();
   final FocusNode _nodeText2 = FocusNode();
   final FocusNode _nodeText3 = FocusNode();
-  bool _isClick = false;
-  
+  bool _clickable = false;
+
   @override
-  void initState() {
-    super.initState();
-    //监听输入改变  
-    _nameController.addListener(_verify);
-    _vCodeController.addListener(_verify);
-    _passwordController.addListener(_verify);
+  Map<ChangeNotifier, List<VoidCallback>> changeNotifier() {
+    final List<VoidCallback> callbacks = [_verify];
+    return {
+      _nameController: callbacks,
+      _vCodeController: callbacks,
+      _passwordController: callbacks,
+      _nodeText1: null,
+      _nodeText2: null,
+      _nodeText3: null,
+    };
   }
 
-  void _verify(){
-    String name = _nameController.text;
-    String vCode = _vCodeController.text;
-    String password = _passwordController.text;
-    bool isClick = true;
+  void _verify() {
+    final String name = _nameController.text;
+    final String vCode = _vCodeController.text;
+    final String password = _passwordController.text;
+    bool clickable = true;
     if (name.isEmpty || name.length < 11) {
-      isClick = false;
+      clickable = false;
     }
     if (vCode.isEmpty || vCode.length < 6) {
-      isClick = false;
+      clickable = false;
     }
     if (password.isEmpty || password.length < 6) {
-      isClick = false;
+      clickable = false;
     }
-    if (isClick != _isClick){
+    if (clickable != _clickable) {
       setState(() {
-        _isClick = isClick;
+        _clickable = clickable;
       });
     }
   }
   
-  void _reset(){
-    Toast.show("确认......");
+  void _reset() {
+    Toast.show(AppLocalizations.of(context).confirm);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const MyAppBar(
-          title: "忘记密码",
-        ),
-        body: defaultTargetPlatform == TargetPlatform.iOS ? FormKeyboardActions(
-          child: _buildBody(),
-        ) : SingleChildScrollView(
-          child: _buildBody(),
-        )
+      appBar: MyAppBar(
+        title: AppLocalizations.of(context).forgotPasswordLink,
+      ),
+      body: MyScrollView(
+        keyboardConfig: Utils.getKeyboardActionsConfig(context, <FocusNode>[_nodeText1, _nodeText2, _nodeText3]),
+        crossAxisAlignment: CrossAxisAlignment.center,
+        padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 20.0),
+        children: _buildBody(),
+      ),
     );
   }
 
-  _buildBody(){
-    return Padding(
-      padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 20.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          const Text(
-            "重置登录密码",
-            style: TextStyles.textBold26,
-          ),
-          Gaps.vGap16,
-          MyTextField(
-            focusNode: _nodeText1,
-            config: Utils.getKeyboardActionsConfig(context, [_nodeText1, _nodeText2, _nodeText3]),
-            controller: _nameController,
-            maxLength: 11,
-            keyboardType: TextInputType.phone,
-            hintText: "请输入手机号",
-          ),
-          Gaps.vGap8,
-          MyTextField(
-            focusNode: _nodeText2,
-            controller: _vCodeController,
-            keyboardType: TextInputType.number,
-            getVCode: (){
-              return Future.value(true);
-            },
-            maxLength: 6,
-            hintText: "请输入验证码",
-          ),
-          Gaps.vGap8,
-          MyTextField(
-            focusNode: _nodeText3,
-            isInputPwd: true,
-            controller: _passwordController,
-            maxLength: 16,
-            hintText: "请输入密码",
-          ),
-          Gaps.vGap10,
-          Gaps.vGap15,
-          MyButton(
-            onPressed: _isClick ? _reset : null,
-            text: "确认",
-          )
-        ],
+  List<Widget> _buildBody() {
+    return <Widget>[
+      Text(
+        AppLocalizations.of(context).resetLoginPassword,
+        style: TextStyles.textBold26,
       ),
-    );
+      Gaps.vGap16,
+      MyTextField(
+        focusNode: _nodeText1,
+        controller: _nameController,
+        maxLength: 11,
+        keyboardType: TextInputType.phone,
+        hintText: AppLocalizations.of(context).inputPhoneHint,
+      ),
+      Gaps.vGap8,
+      MyTextField(
+        focusNode: _nodeText2,
+        controller: _vCodeController,
+        keyboardType: TextInputType.number,
+        getVCode: () {
+          return Future.value(true);
+        },
+        maxLength: 6,
+        hintText: AppLocalizations.of(context).inputVerificationCodeHint,
+      ),
+      Gaps.vGap8,
+      MyTextField(
+        focusNode: _nodeText3,
+        isInputPwd: true,
+        controller: _passwordController,
+        maxLength: 16,
+        keyboardType: TextInputType.visiblePassword,
+        hintText: AppLocalizations.of(context).inputPasswordHint,
+      ),
+      Gaps.vGap24,
+      MyButton(
+        onPressed: _clickable ? _reset : null,
+        text: AppLocalizations.of(context).confirm,
+      )
+    ];
   }
 }

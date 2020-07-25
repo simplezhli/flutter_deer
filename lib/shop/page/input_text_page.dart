@@ -1,18 +1,19 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/widgets/app_bar.dart';
+import 'package:flutter_deer/util/fix_ios_input_formatter.dart';
+import 'package:flutter_deer/widgets/my_app_bar.dart';
 
 
 /// design/7店铺-店铺配置/index.html#artboard13
 class InputTextPage extends StatefulWidget {
 
-  InputTextPage({
+  const InputTextPage({
     Key key,
     @required this.title,
     this.content,
     this.hintText,
-    this.keyboardType: TextInputType.text,
+    this.keyboardType = TextInputType.text,
   }) : super(key : key);
 
   final String title;
@@ -26,7 +27,7 @@ class InputTextPage extends StatefulWidget {
 
 class _InputTextPageState extends State<InputTextPage> {
 
-  TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
   
   @override
   void initState() {
@@ -35,29 +36,40 @@ class _InputTextPageState extends State<InputTextPage> {
   }
   
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+  
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(
         title: widget.title,
-        actionName: "完成",
-        onPressed: (){
+        actionName: '完成',
+        onPressed: () {
           NavigatorUtils.goBackWithParams(context, _controller.text);
         },
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 21.0, left: 16.0, right: 16.0, bottom: 16.0),
-        child: TextField(
-          maxLength: 30,
-          maxLines: 5,
-          autofocus: true,
-          controller: _controller,
-          keyboardType: widget.keyboardType,
-          //style: TextStyles.textDark14,
-          decoration: InputDecoration(
-            hintText: widget.hintText,
-            border: InputBorder.none,
-            //hintStyle: TextStyles.textGrayC14
-          )
+        child: Semantics(
+          multiline: true,
+          maxValueLength: 30,
+          child: TextField(
+            maxLength: 30,
+            maxLines: 5,
+            autofocus: true,
+            controller: _controller,
+            keyboardType: widget.keyboardType,
+            inputFormatters: [FixIOSTextInputFormatter()],
+            //style: TextStyles.textDark14,
+            decoration: InputDecoration(
+              hintText: widget.hintText,
+              border: InputBorder.none,
+              //hintStyle: TextStyles.textGrayC14
+            )
+          ),
         ),
       ),
     );

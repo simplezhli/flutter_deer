@@ -1,43 +1,43 @@
 import 'dart:ui';
 
-import 'package:flustars/flustars.dart';
+import 'package:flutter_deer/routers/web_page_transitions.dart';
+import 'package:sp_util/sp_util.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/common/common.dart';
-import 'package:flutter_deer/common/themes.dart';
 import 'package:flutter_deer/res/resources.dart';
 
+extension ThemeModeExtension on ThemeMode {
+  String get value => ['System', 'Light', 'Dark'][index];
+}
 
 class ThemeProvider extends ChangeNotifier {
-
-  static const Map<Themes, String> themes = {
-    Themes.DARK: "Dark", Themes.LIGHT : "Light", Themes.SYSTEM : "System"
-  };
   
-  void syncTheme(){
-    String theme = SpUtil.getString(Constant.theme);
-    if (theme.isNotEmpty && theme != themes[Themes.SYSTEM]){
+  void syncTheme() {
+    final String theme = SpUtil.getString(Constant.theme);
+    if (theme.isNotEmpty && theme != ThemeMode.system.value) {
       notifyListeners();
     }
   }
 
-  void setTheme(Themes theme) {
-    SpUtil.putString(Constant.theme, themes[theme]);
+  void setTheme(ThemeMode themeMode) {
+    SpUtil.putString(Constant.theme, themeMode.value);
     notifyListeners();
   }
 
-  getTheme({bool isDarkMode: false}) {
-    String theme = SpUtil.getString(Constant.theme);
-    switch(theme){
-      case "Dark":
-        isDarkMode = true;
-        break;
-      case "Light":
-        isDarkMode = false;
-        break;
+  ThemeMode getThemeMode(){
+    final String theme = SpUtil.getString(Constant.theme);
+    switch(theme) {
+      case 'Dark':
+        return ThemeMode.dark;
+      case 'Light':
+        return ThemeMode.light;
       default:
-        break;
+        return ThemeMode.system;
     }
+  }
 
+  ThemeData getTheme({bool isDarkMode = false}) {
     return ThemeData(
       errorColor: isDarkMode ? Colours.dark_red : Colours.red,
       brightness: isDarkMode ? Brightness.dark : Brightness.light,
@@ -54,10 +54,10 @@ class ThemeProvider extends ChangeNotifier {
       textSelectionHandleColor: Colours.app_main,
       textTheme: TextTheme(
         // TextField输入文字颜色
-        subhead: isDarkMode ? TextStyles.textDark : TextStyles.text,
+        subtitle1: isDarkMode ? TextStyles.textDark : TextStyles.text,
         // Text文字样式
-        body1: isDarkMode ? TextStyles.textDark : TextStyles.text,
-        subtitle: isDarkMode ? TextStyles.textDarkGray12 : TextStyles.textGray12,
+        bodyText2: isDarkMode ? TextStyles.textDark : TextStyles.text,
+        subtitle2: isDarkMode ? TextStyles.textDarkGray12 : TextStyles.textGray12,
       ),
       inputDecorationTheme: InputDecorationTheme(
         hintStyle: isDarkMode ? TextStyles.textHint14 : TextStyles.textDarkGray14,
@@ -71,7 +71,11 @@ class ThemeProvider extends ChangeNotifier {
         color: isDarkMode ? Colours.dark_line : Colours.line,
         space: 0.6,
         thickness: 0.6
-      )
+      ),
+      cupertinoOverrideTheme: CupertinoThemeData(
+        brightness: isDarkMode ? Brightness.dark : Brightness.light,
+      ),
+      pageTransitionsTheme: NoTransitionsOnWeb(),
     );
   }
 

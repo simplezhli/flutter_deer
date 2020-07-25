@@ -13,16 +13,16 @@ class BaseListProvider<T> extends ChangeNotifier {
   StateType get stateType => _stateType;
   bool get hasMore => _hasMore;
 
-  void setStateTypeNotNotify(StateType stateType){
+  void setStateTypeNotNotify(StateType stateType) {
     _stateType = stateType;
   }
 
-  void setStateType(StateType stateType){
+  void setStateType(StateType stateType) {
     _stateType = stateType;
     notifyListeners();
   }
 
-  void setHasMore(bool hasMore){
+  void setHasMore(bool hasMore) {
     _hasMore = hasMore;
   }
 
@@ -61,7 +61,7 @@ class BaseListProvider<T> extends ChangeNotifier {
     notifyListeners();
   }
 
-  void refresh(){
+  void refresh() {
     notifyListeners();
   }
 }

@@ -1,10 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/common/common.dart';
-import 'package:flustars/flustars.dart' as flutter_stars;
-import 'package:flutter_deer/common/themes.dart';
+import 'package:sp_util/sp_util.dart';
 import 'package:flutter_deer/provider/theme_provider.dart';
-import 'package:flutter_deer/widgets/app_bar.dart';
+import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:provider/provider.dart';
 
 class ThemePage extends StatefulWidget {
@@ -14,25 +13,24 @@ class ThemePage extends StatefulWidget {
 
 class _ThemePageState extends State<ThemePage> {
 
-  var _list = ["跟随系统", "开启", "关闭"];
-
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await flutter_stars.SpUtil.getInstance();
-    });
-  }
+  final List<String> _list = ['跟随系统', '开启', '关闭'];
+//  StreamSubscription _subscription;
+  
+//  @override
+//  void dispose() {
+//    _subscription?.cancel();
+//    super.dispose();
+//  }
 
   @override
   Widget build(BuildContext context) {
-    String theme = flutter_stars.SpUtil.getString(Constant.theme);
+    String theme = SpUtil.getString(Constant.theme);
     String themeMode;
-    switch(theme){
-      case "Dark":
+    switch(theme) {
+      case 'Dark':
         themeMode = _list[1];
         break;
-      case "Light":
+      case 'Light':
         themeMode = _list[2];
         break;
       default:
@@ -41,37 +39,45 @@ class _ThemePageState extends State<ThemePage> {
     }
     return Scaffold(
       appBar: const MyAppBar(
-        title: "夜间模式",
+        title: '夜间模式',
       ),
       body: ListView.separated(
-          shrinkWrap: true,
-          itemCount: _list.length,
-          separatorBuilder: (_, index) {
-            return const Divider();
-          },
-          itemBuilder: (_, index){
-            return InkWell(
-              onTap: (){
-                Provider.of<ThemeProvider>(context).setTheme(index == 0 ? Themes.SYSTEM : (index == 1 ? Themes.DARK : Themes.LIGHT));
-              },
-              child: Container(
-                alignment: Alignment.centerLeft,
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                height: 50.0,
-                child: Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Text(_list[index]),
-                    ),
-                    Opacity(
-                        opacity: themeMode == _list[index] ? 1 : 0,
-                        child: Icon(Icons.done, color: Colors.blue)
-                    )
-                  ],
-                ),
+        itemCount: _list.length,
+        separatorBuilder: (_, index) => const Divider(),
+        itemBuilder: (_, index) {
+          return InkWell(
+            onTap: () {
+              ThemeMode themeMode = index == 0 ? ThemeMode.system : (index == 1 ? ThemeMode.dark : ThemeMode.light);
+//              Provider.of<ThemeProvider>(context, listen: false).setTheme(themeMode);
+              /// 与上方等价，provider 4.1.0添加的拓展方法
+              context.read<ThemeProvider>().setTheme(themeMode);
+//              _subscription?.cancel();
+//              /// 主题切换动画200毫秒
+//              _subscription = Stream.value(1).delay(Duration(milliseconds: 200)).listen((_) {
+//                if (!mounted) {
+//                  return;
+//                }
+//                ThemeUtils.setSystemNavigationBarStyle(context, themeMode);
+//              });
+            },
+            child: Container(
+              alignment: Alignment.centerLeft,
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              height: 50.0,
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Text(_list[index]),
+                  ),
+                  Opacity(
+                    opacity: themeMode == _list[index] ? 1 : 0,
+                    child: Icon(Icons.done, color: Colors.blue),
+                  )
+                ],
               ),
-            );
-          }
+            ),
+          );
+        },
       ),
     );
   }

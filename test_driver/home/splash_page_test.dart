@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 import '../tools/test_utils.dart';
 
 void main([List<String> args = const <String>[]]) {
-  group('引导页：', (){
+  group('引导页：', () {
     FlutterDriver driver;
 
     // 测试之前连接程序
@@ -13,25 +13,25 @@ void main([List<String> args = const <String>[]]) {
       await driver.waitUntilFirstFrameRasterized();
     });
 
-    tearDown((){
+    tearDown(() {
       print('< Success');
     });
 
     // 在测试完成后，关闭程序的连接。
     tearDownAll(() async {
-      driver?.close();
+      await driver?.close();
     });
 
-    test("测试引导页滑动",() async {
-      final swiperFinder = find.byValueKey('swiper');
+    test('测试引导页滑动',() async {
+      final SerializableFinder swiperFinder = find.byValueKey('swiper');
       /// 引导页的第三张图
-      final imageFinder = find.byValueKey('app_start_3');
+      final SerializableFinder imageFinder = find.byValueKey('app_start_3');
       await delayed();
       await driver.scrollUntilVisible(swiperFinder, imageFinder, dxScroll: -300);
     });
     
-    test("点击最后一张引导图",() async {
-      final imageFinder = find.byValueKey('app_start_3');
+    test('点击最后一张引导图',() async {
+      final SerializableFinder imageFinder = find.byValueKey('app_start_3');
       /// 点击第三张图片
       await driver.tap(imageFinder);
       await delayed();

@@ -9,7 +9,7 @@ import 'package:flutter_deer/widgets/base_dialog.dart';
 
 
 /// design/7店铺-店铺配置/index.html#artboard3
-class PriceInputDialog extends StatefulWidget{
+class PriceInputDialog extends StatefulWidget {
 
   PriceInputDialog({
     Key key,
@@ -25,9 +25,15 @@ class PriceInputDialog extends StatefulWidget{
   
 }
 
-class _PriceInputDialog extends State<PriceInputDialog>{
+class _PriceInputDialog extends State<PriceInputDialog> {
 
-  TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -35,6 +41,7 @@ class _PriceInputDialog extends State<PriceInputDialog>{
       title: widget.title,
       child: Container(
         height: 34.0,
+        alignment: Alignment.center,
         margin: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0.0),
         decoration: BoxDecoration(
           color: ThemeUtils.getDialogTextFieldColor(context),
@@ -50,16 +57,17 @@ class _PriceInputDialog extends State<PriceInputDialog>{
           // 金额限制数字格式
           inputFormatters: [UsNumberTextInputFormatter()],
           decoration: InputDecoration(
-            contentPadding: const EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0, bottom: 8.0),
+            isDense: true,
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
             border: InputBorder.none,
-            hintText: "输入${widget.title}",
+            hintText: '输入${widget.title}',
             //hintStyle: TextStyles.textGrayC14,
           ),
         ),
       ),
-      onPressed: (){
-        if (_controller.text.isEmpty){
-          Toast.show("请输入${widget.title}");         
+      onPressed: () {
+        if (_controller.text.isEmpty) {
+          Toast.show('请输入${widget.title}');         
           return;
         }
         NavigatorUtils.goBack(context);

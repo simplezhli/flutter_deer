@@ -27,7 +27,7 @@ public class FileProvider7 {
     }
 
     private static Uri getUriForFile24(Context context, File file) {
-        return FileProvider.getUriForFile(context, context.getPackageName() + ".Merchant", file);
+        return FileProvider.getUriForFile(context, context.getPackageName() + ".Deer", file);
     }
 
     public static void setIntentDataAndType(Context context, Intent intent, String type, File file, boolean writeAble) {

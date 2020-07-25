@@ -1,0 +1,95 @@
+# https://medium.com/flutter-community/run-flutter-driver-tests-on-github-actions-13c639c7e4ab
+# https://github.com/nazarcybulskij/CI_CD_Flutter_Demo
+# Name of your workflow.
+name: flutter_deer driver
+
+# Trigger the workflow on push or pull request.
+on: [push, pull_request]
+
+# A workflow run is made up of one or more jobs.
+jobs:
+  # id of job, a string that is unique to the "jobs" node above.
+  drive_ios:
+    # Creates a build matrix for your jobs. You can define different
+    # variations of an environment to run each job in.
+    strategy:
+      # A set of different configurations of the virtual environment.
+      matrix:
+        device:
+          - "iPhone 8 (13.6)"
+          - "iPhone 11 Pro Max (13.6)"
+      # When set to true, GitHub cancels all in-progress jobs if any matrix job
+      # fails.
+      fail-fast: false
+    # The type of machine to run the job on.
+    runs-on: macOS-latest
+    # Contains a sequence of tasks.
+    steps:
+      # A name for your step to display on GitHub.
+      - name: "List all simulators"
+        run: "xcrun instruments -s"
+      - name: "Start Simulator"
+        run: |
+          UDID=$(
+            xcrun instruments -s |
+            awk \
+              -F ' *[][]' \
+              -v 'device=${{ matrix.device }}' \
+              '$1 == device { print $2 }'
+          )
+          xcrun simctl boot "${UDID:?No Simulator with this name found}"
+      # The branch or tag ref that triggered the workflow will be checked out.
+      # https://github.com/marketplace/actions/checkout
+      - uses: actions/checkout@v2
+      # Sets up a flutter environment.
+      # https://github.com/marketplace/actions/flutter-action
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '1.17.5'
+          channel: 'stable' # or: 'dev' or 'beta'
+      - name: "Run Flutter Driver tests"
+        run: "flutter drive --target=test_driver/driver.dart"
+        
+  drive_android:
+    # The type of machine to run the job on.
+    runs-on: macos-latest
+    # creates a build matrix for your jobs
+    strategy:
+      # set of different configurations of the virtual environment.
+      matrix:
+        api-level: [21, 29]
+        target: [default]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '1.17.5'
+          channel: 'stable' # or: 'dev' or 'beta'
+      - name: "Run Flutter Driver tests"
+        # GitHub Action for installing, configuring and running Android Emulators (work only Mac OS)
+        # https://github.com/marketplace/actions/android-emulator-runner
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ matrix.api-level }}
+          target: ${{ matrix.target }}
+          arch: x86_64
+          profile: Nexus 6
+          script: "flutter drive --target=test_driver/driver.dart"
+          
+  accessibility_test:
+    #The type of machine to run the job on. [windows,macos, ubuntu , self-hosted]
+    runs-on: macos-latest
+    #sequence of tasks called
+    steps:
+      # The branch or tag ref that triggered the workflow will be checked out.
+      # https://github.com/actions/checkout
+      - uses: actions/checkout@v2
+      # Setup a flutter environment.
+      # https://github.com/marketplace/actions/flutter-action
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '1.17.5'
+          channel: 'stable'
+      - run: "flutter pub get"
+      - name: "Run Flutter Accessibility Tests"
+        run: "flutter test test/accessibility_test.dart"

@@ -7,7 +7,7 @@ import 'package:flutter_deer/widgets/load_image.dart';
 
 
 /// design/7店铺-店铺配置/index.html#artboard9
-class SendTypeDialog extends StatefulWidget{
+class SendTypeDialog extends StatefulWidget {
 
   SendTypeDialog({
     Key key,
@@ -21,12 +21,12 @@ class SendTypeDialog extends StatefulWidget{
   
 }
 
-class _SendTypeDialog extends State<SendTypeDialog>{
+class _SendTypeDialog extends State<SendTypeDialog> {
 
   int _value = 0;
-  var _list = ["运费满免配置", "运费比例配置"];
+  var _list = ['运费满免配置', '运费比例配置'];
 
-  Widget getItem(int index){
+  Widget _buildItem(int index) {
     return Material(
       type: MaterialType.transparency,
       child: InkWell(
@@ -44,14 +44,14 @@ class _SendTypeDialog extends State<SendTypeDialog>{
                   ) : null,
                 ),
               ),
-              Offstage(
-                  offstage: _value != index,
-                  child: const LoadAssetImage("order/ic_check", width: 16.0, height: 16.0)),
+              Visibility(
+                visible: _value == index,
+                child: const LoadAssetImage('order/ic_check', width: 16.0, height: 16.0)),
               Gaps.hGap16,
             ],
           ),
         ),
-        onTap: (){
+        onTap: () {
           if (mounted) {
             setState(() {
               _value = index;
@@ -65,16 +65,13 @@ class _SendTypeDialog extends State<SendTypeDialog>{
   @override
   Widget build(BuildContext context) {
     return BaseDialog(
-      title: "运费配置",
+      title: '运费配置',
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          getItem(0),
-          getItem(1),
-        ],
+        children: List.generate(_list.length, (i) => _buildItem(i))
       ),
-      onPressed: (){
+      onPressed: () {
         NavigatorUtils.goBack(context);
         widget.onPressed(_value, _list[_value]);
       },

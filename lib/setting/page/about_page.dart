@@ -5,7 +5,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/widgets/app_bar.dart';
+import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
 
 class AboutPage extends StatefulWidget {
@@ -15,9 +15,9 @@ class AboutPage extends StatefulWidget {
 
 class _AboutPageState extends State<AboutPage> {
 
-  var _styles = [FlutterLogoStyle.stacked, FlutterLogoStyle.markOnly, FlutterLogoStyle.horizontal];
-  var _colors = [Colors.red, Colors.green, Colors.brown, Colors.blue, Colors.purple, Colors.pink, Colors.amber];
-  var _curves = [
+  final _styles = [FlutterLogoStyle.stacked, FlutterLogoStyle.markOnly, FlutterLogoStyle.horizontal];
+  final _colors = [Colors.red, Colors.green, Colors.brown, Colors.blue, Colors.purple, Colors.pink, Colors.amber];
+  final _curves = [
     Curves.ease, Curves.easeIn, Curves.easeInOutCubic, Curves.easeInOut,
     Curves.easeInQuad, Curves.easeInCirc, Curves.easeInBack, Curves.easeInOutExpo,
     Curves.easeInToLinear, Curves.easeOutExpo, Curves.easeInOutSine, Curves.easeOutSine,
@@ -34,6 +34,23 @@ class _AboutPageState extends State<AboutPage> {
   Timer _countdownTimer;
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      // 2s定时器
+      _countdownTimer = Timer.periodic(Duration(seconds: 2), (timer) {
+        // https://www.jianshu.com/p/e4106b829bff
+        if (!mounted) {
+          return;
+        }
+        setState(() {
+
+        });
+      });
+    });
+  }
+
+  @override
   void dispose() {
     _countdownTimer?.cancel();
     _countdownTimer = null;
@@ -42,19 +59,9 @@ class _AboutPageState extends State<AboutPage> {
   
   @override
   Widget build(BuildContext context) {
-    // 2s定时器
-    _countdownTimer = Timer.periodic(Duration(seconds: 2), (timer) {
-      // https://www.jianshu.com/p/e4106b829bff
-      if (!mounted){
-        return;
-      }
-      setState(() {
-        
-      });
-    });
     return Scaffold(
       appBar: const MyAppBar(
-        title: "关于我们",
+        title: '关于我们',
       ),
       body: Column(
         children: <Widget>[
@@ -68,17 +75,13 @@ class _AboutPageState extends State<AboutPage> {
           ),
           Gaps.vGap10,
           ClickItem(
-            title: "Github",
-            content: "Go Star",
-            onTap: (){
-              NavigatorUtils.goWebViewPage(context, "Flutter Deer", "https://github.com/simplezhli/flutter_deer");
-            }
+            title: 'Github',
+            content: 'Go Star',
+            onTap: () => NavigatorUtils.goWebViewPage(context, 'Flutter Deer', 'https://github.com/simplezhli/flutter_deer')
           ),
           ClickItem(
-            title: "作者",
-            onTap: (){
-              NavigatorUtils.goWebViewPage(context, "作者博客", "https://weilu.blog.csdn.net");
-            }
+            title: '作者',
+            onTap: () => NavigatorUtils.goWebViewPage(context, '作者博客', 'https://weilu.blog.csdn.net')
           ),
         ],
       ),

@@ -5,7 +5,7 @@ import '../tools/test_utils.dart';
 
 void main() {
 
-  group('商品部分：', (){
+  group('商品部分：', () {
     FlutterDriver driver;
 
     setUpAll(() async {
@@ -13,20 +13,20 @@ void main() {
       await driver.waitUntilFirstFrameRasterized();
     });
 
-    tearDown((){
+    tearDown(() {
       print('< Success');
     });
 
     tearDownAll(() async {
-      driver?.close();
+      await driver?.close();
     });
 
-    test("商品页测试",() async {
+    test('商品页测试',() async {
       await driver.tap(find.byValueKey('商品'));
       await delayed();
       await driver.tap(find.text('待售'));
       await delayed();
-      final pageView = find.byValueKey('pageView');
+      final SerializableFinder pageView = find.byValueKey('pageView');
       await driver.scroll(pageView, 400.0, 0, scrollDuration);
       await delayed();
       
@@ -61,7 +61,7 @@ void main() {
       await delayed();
     });
 
-    test("商品编辑页测试",() async {
+    test('商品编辑页测试',() async {
       await driver.scroll(find.byValueKey('goods_edit_page'), 0, -500, scrollDuration);
       await delayed();
       await driver.tap(find.text('商品类型'));
@@ -74,7 +74,7 @@ void main() {
       await delayed();
     });
 
-    test("商品规格页测试",() async {
+    test('商品规格页测试',() async {
       await driver.tap(find.text('商品规格'));
       await delayed();await delayed();
       await driver.tap(find.byValueKey('hint'));

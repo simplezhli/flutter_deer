@@ -4,7 +4,14 @@ typedef MissingValueBuilder = double Function(DateTime value);
 
 ///This Bezier line is used to display your data
 class BezierLine {
+  ///Line color for each data point
   final Color lineColor;
+
+  ///Color for the dot fill on each data point
+  final Color dataPointFillColor;
+
+  ///Color for the dot stroke on each data point
+  final Color dataPointStrokeColor;
 
   ///`width` of the bezier line
   final double lineStrokeWidth;
@@ -22,16 +29,21 @@ class BezierLine {
   const BezierLine({
     this.lineColor = Colors.white,
     this.lineStrokeWidth = 2.0,
-    this.label = "",
+    this.label = '',
     this.onMissingValue,
+    Color dataPointFillColor,
+    Color dataPointStrokeColor,
     this.data,
-  });
+  })  : this.dataPointFillColor = dataPointFillColor ?? lineColor,
+        this.dataPointStrokeColor = dataPointStrokeColor ?? lineColor;
 
   factory BezierLine.copy({BezierLine bezierLine}) {
     return BezierLine(
       lineColor: bezierLine.lineColor,
       lineStrokeWidth: bezierLine.lineStrokeWidth,
       label: bezierLine.label,
+      dataPointFillColor: bezierLine.dataPointFillColor,
+      dataPointStrokeColor: bezierLine.dataPointStrokeColor,
       onMissingValue: bezierLine.onMissingValue,
       data: bezierLine.data,
     );
@@ -40,17 +52,19 @@ class BezierLine {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is BezierLine &&
-          runtimeType == other.runtimeType &&
-          label == other.label &&
-          lineColor == other.lineColor &&
-          lineStrokeWidth == other.lineStrokeWidth &&
-          hashCode == other.hashCode;
+          other is BezierLine &&
+              runtimeType == other.runtimeType &&
+              label == other.label &&
+              lineColor == other.lineColor &&
+              lineStrokeWidth == other.lineStrokeWidth &&
+              dataPointFillColor == other.dataPointFillColor &&
+              dataPointStrokeColor == other.dataPointStrokeColor &&
+              hashCode == other.hashCode;
 
   @override
   int get hashCode => data
-      .map((val) => val.value?.toString() ?? "")
-      .reduce((val1, val2) => "$val1$val2")
+      .map((val) => val.value?.toString() ?? '')
+      .reduce((val1, val2) => '$val1$val2')
       .hashCode;
 }
 
@@ -67,5 +81,6 @@ class DataPoint<T> {
     this.xAxis,
   });
 
-  String toString() => "value: $value, xAxis: $xAxis";
+  @override
+  String toString() => 'value: $value, xAxis: $xAxis';
 }

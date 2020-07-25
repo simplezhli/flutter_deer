@@ -1,0 +1,110 @@
+{
+  "@@last_modified": "2020-05-29T16:55:56.054100",
+  "title": "Flutter Deer",
+  "@title": {
+    "description": "Title for the application",
+    "type": "text",
+    "placeholders": {}
+  },
+  "verificationCodeLogin": "Verification Code Login",
+  "@verificationCodeLogin": {
+    "description": "Title for the Login page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "passwordLogin": "Password Login",
+  "@passwordLogin": {
+    "description": "Password Login",
+    "type": "text",
+    "placeholders": {}
+  },
+  "login": "Login",
+  "@login": {
+    "description": "Login",
+    "type": "text",
+    "placeholders": {}
+  },
+  "forgotPasswordLink": "Forgot Password",
+  "@forgotPasswordLink": {
+    "description": "Forgot Password",
+    "type": "text",
+    "placeholders": {}
+  },
+  "inputPasswordHint": "Please enter the password",
+  "@inputPasswordHint": {
+    "description": "Please enter the password",
+    "type": "text",
+    "placeholders": {}
+  },
+  "inputUsernameHint": "Please input username",
+  "@inputUsernameHint": {
+    "description": "Please input username",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noAccountRegisterLink": "No account yet? Register now",
+  "@noAccountRegisterLink": {
+    "description": "No account yet? Register now",
+    "type": "text",
+    "placeholders": {}
+  },
+  "register": "Register",
+  "@register": {
+    "description": "Register",
+    "type": "text",
+    "placeholders": {}
+  },
+  "openYourAccount": "Open your account",
+  "@openYourAccount": {
+    "description": "Open your account",
+    "type": "text",
+    "placeholders": {}
+  },
+  "inputPhoneHint": "Please enter phone number",
+  "@inputPhoneHint": {
+    "description": "Please enter phone number",
+    "type": "text",
+    "placeholders": {}
+  },
+  "inputVerificationCodeHint": "Please enter verification code",
+  "@inputVerificationCodeHint": {
+    "description": "Please enter verification code",
+    "type": "text",
+    "placeholders": {}
+  },
+  "inputPhoneInvalid": "Please input valid mobile phone number",
+  "@inputPhoneInvalid": {
+    "description": "Please input valid mobile phone number",
+    "type": "text",
+    "placeholders": {}
+  },
+  "verificationButton": "Not really sent, just log in!",
+  "@verificationButton": {
+    "description": "Not really sent, just log in!",
+    "type": "text",
+    "placeholders": {}
+  },
+  "getVerificationCode": "Get verification code",
+  "@getVerificationCode": {
+    "description": "Get verification code",
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirm": "Confirm",
+  "@confirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetLoginPassword": "Reset Login Password",
+  "@resetLoginPassword": {
+    "description": "Reset login password",
+    "type": "text",
+    "placeholders": {}
+  },
+  "registeredTips": "Unregistered mobile phone number, please ",
+  "@registeredTips": {
+    "description": "Registered Tips",
+    "type": "text",
+    "placeholders": {}
+  }
+}

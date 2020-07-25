@@ -3,10 +3,11 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_deer/account/models/bank_model.dart';
+import 'package:flutter_deer/account/models/bank_entity.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/widgets/app_bar.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
+import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:azlistview/azlistview.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 
@@ -23,9 +24,17 @@ class BankSelectPage extends StatefulWidget {
 
 class _BankSelectPageState extends State<BankSelectPage> {
 
-  List<BankModel> _bankList = [];
-  List<String> _bankNameList = ["工商银行", "建设银行", "中国银行", "农业银行", "招商银行", "交通银行", "中信银行", "民生银行", "兴业银行", "浦发银行"];
-  List<String> _bankLogoList = ["gongshang", "jianhang", "zhonghang", "nonghang", "zhaohang", "jiaohang", "zhongxin", "minsheng", "xingye", "pufa"];
+  final List<BankEntity> _bankList = [];
+  final List<String> _bankNameList = [
+    '工商银行', '建设银行', '中国银行', '农业银行', 
+    '招商银行', '交通银行', '中信银行', '民生银行', 
+    '兴业银行', '浦发银行'
+  ];
+  final List<String> _bankLogoList = [
+    'gongshang', 'jianhang', 'zhonghang', 'nonghang', 
+    'zhaohang', 'jiaohang', 'zhongxin', 'minsheng',
+    'xingye', 'pufa'
+  ];
   
   @override
   void initState() {
@@ -38,7 +47,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
     rootBundle.loadString(widget.type == 0 ? 'assets/data/bank.json' : 'assets/data/bank_2.json').then((value) {
       List list = json.decode(value);
       list.forEach((value) {
-        _bankList.add(BankModel.fromJsonMap(value));
+        _bankList.add(BankEntity().fromJson(value));
       });
       SuspensionUtil.sortListBySuspensionTag(_bankList);
       setState(() {
@@ -51,7 +60,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(
-        title: widget.type == 0 ? "开户银行" : "选择支行",
+        title: widget.type == 0 ? '开户银行' : '选择支行',
       ),
       body: SafeArea(
         child: AzListView(
@@ -61,50 +70,47 @@ class _BankSelectPageState extends State<BankSelectPage> {
           itemHeight: 40,
           suspensionWidget: null,
           suspensionHeight: 0,
-          indexBarBuilder:(context, list, onTouch){
+          indexBarBuilder:(context, list, onTouch) {
             return IndexBar(
               onTouch: onTouch,
               data: list,
               itemHeight: 25,
               touchDownColor: Colors.transparent,
-              textStyle: Theme.of(context).textTheme.subtitle
+              textStyle: Theme.of(context).textTheme.subtitle2,
+              touchDownTextStyle: ThemeUtils.isDark(context) ? TextStyles.textSize12 : const TextStyle(fontSize: 12.0, color: Colors.black),
             );
           },
           header: widget.type == 0 ? AzListViewHeader(
-            tag: "常用",
+            tag: '常用',
             height: 430, 
-            builder: (context){
-              return _buildHeader();
-            }
+            builder: (_) => _buildHeader()
           ) : null,
         ),
       ),
     );
   }
 
-  _buildHeader(){
+  Widget _buildHeader() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 16.0),
-          child: Text("常用", style: Theme.of(context).textTheme.subtitle),
+          child: Text('常用', style: Theme.of(context).textTheme.subtitle2),
         ),
         Expanded(
           child: ListView.builder(
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             itemExtent: 40.0,
             itemCount: _bankNameList.length,
-            itemBuilder: (_, index){
+            itemBuilder: (_, index) {
               return InkWell(
-                onTap: (){
-                  NavigatorUtils.goBackWithParams(context, BankModel(0, _bankNameList[index], ""));
-                },
+                onTap: () => NavigatorUtils.goBackWithParams(context, BankEntity(id: 0, bankName: _bankNameList[index], firstLetter: '')),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Row(
                     children: <Widget>[
-                      LoadAssetImage("account/${_bankLogoList[index]}",width: 24.0),
+                      LoadAssetImage('account/${_bankLogoList[index]}',width: 24.0),
                       Gaps.hGap8,
                       Text(_bankNameList[index]),
                     ],
@@ -118,11 +124,9 @@ class _BankSelectPageState extends State<BankSelectPage> {
     );
   }
 
-  Widget _buildListItem(BankModel model) {
+  Widget _buildListItem(BankEntity model) {
     return InkWell(
-      onTap: (){
-        NavigatorUtils.goBackWithParams(context, model);
-      },
+      onTap: () => NavigatorUtils.goBackWithParams(context, model),
       child: Container(
         padding: const EdgeInsets.only(left: 16.0, right: 34.0),
         height: 40.0,

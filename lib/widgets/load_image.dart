@@ -11,43 +11,43 @@ class LoadImage extends StatelessWidget {
     Key key,
     this.width, 
     this.height,
-    this.fit: BoxFit.cover, 
-    this.format: "png",
-    this.holderImg: "none"
+    this.fit = BoxFit.cover, 
+    this.format = ImageFormat.png,
+    this.holderImg = 'none'
   }): super(key: key);
   
   final String image;
   final double width;
   final double height;
   final BoxFit fit;
-  final String format;
+  final ImageFormat format;
   final String holderImg;
   
   @override
   Widget build(BuildContext context) {
-    if (TextUtil.isEmpty(image) || image == "null"){
+    if (TextUtil.isEmpty(image) || image == 'null') {
       return LoadAssetImage(holderImg,
         height: height,
         width: width,
         fit: fit,
         format: format
       );
-    }else {
-      if (image.startsWith("http")){
+    } else {
+      if (image.startsWith('http')) {
         return CachedNetworkImage(
           imageUrl: image,
-          placeholder: (context, url) => LoadAssetImage(holderImg, height: height, width: width, fit: fit),
-          errorWidget: (context, url, error) => LoadAssetImage(holderImg, height: height, width: width, fit: fit),
+          placeholder: (_, __) => LoadAssetImage(holderImg, height: height, width: width, fit: fit),
+          errorWidget: (_, __, dynamic error) => LoadAssetImage(holderImg, height: height, width: width, fit: fit),
           width: width,
           height: height,
           fit: fit,
         );
-      }else{
+      } else {
         return LoadAssetImage(image,
-            height: height,
-            width: width,
-            fit: fit,
-            format: format
+          height: height,
+          width: width,
+          fit: fit,
+          format: format,
         );
       }
     }
@@ -61,16 +61,20 @@ class LoadAssetImage extends StatelessWidget {
     Key key,
     this.width,
     this.height, 
+    this.cacheWidth,
+    this.cacheHeight,
     this.fit,
-    this.format: 'png',
+    this.format = ImageFormat.png,
     this.color
   }): super(key: key);
 
   final String image;
   final double width;
   final double height;
+  final int cacheWidth;
+  final int cacheHeight;
   final BoxFit fit;
-  final String format;
+  final ImageFormat format;
   final Color color;
   
   @override
@@ -80,8 +84,12 @@ class LoadAssetImage extends StatelessWidget {
       ImageUtils.getImgPath(image, format: format),
       height: height,
       width: width,
+      cacheWidth: cacheWidth,
+      cacheHeight: cacheHeight,
       fit: fit,
       color: color,
+      /// 忽略图片语义
+      excludeFromSemantics: true,
     );
   }
 }

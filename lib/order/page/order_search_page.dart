@@ -1,23 +1,27 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter_deer/mvp/base_page_state.dart';
+import 'package:flutter_deer/mvp/base_page.dart';
+import 'package:flutter_deer/mvp/power_presenter.dart';
 import 'package:flutter_deer/order/models/search_entity.dart';
+import 'package:flutter_deer/order/iview/order_search_iview.dart';
 import 'package:flutter_deer/order/presenter/order_search_presenter.dart';
 import 'package:flutter_deer/provider/base_list_provider.dart';
+import 'package:flutter_deer/shop/models/user_entity.dart';
+import 'package:flutter_deer/shop/iview/shop_iview.dart';
+import 'package:flutter_deer/shop/presenter/shop_presenter.dart';
 import 'package:flutter_deer/widgets/my_refresh_list.dart';
 import 'package:flutter_deer/widgets/search_bar.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
 import 'package:provider/provider.dart';
 
-
 /// design/3订单/index.html#artboard8
 class OrderSearchPage extends StatefulWidget {
   @override
-  OrderSearchPageState createState() => OrderSearchPageState();
+  _OrderSearchPageState createState() => _OrderSearchPageState();
 }
 
-class OrderSearchPageState extends BasePageState<OrderSearchPage, OrderSearchPresenter> {
+class _OrderSearchPageState extends State<OrderSearchPage> with BasePageMixin<OrderSearchPage, PowerPresenter> implements OrderSearchIMvpView, ShopIMvpView {
 
   BaseListProvider<SearchItem> provider = BaseListProvider<SearchItem>();
   
@@ -34,33 +38,32 @@ class OrderSearchPageState extends BasePageState<OrderSearchPage, OrderSearchPre
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<BaseListProvider<SearchItem>>(
-      builder: (_) => provider,
+      create: (_) => provider,
       child: Scaffold(
         appBar: SearchBar(
-          hintText: "请输入手机号或姓名查询",
-          onPressed: (text){
-            if (text.isEmpty){
-              showToast("搜索关键字不能为空！");
+          hintText: '请输入手机号或姓名查询',
+          onPressed: (text) {
+            if (text.isEmpty) {
+              showToast('搜索关键字不能为空！');
               return;
             }
-            FocusScope.of(context).unfocus();
             _keyword = text;
             provider.setStateType(StateType.loading);
             _page = 1;
-            presenter.search(_keyword, _page, true);
+            _orderSearchPresenter.search(_keyword, _page, true);
           },
         ),
         body: Consumer<BaseListProvider<SearchItem>>(
           builder: (_, provider, __) {
             return DeerListView(
-              key: Key('order_search_list'),
+              key: const Key('order_search_list'),
               itemCount: provider.list.length,
               stateType: provider.stateType,
               onRefresh: _onRefresh,
               loadMore: _loadMore,
               itemExtent: 50.0,
               hasMore: provider.hasMore,
-              itemBuilder: (_, index){
+              itemBuilder: (_, index) {
                 return Container(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   alignment: Alignment.centerLeft,
@@ -74,18 +77,34 @@ class OrderSearchPageState extends BasePageState<OrderSearchPage, OrderSearchPre
     );
   }
 
-  Future _onRefresh() async {
+  Future<void> _onRefresh() async {
     _page = 1;
-    await presenter.search(_keyword, _page, false);
+    await _orderSearchPresenter.search(_keyword, _page, false);
   }
 
-  Future _loadMore() async {
+  Future<void> _loadMore() async {
     _page++;
-    await presenter.search(_keyword, _page, false);
+    await _orderSearchPresenter.search(_keyword, _page, false);
+  }
+
+  OrderSearchPresenter _orderSearchPresenter;
+  ShopPagePresenter _shopPagePresenter;
+
+  @override
+  PowerPresenter createPresenter() {
+    final PowerPresenter powerPresenter = PowerPresenter(this);
+    _orderSearchPresenter = OrderSearchPresenter();
+    _shopPagePresenter = ShopPagePresenter();
+    powerPresenter.requestPresenter([_orderSearchPresenter, _shopPagePresenter]);
+    return powerPresenter;
   }
 
   @override
-  OrderSearchPresenter createPresenter() {
-    return OrderSearchPresenter();
+  bool get isAccessibilityTest => false;
+
+  @override
+  void setUser(UserEntity user) {
+    showToast(user.name);
   }
+
 }

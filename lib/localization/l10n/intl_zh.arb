@@ -1,0 +1,20 @@
+{
+  "title": "Flutter Deer",
+  "verificationCodeLogin": "验证码登录",
+  "passwordLogin": "密码登录",
+  "login": "登录",
+  "forgotPasswordLink": "忘记密码",
+  "inputPasswordHint": "请输入密码",
+  "inputUsernameHint": "请输入账号",
+  "noAccountRegisterLink": "还没账号？快去注册",
+  "register": "注册",
+  "openYourAccount": "开启你的账号",
+  "inputPhoneHint": "请输入手机号",
+  "inputVerificationCodeHint": "请输入验证码",
+  "inputPhoneInvalid": "请输入有效的手机号",
+  "verificationButton": "并没有真正发送哦，直接登录吧！",
+  "getVerificationCode": "获取验证码",
+  "confirm": "确认",
+  "resetLoginPassword": "重置登录密码",
+  "registeredTips": "提示：未注册账号的手机号，请先"
+}

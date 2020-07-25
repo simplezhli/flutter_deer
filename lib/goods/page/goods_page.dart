@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/goods/page/goods_list_page.dart';
 import 'package:flutter_deer/goods/provider/goods_page_provider.dart';
-import 'package:flutter_deer/goods/widgets/goods_list.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
@@ -19,24 +19,22 @@ class GoodsPage extends StatefulWidget {
   _GoodsPageState createState() => _GoodsPageState();
 }
 
-class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin{
+class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
 
-  List<String> _sortList = ["全部商品", "个人护理", "饮料", "沐浴洗护", "厨房用具", "休闲食品", "生鲜水果", "酒水", "家庭清洁"];
+  final List<String> _sortList = ['全部商品', '个人护理', '饮料', '沐浴洗护', '厨房用具', '休闲食品', '生鲜水果', '酒水', '家庭清洁'];
   TabController _tabController;
-  PageController _pageController = PageController(initialPage: 0);
+  final PageController _pageController = PageController(initialPage: 0);
 
-  var _sortIndex = 0;
-  
-  GlobalKey _addKey = GlobalKey();
-  GlobalKey _bodyKey = GlobalKey();
-  GlobalKey _buttonKey = GlobalKey();
+  final GlobalKey _addKey = GlobalKey();
+  final GlobalKey _bodyKey = GlobalKey();
+  final GlobalKey _buttonKey = GlobalKey();
 
   GoodsPageProvider provider = GoodsPageProvider();
   
   @override
   void initState() {
     super.initState();
-    _tabController = new TabController(vsync: this, length: 3);
+    _tabController = TabController(vsync: this, length: 3);
   }
 
   @override
@@ -50,16 +48,17 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
     super.build(context);
     final Color _iconColor = ThemeUtils.getIconColor(context);
     return ChangeNotifierProvider<GoodsPageProvider>(
-      builder: (_) => provider,
+      create: (_) => provider,
       child: Scaffold(
         appBar: AppBar(
           actions: <Widget>[
             IconButton(
-              onPressed: (){
+              tooltip: '搜索商品',
+              onPressed: () {
                 NavigatorUtils.push(context, GoodsRouter.goodsSearchPage);
               },
               icon: LoadAssetImage(
-                "goods/search",
+                'goods/search',
                 key: const Key('search'),
                 width: 24.0,
                 height: 24.0,
@@ -67,12 +66,13 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
               ),
             ),
             IconButton(
+              tooltip: '添加商品',
               key: _addKey,
-              onPressed: (){
+              onPressed: () {
                 _showAddMenu();
               },
               icon: LoadAssetImage(
-                "goods/add",
+                'goods/add',
                 key: const Key('add'),
                 width: 24.0,
                 height: 24.0,
@@ -85,37 +85,43 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
           key: _bodyKey,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            GestureDetector(
-              key: _buttonKey,
-              child: Consumer<GoodsPageProvider>(
-                builder: (_, provider, __){
-                  return Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16.0, right: 8.0),
-                        child: Text(
-                          _sortList[_sortIndex],
+            Semantics(
+              container: true,
+              label: '选择商品类型',
+              child: GestureDetector(
+                key: _buttonKey,
+                /// 使用Selector避免同provider数据变化导致此处不必要的刷新
+                child: Selector<GoodsPageProvider, int>(
+                  selector: (_, provider) => provider.sortIndex,
+                  /// 精准判断刷新条件（provider 4.0新属性）
+//                  shouldRebuild: (previous, next) => previous != next,
+                  builder: (_, sortIndex, __) {
+                    // 只会触发sortIndex变化的刷新
+                    return Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Gaps.hGap16,
+                        Text(
+                          _sortList[sortIndex],
                           style: TextStyles.textBold24,
                         ),
-                      ),
-                      LoadAssetImage("goods/expand", width: 16.0, height: 16.0, color: _iconColor,)
-                    ],
-                  );
-                },
+                        Gaps.hGap8,
+                        LoadAssetImage('goods/expand', width: 16.0, height: 16.0, color: _iconColor,)
+                      ],
+                    );
+                  },
+                ),
+                onTap: () => _showSortMenu(),
               ),
-              onTap: (){
-                _showSortMenu();
-              },
             ),
-            Gaps.vGap16,
-            Gaps.vGap8,
+            Gaps.vGap24,
             Container(
               // 隐藏点击效果
+              padding: EdgeInsets.only(left: 16.0),
               color: ThemeUtils.getBackgroundColor(context),
               child: TabBar(
-                onTap: (index){
-                  if (!mounted){
+                onTap: (index) {
+                  if (!mounted) {
                     return;
                   }
                   _pageController.jumpToPage(index);
@@ -124,14 +130,14 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 controller: _tabController,
                 labelStyle: TextStyles.textBold18,
                 indicatorSize: TabBarIndicatorSize.label,
-                labelPadding: const EdgeInsets.only(left: 16.0),
+                labelPadding: const EdgeInsets.only(left: 0.0),
                 unselectedLabelColor: ThemeUtils.isDark(context) ? Colours.text_gray : Colours.text,
                 labelColor: Theme.of(context).primaryColor,
-                indicatorPadding: const EdgeInsets.only(left: 12.0, right: 36.0),
+                indicatorPadding: const EdgeInsets.only(right: 98.0 - 36.0),
                 tabs: <Widget>[
-                  const _TabView("在售", " (3件)", 0),
-                  const _TabView("待售", " (15件)", 1),
-                  const _TabView("下架", " (26件)", 2),
+                  const _TabView('在售', 0),
+                  const _TabView('待售', 1),
+                  const _TabView('下架', 2),
                 ],
               ),
             ),
@@ -142,9 +148,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 itemCount: 3,
                 onPageChanged: _onPageChange,
                 controller: _pageController,
-                itemBuilder: (BuildContext context, int index) {
-                  return GoodsList(index: index);
-                },
+                itemBuilder: (_, int index) => GoodsListPage(index: index)
               ),
             )
           ],
@@ -153,46 +157,44 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
     );
   }
 
-  _onPageChange(int index) {
+  void _onPageChange(int index) {
     _tabController.animateTo(index);
     provider.setIndex(index);
   }
 
   /// design/4商品/index.html#artboard3
-  _showSortMenu(){
+  void _showSortMenu() {
     // 获取点击控件的坐标
-    final RenderBox button = _buttonKey.currentContext.findRenderObject();
-    final RenderBox overlay = Overlay.of(context).context.findRenderObject();
+    final RenderBox button = _buttonKey.currentContext.findRenderObject() as RenderBox;
+    final RenderBox overlay = Overlay.of(context).context.findRenderObject() as RenderBox;
     // 获得控件左下方的坐标
-    var a =  button.localToGlobal(Offset(0.0, button.size.height + 12.0), ancestor: overlay);
+    final Offset a =  button.localToGlobal(Offset(0.0, button.size.height + 12.0), ancestor: overlay);
     // 获得控件右下方的坐标
-    var b =  button.localToGlobal(button.size.bottomLeft(Offset(0, 12.0)), ancestor: overlay);
+    final Offset b =  button.localToGlobal(button.size.bottomLeft(const Offset(0, 12.0)), ancestor: overlay);
     final RelativeRect position = RelativeRect.fromRect(
       Rect.fromPoints(a, b),
       Offset.zero & overlay.size,
     );
-    final RenderBox body = _bodyKey.currentContext.findRenderObject();
+    final RenderBox body = _bodyKey.currentContext.findRenderObject() as RenderBox;
 
     TextStyle textStyle = TextStyle(
       fontSize: Dimens.font_sp14,
       color: Theme.of(context).primaryColor,
     );
-    showPopupWindow(
+    showPopupWindow<void>(
       context: context,
       fullWidth: true,
       position: position,
       elevation: 0.0,
       child: GestureDetector(
-        onTap: (){
-          NavigatorUtils.goBack(context);
-        },
+        onTap: () => NavigatorUtils.goBack(context),
         child: Container(
           color: const Color(0x99000000),
           height: body.size.height - button.size.height - 12.0,
           child: ListView.builder(
-            physics: ClampingScrollPhysics(),
+            physics: const ClampingScrollPhysics(),
             itemCount: _sortList.length + 1,
-            itemBuilder: (_, index){
+            itemBuilder: (_, index) {
               Color backgroundColor = ThemeUtils.getBackgroundColor(context);
               return index == _sortList.length ? Container(
                 color: backgroundColor,
@@ -207,20 +209,18 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                       children: <Widget>[
                         Text(
                           _sortList[index],
-                          style: index == _sortIndex ? textStyle : null,
+                          style: index == provider.sortIndex ? textStyle : null,
                         ),
                         Text(
-                          "($index)",
-                          style: index == _sortIndex ? textStyle : null,
+                          '($index)',
+                          style: index == provider.sortIndex ? textStyle : null,
                         ),
                       ],
                     ),
                   ),
-                  onTap: (){
-                    setState(() {
-                      _sortIndex = index;
-                    });
-                    Toast.show("选择分类: ${_sortList[index]}");
+                  onTap: () {
+                    provider.setSortIndex(index);
+                    Toast.show('选择分类: ${_sortList[index]}');
                     NavigatorUtils.goBack(context);
                   },
                 ),
@@ -233,9 +233,9 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
   }
 
   /// design/4商品/index.html#artboard4
-  _showAddMenu(){
-    final RenderBox button = _addKey.currentContext.findRenderObject();
-    final RenderBox overlay = Overlay.of(context).context.findRenderObject();
+  void _showAddMenu() {
+    final RenderBox button = _addKey.currentContext.findRenderObject() as RenderBox;
+    final RenderBox overlay = Overlay.of(context).context.findRenderObject() as RenderBox;
     var a =  button.localToGlobal(Offset(button.size.width - 8.0, button.size.height - 12.0), ancestor: overlay);
     var b =  button.localToGlobal(button.size.bottomLeft(Offset(0, - 12.0)), ancestor: overlay);
     final RelativeRect position = RelativeRect.fromRect(
@@ -244,22 +244,20 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
     );
     final Color backgroundColor = ThemeUtils.getBackgroundColor(context);
     final Color _iconColor = ThemeUtils.getIconColor(context);
-    showPopupWindow(
+    showPopupWindow<void>(
       context: context,
       fullWidth: false,
       isShowBg: true,
       position: position,
       elevation: 0.0,
       child: GestureDetector(
-        onTap: (){
-          NavigatorUtils.goBack(context);
-        },
+        onTap: () => NavigatorUtils.goBack(context),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(right: 12.0),
-              child: LoadAssetImage("goods/jt", width: 8.0, height: 4.0,
+              child: LoadAssetImage('goods/jt', width: 8.0, height: 4.0,
                 color: ThemeUtils.getDarkColor(context, Colours.dark_bg_color),
               ),
             ),
@@ -267,16 +265,16 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
               width: 120.0,
               height: 40.0,
               child: FlatButton.icon(
-                textColor: Theme.of(context).textTheme.body1.color,
-                onPressed: (){
+                textColor: Theme.of(context).textTheme.bodyText2.color,
+                onPressed: () {
                   NavigatorUtils.push(context, '${GoodsRouter.goodsEditPage}?isAdd=true&isScan=true', replace: true);
                 },
                 color: backgroundColor,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(8.0), topRight: Radius.circular(8.0)),
                 ),  
-                icon: LoadAssetImage("goods/scanning", width: 16.0, height: 16.0, color: _iconColor,),
-                label: const Text("扫码添加")
+                icon: LoadAssetImage('goods/scanning', width: 16.0, height: 16.0, color: _iconColor,),
+                label: const Text('扫码添加')
               ),
             ),
             Container(width: 120.0, height: 0.6, color: Colours.line),
@@ -284,16 +282,16 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
               width: 120.0,
               height: 40.0,
               child: FlatButton.icon(
-                textColor: Theme.of(context).textTheme.body1.color,
+                textColor: Theme.of(context).textTheme.bodyText2.color,
                 color: backgroundColor,
-                onPressed: (){
+                onPressed: () {
                   NavigatorUtils.push(context, '${GoodsRouter.goodsEditPage}?isAdd=true', replace: true);
                 },
-                shape: RoundedRectangleBorder(
+                shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8.0), bottomRight: Radius.circular(8.0)),
                 ),
-                icon: LoadAssetImage("goods/add2", width: 16.0, height: 16.0, color: _iconColor,),
-                label: const Text("添加商品")
+                icon: LoadAssetImage('goods/add2', width: 16.0, height: 16.0, color: _iconColor,),
+                label: const Text('添加商品')
               ),
             ),
           ],
@@ -308,33 +306,36 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
 
 class _TabView extends StatelessWidget {
   
-  const _TabView(this.tabName, this.tabSub, this.index);
+  const _TabView(this.tabName, this.index);
   
   final String tabName;
-  final String tabSub;
   final int index;
   
   @override
   Widget build(BuildContext context) {
-    
-    return Consumer<GoodsPageProvider>(
-      builder: (_, provider, child){
-        return  Tab(
-            child: SizedBox(
-              width: 78.0,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(tabName),
-                  Offstage(offstage: provider.index != index, child: Padding(
+    return Tab(
+      child: SizedBox(
+        width: 98.0,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(tabName),
+            Consumer<GoodsPageProvider>(
+              builder: (_, provider, child) {
+                return Visibility(
+                  visible: !(provider.goodsCountList[index] == 0 || provider.index != index),
+                  child: Padding(
                     padding: const EdgeInsets.only(top: 1.0),
-                    child: Text(tabSub, style: TextStyle(fontSize: Dimens.font_sp12)),
-                  )),
-                ],
-              ),
-            )
-        );
-      },
+                    child: Text(' (${provider.goodsCountList[index]}件)',
+                      style: TextStyle(fontSize: Dimens.font_sp12),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

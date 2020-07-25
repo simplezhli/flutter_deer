@@ -1,22 +1,23 @@
-import "package:intl/intl.dart";
+import 'package:intl/intl.dart';
 
 import 'date_utils_.dart';
 
+// ignore: avoid_classes_with_only_static_members
 /// @Author: aleksanderwozniak
 /// @GitHub: https://github.com/aleksanderwozniak/table_calendar
 /// @Description: Date Util.
 class DateUtils {
   
-  static final DateFormat _apiDayFormat = new DateFormat("yy.MM.dd");
+  static final DateFormat _apiDayFormat = DateFormat('yy.MM.dd');
   
   static String apiDayFormat(DateTime d) => _apiDayFormat.format(d);
 
   static String previousWeek(DateTime w) {
-    return apiDayFormat(w.subtract(new Duration(days: 6)));
+    return apiDayFormat(w.subtract(const Duration(days: 6)));
   }
 
   static DateTime nextDay(DateTime w) {
-    return w.add(new Duration(days: 1));
+    return w.add(const Duration(days: 1));
   }
 
   static List<DateTime> daysInWeek(DateTime week) {
@@ -60,13 +61,13 @@ class DateUtils {
     var firstToDisplay = first.subtract(Duration(days: daysBefore));
 
     if (firstToDisplay.hour == 23) {
-      firstToDisplay = firstToDisplay.add(Duration(hours: 1));
+      firstToDisplay = firstToDisplay.add(const Duration(hours: 1));
     }
 
     var last = Utils.lastDayOfMonth(month);
 
     if (last.hour == 23) {
-      last = last.add(Duration(hours: 1));
+      last = last.add(const Duration(hours: 1));
     }
 
     var daysAfter = 7 - last.weekday;
@@ -76,7 +77,7 @@ class DateUtils {
     var lastToDisplay = last.add(Duration(days: daysAfter));
 
     if (lastToDisplay.hour == 1) {
-      lastToDisplay = lastToDisplay.subtract(Duration(hours: 1));
+      lastToDisplay = lastToDisplay.subtract(const Duration(hours: 1));
     }
 
     return Utils.daysInRange(firstToDisplay, lastToDisplay).toList();

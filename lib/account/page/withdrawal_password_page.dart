@@ -5,7 +5,7 @@ import 'package:flutter_deer/account/widgets/withdrawal_password_setting_dialog.
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/utils.dart';
-import 'package:flutter_deer/widgets/app_bar.dart';
+import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:flutter_deer/widgets/base_dialog.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
 
@@ -20,57 +20,58 @@ class _WithdrawalPasswordPageState extends State<WithdrawalPasswordPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MyAppBar(
-        centerTitle: "提现密码",
+        centerTitle: '提现密码',
       ),
       body: Column(
         children: <Widget>[
           Gaps.vGap5,
           ClickItem(
-            title: "修改密码",
-            onTap: (){
-              showDialog(
-                  context: context,
-                  barrierDismissible: false,
-                  builder: (BuildContext context) {
-                    return WithdrawalPasswordSettingDialog();
-                  }
+            title: '修改密码',
+            onTap: () {
+              showModalBottomSheet<void>(
+                context: context,
+                /// 禁止拖动关闭
+                enableDrag: false,
+                /// 使用true则高度不受16分之9的最高限制
+                isScrollControlled: true,
+                builder: (_) => WithdrawalPasswordSettingDialog()
               );
             }
           ),
           ClickItem(
-            title: "忘记密码",
-            onTap: (){
-              showElasticDialog(
-                context: context,
-                barrierDismissible: false,
-                builder: (BuildContext context) {
-                  return BaseDialog(
-                    hiddenTitle: true,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: const Text("为了您的账户安全需先进行短信验证并设置提现密码。", textAlign: TextAlign.center),
-                    ),
-                    onPressed: (){
-                      NavigatorUtils.goBack(context);
-                      _showVerifyDialog();
-                    },
-                  );
-                }
-              );
-            }
+            title: '忘记密码',
+            onTap: () => _showHintDialog()
           ),
         ],
       ),
     );
   }
-  
-  _showVerifyDialog(){
-    showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context) {
-          return SMSVerifyDialog();
-        }
+
+  void _showHintDialog() {
+    showElasticDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return BaseDialog(
+          hiddenTitle: true,
+          child: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: Text('为了您的账户安全需先进行短信验证并设置提现密码。', textAlign: TextAlign.center),
+          ),
+          onPressed: () {
+            NavigatorUtils.goBack(context);
+            _showVerifyDialog();
+          },
+        );
+      },
+    );
+  }
+
+  void _showVerifyDialog() {
+    showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) => SMSVerifyDialog()
     );
   }
 }
