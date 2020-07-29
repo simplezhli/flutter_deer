@@ -8,12 +8,12 @@ import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 
 /// design/6店铺-账户/index.html#artboard13
-class WithdrawalPasswordSettingDialog extends StatefulWidget {
+class WithdrawalPasswordSetting extends StatefulWidget {
   @override
-  _WithdrawalPasswordSettingDialogState createState() => _WithdrawalPasswordSettingDialogState();
+  _WithdrawalPasswordSettingState createState() => _WithdrawalPasswordSettingState();
 }
 
-class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSettingDialog> {
+class _WithdrawalPasswordSettingState extends State<WithdrawalPasswordSetting> {
 
   int _index = 0;
   final _list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0, 0];

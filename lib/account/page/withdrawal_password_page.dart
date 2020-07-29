@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/account/widgets/sms_verify_dialog.dart';
-import 'package:flutter_deer/account/widgets/withdrawal_password_setting_dialog.dart';
+import 'package:flutter_deer/account/widgets/withdrawal_password_setting.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/utils.dart';
@@ -34,7 +34,7 @@ class _WithdrawalPasswordPageState extends State<WithdrawalPasswordPage> {
                 enableDrag: false,
                 /// 使用true则高度不受16分之9的最高限制
                 isScrollControlled: true,
-                builder: (_) => WithdrawalPasswordSettingDialog()
+                builder: (_) => WithdrawalPasswordSetting()
               );
             }
           ),

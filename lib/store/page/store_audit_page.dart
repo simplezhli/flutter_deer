@@ -165,28 +165,35 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
     showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext context) {
-        return SizedBox(
-          height: 360.0,
-          child: ListView.builder(
-            key: const Key('goods_sort'),
-            itemExtent: 48.0,
-            itemBuilder: (_, index) {
-              return InkWell(
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  alignment: Alignment.centerLeft,
-                  child: Text(_list[index]),
-                ),
-                onTap: () {
-                  setState(() {
-                    _sortName = _list[index];
-                  });
-                  NavigatorUtils.goBack(context);
-                },
-              );
-            },
-            itemCount: _list.length,
-          ),
+        // 可滑动ListView关闭BottomSheet
+        return DraggableScrollableSheet(
+          initialChildSize: 0.7,
+          maxChildSize: 1,
+          minChildSize: 0.65,
+          expand: false,
+          builder: (_, scrollController) {
+            return ListView.builder(
+              key: const Key('goods_sort'),
+              controller: scrollController,
+              itemExtent: 48.0,
+              itemBuilder: (_, index) {
+                return InkWell(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    alignment: Alignment.centerLeft,
+                    child: Text(_list[index]),
+                  ),
+                  onTap: () {
+                    setState(() {
+                      _sortName = _list[index];
+                    });
+                    NavigatorUtils.goBack(context);
+                  },
+                );
+              },
+              itemCount: _list.length,
+            );
+          },
         );
       },
     );

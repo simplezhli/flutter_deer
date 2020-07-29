@@ -51,7 +51,7 @@ dependencies:
   # 图片缓存 https://github.com/renefloor/flutter_cached_network_image
   cached_network_image: ^2.2.0+1
   # 格式化String https://github.com/Naddiseo/dart-sprintf
-  sprintf: ^4.0.2
+  sprintf: ^4.1.0
   # 状态管理 https://github.com/rrousselGit/provider
   provider: ^4.3.1
   # 扫码 https://github.com/apptreesoftware/flutter_barcode_reader

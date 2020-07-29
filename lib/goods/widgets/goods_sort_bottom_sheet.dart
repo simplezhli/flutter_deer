@@ -10,9 +10,9 @@ import 'package:provider/provider.dart';
 
 
 /// design/4商品/index.html#artboard20
-class GoodsSortDialog extends StatefulWidget {
+class GoodsSortBottomSheet extends StatefulWidget {
 
-  const GoodsSortDialog({
+  const GoodsSortBottomSheet({
     Key key,
     @required this.provider,
     @required this.onSelected,
@@ -23,10 +23,10 @@ class GoodsSortDialog extends StatefulWidget {
   final GoodsSortProvider provider;
   
   @override
-  GoodsSortDialogState createState() => GoodsSortDialogState();
+  GoodsSortBottomSheetState createState() => GoodsSortBottomSheetState();
 }
 
-class GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProviderStateMixin {
+class GoodsSortBottomSheetState extends State<GoodsSortBottomSheet> with SingleTickerProviderStateMixin {
   
   TabController _tabController;
   final ScrollController _controller = ScrollController();
