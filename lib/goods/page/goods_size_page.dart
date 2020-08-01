@@ -146,8 +146,8 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
               ) : ListView.builder(
                 itemCount: _goodsSizeList.length,
                 itemExtent: 107.0,
-                itemBuilder: (_, index) => _getGoodsSizeItem(index)
-                ),
+                itemBuilder: (_, index) => _getGoodsSizeItem(index),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),

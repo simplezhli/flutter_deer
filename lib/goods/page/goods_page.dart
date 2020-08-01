@@ -54,9 +54,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
           actions: <Widget>[
             IconButton(
               tooltip: '搜索商品',
-              onPressed: () {
-                NavigatorUtils.push(context, GoodsRouter.goodsSearchPage);
-              },
+              onPressed: () => NavigatorUtils.push(context, GoodsRouter.goodsSearchPage),
               icon: LoadAssetImage(
                 'goods/search',
                 key: const Key('search'),
@@ -68,9 +66,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
             IconButton(
               tooltip: '添加商品',
               key: _addKey,
-              onPressed: () {
-                _showAddMenu();
-              },
+              onPressed: _showAddMenu,
               icon: LoadAssetImage(
                 'goods/add',
                 key: const Key('add'),
