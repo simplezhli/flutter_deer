@@ -30,16 +30,16 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
                 // 可选择文本组件（复制）
                 Semantics(
                   label: '长按复制订单编号',
-                  child: SelectableText('14562364879', maxLines: 1,)
-                )
+                  child: SelectableText('14562364879', maxLines: 1,),
+                ),
               ],
             )
           ),
           Stepper(
             physics: const BouncingScrollPhysics(),
             currentStep: 4 - 1,
-            controlsBuilder: (BuildContext context, {VoidCallback onStepContinue, VoidCallback onStepCancel}) {
-              return Row(); //操作按钮置空
+            controlsBuilder: (_, {onStepContinue, onStepCancel}) {
+              return Gaps.empty; //操作按钮置空
             },
             steps: List.generate(4, (i) => _buildStep(i)),
           )
@@ -49,7 +49,7 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
   }
   
   final List<String> _titleList = ['订单已完成', '开始配送', '等待配送', '收到新订单'];
-  final List<String> _timeList = ['2018/08/30 13:30', '2018/08/30 11:30', '2018/08/30 9:30', '2018/08/30 9:00'];
+  final List<String> _timeList = ['2019/08/30 13:30', '2019/08/30 11:30', '2019/08/30 9:30', '2019/08/30 9:00'];
   
   Step _buildStep(int index) {
     final Color primaryColor = Theme.of(context).primaryColor;

@@ -60,7 +60,7 @@ class _SettingPageState extends State<SettingPage> {
           ),
           ClickItem(
             title: '检查更新',
-            onTap: () => _showUpdateDialog()
+            onTap: _showUpdateDialog,
           ),
           ClickItem(
             title: '关于我们',
@@ -68,7 +68,7 @@ class _SettingPageState extends State<SettingPage> {
           ),
           ClickItem(
             title: '退出当前账号',
-            onTap: () => _showExitDialog(),
+            onTap: _showExitDialog,
           ),
           ClickItem(
             title: '其他Demo',

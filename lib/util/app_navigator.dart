@@ -15,10 +15,10 @@ class AppNavigator {
   /// 替换页面 当新的页面进入后，之前的页面将执行dispose方法
   static void pushReplacement(BuildContext context, Widget scene) {
     Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (BuildContext context) => scene,
-        )
+      context,
+      MaterialPageRoute(
+        builder: (BuildContext context) => scene,
+      ),
     );
   }
 

@@ -109,7 +109,8 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
           child: const LoadAssetImage('shop/tj',),
         ),
       ),
-    ) : Padding(
+    ) :
+    Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
       child: MyCard(
         child: Padding(

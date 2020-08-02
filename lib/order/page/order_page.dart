@@ -74,8 +74,8 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
                 width: double.infinity,
                 child: isDark ? null : const DecoratedBox(
                   decoration: BoxDecoration(
-                    gradient: LinearGradient(colors: const [Color(0xFF5793FA), Color(0xFF4647FA)])
-                  )
+                    gradient: LinearGradient(colors: const [Color(0xFF5793FA), Color(0xFF4647FA)]),
+                  ),
                 ),
               ),
             ),
@@ -100,7 +100,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
                   key: const Key('pageView'),
                   itemCount: 5,
                   controller: _pageController,
-                  itemBuilder: (_, index) => OrderListPage(index: index)
+                  itemBuilder: (_, index) => OrderListPage(index: index),
                 ),
               ),
             ),
@@ -154,11 +154,11 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
         delegate: SliverAppBarDelegate(
           DecoratedBox(
             decoration: BoxDecoration(
-                color: isDark ? Colours.dark_bg_color : null,
-                image: isDark ? null : DecorationImage(
-                    image: ImageUtils.getAssetImage('order/order_bg1'),
-                    fit: BoxFit.fill
-                )
+              color: isDark ? Colours.dark_bg_color : null,
+              image: isDark ? null : DecorationImage(
+                image: ImageUtils.getAssetImage('order/order_bg1'),
+                fit: BoxFit.fill,
+              ),
             ),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -246,7 +246,7 @@ class _TabView extends StatelessWidget {
               imgList[index][0] : 
               imgList[index][1], width: 24.0, height: 24.0,),
               Gaps.vGap4,
-              Text(text)
+              Text(text),
             ],
           ),
         ),
