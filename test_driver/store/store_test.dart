@@ -28,7 +28,7 @@ void main() {
       
       await driver.scroll(sortList, 0.0, -300.0, scrollDuration);
       await delayed();
-      await driver.scroll(sortList, 0.0, 300.0, scrollDuration);
+      await driver.scroll(sortList, 0.0, 100.0, scrollDuration);
       await driver.tap(find.text('休闲食品'));
 
       await delayed();

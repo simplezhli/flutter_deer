@@ -167,13 +167,13 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
       builder: (BuildContext context) {
         // 可滑动ListView关闭BottomSheet
         return DraggableScrollableSheet(
+          key: const Key('goods_sort'),
           initialChildSize: 0.7,
           maxChildSize: 1,
           minChildSize: 0.65,
           expand: false,
           builder: (_, scrollController) {
             return ListView.builder(
-              key: const Key('goods_sort'),
               controller: scrollController,
               itemExtent: 48.0,
               itemBuilder: (_, index) {
