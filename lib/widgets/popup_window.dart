@@ -127,7 +127,8 @@ class _PopupWindowRoute<T> extends PopupRoute<T> {
                 color: isShowBg ? const Color(0x99000000) : null,
                 child: CustomSingleChildLayout(
                   delegate: _PopupWindowLayoutDelegate(
-                      position, null, Directionality.of(context)),
+                    position, null, Directionality.of(context)
+                  ),
                   child: win,
                 ),
               ),
@@ -169,8 +170,7 @@ class _PopupWindow<T> extends StatelessWidget {
         maxWidth: fullWidth ? double.infinity : _kWindowMaxWidth,
       ),
       child: SingleChildScrollView(
-        padding:
-        const EdgeInsets.symmetric(vertical: _kWindowVerticalPadding),
+        padding: const EdgeInsets.symmetric(vertical: _kWindowVerticalPadding),
         child: route.child,
       )
     );
