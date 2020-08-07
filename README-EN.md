@@ -65,7 +65,7 @@ iOS needs to download the code to run.
 
 - iOS can execute commands `flutter build ios` to create `release` versions. Android can execute commands `flutter build apk` to create `release` versions.
 
-- If there is a problem with the project, you can try to find a solution in the [iOS problem summary](./iOS问题汇总.md) and [Android problem summary](./Android问题汇总.md).
+- If there is a problem with the project, you can try to find a solution in the [iOS problem summary](./doc/iOS问题汇总.md) and [Android problem summary](./doc/Android问题汇总.md).
 
 - Due to some plug-ins, this project has imperfect support on the web (mainly in terms of functionality, and UI issues are minor). Those who are interested can run the experience by themselves.
         
