@@ -19,7 +19,7 @@ dependencies:
   # Toast插件 https://github.com/OpenFlutter/flutter_oktoast
   oktoast: ^2.3.2
   # 网络库 https://github.com/flutterchina/dio
-  dio: ^3.0.9
+  dio: ^3.0.10
   # https://github.com/ReactiveX/rxdart
   rxdart: ^0.24.1
   # Dart 常用工具类库 https://github.com/Sky24n/common_utils
@@ -53,7 +53,7 @@ dependencies:
   # 格式化String https://github.com/Naddiseo/dart-sprintf
   sprintf: ^4.1.0
   # 状态管理 https://github.com/rrousselGit/provider
-  provider: ^4.3.1
+  provider: ^4.3.2
   # 扫码 https://github.com/apptreesoftware/flutter_barcode_reader
   barcode_scan: 3.0.1
   # 高德2D地图插件 https://github.com/simplezhli/flutter_2d_amap
@@ -73,8 +73,8 @@ dev_dependencies:
 #  flutter_goldens:
 #    sdk: flutter
   # 单元测试
-  test: ^1.14.4
-  intl_translation: ^0.17.9
+  test: ^1.15.2
+  intl_translation: ^0.17.10
 
 # For information on the generic Dart part of this file, see the
 # following page: https:/w.dartlang.org/tools/pub/pubspec
