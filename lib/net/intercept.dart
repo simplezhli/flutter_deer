@@ -189,7 +189,7 @@ class AdapterInterceptor extends Interceptor{
               response.statusCode = ExceptionHandle.success;
             }
           } catch (e) {
-            Log.d('异常信息：$e');
+//            Log.d('异常信息：$e');
             // 解析异常直接按照返回原数据处理（一般为返回500,503 HTML页面代码）
             result = sprintf(_kFailureFormat, [response.statusCode, '服务器异常(${response.statusCode})']);
           }
