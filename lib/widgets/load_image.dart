@@ -13,7 +13,9 @@ class LoadImage extends StatelessWidget {
     this.height,
     this.fit = BoxFit.cover, 
     this.format = ImageFormat.png,
-    this.holderImg = 'none'
+    this.holderImg = 'none',
+    this.cacheWidth,
+    this.cacheHeight,
   }): super(key: key);
   
   final String image;
@@ -22,34 +24,33 @@ class LoadImage extends StatelessWidget {
   final BoxFit fit;
   final ImageFormat format;
   final String holderImg;
+  final int cacheWidth;
+  final int cacheHeight;
   
   @override
   Widget build(BuildContext context) {
-    if (TextUtil.isEmpty(image) || image == 'null') {
-      return LoadAssetImage(holderImg,
+
+    if (!TextUtil.isEmpty(image) && image.startsWith('http')) {
+      Widget _image = LoadAssetImage(holderImg, height: height, width: width, fit: fit);
+      return CachedNetworkImage(
+        imageUrl: image,
+        placeholder: (_, __) => _image,
+        errorWidget: (_, __, dynamic error) => _image,
+        width: width,
+        height: height,
+        fit: fit,
+        memCacheWidth: cacheWidth,
+        memCacheHeight: cacheHeight,
+      );
+    } else {
+      return LoadAssetImage(image,
         height: height,
         width: width,
         fit: fit,
-        format: format
+        format: format,
+        cacheWidth: cacheWidth,
+        cacheHeight: cacheHeight,
       );
-    } else {
-      if (image.startsWith('http')) {
-        return CachedNetworkImage(
-          imageUrl: image,
-          placeholder: (_, __) => LoadAssetImage(holderImg, height: height, width: width, fit: fit),
-          errorWidget: (_, __, dynamic error) => LoadAssetImage(holderImg, height: height, width: width, fit: fit),
-          width: width,
-          height: height,
-          fit: fit,
-        );
-      } else {
-        return LoadAssetImage(image,
-          height: height,
-          width: width,
-          fit: fit,
-          format: format,
-        );
-      }
     }
   }
 }

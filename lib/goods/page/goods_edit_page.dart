@@ -4,7 +4,7 @@ import 'package:flutter_deer/goods/provider/goods_sort_provider.dart';
 import 'package:flutter_deer/goods/widgets/goods_sort_bottom_sheet.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/other_utils.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_button.dart';

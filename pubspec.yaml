@@ -49,7 +49,7 @@ dependencies:
   # 路由框架 https://github.com/theyakka/fluro
   fluro: ^1.6.3
   # 图片缓存 https://github.com/renefloor/flutter_cached_network_image
-  cached_network_image: ^2.2.0+1
+  cached_network_image: ^2.3.0
   # 格式化String https://github.com/Naddiseo/dart-sprintf
   sprintf: ^4.1.0
   # 状态管理 https://github.com/rrousselGit/provider
