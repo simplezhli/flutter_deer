@@ -1,4 +1,6 @@
 
+import 'dart:ui';
+
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
@@ -24,13 +26,15 @@ class Utils {
   /// 调起二维码扫描页
   static Future<String> scan() async {
     try {
-      const ScanOptions options = ScanOptions(
+
+      final ScanOptions options = window.locale.languageCode == 'zh' ? const ScanOptions(
         strings: {
           'cancel': '取消',
           'flash_on': '开启闪光灯',
           'flash_off': '关闭闪光灯',
         },
-      );
+      ) : const ScanOptions();
+
       final ScanResult result = await BarcodeScanner.scan(options: options);
       return result.rawContent;
     } catch (e) {

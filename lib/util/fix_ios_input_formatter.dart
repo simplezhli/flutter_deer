@@ -5,7 +5,8 @@ import 'package:flutter/services.dart';
 
 /// https://github.com/flutter/flutter/issues/25511
 /// 主要针对TextInput有设置maxLength且在iOS平台使用原生输入法输入中文时崩溃问题。
-/// 使用后问题是输入的拼音不展示。后面根据下个稳定版情况进行调整。
+/// 使用后问题是输入的拼音不展示。
+/// 已修复：https://github.com/flutter/flutter/pull/63754  后面根据下个稳定版情况去除此类。
 class FixIOSTextInputFormatter extends TextInputFormatter {
 
   @override

@@ -1,6 +1,5 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 
@@ -16,7 +15,8 @@ class LoadImage extends StatelessWidget {
     this.holderImg = 'none',
     this.cacheWidth,
     this.cacheHeight,
-  }): super(key: key);
+  }) : assert(image != null, 'The [image] argument must not be null.'),
+       super(key: key);
   
   final String image;
   final double width;
@@ -30,7 +30,7 @@ class LoadImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    if (!TextUtil.isEmpty(image) && image.startsWith('http')) {
+    if (image.isEmpty || image.startsWith('http')) {
       Widget _image = LoadAssetImage(holderImg, height: height, width: width, fit: fit);
       return CachedNetworkImage(
         imageUrl: image,

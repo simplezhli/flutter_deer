@@ -67,15 +67,15 @@ void main() {
 
     test('订单搜索页测试',() async {
       await driver.tap(find.byTooltip('搜索'));
-      await driver.tap(find.byValueKey('search_text_field'));
+      await driver.tap(find.byValueKey('search_text_field'), timeout: const Duration(minutes: 1),);
       await driver.enterText('flutter');
       await driver.tap(find.text('搜索'));
       final SerializableFinder orderList = find.byValueKey('order_search_list');
-      await driver.waitFor(orderList);
+      await driver.waitFor(orderList, timeout: const Duration(minutes: 1),);
       await driver.scroll(orderList, 0.0, -300.0, scrollDuration);
       await delayed();
       await driver.tap(find.byValueKey('search_back'));
       await delayed();
-    });
+    }, timeout: Timeout.factor(5));
   });
 }
