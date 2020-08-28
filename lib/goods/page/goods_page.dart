@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/goods/page/goods_list_page.dart';
 import 'package:flutter_deer/goods/provider/goods_page_provider.dart';
+import 'package:flutter_deer/goods/widgets/goods_sort_menu.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
@@ -173,57 +174,20 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
     );
     final RenderBox body = _bodyKey.currentContext.findRenderObject() as RenderBox;
 
-    TextStyle textStyle = TextStyle(
-      fontSize: Dimens.font_sp14,
-      color: Theme.of(context).primaryColor,
-    );
     showPopupWindow<void>(
       context: context,
       fullWidth: true,
       position: position,
       elevation: 0.0,
-      child: GestureDetector(
-        onTap: () => NavigatorUtils.goBack(context),
-        child: Container(
-          color: const Color(0x99000000),
-          height: body.size.height - button.size.height - 12.0,
-          child: ListView.builder(
-            physics: const ClampingScrollPhysics(),
-            itemCount: _sortList.length + 1,
-            itemBuilder: (_, index) {
-              Color backgroundColor = ThemeUtils.getBackgroundColor(context);
-              return index == _sortList.length ? Container(
-                color: backgroundColor,
-                height: 12.0,
-              ) : Material(
-                color: backgroundColor,
-                child: InkWell(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          _sortList[index],
-                          style: index == provider.sortIndex ? textStyle : null,
-                        ),
-                        Text(
-                          '($index)',
-                          style: index == provider.sortIndex ? textStyle : null,
-                        ),
-                      ],
-                    ),
-                  ),
-                  onTap: () {
-                    provider.setSortIndex(index);
-                    Toast.show('选择分类: ${_sortList[index]}');
-                    NavigatorUtils.goBack(context);
-                  },
-                ),
-              );
-            },
-          ),
-        ),
+      child: GoodsSortMenu(
+        data: _sortList,
+        height: body.size.height - button.size.height,
+        sortIndex: provider.sortIndex,
+        onSelected: (index, name) {
+          provider.setSortIndex(index);
+          Toast.show('选择分类: $name');
+          NavigatorUtils.goBack(context);
+        },
       ),
     );
   }
@@ -246,52 +210,49 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
       isShowBg: true,
       position: position,
       elevation: 0.0,
-      child: GestureDetector(
-        onTap: () => NavigatorUtils.goBack(context),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(right: 12.0),
-              child: LoadAssetImage('goods/jt', width: 8.0, height: 4.0,
-                color: ThemeUtils.getDarkColor(context, Colours.dark_bg_color),
-              ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(right: 12.0),
+            child: LoadAssetImage('goods/jt', width: 8.0, height: 4.0,
+              color: ThemeUtils.getDarkColor(context, Colours.dark_bg_color),
             ),
-            SizedBox(
-              width: 120.0,
-              height: 40.0,
-              child: FlatButton.icon(
-                textColor: Theme.of(context).textTheme.bodyText2.color,
-                onPressed: () {
-                  NavigatorUtils.push(context, '${GoodsRouter.goodsEditPage}?isAdd=true&isScan=true', replace: true);
-                },
-                color: backgroundColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(8.0), topRight: Radius.circular(8.0)),
-                ),  
-                icon: LoadAssetImage('goods/scanning', width: 16.0, height: 16.0, color: _iconColor,),
-                label: const Text('扫码添加')
+          ),
+          SizedBox(
+            width: 120.0,
+            height: 40.0,
+            child: FlatButton.icon(
+              textColor: Theme.of(context).textTheme.bodyText2.color,
+              onPressed: () {
+                NavigatorUtils.push(context, '${GoodsRouter.goodsEditPage}?isAdd=true&isScan=true', replace: true);
+              },
+              color: backgroundColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(topLeft: Radius.circular(8.0), topRight: Radius.circular(8.0)),
               ),
+              icon: LoadAssetImage('goods/scanning', width: 16.0, height: 16.0, color: _iconColor,),
+              label: const Text('扫码添加')
             ),
-            Container(width: 120.0, height: 0.6, color: Colours.line),
-            SizedBox(
-              width: 120.0,
-              height: 40.0,
-              child: FlatButton.icon(
-                textColor: Theme.of(context).textTheme.bodyText2.color,
-                color: backgroundColor,
-                onPressed: () {
-                  NavigatorUtils.push(context, '${GoodsRouter.goodsEditPage}?isAdd=true', replace: true);
-                },
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8.0), bottomRight: Radius.circular(8.0)),
-                ),
-                icon: LoadAssetImage('goods/add2', width: 16.0, height: 16.0, color: _iconColor,),
-                label: const Text('添加商品')
+          ),
+          Container(width: 120.0, height: 0.6, color: Colours.line),
+          SizedBox(
+            width: 120.0,
+            height: 40.0,
+            child: FlatButton.icon(
+              textColor: Theme.of(context).textTheme.bodyText2.color,
+              color: backgroundColor,
+              onPressed: () {
+                NavigatorUtils.push(context, '${GoodsRouter.goodsEditPage}?isAdd=true', replace: true);
+              },
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8.0), bottomRight: Radius.circular(8.0)),
               ),
+              icon: LoadAssetImage('goods/add2', width: 16.0, height: 16.0, color: _iconColor,),
+              label: const Text('添加商品')
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
