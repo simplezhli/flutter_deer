@@ -12,7 +12,7 @@ assignees: ''
 - [x] 电脑系统：如：`Windows 10`
 - [x] 设备型号：如：`小米MIX 2s`
 - [x] 设备系统版本：如 `Android 10`
-- [x] Flutter 版本：如 `1.20.2`
+- [x] Flutter 版本：如 `1.20.3`
 
 ### 具体问题描述 ###
 
