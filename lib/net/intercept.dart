@@ -16,9 +16,10 @@ class AuthInterceptor extends Interceptor {
   Future onRequest(RequestOptions options) {
     final String accessToken = SpUtil.getString(Constant.accessToken);
     if (accessToken.isNotEmpty) {
-      options.headers['Authorization'] = 'Bearer $accessToken';
+      options.headers['Authorization'] = 'token $accessToken';
     }
-   
+    // https://developer.github.com/v3/#user-agent-required
+    options.headers['User-Agent'] = 'Mozilla/5.0';
     return super.onRequest(options);
   }
 }
