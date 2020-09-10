@@ -35,6 +35,8 @@ class _BankSelectPageState extends State<BankSelectPage> {
     'zhaohang', 'jiaohang', 'zhongxin', 'minsheng',
     'xingye', 'pufa'
   ];
+
+  List<String> _indexBarData = [];
   
   @override
   void initState() {
@@ -50,6 +52,17 @@ class _BankSelectPageState extends State<BankSelectPage> {
         _bankList.add(BankEntity().fromJson(value));
       });
       SuspensionUtil.sortListBySuspensionTag(_bankList);
+      SuspensionUtil.setShowSuspensionStatus(_bankList);
+      _indexBarData = _bankList.map((e) {
+        if (e.isShowSuspension) {
+          return e.firstLetter;
+        } else {
+          return '';
+        }
+      }).where((element) => element.isNotEmpty).toList();
+      // add header.
+      _bankList.insert(0, BankEntity(firstLetter: '常用'));
+      _indexBarData.insert(0, '常用');
       setState(() {
        
       });
@@ -65,66 +78,67 @@ class _BankSelectPageState extends State<BankSelectPage> {
       body: SafeArea(
         child: AzListView(
           data: _bankList,
-          itemBuilder: (context, model) => _buildListItem(model),
-          isUseRealIndex: true,
-          itemHeight: 40,
-          suspensionWidget: null,
-          suspensionHeight: 0,
-          indexBarBuilder:(context, list, onTouch) {
-            return IndexBar(
-              onTouch: onTouch,
-              data: list,
-              itemHeight: 25,
-              touchDownColor: Colors.transparent,
-              textStyle: Theme.of(context).textTheme.subtitle2,
-              touchDownTextStyle: ThemeUtils.isDark(context) ? TextStyles.textSize12 : const TextStyle(fontSize: 12.0, color: Colors.black),
-            );
+          itemCount: _bankList.length,
+          itemBuilder: (context, index) {
+            if (index == 0) {
+              return _buildHeader();
+            }
+            return _buildListItem(index);
           },
-          header: widget.type == 0 ? AzListViewHeader(
-            tag: '常用',
-            height: 430, 
-            builder: (_) => _buildHeader()
-          ) : null,
+          indexBarItemHeight: 25,
+          indexBarData: _indexBarData,
+          indexBarOptions: IndexBarOptions(
+            needRebuild: true,
+            indexHintWidth: 96,
+            indexHintHeight: 96,
+            indexHintTextStyle: const TextStyle(fontSize: 26.0, color: Colors.white),
+            textStyle: Theme.of(context).textTheme.subtitle2,
+            downTextStyle: ThemeUtils.isDark(context) ? TextStyles.textSize12 : const TextStyle(fontSize: 12.0, color: Colors.black),
+          ),
         ),
       ),
     );
   }
 
   Widget _buildHeader() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 16.0),
-          child: Text('常用', style: Theme.of(context).textTheme.subtitle2),
-        ),
-        Expanded(
-          child: ListView.builder(
-            physics: const NeverScrollableScrollPhysics(),
-            itemExtent: 40.0,
-            itemCount: _bankNameList.length,
-            itemBuilder: (_, index) {
-              return InkWell(
-                onTap: () => NavigatorUtils.goBackWithParams(context, BankEntity(id: 0, bankName: _bankNameList[index], firstLetter: '')),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Row(
-                    children: <Widget>[
-                      LoadAssetImage('account/${_bankLogoList[index]}',width: 24.0),
-                      Gaps.hGap8,
-                      Text(_bankNameList[index]),
-                    ],
-                  ),
-                ),
-              );
-            }
+    return SizedBox(
+      height: 430,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 16.0),
+            child: Text('常用', style: Theme.of(context).textTheme.subtitle2),
           ),
-        )
-      ],
+          Expanded(
+            child: ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              itemExtent: 40.0,
+              itemCount: _bankNameList.length,
+              itemBuilder: (_, index) {
+                return InkWell(
+                  onTap: () => NavigatorUtils.goBackWithParams(context, BankEntity(id: 0, bankName: _bankNameList[index], firstLetter: '')),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Row(
+                      children: <Widget>[
+                        LoadAssetImage('account/${_bankLogoList[index]}',width: 24.0),
+                        Gaps.hGap8,
+                        Text(_bankNameList[index]),
+                      ],
+                    ),
+                  ),
+                );
+              }
+            ),
+          )
+        ],
+      ),
     );
   }
 
-  Widget _buildListItem(BankEntity model) {
+  Widget _buildListItem(int index) {
+    BankEntity model = _bankList[index];
     return InkWell(
       onTap: () => NavigatorUtils.goBackWithParams(context, model),
       child: Container(

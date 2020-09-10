@@ -20,6 +20,7 @@ class CitySelectPage extends StatefulWidget {
 class _CitySelectPageState extends State<CitySelectPage> {
 
   final List<CityEntity> _cityList = [];
+  List<String> _indexBarData = [];
 
   @override
   void initState() {
@@ -40,6 +41,14 @@ class _CitySelectPageState extends State<CitySelectPage> {
     list.forEach((value) {
       _cityList.add(CityEntity().fromJson(value));
     });
+    SuspensionUtil.setShowSuspensionStatus(_cityList);
+    _indexBarData = _cityList.map((e) {
+      if (e.isShowSuspension) {
+        return e.firstCharacter;
+      } else {
+        return '';
+      }
+    }).where((element) => element.isNotEmpty).toList();
     setState(() {
 
     });
@@ -63,27 +72,25 @@ class _CitySelectPageState extends State<CitySelectPage> {
       body: SafeArea(
         child: AzListView(
           data: _cityList,
-          itemBuilder: (context, model) => _buildListItem(model),
-          isUseRealIndex: true,
-          itemHeight: 40,
-          suspensionWidget: null,
-          suspensionHeight: 0,
-          indexBarBuilder:(context, list, onTouch) {
-            return IndexBar(
-              onTouch: onTouch,
-              data: list,
-              itemHeight: 18,
-              touchDownColor: Colors.transparent,
-              textStyle: Theme.of(context).textTheme.subtitle2,
-              touchDownTextStyle: ThemeUtils.isDark(context) ? TextStyles.textSize12 : const TextStyle(fontSize: 12.0, color: Colors.black),
-            );
-          },
+          itemCount: _cityList.length,
+          itemBuilder: (context, index) => _buildListItem(index),
+          indexBarItemHeight: 18,
+          indexBarData: _indexBarData,
+          indexBarOptions: IndexBarOptions(
+            needRebuild: true,
+            indexHintWidth: 96,
+            indexHintHeight: 96,
+            indexHintTextStyle: const TextStyle(fontSize: 26.0, color: Colors.white),
+            textStyle: Theme.of(context).textTheme.subtitle2,
+            downTextStyle: ThemeUtils.isDark(context) ? TextStyles.textSize12 : const TextStyle(fontSize: 12.0, color: Colors.black),
+          ),
         ),
       ),
     );
   }
 
-  Widget _buildListItem(CityEntity model) {
+  Widget _buildListItem(int index) {
+    CityEntity model = _cityList[index];
     return InkWell(
       onTap: () => NavigatorUtils.goBackWithParams(context, model),
       child: Container(
