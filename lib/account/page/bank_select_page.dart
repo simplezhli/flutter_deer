@@ -93,7 +93,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
             indexHintHeight: 96,
             indexHintTextStyle: const TextStyle(fontSize: 26.0, color: Colors.white),
             textStyle: Theme.of(context).textTheme.subtitle2,
-            downTextStyle: ThemeUtils.isDark(context) ? TextStyles.textSize12 : const TextStyle(fontSize: 12.0, color: Colors.black),
+            downTextStyle: context.isDark ? TextStyles.textSize12 : const TextStyle(fontSize: 12.0, color: Colors.black),
           ),
         ),
       ),

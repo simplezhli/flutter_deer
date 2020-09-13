@@ -31,7 +31,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
     Color _backgroundColor;
 
     if (backgroundColor == null) {
-      _backgroundColor = ThemeUtils.getBackgroundColor(context);
+      _backgroundColor = context.backgroundColor;
     } else {
       _backgroundColor = backgroundColor;
     }
@@ -63,7 +63,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         child: FlatButton(
           child: Text(actionName, key: const Key('actionName')),
-          textColor: ThemeUtils.isDark(context) ? Colours.dark_text : Colours.text,
+          textColor: context.isDark ? Colours.dark_text : Colours.text,
           highlightColor: Colors.transparent,
           onPressed: onPressed,
         ),

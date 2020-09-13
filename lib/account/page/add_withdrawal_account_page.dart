@@ -139,7 +139,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
           child: Center(
             child: Container(
               decoration: BoxDecoration(
-                color: ThemeUtils.getDialogBackgroundColor(context),
+                color: context.dialogBackgroundColor,
                 borderRadius: BorderRadius.circular(8.0),
               ),
               width: 270.0,

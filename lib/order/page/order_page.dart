@@ -61,7 +61,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    isDark = ThemeUtils.isDark(context);
+    isDark = context.isDark;
     return ChangeNotifierProvider<OrderPageProvider>(
       create: (_) => provider,
       child: Scaffold(
@@ -138,7 +138,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
           pinned: true, // 固定在顶部
           flexibleSpace: MyFlexibleSpaceBar(
             background: isDark ? Container(height: 113.0, color: Colours.dark_bg_color,) : LoadAssetImage('order/order_bg',
-              width: Screen.width(context),
+              width: context.width,
               height: 113.0,
               fit: BoxFit.fill,
             ),
@@ -169,8 +169,8 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
                   child: TabBar(
                     labelPadding: const EdgeInsets.symmetric(horizontal: 0),
                     controller: _tabController,
-                    labelColor: ThemeUtils.isDark(context) ? Colours.dark_text : Colours.text,
-                    unselectedLabelColor: ThemeUtils.isDark(context) ? Colours.dark_text_gray : Colours.text,
+                    labelColor: context.isDark ? Colours.dark_text : Colours.text,
+                    unselectedLabelColor: context.isDark ? Colours.dark_text_gray : Colours.text,
                     labelStyle: TextStyles.textBold14,
                     unselectedLabelStyle: const TextStyle(
                       fontSize: Dimens.font_sp14,
@@ -232,7 +232,7 @@ class _TabView extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    final List<List<String>> imgList = ThemeUtils.isDark(context) ? darkImg : img;
+    final List<List<String>> imgList = context.isDark ? darkImg : img;
     return Stack(
       children: <Widget>[
         Container(

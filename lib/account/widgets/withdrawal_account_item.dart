@@ -160,7 +160,7 @@ class _AccountCardState extends State<AccountCard> {
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.0),
-        boxShadow: ThemeUtils.isDark(context) ?
+        boxShadow: context.isDark ?
         null :
         [
           BoxShadow(color: widget.type == 1 ?

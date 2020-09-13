@@ -28,7 +28,7 @@ class StateLayout extends StatelessWidget {
         else
           if (type != StateType.empty)
             Opacity(
-              opacity: ThemeUtils.isDark(context) ? 0.5 : 1,
+              opacity: context.isDark ? 0.5 : 1,
               child: LoadAssetImage(
                 'state/${type.img}',
                 width: 120,

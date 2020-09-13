@@ -38,3 +38,9 @@ class Screen {
   
   static double diagonalInches(BuildContext context) => diagonal(context) / _ppi;
 }
+
+extension MediaQueryExtension on BuildContext {
+  Size get size => Screen.size(this);
+  double get height => Screen.size(this).height;
+  double get width => Screen.size(this).width;
+}

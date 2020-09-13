@@ -110,7 +110,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
                   child: GestureDetector(
                     child: Padding(
                       padding: EdgeInsets.all(16.0),
-                      child: ThemeUtils.isDark(context) ?
+                      child: context.isDark ?
                         const LoadAssetImage('goods/icon_sm', width: 16.0, height: 16.0) :
                         const LoadAssetImage('goods/scanning', width: 16.0, height: 16.0),
                     ),

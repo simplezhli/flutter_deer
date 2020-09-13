@@ -44,7 +44,7 @@ class OrderItem extends StatelessWidget {
 
   Widget _buildContent(BuildContext context) {
     final TextStyle textTextStyle = Theme.of(context).textTheme.bodyText2.copyWith(fontSize: Dimens.font_sp12);
-    bool isDark = ThemeUtils.isDark(context);
+    bool isDark = context.isDark;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[

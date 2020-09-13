@@ -69,8 +69,8 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
     for (int i = 0; i < widget.data.length; i++) {
       count += widget.data[i].number;
     }
-    final Color bgColor = ThemeUtils.getBackgroundColor(context);
-    final Color shadowColor = ThemeUtils.isDark(context) ? Colours.dark_bg_gray : const Color(0x80C8DAFA);
+    final Color bgColor = context.backgroundColor;
+    final Color shadowColor = context.isDark ? Colours.dark_bg_gray : const Color(0x80C8DAFA);
     return Container(
       decoration: BoxDecoration(
         shape: BoxShape.circle,

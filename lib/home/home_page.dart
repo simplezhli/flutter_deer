@@ -121,7 +121,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    final bool isDark = ThemeUtils.isDark(context);
+    final bool isDark = context.isDark;
     return ChangeNotifierProvider<HomeProvider>(
       create: (_) => provider,
       child: DoubleTapBackExitApp(
@@ -129,7 +129,7 @@ class _HomeState extends State<Home> {
           bottomNavigationBar: Consumer<HomeProvider>(
             builder: (_, provider, __) {
               return BottomNavigationBar(
-                backgroundColor: ThemeUtils.getBackgroundColor(context),
+                backgroundColor: context.backgroundColor,
                 items: isDark ? _buildDarkBottomNavigationBarItem() : _buildBottomNavigationBarItem(),
                 type: BottomNavigationBarType.fixed,
                 currentIndex: provider.value,

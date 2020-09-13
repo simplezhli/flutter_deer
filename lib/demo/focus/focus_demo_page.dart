@@ -29,7 +29,7 @@ class _FocusDemoPageState extends State<FocusDemoPage> {
     print('${widget.title} build');
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: ThemeUtils.isDark(context) ? Colours.dark_bg_color : Colors.blue,
+        backgroundColor: context.isDark ? Colours.dark_bg_color : Colors.blue,
         title: Text(widget.title),
       ),
       body: Column(

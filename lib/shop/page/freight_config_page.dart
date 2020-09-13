@@ -103,7 +103,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
           margin: const EdgeInsets.only(bottom: 8.0),
           padding: const EdgeInsets.symmetric(vertical: 32.0),
           decoration: BoxDecoration(
-            color: ThemeUtils.isDark(context) ? Colours.dark_bg_gray : Colours.bg_gray,
+            color: context.isDark ? Colours.dark_bg_gray : Colours.bg_gray,
             borderRadius: BorderRadius.circular(8.0),
           ),
           child: const LoadAssetImage('shop/tj',),

@@ -115,7 +115,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
             Container(
               // 隐藏点击效果
               padding: EdgeInsets.only(left: 16.0),
-              color: ThemeUtils.getBackgroundColor(context),
+              color: context.backgroundColor,
               child: TabBar(
                 onTap: (index) {
                   if (!mounted) {
@@ -128,7 +128,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 labelStyle: TextStyles.textBold18,
                 indicatorSize: TabBarIndicatorSize.label,
                 labelPadding: const EdgeInsets.only(left: 0.0),
-                unselectedLabelColor: ThemeUtils.isDark(context) ? Colours.text_gray : Colours.text,
+                unselectedLabelColor: context.isDark ? Colours.text_gray : Colours.text,
                 labelColor: Theme.of(context).primaryColor,
                 indicatorPadding: const EdgeInsets.only(right: 98.0 - 36.0),
                 tabs: <Widget>[
@@ -202,7 +202,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
       Rect.fromPoints(a, b),
       Offset.zero & overlay.size,
     );
-    final Color backgroundColor = ThemeUtils.getBackgroundColor(context);
+    final Color backgroundColor = context.backgroundColor;
     final Color _iconColor = ThemeUtils.getIconColor(context);
     showPopupWindow<void>(
       context: context,

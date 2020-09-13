@@ -107,7 +107,7 @@ class MoreWidget extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    final TextStyle style = ThemeUtils.isDark(context) ? TextStyles.textGray14 : const TextStyle(color: Color(0x8A000000));
+    final TextStyle style = context.isDark ? TextStyles.textGray14 : const TextStyle(color: Color(0x8A000000));
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Row(

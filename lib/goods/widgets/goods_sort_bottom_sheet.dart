@@ -52,7 +52,7 @@ class GoodsSortBottomSheetState extends State<GoodsSortBottomSheet> with SingleT
   Widget build(BuildContext context) {
     return Material(
       child: SizedBox(
-        height: Screen.height(context) * 11.0 / 16.0,
+        height: context.height * 11.0 / 16.0,
         /// 为保留状态，选择ChangeNotifierProvider.value，销毁自己手动处理（见 goods_edit_page.dart ：dispose()）
         child: ChangeNotifierProvider<GoodsSortProvider>.value(
           value: widget.provider,
@@ -65,7 +65,7 @@ class GoodsSortBottomSheetState extends State<GoodsSortBottomSheet> with SingleT
                   Gaps.line,
                   Container(
                     // 隐藏点击效果
-                    color: ThemeUtils.getDialogBackgroundColor(context),
+                    color: context.dialogBackgroundColor,
                     child: TabBar(
                       controller: _tabController,
                       isScrollable: true,
@@ -80,7 +80,7 @@ class GoodsSortBottomSheetState extends State<GoodsSortBottomSheet> with SingleT
                         _controller.animateTo(provider.positions[provider.index] * 48.0, duration: const Duration(milliseconds: 10), curve: Curves.ease);
                       },
                       indicatorSize: TabBarIndicatorSize.label,
-                      unselectedLabelColor: ThemeUtils.isDark(context) ? Colours.text_gray : Colours.text,
+                      unselectedLabelColor: context.isDark ? Colours.text_gray : Colours.text,
                       labelColor: Theme.of(context).primaryColor,
                       tabs: provider.myTabs,
                     ),

@@ -34,7 +34,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
   bool isDark = false;
   
   List<Widget> _sliverBuilder() {
-    isDark = ThemeUtils.isDark(context);
+    isDark = context.isDark;
     return <Widget>[
       SliverAppBar(
         brightness: Brightness.dark,
@@ -46,7 +46,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
         pinned: true,
         flexibleSpace: MyFlexibleSpaceBar(
           background: isDark ? Container(height: 115.0, color: Colours.dark_bg_color,) : LoadAssetImage('statistic/statistic_bg',
-            width: Screen.width(context),
+            width: context.width,
             height: 115.0,
             fit: BoxFit.fill,
           ),

@@ -42,7 +42,7 @@ class _SearchBarState extends State<SearchBar> {
   
   @override
   Widget build(BuildContext context) {
-    final bool isDark = ThemeUtils.isDark(context);
+    final bool isDark = context.isDark;
     final Color iconColor = isDark ? Colours.dark_text_gray : Colours.text_gray_c;
     
     Widget back = Semantics(
@@ -141,7 +141,7 @@ class _SearchBarState extends State<SearchBar> {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: isDark ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark,
       child: Material(
-        color: ThemeUtils.getBackgroundColor(context),
+        color: context.backgroundColor,
         child: SafeArea(
           child: Container(
             child: Row(

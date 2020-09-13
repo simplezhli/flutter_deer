@@ -22,8 +22,8 @@ class _WithdrawalPasswordSettingState extends State<WithdrawalPasswordSetting> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: ThemeUtils.getDialogBackgroundColor(context),
-      height: Screen.height(context) * 7 / 10.0,
+      color: context.dialogBackgroundColor,
+      height: context.height * 7 / 10.0,
       child: Column(
         children: <Widget>[
           Stack(
@@ -98,7 +98,7 @@ class _WithdrawalPasswordSettingState extends State<WithdrawalPasswordSetting> {
   }
 
   Widget _buildButton(int index) {
-    final color = ThemeUtils.isDark(context) ? Colours.dark_bg_gray : Colours.dark_button_text;
+    final color = context.isDark ? Colours.dark_bg_gray : Colours.dark_button_text;
     return Material(
       color: (index == 9 || index == 11) ? color : null,
       child: InkWell(

@@ -147,7 +147,7 @@ class GoodsItem extends StatelessWidget {
   }
 
   Widget _buildGoodsMenuContent(BuildContext context) {
-    final bool isDark = ThemeUtils.isDark(context);
+    final bool isDark = context.isDark;
     final Color buttonColor = isDark ? Colours.dark_text : Colors.white;
     return InkWell(
       onTap: onTapMenuClose,

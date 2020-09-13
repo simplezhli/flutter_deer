@@ -18,14 +18,6 @@ class ThemeUtils {
     return isDark(context) ? Colours.dark_text : null;
   }
   
-  static Color getBackgroundColor(BuildContext context) {
-    return Theme.of(context).scaffoldBackgroundColor;
-  }
-
-  static Color getDialogBackgroundColor(BuildContext context) {
-    return Theme.of(context).canvasColor;
-  }
-  
   static Color getStickyHeaderColor(BuildContext context) {
     return isDark(context) ? Colours.dark_bg_gray_ : Colours.bg_gray_;
   }
@@ -57,4 +49,10 @@ class ThemeUtils {
       SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
     }
   }
+}
+
+extension ThemeExtension on BuildContext {
+  bool get isDark => ThemeUtils.isDark(this);
+  Color get backgroundColor => Theme.of(this).scaffoldBackgroundColor;
+  Color get dialogBackgroundColor => Theme.of(this).canvasColor;
 }

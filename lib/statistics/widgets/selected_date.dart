@@ -42,7 +42,7 @@ class SelectedDate extends StatelessWidget {
           decoration: selected ? BoxDecoration(
             borderRadius: BorderRadius.circular(20.0),
 //            shape: BoxShape.circle,
-            boxShadow: ThemeUtils.isDark(context) ? null : const [
+            boxShadow: context.isDark ? null : const [
               BoxShadow(color: Color(0x805793FA), offset: Offset(0.0, 2.0), blurRadius: 8.0, spreadRadius: 0.0),
             ],
             gradient: const LinearGradient(

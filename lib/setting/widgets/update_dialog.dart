@@ -63,7 +63,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
               Container(
                 width: 280.0,
                 decoration: BoxDecoration(
-                  color: ThemeUtils.getDialogBackgroundColor(context),
+                  color: context.dialogBackgroundColor,
                   borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(8.0), bottomRight: Radius.circular(8.0))
                 ),
                 padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),

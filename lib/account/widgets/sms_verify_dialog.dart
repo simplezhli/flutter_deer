@@ -188,12 +188,12 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
       backgroundColor: Colors.transparent,//透明类型
       body: AnimatedContainer(
         alignment: Alignment.center,
-        height: Screen.height(context) - MediaQuery.of(context).viewInsets.bottom,
+        height: context.height - MediaQuery.of(context).viewInsets.bottom,
         duration: const Duration(milliseconds: 120),
         curve: Curves.easeInCubic,
         child: Container(
           decoration: BoxDecoration(
-            color: ThemeUtils.getDialogBackgroundColor(context),
+            color: context.dialogBackgroundColor,
             borderRadius: BorderRadius.circular((8.0)),
           ),
           width: 280.0,

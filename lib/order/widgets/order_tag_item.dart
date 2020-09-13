@@ -26,7 +26,7 @@ class OrderTagItem extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Row(
             children: <Widget>[
-              if (ThemeUtils.isDark(context)) 
+              if (context.isDark)
                 const LoadAssetImage('order/icon_calendar_dark', width: 14.0, height: 14.0) 
               else
                 const LoadAssetImage('order/icon_calendar', width: 14.0, height: 14.0),

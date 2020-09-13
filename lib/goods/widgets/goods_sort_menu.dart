@@ -51,7 +51,7 @@ class _GoodsSortMenuState extends State<GoodsSortMenu> with SingleTickerProvider
       color: Theme.of(context).primaryColor,
     );
 
-    final Color backgroundColor = ThemeUtils.getBackgroundColor(context);
+    final Color backgroundColor = context.backgroundColor;
 
     final Animation<double> animation = CurvedAnimation(
       parent: _controller,

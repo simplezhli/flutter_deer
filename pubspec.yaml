@@ -43,13 +43,13 @@ dependencies:
   # 列表悬浮头 https://github.com/fluttercommunity/flutter_sticky_headers
   sticky_headers: ^0.1.8+1
   # 城市选择列表 https://github.com/flutterchina/azlistview
-  azlistview: ^1.0.0
+  azlistview: ^1.0.1
   # 手势识别 https://github.com/aleksanderwozniak/simple_gesture_detector
   # simple_gesture_detector: ^0.1.4
   # 路由框架 https://github.com/theyakka/fluro
   fluro: ^1.6.3
   # 图片缓存 https://github.com/renefloor/flutter_cached_network_image
-  cached_network_image: ^2.3.1
+  cached_network_image: ^2.3.2+1
   # 格式化String https://github.com/Naddiseo/dart-sprintf
   sprintf: ^4.1.0
   # 状态管理 https://github.com/rrousselGit/provider

@@ -24,7 +24,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
   Widget build(BuildContext context) {
     final Color red = Theme.of(context).errorColor;
     final Color blue = Theme.of(context).primaryColor;
-    final bool isDark = ThemeUtils.isDark(context);
+    final bool isDark = context.isDark;
 
     Widget bottomMenu = Container(
       height: 60.0,

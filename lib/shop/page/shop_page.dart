@@ -224,7 +224,7 @@ class _ShopFunctionModule extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              LoadAssetImage(ThemeUtils.isDark(context) ? 'shop/${darkImage[index]}' : 'shop/${image[index]}', width: 32.0),
+              LoadAssetImage(context.isDark ? 'shop/${darkImage[index]}' : 'shop/${image[index]}', width: 32.0),
               Gaps.vGap4,
               Text(
                 data[index],

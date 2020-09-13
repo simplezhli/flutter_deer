@@ -16,7 +16,7 @@ class MyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool isDark = ThemeUtils.isDark(context);
+    final bool isDark = context.isDark;
     return FlatButton(
       onPressed: onPressed,
       textColor: isDark ? Colours.dark_button_text : Colors.white,

@@ -71,7 +71,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: ThemeUtils.getBackgroundColor(context),
+      color: context.backgroundColor,
       child: _status == 0 ? 
       FractionallyAlignedSizedBox(
         heightFactor: 0.3,

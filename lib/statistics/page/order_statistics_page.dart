@@ -61,7 +61,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
 
   @override
   Widget build(BuildContext context) {
-    _unSelectedTextColor = ThemeUtils.isDark(context) ? Colors.white : Colours.dark_text_gray;
+    _unSelectedTextColor = context.isDark ? Colors.white : Colours.dark_text_gray;
     return Scaffold(
       appBar: MyAppBar(
         centerTitle: widget.index == 1 ? '订单统计' : '交易额统计',

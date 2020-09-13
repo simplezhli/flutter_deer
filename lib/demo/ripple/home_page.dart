@@ -69,7 +69,7 @@ class _RipplesAnimationState extends State<RipplesAnimation> with TickerProvider
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: ThemeUtils.isDark(context) ? Colours.dark_bg_color : Colors.blue,
+        backgroundColor: context.isDark ? Colours.dark_bg_color : Colors.blue,
         title: Text('Ripple Demo'),
       ),
       body: Center(
