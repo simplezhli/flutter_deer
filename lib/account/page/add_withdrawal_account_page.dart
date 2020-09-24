@@ -41,11 +41,11 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
         visible: !_isWechat,
         child: Column(
           children: <Widget>[
-            TextFieldItem(
+            const TextFieldItem(
               title: '持  卡  人',
               hintText: '填写您的真实姓名',
             ),
-            TextFieldItem(
+            const TextFieldItem(
               title: '银行卡号',
               keyboardType: TextInputType.number,
               hintText: '填写银行卡号',
@@ -147,10 +147,10 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
               padding: const EdgeInsets.only(top: 24.0),
               child: Theme(
                 data: Theme.of(context).copyWith(
-                  buttonTheme: ButtonThemeData(
+                  buttonTheme: const ButtonThemeData(
                     minWidth: double.infinity,
                   ),
-                  textTheme: TextTheme(
+                  textTheme: const TextTheme(
                       button: TextStyle(
                         fontSize: Dimens.font_sp14,
                       )

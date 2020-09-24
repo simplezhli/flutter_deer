@@ -9,7 +9,7 @@ import 'package:flutter_deer/widgets/load_image.dart';
 /// design/7店铺-店铺配置/index.html#artboard9
 class SendTypeDialog extends StatefulWidget {
 
-  SendTypeDialog({
+  const SendTypeDialog({
     Key key,
     this.onPressed,
   }) : super(key : key);
@@ -24,7 +24,7 @@ class SendTypeDialog extends StatefulWidget {
 class _SendTypeDialog extends State<SendTypeDialog> {
 
   int _value = 0;
-  var _list = ['运费满免配置', '运费比例配置'];
+  final _list = ['运费满免配置', '运费比例配置'];
 
   Widget _buildItem(int index) {
     return Material(

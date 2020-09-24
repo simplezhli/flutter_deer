@@ -100,7 +100,7 @@ class MyApp extends StatelessWidget {
               },
               /// 因为使用了fluro，这里设置主要针对Web
               onUnknownRoute: (_) {
-                return MaterialPageRoute(
+                return MaterialPageRoute<void>(
                   builder: (BuildContext context) => NotFoundPage(),
                 );
               },

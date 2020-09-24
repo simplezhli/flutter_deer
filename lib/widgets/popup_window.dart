@@ -38,7 +38,6 @@ Future<T> showPopupWindow<T>({
 
   return Navigator.push(context,
       _PopupWindowRoute(
-        context: context,
         position: position,
         child: child,
         elevation: elevation,
@@ -54,19 +53,16 @@ Future<T> showPopupWindow<T>({
 ///自定义弹窗路由：参照_PopupMenuRoute修改的
 class _PopupWindowRoute<T> extends PopupRoute<T> {
   _PopupWindowRoute({
-    @required BuildContext context,
     RouteSettings settings,
     this.child,
     this.position,
-    this.elevation: 8.0,
+    this.elevation = 8.0,
     this.theme,
     this.barrierLabel,
     this.semanticLabel,
     this.fullWidth,
     this.isShowBg,
-  }) : super(settings: settings) {
-    assert(child != null);
-  }
+  }) : super(settings: settings);
 
   final Widget child;
   final RelativeRect position;
@@ -154,13 +150,13 @@ class _PopupWindow<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double length = 10.0;
-    final double unit = 1.0 /
+    const double length = 10.0;
+    const double unit = 1.0 /
         (length + 1.5); // 1.0 for the width and 0.5 for the last item's fade.
 
     final CurveTween opacity = CurveTween(curve: const Interval(0.0, 1.0 / 3.0));
-    final CurveTween width = CurveTween(curve: Interval(0.0, unit));
-    final CurveTween height = CurveTween(curve: Interval(0.0, unit * length));
+    final CurveTween width = CurveTween(curve: const Interval(0.0, unit));
+    final CurveTween height = CurveTween(curve: const Interval(0.0, unit * length));
 
     final Widget child = ConstrainedBox(
       constraints: BoxConstraints(

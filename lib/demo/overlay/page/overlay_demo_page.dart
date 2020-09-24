@@ -43,7 +43,7 @@ class _OverlayDemoPageState extends State<OverlayDemoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Overlay Demo'),
+        title: const Text('Overlay Demo'),
       ),
       body: Container(
         color: Colors.amber,
@@ -70,7 +70,7 @@ class _OverlayDemoPageState extends State<OverlayDemoPage> {
   } 
   
   Widget _buildBottomNavigation(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
+    final double width = MediaQuery.of(context).size.width;
     return Positioned(
       left: width * 0.2,
       right: width * 0.2,

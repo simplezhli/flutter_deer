@@ -38,7 +38,7 @@ class _FocusDemoPageState extends State<FocusDemoPage> {
             focusNode: _focusNode,
           ),
           FlatButton(
-            child: Text('打印FocusTree'),
+            child: const Text('打印FocusTree'),
             onPressed: () {
               // 关闭软键盘四种方式
 //              SystemChannels.textInput.invokeMethod('TextInput.hide');
@@ -52,12 +52,12 @@ class _FocusDemoPageState extends State<FocusDemoPage> {
             },
           ),
           FlatButton(
-            child: Text('Push TestPage'),
+            child: const Text('Push TestPage'),
             onPressed: () {
               Navigator.push<FocusDemoPage>(
                 context,
                 MaterialPageRoute<FocusDemoPage>(
-                  builder: (BuildContext context) => FocusDemoPage(title: 'Test Page'),
+                  builder: (BuildContext context) => const FocusDemoPage(title: 'Test Page'),
                 ),
               );
             },

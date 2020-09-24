@@ -178,8 +178,8 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Text(title, style: TextStyle(color: Colors.white)),
-            Text(count, style: TextStyle(color: Colors.white)),
+            Text(title, style: const TextStyle(color: Colors.white)),
+            Text(count, style: const TextStyle(color: Colors.white)),
           ],
         ),
         Gaps.vGap4,

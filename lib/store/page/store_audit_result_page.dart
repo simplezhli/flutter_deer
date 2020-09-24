@@ -31,7 +31,7 @@ class _StoreAuditResultPageState extends State<StoreAuditResultPage> {
               height: 80.0,
             ),
             Gaps.vGap12,
-            Text(
+            const Text(
               '恭喜，店铺资料审核成功',
               style: TextStyles.textSize16,
             ),

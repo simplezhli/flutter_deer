@@ -110,7 +110,7 @@ class _DialogButton extends StatelessWidget {
         child: FlatButton(
           child: Text(
             text,
-            style: TextStyle(fontSize: Dimens.font_sp18),
+            style: const TextStyle(fontSize: Dimens.font_sp18),
           ),
           textColor: textColor,
           onPressed: onPressed,

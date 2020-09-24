@@ -28,7 +28,7 @@ class MyButton extends StatelessWidget {
         height: 48,
         width: double.infinity,
         alignment: Alignment.center,
-        child: Text(text, style: TextStyle(fontSize: Dimens.font_sp18),),
+        child: Text(text, style: const TextStyle(fontSize: Dimens.font_sp18),),
       ),
     );
   }

@@ -134,7 +134,7 @@ class _SearchBarState extends State<SearchBar> {
           _focus.unfocus();
           widget.onPressed(_controller.text);
         },
-        child: Text('搜索', style: TextStyle(fontSize: Dimens.font_sp14)),
+        child: const Text('搜索', style: TextStyle(fontSize: Dimens.font_sp14)),
       ),
     );
     

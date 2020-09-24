@@ -2,140 +2,140 @@ import 'package:flutter_deer/generated/json/base/json_convert_content.dart';
 import 'package:flutter_deer/generated/json/base/json_filed.dart';
 
 class SearchEntity with JsonConvert<SearchEntity> {
-	@JSONField(name: "total_count")
+	@JSONField(name: 'total_count')
 	int totalCount;
-	@JSONField(name: "incomplete_results")
+	@JSONField(name: 'incomplete_results')
 	bool incompleteResults;
 	List<SearchItem> items;
 }
 
 class SearchItem with JsonConvert<SearchItem> {
 	int id;
-	@JSONField(name: "node_id")
+	@JSONField(name: 'node_id')
 	String nodeId;
 	String name;
-	@JSONField(name: "full_name")
+	@JSONField(name: 'full_name')
 	String fullName;
 	bool private;
-	@JSONField(name: "html_url")
+	@JSONField(name: 'html_url')
 	String htmlUrl;
 	String description;
 	bool fork;
 	String url;
-	@JSONField(name: "forks_url")
+	@JSONField(name: 'forks_url')
 	String forksUrl;
-	@JSONField(name: "keys_url")
+	@JSONField(name: 'keys_url')
 	String keysUrl;
-	@JSONField(name: "collaborators_url")
+	@JSONField(name: 'collaborators_url')
 	String collaboratorsUrl;
-	@JSONField(name: "teams_url")
+	@JSONField(name: 'teams_url')
 	String teamsUrl;
-	@JSONField(name: "hooks_url")
+	@JSONField(name: 'hooks_url')
 	String hooksUrl;
-	@JSONField(name: "issue_events_url")
+	@JSONField(name: 'issue_events_url')
 	String issueEventsUrl;
-	@JSONField(name: "events_url")
+	@JSONField(name: 'events_url')
 	String eventsUrl;
-	@JSONField(name: "assignees_url")
+	@JSONField(name: 'assignees_url')
 	String assigneesUrl;
-	@JSONField(name: "branches_url")
+	@JSONField(name: 'branches_url')
 	String branchesUrl;
-	@JSONField(name: "tags_url")
+	@JSONField(name: 'tags_url')
 	String tagsUrl;
-	@JSONField(name: "blobs_url")
+	@JSONField(name: 'blobs_url')
 	String blobsUrl;
-	@JSONField(name: "git_tags_url")
+	@JSONField(name: 'git_tags_url')
 	String gitTagsUrl;
-	@JSONField(name: "git_refs_url")
+	@JSONField(name: 'git_refs_url')
 	String gitRefsUrl;
-	@JSONField(name: "trees_url")
+	@JSONField(name: 'trees_url')
 	String treesUrl;
-	@JSONField(name: "statuses_url")
+	@JSONField(name: 'statuses_url')
 	String statusesUrl;
-	@JSONField(name: "languages_url")
+	@JSONField(name: 'languages_url')
 	String languagesUrl;
-	@JSONField(name: "stargazers_url")
+	@JSONField(name: 'stargazers_url')
 	String stargazersUrl;
-	@JSONField(name: "contributors_url")
+	@JSONField(name: 'contributors_url')
 	String contributorsUrl;
-	@JSONField(name: "subscribers_url")
+	@JSONField(name: 'subscribers_url')
 	String subscribersUrl;
-	@JSONField(name: "subscription_url")
+	@JSONField(name: 'subscription_url')
 	String subscriptionUrl;
-	@JSONField(name: "commits_url")
+	@JSONField(name: 'commits_url')
 	String commitsUrl;
-	@JSONField(name: "git_commits_url")
+	@JSONField(name: 'git_commits_url')
 	String gitCommitsUrl;
-	@JSONField(name: "comments_url")
+	@JSONField(name: 'comments_url')
 	String commentsUrl;
-	@JSONField(name: "issue_comment_url")
+	@JSONField(name: 'issue_comment_url')
 	String issueCommentUrl;
-	@JSONField(name: "contents_url")
+	@JSONField(name: 'contents_url')
 	String contentsUrl;
-	@JSONField(name: "compare_url")
+	@JSONField(name: 'compare_url')
 	String compareUrl;
-	@JSONField(name: "merges_url")
+	@JSONField(name: 'merges_url')
 	String mergesUrl;
-	@JSONField(name: "archive_url")
+	@JSONField(name: 'archive_url')
 	String archiveUrl;
-	@JSONField(name: "downloads_url")
+	@JSONField(name: 'downloads_url')
 	String downloadsUrl;
-	@JSONField(name: "issues_url")
+	@JSONField(name: 'issues_url')
 	String issuesUrl;
-	@JSONField(name: "pulls_url")
+	@JSONField(name: 'pulls_url')
 	String pullsUrl;
-	@JSONField(name: "milestones_url")
+	@JSONField(name: 'milestones_url')
 	String milestonesUrl;
-	@JSONField(name: "notifications_url")
+	@JSONField(name: 'notifications_url')
 	String notificationsUrl;
-	@JSONField(name: "labels_url")
+	@JSONField(name: 'labels_url')
 	String labelsUrl;
-	@JSONField(name: "releases_url")
+	@JSONField(name: 'releases_url')
 	String releasesUrl;
-	@JSONField(name: "deployments_url")
+	@JSONField(name: 'deployments_url')
 	String deploymentsUrl;
-	@JSONField(name: "created_at")
+	@JSONField(name: 'created_at')
 	String createdAt;
-	@JSONField(name: "updated_at")
+	@JSONField(name: 'updated_at')
 	String updatedAt;
-	@JSONField(name: "pushed_at")
+	@JSONField(name: 'pushed_at')
 	String pushedAt;
-	@JSONField(name: "git_url")
+	@JSONField(name: 'git_url')
 	String gitUrl;
-	@JSONField(name: "ssh_url")
+	@JSONField(name: 'ssh_url')
 	String sshUrl;
-	@JSONField(name: "clone_url")
+	@JSONField(name: 'clone_url')
 	String cloneUrl;
-	@JSONField(name: "svn_url")
+	@JSONField(name: 'svn_url')
 	String svnUrl;
 	String homepage;
 	int size;
-	@JSONField(name: "stargazers_count")
+	@JSONField(name: 'stargazers_count')
 	int stargazersCount;
-	@JSONField(name: "watchers_count")
+	@JSONField(name: 'watchers_count')
 	int watchersCount;
 	String language;
-	@JSONField(name: "has_issues")
+	@JSONField(name: 'has_issues')
 	bool hasIssues;
-	@JSONField(name: "has_projects")
+	@JSONField(name: 'has_projects')
 	bool hasProjects;
-	@JSONField(name: "has_downloads")
+	@JSONField(name: 'has_downloads')
 	bool hasDownloads;
-	@JSONField(name: "has_wiki")
+	@JSONField(name: 'has_wiki')
 	bool hasWiki;
-	@JSONField(name: "has_pages")
+	@JSONField(name: 'has_pages')
 	bool hasPages;
-	@JSONField(name: "forks_count")
+	@JSONField(name: 'forks_count')
 	int forksCount;
 	bool archived;
 	bool disabled;
-	@JSONField(name: "open_issues_count")
+	@JSONField(name: 'open_issues_count')
 	int openIssuesCount;
 	int forks;
-	@JSONField(name: "open_issues")
+	@JSONField(name: 'open_issues')
 	int openIssues;
 	int watchers;
-	@JSONField(name: "default_branch")
+	@JSONField(name: 'default_branch')
 	String defaultBranch;
 	double score;
 }
