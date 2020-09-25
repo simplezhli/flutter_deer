@@ -25,7 +25,7 @@ class GoodsSizeModel {
         currencyPrice = map['currencyPrice'] as String;
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['icon'] = icon;
     data['sizeName'] = sizeName;
     data['stock'] = stock;

@@ -35,7 +35,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
 
   @override
   Widget build(BuildContext context) {
-    var time = Row(
+    final Widget time = Row(
       children: <Widget>[
         _buildSelectedText(_initialDay.year.toString(), 0),
         Gaps.hGap12,

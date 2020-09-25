@@ -19,7 +19,7 @@ class ExceptionHandle {
   static const int cancel_error = 1007;
   static const int unknown_error = 9999;
 
-  static Map<int, NetError> _errorMap = <int, NetError>{
+  static final Map<int, NetError> _errorMap = <int, NetError>{
     net_error             :   NetError(net_error, '网络异常，请检查你的网络！'),
     parse_error           :   NetError(parse_error, '数据解析错误！'),
     socket_error          :   NetError(socket_error, '网络异常，请检查你的网络！'),

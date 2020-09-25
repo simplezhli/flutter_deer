@@ -36,7 +36,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
   
   String _getPayType() {
     String payType = '';
-    for (int s in _selectValue) {
+    for (final int s in _selectValue) {
       if (s == 0) {
         payType = '$payType在线支付+';
       } else if (s == 1) {

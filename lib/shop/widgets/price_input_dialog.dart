@@ -11,7 +11,7 @@ import 'package:flutter_deer/widgets/base_dialog.dart';
 /// design/7店铺-店铺配置/index.html#artboard3
 class PriceInputDialog extends StatefulWidget {
 
-  PriceInputDialog({
+  const PriceInputDialog({
     Key key,
     this.title,
     this.onPressed,
@@ -53,7 +53,7 @@ class _PriceInputDialog extends State<PriceInputDialog> {
           controller: _controller,
           maxLines: 1,
           //style: TextStyles.textDark14,
-          keyboardType: TextInputType.numberWithOptions(decimal: true),
+          keyboardType: const TextInputType.numberWithOptions(decimal: true),
           // 金额限制数字格式
           inputFormatters: [UsNumberTextInputFormatter()],
           decoration: InputDecoration(

@@ -48,7 +48,7 @@ class DioUtils {
   Dio get dio => _dio;
 
   DioUtils._() {
-    BaseOptions _options = BaseOptions(
+    final BaseOptions _options = BaseOptions(
       connectTimeout: _connectTimeout,
       receiveTimeout: _receiveTimeout,
       sendTimeout: _sendTimeout,

@@ -48,7 +48,7 @@ class _DeerListViewState extends State<DeerListView> {
   
   @override
   Widget build(BuildContext context) {
-    Widget child = RefreshIndicator(
+    final Widget child = RefreshIndicator(
       onRefresh: widget.onRefresh,
       child: widget.itemCount == 0 ? 
       StateLayout(type: widget.stateType) : 

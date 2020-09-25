@@ -32,7 +32,7 @@ class OrderTagItem extends StatelessWidget {
                 const LoadAssetImage('order/icon_calendar', width: 14.0, height: 14.0),
               Gaps.hGap10,
               Text(date),
-              Expanded(child: Gaps.empty),
+              const Expanded(child: Gaps.empty),
               Text('$orderTotal单')
             ],
           ),

@@ -28,7 +28,7 @@ class SelectedImageState extends State<SelectedImage> {
 
   Future<void> _getImage() async {
     try {
-      PickedFile pickedFile = await picker.getImage(source: ImageSource.gallery, maxWidth: 800);
+      final PickedFile pickedFile = await picker.getImage(source: ImageSource.gallery, maxWidth: 800);
       if (pickedFile != null) {
         setState(() {
           imageFile = File(pickedFile.path);

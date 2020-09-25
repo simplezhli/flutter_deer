@@ -16,7 +16,7 @@ class ProgressDialog extends Dialog {
   @override
   Widget build(BuildContext context) {
     
-    Widget progress = Column(
+    final Widget progress = Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Theme(

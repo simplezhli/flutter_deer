@@ -18,7 +18,7 @@ class FreightConfigModel {
         price = map['price'] as String;
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['min'] = min;
     data['max'] = max;
     data['type'] = type;

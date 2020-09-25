@@ -40,7 +40,7 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
   }
   
   Widget _buildItem(int index) {
-    var list = List.generate(index + 1, (i) {
+    final list = List.generate(index + 1, (i) {
       return Container(
         height: 72.0,
         width: double.infinity,

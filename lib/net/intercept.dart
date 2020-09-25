@@ -42,7 +42,7 @@ class TokenInterceptor extends Interceptor {
     return null;
   }
 
-  Dio _tokenDio = Dio();
+  final Dio _tokenDio = Dio();
 
   @override
   Future<Object> onResponse(Response response) async {
@@ -103,7 +103,7 @@ class LoggingInterceptor extends Interceptor{
   @override
   Future onResponse(Response response) {
     _endTime = DateTime.now();
-    int duration = _endTime.difference(_startTime).inMilliseconds;
+    final int duration = _endTime.difference(_startTime).inMilliseconds;
     if (response.statusCode == ExceptionHandle.success) {
       Log.d('ResponseCode: ${response.statusCode}');
     } else {
@@ -136,7 +136,7 @@ class AdapterInterceptor extends Interceptor{
   
   @override
   Future onResponse(Response response) {
-    Response r = adapterData(response);
+    final Response r = adapterData(response);
     return super.onResponse(r);
   }
   
@@ -170,15 +170,15 @@ class AdapterInterceptor extends Interceptor{
         } else {
           String msg;
           try {
-            content = content.replaceAll("\\", '');
+            content = content.replaceAll('\\', '');
             if (_kSlash == content.substring(0, 1)) {
               content = content.substring(1, content.length - 1);
             }
-            Map<String, dynamic> map = json.decode(content);
+            final Map<String, dynamic> map = json.decode(content);
             if (map.containsKey(_kMessage)) {
-              msg = map[_kMessage];
+              msg = map[_kMessage] as String;
             } else if (map.containsKey(_kMsg)) {
-              msg = map[_kMsg];
+              msg = map[_kMsg] as String;
             } else {
               msg = '未知异常';
             }

@@ -81,7 +81,7 @@ class _MessageItemState extends State<_MessageItem> {
                 Gaps.vGap8,
                 Gaps.line,
                 Gaps.vGap8,
-                Text('供货商由于[商品缺货]原因，取消了采购订单。', style: TextStyles.textSize12),
+                const Text('供货商由于[商品缺货]原因，取消了采购订单。', style: TextStyles.textSize12),
               ],
             ),
           ),

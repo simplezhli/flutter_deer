@@ -22,13 +22,13 @@ class Screen {
   static double height(BuildContext context) => size(context).height;
   
   static double diagonal(BuildContext context) {
-    Size s = size(context);
+    final Size s = size(context);
     return sqrt((s.width * s.width) + (s.height * s.height));
   }
   
   //INCHES
   static Size inches(BuildContext context) {
-    Size pxSize = size(context);
+    final Size pxSize = size(context);
     return Size(pxSize.width / _ppi, pxSize.height/ _ppi);
   }
   

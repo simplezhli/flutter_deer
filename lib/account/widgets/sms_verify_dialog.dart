@@ -29,7 +29,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
 
   final FocusNode _focusNode = FocusNode();
   final TextEditingController _controller = TextEditingController();
-  List<String> _codeList = ['', '', '', '', '', ''];
+  final List<String> _codeList = ['', '', '', '', '', ''];
   
   @override
   void initState() {
@@ -58,7 +58,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
   Widget build(BuildContext context) {
     final Color textColor = Theme.of(context).primaryColor;
     
-    Widget child = Column(
+    final Widget child = Column(
       children: <Widget>[
         Stack(
           children: <Widget>[
@@ -164,7 +164,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
           width: double.infinity,
           height: 48.0,
           child: FlatButton(
-            child: Text(_clickable ? '获取验证码' : '已发送($_currentSecond s)', style: TextStyle(fontSize: Dimens.font_sp18)),
+            child: Text(_clickable ? '获取验证码' : '已发送($_currentSecond s)', style: const TextStyle(fontSize: Dimens.font_sp18)),
             textColor: textColor,
             disabledTextColor: Colours.text_gray,
             onPressed: _clickable ? () {
@@ -172,7 +172,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                 _currentSecond = _second;
                 _clickable = false;
               });
-              _subscription = Stream.periodic(Duration(seconds: 1), (i) => i).take(_second).listen((i) {
+              _subscription = Stream.periodic(const Duration(seconds: 1), (i) => i).take(_second).listen((i) {
                 setState(() {
                   _currentSecond = _second - i - 1;
                   _clickable = _currentSecond < 1;
@@ -194,7 +194,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
         child: Container(
           decoration: BoxDecoration(
             color: context.dialogBackgroundColor,
-            borderRadius: BorderRadius.circular((8.0)),
+            borderRadius: BorderRadius.circular(8.0),
           ),
           width: 280.0,
           height: 210.0,
@@ -213,7 +213,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
           border: Border.all(width: 0.6, color: _codeList[p].isNotEmpty ? textColor : Colours.text_gray_c),
           borderRadius: BorderRadius.circular(4.0),
         ),
-        child: Text(_codeList[p], style: TextStyle(fontSize: Dimens.font_sp18),)
+        child: Text(_codeList[p], style: const TextStyle(fontSize: Dimens.font_sp18),)
     );
   }
 }

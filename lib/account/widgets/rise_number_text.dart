@@ -29,7 +29,7 @@ class _RiseNumberTextState extends State<RiseNumberText> with SingleTickerProvid
     super.initState();
 
     _controller = AnimationController(duration: Duration(milliseconds: widget.duration), vsync: this);
-    var curve = CurvedAnimation(parent: _controller, curve: Curves.linear);
+    final curve = CurvedAnimation(parent: _controller, curve: Curves.linear);
     _animation = Tween<double>(begin: 0, end: 1).animate(curve);
     _controller.forward(from: 0);
   }

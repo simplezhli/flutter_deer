@@ -40,7 +40,7 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
       appBar: SearchBar(
         hintText: '搜索地址',
         onPressed: (text) {
-          _controller.animateTo(0.0, duration: Duration(milliseconds: 10), curve: Curves.ease);
+          _controller.animateTo(0.0, duration: const Duration(milliseconds: 10), curve: Curves.ease);
           _index = 0;
           if (_aMap2DController != null) {
             _aMap2DController.search(text);
@@ -55,7 +55,7 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
               child: AMap2DView(
                 webKey: '4e479545913a3a180b3cffc267dad646',
                 onPoiSearched: (result) {
-                  _controller.animateTo(0.0, duration: Duration(milliseconds: 10), curve: Curves.ease);
+                  _controller.animateTo(0.0, duration: const Duration(milliseconds: 10), curve: Curves.ease);
                   _index = 0;
                   _list = result;
                   setState(() {

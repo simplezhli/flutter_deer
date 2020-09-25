@@ -14,7 +14,7 @@ class NeumorphicContainer extends StatefulWidget {
     this.child,
     this.bevel = 10.0,
     this.color,
-  })  : this.blurOffset = Offset(bevel / 2, bevel / 2),
+  })  : blurOffset = Offset(bevel / 2, bevel / 2),
         super(key: key);
 
   @override
@@ -38,7 +38,7 @@ class _NeumorphicContainerState extends State<NeumorphicContainer> {
 
   @override
   Widget build(BuildContext context) {
-    final color = this.widget.color ?? Colors.blueGrey.shade200;
+    final color = widget.color ?? Colors.blueGrey.shade200;
 
     return Listener(
       onPointerDown: _onPointerDown,
@@ -52,12 +52,12 @@ class _NeumorphicContainerState extends State<NeumorphicContainer> {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              _isPressed ? color : color.mix(Colors.black, .1),
-              _isPressed ? color.mix(Colors.black, .05) : color,
-              _isPressed ? color.mix(Colors.black, .05) : color,
+              if (_isPressed) color else color.mix(Colors.black, .1),
+              if (_isPressed) color.mix(Colors.black, .05) else color,
+              if (_isPressed) color.mix(Colors.black, .05) else color,
               color.mix(Colors.white, _isPressed ? .2 : .5),
             ],
-            stops: [0.0, .3, .6, 1.0,],
+            stops: const [0.0, 0.3, 0.6, 1.0],
           ),
           boxShadow: _isPressed ? null : [
             BoxShadow(

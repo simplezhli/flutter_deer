@@ -34,14 +34,18 @@ class BasePagePresenter<V extends IMvpView> extends BasePresenter<V> {
     CancelToken cancelToken,
     Options options,
   }) {
-    if (isShow) view.showProgress();
+    if (isShow) {
+      view.showProgress();
+    }
     return DioUtils.instance.requestNetwork<T>(method, url,
       params: params,
       queryParameters: queryParameters,
       options: options,
       cancelToken: cancelToken?? _cancelToken,
       onSuccess: (data) {
-        if (isClose) view.closeProgress();
+        if (isClose) {
+          view.closeProgress();
+        }
         if (onSuccess != null) {
           onSuccess(data);
         }
@@ -63,14 +67,18 @@ class BasePagePresenter<V extends IMvpView> extends BasePresenter<V> {
     CancelToken cancelToken,
     Options options, 
   }) {
-    if (isShow) view.showProgress();
+    if (isShow) {
+      view.showProgress();
+    }
     DioUtils.instance.asyncRequestNetwork<T>(method, url,
       params: params,
       queryParameters: queryParameters,
       options: options,
       cancelToken: cancelToken?? _cancelToken,
       onSuccess: (data) {
-        if (isClose) view.closeProgress();
+        if (isClose) {
+          view.closeProgress();
+        }
         if (onSuccess != null) {
           onSuccess(data);
         }
@@ -87,7 +95,7 @@ class BasePagePresenter<V extends IMvpView> extends BasePresenter<V> {
     try{
       final String path = image.path;
       final String name = path.substring(path.lastIndexOf('/') + 1);
-      final FormData formData = FormData.fromMap({
+      final FormData formData = FormData.fromMap(<String, dynamic>{
         'uploadIcon': await MultipartFile.fromFile(path, filename: name)
       });
       await requestNetwork<String>(Method.post,
