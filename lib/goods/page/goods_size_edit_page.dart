@@ -28,11 +28,11 @@ class _GoodsSizeEditPageState extends State<GoodsSizeEditPage> {
         children: <Widget>[
           Gaps.vGap5,
           const Padding(
-            padding: const EdgeInsets.only(left: 16.0),
+            padding: EdgeInsets.only(left: 16.0),
             child: Text('基本信息', style: TextStyles.textBold18),
           ),
           Gaps.vGap16,
-          Center(
+          const Center(
             child: SelectedImage(
               size: 96.0,
             ),
@@ -45,39 +45,39 @@ class _GoodsSizeEditPageState extends State<GoodsSizeEditPage> {
             ),
           ),
           Gaps.vGap16,
-          TextFieldItem(
+          const TextFieldItem(
             title: '分类名称',
             hintText: '填写该分类名称',
           ),
-          TextFieldItem(
+          const TextFieldItem(
             title: '折后价格',
             keyboardType: TextInputType.numberWithOptions(decimal: true),
             hintText: '填写该分类折后价格',
           ),
-          TextFieldItem(
+          const TextFieldItem(
             title: '库存数量',
             hintText: '填写该分类库存数量',
             keyboardType: TextInputType.number
           ),
-          TextFieldItem(
+          const TextFieldItem(
             title: '佣金金额',
             keyboardType: TextInputType.numberWithOptions(decimal: true)
           ),
-          TextFieldItem(
+          const TextFieldItem(
             title: '起购数量',
             keyboardType: TextInputType.number
           ),
           Gaps.vGap32,
           const Padding(
-            padding: const EdgeInsets.only(left: 16.0),
+            padding: EdgeInsets.only(left: 16.0),
             child: Text('折扣立减', style: TextStyles.textBold18),
           ),
           Gaps.vGap16,
-          TextFieldItem(
+          const TextFieldItem(
             title: '立减金额',
             keyboardType: TextInputType.number,
           ),
-          TextFieldItem(
+          const TextFieldItem(
             title: '抵扣金额',
             keyboardType: TextInputType.number,
           ),

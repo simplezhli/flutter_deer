@@ -38,7 +38,7 @@ class GoodsItem extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    Row child = Row(
+    final Row child = Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         ExcludeSemantics(child: LoadImage(item.icon, width: 72.0, height: 72.0)),
@@ -164,7 +164,7 @@ class GoodsItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(24.0),
               ),
             ),
-            textTheme: TextTheme(
+            textTheme: const TextTheme(
               button: TextStyle(
                 fontSize: Dimens.font_sp16,
               ),

@@ -273,7 +273,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
   }
   
   List<Widget> _buildWeeks() {
-    List<Widget> widgets = [];
+    final List<Widget> widgets = [];
     _weeks.forEach((str) {
       widgets.add(Center(
         child: Text(str, style: Theme.of(context).textTheme.subtitle2),
@@ -283,7 +283,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
   }
 
   List<Widget> _builderCalendar() {
-    List<Widget> dayWidgets = [];
+    final List<Widget> dayWidgets = [];
     List<DateTime> list;
     if (_isExpanded) {
       list = _currentMonthsDays;
@@ -315,7 +315,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
   }
 
   List<Widget> _builderMonthCalendar() {
-    List<Widget> monthWidgets = [];
+    final List<Widget> monthWidgets = [];
     _monthList.forEach((month) {
       monthWidgets.add(
         Center(

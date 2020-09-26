@@ -45,9 +45,9 @@ class _GoodsSizeDialog extends State<GoodsSizeDialog> {
           autofocus: true,
           controller: _controller,
           maxLines: 1,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             isDense: true,
-            contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
+            contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
             border: InputBorder.none,
             hintText: '输入文字…',
             //hintStyle: TextStyles.textGrayC14,

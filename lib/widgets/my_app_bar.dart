@@ -39,7 +39,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
     final SystemUiOverlayStyle _overlayStyle = ThemeData.estimateBrightnessForColor(_backgroundColor) == Brightness.dark
         ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark;
 
-    Widget back = isBack ? IconButton(
+    final Widget back = isBack ? IconButton(
       onPressed: () {
         FocusManager.instance.primaryFocus?.unfocus();
         Navigator.maybePop(context);
@@ -52,7 +52,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
     ) : Gaps.empty;
 
-    Widget action = actionName.isNotEmpty ? Positioned(
+    final Widget action = actionName.isNotEmpty ? Positioned(
       right: 0.0,
       child: Theme(
         data: Theme.of(context).copyWith(
@@ -70,7 +70,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
     ) : Gaps.empty;
 
-    Widget titleWidget = Semantics(
+    final Widget titleWidget = Semantics(
       namesRoute: true,
       header: true,
       child: Container(

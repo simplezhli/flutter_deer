@@ -44,13 +44,13 @@ class OrderItem extends StatelessWidget {
 
   Widget _buildContent(BuildContext context) {
     final TextStyle textTextStyle = Theme.of(context).textTheme.bodyText2.copyWith(fontSize: Dimens.font_sp12);
-    bool isDark = context.isDark;
+    final bool isDark = context.isDark;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Row(
           children: <Widget>[
-            Expanded(
+            const Expanded(
               child: Text('15000000000（郭李）'),
             ),
             Text(
@@ -74,7 +74,7 @@ class OrderItem extends StatelessWidget {
           text: TextSpan(
             style: textTextStyle,
             children: <TextSpan>[
-              TextSpan(text: '清凉一度抽纸'),
+              const TextSpan(text: '清凉一度抽纸'),
               TextSpan(text: '  x1', style: Theme.of(context).textTheme.subtitle2),
             ],
           ),
@@ -84,7 +84,7 @@ class OrderItem extends StatelessWidget {
           text: TextSpan(
             style: textTextStyle,
             children: <TextSpan>[
-              TextSpan(text: '清凉一度抽纸'),
+              const TextSpan(text: '清凉一度抽纸'),
               TextSpan(text: '  x2', style: Theme.of(context).textTheme.subtitle2),
             ],
           ),
@@ -103,7 +103,7 @@ class OrderItem extends StatelessWidget {
                 ),
               ),
             ),
-            Text(
+            const Text(
               '2018.02.05 10:00',
               style: TextStyles.textSize12,
             ),
@@ -121,7 +121,7 @@ class OrderItem extends StatelessWidget {
               bgColor: isDark ? Colours.dark_material_bg : Colours.bg_gray,
               onTap: () => _showCallPhoneDialog(context, '15000000000'),
             ),
-            Expanded(
+            const Expanded(
               child: Gaps.empty,
             ),
             OrderItemButton(

@@ -54,7 +54,7 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   void _initSplash() {
-    _subscription = Stream.value(1).delay(Duration(milliseconds: 1500)).listen((_) {
+    _subscription = Stream.value(1).delay(const Duration(milliseconds: 1500)).listen((_) {
       if (SpUtil.getBool(Constant.keyGuide, defValue: true)) {
         SpUtil.putBool(Constant.keyGuide, false);
         _initGuide();

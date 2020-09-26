@@ -90,15 +90,15 @@ class _StatisticsPageState extends State<StatisticsPage> {
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
+            children: const <Widget>[
               Gaps.vGap32,
-              const Text('数据走势', style: TextStyles.textBold18),
+              Text('数据走势', style: TextStyles.textBold18),
               Gaps.vGap16,
-              const _StatisticsItem('订单统计', 'sjzs', 1),
+              _StatisticsItem('订单统计', 'sjzs', 1),
               Gaps.vGap8,
-              const _StatisticsItem('交易额统计', 'jyetj', 2),
+              _StatisticsItem('交易额统计', 'jyetj', 2),
               Gaps.vGap8,
-              const _StatisticsItem('商品统计', 'sptj', 3),
+              _StatisticsItem('商品统计', 'sptj', 3),
             ],
           ),
         ),

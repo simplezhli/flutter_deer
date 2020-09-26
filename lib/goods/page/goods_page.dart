@@ -114,7 +114,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
             Gaps.vGap24,
             Container(
               // 隐藏点击效果
-              padding: EdgeInsets.only(left: 16.0),
+              padding: const EdgeInsets.only(left: 16.0),
               color: context.backgroundColor,
               child: TabBar(
                 onTap: (index) {
@@ -131,10 +131,10 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 unselectedLabelColor: context.isDark ? Colours.text_gray : Colours.text,
                 labelColor: Theme.of(context).primaryColor,
                 indicatorPadding: const EdgeInsets.only(right: 98.0 - 36.0),
-                tabs: <Widget>[
-                  const _TabView('在售', 0),
-                  const _TabView('待售', 1),
-                  const _TabView('下架', 2),
+                tabs: const <Widget>[
+                  _TabView('在售', 0),
+                  _TabView('待售', 1),
+                  _TabView('下架', 2),
                 ],
               ),
             ),
@@ -196,8 +196,8 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
   void _showAddMenu() {
     final RenderBox button = _addKey.currentContext.findRenderObject() as RenderBox;
     final RenderBox overlay = Overlay.of(context).context.findRenderObject() as RenderBox;
-    var a =  button.localToGlobal(Offset(button.size.width - 8.0, button.size.height - 12.0), ancestor: overlay);
-    var b =  button.localToGlobal(button.size.bottomLeft(Offset(0, - 12.0)), ancestor: overlay);
+    final a =  button.localToGlobal(Offset(button.size.width - 8.0, button.size.height - 12.0), ancestor: overlay);
+    final b =  button.localToGlobal(button.size.bottomLeft(const Offset(0, - 12.0)), ancestor: overlay);
     final RelativeRect position = RelativeRect.fromRect(
       Rect.fromPoints(a, b),
       Offset.zero & overlay.size,
@@ -228,7 +228,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 NavigatorUtils.push(context, '${GoodsRouter.goodsEditPage}?isAdd=true&isScan=true', replace: true);
               },
               color: backgroundColor,
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(8.0), topRight: Radius.circular(8.0)),
               ),
               icon: LoadAssetImage('goods/scanning', width: 16.0, height: 16.0, color: _iconColor,),
@@ -284,7 +284,7 @@ class _TabView extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(top: 1.0),
                     child: Text(' (${provider.goodsCountList[index]}件)',
-                      style: TextStyle(fontSize: Dimens.font_sp12),
+                      style: const TextStyle(fontSize: Dimens.font_sp12),
                     ),
                   ),
                 );

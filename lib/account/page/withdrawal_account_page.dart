@@ -19,7 +19,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
   
   final List<WithdrawalAccountModel> _list = [];
   final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
-  final Duration _kDuration = Duration(milliseconds: 300);
+  final Duration _kDuration = const Duration(milliseconds: 300);
   
   @override
   void initState() {
@@ -67,7 +67,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
   
   void _removeItem(int index) {
     /// 先移除数据
-    WithdrawalAccountModel item = _list.removeAt(index);
+    final WithdrawalAccountModel item = _list.removeAt(index);
     _listKey.currentState.removeItem(
       index, (_, animation) => sizeItem(item, 0, animation), /// 构建移除Widget
       duration: _kDuration,
@@ -84,7 +84,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
   }
 
   void _insertItem(int index) {
-    WithdrawalAccountModel item = WithdrawalAccountModel('weilu_deer', '微信', 1, '');
+    final WithdrawalAccountModel item = WithdrawalAccountModel('weilu_deer', '微信', 1, '');
     _list.insert(index, item);
     if (_list.length == 1) {
       setState(() {

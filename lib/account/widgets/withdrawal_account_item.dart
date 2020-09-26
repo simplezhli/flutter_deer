@@ -33,7 +33,7 @@ class _WithdrawalAccountItemState extends State<WithdrawalAccountItem> with Sing
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(vsync: this, duration: Duration(seconds: 1));
+    _animationController = AnimationController(vsync: this, duration: const Duration(seconds: 1));
     _animation = Tween<double>(end: 1.0, begin: 0).animate(_animationController)
       ..addStatusListener((status) {
         _animationStatus = status;
@@ -48,7 +48,7 @@ class _WithdrawalAccountItemState extends State<WithdrawalAccountItem> with Sing
   
   @override
   Widget build(BuildContext context) {
-    var front = Stack(
+    final Widget front = Stack(
       children: <Widget>[
         Positioned(
           top: 25.0,
@@ -67,22 +67,22 @@ class _WithdrawalAccountItemState extends State<WithdrawalAccountItem> with Sing
         Positioned(
           top: 22.0,
           left: 72.0,
-          child: Text(widget.data.typeName, style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp18)),
+          child: Text(widget.data.typeName, style: const TextStyle(color: Colors.white, fontSize: Dimens.font_sp18)),
         ),
         Positioned(
           top: 48.0,
           left: 72.0,
-          child: Text(widget.data.name, style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp12)),
+          child: Text(widget.data.name, style: const TextStyle(color: Colors.white, fontSize: Dimens.font_sp12)),
         ),
         Positioned(
           bottom: 24.0,
           left: 72.0,
-          child: Text(widget.data.code, style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp18, letterSpacing: 1.0)),
+          child: Text(widget.data.code, style: const TextStyle(color: Colors.white, fontSize: Dimens.font_sp18, letterSpacing: 1.0)),
         ),
       ],
     );
     
-    var back = Center(
+    final Widget back = Center(
       child: GestureDetector(
         onTap: () => Toast.show('提现'),
         child: Container(
@@ -97,7 +97,7 @@ class _WithdrawalAccountItemState extends State<WithdrawalAccountItem> with Sing
             transform: Matrix4.identity()
               ..setEntry(3, 2, 0.002)
               ..rotateX(pi),
-            child: Text('提现',
+            child: const Text('提现',
                 style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp16)
             ),
           ),
@@ -165,7 +165,7 @@ class _AccountCardState extends State<AccountCard> {
         [
           BoxShadow(color: widget.type == 1 ?
           const Color(0x804EE07A) :
-          const Color(0x805793FA), offset: Offset(0.0, 2.0), blurRadius: 8.0, spreadRadius: 0.0),
+          const Color(0x805793FA), offset: const Offset(0.0, 2.0), blurRadius: 8.0, spreadRadius: 0.0),
         ],
         gradient: LinearGradient(
           colors: widget.type == 1 ?

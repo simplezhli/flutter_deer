@@ -42,7 +42,7 @@ class _WithdrawalRecordListPageState extends State<WithdrawalRecordListPage> {
   }
   
   Widget _buildItem(int index) {
-    var list = List.generate(index + 1, (i) {
+    final list = List.generate(index + 1, (i) {
       return Container(
         height: 72.0,
         width: double.infinity,
@@ -56,7 +56,7 @@ class _WithdrawalRecordListPageState extends State<WithdrawalRecordListPage> {
           child: Stack(
             children: <Widget>[
               Text(i % 2 == 0 ? '微信（唯鹿）' : '工商（尾号:4562 李一）'),
-              Positioned(
+              const Positioned(
                 top: 0.0,
                 right: 0.0,
                 child: Text('-10.00', style: TextStyles.textBold14),

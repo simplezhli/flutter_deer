@@ -31,7 +31,7 @@ class LoadImage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     if (image.isEmpty || image.startsWith('http')) {
-      Widget _image = LoadAssetImage(holderImg, height: height, width: width, fit: fit);
+      final Widget _image = LoadAssetImage(holderImg, height: height, width: width, fit: fit);
       return CachedNetworkImage(
         imageUrl: image,
         placeholder: (_, __) => _image,

@@ -66,10 +66,10 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> with Tick
 
   @override
   Widget build(BuildContext context) {
-    var children = <Widget>[];
+    final children = <Widget>[];
     
     /// 背景
-    var background = Container(
+    final background = Container(
       height: barHeight,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -92,10 +92,10 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> with Tick
         child: Container(
           width: indicatorHeight,
           height: indicatorHeight,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             shape: BoxShape.circle,
             color: Colors.white,
-            boxShadow: const [
+            boxShadow: [
               BoxShadow(color: Colors.grey, offset: Offset(0.0, 0.0), blurRadius: 1.0, spreadRadius: 0.0),
             ],
           ),
@@ -107,7 +107,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> with Tick
 
     for (var i = 0; i < iconList.length; i++) {
       /// 图标中心点计算
-      var rect = Rect.fromCenter(
+      final rect = Rect.fromCenter(
         center: Offset(28.0 + (i * itemWidth), 28.0),
         width: (i == selectedPosition && widget.isShowIndicator) ? selectedIconHeight : normalIconHeight,
         height: (i == selectedPosition && widget.isShowIndicator) ? selectedIconHeight : normalIconHeight,

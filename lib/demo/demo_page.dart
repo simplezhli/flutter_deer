@@ -29,11 +29,11 @@ class _DemoPageState extends State<DemoPage> {
           ),
           ClickItem(
             title: 'Focus',
-            onTap: () => AppNavigator.push(context, FocusDemoPage(title: 'Focus Demo')),
+            onTap: () => AppNavigator.push(context, const FocusDemoPage(title: 'Focus Demo')),
           ),
           ClickItem(
             title: 'RipplesAnimation',
-            onTap: () => AppNavigator.push(context, RipplesAnimation()),
+            onTap: () => AppNavigator.push(context, const RipplesAnimation()),
           ),
         ],
       ),

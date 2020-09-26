@@ -24,7 +24,7 @@ class OrderListPage extends StatefulWidget {
 class _OrderListPageState extends State<OrderListPage> with AutomaticKeepAliveClientMixin<OrderListPage>, ChangeNotifierMixin<OrderListPage>{
 
   final ScrollController _controller = ScrollController();
-  StateType _stateType = StateType.loading;
+  final StateType _stateType = StateType.loading;
   /// 是否正在加载数据
   bool _isLoading = false;
   final int _maxPage = 3;
@@ -80,7 +80,7 @@ class _OrderListPageState extends State<OrderListPage> with AutomaticKeepAliveCl
               delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
                 return index < _list.length ? 
                 (index % 5 == 0 ? 
-                    OrderTagItem(date: '2020年2月5日', orderTotal: 4) :
+                    const OrderTagItem(date: '2020年2月5日', orderTotal: 4) :
                     OrderItem(key: Key('order_item_$index'), index: index, tabIndex: _index,)
                 ) : 
                 MoreWidget(_list.length, _hasMore(), 10);

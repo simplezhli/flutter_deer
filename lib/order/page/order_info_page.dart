@@ -26,7 +26,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
     final Color blue = Theme.of(context).primaryColor;
     final bool isDark = context.isDark;
 
-    Widget bottomMenu = Container(
+    final Widget bottomMenu = Container(
       height: 60.0,
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Theme(
@@ -68,7 +68,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
       ),
     );
 
-    List<Widget> children = [
+    final List<Widget> children = [
       const Text(
         '暂未接单',
         style: TextStyles.textBold24,
@@ -90,10 +90,10 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
             child: MergeSemantics(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  const Text('郭李'),
+                children: const <Widget>[
+                  Text('郭李'),
                   Gaps.vGap8,
-                  const Text('15000000000'),
+                  Text('15000000000'),
                 ],
               ),
             ),
@@ -191,12 +191,12 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
   }
 
   Widget _getOrderGoodsItem(int index) {
-    var item = Row(
+    final Widget item = Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Padding(
-          child: const LoadAssetImage('order/icon_goods', width: 56.0, height: 56.0),
-          padding: const EdgeInsets.only(top: 5.0),
+        const Padding(
+          child: LoadAssetImage('order/icon_goods', width: 56.0, height: 56.0),
+          padding: EdgeInsets.only(top: 5.0),
         ),
         Gaps.hGap8,
         Expanded(
@@ -221,9 +221,9 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                     ),
                     height: 16.0,
                     alignment: Alignment.center,
-                    child: Text(
+                    child: const Text(
                       '立减2.50元',
-                      style: const TextStyle(color: Colors.white, fontSize: Dimens.font_sp10,),
+                      style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp10,),
                     ),
                   ),
                   Gaps.hGap4,
@@ -249,7 +249,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
           ),
         ),
         Gaps.hGap8,
-        Text('x1', style: TextStyles.textSize12),
+        const Text('x1', style: TextStyles.textSize12),
         Gaps.hGap32,
         Text(Utils.formatPrice('25'), style: TextStyles.textBold14),
       ],

@@ -45,7 +45,7 @@ class _SearchBarState extends State<SearchBar> {
     final bool isDark = context.isDark;
     final Color iconColor = isDark ? Colours.dark_text_gray : Colours.text_gray_c;
     
-    Widget back = Semantics(
+    final Widget back = Semantics(
       label: '返回',
       child: SizedBox(
         width: 48.0,
@@ -68,7 +68,7 @@ class _SearchBarState extends State<SearchBar> {
       ),
     );
     
-    Widget textField = Expanded(
+    final Widget textField = Expanded(
       child: Container(
         height: 32.0,
         decoration: BoxDecoration(
@@ -115,7 +115,7 @@ class _SearchBarState extends State<SearchBar> {
       ),
     );
     
-    Widget search = Theme(
+    final Widget search = Theme(
       data: Theme.of(context).copyWith(
         buttonTheme: ButtonThemeData(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),

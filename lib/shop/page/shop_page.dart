@@ -94,7 +94,7 @@ class _ShopPageState extends State<ShopPage> with BasePageMixin<ShopPage, ShopPa
             Gaps.vGap12,
             Consumer<UserProvider>(
               builder: (_, provider, child) {
-                Widget header = Stack(
+                final Widget header = Stack(
                   children: <Widget>[
                     const SizedBox(width: double.infinity, height: 56.0),
                     const Text(
@@ -123,10 +123,10 @@ class _ShopPageState extends State<ShopPage> with BasePageMixin<ShopPage, ShopPa
                 top: 38.0,
                 left: 0.0,
                 child: Row(
-                  children: <Widget>[
-                    const LoadAssetImage('shop/zybq', width: 40.0, height: 16.0,),
+                  children: const <Widget>[
+                    LoadAssetImage('shop/zybq', width: 40.0, height: 16.0,),
                     Gaps.hGap8,
-                    const Text('店铺账号:15000000000', style: TextStyles.textSize12)
+                    Text('店铺账号:15000000000', style: TextStyles.textSize12)
                   ],
                 ),
               ),
@@ -171,9 +171,9 @@ class _ShopPageState extends State<ShopPage> with BasePageMixin<ShopPage, ShopPa
             /// 使用Flexible防止溢出
             Flexible(
               child: _ShopFunctionModule(
-                data: ['店铺设置'],
-                image: ['dpsz'],
-                darkImage: ['dark_dpsz'],
+                data: const ['店铺设置'],
+                image: const ['dpsz'],
+                darkImage: const ['dark_dpsz'],
                 onItemClick: (index) {
                   NavigatorUtils.push(context, ShopRouter.shopSettingPage);
                 },

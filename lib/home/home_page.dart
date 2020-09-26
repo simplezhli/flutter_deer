@@ -46,13 +46,13 @@ class _HomeState extends State<Home> {
       OrderPage(),
       GoodsPage(),
       StatisticsPage(),
-      ShopPage(),
+      const ShopPage(),
     ];
   }
 
   List<BottomNavigationBarItem> _buildBottomNavigationBarItem() {
     if (_list == null) {
-      var _tabImages = const [
+      const _tabImages = [
         [
           LoadAssetImage('home/icon_order', width: _imageSize, color: Colours.unselected_item_color,),
           LoadAssetImage('home/icon_order', width: _imageSize, color: Colours.app_main,),
@@ -86,7 +86,7 @@ class _HomeState extends State<Home> {
 
   List<BottomNavigationBarItem> _buildDarkBottomNavigationBarItem() {
     if (_listDark == null) {
-      var _tabImagesDark = const [
+      const _tabImagesDark = [
         [
           LoadAssetImage('home/icon_order', width: _imageSize),
           LoadAssetImage('home/icon_order', width: _imageSize, color: Colours.dark_app_main,),

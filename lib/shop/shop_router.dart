@@ -18,7 +18,7 @@ class ShopRouter implements IRouterProvider{
   
   @override
   void initRouter(Router router) {
-    router.define(shopPage, handler: Handler(handlerFunc: (_, __) => ShopPage()));
+    router.define(shopPage, handler: Handler(handlerFunc: (_, __) => const ShopPage()));
     router.define(shopSettingPage, handler: Handler(handlerFunc: (_, __) => ShopSettingPage()));
     router.define(messagePage, handler: Handler(handlerFunc: (_, __) => MessagePage()));
     router.define(freightConfigPage, handler: Handler(handlerFunc: (_, __) => FreightConfigPage()));

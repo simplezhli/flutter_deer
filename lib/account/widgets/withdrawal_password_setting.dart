@@ -17,7 +17,7 @@ class _WithdrawalPasswordSettingState extends State<WithdrawalPasswordSetting> {
 
   int _index = 0;
   final _list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0, 0];
-  List<String> _codeList = ['', '', '', '', '', ''];
+  final List<String> _codeList = ['', '', '', '', '', ''];
   
   @override
   Widget build(BuildContext context) {
@@ -72,7 +72,7 @@ class _WithdrawalPasswordSettingState extends State<WithdrawalPasswordSetting> {
                   ),
                 ),
                 Gaps.vGap10,
-                Text(('提现密码不可为连续、重复的数字。'), style: Theme.of(context).textTheme.subtitle2),
+                Text('提现密码不可为连续、重复的数字。', style: Theme.of(context).textTheme.subtitle2),
               ],
             ),
           ),
@@ -82,7 +82,7 @@ class _WithdrawalPasswordSettingState extends State<WithdrawalPasswordSetting> {
             child: GridView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
                 childAspectRatio: 1.953,
                 mainAxisSpacing: 0.6,
@@ -104,7 +104,7 @@ class _WithdrawalPasswordSettingState extends State<WithdrawalPasswordSetting> {
       child: InkWell(
         child: Center(
           child: index == 11 ? Semantics(label: '删除', child: const LoadAssetImage('account/del', width: 32.0)) : index == 9 ? Semantics(label: '无效', child: Gaps.empty) :
-          Text(_list[index].toString(), style: TextStyle(fontSize: 26.0)),
+          Text(_list[index].toString(), style: const TextStyle(fontSize: 26.0)),
         ),
         onTap: () {
           if (index == 9) {

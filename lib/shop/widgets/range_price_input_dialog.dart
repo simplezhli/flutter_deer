@@ -10,7 +10,7 @@ import 'package:flutter_deer/widgets/base_dialog.dart';
 /// design/7店铺-店铺配置/index.html#artboard1
 class RangePriceInputDialog extends StatefulWidget {
 
-  RangePriceInputDialog({
+  const RangePriceInputDialog({
     Key key,
     this.title,
     this.onPressed,
@@ -55,11 +55,11 @@ class _RangePriceInputDialog extends State<RangePriceInputDialog> {
                 //style: TextStyles.textDark14,
                 controller: _controller,
                 maxLines: 1,
-                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                keyboardType: const TextInputType.numberWithOptions(decimal: true),
                 // 金额限制数字格式
                 inputFormatters: [UsNumberTextInputFormatter()],
-                decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.only(top: 0.0, left: 16.0, right: 16.0, bottom: 14.0),
+                decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.only(top: 0.0, left: 16.0, right: 16.0, bottom: 14.0),
                   border: InputBorder.none,
                   //hintStyle: TextStyles.textGray14,
                 ),
@@ -78,11 +78,11 @@ class _RangePriceInputDialog extends State<RangePriceInputDialog> {
                 //style: TextStyles.textDark14,
                 controller: _controller1,
                 maxLines: 1,
-                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                keyboardType: const TextInputType.numberWithOptions(decimal: true),
                 // 金额限制数字格式
                 inputFormatters: [UsNumberTextInputFormatter()],
-                decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.only(top: 0.0, left: 16.0, right: 16.0, bottom: 14.0),
+                decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.only(top: 0.0, left: 16.0, right: 16.0, bottom: 14.0),
                   border: InputBorder.none,
                   //hintStyle: TextStyles.textGray14,
                 ),

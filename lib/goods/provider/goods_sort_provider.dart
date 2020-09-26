@@ -9,7 +9,7 @@ class GoodsSortProvider extends ChangeNotifier {
   int get index => _index;
 
   // TabBar初始化3个，其中两个文字置空。
-  List<Tab> _myTabs = <Tab>[Tab(text: '请选择'), Tab(text: ''), Tab(text: '')];
+  final List<Tab> _myTabs = const <Tab>[Tab(text: '请选择'), Tab(text: ''), Tab(text: '')];
   List<Tab> get myTabs => _myTabs;
 
   List _mGoodsSort = [];
@@ -18,10 +18,10 @@ class GoodsSortProvider extends ChangeNotifier {
 
   /// 当前列表数据
   List _mList = [];
-  get mList => _mList;
+  List get mList => _mList;
 
   /// 三级联动选择的position
-  List<int> _positions = [0, 0, 0];
+  final List<int> _positions = [0, 0, 0];
   List<int> get positions => _positions;
 
 
@@ -52,12 +52,12 @@ class GoodsSortProvider extends ChangeNotifier {
     switch(index) {
       case 1:
         _mList = _mGoodsSort1;
-        _myTabs[1] = Tab(text: '请选择');
-        _myTabs[2] = Tab(text: '');
+        _myTabs[1] = const Tab(text: '请选择');
+        _myTabs[2] = const Tab(text: '');
         break;
       case 2:
         _mList = _mGoodsSort2;
-        _myTabs[2] = Tab(text: '请选择');
+        _myTabs[2] = const Tab(text: '请选择');
         break;
       case 3:
         _mList = _mGoodsSort2;

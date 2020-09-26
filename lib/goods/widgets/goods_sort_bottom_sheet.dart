@@ -91,10 +91,10 @@ class GoodsSortBottomSheetState extends State<GoodsSortBottomSheet> with SingleT
                       controller: _controller,
                       itemExtent: 48.0,
                       itemBuilder: (_, index) {
-                        bool flag = provider.mList[index]['name'] == provider.myTabs[provider.index].text;
+                        final bool flag = provider.mList[index]['name'] == provider.myTabs[provider.index].text;
                         return InkWell(
                           child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 16.0),
+                            padding: const EdgeInsets.symmetric(horizontal: 16.0),
                             alignment: Alignment.centerLeft,
                             child: Row(
                               children: <Widget>[

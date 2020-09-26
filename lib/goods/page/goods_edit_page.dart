@@ -43,8 +43,8 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
     });
   }
   
-  void _scan() async {
-    var code = await Utils.scan();
+  Future<void> _scan() async {
+    final code = await Utils.scan();
     if (code != null) {
       _codeController.text = code;
     }
@@ -69,7 +69,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
             ),
           ),
           Gaps.vGap16,
-          Center(
+          const Center(
             child: SelectedImage(
               size: 96.0,
             ),
@@ -82,15 +82,15 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
             ),
           ),
           Gaps.vGap16,
-          TextFieldItem(
+          const TextFieldItem(
             title: '商品名称',
             hintText: '填写商品名称',
           ),
-          TextFieldItem(
+          const TextFieldItem(
             title: '商品简介',
             hintText: '填写简短描述',
           ),
-          TextFieldItem(
+          const TextFieldItem(
             title: '折后价格',
             keyboardType: TextInputType.numberWithOptions(decimal: true),
             hintText: '填写商品单品折后价格',
@@ -109,7 +109,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
                   label: '扫码',
                   child: GestureDetector(
                     child: Padding(
-                      padding: EdgeInsets.all(16.0),
+                      padding: const EdgeInsets.all(16.0),
                       child: context.isDark ?
                         const LoadAssetImage('goods/icon_sm', width: 16.0, height: 16.0) :
                         const LoadAssetImage('goods/scanning', width: 16.0, height: 16.0),
@@ -120,7 +120,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
               )
             ],
           ),
-          TextFieldItem(
+          const TextFieldItem(
             title: '商品说明',
             hintText: '选填',
           ),
@@ -133,11 +133,11 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
             ),
           ),
           Gaps.vGap16,
-          TextFieldItem(
+          const TextFieldItem(
             title: '立减金额',
             keyboardType: TextInputType.numberWithOptions(decimal: true)
           ),
-          TextFieldItem(
+          const TextFieldItem(
             title: '折扣金额',
             keyboardType: TextInputType.numberWithOptions(decimal: true)
           ),

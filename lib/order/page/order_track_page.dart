@@ -30,7 +30,7 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
                 // 可选择文本组件（复制）
                 Semantics(
                   label: '长按复制订单编号',
-                  child: SelectableText('14562364879', maxLines: 1,),
+                  child: const SelectableText('14562364879', maxLines: 1,),
                 ),
               ],
             )
@@ -67,7 +67,7 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
       ) : Theme.of(context).textTheme.subtitle2),
       content: const Text(''),
       isActive: index == 0,
-      // TODO 这里的状态图标无法修改，暂时使用原生的。应该可以复制Step代码修改一下。
+      // TODO(weilu): 这里的状态图标无法修改，暂时使用原生的。应该可以复制Step代码修改一下。
       state: index == 0 ? StepState.complete : StepState.indexed, 
     );
   }

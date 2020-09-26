@@ -28,8 +28,8 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
   
   @override
   Widget build(BuildContext context) {
-    var style = Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp14);
-    var children = [
+    final style = Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp14);
+    final children = [
       Gaps.vGap5,
       SelectedItem(
         title: '账号类型',
@@ -57,7 +57,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
               onTap: () {
                 NavigatorUtils.pushResult(context, AccountRouter.citySelectPage, (result) {
                   setState(() {
-                    var model = result as CityEntity;
+                    final model = result as CityEntity;
                     _city = model.name;
                   });
                 });
@@ -70,7 +70,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
               onTap: () {
                 NavigatorUtils.pushResult(context, '${AccountRouter.bankSelectPage}?type=0', (result) {
                   setState(() {
-                    var model = result as BankEntity;
+                    final model = result as BankEntity;
                     _bank = model.bankName;
                   });
                 });
@@ -83,7 +83,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
               onTap: () {
                 NavigatorUtils.pushResult(context, '${AccountRouter.bankSelectPage}?type=1', (result) {
                   setState(() {
-                    var model = result as BankEntity;
+                    final model = result as BankEntity;
                     _bank1 = model.bankName;
                   });
                 });

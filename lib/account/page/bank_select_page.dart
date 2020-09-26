@@ -47,7 +47,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
   void _loadData() {
     // 获取城市列表
     rootBundle.loadString(widget.type == 0 ? 'assets/data/bank.json' : 'assets/data/bank_2.json').then((value) {
-      List list = json.decode(value);
+      final List list = json.decode(value) as List;
       list.forEach((value) {
         _bankList.add(BankEntity().fromJson(value));
       });
@@ -138,7 +138,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
   }
 
   Widget _buildListItem(int index) {
-    BankEntity model = _bankList[index];
+    final BankEntity model = _bankList[index];
     return InkWell(
       onTap: () => NavigatorUtils.goBackWithParams(context, model),
       child: Container(
