@@ -99,7 +99,7 @@ class GoodsSortBottomSheetState extends State<GoodsSortBottomSheet> with SingleT
                             child: Row(
                               children: <Widget>[
                                 Text(
-                                    provider.mList[index]['name'],
+                                    provider.mList[index]['name'] as String,
                                     style: flag ? TextStyle(
                                       fontSize: Dimens.font_sp14,
                                       color: Theme.of(context).primaryColor,
@@ -113,14 +113,14 @@ class GoodsSortBottomSheetState extends State<GoodsSortBottomSheet> with SingleT
                             ),
                           ),
                           onTap: () {
-                            provider.myTabs[provider.index] = Tab(text: provider.mList[index]['name']);
+                            provider.myTabs[provider.index] = Tab(text: provider.mList[index]['name'] as String);
                             provider.positions[provider.index] = index;
 
                             provider.indexIncrement();
                             provider.setListAndChangeTab();
                             if (provider.index > 2) {
                               provider.setIndex(2);
-                              widget.onSelected(provider.mList[index]['id'], provider.mList[index]['name']);
+                              widget.onSelected(provider.mList[index]['id'] as String, provider.mList[index]['name'] as String);
                               NavigatorUtils.goBack(context);
                             }
                             _controller.animateTo(0.0, duration: const Duration(milliseconds: 100), curve: Curves.ease);

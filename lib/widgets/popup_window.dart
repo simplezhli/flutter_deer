@@ -211,7 +211,7 @@ class _PopupWindowLayoutDelegate extends SingleChildLayoutDelegate {
     // The menu can be at most the size of the overlay minus 8.0 pixels in each
     // direction.
     return BoxConstraints.loose(constraints.biggest -
-        const Offset(_kWindowScreenPadding * 2.0, _kWindowScreenPadding * 2.0));
+        const Offset(_kWindowScreenPadding * 2.0, _kWindowScreenPadding * 2.0) as Size);
   }
 
   @override

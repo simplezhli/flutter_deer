@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 /// 更推荐使用'routers/fluro_navigator.dart'
 class AppNavigator {
   static void push(BuildContext context, Widget scene) {
-    Navigator.push(
+    Navigator.push<void>(
       context,
       MaterialPageRoute(
         builder: (BuildContext context) => scene,
@@ -14,7 +14,7 @@ class AppNavigator {
 
   /// 替换页面 当新的页面进入后，之前的页面将执行dispose方法
   static void pushReplacement(BuildContext context, Widget scene) {
-    Navigator.pushReplacement(
+    Navigator.pushReplacement<void, void>(
       context,
       MaterialPageRoute(
         builder: (BuildContext context) => scene,
@@ -24,7 +24,7 @@ class AppNavigator {
 
   /// 指定页面加入到路由中，然后将其他所有的页面全部pop
   static void pushAndRemoveUntil(BuildContext context, Widget scene) {
-    Navigator.pushAndRemoveUntil(
+    Navigator.pushAndRemoveUntil<void>(
       context,
       MaterialPageRoute(
         builder: (BuildContext context) => scene,
@@ -33,18 +33,18 @@ class AppNavigator {
   }
 
   static void pushResult(BuildContext context, Widget scene, Function(Object) function) {
-    Navigator.push(
+    Navigator.push<void>(
       context,
       MaterialPageRoute(
         builder: (BuildContext context) => scene,
       ),
-    ).then((result) {
+    ).then((dynamic result) {
       // 页面返回result为null
       if (result == null) {
         return;
       }
       function(result);
-    }).catchError((error) {
+    }).catchError((dynamic error) {
       print('$error');
     });
   }
@@ -55,7 +55,7 @@ class AppNavigator {
   }
 
   /// 带参数返回
-  static void goBackWithParams(BuildContext context, result) {
-    Navigator.pop(context, result);
+  static void goBackWithParams(BuildContext context, dynamic result) {
+    Navigator.pop<dynamic>(context, result);
   }
 }

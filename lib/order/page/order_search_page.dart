@@ -92,7 +92,7 @@ class _OrderSearchPageState extends State<OrderSearchPage> with BasePageMixin<Or
 
   @override
   PowerPresenter createPresenter() {
-    final PowerPresenter powerPresenter = PowerPresenter(this);
+    final PowerPresenter powerPresenter = PowerPresenter<dynamic>(this);
     _orderSearchPresenter = OrderSearchPresenter();
     _shopPagePresenter = ShopPagePresenter();
     powerPresenter.requestPresenter([_orderSearchPresenter, _shopPagePresenter]);

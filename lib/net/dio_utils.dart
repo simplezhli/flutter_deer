@@ -127,7 +127,7 @@ class DioUtils {
       queryParameters: queryParameters,
       options: options,
       cancelToken: cancelToken,
-    ).then((BaseEntity<T> result) {
+    ).then<void>((BaseEntity<T> result) {
       if (result.code == 0) {
         if (onSuccess != null) {
           onSuccess(result.data);

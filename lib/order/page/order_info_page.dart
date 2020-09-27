@@ -115,10 +115,10 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
       Gaps.vGap10,
       Row(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          const LoadAssetImage('order/icon_address', width: 16.0, height: 20.0),
+        children: const <Widget>[
+          LoadAssetImage('order/icon_address', width: 16.0, height: 20.0),
           Gaps.hGap4,
-          const Expanded(child: Text('西安市雁塔区 鱼化寨街道唐兴路唐兴数码3楼318', maxLines: 2)),
+          Expanded(child: Text('西安市雁塔区 鱼化寨街道唐兴路唐兴数码3楼318', maxLines: 2)),
         ],
       ),
       Gaps.vGap32,

@@ -97,7 +97,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                     content: _shopIntroduction,
                   ), (result) {
                     setState(() {
-                      _shopIntroduction =result.toString();
+                      _shopIntroduction = result.toString();
                     });
                   });
             },
@@ -113,7 +113,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                   content: _securityService,
                 ), (result) {
                   setState(() {
-                    _securityService =result.toString();
+                    _securityService = result.toString();
                   });
                 });
             },

@@ -32,9 +32,9 @@ class TokenInterceptor extends Interceptor {
     params['refresh_token'] = SpUtil.getString(Constant.refreshToken);
     try {
       _tokenDio.options = DioUtils.instance.dio.options;
-      final Response response = await _tokenDio.post('lgn/refreshToken', data: params);
+      final Response response = await _tokenDio.post<dynamic>('lgn/refreshToken', data: params);
       if (response.statusCode == ExceptionHandle.success) {
-        return json.decode(response.data.toString())['access_token'];
+        return json.decode(response.data.toString())['access_token'] as String;
       }
     } catch(e) {
       Log.e('刷新Token失败！');
@@ -63,7 +63,7 @@ class TokenInterceptor extends Interceptor {
         try {
           Log.e('----------- 重新请求接口 ------------');
           /// 避免重复执行拦截器，使用tokenDio
-          final Response response = await _tokenDio.request(request.path,
+          final Response response = await _tokenDio.request<dynamic>(request.path,
               data: request.data,
               queryParameters: request.queryParameters,
               cancelToken: request.cancelToken,
@@ -174,7 +174,7 @@ class AdapterInterceptor extends Interceptor{
             if (_kSlash == content.substring(0, 1)) {
               content = content.substring(1, content.length - 1);
             }
-            final Map<String, dynamic> map = json.decode(content);
+            final Map<String, dynamic> map = json.decode(content) as Map<String, dynamic>;
             if (map.containsKey(_kMessage)) {
               msg = map[_kMessage] as String;
             } else if (map.containsKey(_kMsg)) {

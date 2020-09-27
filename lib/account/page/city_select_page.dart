@@ -37,9 +37,9 @@ class _CitySelectPageState extends State<CitySelectPage> {
     } else {
       jsonStr = await rootBundle.loadString('assets/data/city.json');
     }
-    final List list = json.decode(jsonStr);
-    list.forEach((value) {
-      _cityList.add(CityEntity().fromJson(value));
+    final List list = json.decode(jsonStr) as List;
+    list.forEach((dynamic value) {
+      _cityList.add(CityEntity().fromJson(value as Map<String, dynamic>));
     });
     SuspensionUtil.setShowSuspensionStatus(_cityList);
     _indexBarData = _cityList.map((e) {

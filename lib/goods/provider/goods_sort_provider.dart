@@ -9,15 +9,15 @@ class GoodsSortProvider extends ChangeNotifier {
   int get index => _index;
 
   // TabBar初始化3个，其中两个文字置空。
-  final List<Tab> _myTabs = const <Tab>[Tab(text: '请选择'), Tab(text: ''), Tab(text: '')];
+  final List<Tab> _myTabs = <Tab>[const Tab(text: '请选择'), const Tab(text: ''), const Tab(text: '')];
   List<Tab> get myTabs => _myTabs;
 
-  List _mGoodsSort = [];
-  List _mGoodsSort1 = [];
-  List _mGoodsSort2 = [];
+  List<Object> _mGoodsSort = [];
+  List<Object> _mGoodsSort1 = [];
+  List<Object> _mGoodsSort2 = [];
 
   /// 当前列表数据
-  List _mList = [];
+  List<Object> _mList = [];
   List get mList => _mList;
 
   /// 三级联动选择的position
@@ -74,15 +74,15 @@ class GoodsSortProvider extends ChangeNotifier {
 
     // 模拟数据，数据为固定的三个列表
     rootBundle.loadString('assets/data/sort_0.json').then((value) {
-      _mGoodsSort = json.decode(value);
+      _mGoodsSort = json.decode(value) as List;
       _mList = _mGoodsSort;
       notifyListeners();
     });
     rootBundle.loadString('assets/data/sort_1.json').then((value) {
-      _mGoodsSort1 = json.decode(value);
+      _mGoodsSort1 = json.decode(value) as List;
     });
     rootBundle.loadString('assets/data/sort_2.json').then((value) {
-      _mGoodsSort2 = json.decode(value);
+      _mGoodsSort2 = json.decode(value) as List;
     });
   }
 }
