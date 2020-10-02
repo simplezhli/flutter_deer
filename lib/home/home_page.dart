@@ -72,12 +72,9 @@ class _HomeState extends State<Home> {
       ];
       _list = List.generate(_tabImages.length, (i) {
         return BottomNavigationBarItem(
-            icon: _tabImages[i][0],
-            activeIcon: _tabImages[i][1],
-            title: Padding(
-              padding: const EdgeInsets.only(top: 1.5),
-              child: Text(_appBarTitles[i], key: Key(_appBarTitles[i]),),
-            )
+          icon: _tabImages[i][0],
+          activeIcon: _tabImages[i][1],
+          label: _appBarTitles[i],
         );
       });
     }
@@ -107,12 +104,9 @@ class _HomeState extends State<Home> {
 
       _listDark = List.generate(_tabImagesDark.length, (i) {
         return BottomNavigationBarItem(
-            icon: _tabImagesDark[i][0],
-            activeIcon: _tabImagesDark[i][1],
-            title: Padding(
-              padding: const EdgeInsets.only(top: 1.5),
-              child: Text(_appBarTitles[i], key: Key(_appBarTitles[i]),),
-            )
+          icon: _tabImagesDark[i][0],
+          activeIcon: _tabImagesDark[i][1],
+          label: _appBarTitles[i],
         );
       });
     }

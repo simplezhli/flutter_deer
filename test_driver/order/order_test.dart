@@ -22,7 +22,7 @@ void main() {
     });
     
     test('滑动订单列表',() async {
-      await driver.tap(find.byValueKey('订单'));
+      await driver.tap(find.byTooltip('订单'));
       
       // 水平滑动
       final SerializableFinder pageView = find.byValueKey('pageView');

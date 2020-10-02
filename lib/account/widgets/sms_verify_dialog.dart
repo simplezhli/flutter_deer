@@ -103,7 +103,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                 /// 指定键盘外观，仅iOS有效
                 keyboardAppearance: Brightness.dark,
                 /// 只能为数字、6位
-                inputFormatters: [WhitelistingTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(6)],
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(6)],
                 // 隐藏光标与字体颜色，达到隐藏输入框的目的
                 cursorColor: Colors.transparent,
                 cursorWidth: 0,

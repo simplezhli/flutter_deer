@@ -22,7 +22,7 @@ void main() {
     });
 
     test('账户流水页测试',() async {
-      await driver.tap(find.byValueKey('店铺'));
+      await driver.tap(find.byTooltip('店铺'));
       await delayed();
       await driver.tap(find.text('账户流水'));
       await delayed();

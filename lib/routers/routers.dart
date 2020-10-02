@@ -1,6 +1,6 @@
 
 import 'package:fluro/fluro.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Router;
 import 'package:flutter_deer/account/account_router.dart';
 import 'package:flutter_deer/goods/goods_router.dart';
 import 'package:flutter_deer/routers/not_found_page.dart';

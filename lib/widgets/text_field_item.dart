@@ -68,7 +68,7 @@ class TextFieldItem extends StatelessWidget {
       return [UsNumberTextInputFormatter()];
     }
     if (keyboardType == TextInputType.number || keyboardType == TextInputType.phone) {
-      return [WhitelistingTextInputFormatter.digitsOnly];
+      return [FilteringTextInputFormatter.digitsOnly];
     }
     return null;
   }

@@ -22,7 +22,7 @@ void main() {
     });
 
     test('店铺页测试',() async {
-      await driver.tap(find.byValueKey('店铺'));
+      await driver.tap(find.byTooltip('店铺'));
       await delayed();
       await driver.tap(find.byValueKey('message'), timeout: const Duration(minutes: 1),);
       await delayed();

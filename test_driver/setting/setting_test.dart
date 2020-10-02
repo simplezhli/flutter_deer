@@ -57,11 +57,11 @@ void main([List<String> args = const <String>[]]) {
       if (args.length == 1) {
         await driver.tap(find.byTooltip('Back'));
         await delayed();
-        await driver.tap(find.byValueKey('订单'));
+        await driver.tap(find.byTooltip('订单'));
         await delayed();
-        await driver.tap(find.byValueKey('商品'));
+        await driver.tap(find.byTooltip('商品'));
         await delayed();
-        await driver.tap(find.byValueKey('统计'));
+        await driver.tap(find.byTooltip('统计'));
       }
     });
   });

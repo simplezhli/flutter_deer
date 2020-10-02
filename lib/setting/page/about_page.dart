@@ -16,7 +16,6 @@ class AboutPage extends StatefulWidget {
 class _AboutPageState extends State<AboutPage> {
 
   final _styles = [FlutterLogoStyle.stacked, FlutterLogoStyle.markOnly, FlutterLogoStyle.horizontal];
-  final _colors = [Colors.red, Colors.green, Colors.brown, Colors.blue, Colors.purple, Colors.pink, Colors.amber];
   final _curves = [
     Curves.ease, Curves.easeIn, Curves.easeInOutCubic, Curves.easeInOut,
     Curves.easeInQuad, Curves.easeInCirc, Curves.easeInBack, Curves.easeInOutExpo,
@@ -68,7 +67,6 @@ class _AboutPageState extends State<AboutPage> {
           Gaps.vGap50,
           FlutterLogo(
             size: 100.0,
-            colors: _colors[Random.secure().nextInt(7)],
             textColor: _randomColor(),
             style: _styles[Random.secure().nextInt(3)],
             curve: _curves[Random.secure().nextInt(12)],

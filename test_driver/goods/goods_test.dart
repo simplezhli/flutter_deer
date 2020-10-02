@@ -22,7 +22,7 @@ void main() {
     });
 
     test('商品页测试',() async {
-      await driver.tap(find.byValueKey('商品'));
+      await driver.tap(find.byTooltip('商品'));
       await delayed();
       await driver.tap(find.text('待售'));
       await delayed();
