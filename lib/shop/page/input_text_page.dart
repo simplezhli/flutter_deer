@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/util/fix_ios_input_formatter.dart';
 import 'package:flutter_deer/widgets/my_app_bar.dart';
 
 

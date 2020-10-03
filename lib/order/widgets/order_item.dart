@@ -162,17 +162,20 @@ class OrderItem extends StatelessWidget {
           title: const Text('提示'),
           content: Text('是否拨打：$phone ?'),
           actions: <Widget>[
-            FlatButton(
+            TextButton(
               onPressed: () => NavigatorUtils.goBack(context),
               child: const Text('取消'),
             ),
-            FlatButton(
+            TextButton(
               onPressed: () {
                 Utils.launchTelURL(phone);
                 NavigatorUtils.goBack(context);
               },
-              textColor: Theme.of(context).errorColor,
-              child: const Text('拨打'),
+              style: ButtonStyle(
+                // 按下高亮颜色
+                overlayColor: MaterialStateProperty.all<Color>(Theme.of(context).errorColor.withOpacity(0.2)),
+              ),
+              child: Text('拨打', style: TextStyle(color: Theme.of(context).errorColor),),
             ),
           ],
         );
