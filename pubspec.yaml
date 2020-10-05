@@ -39,7 +39,7 @@ dependencies:
   # WebView插件 https://github.com/flutter/plugins/tree/master/packages/webview_flutter
   webview_flutter: 1.0.0
   # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions
-  keyboard_actions: ^3.3.0+1
+  keyboard_actions: ^3.3.1
   # 列表悬浮头 https://github.com/fluttercommunity/flutter_sticky_headers
   sticky_headers: ^0.1.8+1
   # 城市选择列表 https://github.com/flutterchina/azlistview

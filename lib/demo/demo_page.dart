@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/demo/focus/focus_demo_page.dart';
+import 'package:flutter_deer/demo/navigator/books_main.dart';
 import 'package:flutter_deer/demo/overlay/overlay_main.dart';
 import 'package:flutter_deer/demo/ripple/home_page.dart';
 import 'package:flutter_deer/res/resources.dart';
@@ -34,6 +35,10 @@ class _DemoPageState extends State<DemoPage> {
           ClickItem(
             title: 'RipplesAnimation',
             onTap: () => AppNavigator.push(context, const RipplesAnimation()),
+          ),
+          ClickItem(
+            title: 'Navigator 2.0',
+            onTap: () => AppNavigator.push(context, BooksApp()),
           ),
         ],
       ),
