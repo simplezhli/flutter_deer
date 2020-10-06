@@ -38,7 +38,7 @@ class _DemoPageState extends State<DemoPage> {
           ),
           ClickItem(
             title: 'Navigator 2.0',
-            onTap: () => AppNavigator.push(context, BooksApp()),
+            onTap: () => AppNavigator.push(context, NestedRouterDemo()),
           ),
         ],
       ),

@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_deer/demo/navigator/route_information_parser.dart';
-import 'package:flutter_deer/demo/navigator/router_delegate.dart';
+import 'package:flutter_deer/demo/navigator/parser/route_information_parser.dart';
+import 'package:flutter_deer/demo/navigator/delegate/router_delegate.dart';
 
-/// https://gist.github.com/johnpryan/5ce79aee5b5f83cfababa97c9cf0a204
-class BooksApp extends StatefulWidget {
+/// https://gist.github.com/johnpryan/bbca91e23bbb4d39247fa922533be7c9
+///
+class NestedRouterDemo extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _BooksAppState();
+  _NestedRouterDemoState createState() => _NestedRouterDemoState();
 }
 
-class _BooksAppState extends State<BooksApp> {
+class _NestedRouterDemoState extends State<NestedRouterDemo> {
   final BookRouterDelegate _routerDelegate = BookRouterDelegate();
-  final BookRouteInformationParser _routeInformationParser = BookRouteInformationParser();
+  final BookRouteInformationParser _routeInformationParser =
+  BookRouteInformationParser();
 
   @override
   Widget build(BuildContext context) {
