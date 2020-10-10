@@ -61,9 +61,9 @@ iOS需要自行下载代码运行。
 
 [![Build Status](https://github.com/simplezhli/flutter_deer/workflows/flutter_deer%20driver/badge.svg?branch=master)](https://github.com/simplezhli/flutter_deer/actions?query=workflow%3A%22flutter_deer+driver%22+branch%3Amaster)
 
-    1. Flutter version 1.22.0
+    1. Flutter version 1.22.1
      
-    2. Dart version 2.10.0
+    2. Dart version 2.10.1
 
 ## 注意事项
 
@@ -106,6 +106,12 @@ iOS需要自行下载代码运行。
 - [玩玩Flutter Web —— 实现高德地图插件](https://weilu.blog.csdn.net/article/details/106465792)
 
 - [Flutter动画曲线Curves 效果一览](https://weilu.blog.csdn.net/article/details/95632571)
+
+- [Flutter状态管理之Riverpod](https://weilu.blog.csdn.net/article/details/108352306)
+
+- [【译】正确操作Dart中的字符串](https://weilu.blog.csdn.net/article/details/107857569)
+
+- [【译】学习Flutter中新的Navigator和Router系统](https://weilu.blog.csdn.net/article/details/108902282)
     
 ## 使用到的三方库
 

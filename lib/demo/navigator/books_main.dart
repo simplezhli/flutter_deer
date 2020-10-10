@@ -3,7 +3,7 @@ import 'package:flutter_deer/demo/navigator/parser/route_information_parser.dart
 import 'package:flutter_deer/demo/navigator/delegate/router_delegate.dart';
 
 /// https://gist.github.com/johnpryan/bbca91e23bbb4d39247fa922533be7c9
-///
+/// https://weilu.blog.csdn.net/article/details/108902282
 class NestedRouterDemo extends StatefulWidget {
   @override
   _NestedRouterDemoState createState() => _NestedRouterDemoState();

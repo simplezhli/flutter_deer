@@ -7,7 +7,7 @@ homepage: https://weilu.blog.csdn.net/
 
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.10.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -31,13 +31,13 @@ dependencies:
   # Flutter 轮播图 https://github.com/best-flutter/flutter_swiper
   flutter_swiper: ^1.1.6
   # 启动URL的插件 https://github.com/flutter/plugins/tree/master/packages/url_launcher
-  url_launcher: 5.7.1
+  url_launcher: 5.7.2
   # 图片选择插件 https://github.com/flutter/plugins/tree/master/packages/image_picker
   image_picker: 0.6.7+11
   # 侧滑删除 https://github.com/letsar/flutter_slidable
   flutter_slidable: ^0.5.7
   # WebView插件 https://github.com/flutter/plugins/tree/master/packages/webview_flutter
-  webview_flutter: 1.0.0
+  webview_flutter: 1.0.1
   # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions
   keyboard_actions: ^3.3.1
   # 列表悬浮头 https://github.com/fluttercommunity/flutter_sticky_headers
@@ -74,7 +74,7 @@ dev_dependencies:
 #    sdk: flutter
   # 单元测试
   test: ^1.15.2
-  intl_translation: ^0.17.10
+  intl_translation: ^0.17.10+1
 
 # For information on the generic Dart part of this file, see the
 # following page: https:/w.dartlang.org/tools/pub/pubspec
