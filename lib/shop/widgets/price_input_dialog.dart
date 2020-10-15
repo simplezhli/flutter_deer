@@ -14,10 +14,12 @@ class PriceInputDialog extends StatefulWidget {
   const PriceInputDialog({
     Key key,
     this.title,
+    this.inputMaxPrice = 100000,
     this.onPressed,
   }) : super(key : key);
 
   final String title;
+  final double inputMaxPrice;
   final Function(String) onPressed;
   
   @override
@@ -55,7 +57,7 @@ class _PriceInputDialog extends State<PriceInputDialog> {
           //style: TextStyles.textDark14,
           keyboardType: const TextInputType.numberWithOptions(decimal: true),
           // 金额限制数字格式
-          inputFormatters: [UsNumberTextInputFormatter()],
+          inputFormatters: [UsNumberTextInputFormatter(max: widget.inputMaxPrice)],
           decoration: InputDecoration(
             isDense: true,
             contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),

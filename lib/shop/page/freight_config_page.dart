@@ -254,6 +254,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
       builder: (BuildContext context) {
         return PriceInputDialog(
           title: _list[index].type == 1 ? '运费比率' : '运费金额',
+          inputMaxPrice: _list[index].type == 1 ? 100 : 100000,
           onPressed: (value) {
             setState(() {
               _list[index].price = value;
