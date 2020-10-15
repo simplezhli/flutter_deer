@@ -1,16 +1,30 @@
 
 import 'package:flutter/services.dart';
 
-/// 只允许输入小数
+/// 数字、小数格式化（默认两位小数）
 class UsNumberTextInputFormatter extends TextInputFormatter {
+
+  UsNumberTextInputFormatter({this.digit = 2});
+
+  ///允许输入的小数位数，-1代表不限制位数
+  final int digit;
   
   static const double _kDefaultDouble = 0.001;
   
-  static double strToFloat(String str, [double defaultValue = _kDefaultDouble]) {
+  double _strToFloat(String str, [double defaultValue = _kDefaultDouble]) {
     try {
       return double.parse(str);
     } catch (e) {
       return defaultValue;
+    }
+  }
+
+  ///获取目前的小数位数
+  int _getValueDigit(String value) {
+    if (value.contains('.')) {
+      return value.split('.')[1].length;
+    } else {
+      return -1;
     }
   }
 
@@ -21,7 +35,9 @@ class UsNumberTextInputFormatter extends TextInputFormatter {
     if (value == '.') {
       value = '0.';
       selectionIndex++;
-    } else if (value != '' && value != _kDefaultDouble.toString() && strToFloat(value, _kDefaultDouble) == _kDefaultDouble) {
+    } else if (value != '' && value != _kDefaultDouble.toString() &&
+        _strToFloat(value, _kDefaultDouble) == _kDefaultDouble ||
+        _getValueDigit(value) > digit) {
       value = oldValue.text;
       selectionIndex = oldValue.selection.end;
     }
