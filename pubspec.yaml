@@ -37,7 +37,7 @@ dependencies:
   # 侧滑删除 https://github.com/letsar/flutter_slidable
   flutter_slidable: ^0.5.7
   # WebView插件 https://github.com/flutter/plugins/tree/master/packages/webview_flutter
-  webview_flutter: 1.0.1
+  webview_flutter: 1.0.3
   # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions
   keyboard_actions: ^3.3.1+1
   # 列表悬浮头 https://github.com/fluttercommunity/flutter_sticky_headers
@@ -47,9 +47,9 @@ dependencies:
   # 手势识别 https://github.com/aleksanderwozniak/simple_gesture_detector
   # simple_gesture_detector: ^0.1.4
   # 路由框架 https://github.com/theyakka/fluro
-  fluro: ^1.6.3
+  fluro: ^1.7.3
   # 图片缓存 https://github.com/renefloor/flutter_cached_network_image
-  cached_network_image: ^2.3.2+1
+  cached_network_image: ^2.3.3
   # 格式化String https://github.com/Naddiseo/dart-sprintf
   sprintf: ^5.0.0
   # 状态管理 https://github.com/rrousselGit/provider
