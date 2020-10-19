@@ -18,7 +18,7 @@ class GoodsRouter implements IRouterProvider{
   static String goodsSizeEditPage = '/goods/sizeEdit';
   
   @override
-  void initRouter(Router router) {
+  void initRouter(FluroRouter router) {
     router.define(goodsPage, handler: Handler(handlerFunc: (_, __) => GoodsPage()));
     router.define(goodsEditPage, handler: Handler(handlerFunc: (_, params) {
       final bool isAdd = params['isAdd']?.first == 'true';

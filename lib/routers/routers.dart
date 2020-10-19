@@ -1,6 +1,6 @@
 
 import 'package:fluro/fluro.dart';
-import 'package:flutter/material.dart' hide Router;
+import 'package:flutter/material.dart';
 import 'package:flutter_deer/account/account_router.dart';
 import 'package:flutter_deer/goods/goods_router.dart';
 import 'package:flutter_deer/routers/not_found_page.dart';
@@ -23,7 +23,7 @@ class Routes {
 
   static final List<IRouterProvider> _listRouter = [];
 
-  static final Router router = Router();
+  static final FluroRouter router = FluroRouter();
 
   static void initRoutes() {
     /// 指定路由跳转错误返回页

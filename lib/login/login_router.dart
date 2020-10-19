@@ -18,7 +18,7 @@ class LoginRouter implements IRouterProvider{
   static String updatePasswordPage = '/login/updatePassword';
   
   @override
-  void initRouter(Router router) {
+  void initRouter(FluroRouter router) {
     router.define(loginPage, handler: Handler(handlerFunc: (_, __) => LoginPage()));
     router.define(registerPage, handler: Handler(handlerFunc: (_, __) => RegisterPage()));
     router.define(smsLoginPage, handler: Handler(handlerFunc: (_, __) => SMSLoginPage()));

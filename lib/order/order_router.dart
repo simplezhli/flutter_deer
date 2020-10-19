@@ -16,7 +16,7 @@ class OrderRouter implements IRouterProvider{
   static String orderTrackPage = '/order/track';
   
   @override
-  void initRouter(Router router) {
+  void initRouter(FluroRouter router) {
     router.define(orderPage, handler: Handler(handlerFunc: (_, __) => OrderPage()));
     router.define(orderInfoPage, handler: Handler(handlerFunc: (_, __) => OrderInfoPage()));
     router.define(orderSearchPage, handler: Handler(handlerFunc: (_, __) => OrderSearchPage()));

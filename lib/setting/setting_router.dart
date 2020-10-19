@@ -15,7 +15,7 @@ class SettingRouter implements IRouterProvider{
   static String accountManagerPage = '/setting/accountManager';
   
   @override
-  void initRouter(Router router) {
+  void initRouter(FluroRouter router) {
     router.define(settingPage, handler: Handler(handlerFunc: (_, __) => SettingPage()));
     router.define(aboutPage, handler: Handler(handlerFunc: (_, __) => AboutPage()));
     router.define(themePage, handler: Handler(handlerFunc: (_, __) => ThemePage()));
