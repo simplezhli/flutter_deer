@@ -1,5 +1,11 @@
 # Change Log:
 
+## 1.1.4
+
+* 添加navigator示例。
+* 添加金额数字输入限制。
+* Flutter SDK升至1.22.3。
+
 ## 1.1.3
 
 * 设置页添加Demo入口。
