@@ -2,6 +2,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -23,6 +24,15 @@ class WebViewPage extends StatefulWidget {
 class _WebViewPageState extends State<WebViewPage> {
 
   final Completer<WebViewController> _controller = Completer<WebViewController>();
+
+  @override
+  void initState() {
+    super.initState();
+    // Enable hybrid composition.
+    if (Device.isAndroid) {
+      WebView.platform = SurfaceAndroidWebView();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
