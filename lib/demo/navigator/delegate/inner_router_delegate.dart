@@ -7,6 +7,9 @@ import 'package:flutter_deer/demo/navigator/screen/setting_screen.dart';
 
 class InnerRouterDelegate extends RouterDelegate<BookRoutePath>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin<BookRoutePath> {
+
+  InnerRouterDelegate(this._appState);
+
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   BooksAppState get appState => _appState;
   BooksAppState _appState;
@@ -17,8 +20,6 @@ class InnerRouterDelegate extends RouterDelegate<BookRoutePath>
     _appState = value;
     notifyListeners();
   }
-
-  InnerRouterDelegate(this._appState);
 
   @override
   Widget build(BuildContext context) {
@@ -66,9 +67,10 @@ class InnerRouterDelegate extends RouterDelegate<BookRoutePath>
 }
 
 class FadeAnimationPage extends Page<void> {
-  final Widget child;
 
   const FadeAnimationPage({LocalKey key, this.child}) : super(key: key);
+
+  final Widget child;
 
   Route createRoute(BuildContext context) {
     return PageRouteBuilder<dynamic>(

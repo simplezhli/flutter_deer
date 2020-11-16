@@ -1,11 +1,6 @@
 
 class WithdrawalAccountModel {
 
-  String name;
-  String typeName;
-  int type;
-  String code;
-
   WithdrawalAccountModel(this.name, this.typeName, this.type, this.code);
 
   WithdrawalAccountModel.fromJsonMap(Map<String, dynamic> map):
@@ -13,7 +8,12 @@ class WithdrawalAccountModel {
         typeName = map['typeName'] as String,
         type = map['type'] as int,
         code = map['code'] as String;
-  
+
+  String name;
+  String typeName;
+  int type;
+  String code;
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['name'] = name;

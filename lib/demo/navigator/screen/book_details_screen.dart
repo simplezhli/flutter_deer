@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/demo/navigator/book_entity.dart';
 
 class BookDetailsScreen extends StatelessWidget {
-  final Book book;
 
   const BookDetailsScreen({
     @required this.book,
   });
+
+  final Book book;
 
   @override
   Widget build(BuildContext context) {

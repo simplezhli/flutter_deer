@@ -60,10 +60,11 @@ class ExceptionHandle {
 }
 
 class NetError{
-  int code;
-  String msg;
 
   NetError(this.code, this.msg);
+
+  int code;
+  String msg;
 }
 
 extension DioErrorTypeExtension on DioErrorType {

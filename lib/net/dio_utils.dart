@@ -37,15 +37,7 @@ typedef NetErrorCallback = Function(int code, String msg);
 /// @weilu https://github.com/simplezhli
 class DioUtils {
 
-  static final DioUtils _singleton = DioUtils._();
-  
-  static DioUtils get instance => DioUtils();
-
   factory DioUtils() => _singleton;
-
-  static Dio _dio;
-
-  Dio get dio => _dio;
 
   DioUtils._() {
     final BaseOptions _options = BaseOptions(
@@ -78,6 +70,14 @@ class DioUtils {
       _dio.interceptors.add(interceptor);
     });
   }
+
+  static final DioUtils _singleton = DioUtils._();
+
+  static DioUtils get instance => DioUtils();
+
+  static Dio _dio;
+
+  Dio get dio => _dio;
 
   // 数据返回格式统一，统一处理异常
   Future<BaseEntity<T>> _request<T>(String method, String url, {

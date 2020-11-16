@@ -8,11 +8,11 @@ import 'mvps.dart';
 
 class BasePagePresenter<V extends IMvpView> extends BasePresenter<V> {
 
-  CancelToken _cancelToken;
-
   BasePagePresenter() {
     _cancelToken = CancelToken();
   }
+
+  CancelToken _cancelToken;
 
   @override
   void dispose() {

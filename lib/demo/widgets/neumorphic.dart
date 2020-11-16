@@ -4,10 +4,6 @@ import 'package:flutter/material.dart';
 
 /// https://medium.com/flutter-community/neumorphic-designs-in-flutter-eab9a4de2059
 class NeumorphicContainer extends StatefulWidget {
-  final Widget child;
-  final double bevel;
-  final Offset blurOffset;
-  final Color color;
 
   NeumorphicContainer({
     Key key,
@@ -16,6 +12,11 @@ class NeumorphicContainer extends StatefulWidget {
     this.color,
   })  : blurOffset = Offset(bevel / 2, bevel / 2),
         super(key: key);
+
+  final Widget child;
+  final double bevel;
+  final Offset blurOffset;
+  final Color color;
 
   @override
   _NeumorphicContainerState createState() => _NeumorphicContainerState();

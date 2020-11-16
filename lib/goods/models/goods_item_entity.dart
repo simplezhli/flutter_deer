@@ -1,7 +1,4 @@
 class GoodsItemEntity {
-	String icon;
-	String title;
-	int type;
 
 	GoodsItemEntity({this.icon, this.title, this.type});
 
@@ -10,6 +7,10 @@ class GoodsItemEntity {
 		title = json['title'] as String;
 		type = json['type'] as int;
 	}
+
+	String icon;
+	String title;
+	int type;
 
 	Map<String, dynamic> toJson() {
 		final Map<String, dynamic> data = <String, dynamic>{};

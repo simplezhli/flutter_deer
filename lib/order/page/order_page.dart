@@ -269,9 +269,11 @@ class _TabView extends StatelessWidget {
 }
 
 class SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
+
+  SliverAppBarDelegate(this.widget, this.height);
+
   final Widget widget;
   final double height;
-  SliverAppBarDelegate(this.widget, this.height);
 
   // minHeight 和 maxHeight 的值设置为相同时，header就不会收缩了
   @override

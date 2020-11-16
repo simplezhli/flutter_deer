@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/demo/navigator/book_entity.dart';
 
 class BooksAppState extends ChangeNotifier {
+
+  BooksAppState() : _selectedIndex = 0;
+
   int _selectedIndex;
 
   Book _selectedBook;
@@ -11,8 +14,6 @@ class BooksAppState extends ChangeNotifier {
     Book('Foundation', 'Isaac Asimov'),
     Book('Fahrenheit 451', 'Ray Bradbury'),
   ];
-
-  BooksAppState() : _selectedIndex = 0;
 
   int get selectedIndex => _selectedIndex;
 

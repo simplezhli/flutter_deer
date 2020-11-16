@@ -4,11 +4,12 @@ import 'package:flutter_deer/demo/navigator/delegate/inner_router_delegate.dart'
 
 // Widget that contains the AdaptiveNavigationScaffold
 class AppShell extends StatefulWidget {
-  final BooksAppState appState;
 
   const AppShell({
     @required this.appState,
   });
+
+  final BooksAppState appState;
 
   @override
   _AppShellState createState() => _AppShellState();

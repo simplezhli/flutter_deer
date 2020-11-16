@@ -5,13 +5,14 @@ import 'package:flutter_deer/demo/navigator/books_app_state.dart';
 
 class BookRouterDelegate extends RouterDelegate<BookRoutePath>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin<BookRoutePath> {
-  final GlobalKey<NavigatorState> navigatorKey;
-
-  BooksAppState appState = BooksAppState();
 
   BookRouterDelegate() : navigatorKey = GlobalKey<NavigatorState>() {
     appState.addListener(notifyListeners);
   }
+
+  final GlobalKey<NavigatorState> navigatorKey;
+
+  BooksAppState appState = BooksAppState();
 
   BookRoutePath get currentConfiguration {
     if (appState.selectedIndex == 1) {
