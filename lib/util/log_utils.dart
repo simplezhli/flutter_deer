@@ -54,7 +54,7 @@ class Log {
       final bool isLast = index == data.length - 1;
       dynamic value = data[key];
       if (value is String) {
-        value = '\"$value\"';
+        value = '"$value"';
       }
       if (value is Map) {
         if (value.isEmpty)

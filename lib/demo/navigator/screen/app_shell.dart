@@ -19,6 +19,7 @@ class _AppShellState extends State<AppShell> {
   InnerRouterDelegate _routerDelegate;
   ChildBackButtonDispatcher _backButtonDispatcher;
 
+  @override
   void initState() {
     super.initState();
     _routerDelegate = InnerRouterDelegate(widget.appState);

@@ -128,11 +128,11 @@ class AdapterInterceptor extends Interceptor{
   static const String _kSlash = '\'';
   static const String _kMessage = 'message';
 
-  static const String _kDefaultText = '\"无返回信息\"';
+  static const String _kDefaultText = '"无返回信息"';
   static const String _kNotFound = '未找到查询信息';
 
-  static const String _kFailureFormat = '{\"code\":%d,\"message\":\"%s\"}';
-  static const String _kSuccessFormat = '{\"code\":0,\"data\":%s,\"message\":\"\"}';
+  static const String _kFailureFormat = '{"code":%d,"message":"%s"}';
+  static const String _kSuccessFormat = '{"code":0,"data":%s,"message":""}';
   
   @override
   Future onResponse(Response response) {
@@ -170,7 +170,7 @@ class AdapterInterceptor extends Interceptor{
         } else {
           String msg;
           try {
-            content = content.replaceAll('\\', '');
+            content = content.replaceAll(r'\', '');
             if (_kSlash == content.substring(0, 1)) {
               content = content.substring(1, content.length - 1);
             }

@@ -23,6 +23,7 @@ class OrderSearchPage extends StatefulWidget {
 
 class _OrderSearchPageState extends State<OrderSearchPage> with BasePageMixin<OrderSearchPage, PowerPresenter> implements OrderSearchIMvpView, ShopIMvpView {
 
+  @override
   BaseListProvider<SearchItem> provider = BaseListProvider<SearchItem>();
   
   String _keyword;

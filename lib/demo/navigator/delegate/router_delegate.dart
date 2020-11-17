@@ -10,10 +10,12 @@ class BookRouterDelegate extends RouterDelegate<BookRoutePath>
     appState.addListener(notifyListeners);
   }
 
+  @override
   final GlobalKey<NavigatorState> navigatorKey;
 
   BooksAppState appState = BooksAppState();
 
+  @override
   BookRoutePath get currentConfiguration {
     if (appState.selectedIndex == 1) {
       return BooksSettingsPath();

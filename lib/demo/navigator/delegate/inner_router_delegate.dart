@@ -10,6 +10,7 @@ class InnerRouterDelegate extends RouterDelegate<BookRoutePath>
 
   InnerRouterDelegate(this._appState);
 
+  @override
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   BooksAppState get appState => _appState;
   BooksAppState _appState;
@@ -72,6 +73,7 @@ class FadeAnimationPage extends Page<void> {
 
   final Widget child;
 
+  @override
   Route createRoute(BuildContext context) {
     return PageRouteBuilder<dynamic>(
       settings: this,

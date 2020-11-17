@@ -55,7 +55,7 @@ class _WithdrawalRecordListPageState extends State<WithdrawalRecordListPage> {
         child: MergeSemantics(
           child: Stack(
             children: <Widget>[
-              Text(i % 2 == 0 ? '微信（唯鹿）' : '工商（尾号:4562 李一）'),
+              Text(i.isEven ? '微信（唯鹿）' : '工商（尾号:4562 李一）'),
               const Positioned(
                 top: 0.0,
                 right: 0.0,
@@ -64,14 +64,14 @@ class _WithdrawalRecordListPageState extends State<WithdrawalRecordListPage> {
               Positioned(
                 bottom: 0.0,
                 left: 0.0,
-                child: Text(i % 2 == 0 ? '12:40:20' : '12:50:20', style: Theme.of(context).textTheme.subtitle2),
+                child: Text(i.isEven ? '12:40:20' : '12:50:20', style: Theme.of(context).textTheme.subtitle2),
               ),
               Positioned(
                 bottom: 0.0,
                 right: 0.0,
                 child: Text(
-                  i % 2 == 0 ? '审核失败' : '待审核',
-                  style: i % 2 == 0 ? TextStyle(
+                  i.isEven ? '审核失败' : '待审核',
+                  style: i.isEven ? TextStyle(
                       fontSize: Dimens.font_sp12,
                       color: Theme.of(context).errorColor
                   ) : const TextStyle(

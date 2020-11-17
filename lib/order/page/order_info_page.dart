@@ -204,12 +204,12 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                index % 2 == 0 ? '泊泉雅花瓣·浪漫亲肤玫瑰沐浴乳' : '日本纳鲁火多橙饮',
+                index.isEven ? '泊泉雅花瓣·浪漫亲肤玫瑰沐浴乳' : '日本纳鲁火多橙饮',
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
               Gaps.vGap4,
-              Text(index % 2 == 0 ? '玫瑰香 520ml' : '125ml', style: Theme.of(context).textTheme.subtitle2),
+              Text(index.isEven ? '玫瑰香 520ml' : '125ml', style: Theme.of(context).textTheme.subtitle2),
               Gaps.vGap8,
               Row(
                 children: <Widget>[
