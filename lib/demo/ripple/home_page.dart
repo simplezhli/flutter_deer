@@ -52,7 +52,7 @@ class _RipplesAnimationState extends State<RipplesAnimation> with TickerProvider
             ),
           ),
           child: ScaleTransition(
-            scale: Tween(begin: 0.95, end: 1.0).animate(
+            scale: Tween<double>(begin: 0.95, end: 1.0).animate(
               CurvedAnimation(
                 parent: _controller,
                 curve: const PulsateCurve(),

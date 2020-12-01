@@ -22,7 +22,7 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
         itemCount: 8,
         /// 将item默认合并的语义拆开，自行组合， 另一种方式见 withdrawal_record_list_page.dart
         addSemanticIndexes: false,
-        itemBuilder: (_, index) {
+        itemBuilder: (_, int index) {
           return StickyHeader(
             header: Container(
               alignment: Alignment.centerLeft,
@@ -40,7 +40,7 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
   }
   
   Widget _buildItem(int index) {
-    final list = List.generate(index + 1, (i) {
+    final List<Container> list = List<Container>.generate(index + 1, (int i) {
       return Container(
         height: 72.0,
         width: double.infinity,

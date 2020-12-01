@@ -28,8 +28,8 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
   
   @override
   Widget build(BuildContext context) {
-    final style = Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp14);
-    final children = [
+    final TextStyle style = Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp14);
+    final List<Widget> children = <Widget>[
       Gaps.vGap5,
       SelectedItem(
         title: '账号类型',
@@ -55,9 +55,9 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
               content: _city.isEmpty ? '选择开户城市' : _city,
               style: _city.isEmpty ? style: null,
               onTap: () {
-                NavigatorUtils.pushResult(context, AccountRouter.citySelectPage, (result) {
+                NavigatorUtils.pushResult(context, AccountRouter.citySelectPage, (Object result) {
                   setState(() {
-                    final model = result as CityEntity;
+                    final CityEntity model = result as CityEntity;
                     _city = model.name;
                   });
                 });
@@ -68,9 +68,9 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
               content: _bank.isEmpty ? '选择开户银行' : _bank,
               style: _bank.isEmpty ? style : null,
               onTap: () {
-                NavigatorUtils.pushResult(context, '${AccountRouter.bankSelectPage}?type=0', (result) {
+                NavigatorUtils.pushResult(context, '${AccountRouter.bankSelectPage}?type=0', (Object result) {
                   setState(() {
-                    final model = result as BankEntity;
+                    final BankEntity model = result as BankEntity;
                     _bank = model.bankName;
                   });
                 });
@@ -81,9 +81,9 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
               content: _bank1.isEmpty ? '选择开户支行' : _bank1,
               style: _bank1.isEmpty ? style : null,
               onTap: () {
-                NavigatorUtils.pushResult(context, '${AccountRouter.bankSelectPage}?type=1', (result) {
+                NavigatorUtils.pushResult(context, '${AccountRouter.bankSelectPage}?type=1', (Object result) {
                   setState(() {
-                    final model = result as BankEntity;
+                    final BankEntity model = result as BankEntity;
                     _bank1 = model.bankName;
                   });
                 });

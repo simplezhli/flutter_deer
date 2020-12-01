@@ -33,7 +33,7 @@ class _FocusDemoPageState extends State<FocusDemoPage> {
         title: Text(widget.title),
       ),
       body: Column(
-        children: [
+        children: <Widget>[
           TextField(
             focusNode: _focusNode,
           ),

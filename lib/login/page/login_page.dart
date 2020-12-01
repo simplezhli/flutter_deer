@@ -33,8 +33,8 @@ class _LoginPageState extends State<LoginPage> with ChangeNotifierMixin<LoginPag
 
   @override
   Map<ChangeNotifier, List<VoidCallback>> changeNotifier() {
-    final List<VoidCallback> callbacks = [_verify];
-    return {
+    final List<VoidCallback> callbacks = <VoidCallback>[_verify];
+    return <ChangeNotifier, List<VoidCallback>>{
       _nameController: callbacks,
       _passwordController: callbacks,
       _nodeText1: null,

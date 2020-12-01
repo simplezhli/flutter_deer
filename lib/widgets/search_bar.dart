@@ -82,7 +82,7 @@ class _SearchBarState extends State<SearchBar> {
           focusNode: _focus,
           maxLines: 1,
           textInputAction: TextInputAction.search,
-          onSubmitted: (val) {
+          onSubmitted: (String val) {
             _focus.unfocus();
             // 点击软键盘的动作按钮时的回调
             widget.onPressed(val);

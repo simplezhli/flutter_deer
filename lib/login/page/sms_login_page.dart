@@ -31,8 +31,8 @@ class _SMSLoginPageState extends State<SMSLoginPage> with ChangeNotifierMixin<SM
 
   @override
   Map<ChangeNotifier, List<VoidCallback>> changeNotifier() {
-    final List<VoidCallback> callbacks = [_verify];
-    return {
+    final List<VoidCallback> callbacks = <VoidCallback>[_verify];
+    return <ChangeNotifier, List<VoidCallback>>{
       _phoneController: callbacks,
       _vCodeController: callbacks,
       _nodeText1: null,
@@ -96,7 +96,7 @@ class _SMSLoginPageState extends State<SMSLoginPage> with ChangeNotifierMixin<SM
         hintText: AppLocalizations.of(context).inputVerificationCodeHint,
         getVCode: () {
           Toast.show('获取验证码');
-          return Future.value(true);
+          return Future<bool>.value(true);
         },
       ),
       Gaps.vGap8,

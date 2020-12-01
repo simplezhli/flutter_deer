@@ -30,8 +30,8 @@ class _RegisterPageState extends State<RegisterPage> with ChangeNotifierMixin<Re
   
   @override
   Map<ChangeNotifier, List<VoidCallback>> changeNotifier() {
-    final List<VoidCallback> callbacks = [_verify];
-    return {
+    final List<VoidCallback> callbacks = <VoidCallback>[_verify];
+    return <ChangeNotifier, List<VoidCallback>>{
       _nameController: callbacks,
       _vCodeController: callbacks,
       _passwordController: callbacks,

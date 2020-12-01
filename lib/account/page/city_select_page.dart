@@ -19,8 +19,8 @@ class CitySelectPage extends StatefulWidget {
 
 class _CitySelectPageState extends State<CitySelectPage> {
 
-  final List<CityEntity> _cityList = [];
-  List<String> _indexBarData = [];
+  final List<CityEntity> _cityList = <CityEntity>[];
+  List<String> _indexBarData = <String>[];
 
   @override
   void initState() {
@@ -37,18 +37,18 @@ class _CitySelectPageState extends State<CitySelectPage> {
     } else {
       jsonStr = await rootBundle.loadString('assets/data/city.json');
     }
-    final List list = json.decode(jsonStr) as List;
+    final List<dynamic> list = json.decode(jsonStr) as List<dynamic>;
     list.forEach((dynamic value) {
       _cityList.add(CityEntity().fromJson(value as Map<String, dynamic>));
     });
     SuspensionUtil.setShowSuspensionStatus(_cityList);
-    _indexBarData = _cityList.map((e) {
+    _indexBarData = _cityList.map((CityEntity e) {
       if (e.isShowSuspension) {
         return e.firstCharacter;
       } else {
         return '';
       }
-    }).where((element) => element.isNotEmpty).toList();
+    }).where((String element) => element.isNotEmpty).toList();
     setState(() {
 
     });
@@ -73,7 +73,7 @@ class _CitySelectPageState extends State<CitySelectPage> {
         child: AzListView(
           data: _cityList,
           itemCount: _cityList.length,
-          itemBuilder: (context, index) => _buildListItem(index),
+          itemBuilder: (_, int index) => _buildListItem(index),
           indexBarItemHeight: 18,
           indexBarData: _indexBarData,
           indexBarOptions: IndexBarOptions(

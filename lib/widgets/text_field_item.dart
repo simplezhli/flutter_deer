@@ -65,10 +65,10 @@ class TextFieldItem extends StatelessWidget {
 
   List<TextInputFormatter> _getInputFormatters() {
     if (keyboardType == const TextInputType.numberWithOptions(decimal: true)) {
-      return [UsNumberTextInputFormatter()];
+      return <TextInputFormatter>[UsNumberTextInputFormatter()];
     }
     if (keyboardType == TextInputType.number || keyboardType == TextInputType.phone) {
-      return [FilteringTextInputFormatter.digitsOnly];
+      return <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly];
     }
     return null;
   }

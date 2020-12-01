@@ -16,7 +16,7 @@ String _baseUrl;
 List<Interceptor> _interceptors = [];
 
 /// 初始化Dio配置
-void setInitDio({
+void configDio({
   int connectTimeout,
   int receiveTimeout,
   int sendTimeout,

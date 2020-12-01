@@ -39,7 +39,7 @@ class _NeumorphicContainerState extends State<NeumorphicContainer> {
 
   @override
   Widget build(BuildContext context) {
-    final color = widget.color ?? Colors.blueGrey.shade200;
+    final Color color = widget.color ?? Colors.blueGrey.shade200;
 
     return Listener(
       onPointerDown: _onPointerDown,
@@ -52,15 +52,15 @@ class _NeumorphicContainerState extends State<NeumorphicContainer> {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [
+            colors: <Color>[
               if (_isPressed) color else color.mix(Colors.black, .1),
               if (_isPressed) color.mix(Colors.black, .05) else color,
               if (_isPressed) color.mix(Colors.black, .05) else color,
               color.mix(Colors.white, _isPressed ? .2 : .5),
             ],
-            stops: const [0.0, 0.3, 0.6, 1.0],
+            stops: const <double>[0.0, 0.3, 0.6, 1.0],
           ),
-          boxShadow: _isPressed ? null : [
+          boxShadow: _isPressed ? null : <BoxShadow>[
             BoxShadow(
               blurRadius: widget.bevel,
               offset: -widget.blurOffset,

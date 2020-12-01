@@ -24,19 +24,19 @@ class BankSelectPage extends StatefulWidget {
 
 class _BankSelectPageState extends State<BankSelectPage> {
 
-  final List<BankEntity> _bankList = [];
-  final List<String> _bankNameList = [
+  final List<BankEntity> _bankList = <BankEntity>[];
+  final List<String> _bankNameList = <String>[
     '工商银行', '建设银行', '中国银行', '农业银行', 
     '招商银行', '交通银行', '中信银行', '民生银行', 
     '兴业银行', '浦发银行'
   ];
-  final List<String> _bankLogoList = [
+  final List<String> _bankLogoList = <String>[
     'gongshang', 'jianhang', 'zhonghang', 'nonghang', 
     'zhaohang', 'jiaohang', 'zhongxin', 'minsheng',
     'xingye', 'pufa'
   ];
 
-  List<String> _indexBarData = [];
+  List<String> _indexBarData = <String>[];
   
   @override
   void initState() {
@@ -46,20 +46,20 @@ class _BankSelectPageState extends State<BankSelectPage> {
 
   void _loadData() {
     // 获取城市列表
-    rootBundle.loadString(widget.type == 0 ? 'assets/data/bank.json' : 'assets/data/bank_2.json').then((value) {
-      final List list = json.decode(value) as List;
+    rootBundle.loadString(widget.type == 0 ? 'assets/data/bank.json' : 'assets/data/bank_2.json').then((String value) {
+      final List<dynamic> list = json.decode(value) as List<dynamic>;
       list.forEach((dynamic value) {
         _bankList.add(BankEntity().fromJson(value as Map<String, dynamic>));
       });
       SuspensionUtil.sortListBySuspensionTag(_bankList);
       SuspensionUtil.setShowSuspensionStatus(_bankList);
-      _indexBarData = _bankList.map((e) {
+      _indexBarData = _bankList.map((BankEntity e) {
         if (e.isShowSuspension) {
           return e.firstLetter;
         } else {
           return '';
         }
-      }).where((element) => element.isNotEmpty).toList();
+      }).where((String element) => element.isNotEmpty).toList();
       // add header.
       _bankList.insert(0, BankEntity(firstLetter: '常用'));
       _indexBarData.insert(0, '常用');
@@ -79,7 +79,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
         child: AzListView(
           data: _bankList,
           itemCount: _bankList.length,
-          itemBuilder: (context, index) {
+          itemBuilder: (_, int index) {
             if (index == 0) {
               return _buildHeader();
             }
@@ -115,7 +115,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
               physics: const NeverScrollableScrollPhysics(),
               itemExtent: 40.0,
               itemCount: _bankNameList.length,
-              itemBuilder: (_, index) {
+              itemBuilder: (_, int index) {
                 return InkWell(
                   onTap: () => NavigatorUtils.goBackWithParams(context, BankEntity(id: 0, bankName: _bankNameList[index], firstLetter: '')),
                   child: Padding(

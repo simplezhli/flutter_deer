@@ -18,7 +18,7 @@ class OverlayDemo extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: OverlayDemoPage(),
-      navigatorObservers: [
+      navigatorObservers: <NavigatorObserver>[
         Application.navigatorObserver
       ],
     );

@@ -9,7 +9,7 @@ class BooksAppState extends ChangeNotifier {
 
   Book _selectedBook;
 
-  final List<Book> books = [
+  final List<Book> books = <Book>[
     Book('Stranger in a Strange Land', 'Robert A. Heinlein'),
     Book('Foundation', 'Isaac Asimov'),
     Book('Fahrenheit 451', 'Ray Bradbury'),
