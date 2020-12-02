@@ -27,8 +27,8 @@ class _UpdatePasswordPageState extends State<UpdatePasswordPage> with ChangeNoti
 
   @override
   Map<ChangeNotifier, List<VoidCallback>> changeNotifier() {
-    final List<VoidCallback> callbacks = [_verify];
-    return {
+    final List<VoidCallback> callbacks = <VoidCallback>[_verify];
+    return <ChangeNotifier, List<VoidCallback>>{
       _oldPwdController: callbacks,
       _newPwdController: callbacks,
       _nodeText1: null,

@@ -72,7 +72,7 @@ class _GoodsSortMenuState extends State<GoodsSortMenu> with SingleTickerProvider
           child: ListView.builder(
             physics: const ClampingScrollPhysics(),
             itemCount: widget.data.length + 1,
-            itemBuilder: (_, index) {
+            itemBuilder: (_, int index) {
               return index == widget.data.length ? Container(
                 color: backgroundColor,
                 height: 12.0,

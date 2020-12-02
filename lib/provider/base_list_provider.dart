@@ -4,7 +4,7 @@ import 'package:flutter_deer/widgets/state_layout.dart';
 
 class BaseListProvider<T> extends ChangeNotifier {
 
-  final List<T> _list = [];
+  final List<T> _list = <T>[];
   List<T> get list => _list;
 
   StateType _stateType = StateType.loading;

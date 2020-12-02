@@ -82,7 +82,7 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
       child: RepaintBoundary(
         child: AnimatedBuilder(
           animation: animation,
-          builder: (_, child) {
+          builder: (_, Widget child) {
             return CustomPaint(
               painter: PieChartPainter(
                 widget.data,
@@ -132,7 +132,7 @@ class PieChartPainter extends CustomPainter {
       data.removeAt(10);
     }
    
-    data.sort((left,right) => right.number.compareTo(left.number));
+    data.sort((PieData left,PieData right) => right.number.compareTo(left.number));
     // 由大到小给予颜色
     for (int i = 0; i < data.length; i++) {
       data[i].color = PieChart.colorList[i];

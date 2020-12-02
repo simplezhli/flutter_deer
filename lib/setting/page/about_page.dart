@@ -15,8 +15,13 @@ class AboutPage extends StatefulWidget {
 
 class _AboutPageState extends State<AboutPage> {
 
-  final _styles = [FlutterLogoStyle.stacked, FlutterLogoStyle.markOnly, FlutterLogoStyle.horizontal];
-  final _curves = [
+  final List<FlutterLogoStyle> _styles = <FlutterLogoStyle>[
+    FlutterLogoStyle.stacked,
+    FlutterLogoStyle.markOnly,
+    FlutterLogoStyle.horizontal
+  ];
+
+  final List<Cubic> _curves = <Cubic>[
     Curves.ease, Curves.easeIn, Curves.easeInOutCubic, Curves.easeInOut,
     Curves.easeInQuad, Curves.easeInCirc, Curves.easeInBack, Curves.easeInOutExpo,
     Curves.easeInToLinear, Curves.easeOutExpo, Curves.easeInOutSine, Curves.easeOutSine,
@@ -24,9 +29,9 @@ class _AboutPageState extends State<AboutPage> {
   
   // 取随机颜色
   Color _randomColor() {
-    final red = Random.secure().nextInt(255);
-    final greed = Random.secure().nextInt(255);
-    final blue = Random.secure().nextInt(255);
+    final int red = Random.secure().nextInt(255);
+    final int greed = Random.secure().nextInt(255);
+    final int blue = Random.secure().nextInt(255);
     return Color.fromARGB(255, red, greed, blue);
   }
 
@@ -37,7 +42,7 @@ class _AboutPageState extends State<AboutPage> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       // 2s定时器
-      _countdownTimer = Timer.periodic(const Duration(seconds: 2), (timer) {
+      _countdownTimer = Timer.periodic(const Duration(seconds: 2), (_) {
         // https://www.jianshu.com/p/e4106b829bff
         if (!mounted) {
           return;

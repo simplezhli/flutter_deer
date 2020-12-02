@@ -36,7 +36,7 @@ class _MessagePageState extends State<MessagePage> {
           controller: _scrollController,
           physics: const AlwaysScrollableScrollPhysics(),
           padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 28.0),
-          itemBuilder: (_, index) => _MessageItem(),
+          itemBuilder: (_, __) => _MessageItem(),
         ),
       ),
     );

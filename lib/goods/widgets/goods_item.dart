@@ -136,7 +136,7 @@ class GoodsItem extends StatelessWidget {
       child: AnimatedBuilder(
         animation: animation,
         child: _buildGoodsMenuContent(context),
-        builder:(_, child) {
+        builder:(_, Widget child) {
           return MenuReveal(
             revealPercent: animation.value,
             child: child

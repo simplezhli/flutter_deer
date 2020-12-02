@@ -13,7 +13,7 @@ class ThemePage extends StatefulWidget {
 
 class _ThemePageState extends State<ThemePage> {
 
-  final List<String> _list = ['跟随系统', '开启', '关闭'];
+  final List<String> _list = <String>['跟随系统', '开启', '关闭'];
 //  StreamSubscription _subscription;
   
 //  @override
@@ -43,8 +43,8 @@ class _ThemePageState extends State<ThemePage> {
       ),
       body: ListView.separated(
         itemCount: _list.length,
-        separatorBuilder: (_, index) => const Divider(),
-        itemBuilder: (_, index) {
+        separatorBuilder: (_, __) => const Divider(),
+        itemBuilder: (_, int index) {
           return InkWell(
             onTap: () {
               final ThemeMode themeMode = index == 0 ? ThemeMode.system : (index == 1 ? ThemeMode.dark : ThemeMode.light);

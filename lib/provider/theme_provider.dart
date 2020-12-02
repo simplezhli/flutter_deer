@@ -8,7 +8,7 @@ import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/res/resources.dart';
 
 extension ThemeModeExtension on ThemeMode {
-  String get value => ['System', 'Light', 'Dark'][index];
+  String get value => <String>['System', 'Light', 'Dark'][index];
 }
 
 class ThemeProvider extends ChangeNotifier {

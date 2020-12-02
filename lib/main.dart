@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
   final ThemeData theme;
   
   void initDio() {
-    final List<Interceptor> interceptors = [];
+    final List<Interceptor> interceptors = <Interceptor>[];
     /// 统一添加身份验证请求头
     interceptors.add(AuthInterceptor());
     /// 刷新Token
@@ -68,7 +68,7 @@ class MyApp extends StatelessWidget {
       child: ChangeNotifierProvider<ThemeProvider>(
         create: (_) => ThemeProvider(),
         child: Consumer<ThemeProvider>(
-          builder: (_, provider, __) {
+          builder: (_, ThemeProvider provider, __) {
             return MaterialApp(
               title: 'Flutter Deer',
 //              showPerformanceOverlay: true, //显示性能标签
@@ -81,7 +81,7 @@ class MyApp extends StatelessWidget {
               themeMode: provider.getThemeMode(),
               home: home ?? SplashPage(),
               onGenerateRoute: Routes.router.generator,
-              localizationsDelegates: const [
+              localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
                 AppLocalizationsDelegate(),
                 GlobalMaterialLocalizations.delegate,
                 GlobalWidgetsLocalizations.delegate,
@@ -91,7 +91,7 @@ class MyApp extends StatelessWidget {
                 Locale('zh', 'CN'),
                 Locale('en', 'US')
               ],
-              builder: (context, child) {
+              builder: (BuildContext context, Widget child) {
                 /// 保证文字大小不受手机系统设置影响 https://www.kikt.top/posts/flutter/layout/dynamic-text/
                 return MediaQuery(
                   data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
