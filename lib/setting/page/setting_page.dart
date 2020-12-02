@@ -37,6 +37,20 @@ class _SettingPageState extends State<SettingPage> {
         break;
     }
 
+    final String locale = SpUtil.getString(Constant.locale);
+    String localeMode;
+    switch(locale) {
+      case 'zh':
+        localeMode = '中文';
+        break;
+      case 'en':
+        localeMode = 'English';
+        break;
+      default:
+        localeMode = '跟随系统';
+        break;
+    }
+
     return Scaffold(
       appBar: const MyAppBar(
         centerTitle: '设置',
@@ -57,6 +71,11 @@ class _SettingPageState extends State<SettingPage> {
             title: '夜间模式',
             content: themeMode,
             onTap: () => NavigatorUtils.push(context, SettingRouter.themePage)
+          ),
+          ClickItem(
+              title: '多语言',
+              content: localeMode,
+              onTap: () => NavigatorUtils.push(context, SettingRouter.localePage)
           ),
           ClickItem(
             title: '检查更新',

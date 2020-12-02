@@ -18,5 +18,6 @@ class Constant {
   static const String refreshToken = 'refreshToken';
 
   static const String theme = 'AppTheme';
+  static const String locale = 'locale';
 
 }

@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/net/dio_utils.dart';
 import 'package:flutter_deer/net/intercept.dart';
+import 'package:flutter_deer/provider/locale_provider.dart';
 import 'package:flutter_deer/provider/theme_provider.dart';
 import 'package:flutter_deer/routers/not_found_page.dart';
 import 'package:flutter_deer/routers/routers.dart';
@@ -65,10 +66,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OKToast(
-      child: ChangeNotifierProvider<ThemeProvider>(
-        create: (_) => ThemeProvider(),
-        child: Consumer<ThemeProvider>(
-          builder: (_, ThemeProvider provider, __) {
+      child: MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => ThemeProvider()),
+          ChangeNotifierProvider(create: (_) => LocaleProvider())
+        ],
+        child: Consumer2<ThemeProvider, LocaleProvider>(
+          builder: (_, ThemeProvider provider, LocaleProvider localeProvider, __) {
             return MaterialApp(
               title: 'Flutter Deer',
 //              showPerformanceOverlay: true, //显示性能标签
@@ -87,10 +91,8 @@ class MyApp extends StatelessWidget {
                 GlobalWidgetsLocalizations.delegate,
                 GlobalCupertinoLocalizations.delegate,
               ],
-              supportedLocales: const <Locale>[
-                Locale('zh', 'CN'),
-                Locale('en', 'US')
-              ],
+              supportedLocales: localeProvider.supportedLocales,
+              locale: localeProvider.locale,
               builder: (BuildContext context, Widget child) {
                 /// 保证文字大小不受手机系统设置影响 https://www.kikt.top/posts/flutter/layout/dynamic-text/
                 return MediaQuery(
