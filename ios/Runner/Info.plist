@@ -2,23 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>CFBundleAllowMixedLocalizations</key>
+	<key>CFBundleAllowMixedLocalizations</key>
 	<true/>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>zh_CN</string>
-    <key>CFBundleLocalizations</key>
-	<array>
-		<string>en</string>
-		<string>zh_CN</string>
-	</array>
-	<key>NSCameraUsageDescription</key>
-    <string>“Flutter Deer”请求在您使用期间获取您的相机权限，使用扫描条形码等功能</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>“Flutter Deer”请求在您使用期间获取定位权限，这将带来更好的用户体验</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>“Flutter Deer”请求在您使用期间获取您的相册权限</string>
-	<key>io.flutter.embedded_views_preview</key>
-    <true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -27,6 +12,11 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>zh_CN</string>
+	</array>
 	<key>CFBundleName</key>
 	<string>Flutter Deer</string>
 	<key>CFBundlePackageType</key>
@@ -39,6 +29,12 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>“Flutter Deer”请求在您使用期间获取您的相机权限，使用扫描条形码等功能</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>“Flutter Deer”请求在您使用期间获取定位权限，这将带来更好的用户体验</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>“Flutter Deer”请求在您使用期间获取您的相册权限</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -54,5 +50,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>io.flutter.embedded_views_preview</key>
+	<true/>
 </dict>
 </plist>
