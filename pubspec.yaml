@@ -43,19 +43,21 @@ dependencies:
   # 列表悬浮头 https://github.com/fluttercommunity/flutter_sticky_headers
   sticky_headers: ^0.1.8+1
   # 城市选择列表 https://github.com/flutterchina/azlistview
-  azlistview: ^1.0.2
+  azlistview: ^1.1.0
   # 手势识别 https://github.com/aleksanderwozniak/simple_gesture_detector
   # simple_gesture_detector: ^0.1.4
   # 路由框架 https://github.com/theyakka/fluro
   fluro: ^1.7.8
   # 图片缓存 https://github.com/renefloor/flutter_cached_network_image
-  cached_network_image: ^2.4.1
+  cached_network_image: ^2.5.0
   # 格式化String https://github.com/Naddiseo/dart-sprintf
   sprintf: ^5.0.0
   # 状态管理 https://github.com/rrousselGit/provider
-  provider: ^4.3.2+2
+  provider: ^4.3.2+3
   # 扫码 https://github.com/apptreesoftware/flutter_barcode_reader
   barcode_scan: 3.0.1
+  # App Shortcuts https://github.com/flutter/plugins/tree/master/packages/quick_actions
+  quick_actions: 0.4.0+10
   # 高德2D地图插件 https://github.com/simplezhli/flutter_2d_amap
   flutter_2d_amap:
     git:
@@ -69,6 +71,7 @@ dev_dependencies:
   # 集成测试
   flutter_driver:
     sdk: flutter
+#  integration_test: ^1.0.1
   # 黄金测试
 #  flutter_goldens:
 #    sdk: flutter
