@@ -71,7 +71,7 @@ dev_dependencies:
   # 集成测试
   flutter_driver:
     sdk: flutter
-#  integration_test: ^1.0.1
+  integration_test: ^1.0.1
   # 黄金测试
 #  flutter_goldens:
 #    sdk: flutter
