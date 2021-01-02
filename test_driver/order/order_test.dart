@@ -76,6 +76,6 @@ void main() {
       await delayed();
       await driver.tap(find.byValueKey('search_back'));
       await delayed();
-    }, timeout: Timeout.factor(5));
+    }, timeout: const Timeout.factor(5));
   });
 }

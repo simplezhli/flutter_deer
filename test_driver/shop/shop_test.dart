@@ -29,7 +29,7 @@ void main() {
       await driver.tap(find.byTooltip('Back'));
       await delayed();
       
-    }, timeout: Timeout.factor(3));
+    }, timeout: const Timeout.factor(3));
 
     test('店铺设置页测试',() async {
       await driver.tap(find.text('店铺设置'));
