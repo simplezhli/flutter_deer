@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 
-class SelectedDate extends StatelessWidget {
+class SelectedDateButton extends StatelessWidget {
 
-  const SelectedDate(this.text,{
+  const SelectedDateButton(this.text,{
     Key key,
     this.fontSize = 14.0,
     this.selected = false,

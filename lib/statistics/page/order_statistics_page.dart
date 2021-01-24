@@ -157,7 +157,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
   }
   
   Widget _buildButton(String text, Key key, int index) {
-    return SelectedDate(
+    return SelectedDateButton(
       text,
       key: key,
       fontSize: Dimens.font_sp15,
@@ -257,9 +257,9 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
   Widget _buildCalendar() {
     List<Widget> children;
     if (_selectedIndex == 0) {
-      children = _builderMonthCalendar();
+      children = _builderYearCalendar();
     } else if (_selectedIndex == 1) {
-      children = _builderCalendar();
+      children = _builderMonthCalendar();
     } else if (_selectedIndex == 2) {
       children = _builderWeekCalendar();
     }
@@ -282,7 +282,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
     return widgets;
   }
 
-  List<Widget> _builderCalendar() {
+  List<Widget> _builderMonthCalendar() {
     final List<Widget> dayWidgets = [];
     List<DateTime> list;
     if (_isExpanded) {
@@ -294,7 +294,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
     list.forEach((day) {
       dayWidgets.add(
         Center(
-          child: SelectedDate(
+          child: SelectedDateButton(
             day.day.toString().padLeft(2, '0'), // 不足2位左边补0
             selected: day.day == _selectedDay.day && !DateUtils.isExtraDay(day, _initialDay),
             // 不是本月的日期与超过当前日期的不可点击
@@ -314,12 +314,12 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
     return dayWidgets;
   }
 
-  List<Widget> _builderMonthCalendar() {
+  List<Widget> _builderYearCalendar() {
     final List<Widget> monthWidgets = [];
     _monthList.forEach((month) {
       monthWidgets.add(
         Center(
-          child: SelectedDate(
+          child: SelectedDateButton(
             '$month月',
             selected: month == _selectedMonth,
             enable: month <= _initialDay.month,
@@ -341,7 +341,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
     _weeksDays.forEach((day) {
       dayWidgets.add(
         Center(
-          child: SelectedDate(
+          child: SelectedDateButton(
             day.day.toString().padLeft(2, '0'),
             selected: day.day == _selectedWeekDay,
             unSelectedTextColor: _unSelectedTextColor,

@@ -33,7 +33,7 @@ dependencies:
   # 启动URL的插件 https://github.com/flutter/plugins/tree/master/packages/url_launcher
   url_launcher: 5.7.8
   # 图片选择插件 https://github.com/flutter/plugins/tree/master/packages/image_picker
-  image_picker: 0.6.7+11
+  image_picker: 0.6.7+21
   # 侧滑删除 https://github.com/letsar/flutter_slidable
   flutter_slidable: ^0.5.7
   # WebView插件 https://github.com/flutter/plugins/tree/master/packages/webview_flutter
@@ -53,7 +53,7 @@ dependencies:
   # 格式化String https://github.com/Naddiseo/dart-sprintf
   sprintf: ^5.0.0
   # 状态管理 https://github.com/rrousselGit/provider
-  provider: ^4.3.2+3
+  provider: ^4.3.3
   # 扫码 https://github.com/apptreesoftware/flutter_barcode_reader
   barcode_scan: 3.0.1
   # App Shortcuts https://github.com/flutter/plugins/tree/master/packages/quick_actions

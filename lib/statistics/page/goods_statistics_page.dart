@@ -208,7 +208,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
 
   Widget _buildSelectedText(String text, int index) {
     final Color unSelectedTextColor = context.isDark ? Colors.white : Colours.dark_text_gray;
-    return SelectedDate(
+    return SelectedDateButton(
       text,
       fontSize: Dimens.font_sp15,
       selected: _type && _selectedIndex == index,
