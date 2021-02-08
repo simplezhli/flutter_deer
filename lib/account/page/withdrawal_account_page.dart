@@ -117,7 +117,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                   ),
                 ),
                 Gaps.line,
-                Container(
+                SizedBox(
                   height: 54.0,
                   width: double.infinity,
                   child: FlatButton(
@@ -130,7 +130,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                   ),
                 ),
                 Gaps.line,
-                Container(
+                SizedBox(
                   height: 54.0,
                   width: double.infinity,
                   child: FlatButton(

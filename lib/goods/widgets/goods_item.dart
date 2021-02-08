@@ -67,7 +67,7 @@ class GoodsItem extends StatelessWidget {
                     // 修改透明度实现隐藏，类似于invisible
                     opacity: item.type % 2 != 0 ? 0.0 : 1.0,
                     child: _GoodsItemTag(
-                      text: '社区币抵扣',
+                      text: '金币抵扣',
                       color: Theme.of(context).primaryColor,
                     ),
                   )

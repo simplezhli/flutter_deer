@@ -23,11 +23,9 @@ class MyButton extends StatelessWidget {
       color: isDark ? Colours.dark_app_main : Colours.app_main,
       disabledTextColor: isDark ? Colours.dark_text_disabled : Colours.text_disabled,
       disabledColor: isDark ? Colours.dark_button_disabled : Colours.button_disabled,
+      height: 48,
       //shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-      child: Container(
-        height: 48,
-        width: double.infinity,
-        alignment: Alignment.center,
+      child: Center(
         child: Text(text, style: const TextStyle(fontSize: Dimens.font_sp18),),
       ),
     );

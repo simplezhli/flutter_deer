@@ -5,7 +5,7 @@ import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/statistics/widgets/selected_date.dart';
-import 'package:flutter_deer/util/date_utils.dart';
+import 'package:flutter_deer/util/date_utils.dart' as date_utils;
 import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/my_app_bar.dart';
@@ -51,8 +51,8 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
     _selectedWeekDay = _initialDay.day;
     _selectedDay = _initialDay;
     _selectedMonth = _initialDay.month;
-    _weeksDays = date.Utils.daysInRange(date.Utils.previousWeek(_initialDay), DateUtils.nextDay(_initialDay)).toList().sublist(1, 8);
-    _currentMonthsDays = DateUtils.daysInMonth(_initialDay);
+    _weeksDays = date.Utils.daysInRange(date.Utils.previousWeek(_initialDay), date_utils.DateUtils.nextDay(_initialDay)).toList().sublist(1, 8);
+    _currentMonthsDays = date_utils.DateUtils.daysInMonth(_initialDay);
     _monthList.clear();
     for (int i = 1; i < 13; i ++) {
       _monthList.add(i);
@@ -84,7 +84,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
                   Gaps.hGap12,
                   Gaps.vLine,
                   Gaps.hGap12,
-                  _buildButton('${DateUtils.previousWeek(_initialDay)} -${DateUtils.apiDayFormat(_initialDay)}', const Key('day'), 2),
+                  _buildButton('${date_utils.DateUtils.previousWeek(_initialDay)} -${date_utils.DateUtils.apiDayFormat(_initialDay)}', const Key('day'), 2),
                 ],
               ),
               Gaps.vGap16,
@@ -288,7 +288,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
     if (_isExpanded) {
       list = _currentMonthsDays;
     } else {
-      list = DateUtils.daysInWeek(_selectedDay);
+      list = date_utils.DateUtils.daysInWeek(_selectedDay);
     }
     dayWidgets.addAll(_buildWeeks());
     list.forEach((day) {
@@ -296,9 +296,9 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
         Center(
           child: SelectedDateButton(
             day.day.toString().padLeft(2, '0'), // 不足2位左边补0
-            selected: day.day == _selectedDay.day && !DateUtils.isExtraDay(day, _initialDay),
+            selected: day.day == _selectedDay.day && !date_utils.DateUtils.isExtraDay(day, _initialDay),
             // 不是本月的日期与超过当前日期的不可点击
-            enable: day.day <= _initialDay.day && !DateUtils.isExtraDay(day, _initialDay),
+            enable: day.day <= _initialDay.day && !date_utils.DateUtils.isExtraDay(day, _initialDay),
             unSelectedTextColor: _unSelectedTextColor,
             /// 日历中的具体日期添加完整语义
             semanticsLabel: DateUtil.formatDate(day, format: DateFormats.zh_y_mo_d),

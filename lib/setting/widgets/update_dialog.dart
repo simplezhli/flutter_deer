@@ -94,7 +94,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        Container(
+        SizedBox(
           width: 110.0,
           height: 36.0,
           child: FlatButton(
@@ -118,7 +118,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
             ),
           ),
         ),
-        Container(
+        SizedBox(
           width: 110.0,
           height: 36.0,
           child: FlatButton(

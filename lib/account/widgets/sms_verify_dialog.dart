@@ -160,7 +160,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
         ),
         Gaps.vGap16,
         Gaps.line,
-        Container(
+        SizedBox(
           width: double.infinity,
           height: 48.0,
           child: FlatButton(

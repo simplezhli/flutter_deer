@@ -105,16 +105,14 @@ class _DialogButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: SizedBox(
-        height: 48.0,
-        child: FlatButton(
-          child: Text(
-            text,
-            style: const TextStyle(fontSize: Dimens.font_sp18),
-          ),
-          textColor: textColor,
-          onPressed: onPressed,
+      child: FlatButton(
+        child: Text(
+          text,
+          style: const TextStyle(fontSize: Dimens.font_sp18),
         ),
+        textColor: textColor,
+        onPressed: onPressed,
+        height: 48.0,
       ),
     );
   }

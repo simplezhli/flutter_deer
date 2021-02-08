@@ -147,15 +147,13 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
               padding: const EdgeInsets.only(top: 24.0),
               child: TextButtonTheme(
                 data: TextButtonThemeData(
-                  style: ButtonStyle(
+                  style: TextButton.styleFrom(
                     // 文字颜色
-                    foregroundColor: MaterialStateProperty.all<Color>(Theme.of(context).primaryColor),
-                    // 按下高亮颜色
-                    shadowColor: MaterialStateProperty.all<Color>(Theme.of(context).primaryColor.withOpacity(0.2)),
+                    primary: Theme.of(context).primaryColor,
                     // 按钮大小
-                    minimumSize: MaterialStateProperty.all<Size>(const Size(double.infinity, double.infinity)),
+                    minimumSize: const Size(double.infinity, double.infinity),
                     // 修改默认圆角
-                    shape: MaterialStateProperty.all<OutlinedBorder>(buttonShape),
+                    shape: buttonShape,
                   )
                 ),
                 child: Column(
