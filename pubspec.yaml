@@ -23,11 +23,11 @@ dependencies:
   # https://github.com/ReactiveX/rxdart
   rxdart: ^0.24.1
   # Dart 常用工具类库 https://github.com/Sky24n/common_utils
-  common_utils: 1.2.1
+  common_utils: 1.2.4
   # Flutter 常用工具类库 https://github.com/Sky24n/flustars
   flustars: ^0.3.3
   # Flutter shared_preferences plugin util https://github.com/Sky24n/sp_util
-  sp_util: ^1.0.1
+  sp_util: ^1.0.2
   # Flutter 轮播图 https://github.com/best-flutter/flutter_swiper
   flutter_swiper: ^1.1.6
   # 启动URL的插件 https://github.com/flutter/plugins/tree/master/packages/url_launcher
@@ -43,7 +43,7 @@ dependencies:
   # 列表悬浮头 https://github.com/fluttercommunity/flutter_sticky_headers
   sticky_headers: ^0.1.8+1
   # 城市选择列表 https://github.com/flutterchina/azlistview
-  azlistview: ^1.1.0
+  azlistview: ^1.1.1
   # 手势识别 https://github.com/aleksanderwozniak/simple_gesture_detector
   # simple_gesture_detector: ^0.1.4
   # 路由框架 https://github.com/theyakka/fluro
@@ -71,7 +71,7 @@ dev_dependencies:
   # 集成测试
   flutter_driver:
     sdk: flutter
-  integration_test: ^1.0.1
+  integration_test: ^1.0.2+2
   # 黄金测试
 #  flutter_goldens:
 #    sdk: flutter
