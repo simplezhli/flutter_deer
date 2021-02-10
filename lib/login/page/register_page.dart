@@ -43,8 +43,8 @@ class _RegisterPageState extends State<RegisterPage> with ChangeNotifierMixin<Re
   
   void _verify() {
     final String name = _nameController.text;
-    final String  vCode = _vCodeController.text;
-    final String  password = _passwordController.text;
+    final String vCode = _vCodeController.text;
+    final String password = _passwordController.text;
     bool clickable = true;
     if (name.isEmpty || name.length < 11) {
       clickable = false;

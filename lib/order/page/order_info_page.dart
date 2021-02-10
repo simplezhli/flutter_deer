@@ -7,6 +7,7 @@ import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/util/other_utils.dart';
 import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
+import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/my_scroll_view.dart';
 
 import '../order_router.dart';
@@ -23,7 +24,6 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
   @override
   Widget build(BuildContext context) {
     final Color red = Theme.of(context).errorColor;
-    final Color blue = Theme.of(context).primaryColor;
     final bool isDark = context.isDark;
 
     final Widget bottomMenu = Container(
@@ -40,26 +40,20 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
           children: <Widget>[
             Expanded(
               flex: 1,
-              child: FlatButton(
-                color: isDark ? Colours.dark_material_bg : const Color(0xFFE1EAFA),
+              child: MyButton(
+                backgroundColor: isDark ? Colours.dark_material_bg : const Color(0xFFE1EAFA),
                 textColor: isDark ? Colours.dark_text : Colours.app_main,
-                child: const Text(
-                  '拒单',
-                  style: TextStyle(fontSize: Dimens.font_sp18),
-                ),
+                text: '拒单',
+                height: 45,
                 onPressed: () {},
               ),
             ),
             Gaps.hGap16,
             Expanded(
               flex: 1,
-              child: FlatButton(
-                color: blue,
-                textColor: isDark ? Colours.dark_button_text : Colors.white,
-                child: const Text(
-                  '接单',
-                  style: TextStyle(fontSize: Dimens.font_sp18),
-                ),
+              child: MyButton(
+                text: '接单',
+                height: 45,
                 onPressed: () {},
               ),
             )
@@ -295,17 +289,20 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
           title: const Text('提示'),
           content: Text('是否拨打：$phone ?'),
           actions: <Widget>[
-            FlatButton(
+            TextButton(
               onPressed: () => NavigatorUtils.goBack(context),
               child: const Text('取消'),
             ),
-            FlatButton(
+            TextButton(
               onPressed: () {
                 Utils.launchTelURL(phone);
                 NavigatorUtils.goBack(context);
               },
-              textColor: Theme.of(context).errorColor,
-              child: const Text('拨打'),
+              style: ButtonStyle(
+                // 按下高亮颜色
+                overlayColor: MaterialStateProperty.all<Color>(Theme.of(context).errorColor.withOpacity(0.2)),
+              ),
+              child: Text('拨打', style: TextStyle(color: Theme.of(context).errorColor),),
             ),
           ],
         );

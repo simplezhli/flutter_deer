@@ -50,7 +50,7 @@ class _LoginPageState extends State<LoginPage> with ChangeNotifierMixin<LoginPag
 
   void _verify() {
     final String name = _nameController.text;
-    final String  password = _passwordController.text;
+    final String password = _passwordController.text;
     bool clickable = true;
     if (name.isEmpty || name.length < 11) {
       clickable = false;
@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> with ChangeNotifierMixin<LoginPag
       clickable = false;
     }
 
-    /// 状态不一样在刷新，避免重复不必要的setState
+    /// 状态不一样再刷新，避免不必要的setState
     if (clickable != _clickable) {
       setState(() {
         _clickable = clickable;

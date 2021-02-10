@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
+import 'package:flutter_deer/widgets/my_button.dart';
 
 /// 自定义AppBar
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -61,10 +62,13 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
             minWidth: 60.0,
           ),
         ),
-        child: FlatButton(
-          child: Text(actionName, key: const Key('actionName')),
+        child: MyButton(
+          key: const Key('actionName'),
+          fontSize: 14.0,
+          width: null,
+          text: actionName,
           textColor: context.isDark ? Colours.dark_text : Colours.text,
-          highlightColor: Colors.transparent,
+          backgroundColor: Colors.transparent,
           onPressed: onPressed,
         ),
       ),

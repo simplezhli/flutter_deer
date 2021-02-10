@@ -5,6 +5,7 @@ import 'package:flutter_deer/account/widgets/withdrawal_account_item.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/widgets/my_app_bar.dart';
+import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
 
 import '../account_router.dart';
@@ -117,29 +118,25 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                   ),
                 ),
                 Gaps.line,
-                SizedBox(
+                MyButton(
                   height: 54.0,
-                  width: double.infinity,
-                  child: FlatButton(
-                    textColor: Theme.of(context).errorColor,
-                    child: const Text('确认解绑', style: TextStyle(fontSize: Dimens.font_sp18)),
-                    onPressed: () {
-                      _removeItem(index);
-                      NavigatorUtils.goBack(context);
-                    },
-                  ),
+                  textColor: Theme.of(context).errorColor,
+                  text: '确认解绑',
+                  backgroundColor: Colors.transparent,
+                  onPressed: () {
+                    _removeItem(index);
+                    NavigatorUtils.goBack(context);
+                  },
                 ),
                 Gaps.line,
-                SizedBox(
+                MyButton(
                   height: 54.0,
-                  width: double.infinity,
-                  child: FlatButton(
-                    textColor: Colours.text_gray,
-                    child: const Text('取消', style: TextStyle(fontSize: Dimens.font_sp18)),
-                    onPressed: () {
-                      NavigatorUtils.goBack(context);
-                    },
-                  ),
+                  textColor: Colours.text_gray,
+                  text: '取消',
+                  backgroundColor: Colors.transparent,
+                  onPressed: () {
+                    NavigatorUtils.goBack(context);
+                  },
                 ),
               ],
             ),

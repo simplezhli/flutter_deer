@@ -4,6 +4,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
+import 'package:flutter_deer/widgets/my_button.dart';
 
 import 'load_image.dart';
 
@@ -115,27 +116,17 @@ class _SearchBarState extends State<SearchBar> {
       ),
     );
     
-    final Widget search = Theme(
-      data: Theme.of(context).copyWith(
-        buttonTheme: ButtonThemeData(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          height: 32.0,
-          minWidth: 44.0,
-          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap, // 距顶部距离为0
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(4.0),
-          ),
-        ),
-      ),
-      child: FlatButton(
-        textColor: isDark ?  Colours.dark_button_text : Colors.white,
-        color: isDark ?  Colours.dark_app_main : Colours.app_main,
-        onPressed:() {
-          _focus.unfocus();
-          widget.onPressed(_controller.text);
-        },
-        child: const Text('搜索', style: TextStyle(fontSize: Dimens.font_sp14)),
-      ),
+    final Widget search = MyButton(
+      height: 32.0,
+      width: 44.0,
+      fontSize: 14.0,
+      radius: 4.0,
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      text: '搜索',
+      onPressed:() {
+        _focus.unfocus();
+        widget.onPressed(_controller.text);
+      },
     );
     
     return AnnotatedRegion<SystemUiOverlayStyle>(
