@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_deer/localization/app_localizations.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
+import 'package:flutter_deer/widgets/my_button.dart';
 
 
 /// 登录模块的输入框封装
@@ -127,67 +128,66 @@ class _MyTextFieldState extends State<MyTextField> {
       ),
     );
     
-    final Widget clear = Semantics(
-      label: '清空',
-      hint: '清空输入框',
-      child: GestureDetector(
-        child: LoadAssetImage('login/qyg_shop_icon_delete',
-          key: Key('${widget.keyName}_delete'),
-          width: 18.0,
-          height: 40.0,
-        ),
-        onTap: () => widget.controller.text = '',
-      ),
-    );
+    Widget clearButton;
 
-    final Widget pwdVisible = Semantics(
-      label: '密码可见开关',
-      hint: '密码是否可见',
-      child: GestureDetector(
-        child: LoadAssetImage(
-          _isShowPwd ? 'login/qyg_shop_icon_display' : 'login/qyg_shop_icon_hide',
-          key: Key('${widget.keyName}_showPwd'),
-          width: 18.0,
-          height: 40.0,
+    if (!_isShowDelete) {
+      clearButton = Semantics(
+        label: '清空',
+        hint: '清空输入框',
+        child: GestureDetector(
+          child: LoadAssetImage('login/qyg_shop_icon_delete',
+            key: Key('${widget.keyName}_delete'),
+            width: 18.0,
+            height: 40.0,
+          ),
+          onTap: () => widget.controller.text = '',
         ),
-        onTap: () {
-          setState(() {
-            _isShowPwd = !_isShowPwd;
-          });
-        },
-      ),
-    );
+      );
+    }
 
-    final Widget getVCodeButton = Theme(
-      data: Theme.of(context).copyWith(
-        buttonTheme: const ButtonThemeData(
-          padding: EdgeInsets.symmetric(horizontal: 8.0),
-          height: 26.0,
-          minWidth: 76.0,
-          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+    Widget pwdVisible;
+    if (widget.isInputPwd) {
+      pwdVisible = Semantics(
+        label: '密码可见开关',
+        hint: '密码是否可见',
+        child: GestureDetector(
+          child: LoadAssetImage(
+            _isShowPwd ? 'login/qyg_shop_icon_display' : 'login/qyg_shop_icon_hide',
+            key: Key('${widget.keyName}_showPwd'),
+            width: 18.0,
+            height: 40.0,
+          ),
+          onTap: () {
+            setState(() {
+              _isShowPwd = !_isShowPwd;
+            });
+          },
         ),
-      ),
-      child: FlatButton(
+      );
+    }
+
+    Widget getVCodeButton;
+    if (widget.getVCode != null) {
+      getVCodeButton = MyButton(
         key: const Key('getVerificationCode'),
         onPressed: _clickable ? _getVCode : null,
+        fontSize: Dimens.font_sp12,
+        text: _clickable ? AppLocalizations.of(context).getVerificationCode : '（$_currentSecond s）',
         textColor: themeData.primaryColor,
-        color: Colors.transparent,
         disabledTextColor: isDark ? Colours.dark_text : Colors.white,
-        disabledColor: isDark ? Colours.dark_text_gray : Colours.text_gray_c,
-        shape:RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(1.0),
-          side: BorderSide(
-            color: _clickable ? themeData.primaryColor : Colors.transparent,
-            width: 0.8,
-          ),
+        backgroundColor: Colors.transparent,
+        disabledBackgroundColor: isDark ? Colours.dark_text_gray : Colours.text_gray_c,
+        radius: 1.0,
+        minHeight: 26.0,
+        minWidth: 76.0,
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        side: BorderSide(
+          color: _clickable ? themeData.primaryColor : Colors.transparent,
+          width: 0.8,
         ),
-        child: Text(
-          _clickable ? AppLocalizations.of(context).getVerificationCode : '（$_currentSecond s）',
-          style: const TextStyle(fontSize: Dimens.font_sp12),
-        ),
-      ),
-    );
-    
+      );
+    }
+
     return Stack(
       alignment: Alignment.centerRight,
       children: <Widget>[
@@ -195,7 +195,7 @@ class _MyTextFieldState extends State<MyTextField> {
         Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            if (_isShowDelete) Gaps.empty else clear,
+            if (_isShowDelete) Gaps.empty else clearButton,
             if (!widget.isInputPwd) Gaps.empty else Gaps.hGap15,
             if (!widget.isInputPwd) Gaps.empty else pwdVisible,
             if (widget.getVCode == null) Gaps.empty else Gaps.hGap15,

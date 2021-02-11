@@ -119,7 +119,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                 ),
                 Gaps.line,
                 MyButton(
-                  height: 54.0,
+                  minHeight: 54.0,
                   textColor: Theme.of(context).errorColor,
                   text: '确认解绑',
                   backgroundColor: Colors.transparent,
@@ -130,7 +130,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                 ),
                 Gaps.line,
                 MyButton(
-                  height: 54.0,
+                  minHeight: 54.0,
                   textColor: Colours.text_gray,
                   text: '取消',
                   backgroundColor: Colors.transparent,

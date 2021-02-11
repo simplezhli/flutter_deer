@@ -6,6 +6,7 @@ import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/util/other_utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
+import 'package:flutter_deer/widgets/my_button.dart';
 
 import 'menu_reveal.dart';
 
@@ -149,55 +150,53 @@ class GoodsItem extends StatelessWidget {
   Widget _buildGoodsMenuContent(BuildContext context) {
     final bool isDark = context.isDark;
     final Color buttonColor = isDark ? Colours.dark_text : Colors.white;
+
     return InkWell(
       onTap: onTapMenuClose,
       child: Container(
         color: isDark ? const Color(0xB34D4D4D) : const Color(0x4D000000),
-        child: Theme( // 修改button默认的最小宽度与padding
-          data: Theme.of(context).copyWith(
-            buttonTheme: ButtonThemeData(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Gaps.hGap15,
+            MyButton(
+              key: Key('goods_edit_item_$index'),
+              text: '编辑',
+              fontSize: Dimens.font_sp16,
+              radius: 24.0,
               minWidth: 56.0,
-              height: 56.0,
-              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap, // 距顶部距离为0
-              shape:RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(24.0),
-              ),
+              minHeight: 56.0,
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              textColor: isDark ? Colours.dark_button_text : Colors.white,
+              backgroundColor: isDark ? Colours.dark_app_main : Colours.app_main,
+              onPressed: onTapEdit,
             ),
-            textTheme: const TextTheme(
-              button: TextStyle(
-                fontSize: Dimens.font_sp16,
-              ),
+            MyButton(
+              key: Key('goods_operation_item_$index'),
+              text: '下架',
+              fontSize: Dimens.font_sp16,
+              radius: 24.0,
+              minWidth: 56.0,
+              minHeight: 56.0,
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              textColor: Colours.text,
+              backgroundColor: buttonColor,
+              onPressed: onTapOperation,
             ),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Gaps.hGap15,
-              FlatButton(
-                key: Key('goods_edit_item_$index'),
-                textColor: isDark ?  Colours.dark_button_text : Colors.white,
-                color: isDark ?  Colours.dark_app_main : Colours.app_main,
-                child: const Text('编辑'),
-                onPressed: onTapEdit,
-              ),
-              FlatButton(
-                key: Key('goods_operation_item_$index'),
-                textColor: Colours.text,
-                color: buttonColor,
-                child: const Text('下架'),
-                onPressed: onTapOperation,
-              ),
-              FlatButton(
-                key: Key('goods_delete_item_$index'),
-                textColor: Colours.text,
-                color: buttonColor,
-                child: const Text('删除'),
-                onPressed: onTapDelete,
-              ),
-              Gaps.hGap15,
-            ],
-          ),
+            MyButton(
+              key: Key('goods_delete_item_$index'),
+              text: '删除',
+              fontSize: Dimens.font_sp16,
+              radius: 24.0,
+              minWidth: 56.0,
+              minHeight: 56.0,
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              textColor: Colours.text,
+              backgroundColor: buttonColor,
+              onPressed: onTapDelete,
+            ),
+            Gaps.hGap15,
+          ],
         ),
       ),
     );

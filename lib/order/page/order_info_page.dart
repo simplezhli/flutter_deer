@@ -44,7 +44,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                 backgroundColor: isDark ? Colours.dark_material_bg : const Color(0xFFE1EAFA),
                 textColor: isDark ? Colours.dark_text : Colours.app_main,
                 text: '拒单',
-                height: 45,
+                minHeight: 45,
                 onPressed: () {},
               ),
             ),
@@ -53,7 +53,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
               flex: 1,
               child: MyButton(
                 text: '接单',
-                height: 45,
+                minHeight: 45,
                 onPressed: () {},
               ),
             )

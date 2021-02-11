@@ -5,9 +5,11 @@ version: 1.1.4+15
 author: 唯鹿 <a05111993@163.com>
 homepage: https://weilu.blog.csdn.net/
 
+publish_to: 'none'
 
 environment:
   sdk: ">=2.10.0 <3.0.0"
+  flutter: ">=1.22.2 <2.0.0"
 
 dependencies:
   flutter:

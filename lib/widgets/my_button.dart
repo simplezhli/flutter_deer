@@ -14,10 +14,11 @@ class MyButton extends StatelessWidget {
     this.disabledTextColor,
     this.backgroundColor,
     this.disabledBackgroundColor,
-    this.height = 48.0,
-    this.width = double.infinity,
+    this.minHeight = 48.0,
+    this.minWidth = double.infinity,
     this.padding = const EdgeInsets.symmetric(horizontal: 16.0),
     this.radius = 2.0,
+    this.side = BorderSide.none,
     @required this.onPressed,
   }): super(key: key);
 
@@ -27,11 +28,12 @@ class MyButton extends StatelessWidget {
   final Color disabledTextColor;
   final Color backgroundColor;
   final Color disabledBackgroundColor;
-  final double height;
-  final double width;
+  final double minHeight;
+  final double minWidth;
   final VoidCallback onPressed;
   final EdgeInsetsGeometry padding;
   final double radius;
+  final BorderSide side;
 
   @override
   Widget build(BuildContext context) {
@@ -59,14 +61,15 @@ class MyButton extends StatelessWidget {
         overlayColor: MaterialStateProperty.resolveWith((states) {
           return (textColor ?? (isDark ? Colours.dark_button_text : Colors.white)).withOpacity(0.12);
         }),
-        // 按钮大小
-        minimumSize: (width == null || height == null) ? null : MaterialStateProperty.all<Size>(Size(width, height)),
+        // 按钮最小大小
+        minimumSize: (minWidth == null || minHeight == null) ? null : MaterialStateProperty.all<Size>(Size(minWidth, minHeight)),
         padding: MaterialStateProperty.all<EdgeInsetsGeometry>(padding),
         shape: MaterialStateProperty.all<OutlinedBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(radius),
           ),
-        )
+        ),
+        side: MaterialStateProperty.all<BorderSide>(side),
       )
     );
   }

@@ -64,8 +64,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         child: MyButton(
           key: const Key('actionName'),
-          fontSize: 14.0,
-          width: null,
+          fontSize: Dimens.font_sp14,
+          minWidth: null,
           text: actionName,
           textColor: context.isDark ? Colours.dark_text : Colours.text,
           backgroundColor: Colors.transparent,

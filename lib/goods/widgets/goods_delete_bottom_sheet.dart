@@ -32,7 +32,7 @@ class GoodsDeleteBottomSheet extends StatelessWidget {
             ),
             Gaps.line,
             MyButton(
-              height: 54.0,
+              minHeight: 54.0,
               textColor: Theme.of(context).errorColor,
               text: '确认删除',
               backgroundColor: Colors.transparent,
@@ -43,7 +43,7 @@ class GoodsDeleteBottomSheet extends StatelessWidget {
             ),
             Gaps.line,
             MyButton(
-              height: 54.0,
+              minHeight: 54.0,
               textColor: Colours.text_gray,
               text: '取消',
               backgroundColor: Colors.transparent,

@@ -11,6 +11,7 @@ import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/util/version_utils.dart';
+import 'package:flutter_deer/widgets/my_button.dart';
 
 
 class UpdateDialog extends StatefulWidget {
@@ -97,31 +98,29 @@ class _UpdateDialogState extends State<UpdateDialog> {
         SizedBox(
           width: 110.0,
           height: 36.0,
-          child: FlatButton(
+          child: MyButton(
+            text: '残忍拒绝',
+            fontSize: Dimens.font_sp16,
+            textColor: primaryColor,
+            disabledTextColor: Colors.white,
+            disabledBackgroundColor: Colours.text_gray_c,
+            radius: 18.0,
+            side: BorderSide(
+              color: primaryColor,
+              width: 0.8,
+            ),
+            backgroundColor: Colors.transparent,
             onPressed: () {
               NavigatorUtils.goBack(context);
             },
-            textColor: primaryColor,
-            color: Colors.transparent,
-            disabledTextColor: Colors.white,
-            disabledColor: Colours.text_gray_c,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(18.0),
-              side: BorderSide(
-                color: primaryColor,
-                width: 0.8,
-              ),
-            ),
-            child: const Text(
-              '残忍拒绝',
-              style: TextStyle(fontSize: Dimens.font_sp16),
-            ),
           ),
         ),
         SizedBox(
           width: 110.0,
           height: 36.0,
-          child: FlatButton(
+          child: MyButton(
+            text: '立即更新',
+            fontSize: Dimens.font_sp16,
             onPressed: () {
               if (defaultTargetPlatform == TargetPlatform.iOS) {
                 NavigatorUtils.goBack(context);
@@ -134,16 +133,10 @@ class _UpdateDialogState extends State<UpdateDialog> {
               }
             },
             textColor: Colors.white,
-            color: primaryColor,
+            backgroundColor: primaryColor,
             disabledTextColor: Colors.white,
-            disabledColor: Colours.text_gray_c,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(18.0),
-            ),
-            child: const Text(
-              '立即更新',
-              style: TextStyle(fontSize: Dimens.font_sp16),
-            ),
+            disabledBackgroundColor: Colours.text_gray_c,
+            radius: 18.0,
           ),
         )
       ],
