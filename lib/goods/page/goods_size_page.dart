@@ -261,7 +261,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
           NavigatorUtils.push(context, GoodsRouter.goodsSizeEditPage);
         }
       },
-      child: Container(
+      child: Padding(
         padding: const EdgeInsets.only(left: 16.0, top: 16.0),
         child: DecoratedBox(
           decoration: BoxDecoration(

@@ -113,7 +113,7 @@ class GoodsItem extends StatelessWidget {
     return Stack(
       children: <Widget>[
         // item间的分隔线
-        Container(
+        Padding(
           padding: const EdgeInsets.only(left: 16.0, top: 16.0),
           child: DecoratedBox(
             decoration: BoxDecoration(
