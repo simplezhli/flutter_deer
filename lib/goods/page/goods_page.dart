@@ -222,34 +222,40 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
           SizedBox(
             width: 120.0,
             height: 40.0,
-            child: FlatButton.icon(
-              textColor: Theme.of(context).textTheme.bodyText2.color,
+            child: TextButton.icon(
               onPressed: () {
                 NavigatorUtils.push(context, '${GoodsRouter.goodsEditPage}?isAdd=true&isScan=true', replace: true);
               },
-              color: backgroundColor,
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(8.0), topRight: Radius.circular(8.0)),
-              ),
               icon: LoadAssetImage('goods/scanning', width: 16.0, height: 16.0, color: _iconColor,),
-              label: const Text('扫码添加')
+              label: const Text('扫码添加'),
+              style: TextButton.styleFrom(
+                primary: Theme.of(context).textTheme.bodyText2.color,
+                onSurface: Theme.of(context).textTheme.bodyText2.color.withOpacity(0.12),
+                backgroundColor: backgroundColor,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(8.0), topRight: Radius.circular(8.0)),
+                ),
+              ),
             ),
           ),
           Container(width: 120.0, height: 0.6, color: Colours.line),
           SizedBox(
             width: 120.0,
             height: 40.0,
-            child: FlatButton.icon(
-              textColor: Theme.of(context).textTheme.bodyText2.color,
-              color: backgroundColor,
+            child: TextButton.icon(
               onPressed: () {
                 NavigatorUtils.push(context, '${GoodsRouter.goodsEditPage}?isAdd=true', replace: true);
               },
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8.0), bottomRight: Radius.circular(8.0)),
-              ),
               icon: LoadAssetImage('goods/add2', width: 16.0, height: 16.0, color: _iconColor,),
-              label: const Text('添加商品')
+              label: const Text('添加商品'),
+              style: TextButton.styleFrom(
+                primary: Theme.of(context).textTheme.bodyText2.color,
+                onSurface: Theme.of(context).textTheme.bodyText2.color.withOpacity(0.12),
+                backgroundColor: backgroundColor,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8.0), bottomRight: Radius.circular(8.0)),
+                ),
+              ),
             ),
           ),
         ],
