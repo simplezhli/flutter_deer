@@ -80,7 +80,7 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
           padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
           child: MyButton(
             onPressed: () {
-              debugPrint('文件路径：${_imageGlobalKey.currentState.imageFile?.path}');
+              debugPrint('文件路径：${_imageGlobalKey.currentState.pickedFile?.path}');
               NavigatorUtils.push(context, StoreRouter.auditResultPage);
             },
             text: '提交',

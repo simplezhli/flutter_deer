@@ -42,7 +42,7 @@ Future<T> showPopupWindow<T>({
         child: child,
         elevation: elevation,
         semanticLabel: label,
-        theme: Theme.of(context, shadowThemeOnly: true),
+        theme: Theme.of(context),
         barrierLabel:
         MaterialLocalizations.of(context).modalBarrierDismissLabel,
         fullWidth: fullWidth,

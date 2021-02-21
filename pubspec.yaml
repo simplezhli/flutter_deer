@@ -23,7 +23,7 @@ dependencies:
   # 网络库 https://github.com/flutterchina/dio
   dio: ^3.0.10
   # https://github.com/ReactiveX/rxdart
-  rxdart: ^0.24.1
+  rxdart: ^0.25.0
   # Dart 常用工具类库 https://github.com/Sky24n/common_utils
   common_utils: 1.2.4
   # Flutter 常用工具类库 https://github.com/Sky24n/flustars
@@ -36,6 +36,7 @@ dependencies:
   url_launcher: 5.7.8
   # 图片选择插件 https://github.com/flutter/plugins/tree/master/packages/image_picker
   image_picker: 0.6.7+21
+  image_picker_for_web: 0.1.0
   # 侧滑删除 https://github.com/letsar/flutter_slidable
   flutter_slidable: ^0.5.7
   # WebView插件 https://github.com/flutter/plugins/tree/master/packages/webview_flutter
@@ -63,7 +64,7 @@ dependencies:
   # 高德2D地图插件 https://github.com/simplezhli/flutter_2d_amap
   flutter_2d_amap:
     git:
-      ref: 323fcf8
+      ref: 48f8e9
       url: https://github.com/simplezhli/flutter_2d_amap.git
       
 dev_dependencies:

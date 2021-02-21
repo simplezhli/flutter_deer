@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
@@ -23,17 +24,27 @@ class SelectedImage extends StatefulWidget {
 
 class SelectedImageState extends State<SelectedImage> {
 
-  File imageFile;
-  final ImagePicker picker = ImagePicker();
+  final ImagePicker _picker = ImagePicker();
+  ImageProvider _imageProvider;
+  PickedFile pickedFile;
 
   Future<void> _getImage() async {
     try {
-      final PickedFile pickedFile = await picker.getImage(source: ImageSource.gallery, maxWidth: 800);
+      pickedFile = await _picker.getImage(source: ImageSource.gallery, maxWidth: 800);
       if (pickedFile != null) {
-        setState(() {
-          imageFile = File(pickedFile.path);
-        });
+
+        if (Device.isWeb) {
+          _imageProvider = NetworkImage(pickedFile.path);
+        } else {
+          _imageProvider = FileImage(File(pickedFile.path));
+        }
+
+      } else {
+        _imageProvider = null;
       }
+      setState(() {
+
+      });
     } catch (e) {
       Toast.show('没有权限，无法打开相册！');
     }
@@ -54,9 +65,9 @@ class SelectedImageState extends State<SelectedImage> {
             // 图片圆角展示
             borderRadius: BorderRadius.circular(16.0),
             image: DecorationImage(
-              image: imageFile == null ? ImageUtils.getAssetImage('store/icon_zj') : FileImage(imageFile),
+              image: _imageProvider ?? ImageUtils.getAssetImage('store/icon_zj'),
               fit: BoxFit.cover,
-              colorFilter: imageFile == null ? ColorFilter.mode(ThemeUtils.getDarkColor(context, Colours.dark_unselected_item_color), BlendMode.srcIn) : null
+              colorFilter: _imageProvider == null ? ColorFilter.mode(ThemeUtils.getDarkColor(context, Colours.dark_unselected_item_color), BlendMode.srcIn) : null
             ),
           ),
         ),

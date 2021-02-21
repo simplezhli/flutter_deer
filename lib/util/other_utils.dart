@@ -61,9 +61,9 @@ class Utils {
           (node) {
             return GestureDetector(
               onTap: () => node.unfocus(),
-              child: const Padding(
-                padding: EdgeInsets.only(right: 16.0),
-                child: Text('关闭'),
+              child: Padding(
+                padding: const EdgeInsets.only(right: 16.0),
+                child: Text(window.locale.languageCode == 'zh' ? '关闭' : 'Close'),
               ),
             );
           },
@@ -81,19 +81,12 @@ Future<T> showElasticDialog<T>({
   WidgetBuilder builder,
 }) {
 
-  final ThemeData theme = Theme.of(context, shadowThemeOnly: true);
   return showGeneralDialog(
     context: context,
     pageBuilder: (BuildContext buildContext, Animation<double> animation, Animation<double> secondaryAnimation) {
       final Widget pageChild = Builder(builder: builder);
       return SafeArea(
-        child: Builder(
-            builder: (BuildContext context) {
-              return theme != null
-                  ? Theme(data: theme, child: pageChild)
-                  : pageChild;
-            }
-        ),
+        child: pageChild,
       );
     },
     barrierDismissible: barrierDismissible,
