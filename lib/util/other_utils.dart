@@ -5,10 +5,12 @@ import 'package:barcode_scan/barcode_scan.dart';
 import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:keyboard_actions/keyboard_actions_item.dart';
 import 'package:keyboard_actions/keyboard_actions_config.dart';
+import 'package:sp_util/sp_util.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Utils {
@@ -27,7 +29,7 @@ class Utils {
   static Future<String> scan() async {
     try {
 
-      final ScanOptions options = window.locale.languageCode == 'zh' ? const ScanOptions(
+      final ScanOptions options = getCurrLocale() == 'zh' ? const ScanOptions(
         strings: {
           'cancel': '取消',
           'flash_on': '开启闪光灯',
@@ -63,13 +65,21 @@ class Utils {
               onTap: () => node.unfocus(),
               child: Padding(
                 padding: const EdgeInsets.only(right: 16.0),
-                child: Text(window.locale.languageCode == 'zh' ? '关闭' : 'Close'),
+                child: Text(getCurrLocale() == 'zh' ? '关闭' : 'Close'),
               ),
             );
           },
         ],
       )),
     );
+  }
+
+  static String getCurrLocale() {
+    final String locale = SpUtil.getString(Constant.locale);
+    if (locale == '') {
+      return window.locale.languageCode;
+    }
+    return locale;
   }
 
 }

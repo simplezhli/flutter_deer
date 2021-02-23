@@ -51,7 +51,7 @@ The effect of some pages is as follows:
 
 Android package：[Click to download](https://www.pgyer.com/gYXj)，Password: `111111`。
 
-iOS needs to download the code to run.
+iOS and Web needs to download the code to run.
 
 ## Project environment
 
@@ -138,7 +138,7 @@ For details, please refer to the [pubspec.yaml](https://github.com/simplezhli/fl
 
 ## Plan:
 
-* [ ] Web support.
+* [x] Web support.
 
 ## Thanks For
 

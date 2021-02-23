@@ -109,7 +109,7 @@ class _SMSLoginPageState extends State<SMSLoginPage> with ChangeNotifierMixin<SM
               style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp14),
               children: <TextSpan>[
                 TextSpan(text: AppLocalizations.of(context).register, style: TextStyle(color: Theme.of(context).errorColor)),
-                TextSpan(text: window.locale.languageCode == 'zh' ? '。' : '.'),
+                TextSpan(text: Utils.getCurrLocale() == 'zh' ? '。' : '.'),
               ],
             ),
           ),
