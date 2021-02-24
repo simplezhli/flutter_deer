@@ -15,6 +15,15 @@ import 'package:url_launcher/url_launcher.dart';
 
 class Utils {
 
+  /// 打开链接
+  static Future<void> launchWebURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      Toast.show('打开链接失败！');
+    }
+  }
+
   /// 调起拨号页
   static Future<void> launchTelURL(String phone) async {
     final String url = 'tel:'+ phone;

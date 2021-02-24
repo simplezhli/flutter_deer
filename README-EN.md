@@ -140,6 +140,8 @@ For details, please refer to the [pubspec.yaml](https://github.com/simplezhli/fl
 
 * [x] Web support.
 
+* [ ] Migrate to null-safety.
+
 ## Thanks For
 
 - [flutter_wanandroid](https://github.com/Sky24n/flutter_wanandroid)
