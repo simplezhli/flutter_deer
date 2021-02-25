@@ -52,6 +52,11 @@ class SelectedImageState extends State<SelectedImage> {
 
   @override
   Widget build(BuildContext context) {
+    // color为null时，Web报错NoSuchMethodError: invalid member on null: 'red' （1.27.0-8.0.pre），因此这里指定色值。
+    final ColorFilter _colorFilter = ColorFilter.mode(
+        ThemeUtils.isDark(context) ? Colours.dark_unselected_item_color : Colours.text_gray,
+        BlendMode.srcIn
+    );
     return Semantics(
       label: '选择图片',
       hint: '跳转相册选择图片',
@@ -67,7 +72,7 @@ class SelectedImageState extends State<SelectedImage> {
             image: DecorationImage(
               image: _imageProvider ?? ImageUtils.getAssetImage('store/icon_zj'),
               fit: BoxFit.cover,
-              colorFilter: _imageProvider == null ? ColorFilter.mode(ThemeUtils.getDarkColor(context, Colours.dark_unselected_item_color), BlendMode.srcIn) : null
+              colorFilter: _imageProvider == null ? _colorFilter : null
             ),
           ),
         ),

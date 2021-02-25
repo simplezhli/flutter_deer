@@ -1,5 +1,6 @@
 
 import 'package:flutter_deer/demo/demo_page.dart';
+import 'package:flutter_deer/util/device_utils.dart';
 import 'package:sp_util/sp_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/common/common.dart';
@@ -62,7 +63,7 @@ class _SettingPageState extends State<SettingPage> {
             title: '账号管理',
             onTap: () => NavigatorUtils.push(context, SettingRouter.accountManagerPage)
           ),
-          ClickItem(
+          if(Device.isMobile) ClickItem(
             title: '清除缓存',
             content: '23.5MB',
             onTap: () {}
@@ -77,7 +78,7 @@ class _SettingPageState extends State<SettingPage> {
               content: localeMode,
               onTap: () => NavigatorUtils.push(context, SettingRouter.localePage)
           ),
-          ClickItem(
+          if(Device.isMobile) ClickItem(
             title: '检查更新',
             onTap: _showUpdateDialog,
           ),

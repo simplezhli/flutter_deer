@@ -1,5 +1,11 @@
 # Change Log:
 
+## 1.1.5
+
+* Web支持基本完成。
+* 迁移废弃的FlatButton为TextButton。
+* 添加多语言切换。
+
 ## 1.1.4
 
 * 添加navigator示例。
