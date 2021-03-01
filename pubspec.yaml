@@ -61,6 +61,8 @@ dependencies:
   barcode_scan: 3.0.1
   # App Shortcuts https://github.com/flutter/plugins/tree/master/packages/quick_actions
   quick_actions: 0.4.0+10
+  # 刮刮卡 https://github.com/vintage/scratcher
+  scratcher: ^1.4.1
   # 高德2D地图插件 https://github.com/simplezhli/flutter_2d_amap
   flutter_2d_amap:
     git:

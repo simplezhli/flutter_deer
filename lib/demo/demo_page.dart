@@ -3,6 +3,7 @@ import 'package:flutter_deer/demo/focus/focus_demo_page.dart';
 import 'package:flutter_deer/demo/navigator/books_main.dart';
 import 'package:flutter_deer/demo/overlay/overlay_main.dart';
 import 'package:flutter_deer/demo/ripple/home_page.dart';
+import 'package:flutter_deer/demo/scratcher/scratch_card_demo_page.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/app_navigator.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
@@ -39,6 +40,10 @@ class _DemoPageState extends State<DemoPage> {
           ClickItem(
             title: 'Navigator 2.0',
             onTap: () => AppNavigator.push(context, NestedRouterDemo()),
+          ),
+          ClickItem(
+            title: 'ScratchCard',
+            onTap: () => AppNavigator.push(context, ScratchCardDemoPage()),
           ),
         ],
       ),
