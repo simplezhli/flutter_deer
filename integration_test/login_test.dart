@@ -55,7 +55,9 @@ void main() {
       
       // 清除输入框文字
       await tester.pumpAndSettle();
+      expect(find.text('111111'), findsOneWidget);
       await tester.tap(find.byKey(const Key('password_delete')));
+      expect(find.text('111111'), findsNothing);
 
       await tester.pumpAndSettle();
       await tester.tap(find.byTooltip('Back'));

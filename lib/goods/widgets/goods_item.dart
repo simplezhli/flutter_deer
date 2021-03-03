@@ -230,6 +230,7 @@ class _GoodsItemTag extends StatelessWidget {
         style: const TextStyle(
           color: Colors.white,
           fontSize: Dimens.font_sp10,
+          height: 1.1,
         ),
       ),
     );

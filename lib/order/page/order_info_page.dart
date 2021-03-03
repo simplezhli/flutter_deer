@@ -217,7 +217,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                     alignment: Alignment.center,
                     child: const Text(
                       '立减2.50元',
-                      style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp10,),
+                      style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp10, height: 1.1,),
                     ),
                   ),
                   Gaps.hGap4,
@@ -233,7 +233,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                       alignment: Alignment.center,
                       child: const Text(
                         '抵扣2.50元',
-                        style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp10),
+                        style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp10, height: 1.1,),
                       ),
                     ),
                   )

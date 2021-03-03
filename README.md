@@ -61,9 +61,9 @@ iOS、Web需要自行下载代码运行。
 
 [![Build Status](https://github.com/simplezhli/flutter_deer/workflows/flutter_deer%20driver/badge.svg?branch=master)](https://github.com/simplezhli/flutter_deer/actions?query=workflow%3A%22flutter_deer+driver%22+branch%3Amaster)
 
-    1. Flutter version 1.22.6
+    1. Flutter version 2.0.0
      
-    2. Dart version 2.10.5
+    2. Dart version 2.12.0
 
 ## 注意事项
 

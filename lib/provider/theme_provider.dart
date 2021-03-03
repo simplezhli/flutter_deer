@@ -50,8 +50,8 @@ class ThemeProvider extends ChangeNotifier {
       // 主要用于Material背景色
       canvasColor: isDarkMode ? Colours.dark_material_bg : Colors.white,
       // 文字选择色（输入框复制粘贴菜单）
-      textSelectionColor: Colours.app_main.withAlpha(70),
-      textSelectionHandleColor: Colours.app_main,
+      // textSelectionColor: Colours.app_main.withAlpha(70),
+      // textSelectionHandleColor: Colours.app_main,
       // 稳定发行版：1.23 变更(https://flutter.dev/docs/release/breaking-changes/text-selection-theme)
       textSelectionTheme: TextSelectionThemeData(
         selectionColor: Colours.app_main.withAlpha(70),
