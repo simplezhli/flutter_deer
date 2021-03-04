@@ -147,7 +147,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
       ),
       Gaps.vGap12,
       _getOrderInfoItem('订单编号:', '1256324856942'),
-      _getOrderInfoItem('下单时间:', '2018/08/26 12:20'),
+      _getOrderInfoItem('下单时间:', '2021/08/26 12:20'),
       _getOrderInfoItem('支付方式:', '在线支付/支付宝'),
       _getOrderInfoItem('配送方式:', '送货上门'),
       _getOrderInfoItem('客户备注:', '无'),

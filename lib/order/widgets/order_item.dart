@@ -104,7 +104,7 @@ class OrderItem extends StatelessWidget {
               ),
             ),
             const Text(
-              '2018.02.05 10:00',
+              '2021.02.05 10:00',
               style: TextStyles.textSize12,
             ),
           ],

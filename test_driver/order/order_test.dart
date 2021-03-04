@@ -32,10 +32,14 @@ void main() {
       await delayed();
       final SerializableFinder orderList = find.byValueKey('order_list');
       await driver.waitFor(orderList);
-      final SerializableFinder orderItem = find.byValueKey('order_item_7');
+      final SerializableFinder orderItem7 = find.byValueKey('order_item_7');
+      await delayed();
+      final SerializableFinder orderItem = find.byValueKey('order_item_1');
       await delayed();
       // 垂直滑动
-      await driver.scrollUntilVisible(orderList, orderItem, dyScroll: -400);
+      await driver.scrollUntilVisible(orderList, orderItem7, dyScroll: -400);
+      await delayed();
+      await driver.scrollUntilVisible(orderList, orderItem, dyScroll: 400);
       await delayed();
 
     });

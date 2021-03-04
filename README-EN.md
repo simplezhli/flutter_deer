@@ -53,6 +53,8 @@ Android package：[Click to download](https://www.pgyer.com/gYXj)，Password: `1
 
 iOS and Web needs to download the code to run.
 
+Web：https://simplezhli.github.io/flutter_deer/
+
 ## Project environment
 
 [![Build Status](https://github.com/simplezhli/flutter_deer/workflows/flutter_deer%20driver/badge.svg?branch=master)](https://github.com/simplezhli/flutter_deer/actions?query=workflow%3A%22flutter_deer+driver%22+branch%3Amaster)

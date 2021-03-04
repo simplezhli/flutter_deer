@@ -45,7 +45,7 @@ jobs:
       # https://github.com/marketplace/actions/flutter-action
       - uses: subosito/flutter-action@v1
         with:
-          flutter-version: '1.22.6'
+          flutter-version: '2.0.0'
           channel: 'stable' # or: 'dev' or 'beta'
       - name: "Run Flutter Driver tests"
         run: "flutter drive --target=test_driver/driver.dart"
@@ -94,22 +94,22 @@ jobs:
       - name: "Run Flutter Accessibility Tests"
         run: "flutter test test/accessibility_test.dart"
 
-  web_build_and_deploy:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v2.3.1
-      - uses: subosito/flutter-action@v1
-        with:
-          flutter-version: '2.0.0'
-          channel: 'stable'
-      - name: "Web Build 🔧"
-        run: |
-          flutter pub get
-          flutter build web
-      - name: "Web Deploy 🚀"
-          # https://github.com/JamesIves/github-pages-deploy-action
-        uses: JamesIves/github-pages-deploy-action@4.0.0
-        with:
-          token: '${{ secrets.GITHUB_TOKEN }}'
-          branch: gh-pages
-          folder: build/web
+#  web_build_and_deploy:
+#    runs-on: macos-latest
+#    steps:
+#      - uses: actions/checkout@v2.3.1
+#      - uses: subosito/flutter-action@v1
+#        with:
+#          flutter-version: '2.0.0'
+#          channel: 'stable'
+#      - name: "Web Build 🔧"
+#        run: |
+#          flutter pub get
+#          flutter build web
+#      - name: "Web Deploy 🚀"
+#          # https://github.com/JamesIves/github-pages-deploy-action
+#        uses: JamesIves/github-pages-deploy-action@4.0.0
+#        with:
+#          token: '${{ secrets.GITHUB_TOKEN }}'
+#          branch: gh-pages
+#          folder: build/web
