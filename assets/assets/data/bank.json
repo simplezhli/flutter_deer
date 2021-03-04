@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1,
+    "bankName": "民生银行",
+    "firstLetter": "M"
+  },
+  {
+    "id": 2,
+    "bankName": "工商银行",
+    "firstLetter": "G"
+  },
+  {
+    "id": 3,
+    "bankName": "农业银行",
+    "firstLetter": "N"
+  },
+  {
+    "id": 4,
+    "bankName": "中国银行",
+    "firstLetter": "Z"
+  },
+  {
+    "id": 5,
+    "bankName": "建设银行",
+    "firstLetter": "J"
+  },
+  {
+    "id": 6,
+    "bankName": "交通银行",
+    "firstLetter": "J"
+  },
+  {
+    "id": 7,
+    "bankName": "中信银行",
+    "firstLetter": "Z"
+  },
+  {
+    "id": 8,
+    "bankName": "招商银行",
+    "firstLetter": "Z"
+  },
+  {
+    "id": 9,
+    "bankName": "兴业银行",
+    "firstLetter": "X"
+  },
+  {
+    "id": 10,
+    "bankName": "浦发银行",
+    "firstLetter": "P"
+  },
+  {
+    "id": 16,
+    "bankName": "光大银行",
+    "firstLetter": "G"
+  },
+  {
+    "id": 17,
+    "bankName": "华夏银行",
+    "firstLetter": "H"
+  },
+  {
+    "id": 18,
+    "bankName": "广发银行",
+    "firstLetter": "G"
+  },
+  {
+    "id": 19,
+    "bankName": "平安银行",
+    "firstLetter": "P"
+  },
+  {
+    "id": 20,
+    "bankName": "北京银行",
+    "firstLetter": "B"
+  },
+  {
+    "id": 43,
+    "bankName": "上海银行",
+    "firstLetter": "S"
+  },
+  {
+    "id": 44,
+    "bankName": "南京银行",
+    "firstLetter": "N"
+  },
+  {
+    "id": 48,
+    "bankName": "杭州银行",
+    "firstLetter": "H"
+  },
+  {
+    "id": 49,
+    "bankName": "宁波银行",
+    "firstLetter": "N"
+  },
+  {
+    "id": 54,
+    "bankName": "浙江稠州商业银行",
+    "firstLetter": "Z"
+  },
+  {
+    "id": 83,
+    "bankName": "汉口银行",
+    "firstLetter": "H"
+  },
+  {
+    "id": 84,
+    "bankName": "长沙银行",
+    "firstLetter": "C"
+  },
+  {
+    "id": 116,
+    "bankName": "浙商银行",
+    "firstLetter": "Z"
+  },
+  {
+    "id": 118,
+    "bankName": "渤海银行",
+    "firstLetter": "B"
+  },
+  {
+    "id": 127,
+    "bankName": "上海农商银行",
+    "firstLetter": "S"
+  },
+  {
+    "id": 128,
+    "bankName": "北京农商行",
+    "firstLetter": "B"
+  },
+  {
+    "id": 143,
+    "bankName": "中国邮储银行",
+    "firstLetter": "Y"
+  }
+]

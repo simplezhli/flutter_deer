@@ -1,0 +1,797 @@
+[
+  {
+    "name": "阿拉善盟",
+    "cityCode": "0483",
+    "firstCharacter": "A"
+  },
+  {
+    "name": "鞍山市",
+    "cityCode": "0412",
+    "firstCharacter": "A"
+  },
+  {
+    "name": "安庆市",
+    "cityCode": "0556",
+    "firstCharacter": "A"
+  },
+  {
+    "name": "安阳市",
+    "cityCode": "0372",
+    "firstCharacter": "A"
+  },
+  {
+    "name": "阿坝藏族羌族自治州",
+    "cityCode": "0837",
+    "firstCharacter": "A"
+  },
+  {
+    "name": "安顺市",
+    "cityCode": "0853",
+    "firstCharacter": "A"
+  },
+  {
+    "name": "安康市",
+    "cityCode": "0915",
+    "firstCharacter": "A"
+  },
+  {
+    "name": "阿克苏地区",
+    "cityCode": "0997",
+    "firstCharacter": "A"
+  },
+  {
+    "name": "阿勒泰地区",
+    "cityCode": "0906",
+    "firstCharacter": "A"
+  },
+  {
+    "name": "北京市",
+    "cityCode": "010",
+    "firstCharacter": "B"
+  },
+  {
+    "name": "保定市",
+    "cityCode": "0312",
+    "firstCharacter": "B"
+  },
+  {
+    "name": "包头市",
+    "cityCode": "0472",
+    "firstCharacter": "B"
+  },
+  {
+    "name": "巴彦淖尔市",
+    "cityCode": "0478",
+    "firstCharacter": "B"
+  },
+  {
+    "name": "本溪市",
+    "cityCode": "0414",
+    "firstCharacter": "B"
+  },
+  {
+    "name": "白山市",
+    "cityCode": "0439",
+    "firstCharacter": "B"
+  },
+  {
+    "name": "白城市",
+    "cityCode": "0436",
+    "firstCharacter": "B"
+  },
+  {
+    "name": "蚌埠市",
+    "cityCode": "0552",
+    "firstCharacter": "B"
+  },
+  {
+    "name": "亳州市",
+    "cityCode": "0558",
+    "firstCharacter": "B"
+  },
+  {
+    "name": "滨州市",
+    "cityCode": "0543",
+    "firstCharacter": "B"
+  },
+  {
+    "name": "北海市",
+    "cityCode": "0779",
+    "firstCharacter": "B"
+  },
+  {
+    "name": "百色市",
+    "cityCode": "0776",
+    "firstCharacter": "B"
+  },
+  {
+    "name": "巴中市",
+    "cityCode": "0827",
+    "firstCharacter": "B"
+  },
+  {
+    "name": "毕节市",
+    "cityCode": "0857",
+    "firstCharacter": "B"
+  },
+  {
+    "name": "保山市",
+    "cityCode": "0875",
+    "firstCharacter": "B"
+  },
+  {
+    "name": "宝鸡市",
+    "cityCode": "0917",
+    "firstCharacter": "B"
+  },
+  {
+    "name": "白银市",
+    "cityCode": "0943",
+    "firstCharacter": "B"
+  },
+  {
+    "name": "博尔塔拉蒙古自治州",
+    "cityCode": "0909",
+    "firstCharacter": "B"
+  },
+  {
+    "name": "巴音郭楞蒙古自治州",
+    "cityCode": "0996",
+    "firstCharacter": "B"
+  },
+  {
+    "name": "承德市",
+    "cityCode": "0314",
+    "firstCharacter": "C"
+  },
+  {
+    "name": "沧州市",
+    "cityCode": "0317",
+    "firstCharacter": "C"
+  },
+  {
+    "name": "长治市",
+    "cityCode": "0355",
+    "firstCharacter": "C"
+  },
+  {
+    "name": "赤峰市",
+    "cityCode": "0476",
+    "firstCharacter": "C"
+  },
+  {
+    "name": "朝阳市",
+    "cityCode": "0421",
+    "firstCharacter": "C"
+  },
+  {
+    "name": "长春市",
+    "cityCode": "0431",
+    "firstCharacter": "C"
+  },
+  {
+    "name": "常州市",
+    "cityCode": "0519",
+    "firstCharacter": "C"
+  },
+  {
+    "name": "滁州市",
+    "cityCode": "0550",
+    "firstCharacter": "C"
+  },
+  {
+    "name": "池州市",
+    "cityCode": "0566",
+    "firstCharacter": "C"
+  },
+  {
+    "name": "长沙市",
+    "cityCode": "0731",
+    "firstCharacter": "C"
+  },
+  {
+    "name": "常德市",
+    "cityCode": "0736",
+    "firstCharacter": "C"
+  },
+  {
+    "name": "潮州市",
+    "cityCode": "0768",
+    "firstCharacter": "C"
+  },
+  {
+    "name": "崇左市",
+    "cityCode": "0771",
+    "firstCharacter": "C"
+  },
+  {
+    "name": "重庆市",
+    "cityCode": "023",
+    "firstCharacter": "C"
+  },
+  {
+    "name": "成都市",
+    "cityCode": "028",
+    "firstCharacter": "C"
+  },
+  {
+    "name": "楚雄彝族自治州",
+    "cityCode": "0878",
+    "firstCharacter": "C"
+  },
+  {
+    "name": "昌吉回族自治州",
+    "cityCode": "0994",
+    "firstCharacter": "C"
+  },
+  {
+    "name": "嘉义市",
+    "cityCode": "05",
+    "firstCharacter": "C"
+  },
+  {
+    "name": "彰化县",
+    "cityCode": "04",
+    "firstCharacter": "C"
+  },
+  {
+    "name": "嘉义县",
+    "cityCode": "05",
+    "firstCharacter": "C"
+  },
+  {
+    "name": "大同市",
+    "cityCode": "0352",
+    "firstCharacter": "D"
+  },
+  {
+    "name": "大连市",
+    "cityCode": "0411",
+    "firstCharacter": "D"
+  },
+  {
+    "name": "丹东市",
+    "cityCode": "0415",
+    "firstCharacter": "D"
+  },
+  {
+    "name": "大庆市",
+    "cityCode": "0459",
+    "firstCharacter": "D"
+  },
+  {
+    "name": "德州市",
+    "cityCode": "0534",
+    "firstCharacter": "D"
+  },
+  {
+    "name": "东莞市",
+    "cityCode": "0769",
+    "firstCharacter": "D"
+  },
+  {
+    "name": "德阳市",
+    "cityCode": "0838",
+    "firstCharacter": "D"
+  },
+  {
+    "name": "达州市",
+    "cityCode": "0818",
+    "firstCharacter": "D"
+  },
+  {
+    "name": "大理白族自治州",
+    "cityCode": "0872",
+    "firstCharacter": "D"
+  },
+  {
+    "name": "德宏傣族景颇族自治州",
+    "cityCode": "0692",
+    "firstCharacter": "D"
+  },
+  {
+    "name": "迪庆藏族自治州",
+    "cityCode": "0887",
+    "firstCharacter": "D"
+  },
+  {
+    "name": "定西市",
+    "cityCode": "0932",
+    "firstCharacter": "D"
+  },
+  {
+    "name": "鄂州市",
+    "cityCode": "0711",
+    "firstCharacter": "E"
+  },
+  {
+    "name": "恩施土家族苗族自治州",
+    "cityCode": "0718",
+    "firstCharacter": "E"
+  },
+  {
+    "name": "抚顺市",
+    "cityCode": "024",
+    "firstCharacter": "F"
+  },
+  {
+    "name": "阜阳市",
+    "cityCode": "0558",
+    "firstCharacter": "F"
+  },
+  {
+    "name": "福州市",
+    "cityCode": "0591",
+    "firstCharacter": "F"
+  },
+  {
+    "name": "抚州市",
+    "cityCode": "0794",
+    "firstCharacter": "F"
+  },
+  {
+    "name": "佛山市",
+    "cityCode": "0757",
+    "firstCharacter": "F"
+  },
+  {
+    "name": "防城港市",
+    "cityCode": "0770",
+    "firstCharacter": "F"
+  },
+  {
+    "name": "赣州市",
+    "cityCode": "0797",
+    "firstCharacter": "G"
+  },
+  {
+    "name": "广州市",
+    "cityCode": "020",
+    "firstCharacter": "G"
+  },
+  {
+    "name": "桂林市",
+    "cityCode": "0773",
+    "firstCharacter": "G"
+  },
+  {
+    "name": "贵港市",
+    "cityCode": "0775",
+    "firstCharacter": "G"
+  },
+  {
+    "name": "广元市",
+    "cityCode": "0839",
+    "firstCharacter": "G"
+  },
+  {
+    "name": "广安市",
+    "cityCode": "0826",
+    "firstCharacter": "G"
+  },
+  {
+    "name": "贵阳市",
+    "cityCode": "0851",
+    "firstCharacter": "G"
+  },
+  {
+    "name": "甘南藏族自治州",
+    "cityCode": "0941",
+    "firstCharacter": "G"
+  },
+  {
+    "name": "邯郸市",
+    "cityCode": "0310",
+    "firstCharacter": "H"
+  },
+  {
+    "name": "衡水市",
+    "cityCode": "0318",
+    "firstCharacter": "H"
+  },
+  {
+    "name": "呼和浩特市",
+    "cityCode": "0471",
+    "firstCharacter": "H"
+  },
+  {
+    "name": "呼伦贝尔市",
+    "cityCode": "0470",
+    "firstCharacter": "H"
+  },
+  {
+    "name": "兴安盟",
+    "cityCode": "0482",
+    "firstCharacter": "H"
+  },
+  {
+    "name": "葫芦岛市",
+    "cityCode": "0429",
+    "firstCharacter": "H"
+  },
+  {
+    "name": "哈尔滨市",
+    "cityCode": "0451",
+    "firstCharacter": "H"
+  },
+  {
+    "name": "鹤岗市",
+    "cityCode": "0468",
+    "firstCharacter": "H"
+  },
+  {
+    "name": "黑河市",
+    "cityCode": "0456",
+    "firstCharacter": "H"
+  },
+  {
+    "name": "淮安市",
+    "cityCode": "0517",
+    "firstCharacter": "H"
+  },
+  {
+    "name": "杭州市",
+    "cityCode": "0571",
+    "firstCharacter": "H"
+  },
+  {
+    "name": "湖州市",
+    "cityCode": "0572",
+    "firstCharacter": "H"
+  },
+  {
+    "name": "合肥市",
+    "cityCode": "0551",
+    "firstCharacter": "H"
+  },
+  {
+    "name": "淮南市",
+    "cityCode": "0554",
+    "firstCharacter": "H"
+  },
+  {
+    "name": "淮北市",
+    "cityCode": "0561",
+    "firstCharacter": "H"
+  },
+  {
+    "name": "黄山市",
+    "cityCode": "0559",
+    "firstCharacter": "H"
+  },
+  {
+    "name": "菏泽市",
+    "cityCode": "0530",
+    "firstCharacter": "H"
+  },
+  {
+    "name": "鹤壁市",
+    "cityCode": "0392",
+    "firstCharacter": "H"
+  },
+  {
+    "name": "黄石市",
+    "cityCode": "0714",
+    "firstCharacter": "H"
+  },
+  {
+    "name": "黄冈市",
+    "cityCode": "0713",
+    "firstCharacter": "H"
+  },
+  {
+    "name": "衡阳市",
+    "cityCode": "0734",
+    "firstCharacter": "H"
+  },
+  {
+    "name": "怀化市",
+    "cityCode": "0745",
+    "firstCharacter": "H"
+  },
+  {
+    "name": "海口市",
+    "cityCode": "0898",
+    "firstCharacter": "H"
+  },
+  {
+    "name": "汉中市",
+    "cityCode": "0916",
+    "firstCharacter": "H"
+  },
+  {
+    "name": "伊犁哈萨克自治州",
+    "cityCode": "0999",
+    "firstCharacter": "I"
+  },
+  {
+    "name": "晋城市",
+    "cityCode": "0356",
+    "firstCharacter": "J"
+  },
+  {
+    "name": "晋中市",
+    "cityCode": "0354",
+    "firstCharacter": "J"
+  },
+  {
+    "name": "吉林市",
+    "cityCode": "0432",
+    "firstCharacter": "J"
+  },
+  {
+    "name": "金华市",
+    "cityCode": "0579",
+    "firstCharacter": "J"
+  },
+  {
+    "name": "济南市",
+    "cityCode": "0531",
+    "firstCharacter": "J"
+  },
+  {
+    "name": "焦作市",
+    "cityCode": "0391",
+    "firstCharacter": "J"
+  },
+  {
+    "name": "开封市",
+    "cityCode": "0378",
+    "firstCharacter": "K"
+  },
+  {
+    "name": "昆明市",
+    "cityCode": "0871",
+    "firstCharacter": "K"
+  },
+  {
+    "name": "克孜勒苏柯尔克孜自治州",
+    "cityCode": "0908",
+    "firstCharacter": "K"
+  },
+  {
+    "name": "九龙",
+    "cityCode": "00852",
+    "firstCharacter": "K"
+  },
+  {
+    "name": "临汾市",
+    "cityCode": "0357",
+    "firstCharacter": "L"
+  },
+  {
+    "name": "丽水市",
+    "cityCode": "0578",
+    "firstCharacter": "L"
+  },
+  {
+    "name": "临沂市",
+    "cityCode": "0539",
+    "firstCharacter": "L"
+  },
+  {
+    "name": "洛阳市",
+    "cityCode": "0379",
+    "firstCharacter": "L"
+  },
+  {
+    "name": "拉萨市",
+    "cityCode": "0891",
+    "firstCharacter": "L"
+  },
+  {
+    "name": "牡丹江市",
+    "cityCode": "0453",
+    "firstCharacter": "M"
+  },
+  {
+    "name": "马鞍山市",
+    "cityCode": "0555",
+    "firstCharacter": "M"
+  },
+  {
+    "name": "茂名市",
+    "cityCode": "0668",
+    "firstCharacter": "M"
+  },
+  {
+    "name": "南京市",
+    "cityCode": "025",
+    "firstCharacter": "N"
+  },
+  {
+    "name": "南通市",
+    "cityCode": "0513",
+    "firstCharacter": "N"
+  },
+  {
+    "name": "宁波市",
+    "cityCode": "0574",
+    "firstCharacter": "N"
+  },
+  {
+    "name": "莆田市",
+    "cityCode": "0594",
+    "firstCharacter": "P"
+  },
+  {
+    "name": "平顶山市",
+    "cityCode": "0375",
+    "firstCharacter": "P"
+  },
+  {
+    "name": "衢州市",
+    "cityCode": "0570",
+    "firstCharacter": "Q"
+  },
+  {
+    "name": "泉州市",
+    "cityCode": "0595",
+    "firstCharacter": "Q"
+  },
+  {
+    "name": "青岛市",
+    "cityCode": "0532",
+    "firstCharacter": "Q"
+  },
+  {
+    "name": "庆阳市",
+    "cityCode": "0934",
+    "firstCharacter": "Q"
+  },
+  {
+    "name": "日照市",
+    "cityCode": "0633",
+    "firstCharacter": "R"
+  },
+  {
+    "name": "石家庄市",
+    "cityCode": "0311",
+    "firstCharacter": "S"
+  },
+  {
+    "name": "朔州市",
+    "cityCode": "0349",
+    "firstCharacter": "S"
+  },
+  {
+    "name": "沈阳市",
+    "cityCode": "024",
+    "firstCharacter": "S"
+  },
+  {
+    "name": "苏州市",
+    "cityCode": "0512",
+    "firstCharacter": "S"
+  },
+  {
+    "name": "十堰市",
+    "cityCode": "0719",
+    "firstCharacter": "S"
+  },
+  {
+    "name": "三沙市",
+    "cityCode": "0898",
+    "firstCharacter": "S"
+  },
+  {
+    "name": "石嘴山市",
+    "cityCode": "0952",
+    "firstCharacter": "S"
+  },
+  {
+    "name": "天津市",
+    "cityCode": "022",
+    "firstCharacter": "T"
+  },
+  {
+    "name": "唐山市",
+    "cityCode": "0315",
+    "firstCharacter": "T"
+  },
+  {
+    "name": "太原市",
+    "cityCode": "0351",
+    "firstCharacter": "T"
+  },
+  {
+    "name": "台州市",
+    "cityCode": "0576",
+    "firstCharacter": "T"
+  },
+  {
+    "name": "吐鲁番地区",
+    "cityCode": "0995",
+    "firstCharacter": "T"
+  },
+  {
+    "name": "乌兰察布市",
+    "cityCode": "0474",
+    "firstCharacter": "W"
+  },
+  {
+    "name": "乌鲁木齐市",
+    "cityCode": "0991",
+    "firstCharacter": "W"
+  },
+  {
+    "name": "潍坊市",
+    "cityCode": "0536",
+    "firstCharacter": "W"
+  },
+  {
+    "name": "威海市",
+    "cityCode": "0631",
+    "firstCharacter": "W"
+  },
+  {
+    "name": "武汉市",
+    "cityCode": "0022222",
+    "firstCharacter": "W"
+  },
+  {
+    "name": "邢台市",
+    "cityCode": "0319",
+    "firstCharacter": "X"
+  },
+  {
+    "name": "忻州市",
+    "cityCode": "0350",
+    "firstCharacter": "X"
+  },
+  {
+    "name": "信阳市",
+    "cityCode": "0376",
+    "firstCharacter": "X"
+  },
+  {
+    "name": "阳泉市",
+    "cityCode": "0353",
+    "firstCharacter": "Y"
+  },
+  {
+    "name": "运城市",
+    "cityCode": "0359",
+    "firstCharacter": "Y"
+  },
+  {
+    "name": "营口市",
+    "cityCode": "0417",
+    "firstCharacter": "Y"
+  },
+  {
+    "name": "宜昌市",
+    "cityCode": "0717",
+    "firstCharacter": "Y"
+  },
+  {
+    "name": "岳阳市",
+    "cityCode": "0730",
+    "firstCharacter": "Y"
+  },
+  {
+    "name": "玉溪市",
+    "cityCode": "0877",
+    "firstCharacter": "Y"
+  },
+  {
+    "name": "舟山群岛新区",
+    "cityCode": "0580",
+    "firstCharacter": "Z"
+  },
+  {
+    "name": "郑州市",
+    "cityCode": "0371",
+    "firstCharacter": "Z"
+  },
+  {
+    "name": "肇庆市",
+    "cityCode": "0758",
+    "firstCharacter": "Z"
+  },
+  {
+    "name": "张掖市",
+    "cityCode": "0936",
+    "firstCharacter": "Z"
+  }
+]
