@@ -103,13 +103,13 @@ jobs:
           flutter-version: '2.0.0'
           channel: 'stable'
       - name: "Web Build 🔧"
-          run: |
-            flutter pub get
-            flutter build web
+        run: |
+          flutter pub get
+          flutter build web
       - name: "Web Deploy 🚀"
           # https://github.com/JamesIves/github-pages-deploy-action
-          uses: JamesIves/github-pages-deploy-action@4.0.0
-          with:
-            token: '${{ secrets.GITHUB_TOKEN }}'
-            branch: gh-pages
-            folder: build/web
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          token: '${{ secrets.GITHUB_TOKEN }}'
+          branch: gh-pages
+          folder: build/web
