@@ -24,7 +24,7 @@ void main() {
     test('滑动订单列表',() async {
       await driver.tap(find.byTooltip('订单'));
       
-      // 水平滑动
+      /// 水平滑动
       final SerializableFinder pageView = find.byValueKey('pageView');
       await driver.scroll(pageView, -400.0, 0, scrollDuration);
       await delayed();
@@ -36,16 +36,17 @@ void main() {
       await delayed();
       final SerializableFinder orderItem = find.byValueKey('order_item_1');
       await delayed();
-      // 垂直滑动
+      /// 垂直滑动
       await driver.scrollUntilVisible(orderList, orderItem7, dyScroll: -400);
       await delayed();
       await driver.scrollUntilVisible(orderList, orderItem, dyScroll: 400);
       await delayed();
-
+      /// 滚动finder所在列表，直到该小部件完全可见。
+      await driver.scrollIntoView(orderItem);
     });
 
     test('订单操作',() async {
-      // 点击订单列表按钮
+      /// 点击订单列表按钮
       await driver.tap(find.byValueKey('order_button_1_1'));
       await delayed();
       await driver.tap(find.text('取消'));
