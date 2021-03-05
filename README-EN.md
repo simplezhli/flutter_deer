@@ -59,7 +59,7 @@ Web：https://simplezhli.github.io/flutter_deer/
 
 [![Build Status](https://github.com/simplezhli/flutter_deer/workflows/flutter_deer%20driver/badge.svg?branch=master)](https://github.com/simplezhli/flutter_deer/actions?query=workflow%3A%22flutter_deer+driver%22+branch%3Amaster)
 
-    1. Flutter version 2.0.0
+    1. Flutter version 2.0.1
 
     2. Dart version 2.12.0
 
@@ -69,7 +69,7 @@ Web：https://simplezhli.github.io/flutter_deer/
 
 - If there is a problem with the project, you can try to find a solution in the [iOS problem summary](./doc/iOS问题汇总.md) and [Android problem summary](./doc/Android问题汇总.md).
 
-- Due to some plug-ins, this project has imperfect support on the web (mainly in terms of functionality, and UI issues are minor). Those who are interested can run the experience by themselves.
+- Due to some plug-ins, this project has imperfect support on the Windows and macOS. Those who are interested can run the experience by themselves.
         
 - You can execute integration test commands to `flutter drive --target=test_driver/driver.dart` view function demonstrations.
 

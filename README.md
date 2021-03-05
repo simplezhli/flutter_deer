@@ -63,7 +63,7 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 
 [![Build Status](https://github.com/simplezhli/flutter_deer/workflows/flutter_deer%20driver/badge.svg?branch=master)](https://github.com/simplezhli/flutter_deer/actions?query=workflow%3A%22flutter_deer+driver%22+branch%3Amaster)
 
-    1. Flutter version 2.0.0
+    1. Flutter version 2.0.1
      
     2. Dart version 2.12.0
 
@@ -75,7 +75,7 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 
 - 项目运行有问题可以在[iOS问题汇总](./doc/iOS问题汇总.md)、[Android问题汇总](./doc/Android问题汇总.md)中尝试寻找解决办法。
 
-- 由于部分插件的原因，本项目在web上支持不完善（主要为功能方面，UI问题不大）。有兴趣的可自行运行体验。
+- 由于部分插件的原因，本项目在Windows、macOS仅做预览（主要为原生功能方面，UI问题不大）。有兴趣的可自行运行体验。
         
 - 可以执行集成测试命令`flutter drive --target=test_driver/driver.dart` 查看功能演示。
 

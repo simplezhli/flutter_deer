@@ -20,7 +20,7 @@ void main() {
     tearDownAll(() async {
       await driver?.close();
     });
-    
+
     test('滑动订单列表',() async {
       await driver.tap(find.byTooltip('订单'));
       
@@ -32,13 +32,12 @@ void main() {
       await delayed();
       final SerializableFinder orderList = find.byValueKey('order_list');
       await driver.waitFor(orderList);
-      final SerializableFinder orderItem7 = find.byValueKey('order_item_7');
-      await delayed();
-      final SerializableFinder orderItem = find.byValueKey('order_item_1');
-      await delayed();
+
       /// 垂直滑动
-      await driver.scrollUntilVisible(orderList, orderItem7, dyScroll: -400);
+      await driver.scroll(orderList, 0, -800, scrollDuration);
       await delayed();
+
+      final SerializableFinder orderItem = find.byValueKey('order_item_1');
       await driver.scrollUntilVisible(orderList, orderItem, dyScroll: 400);
       await delayed();
       /// 滚动finder所在列表，直到该小部件完全可见。
@@ -57,30 +56,30 @@ void main() {
       await driver.scroll(find.byValueKey('order_list'), 0.0, 500.0, scrollDuration);
     });
 
-    test('订单详情页',() async {
-      final SerializableFinder orderItem = find.byValueKey('order_item_2');
-      await driver.tap(orderItem);
-      await driver.tap(find.text('订单跟踪'));
-      await delayed();
-      await driver.tap(find.byTooltip('Back'));
-      await delayed();
-      await driver.scroll(find.byValueKey('order_info'), 0.0, -1000.0, scrollDuration);
-      await delayed();
-      await driver.tap(find.byTooltip('Back'));
-      await delayed();
-    });
-
-    test('订单搜索页测试',() async {
-      await driver.tap(find.byTooltip('搜索'));
-      await driver.tap(find.byValueKey('search_text_field'), timeout: const Duration(minutes: 1),);
-      await driver.enterText('flutter');
-      await driver.tap(find.text('搜索'));
-      final SerializableFinder orderList = find.byValueKey('order_search_list');
-      await driver.waitFor(orderList, timeout: const Duration(minutes: 1),);
-      await driver.scroll(orderList, 0.0, -300.0, scrollDuration);
-      await delayed();
-      await driver.tap(find.byValueKey('search_back'));
-      await delayed();
-    }, timeout: const Timeout.factor(5));
+    // test('订单详情页',() async {
+    //   final SerializableFinder orderItem = find.byValueKey('order_item_2');
+    //   await driver.tap(orderItem);
+    //   await driver.tap(find.text('订单跟踪'));
+    //   await delayed();
+    //   await driver.tap(find.byTooltip('Back'));
+    //   await delayed();
+    //   await driver.scroll(find.byValueKey('order_info'), 0.0, -1000.0, scrollDuration);
+    //   await delayed();
+    //   await driver.tap(find.byTooltip('Back'));
+    //   await delayed();
+    // });
+    //
+    // test('订单搜索页测试',() async {
+    //   await driver.tap(find.byTooltip('搜索'));
+    //   await driver.tap(find.byValueKey('search_text_field'), timeout: const Duration(minutes: 1),);
+    //   await driver.enterText('flutter');
+    //   await driver.tap(find.text('搜索'));
+    //   final SerializableFinder orderList = find.byValueKey('order_search_list');
+    //   await driver.waitFor(orderList, timeout: const Duration(minutes: 1),);
+    //   await driver.scroll(orderList, 0.0, -300.0, scrollDuration);
+    //   await delayed();
+    //   await driver.tap(find.byValueKey('search_back'));
+    //   await delayed();
+    // }, timeout: const Timeout.factor(5));
   });
 }
