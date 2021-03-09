@@ -5,6 +5,7 @@
 * Web支持基本完成。
 * 迁移废弃的FlatButton为TextButton。
 * 添加多语言切换。
+* Flutter SDK升至2.0.0。
 
 ## 1.1.4
 

@@ -68,7 +68,34 @@ class _SearchBarState extends State<SearchBar> {
         ),
       ),
     );
-    
+
+    /// 使用2.0.0新增CupertinoSearchTextField 实现， 需添加依赖 cupertino_icons: ^1.0.2
+    // final Widget textField1 = Expanded(child: Container(
+    //     height: 32.0,
+    //     child: CupertinoSearchTextField(
+    //       key: const Key('search_text_field'),
+    //       controller: _controller,
+    //       focusNode: _focus,
+    //       placeholder: widget.hintText,
+    //       placeholderStyle: Theme.of(context).inputDecorationTheme.hintStyle,
+    //       padding: const EdgeInsetsDirectional.fromSTEB(3.8, 0, 5, 0),
+    //       prefixInsets: const EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+    //       suffixInsets: const EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
+    //       style: Theme.of(context).textTheme.subtitle1,
+    //       itemSize: 16.0,
+    //       itemColor: iconColor,
+    //       decoration: BoxDecoration(
+    //         color: isDark ? Colours.dark_material_bg : Colours.bg_gray,
+    //         borderRadius: BorderRadius.circular(4.0),
+    //       ),
+    //       onSubmitted: (String val) {
+    //         _focus.unfocus();
+    //         // 点击软键盘的动作按钮时的回调
+    //         widget.onPressed(val);
+    //       },
+    //     )
+    // ));
+
     final Widget textField = Expanded(
       child: Container(
         height: 32.0,
