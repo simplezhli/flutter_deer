@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/account/models/withdrawal_account_model.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
-import 'package:flutter_deer/util/toast.dart';
+import 'package:flutter_deer/util/toast_utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 
 class WithdrawalAccountItem extends StatefulWidget {
@@ -160,8 +160,7 @@ class _AccountCardState extends State<AccountCard> {
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.0),
-        boxShadow: context.isDark ?
-        null :
+        boxShadow: context.isDark ? null :
         [
           BoxShadow(color: widget.type == 1 ?
           const Color(0x804EE07A) :

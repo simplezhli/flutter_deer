@@ -65,56 +65,64 @@ class MyApp extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return OKToast(
-      child: MultiProvider(
-        providers: [
-          ChangeNotifierProvider(create: (_) => ThemeProvider()),
-          ChangeNotifierProvider(create: (_) => LocaleProvider())
-        ],
-        child: Consumer2<ThemeProvider, LocaleProvider>(
-          builder: (_, ThemeProvider provider, LocaleProvider localeProvider, __) {
-            return MaterialApp(
-              title: 'Flutter Deer',
-//              showPerformanceOverlay: true, //显示性能标签
-//              debugShowCheckedModeBanner: false, // 去除右上角debug的标签
-//              checkerboardRasterCacheImages: true,
-//              showSemanticsDebugger: true, // 显示语义视图
-//              checkerboardOffscreenLayers: true, // 检查离屏渲染
-              theme: theme ?? provider.getTheme(),
-              darkTheme: provider.getTheme(isDarkMode: true),
-              themeMode: provider.getThemeMode(),
-              home: home ?? SplashPage(),
-              onGenerateRoute: Routes.router.generator,
-              localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
-                AppLocalizationsDelegate(),
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-              ],
-              supportedLocales: localeProvider.supportedLocales,
-              locale: localeProvider.locale,
-              builder: (BuildContext context, Widget child) {
-                /// 保证文字大小不受手机系统设置影响 https://www.kikt.top/posts/flutter/layout/dynamic-text/
-                return MediaQuery(
-                  data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-                  child: child,
-                );
-              },
-              /// 因为使用了fluro，这里设置主要针对Web
-              onUnknownRoute: (_) {
-                return MaterialPageRoute<void>(
-                  builder: (BuildContext context) => NotFoundPage(),
-                );
-              },
-            );
-          },
-        ),
+
+    final Widget app = MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider(create: (_) => LocaleProvider())
+      ],
+      child: Consumer2<ThemeProvider, LocaleProvider>(
+        builder: (_, ThemeProvider provider, LocaleProvider localeProvider, __) {
+          return _buildMaterialApp(provider, localeProvider);
+        },
       ),
-      /// Toast 配置
+    );
+
+    /// Toast 配置
+    return OKToast(
+      child: app,
       backgroundColor: Colors.black54,
       textPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
       radius: 20.0,
       position: ToastPosition.bottom
     );
   }
+
+  Widget _buildMaterialApp(ThemeProvider provider, LocaleProvider localeProvider) {
+    return MaterialApp(
+      title: 'Flutter Deer',
+      // showPerformanceOverlay: true, //显示性能标签
+      // debugShowCheckedModeBanner: false, // 去除右上角debug的标签
+      // checkerboardRasterCacheImages: true,
+      // showSemanticsDebugger: true, // 显示语义视图
+      // checkerboardOffscreenLayers: true, // 检查离屏渲染
+      theme: theme ?? provider.getTheme(),
+      darkTheme: provider.getTheme(isDarkMode: true),
+      themeMode: provider.getThemeMode(),
+      home: home ?? SplashPage(),
+      onGenerateRoute: Routes.router.generator,
+      localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
+        AppLocalizationsDelegate(),
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: localeProvider.supportedLocales,
+      locale: localeProvider.locale,
+      builder: (BuildContext context, Widget child) {
+        /// 保证文字大小不受手机系统设置影响 https://www.kikt.top/posts/flutter/layout/dynamic-text/
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+          child: child,
+        );
+      },
+      /// 因为使用了fluro，这里设置主要针对Web
+      onUnknownRoute: (_) {
+        return MaterialPageRoute<void>(
+          builder: (BuildContext context) => NotFoundPage(),
+        );
+      },
+    );
+  }
+
 }

@@ -12,6 +12,7 @@ import 'package:flutter/services.dart';
 /// 使用后问题是输入的拼音不展示。
 ///
 /// 1.22已修复：https://github.com/flutter/flutter/pull/63754
+@deprecated
 class FixIOSTextInputFormatter extends TextInputFormatter {
 
   @override

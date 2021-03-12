@@ -83,7 +83,7 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 
 - 本项目使用FlutterJsonBeanFactory插件来生成Bean。FlutterJsonBeanFactory插件使用可以查看[这篇文章](https://www.jianshu.com/p/14cbcbaa74b7)。
 
-- Web受制于js过大和部署在Github上，首次访问会慢一些。
+- Web受制于js等资源过大和部署在Github上，访问会慢一些。
 
 ## 心得总结（推荐阅读）
 

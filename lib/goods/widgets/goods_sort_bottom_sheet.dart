@@ -77,7 +77,11 @@ class GoodsSortBottomSheetState extends State<GoodsSortBottomSheet> with SingleT
                         }
                         provider.setList(index);
                         provider.setIndex(index);
-                        _controller.animateTo(provider.positions[provider.index] * 48.0, duration: const Duration(milliseconds: 10), curve: Curves.ease);
+                        _controller.animateTo(
+                          provider.positions[provider.index] * 48.0,
+                          duration: const Duration(milliseconds: 10),
+                          curve: Curves.ease,
+                        );
                       },
                       indicatorSize: TabBarIndicatorSize.label,
                       unselectedLabelColor: context.isDark ? Colours.text_gray : Colours.text,
@@ -91,42 +95,7 @@ class GoodsSortBottomSheetState extends State<GoodsSortBottomSheet> with SingleT
                       controller: _controller,
                       itemExtent: 48.0,
                       itemBuilder: (_, index) {
-                        final bool flag = provider.mList[index]['name'] == provider.myTabs[provider.index].text;
-                        return InkWell(
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                            alignment: Alignment.centerLeft,
-                            child: Row(
-                              children: <Widget>[
-                                Text(
-                                    provider.mList[index]['name'] as String,
-                                    style: flag ? TextStyle(
-                                      fontSize: Dimens.font_sp14,
-                                      color: Theme.of(context).primaryColor,
-                                    ) : null),
-                                Gaps.hGap8,
-                                Visibility(
-                                  visible: flag,
-                                  child: const LoadAssetImage('goods/xz', height: 16.0, width: 16.0),
-                                )
-                              ],
-                            ),
-                          ),
-                          onTap: () {
-                            provider.myTabs[provider.index] = Tab(text: provider.mList[index]['name'] as String);
-                            provider.positions[provider.index] = index;
-
-                            provider.indexIncrement();
-                            provider.setListAndChangeTab();
-                            if (provider.index > 2) {
-                              provider.setIndex(2);
-                              widget.onSelected(provider.mList[index]['id'] as String, provider.mList[index]['name'] as String);
-                              NavigatorUtils.goBack(context);
-                            }
-                            _controller.animateTo(0.0, duration: const Duration(milliseconds: 100), curve: Curves.ease);
-                            _tabController.animateTo(provider.index);
-                          },
-                        );
+                        return _buildItem(provider, index);
                       },
                       itemCount: provider.mList.length,
                     ),
@@ -163,6 +132,45 @@ class GoodsSortBottomSheetState extends State<GoodsSortBottomSheet> with SingleT
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildItem(GoodsSortProvider provider, int index) {
+    final bool flag = provider.mList[index]['name'] == provider.myTabs[provider.index].text;
+    return InkWell(
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        alignment: Alignment.centerLeft,
+        child: Row(
+          children: <Widget>[
+            Text(
+              provider.mList[index]['name'] as String,
+              style: flag ? TextStyle(
+                fontSize: Dimens.font_sp14,
+                color: Theme.of(context).primaryColor,
+              ) : null,),
+            Gaps.hGap8,
+            Visibility(
+              visible: flag,
+              child: const LoadAssetImage('goods/xz', height: 16.0, width: 16.0),
+            )
+          ],
+        ),
+      ),
+      onTap: () {
+        provider.myTabs[provider.index] = Tab(text: provider.mList[index]['name'] as String);
+        provider.positions[provider.index] = index;
+
+        provider.indexIncrement();
+        provider.setListAndChangeTab();
+        if (provider.index > 2) {
+          provider.setIndex(2);
+          widget.onSelected(provider.mList[index]['id'] as String, provider.mList[index]['name'] as String);
+          NavigatorUtils.goBack(context);
+        }
+        _controller.animateTo(0.0, duration: const Duration(milliseconds: 100), curve: Curves.ease);
+        _tabController.animateTo(provider.index);
+      },
     );
   }
 }

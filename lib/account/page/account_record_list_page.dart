@@ -58,10 +58,12 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
               Positioned(
                 top: 0.0,
                 right: 0.0,
-                child: Text(i.isEven ? '+10.00' : '-10.00', style: i.isEven ? TextStyle(
+                child: Text(i.isEven ? '+10.00' : '-10.00',
+                  style: i.isEven ? TextStyle(
                     color: Theme.of(context).errorColor,
-                    fontWeight: FontWeight.bold
-                ) : TextStyles.textBold14),
+                    fontWeight: FontWeight.bold,
+                  ) : TextStyles.textBold14,
+                ),
               ),
               Positioned(
                 bottom: 0.0,

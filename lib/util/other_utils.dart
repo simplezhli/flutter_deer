@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
-import 'package:flutter_deer/util/toast.dart';
+import 'package:flutter_deer/util/toast_utils.dart';
 import 'package:keyboard_actions/keyboard_actions_item.dart';
 import 'package:keyboard_actions/keyboard_actions_config.dart';
 import 'package:sp_util/sp_util.dart';

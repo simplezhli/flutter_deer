@@ -6,7 +6,7 @@ import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
-import 'package:flutter_deer/util/toast.dart';
+import 'package:flutter_deer/util/toast_utils.dart';
 import 'package:image_picker/image_picker.dart';
 
 class SelectedImage extends StatefulWidget {
