@@ -11,11 +11,10 @@ import 'package:flutter_deer/routers/not_found_page.dart';
 import 'package:flutter_deer/routers/routers.dart';
 import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/log_utils.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/deer_localizations.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:flutter_deer/home/splash_page.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_deer/localization/app_localizations.dart';
 import 'package:sp_util/sp_util.dart';
 
 Future<void> main() async {
@@ -101,13 +100,8 @@ class MyApp extends StatelessWidget {
       themeMode: provider.getThemeMode(),
       home: home ?? SplashPage(),
       onGenerateRoute: Routes.router.generator,
-      localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
-        AppLocalizationsDelegate(),
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: localeProvider.supportedLocales,
+      localizationsDelegates: DeerLocalizations.localizationsDelegates,
+      supportedLocales: DeerLocalizations.supportedLocales,
       locale: localeProvider.locale,
       builder: (BuildContext context, Widget child) {
         /// 保证文字大小不受手机系统设置影响 https://www.kikt.top/posts/flutter/layout/dynamic-text/

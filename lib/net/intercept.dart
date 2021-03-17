@@ -60,15 +60,22 @@ class TokenInterceptor extends Interceptor {
         // 重新请求失败接口
         final RequestOptions request = response.request;
         request.headers['Authorization'] = 'Bearer $accessToken';
+
+        final Options options = Options(
+          headers: request.headers,
+          method: request.method,
+        );
+
         try {
           Log.e('----------- 重新请求接口 ------------');
           /// 避免重复执行拦截器，使用tokenDio
           final Response response = await _tokenDio.request<dynamic>(request.path,
-              data: request.data,
-              queryParameters: request.queryParameters,
-              cancelToken: request.cancelToken,
-              options: request,
-              onReceiveProgress: request.onReceiveProgress);
+            data: request.data,
+            queryParameters: request.queryParameters,
+            cancelToken: request.cancelToken,
+            options: options,
+            onReceiveProgress: request.onReceiveProgress,
+          );
           return response;
         } on DioError catch (e) {
           return e;

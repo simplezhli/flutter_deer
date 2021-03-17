@@ -4,7 +4,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_deer/localization/app_localizations.dart';
+import 'package:flutter_gen/gen_l10n/deer_localizations.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
@@ -172,7 +172,7 @@ class _MyTextFieldState extends State<MyTextField> {
         key: const Key('getVerificationCode'),
         onPressed: _clickable ? _getVCode : null,
         fontSize: Dimens.font_sp12,
-        text: _clickable ? AppLocalizations.of(context).getVerificationCode : '（$_currentSecond s）',
+        text: _clickable ? DeerLocalizations.of(context).getVerificationCode : '（$_currentSecond s）',
         textColor: themeData.primaryColor,
         disabledTextColor: isDark ? Colours.dark_text : Colors.white,
         backgroundColor: Colors.transparent,

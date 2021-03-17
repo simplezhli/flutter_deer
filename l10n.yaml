@@ -1,0 +1,7 @@
+# 文档：https://flutter.dev/docs/development/accessibility-and-localization/internationalization
+
+arb-dir: lib/l10n
+template-arb-file: intl_en.arb
+output-localization-file: deer_localizations.dart
+output-class: DeerLocalizations
+use-deferred-loading: false

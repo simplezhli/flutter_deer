@@ -2,7 +2,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_deer/localization/app_localizations.dart';
+import 'package:flutter_gen/gen_l10n/deer_localizations.dart';
 import 'package:flutter_deer/util/change_notifier_manage.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
@@ -76,7 +76,7 @@ class _SMSLoginPageState extends State<SMSLoginPage> with ChangeNotifierMixin<SM
   List<Widget> _buildBody() {
     return <Widget>[
       Text(
-        AppLocalizations.of(context).verificationCodeLogin,
+        DeerLocalizations.of(context).verificationCodeLogin,
         style: TextStyles.textBold26,
       ),
       Gaps.vGap16,
@@ -85,7 +85,7 @@ class _SMSLoginPageState extends State<SMSLoginPage> with ChangeNotifierMixin<SM
         controller: _phoneController,
         maxLength: 11,
         keyboardType: TextInputType.phone,
-        hintText: AppLocalizations.of(context).inputPhoneHint,
+        hintText: DeerLocalizations.of(context).inputPhoneHint,
       ),
       Gaps.vGap8,
       MyTextField(
@@ -93,7 +93,7 @@ class _SMSLoginPageState extends State<SMSLoginPage> with ChangeNotifierMixin<SM
         controller: _vCodeController,
         maxLength: 6,
         keyboardType: TextInputType.number,
-        hintText: AppLocalizations.of(context).inputVerificationCodeHint,
+        hintText: DeerLocalizations.of(context).inputVerificationCodeHint,
         getVCode: () {
           Toast.show('获取验证码');
           return Future<bool>.value(true);
@@ -105,10 +105,10 @@ class _SMSLoginPageState extends State<SMSLoginPage> with ChangeNotifierMixin<SM
         child: GestureDetector(
           child: RichText(
             text: TextSpan(
-              text: AppLocalizations.of(context).registeredTips,
+              text: DeerLocalizations.of(context).registeredTips,
               style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp14),
               children: <TextSpan>[
-                TextSpan(text: AppLocalizations.of(context).register, style: TextStyle(color: Theme.of(context).errorColor)),
+                TextSpan(text: DeerLocalizations.of(context).register, style: TextStyle(color: Theme.of(context).errorColor)),
                 TextSpan(text: Utils.getCurrLocale() == 'zh' ? '。' : '.'),
               ],
             ),
@@ -119,14 +119,14 @@ class _SMSLoginPageState extends State<SMSLoginPage> with ChangeNotifierMixin<SM
       Gaps.vGap24,
       MyButton(
         onPressed: _clickable ? _login : null,
-        text: AppLocalizations.of(context).login,
+        text: DeerLocalizations.of(context).login,
       ),
       Container(
         height: 40.0,
         alignment: Alignment.centerRight,
         child: GestureDetector(
           child: Text(
-            AppLocalizations.of(context).forgotPasswordLink,
+            DeerLocalizations.of(context).forgotPasswordLink,
             style: Theme.of(context).textTheme.subtitle2,
           ),
           onTap: () => NavigatorUtils.push(context, LoginRouter.resetPasswordPage),

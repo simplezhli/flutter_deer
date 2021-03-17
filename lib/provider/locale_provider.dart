@@ -7,18 +7,13 @@ import 'package:flutter_deer/common/common.dart';
 
 class LocaleProvider extends ChangeNotifier {
 
-  final List<Locale> supportedLocales = const <Locale>[
-    Locale('zh', 'CN'),
-    Locale('en', 'US')
-  ];
-
   Locale get locale {
     final String locale = SpUtil.getString(Constant.locale);
     switch(locale) {
       case 'zh':
-        return supportedLocales[0];
+        return const Locale('zh', 'CN');
       case 'en':
-        return supportedLocales[1];
+        return const Locale('en', 'US');
       default:
         return null;
     }
