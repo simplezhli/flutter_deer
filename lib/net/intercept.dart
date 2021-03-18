@@ -14,7 +14,7 @@ import 'error_handle.dart';
 
 class AuthInterceptor extends Interceptor {
   @override
-  Future onRequest(RequestOptions options) {
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     final String accessToken = SpUtil.getString(Constant.accessToken);
     if (accessToken.isNotEmpty) {
       options.headers['Authorization'] = 'token $accessToken';
@@ -23,17 +23,20 @@ class AuthInterceptor extends Interceptor {
       // https://developer.github.com/v3/#user-agent-required
       options.headers['User-Agent'] = 'Mozilla/5.0';
     }
-    return super.onRequest(options);
+    handler.next(options);
   }
 }
 
 class TokenInterceptor extends Interceptor {
+
+  Dio _tokenDio;
 
   Future<String> getToken() async {
 
     final Map<String, String> params = <String, String>{};
     params['refresh_token'] = SpUtil.getString(Constant.refreshToken);
     try {
+      _tokenDio ??= Dio();
       _tokenDio.options = DioUtils.instance.dio.options;
       final Response response = await _tokenDio.post<dynamic>('lgn/refreshToken', data: params);
       if (response.statusCode == ExceptionHandle.success) {
@@ -45,10 +48,8 @@ class TokenInterceptor extends Interceptor {
     return null;
   }
 
-  final Dio _tokenDio = Dio();
-
   @override
-  Future<Object> onResponse(Response response) async {
+  Future<void> onResponse(Response response, ResponseInterceptorHandler handler) async {
     //401代表token过期
     if (response != null && response.statusCode == ExceptionHandle.unauthorized) {
       Log.d('-----------自动刷新Token------------');
@@ -61,7 +62,7 @@ class TokenInterceptor extends Interceptor {
 
       if (accessToken != null) {
         // 重新请求失败接口
-        final RequestOptions request = response.request;
+        final RequestOptions request = response.requestOptions;
         request.headers['Authorization'] = 'Bearer $accessToken';
 
         final Options options = Options(
@@ -79,13 +80,13 @@ class TokenInterceptor extends Interceptor {
             options: options,
             onReceiveProgress: request.onReceiveProgress,
           );
-          return response;
+          return handler.next(response);
         } on DioError catch (e) {
-          return e;
+          return handler.reject(e);
         }
       }
     }
-    return super.onResponse(response);
+    handler.next(response);
   }
 }
 
@@ -95,7 +96,7 @@ class LoggingInterceptor extends Interceptor{
   DateTime _endTime;
   
   @override
-  Future onRequest(RequestOptions options) {
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     _startTime = DateTime.now();
     Log.d('----------Start----------');
     if (options.queryParameters.isEmpty) {
@@ -107,11 +108,11 @@ class LoggingInterceptor extends Interceptor{
     Log.d('RequestHeaders:' + options.headers.toString());
     Log.d('RequestContentType: ${options.contentType}');
     Log.d('RequestData: ${options.data.toString()}');
-    return super.onRequest(options);
+    handler.next(options);
   }
   
   @override
-  Future onResponse(Response response) {
+  void onResponse(Response response, ResponseInterceptorHandler handler) {
     _endTime = DateTime.now();
     final int duration = _endTime.difference(_startTime).inMilliseconds;
     if (response.statusCode == ExceptionHandle.success) {
@@ -122,13 +123,13 @@ class LoggingInterceptor extends Interceptor{
     // 输出结果
     Log.json(response.data.toString());
     Log.d('----------End: $duration 毫秒----------');
-    return super.onResponse(response);
+    handler.next(response);
   }
   
   @override
-  Future onError(DioError err) {
+  void onError(DioError err, ErrorInterceptorHandler handler) {
     Log.d('----------Error-----------');
-    return super.onError(err);
+    handler.next(err);
   }
 }
 
@@ -145,17 +146,17 @@ class AdapterInterceptor extends Interceptor{
   static const String _kSuccessFormat = '{"code":0,"data":%s,"message":""}';
   
   @override
-  Future onResponse(Response response) {
+  void onResponse(Response response, ResponseInterceptorHandler handler) {
     final Response r = adapterData(response);
-    return super.onResponse(r);
+    handler.next(r);
   }
   
   @override
-  Future onError(DioError err) {
+  void onError(DioError err, ErrorInterceptorHandler handler) {
     if (err.response != null) {
       adapterData(err.response);
     }
-    return super.onError(err);
+    handler.next(err);
   }
 
   Response adapterData(Response response) {

@@ -21,7 +21,7 @@ dependencies:
   # Toast插件 https://github.com/OpenFlutter/flutter_oktoast
   oktoast: ^3.0.0
   # 网络库 https://github.com/flutterchina/dio
-  dio: ^4.0.0-beta7
+  dio: ^4.0.0-prev1
   # https://github.com/ReactiveX/rxdart
   rxdart: ^0.25.0
   # Dart 常用工具类库 https://github.com/Sky24n/common_utils
@@ -30,11 +30,10 @@ dependencies:
   flustars: ^0.3.3
   # Flutter 轮播图 https://github.com/best-flutter/flutter_swiper
   flutter_swiper: ^1.1.6
-  # 启动URL的插件 https://github.com/flutter/plugins/tree/master/packages/url_launcher
+  # 启动URL的插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/url_launcher
   url_launcher: 6.0.2
-  # 图片选择插件 https://github.com/flutter/plugins/tree/master/packages/image_picker
-  image_picker: 0.7.2+1
-  image_picker_for_web: 2.0.0
+  # 图片选择插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/image_picker
+  image_picker: 0.7.3
   # 侧滑删除 https://github.com/letsar/flutter_slidable
   flutter_slidable: ^0.5.7
   # WebView插件 https://github.com/flutter/plugins/tree/master/packages/webview_flutter
@@ -61,7 +60,7 @@ dependencies:
   quick_actions: 0.5.0
   # 刮刮卡 https://github.com/vintage/scratcher
   scratcher: ^1.6.0
-  # 高德2D地图插件 https://github.com/simplezhli/flutter_2d_amap
+  # 高德2D地图插件（支持Web） https://github.com/simplezhli/flutter_2d_amap
   flutter_2d_amap:
     git:
       ref: '8609e8'
