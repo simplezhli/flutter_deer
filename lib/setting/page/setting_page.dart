@@ -24,6 +24,58 @@ class SettingPage extends StatefulWidget {
 class _SettingPageState extends State<SettingPage> {
   @override
   Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: const MyAppBar(
+        centerTitle: '设置',
+      ),
+      body: Column(
+        children: <Widget>[
+          Gaps.vGap5,
+          ClickItem(
+            title: '账号管理',
+            onTap: () => NavigatorUtils.push(context, SettingRouter.accountManagerPage),
+          ),
+          if (Device.isMobile) ClickItem(
+            title: '清除缓存',
+            content: '23.5MB',
+            onTap: () {},
+          ),
+          ClickItem(
+            title: '夜间模式',
+            content: _getCurrentTheme(),
+            onTap: () => NavigatorUtils.push(context, SettingRouter.themePage),
+          ),
+          ClickItem(
+            title: '多语言',
+            content: _getCurrentLocale(),
+            onTap: () => NavigatorUtils.push(context, SettingRouter.localePage),
+          ),
+          if (Device.isMobile) ClickItem(
+            title: '检查更新',
+            onTap: _showUpdateDialog,
+          ),
+          ClickItem(
+            title: '关于我们',
+            onTap: () => NavigatorUtils.push(context, SettingRouter.aboutPage),
+          ),
+          ClickItem(
+            title: '退出当前账号',
+            onTap: _showExitDialog,
+          ),
+          if (Device.isMobile) ClickItem(
+            title: 'Deer Web版',
+            onTap: () => NavigatorUtils.goWebViewPage(context, 'Flutter Deer', 'https://simplezhli.github.io/flutter_deer/'),
+          ),
+          ClickItem(
+            title: '其他Demo',
+            onTap: () => AppNavigator.push(context, DemoPage()),
+          ),
+        ],
+      ),
+    );
+  }
+
+  String _getCurrentTheme() {
     final String theme = SpUtil.getString(Constant.theme);
     String themeMode;
     switch(theme) {
@@ -37,7 +89,10 @@ class _SettingPageState extends State<SettingPage> {
         themeMode = '跟随系统';
         break;
     }
+    return themeMode;
+  }
 
+  String _getCurrentLocale() {
     final String locale = SpUtil.getString(Constant.locale);
     String localeMode;
     switch(locale) {
@@ -51,52 +106,7 @@ class _SettingPageState extends State<SettingPage> {
         localeMode = '跟随系统';
         break;
     }
-
-    return Scaffold(
-      appBar: const MyAppBar(
-        centerTitle: '设置',
-      ),
-      body: Column(
-        children: <Widget>[
-          Gaps.vGap5,
-          ClickItem(
-            title: '账号管理',
-            onTap: () => NavigatorUtils.push(context, SettingRouter.accountManagerPage)
-          ),
-          if(Device.isMobile) ClickItem(
-            title: '清除缓存',
-            content: '23.5MB',
-            onTap: () {}
-          ),
-          ClickItem(
-            title: '夜间模式',
-            content: themeMode,
-            onTap: () => NavigatorUtils.push(context, SettingRouter.themePage)
-          ),
-          ClickItem(
-              title: '多语言',
-              content: localeMode,
-              onTap: () => NavigatorUtils.push(context, SettingRouter.localePage)
-          ),
-          if(Device.isMobile) ClickItem(
-            title: '检查更新',
-            onTap: _showUpdateDialog,
-          ),
-          ClickItem(
-            title: '关于我们',
-            onTap: () => NavigatorUtils.push(context, SettingRouter.aboutPage)
-          ),
-          ClickItem(
-            title: '退出当前账号',
-            onTap: _showExitDialog,
-          ),
-          ClickItem(
-            title: '其他Demo',
-            onTap: () => AppNavigator.push(context, DemoPage()),
-          ),
-        ],
-      ),
-    );
+    return localeMode;
   }
 
   void _showExitDialog() {

@@ -3,6 +3,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:flutter_deer/util/device_utils.dart';
 import 'package:sp_util/sp_util.dart';
 import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/util/log_utils.dart';
@@ -18,8 +19,10 @@ class AuthInterceptor extends Interceptor {
     if (accessToken.isNotEmpty) {
       options.headers['Authorization'] = 'token $accessToken';
     }
-    // https://developer.github.com/v3/#user-agent-required
-    options.headers['User-Agent'] = 'Mozilla/5.0';
+    if (Device.isMobile) {
+      // https://developer.github.com/v3/#user-agent-required
+      options.headers['User-Agent'] = 'Mozilla/5.0';
+    }
     return super.onRequest(options);
   }
 }

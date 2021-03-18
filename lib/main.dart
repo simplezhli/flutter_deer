@@ -10,6 +10,7 @@ import 'package:flutter_deer/provider/theme_provider.dart';
 import 'package:flutter_deer/routers/not_found_page.dart';
 import 'package:flutter_deer/routers/routers.dart';
 import 'package:flutter_deer/util/device_utils.dart';
+import 'package:flutter_deer/util/handle_error_utils.dart';
 import 'package:flutter_deer/util/log_utils.dart';
 import 'package:flutter_gen/gen_l10n/deer_localizations.dart';
 import 'package:oktoast/oktoast.dart';
@@ -25,8 +26,9 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   /// sp初始化
   await SpUtil.getInstance();
-  runApp(MyApp());
-  // 透明状态栏
+  /// 异常处理
+  handleError(runApp(MyApp()));
+  /// 透明状态栏
   if (Device.isAndroid) {
     const SystemUiOverlayStyle systemUiOverlayStyle = SystemUiOverlayStyle(statusBarColor: Colors.transparent);
     SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
