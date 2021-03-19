@@ -23,7 +23,7 @@ class AuthInterceptor extends Interceptor {
       // https://developer.github.com/v3/#user-agent-required
       options.headers['User-Agent'] = 'Mozilla/5.0';
     }
-    handler.next(options);
+    super.onRequest(options, handler);
   }
 }
 
@@ -54,11 +54,11 @@ class TokenInterceptor extends Interceptor {
     if (response != null && response.statusCode == ExceptionHandle.unauthorized) {
       Log.d('-----------自动刷新Token------------');
       final Dio dio = DioUtils.instance.dio;
-      dio.interceptors.requestLock.lock();
+      dio.lock();
       final String accessToken = await getToken(); // 获取新的accessToken
       Log.e('-----------NewToken: $accessToken ------------');
       SpUtil.putString(Constant.accessToken, accessToken);
-      dio.interceptors.requestLock.unlock();
+      dio.unlock();
 
       if (accessToken != null) {
         // 重新请求失败接口
@@ -86,7 +86,7 @@ class TokenInterceptor extends Interceptor {
         }
       }
     }
-    handler.next(response);
+    super.onResponse(response, handler);
   }
 }
 
@@ -108,7 +108,7 @@ class LoggingInterceptor extends Interceptor{
     Log.d('RequestHeaders:' + options.headers.toString());
     Log.d('RequestContentType: ${options.contentType}');
     Log.d('RequestData: ${options.data.toString()}');
-    handler.next(options);
+    super.onRequest(options, handler);
   }
   
   @override
@@ -123,13 +123,13 @@ class LoggingInterceptor extends Interceptor{
     // 输出结果
     Log.json(response.data.toString());
     Log.d('----------End: $duration 毫秒----------');
-    handler.next(response);
+    super.onResponse(response, handler);
   }
   
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) {
     Log.d('----------Error-----------');
-    handler.next(err);
+    super.onError(err, handler);
   }
 }
 
@@ -148,7 +148,7 @@ class AdapterInterceptor extends Interceptor{
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     final Response r = adapterData(response);
-    handler.next(r);
+    super.onResponse(r, handler);
   }
   
   @override
@@ -156,7 +156,7 @@ class AdapterInterceptor extends Interceptor{
     if (err.response != null) {
       adapterData(err.response);
     }
-    handler.next(err);
+    super.onError(err, handler);
   }
 
   Response adapterData(Response response) {
