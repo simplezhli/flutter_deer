@@ -39,7 +39,7 @@ void main([List<String> args = const <String>[]]) {
     test('关于我们页测试',() async {
       await driver.tap(find.text('关于我们'));
       await delayed();
-      await driver.tap(find.text('作者'));
+      await driver.tap(find.text('作者博客'));
       await Future<dynamic>.delayed(const Duration(seconds: 3));
       await driver.tap(find.byTooltip('Back'));
       await delayed();
