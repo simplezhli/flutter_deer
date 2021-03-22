@@ -63,9 +63,9 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 
 [![Build Status](https://github.com/simplezhli/flutter_deer/workflows/flutter_deer%20driver/badge.svg?branch=master)](https://github.com/simplezhli/flutter_deer/actions?query=workflow%3A%22flutter_deer+driver%22+branch%3Amaster)
 
-    1. Flutter version 2.0.2
+    1. Flutter version 2.0.3
      
-    2. Dart version 2.12.1
+    2. Dart version 2.12.2
 
 ## 注意事项
 
@@ -145,6 +145,7 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 | [sprintf](https://github.com/Naddiseo/dart-sprintf)                   | **格式化String**   |
 | [barcode_scan](https://github.com/apptreesoftware/flutter_barcode_reader)     | **扫码功能** |
 | [intl](https://github.com/dart-lang/intl)     | **本地化** |
+| [vibration](https://github.com/benjamindean/flutter_vibration)     | **振动** |
 
 详细内容可以参看[pubspec.yaml](https://github.com/simplezhli/flutter_deer/blob/master/pubspec.yaml)文件    
 
