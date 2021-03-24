@@ -44,3 +44,12 @@ source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 
 参考：https://www.ioiox.com/archives/62.html
      https://mirrors.tuna.tsinghua.edu.cn/help/CocoaPods/
+
+
+## 历史问题
+
+- [~~iOS使用Let's Encript证书，App卡死~~](https://github.com/flutterchina/dio/issues/703#issuecomment-748737446)
+
+- 1.17.0已知问题(~~#38323~~ ~~#47191~~)。
+
+- 1.17.0已修复。~~在iOS手机上开启深色模式时，[无法将状态栏文字修改为黑色](https://github.com/flutter/flutter/issues/41067)。~~
