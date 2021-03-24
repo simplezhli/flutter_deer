@@ -124,7 +124,7 @@ class _WithdrawalAccountItemState extends State<WithdrawalAccountItem> with Sing
                   /// 避免动画中重复执行
                   if (_animationStatus == AnimationStatus.dismissed) {
                     _animationController.forward();
-                  } 
+                  }
                   if (_animationStatus == AnimationStatus.completed) {
                     _animationController.reverse();
                   }
@@ -157,22 +157,27 @@ class AccountCard extends StatefulWidget {
 class _AccountCardState extends State<AccountCard> {
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8.0),
-        boxShadow: context.isDark ? null :
-        [
-          BoxShadow(color: widget.type == 1 ?
-          const Color(0x804EE07A) :
-          const Color(0x805793FA), offset: const Offset(0.0, 2.0), blurRadius: 8.0, spreadRadius: 0.0),
-        ],
-        gradient: LinearGradient(
-          colors: widget.type == 1 ?
-          const [Color(0xFF40E6AE), Color(0xFF2DE062)] :
-          const [Color(0xFF57C4FA), Colours.app_main],
+    /// 添加RepaintBoundary原因见doc/Web问题汇总.md
+    return RepaintBoundary(
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8.0),
+          boxShadow: context.isDark ? null : [
+            BoxShadow(
+              color: widget.type == 1 ? const Color(0x804EE07A) : const Color(0x805793FA),
+              offset: const Offset(0.0, 2.0),
+              blurRadius: 8.0,
+              spreadRadius: 0.0,
+            ),
+          ],
+          gradient: LinearGradient(
+            colors: widget.type == 1 ?
+            const [Color(0xFF40E6AE), Color(0xFF2DE062)] :
+            const [Color(0xFF57C4FA), Colours.app_main],
+          ),
         ),
+        child: widget.child,
       ),
-      child: widget.child,
     );
   }
 }

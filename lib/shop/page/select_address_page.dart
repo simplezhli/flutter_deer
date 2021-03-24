@@ -27,10 +27,11 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
   @override
   void initState() {
     super.initState();
-    /// iOS配置key
-    if (defaultTargetPlatform == TargetPlatform.iOS) {
-      Flutter2dAMap.setApiKey('4327916279bf45a044bb53b947442387');
-    }
+    /// 配置key
+    Flutter2dAMap.setApiKey(
+      iOSKey: '4327916279bf45a044bb53b947442387',
+      webKey: '4e479545913a3a180b3cffc267dad646',
+    );
   }
   
   @override
@@ -53,7 +54,6 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
             Expanded(
               flex: 9,
               child: AMap2DView(
-                webKey: '4e479545913a3a180b3cffc267dad646',
                 onPoiSearched: (result) {
                   _controller.animateTo(0.0, duration: const Duration(milliseconds: 10), curve: Curves.ease);
                   _index = 0;

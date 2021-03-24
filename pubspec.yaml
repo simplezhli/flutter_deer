@@ -55,7 +55,7 @@ dependencies:
   # 状态管理 https://github.com/rrousselGit/provider
   provider: ^5.0.0
   # 扫码 https://github.com/apptreesoftware/flutter_barcode_reader
-  barcode_scan: 3.0.1 # 备用 qr_code_scanner: 0.3.5
+  barcode_scan: 3.0.1
   # App Shortcuts https://github.com/flutter/plugins/tree/master/packages/quick_actions
   quick_actions: 0.5.0
   # 刮刮卡 https://github.com/vintage/scratcher
@@ -65,7 +65,7 @@ dependencies:
   # 高德2D地图插件（支持Web） https://github.com/simplezhli/flutter_2d_amap
   flutter_2d_amap:
     git:
-      ref: '8609e8'
+      ref: '1bde43d7'
       url: 'https://github.com/simplezhli/flutter_2d_amap.git'
 
 dev_dependencies:
