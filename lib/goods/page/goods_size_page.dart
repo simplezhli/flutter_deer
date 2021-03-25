@@ -146,7 +146,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
               ) : ListView.builder(
                 itemCount: _goodsSizeList.length,
                 itemExtent: 107.0,
-                itemBuilder: (_, index) => _getGoodsSizeItem(index),
+                itemBuilder: (_, index) => _buildGoodsSizeItem(index),
               ),
             ),
             Padding(
@@ -165,7 +165,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
   }
  
   /// design/4商品/index.html#artboard19
-  Widget _getGoodsSizeItem(int index) {
+  Widget _buildGoodsSizeItem(int index) {
 
     // item
     Widget widget = Row(
@@ -196,36 +196,11 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                 children: <Widget>[
                   Offstage(
                     offstage: _goodsSizeList[index].reducePrice.isEmpty,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                      margin: const EdgeInsets.only(right: 4.0),
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).errorColor,
-                        borderRadius: BorderRadius.circular(2.0),
-                      ),
-                      height: 16.0,
-                      alignment: Alignment.center,
-                      child: Text(
-                        '立减${_goodsSizeList[index].reducePrice}元',
-                        style: const TextStyle(color: Colors.white, fontSize: Dimens.font_sp10),
-                      ),
-                    ),
+                    child: _buildGoodsTag(Theme.of(context).errorColor, '立减${_goodsSizeList[index].reducePrice}元'),
                   ),
                   Opacity(
                     opacity: _goodsSizeList[index].currencyPrice.isEmpty ? 0.0 : 1.0,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColor,
-                        borderRadius: BorderRadius.circular(2.0),
-                      ),
-                      height: 16.0,
-                      alignment: Alignment.center,
-                      child: Text(
-                        '金币抵扣${_goodsSizeList[index].currencyPrice}元',
-                        style: const TextStyle(color: Colors.white, fontSize: Dimens.font_sp10),
-                      ),
-                    ),
+                    child: _buildGoodsTag(Theme.of(context).primaryColor, '金币抵扣${_goodsSizeList[index].currencyPrice}元'),
                   )
                 ],
               ),
@@ -303,6 +278,23 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
         ),
       ],
       child: widget
+    );
+  }
+
+  Widget _buildGoodsTag(Color color, String text) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+      margin: const EdgeInsets.only(right: 4.0),
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(2.0),
+      ),
+      height: 16.0,
+      alignment: Alignment.center,
+      child: Text(
+        text,
+        style: const TextStyle(color: Colors.white, fontSize: Dimens.font_sp10, height: 1.1,),
+      ),
     );
   }
 }

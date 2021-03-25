@@ -126,18 +126,18 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
         // 禁用ListView滑动，使用外层的ScrollView滑动
         physics: const NeverScrollableScrollPhysics(),
         itemCount: 2,
-        itemBuilder: (_, index) => _getOrderGoodsItem(index),
+        itemBuilder: (_, index) => _buildOrderGoodsItem(index),
       ),
       Gaps.vGap8,
-      _getGoodsInfoItem('共2件商品', Utils.formatPrice('50.00')),
-      _getGoodsInfoItem('配送费', Utils.formatPrice('5.00')),
-      _getGoodsInfoItem('立减', Utils.formatPrice('-2.50'), contentTextColor: red),
-      _getGoodsInfoItem('优惠券', Utils.formatPrice('-2.50'), contentTextColor: red),
-      _getGoodsInfoItem('金币抵扣', Utils.formatPrice('-2.50'), contentTextColor: red),
-      _getGoodsInfoItem('佣金', Utils.formatPrice('-1.0'), contentTextColor: red),
+      _buildGoodsInfoItem('共2件商品', Utils.formatPrice('50.00')),
+      _buildGoodsInfoItem('配送费', Utils.formatPrice('5.00')),
+      _buildGoodsInfoItem('立减', Utils.formatPrice('-2.50'), contentTextColor: red),
+      _buildGoodsInfoItem('优惠券', Utils.formatPrice('-2.50'), contentTextColor: red),
+      _buildGoodsInfoItem('金币抵扣', Utils.formatPrice('-2.50'), contentTextColor: red),
+      _buildGoodsInfoItem('佣金', Utils.formatPrice('-1.0'), contentTextColor: red),
       Gaps.line,
       Gaps.vGap8,
-      _getGoodsInfoItem('合计', Utils.formatPrice('46.50')),
+      _buildGoodsInfoItem('合计', Utils.formatPrice('46.50')),
       Gaps.vGap8,
       Gaps.line,
       Gaps.vGap32,
@@ -146,11 +146,11 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
         style: TextStyles.textBold18,
       ),
       Gaps.vGap12,
-      _getOrderInfoItem('订单编号:', '1256324856942'),
-      _getOrderInfoItem('下单时间:', '2021/08/26 12:20'),
-      _getOrderInfoItem('支付方式:', '在线支付/支付宝'),
-      _getOrderInfoItem('配送方式:', '送货上门'),
-      _getOrderInfoItem('客户备注:', '无'),
+      _buildOrderInfoItem('订单编号:', '1256324856942'),
+      _buildOrderInfoItem('下单时间:', '2021/08/26 12:20'),
+      _buildOrderInfoItem('支付方式:', '在线支付/支付宝'),
+      _buildOrderInfoItem('配送方式:', '送货上门'),
+      _buildOrderInfoItem('客户备注:', '无'),
     ];
 
     return Scaffold(
@@ -169,7 +169,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
     );
   }
 
-  Widget _getOrderInfoItem(String title, String content) {
+  Widget _buildOrderInfoItem(String title, String content) {
     return MergeSemantics(
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 4.0),
@@ -184,7 +184,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
     );
   }
 
-  Widget _getOrderGoodsItem(int index) {
+  Widget _buildOrderGoodsItem(int index) {
     final Widget item = Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -207,35 +207,11 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
               Gaps.vGap8,
               Row(
                 children: <Widget>[
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).errorColor,
-                      borderRadius: BorderRadius.circular(2.0),
-                    ),
-                    height: 16.0,
-                    alignment: Alignment.center,
-                    child: const Text(
-                      '立减2.50元',
-                      style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp10, height: 1.1,),
-                    ),
-                  ),
+                  _buildGoodsTag(Theme.of(context).errorColor, '立减2.50元'),
                   Gaps.hGap4,
                   Offstage(
                     offstage: index % 2 != 0,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColor,
-                        borderRadius: BorderRadius.circular(2.0),
-                      ),
-                      height: 16.0,
-                      alignment: Alignment.center,
-                      child: const Text(
-                        '抵扣2.50元',
-                        style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp10, height: 1.1,),
-                      ),
-                    ),
+                    child: _buildGoodsTag(Theme.of(context).primaryColor, '抵扣2.50元'),
                   )
                 ],
               )
@@ -261,8 +237,24 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
       ),
     );
   }
+
+  Widget _buildGoodsTag(Color color, String text) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(2.0),
+      ),
+      height: 16.0,
+      alignment: Alignment.center,
+      child: Text(
+        text,
+        style: const TextStyle(color: Colors.white, fontSize: Dimens.font_sp10, height: 1.1,),
+      ),
+    );
+  }
   
-  Widget _getGoodsInfoItem(String title, String content, {Color contentTextColor}) {
+  Widget _buildGoodsInfoItem(String title, String content, {Color contentTextColor}) {
     return MergeSemantics(
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 8.0),

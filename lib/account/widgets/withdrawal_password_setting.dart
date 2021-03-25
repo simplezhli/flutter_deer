@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/screen_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/util/toast_utils.dart';
@@ -121,7 +122,7 @@ class _WithdrawalPasswordSettingState extends State<WithdrawalPasswordSetting> {
           }
 
           /// 点击时给予振动反馈
-          if (await Vibration.hasVibrator()) {
+          if (!Device.isDesktop && await Vibration.hasVibrator()) {
             Vibration.vibrate(duration: 10);
           }
 

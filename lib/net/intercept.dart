@@ -19,7 +19,7 @@ class AuthInterceptor extends Interceptor {
     if (accessToken.isNotEmpty) {
       options.headers['Authorization'] = 'token $accessToken';
     }
-    if (Device.isMobile) {
+    if (!Device.isWeb) {
       // https://developer.github.com/v3/#user-agent-required
       options.headers['User-Agent'] = 'Mozilla/5.0';
     }

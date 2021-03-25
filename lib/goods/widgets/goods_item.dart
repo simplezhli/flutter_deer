@@ -48,8 +48,8 @@ class GoodsItem extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              const Text(
-                '八月十五中秋月饼礼盒',
+              Text(
+                item.type % 3 != 0 ? '八月十五中秋月饼礼盒' : '八月十五中秋月饼礼盒八月十五中秋月饼礼盒',
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
