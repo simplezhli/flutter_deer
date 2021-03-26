@@ -10,5 +10,5 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   /// sp初始化
   await SpUtil.getInstance();
-  runApp(MyApp(home: SettingPage()));
+  runApp(MyApp(home: const SettingPage()));
 }

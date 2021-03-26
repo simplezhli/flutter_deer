@@ -17,6 +17,9 @@ import '../setting_router.dart';
 
 /// design/8设置/index.html
 class SettingPage extends StatefulWidget {
+
+  const SettingPage({Key key}) : super(key: key);
+
   @override
   _SettingPageState createState() => _SettingPageState();
 }
@@ -68,7 +71,7 @@ class _SettingPageState extends State<SettingPage> {
           ),
           ClickItem(
             title: '其他Demo',
-            onTap: () => AppNavigator.push(context, DemoPage()),
+            onTap: () => AppNavigator.push(context, const DemoPage()),
           ),
         ],
       ),
@@ -120,7 +123,7 @@ class _SettingPageState extends State<SettingPage> {
     showDialog<void>(
       context: context,
       barrierDismissible: false,
-      builder: (_) => UpdateDialog()
+      builder: (_) => const UpdateDialog()
     );
   }
 }

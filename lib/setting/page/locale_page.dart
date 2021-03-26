@@ -8,6 +8,9 @@ import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:provider/provider.dart';
 
 class LocalePage extends StatefulWidget {
+
+  const LocalePage({Key key}) : super(key: key);
+
   @override
   _LocalePageState createState() => _LocalePageState();
 }

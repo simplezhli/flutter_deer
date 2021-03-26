@@ -14,6 +14,9 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:sp_util/sp_util.dart';
 
 class SplashPage extends StatefulWidget {
+
+  const SplashPage({Key key}) : super(key: key);
+
   @override
   _SplashPageState createState() => _SplashPageState();
 }

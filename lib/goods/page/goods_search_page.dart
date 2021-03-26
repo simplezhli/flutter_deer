@@ -5,6 +5,9 @@ import 'package:flutter_deer/util/toast_utils.dart';
 import 'package:flutter_deer/widgets/search_bar.dart';
 
 class GoodsSearchPage extends StatefulWidget {
+
+  const GoodsSearchPage({Key key}) : super(key: key);
+
   @override
   _GoodsSearchPageState createState() => _GoodsSearchPageState();
 }

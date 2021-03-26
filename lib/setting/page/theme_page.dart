@@ -7,6 +7,9 @@ import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:provider/provider.dart';
 
 class ThemePage extends StatefulWidget {
+
+  const ThemePage({Key key}) : super(key: key);
+
   @override
   _ThemePageState createState() => _ThemePageState();
 }

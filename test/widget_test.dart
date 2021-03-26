@@ -12,7 +12,7 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   testWidgets('widget test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MaterialApp(home: MessagePage(),));
+    await tester.pumpWidget(const MaterialApp(home: MessagePage(),));
 
     expect(find.text('消息'), findsOneWidget);
   });

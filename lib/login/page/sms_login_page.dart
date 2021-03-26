@@ -17,6 +17,9 @@ import '../login_router.dart';
 
 /// design/1注册登录/index.html#artboard4
 class SMSLoginPage extends StatefulWidget {
+
+  const SMSLoginPage({Key key}) : super(key: key);
+
   @override
   _SMSLoginPageState createState() => _SMSLoginPageState();
 }

@@ -161,16 +161,14 @@ class _SearchBarState extends State<SearchBar> {
       child: Material(
         color: context.backgroundColor,
         child: SafeArea(
-          child: Container(
-            child: Row(
-              children: <Widget>[
-                back,
-                textField,
-                Gaps.hGap8,
-                search,
-                Gaps.hGap16,
-              ],
-            ),
+          child: Row(
+            children: <Widget>[
+              back,
+              textField,
+              Gaps.hGap8,
+              search,
+              Gaps.hGap16,
+            ],
           ),
         ),
       ),

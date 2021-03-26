@@ -14,6 +14,9 @@ import 'package:flutter_deer/widgets/my_flexible_space_bar.dart';
 
 /// design/5统计/index.html
 class StatisticsPage extends StatefulWidget {
+
+  const StatisticsPage({Key key}) : super(key: key);
+
   @override
   _StatisticsPageState createState() => _StatisticsPageState();
 }

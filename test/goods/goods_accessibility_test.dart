@@ -10,11 +10,11 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
 
   final Map<String, Widget> map = <String, Widget>{};
-  map['goods_page'] = GoodsPage();
-  map['goods_edit_page'] = GoodsEditPage();
-  map['goods_search_page'] = GoodsSearchPage();
-  map['goods_size_page'] = GoodsSizePage();
-  map['goods_size_edit_page'] = GoodsSizeEditPage();
+  map['goods_page'] = const GoodsPage();
+  map['goods_edit_page'] = const GoodsEditPage();
+  map['goods_search_page'] = const GoodsSearchPage();
+  map['goods_size_page'] = const GoodsSizePage();
+  map['goods_size_edit_page'] = const GoodsSizeEditPage();
   
   group('goods => 检测页面可点击目标大小是否大于44 * 44', () {
     map.forEach((name, page) {

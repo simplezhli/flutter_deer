@@ -37,7 +37,7 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
 
-  MyApp({this.home, this.theme}) {
+  MyApp({Key key, this.home, this.theme}): super(key: key) {
     Log.init();
     initDio();
     Routes.initRoutes();
@@ -100,7 +100,7 @@ class MyApp extends StatelessWidget {
       theme: theme ?? provider.getTheme(),
       darkTheme: provider.getTheme(isDarkMode: true),
       themeMode: provider.getThemeMode(),
-      home: home ?? SplashPage(),
+      home: home ?? const SplashPage(),
       onGenerateRoute: Routes.router.generator,
       localizationsDelegates: DeerLocalizations.localizationsDelegates,
       supportedLocales: DeerLocalizations.supportedLocales,
@@ -115,7 +115,7 @@ class MyApp extends StatelessWidget {
       /// 因为使用了fluro，这里设置主要针对Web
       onUnknownRoute: (_) {
         return MaterialPageRoute<void>(
-          builder: (BuildContext context) => NotFoundPage(),
+          builder: (BuildContext context) => const NotFoundPage(),
         );
       },
     );

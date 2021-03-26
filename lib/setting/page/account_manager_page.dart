@@ -9,6 +9,9 @@ import 'package:flutter_deer/widgets/load_image.dart';
 
 /// design/8设置/index.html#artboard1
 class AccountManagerPage extends StatefulWidget {
+
+  const AccountManagerPage({Key key}) : super(key: key);
+
   @override
   _AccountManagerPageState createState() => _AccountManagerPageState();
 }

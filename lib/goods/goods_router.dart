@@ -19,15 +19,15 @@ class GoodsRouter implements IRouterProvider{
   
   @override
   void initRouter(FluroRouter router) {
-    router.define(goodsPage, handler: Handler(handlerFunc: (_, __) => GoodsPage()));
+    router.define(goodsPage, handler: Handler(handlerFunc: (_, __) => const GoodsPage()));
     router.define(goodsEditPage, handler: Handler(handlerFunc: (_, Map<String, List<String>> params) {
       final bool isAdd = params['isAdd']?.first == 'true';
       final bool isScan = params['isScan']?.first == 'true';
       return GoodsEditPage(isAdd: isAdd, isScan: isScan,);
     }));
-    router.define(goodsSearchPage, handler: Handler(handlerFunc: (_, __) => GoodsSearchPage()));
-    router.define(goodsSizePage, handler: Handler(handlerFunc: (_, __) => GoodsSizePage()));
-    router.define(goodsSizeEditPage, handler: Handler(handlerFunc: (_, __) => GoodsSizeEditPage()));
+    router.define(goodsSearchPage, handler: Handler(handlerFunc: (_, __) => const GoodsSearchPage()));
+    router.define(goodsSizePage, handler: Handler(handlerFunc: (_, __) => const GoodsSizePage()));
+    router.define(goodsSizeEditPage, handler: Handler(handlerFunc: (_, __) => const GoodsSizeEditPage()));
   }
   
 }

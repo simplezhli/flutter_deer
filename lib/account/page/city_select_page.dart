@@ -13,6 +13,9 @@ import 'package:azlistview/azlistview.dart';
 
 /// design/6店铺-账户/index.html#artboard34
 class CitySelectPage extends StatefulWidget {
+
+  const CitySelectPage({Key key}) : super(key: key);
+
   @override
   _CitySelectPageState createState() => _CitySelectPageState();
 }

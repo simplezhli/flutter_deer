@@ -11,6 +11,9 @@ import 'package:flutter_deer/widgets/my_app_bar.dart';
 
 
 class DemoPage extends StatefulWidget {
+
+  const DemoPage({Key key}) : super(key: key);
+
   @override
   _DemoPageState createState() => _DemoPageState();
 }
@@ -39,11 +42,11 @@ class _DemoPageState extends State<DemoPage> {
           ),
           ClickItem(
             title: 'Navigator 2.0',
-            onTap: () => AppNavigator.push(context, NestedRouterDemo()),
+            onTap: () => AppNavigator.push(context, const NestedRouterDemo()),
           ),
           ClickItem(
             title: 'ScratchCard',
-            onTap: () => AppNavigator.push(context, ScratchCardDemoPage()),
+            onTap: () => AppNavigator.push(context, const ScratchCardDemoPage()),
           ),
         ],
       ),

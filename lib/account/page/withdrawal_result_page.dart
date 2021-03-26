@@ -8,6 +8,9 @@ import 'package:flutter_deer/widgets/my_button.dart';
 
 /// design/6店铺-账户/index.html#artboard5
 class WithdrawalResultPage extends StatefulWidget {
+
+  const WithdrawalResultPage({Key key}) : super(key: key);
+
   @override
   _WithdrawalResultPageState createState() => _WithdrawalResultPageState();
 }

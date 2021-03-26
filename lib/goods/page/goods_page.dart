@@ -16,6 +16,9 @@ import '../goods_router.dart';
 
 /// design/4商品/index.html
 class GoodsPage extends StatefulWidget {
+
+  const GoodsPage({Key key}) : super(key: key);
+
   @override
   _GoodsPageState createState() => _GoodsPageState();
 }

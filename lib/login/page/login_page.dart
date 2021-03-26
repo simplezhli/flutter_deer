@@ -19,6 +19,9 @@ import '../login_router.dart';
 
 /// design/1注册登录/index.html
 class LoginPage extends StatefulWidget {
+
+  const LoginPage({Key key}) : super(key: key);
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }

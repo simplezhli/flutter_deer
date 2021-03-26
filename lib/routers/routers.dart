@@ -30,11 +30,11 @@ class Routes {
     router.notFoundHandler = Handler(
       handlerFunc: (BuildContext context, Map<String, List<String>> params) {
         debugPrint('未找到目标页');
-        return NotFoundPage();
+        return const NotFoundPage();
       });
 
     router.define(home, handler: Handler(
-      handlerFunc: (BuildContext context, Map<String, List<String>> params) => Home()));
+      handlerFunc: (BuildContext context, Map<String, List<String>> params) => const Home()));
     
     router.define(webViewPage, handler: Handler(handlerFunc: (_, params) {
       final String title = params['title']?.first;

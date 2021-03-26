@@ -16,6 +16,8 @@ import 'package:flutter_deer/widgets/pie_chart/pie_data.dart';
 /// design/5统计/index.html#artboard11
 class GoodsStatisticsPage extends StatefulWidget {
 
+  const GoodsStatisticsPage({Key key}) : super(key: key);
+
   @override
   _GoodsStatisticsPageState createState() => _GoodsStatisticsPageState();
 }

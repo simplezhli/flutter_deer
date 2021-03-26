@@ -11,12 +11,12 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
 
   final Map<String, Widget> map = <String, Widget>{};
-  map['shop_page'] = ShopPage(isAccessibilityTest: true,);
-  map['shop_setting_page'] = ShopSettingPage();
-  map['select_address_page'] = AddressSelectPage();
-  map['message_page'] = MessagePage();
-  map['input_text_page'] = InputTextPage(title: '测试', hintText: '输入测试内容');
-  map['freight_config_page'] = FreightConfigPage();
+  map['shop_page'] = const ShopPage(isAccessibilityTest: true,);
+  map['shop_setting_page'] = const ShopSettingPage();
+  map['select_address_page'] = const AddressSelectPage();
+  map['message_page'] = const MessagePage();
+  map['input_text_page'] = const InputTextPage(title: '测试', hintText: '输入测试内容');
+  map['freight_config_page'] = const FreightConfigPage();
 
   group('shop => 检测页面可点击目标大小是否大于44 * 44', () {
     map.forEach((name, page) {

@@ -15,7 +15,9 @@ import 'package:flutter_deer/widgets/my_button.dart';
 
 
 class UpdateDialog extends StatefulWidget {
-  
+
+  const UpdateDialog({Key key}) : super(key: key);
+
   @override
   _UpdateDialogState createState() => _UpdateDialogState();
 }

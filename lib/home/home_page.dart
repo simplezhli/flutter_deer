@@ -16,6 +16,9 @@ import 'package:provider/provider.dart';
 import 'package:quick_actions/quick_actions.dart';
 
 class Home extends StatefulWidget {
+
+  const Home({Key key}) : super(key: key);
+
   @override
   _HomeState createState() => _HomeState();
 }
@@ -52,7 +55,7 @@ class _HomeState extends State<Home> {
       final QuickActions quickActions = QuickActions();
       quickActions.initialize((String shortcutType) async {
         if (shortcutType == 'demo') {
-          AppNavigator.push(context, DemoPage());
+          AppNavigator.push(context, const DemoPage());
         }
       });
 
@@ -67,9 +70,9 @@ class _HomeState extends State<Home> {
 
   void initData() {
     _pageList = [
-      OrderPage(),
-      GoodsPage(),
-      StatisticsPage(),
+      const OrderPage(),
+      const GoodsPage(),
+      const StatisticsPage(),
       const ShopPage(),
     ];
   }

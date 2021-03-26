@@ -7,6 +7,9 @@ import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/search_bar.dart';
 
 class AddressSelectPage extends StatefulWidget {
+
+  const AddressSelectPage({Key key}) : super(key: key);
+
   @override
   _AddressSelectPageState createState() => _AddressSelectPageState();
 }

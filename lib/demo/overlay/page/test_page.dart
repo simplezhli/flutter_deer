@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/demo/widgets/neumorphic.dart';
 
 class TestPage extends StatefulWidget {
+
+  const TestPage({Key key}) : super(key: key);
   
   @override
   _TestPageState createState() => _TestPageState();
@@ -24,7 +26,7 @@ class _TestPageState extends State<TestPage> {
               Navigator.push<TestPage>(
                 context,
                 MaterialPageRoute<TestPage>(
-                  builder: (BuildContext context) => TestPage(),
+                  builder: (BuildContext context) => const TestPage(),
                 ),
               );
             },

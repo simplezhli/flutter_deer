@@ -8,8 +8,8 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
 
   final Map<String, Widget> map = <String, Widget>{};
-  map['store_audit_page'] = StoreAuditPage();
-  map['store_audit_result_page'] = StoreAuditResultPage();
+  map['store_audit_page'] = const StoreAuditPage();
+  map['store_audit_result_page'] = const StoreAuditResultPage();
 
   group('store => 检测页面可点击目标大小是否大于44 * 44', () {
     map.forEach((name, page) {

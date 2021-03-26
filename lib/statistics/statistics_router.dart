@@ -17,7 +17,7 @@ class StatisticsRouter implements IRouterProvider{
       final int index = int.parse(params['index']?.first);
       return OrderStatisticsPage(index);
     }));
-    router.define(goodsStatisticsPage, handler: Handler(handlerFunc: (_, __) => GoodsStatisticsPage()));
+    router.define(goodsStatisticsPage, handler: Handler(handlerFunc: (_, __) => const GoodsStatisticsPage()));
   }
   
 }

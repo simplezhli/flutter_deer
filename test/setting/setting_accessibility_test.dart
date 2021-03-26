@@ -10,10 +10,10 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
 
   final Map<String, Widget> map = <String, Widget>{};
-  map['about_page'] = AboutPage();
-  map['account_manager_page'] = AccountManagerPage();
-  map['setting_page'] = SettingPage();
-  map['theme_page'] = ThemePage();
+  map['about_page'] = const AboutPage();
+  map['account_manager_page'] = const AccountManagerPage();
+  map['setting_page'] = const SettingPage();
+  map['theme_page'] = const ThemePage();
   
   group('setting => 检测页面可点击目标大小是否大于44 * 44', () {
     map.forEach((name, page) {

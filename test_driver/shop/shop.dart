@@ -8,5 +8,5 @@ import 'package:flutter_deer/main.dart';
 void main() {
   enableFlutterDriverExtension();
   Constant.isDriverTest = true;
-  runApp(MyApp(home: Home()));
+  runApp(MyApp(home: const Home()));
 }

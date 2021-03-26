@@ -99,7 +99,7 @@ class _DeerListViewState extends State<DeerListView> {
 
 class MoreWidget extends StatelessWidget {
   
-  const MoreWidget(this.itemCount, this.hasMore, this.pageSize);
+  const MoreWidget(this.itemCount, this.hasMore, this.pageSize, {Key key}): super(key: key);
 
   final int itemCount;
   final bool hasMore;

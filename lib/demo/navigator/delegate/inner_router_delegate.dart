@@ -41,9 +41,9 @@ class InnerRouterDelegate extends RouterDelegate<BookRoutePath>
               child: BookDetailsScreen(book: appState.selectedBook),
             ),
         ] else
-          FadeAnimationPage(
+          const FadeAnimationPage(
             child: SettingsScreen(),
-            key: const ValueKey('SettingsPage'),
+            key: ValueKey('SettingsPage'),
           ),
       ],
       onPopPage: (route, dynamic result) {

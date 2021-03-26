@@ -12,6 +12,9 @@ import '../account_router.dart';
 
 /// design/6店铺-账户/index.html#artboard2
 class AccountPage extends StatefulWidget {
+
+  const AccountPage({Key key}) : super(key: key);
+
   @override
   _AccountPageState createState() => _AccountPageState();
 }

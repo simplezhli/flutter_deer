@@ -8,9 +8,9 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
 
   final Map<String, Widget> map = <String, Widget>{};
-  map['statistics_page'] = StatisticsPage();
-  map['order_statistics_page'] = OrderStatisticsPage(1);
-  map['goods_statistics_page'] = GoodsStatisticsPage();
+  map['statistics_page'] = const StatisticsPage();
+  map['order_statistics_page'] = const OrderStatisticsPage(1);
+  map['goods_statistics_page'] = const GoodsStatisticsPage();
   
   group('statistics => 检测页面可点击目标大小是否大于44 * 44', () {
     map.forEach((name, page) {

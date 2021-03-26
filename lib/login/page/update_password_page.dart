@@ -13,6 +13,9 @@ import 'package:flutter_deer/login/widgets/my_text_field.dart';
 
 /// design/1注册登录/index.html#artboard13
 class UpdatePasswordPage extends StatefulWidget {
+
+  const UpdatePasswordPage({Key key}) : super(key: key);
+
   @override
   _UpdatePasswordPageState createState() => _UpdatePasswordPageState();
 }

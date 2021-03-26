@@ -15,6 +15,9 @@ import 'package:flutter_deer/widgets/my_card.dart';
 
 /// design/7店铺-店铺配置/index.html
 class FreightConfigPage extends StatefulWidget {
+
+  const FreightConfigPage({Key key}) : super(key: key);
+
   @override
   _FreightConfigPageState createState() => _FreightConfigPageState();
 }

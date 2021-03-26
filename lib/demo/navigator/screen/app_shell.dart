@@ -6,8 +6,9 @@ import 'package:flutter_deer/demo/navigator/delegate/inner_router_delegate.dart'
 class AppShell extends StatefulWidget {
 
   const AppShell({
+    Key key,
     @required this.appState,
-  });
+  }): super(key: key);
 
   final BooksAppState appState;
 

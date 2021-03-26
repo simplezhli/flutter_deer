@@ -6,5 +6,5 @@ import 'package:flutter_deer/main.dart';
 /// 运行 flutter drive --target=test_driver/goods/goods.dart
 void main() {
   enableFlutterDriverExtension();
-  runApp(MyApp(home: Home()));
+  runApp(MyApp(home: const Home()));
 }

@@ -15,6 +15,9 @@ import 'package:flutter_deer/widgets/text_field_item.dart';
 
 /// design/6店铺-账户/index.html#artboard29
 class AddWithdrawalAccountPage extends StatefulWidget {
+
+  const AddWithdrawalAccountPage({Key key}) : super(key: key);
+
   @override
   _AddWithdrawalAccountPageState createState() => _AddWithdrawalAccountPageState();
 }

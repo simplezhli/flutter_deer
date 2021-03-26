@@ -7,6 +7,9 @@ import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:scratcher/scratcher.dart';
 
 class ScratchCardDemoPage extends StatefulWidget {
+
+  const ScratchCardDemoPage({Key key}) : super(key: key);
+
   @override
   _ScratchCardDemoPageState createState() => _ScratchCardDemoPageState();
 }

@@ -17,17 +17,17 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   
   final Map<String, Widget> map = <String, Widget>{};
-  map['account_page'] = AccountPage();
-  map['account_record_list_page'] = AccountRecordListPage();
-  map['add_withdrawal_account_page'] = AddWithdrawalAccountPage();
-  map['bank_select_page'] = BankSelectPage();
-  map['city_select_page'] = CitySelectPage();
-  map['withdrawal_account_list_page'] = WithdrawalAccountListPage();
-  map['withdrawal_account_page'] = WithdrawalAccountPage();
-  map['withdrawal_page'] = WithdrawalPage();
-  map['withdrawal_password_page'] = WithdrawalPasswordPage();
-  map['withdrawal_record_list_page'] = WithdrawalRecordListPage();
-  map['withdrawal_result_page'] = WithdrawalResultPage();
+  map['account_page'] = const AccountPage();
+  map['account_record_list_page'] = const AccountRecordListPage();
+  map['add_withdrawal_account_page'] = const AddWithdrawalAccountPage();
+  map['bank_select_page'] = const BankSelectPage();
+  map['city_select_page'] = const CitySelectPage();
+  map['withdrawal_account_list_page'] = const WithdrawalAccountListPage();
+  map['withdrawal_account_page'] = const WithdrawalAccountPage();
+  map['withdrawal_page'] = const WithdrawalPage();
+  map['withdrawal_password_page'] = const WithdrawalPasswordPage();
+  map['withdrawal_record_list_page'] = const WithdrawalRecordListPage();
+  map['withdrawal_result_page'] = const WithdrawalResultPage();
   
   group('account => 检测页面可点击目标大小是否大于44 * 44', () {
     map.forEach((name, page) {
