@@ -73,7 +73,7 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
     iOS可以执行命令`flutter build ios` 以创建`release`版本。
     Android可以执行命令`flutter build apk` 以创建`release`版本。
 
-- 项目运行有问题可以在[iOS问题汇总](./doc/iOS问题汇总.md)、[Android问题汇总](./doc/Android问题汇总.md)中尝试寻找解决办法。
+- 项目运行有问题可以在[iOS问题汇总](./docs/iOS问题汇总.md)、[Android问题汇总](./docs/Android问题汇总.md)中尝试寻找解决办法。
 
 - 由于部分插件的原因，本项目在Windows、macOS仅做预览（主要为原生功能方面，UI问题不大）。有兴趣的可自行运行体验。
         
@@ -177,7 +177,7 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 
 - ListView在没有设置分割线的情况下，个别Item之间存在大约1像素的间隔（[像素对齐问题](https://github.com/flutter/flutter/issues/14288)）。
 
-- 其他历史问题见doc目录下的问题汇总。
+- 其他历史问题见docs目录下的问题汇总。
 
 ## Thanks For
 

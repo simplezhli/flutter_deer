@@ -157,7 +157,7 @@ class AccountCard extends StatefulWidget {
 class _AccountCardState extends State<AccountCard> {
   @override
   Widget build(BuildContext context) {
-    /// 添加RepaintBoundary原因见doc/Web问题汇总.md
+    /// 添加RepaintBoundary原因见docs/Web问题汇总.md
     return RepaintBoundary(
       child: DecoratedBox(
         decoration: BoxDecoration(
