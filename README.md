@@ -37,7 +37,7 @@
 * 下拉刷新 + 上拉加载更多
 * 应用检查更新
 * PopupWindow
-* 扫码功能（barcode_scan插件）
+* 扫码功能（qr_code_scanner插件）
 * 菜单切换动画（圆形扩散、3D翻转）
 * 侧滑删除
 * 城市选择
@@ -143,7 +143,7 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 | [date_utils](https://github.com/apptreesoftware/date_utils)           | **常用的日期工具类** |
 | [bezier_chart](https://github.com/aeyrium/bezier-chart)               | **曲线图表**       |
 | [sprintf](https://github.com/Naddiseo/dart-sprintf)                   | **格式化String**   |
-| [barcode_scan](https://github.com/apptreesoftware/flutter_barcode_reader)     | **扫码功能** |
+| [qr_code_scanner](https://github.com/juliuscanute/qr_code_scanner)     | **扫码功能** |
 | [intl](https://github.com/dart-lang/intl)     | **本地化** |
 | [vibration](https://github.com/benjamindean/flutter_vibration)     | **振动** |
 

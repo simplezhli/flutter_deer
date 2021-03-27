@@ -34,7 +34,7 @@ The effect of some pages is as follows:
 * Pull down to refresh + pull up to load more
 * Check update
 * PopupWindow
-* Scan code（barcode_scan plugin）
+* Scan code（qr_code_scanner plugin）
 * Menu switching animation (circular diffusion, 3D flip)
 * Sliding delete
 * City selection
@@ -135,7 +135,7 @@ Web：https://simplezhli.github.io/flutter_deer/
 | [date_utils](https://github.com/apptreesoftware/date_utils)           | **Commonly used date tools** |
 | [bezier_chart](https://github.com/aeyrium/bezier-chart)               | **Bezier chart**       |
 | [sprintf](https://github.com/Naddiseo/dart-sprintf)                   | **Format String**   |
-| [barcode_scan](https://github.com/apptreesoftware/flutter_barcode_reader)     | **Scan code** |
+| [qr_code_scanner](https://github.com/juliuscanute/qr_code_scanner)     | **Scan code** |
 | [intl](https://github.com/dart-lang/intl)     | **Localization** |
 | [vibration](https://github.com/benjamindean/flutter_vibration)     | **Vibration** |
 

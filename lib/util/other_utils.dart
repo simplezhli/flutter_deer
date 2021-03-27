@@ -1,10 +1,8 @@
 
 import 'dart:ui';
 
-import 'package:barcode_scan/barcode_scan.dart';
 import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/util/toast_utils.dart';
@@ -32,30 +30,6 @@ class Utils {
     } else {
       Toast.show('拨号失败！');
     }
-  }
-
-  /// 调起二维码扫描页
-  static Future<String> scan() async {
-    try {
-
-      final ScanOptions options = getCurrLocale() == 'zh' ? const ScanOptions(
-        strings: {
-          'cancel': '取消',
-          'flash_on': '开启闪光灯',
-          'flash_off': '关闭闪光灯',
-        },
-      ) : const ScanOptions();
-
-      final ScanResult result = await BarcodeScanner.scan(options: options);
-      return result.rawContent;
-    } catch (e) {
-      if (e is PlatformException) {
-        if (e.code == BarcodeScanner.cameraAccessDenied) {
-          Toast.show('没有相机权限！');
-        }
-      }
-    }
-    return null;
   }
 
   static String formatPrice(String price, {MoneyFormat format = MoneyFormat.END_INTEGER}){

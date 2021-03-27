@@ -31,7 +31,7 @@ dependencies:
   # Flutter 轮播图 https://github.com/best-flutter/flutter_swiper
   flutter_swiper: ^1.1.6  # flutter_swiper很久不维护，备用空安全版本：flutter_card_swiper: ^0.4.0
   # 启动URL的插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/url_launcher
-  url_launcher: 6.0.2
+  url_launcher: 6.0.3
   # 图片选择插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/image_picker
   image_picker: 0.7.3
   # 侧滑删除 https://github.com/letsar/flutter_slidable
@@ -54,10 +54,10 @@ dependencies:
   sprintf: ^6.0.0
   # 状态管理 https://github.com/rrousselGit/provider
   provider: ^5.0.0
-  # 扫码 https://github.com/apptreesoftware/flutter_barcode_reader
-  barcode_scan: 3.0.1
+  # 扫码 https://github.com/juliuscanute/qr_code_scanner
+  qr_code_scanner: 0.4.0
   # App Shortcuts https://github.com/flutter/plugins/tree/master/packages/quick_actions
-  quick_actions: 0.5.0
+  quick_actions: 0.6.0
   # 刮刮卡 https://github.com/vintage/scratcher
   scratcher: ^2.0.0
   # 振动（支持Web） https://github.com/benjamindean/flutter_vibration
