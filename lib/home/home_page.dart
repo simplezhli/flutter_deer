@@ -1,19 +1,15 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_deer/demo/demo_page.dart';
 import 'package:flutter_deer/goods/page/goods_page.dart';
 import 'package:flutter_deer/home/provider/home_provider.dart';
 import 'package:flutter_deer/order/page/order_page.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/shop/page/shop_page.dart';
 import 'package:flutter_deer/statistics/page/statistics_page.dart';
-import 'package:flutter_deer/util/app_navigator.dart';
-import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/double_tap_back_exit_app.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:provider/provider.dart';
-import 'package:quick_actions/quick_actions.dart';
 
 class Home extends StatefulWidget {
 
@@ -40,7 +36,6 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
     initData();
-    initQuickActions();
   }
 
   @override
@@ -50,23 +45,6 @@ class _HomeState extends State<Home> {
   }
 
 
-  void initQuickActions() {
-    if (Device.isMobile) {
-      final QuickActions quickActions = QuickActions();
-      quickActions.initialize((String shortcutType) async {
-        if (shortcutType == 'demo') {
-          AppNavigator.push(context, const DemoPage());
-        }
-      });
-
-      quickActions.setShortcutItems(<ShortcutItem>[
-        const ShortcutItem(
-          type: 'demo',
-          localizedTitle: 'Demo',
-        ),
-      ]);
-    }
-  }
 
   void initData() {
     _pageList = [

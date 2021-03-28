@@ -16,7 +16,9 @@ import 'package:flutter_gen/gen_l10n/deer_localizations.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:flutter_deer/home/splash_page.dart';
 import 'package:provider/provider.dart';
+import 'package:quick_actions/quick_actions.dart';
 import 'package:sp_util/sp_util.dart';
+import 'package:flutter_deer/demo/demo_page.dart';
 
 Future<void> main() async {
 //  debugProfileBuildsEnabled = true;
@@ -41,10 +43,12 @@ class MyApp extends StatelessWidget {
     Log.init();
     initDio();
     Routes.initRoutes();
+    initQuickActions();
   }
 
   final Widget home;
   final ThemeData theme;
+  static GlobalKey<NavigatorState> navigatorKey = GlobalKey();
   
   void initDio() {
     final List<Interceptor> interceptors = <Interceptor>[];
@@ -62,6 +66,31 @@ class MyApp extends StatelessWidget {
       baseUrl: 'https://api.github.com/',
       interceptors: interceptors,
     );
+  }
+
+
+  void initQuickActions() {
+    if (Device.isMobile) {
+      final QuickActions quickActions = QuickActions();
+      if (Device.isIOS) {
+        // Android每次是重新启动activity，所以放在了splash_page处理。
+        // 总体来说使用不方便，这种动态的方式在安卓中局限性高。这里仅做练习使用。
+        quickActions.initialize((String shortcutType) async {
+          if (shortcutType == 'demo') {
+            navigatorKey.currentState.push<dynamic>(MaterialPageRoute<dynamic>(
+              builder: (BuildContext context) => const DemoPage(),
+            ));
+          }
+        });
+      }
+
+      quickActions.setShortcutItems(<ShortcutItem>[
+        const ShortcutItem(
+          type: 'demo',
+          localizedTitle: 'Demo',
+        ),
+      ]);
+    }
   }
   
   @override
@@ -105,6 +134,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: DeerLocalizations.localizationsDelegates,
       supportedLocales: DeerLocalizations.supportedLocales,
       locale: localeProvider.locale,
+      navigatorKey: navigatorKey,
       builder: (BuildContext context, Widget child) {
         /// 保证文字大小不受手机系统设置影响 https://www.kikt.top/posts/flutter/layout/dynamic-text/
         return MediaQuery(

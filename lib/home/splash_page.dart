@@ -3,12 +3,16 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/common/common.dart';
+import 'package:flutter_deer/demo/demo_page.dart';
 import 'package:flutter_deer/login/login_router.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/app_navigator.dart';
+import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:quick_actions/quick_actions.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:sp_util/sp_util.dart';
@@ -42,6 +46,16 @@ class _SplashPageState extends State<SplashPage> {
       }
       _initSplash();
     });
+
+    if (Device.isAndroid) {
+      final QuickActions quickActions = QuickActions();
+      quickActions.initialize((String shortcutType) async {
+        if (shortcutType == 'demo') {
+          AppNavigator.pushReplacement(context, const DemoPage());
+          _subscription?.cancel();
+        }
+      });
+    }
   }
 
   @override
