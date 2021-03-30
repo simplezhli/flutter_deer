@@ -1,8 +1,13 @@
 buildscript {
-    ext.kotlin_version = '1.3.72'
+    ext.kotlin_version = '1.4.30'
     repositories {
+//        maven { url 'https://maven.aliyun.com/repository/public' }//jcenter
+//        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }//gradle-plugin
+//        maven { url 'https://maven.aliyun.com/repository/central' }//central
+//        maven { url 'https://maven.aliyun.com/repository/google' }//google
         google()
         jcenter()
+        maven { url 'https://jitpack.io' }
     }
 
     dependencies {
@@ -13,8 +18,13 @@ buildscript {
 
 allprojects {
     repositories {
+//        maven { url 'https://maven.aliyun.com/repository/public' }
+//        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+//        maven { url 'https://maven.aliyun.com/repository/central' }
+//        maven { url 'https://maven.aliyun.com/repository/google' }
         google()
         jcenter()
+        maven { url 'https://jitpack.io' }
     }
 }
 

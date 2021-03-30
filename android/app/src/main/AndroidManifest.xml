@@ -42,8 +42,9 @@
 
         <meta-data
             android:name="flutterEmbedding"
-            android:value="2" />        
+            android:value="2" />
 
+        <!-- 高德地图 -->
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="29017a09c0b0279853577be7df682513"/>

@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class QrCodeScannerPage extends StatefulWidget {
@@ -51,6 +52,30 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
                 borderWidth: 5,
                 cutOutSize: scanArea,
               ),
+            ),
+          ),
+          Positioned(
+            bottom: 60,
+            left: 0,
+            right: 0,
+            child: Center(
+              child: IconButton(
+                icon: const Icon(Icons.highlight_outlined, size: 32, color: Colors.white,),
+                onPressed: () {
+                  if (controller != null) {
+                    controller.toggleFlash();
+                  }
+                },
+              ),
+            ),
+          ),
+          const Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: MyAppBar(
+              backgroundColor: Colors.transparent,
+              backImgColor: Colors.white,
             ),
           ),
         ],

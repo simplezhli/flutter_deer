@@ -15,6 +15,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.centerTitle = '',
     this.actionName = '',
     this.backImg = 'assets/images/ic_back_black.png',
+    this.backImgColor,
     this.onPressed,
     this.isBack = true
   }): super(key: key);
@@ -23,6 +24,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final String centerTitle;
   final String backImg;
+  final Color backImgColor;
   final String actionName;
   final VoidCallback onPressed;
   final bool isBack;
@@ -49,7 +51,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       padding: const EdgeInsets.all(12.0),
       icon: Image.asset(
         backImg,
-        color: ThemeUtils.getIconColor(context),
+        color: backImgColor ?? ThemeUtils.getIconColor(context),
       ),
     ) : Gaps.empty;
 

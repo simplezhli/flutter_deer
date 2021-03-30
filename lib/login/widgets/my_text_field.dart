@@ -54,18 +54,18 @@ class _MyTextFieldState extends State<MyTextField> {
   @override
   void initState() {
     /// 获取初始化值
-    _isShowDelete = widget.controller.text.isEmpty;
+    _isShowDelete = widget.controller.text.isNotEmpty;
     /// 监听输入改变  
     widget.controller.addListener(isEmpty);
     super.initState();
   }
   
   void isEmpty() {
-    final bool isEmpty = widget.controller.text.isEmpty;
+    final bool isNotEmpty = widget.controller.text.isNotEmpty;
     /// 状态不一样在刷新，避免重复不必要的setState
-    if (isEmpty != _isShowDelete) {
+    if (isNotEmpty != _isShowDelete) {
       setState(() {
-        _isShowDelete = isEmpty;
+        _isShowDelete = isNotEmpty;
       });
     }
   }
@@ -130,7 +130,7 @@ class _MyTextFieldState extends State<MyTextField> {
     
     Widget clearButton;
 
-    if (!_isShowDelete) {
+    if (_isShowDelete) {
       clearButton = Semantics(
         label: '清空',
         hint: '清空输入框',
@@ -195,11 +195,13 @@ class _MyTextFieldState extends State<MyTextField> {
         Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            if (_isShowDelete) Gaps.empty else clearButton,
-            if (!widget.isInputPwd) Gaps.empty else Gaps.hGap15,
-            if (!widget.isInputPwd) Gaps.empty else pwdVisible,
-            if (widget.getVCode == null) Gaps.empty else Gaps.hGap15,
-            if (widget.getVCode == null) Gaps.empty else getVCodeButton,
+            /// _isShowDelete参数动态变化，为了不破坏树结构，false时放一个空Widget。
+            /// 对于其他参数，为初始配置参数，基本可以确定树结构，就不做空Widget处理。
+            if (_isShowDelete) clearButton else Gaps.empty,
+            if (widget.isInputPwd) Gaps.hGap15,
+            if (widget.isInputPwd) pwdVisible,
+            if (widget.getVCode != null) Gaps.hGap15,
+            if (widget.getVCode != null) getVCodeButton,
           ],
         )
       ],

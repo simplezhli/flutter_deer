@@ -17,13 +17,6 @@ class ThemePage extends StatefulWidget {
 class _ThemePageState extends State<ThemePage> {
 
   final List<String> _list = <String>['跟随系统', '开启', '关闭'];
-//  StreamSubscription _subscription;
-  
-//  @override
-//  void dispose() {
-//    _subscription?.cancel();
-//    super.dispose();
-//  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,14 +47,7 @@ class _ThemePageState extends State<ThemePage> {
 //              Provider.of<ThemeProvider>(context, listen: false).setTheme(themeMode);
               /// 与上方等价，provider 4.1.0添加的拓展方法
               context.read<ThemeProvider>().setTheme(themeMode);
-//              _subscription?.cancel();
-//              /// 主题切换动画200毫秒
-//              _subscription = Stream.value(1).delay(Duration(milliseconds: 200)).listen((_) {
-//                if (!mounted) {
-//                  return;
-//                }
-//                ThemeUtils.setSystemNavigationBarStyle(context, themeMode);
-//              });
+              setState(() {});
             },
             child: Container(
               alignment: Alignment.centerLeft,
