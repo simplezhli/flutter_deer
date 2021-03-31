@@ -48,7 +48,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
     _goodsSizeList.add(GoodsSizeModel('goods/goods_size_1', '黑色3', 10, '50.0', 2, '2', '2.5', ''));
 
     // 获取Build完成状态监听
-    WidgetsBinding.instance.addPostFrameCallback((callback) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       _showHint();
     });
   }

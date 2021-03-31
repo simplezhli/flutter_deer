@@ -12,6 +12,7 @@ import 'package:flutter_deer/routers/routers.dart';
 import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/handle_error_utils.dart';
 import 'package:flutter_deer/util/log_utils.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_gen/gen_l10n/deer_localizations.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:flutter_deer/home/splash_page.dart';
@@ -30,11 +31,8 @@ Future<void> main() async {
   await SpUtil.getInstance();
   /// 异常处理
   handleError(runApp(MyApp()));
-  /// 透明状态栏
-  if (Device.isAndroid) {
-    const SystemUiOverlayStyle systemUiOverlayStyle = SystemUiOverlayStyle(statusBarColor: Colors.transparent);
-    SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
-  }
+  /// 隐藏状态栏。为启动页、引导页设置。完成后修改回显示状态栏。
+  SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
 }
 
 class MyApp extends StatelessWidget {
@@ -136,6 +134,11 @@ class MyApp extends StatelessWidget {
       locale: localeProvider.locale,
       navigatorKey: navigatorKey,
       builder: (BuildContext context, Widget child) {
+        /// 仅针对安卓
+        if (Device.isAndroid) {
+          /// 切换深色模式会触发此方法，这里设置导航栏颜色
+          ThemeUtils.setSystemNavigationBar(provider.getThemeMode());
+        }
         /// 保证文字大小不受手机系统设置影响 https://www.kikt.top/posts/flutter/layout/dynamic-text/
         return MediaQuery(
           data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
