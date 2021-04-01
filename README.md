@@ -173,7 +173,7 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 
 ## 已知存在问题：
 
-- 2.0.0已知问题(#73388)
+- 2.0.0已知问题(#73351 #73388)
 
 - ListView在没有设置分割线的情况下，个别Item之间存在大约1像素的间隔（[像素对齐问题](https://github.com/flutter/flutter/issues/14288)）。
 
