@@ -44,8 +44,6 @@ class _HomeState extends State<Home> {
     super.dispose();
   }
 
-
-
   void initData() {
     _pageList = [
       const OrderPage(),

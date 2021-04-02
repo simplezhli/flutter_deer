@@ -98,7 +98,7 @@ class _MyTextFieldState extends State<MyTextField> {
     final ThemeData themeData = Theme.of(context);
     final bool isDark = themeData.brightness == Brightness.dark;
 
-    final TextField textField = TextField(
+    Widget textField = TextField(
       focusNode: widget.focusNode,
       maxLength: widget.maxLength,
       obscureText: widget.isInputPwd && !_isShowPwd,
@@ -127,7 +127,13 @@ class _MyTextFieldState extends State<MyTextField> {
         ),
       ),
     );
-    
+
+    /// 个别机型（华为、vivo）密码安全键盘不弹出问题，临时修复方法：https://github.com/flutter/flutter/issues/68571 (issues/61446)
+    textField = Listener(
+      onPointerDown: (e) => FocusScope.of(context).requestFocus(widget.focusNode),
+      child: textField,
+    );
+
     Widget clearButton;
 
     if (_isShowDelete) {

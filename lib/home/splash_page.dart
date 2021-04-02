@@ -38,6 +38,7 @@ class _SplashPageState extends State<SplashPage> {
       /// 两种初始化方案，另一种见 main.dart
       /// 两种方法各有优劣
       await SpUtil.getInstance();
+      await Device.initDeviceInfo();
       if (SpUtil.getBool(Constant.keyGuide, defValue: true)) {
         /// 预先缓存图片，避免直接使用时因为首次加载造成闪动
         _guideList.forEach((image) {

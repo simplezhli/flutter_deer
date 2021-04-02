@@ -6,6 +6,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/screen_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/util/toast_utils.dart';
@@ -185,24 +186,37 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
         ),
       ],
     );
-    
-    return Scaffold(//创建透明层
-      backgroundColor: Colors.transparent,//透明类型
-      body: AnimatedContainer(
+
+    Widget body = Container(
+      decoration: BoxDecoration(
+        color: context.dialogBackgroundColor,
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      width: 280.0,
+      height: 210.0,
+      child: child,
+    );
+
+    /// 判断原因见BaseDialog注释
+    if (Device.getAndroidSdkInt() >= 30) {
+      body = Container(
+        alignment: Alignment.center,
+        height: context.height - MediaQuery.of(context).viewInsets.bottom,
+        child: body,
+      );
+    } else {
+      body = AnimatedContainer(
         alignment: Alignment.center,
         height: context.height - MediaQuery.of(context).viewInsets.bottom,
         duration: const Duration(milliseconds: 120),
         curve: Curves.easeInCubic,
-        child: Container(
-          decoration: BoxDecoration(
-            color: context.dialogBackgroundColor,
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          width: 280.0,
-          height: 210.0,
-          child: child,
-        ),
-      ),
+        child: body,
+      );
+    }
+
+    return Scaffold(//创建透明层
+      backgroundColor: Colors.transparent,//透明类型
+      body: body,
     );
   }
 

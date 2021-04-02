@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -30,11 +31,14 @@ class ThemeUtils {
   static Color getKeyboardActionsColor(BuildContext context) {
     return isDark(context) ? Colours.dark_bg_color : Colors.grey[200];
   }
-  
+
+  static StreamSubscription _subscription;
+
   /// 设置NavigationBar样式，使得导航栏颜色与深色模式的设置相符。
   static void setSystemNavigationBar(ThemeMode mode) {
     /// 主题切换动画（AnimatedTheme）时间为200毫秒，延时设置导航栏颜色，这样过渡相对自然。
-    Stream.value(1).delay(const Duration(milliseconds: 200)).listen((_) {
+    _subscription?.cancel();
+    _subscription = Stream.value(1).delay(const Duration(milliseconds: 200)).listen((_) {
       bool _isDark = false;
       if (mode == ThemeMode.dark || (mode == ThemeMode.system && window.platformBrightness == Brightness.dark)) {
         _isDark = true;

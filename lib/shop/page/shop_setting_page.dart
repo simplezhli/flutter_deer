@@ -37,20 +37,6 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
   String _securityService = '假一赔十';
   String _address = '陕西省 西安市 长安区 郭杜镇郭北村韩林路圣方医院斜对面';
   
-  String _getPayType() {
-    String payType = '';
-    for (final int s in _selectValue) {
-      if (s == 0) {
-        payType = '$payType在线支付+';
-      } else if (s == 1) {
-        payType = '$payType对公转账+';
-      } else if (s == 2) {
-        payType = '$payType货到付款+';
-      }
-    }
-    return payType.substring(0, payType.length - 1);
-  }
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,7 +61,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                   value: _check,
                   onChanged: (bool val) {
                     setState(() {
-                      _check = !_check;
+                      _check = val;
                     });
                   },
                 ),
@@ -93,52 +79,28 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
             title: '店铺简介',
             content: _shopIntroduction,
             onTap: () {
-              AppNavigator.pushResult(context,
-                  InputTextPage(
-                    title: '店铺简介',
-                    hintText: '这里有一段完美的简介…',
-                    content: _shopIntroduction,
-                  ), (result) {
-                    setState(() {
-                      _shopIntroduction = result.toString();
-                    });
-                  });
+              _goInputTextPage(context, '店铺简介', '这里有一段完美的简介…', _shopIntroduction, (result) {
+                setState(() {
+                  _shopIntroduction = result.toString();
+                });
+              },);
             },
           ),
           ClickItem(
             title: '保障服务',
             content: _securityService,
             onTap: () {
-              AppNavigator.pushResult(context,
-                InputTextPage(
-                  title: '保障服务',
-                  hintText: '这里有一段完美的说明…',
-                  content: _securityService,
-                ), (result) {
-                  setState(() {
-                    _securityService = result.toString();
-                  });
+              _goInputTextPage(context, '保障服务', '这里有一段完美的说明…', _securityService, (result) {
+                setState(() {
+                  _securityService = result.toString();
                 });
+              },);
             },
           ),
           ClickItem(
             title: '支付方式',
             content: _getPayType(),
-            onTap: () {
-              showElasticDialog<void>(
-                context: context,
-                barrierDismissible: false,
-                builder: (BuildContext context) {
-                  return PayTypeDialog(
-                    value: _selectValue,
-                    onPressed: (value) {
-                      setState(() {
-                        _selectValue = value.cast<int>();
-                      });
-                    },
-                  );
-                });
-            },
+            onTap: _showPayTypeDialog,
           ),
           Gaps.vGap32,
           const Padding(
@@ -149,20 +111,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
           ClickItem(
             title: '运费配置',
             content: _sendType == 0 ? '运费满免配置' : '运费比例配置',
-            onTap: () {
-              showElasticDialog<void>(
-                context: context,
-                barrierDismissible: false,
-                builder: (BuildContext context) {
-                  return SendTypeDialog(
-                    onPressed: (i, value) {
-                      setState(() {
-                        _sendType = i;
-                      });
-                    },
-                  );
-                });
-            },
+            onTap: _showSendTypeDialog,
           ),
           Visibility(
             visible: _sendType != 1,
@@ -170,19 +119,11 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
               title: '运费满免',
               content: _freePrice,
               onTap: () {
-                showDialog<void>(
-                  context: context,
-                  barrierDismissible: false,
-                  builder: (BuildContext context) {
-                    return PriceInputDialog(
-                      title: '配送费满免',
-                      onPressed: (value) {
-                        setState(() {
-                          _freePrice = value;
-                        });
-                      },
-                    );
+                _showInputDialog('配送费满免', (value) {
+                  setState(() {
+                    _freePrice = value;
                   });
+                });
               },
             ),
           ),
@@ -192,19 +133,11 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
               title: '配送费用',
               content: _sendPrice,
               onTap: () {
-                showDialog<void>(
-                  context: context,
-                  barrierDismissible: false,
-                  builder: (BuildContext context) {
-                    return PriceInputDialog(
-                      title: '配送费用',
-                      onPressed: (value) {
-                        setState(() {
-                          _sendPrice = value;
-                        });
-                      },
-                    );
-                  },);
+                _showInputDialog('配送费用', (value) {
+                  setState(() {
+                    _sendPrice = value;
+                  });
+                });
               },
             ),
           ),
@@ -227,17 +160,11 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
             title: '联系电话',
             content: _phone,
             onTap: () {
-              AppNavigator.pushResult(context,
-                  InputTextPage(
-                    title: '联系电话',
-                    hintText: '这里有一串神秘的数字…',
-                    keyboardType: TextInputType.phone,
-                    content: _phone,
-                  ), (result) {
-                    setState(() {
-                      _phone =result.toString();
-                    });
-                  });
+              _goInputTextPage(context, '联系电话', '这里有一串神秘的数字…', _phone, (result) {
+                setState(() {
+                  _phone = result.toString();
+                });
+              }, keyboardType: TextInputType.phone,);
             },
           ),
           ClickItem(
@@ -261,14 +188,85 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
         bottomButton: Padding(
           padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
           child: MyButton(
-            onPressed: () {
-              NavigatorUtils.goBack(context);
-            },
             text: '提交',
+            onPressed: () => NavigatorUtils.goBack(context),
           ),
         ),
       )
     );
   }
 
+  String _getPayType() {
+    String payType = '';
+    for (final int s in _selectValue) {
+      if (s == 0) {
+        payType = '$payType在线支付+';
+      } else if (s == 1) {
+        payType = '$payType对公转账+';
+      } else if (s == 2) {
+        payType = '$payType货到付款+';
+      }
+    }
+    return payType.substring(0, payType.length - 1);
+  }
+
+  void _goInputTextPage(BuildContext context, String title,
+      String hintText, String content, Function(Object) function, {TextInputType keyboardType}) {
+    AppNavigator.pushResult(
+      context,
+      InputTextPage(
+        title: title,
+        hintText: hintText,
+        content: content,
+        keyboardType: keyboardType,
+      ),
+      function,
+    );
+  }
+
+  void _showInputDialog(String title, Function(String) onPressed) {
+    showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return PriceInputDialog(
+          title: title,
+          onPressed: onPressed,
+        );
+      },
+    );
+  }
+
+  void _showPayTypeDialog() {
+    showElasticDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return PayTypeDialog(
+          value: _selectValue,
+          onPressed: (value) {
+            setState(() {
+              _selectValue = value.cast<int>();
+            });
+          },
+        );
+      },
+    );
+  }
+
+  void _showSendTypeDialog() {
+    showElasticDialog <void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return SendTypeDialog(
+          onPressed: (i, value) {
+            setState(() {
+              _sendType = i;
+            });
+          },
+        );
+      },
+    );
+  }
 }
