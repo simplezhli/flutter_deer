@@ -19,13 +19,15 @@ class Device {
   static AndroidDeviceInfo _androidInfo;
 
   static Future<void> initDeviceInfo() async {
-    final DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-    _androidInfo = await deviceInfo.androidInfo;
+    if (isAndroid) {
+      final DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+      _androidInfo = await deviceInfo.androidInfo;
+    }
   }
 
   /// 使用前记得初始化
   static int getAndroidSdkInt() {
-    if (isAndroid) {
+    if (isAndroid && _androidInfo != null) {
       return _androidInfo.version.sdkInt;
     } else {
       return -1;
