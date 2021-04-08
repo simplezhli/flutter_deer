@@ -1,7 +1,7 @@
 name: flutter_deer
 description: Flutter Deer
 
-version: 1.1.6+16
+version: 1.1.7+17
 author: 唯鹿 <a05111993@163.com>
 homepage: https://weilu.blog.csdn.net/
 
@@ -37,7 +37,7 @@ dependencies:
   # 侧滑删除 https://github.com/letsar/flutter_slidable
   flutter_slidable: ^0.5.7
   # WebView插件 https://github.com/flutter/plugins/tree/master/packages/webview_flutter
-  webview_flutter: 2.0.3
+  webview_flutter: 2.0.4
   # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions
   keyboard_actions: ^3.4.0
   # 列表悬浮头 https://github.com/fluttercommunity/flutter_sticky_headers
