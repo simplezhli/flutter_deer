@@ -255,7 +255,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
   }
 
   void _showSendTypeDialog() {
-    showElasticDialog <void>(
+    showElasticDialog<void>(
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) {

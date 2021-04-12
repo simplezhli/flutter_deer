@@ -56,19 +56,11 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
   /// design/4商品/index.html#artboard18
   void _showHint() {
     final RenderBox hint = _hintKey.currentContext.findRenderObject() as RenderBox;
-    final RenderBox overlay = Overlay.of(context).context.findRenderObject() as RenderBox;
-    final a = hint.localToGlobal(Offset(50.0, hint.size.height + 150.0), ancestor: overlay);
-    final b = hint.localToGlobal(hint.size.bottomLeft(const Offset(50.0, 150.0)), ancestor: overlay);
-    final RelativeRect position = RelativeRect.fromRect(
-      Rect.fromPoints(a, b),
-      Offset.zero & overlay.size,
-    );
     showPopupWindow<void>(
       context: context,
-      fullWidth: false,
       isShowBg: true,
-      position: position,
-      elevation: 0.0,
+      offset: const Offset(50.0, 150.0),
+      anchor: hint,
       child: Semantics(
         label: '弹出引导页',
         hint: '向左滑动可删除列表，点击可关闭',

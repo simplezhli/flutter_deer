@@ -4,22 +4,20 @@ import 'package:flutter/material.dart';
 ///create by elileo on 2018/12/21
 ///https://github.com/elileo1/flutter_travel_friends/blob/master/lib/widget/PopupWindow.dart
 ///
-/// weilu update： 去除了IntrinsicWidth限制，添加了默认蒙版
-const Duration _kWindowDuration = Duration(milliseconds: 300);
+/// weilu update：
+/// 1.去除了IntrinsicWidth限制，添加了默认蒙版。
+/// 2.简化position计算。
+const Duration _kWindowDuration = Duration(milliseconds: 0);
 const double _kWindowCloseIntervalEnd = 2.0 / 3.0;
-const double _kWindowMaxWidth = 240.0;
-const double _kWindowMinWidth = 48.0;
-const double _kWindowVerticalPadding = 0.0;
 const double _kWindowScreenPadding = 0.0;
 
 ///弹窗方法
 Future<T> showPopupWindow<T>({
   @required BuildContext context,
-  RelativeRect position,
+  @required RenderBox anchor,
   @required Widget child,
-  double elevation = 8.0,
+  Offset offset,
   String semanticLabel,
-  bool fullWidth,
   bool isShowBg = false,
 }) {
   assert(context != null);
@@ -35,17 +33,30 @@ Future<T> showPopupWindow<T>({
     case TargetPlatform.windows:
       label = semanticLabel ?? MaterialLocalizations.of(context)?.popupMenuLabel;
   }
+  final RenderBox overlay = Overlay.of(context).context.findRenderObject() as RenderBox;
 
+  // 默认位置锚点下方
+  final Offset _offset = Offset(0, anchor.size.height);
+
+  if (offset == null) {
+    offset = _offset;
+  } else {
+    offset = offset + _offset;
+  }
+  // 获得控件左下方的坐标
+  final a = anchor.localToGlobal(offset, ancestor: overlay);
+  // 获得控件右下方的坐标
+  final b = anchor.localToGlobal(anchor.size.bottomLeft(offset), ancestor: overlay);
+  final RelativeRect position = RelativeRect.fromRect(
+    Rect.fromPoints(a, b),
+    Offset.zero & overlay.size,
+  );
   return Navigator.push(context,
       _PopupWindowRoute(
         position: position,
         child: child,
-        elevation: elevation,
         semanticLabel: label,
-        theme: Theme.of(context),
-        barrierLabel:
-        MaterialLocalizations.of(context).modalBarrierDismissLabel,
-        fullWidth: fullWidth,
+        barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
         isShowBg: isShowBg
       ));
 }
@@ -56,20 +67,14 @@ class _PopupWindowRoute<T> extends PopupRoute<T> {
     RouteSettings settings,
     this.child,
     this.position,
-    this.elevation = 8.0,
-    this.theme,
     this.barrierLabel,
     this.semanticLabel,
-    this.fullWidth,
     this.isShowBg,
   }) : super(settings: settings);
 
   final Widget child;
   final RelativeRect position;
-  double elevation;
-  final ThemeData theme;
   final String semanticLabel;
-  final bool fullWidth;
   final bool isShowBg;
   
   @override
@@ -95,14 +100,10 @@ class _PopupWindowRoute<T> extends PopupRoute<T> {
   @override
   Widget buildPage(BuildContext context, Animation<double> animation,
       Animation<double> secondaryAnimation) {
-    Widget win = _PopupWindow<T>(
+    final Widget win = _PopupWindow<T>(
       route: this,
       semanticLabel: semanticLabel,
-      fullWidth: fullWidth,
     );
-    if (theme != null) {
-      win = Theme(data: theme, child: win);
-    }
 
     return MediaQuery.removePadding(
       context: context,
@@ -122,7 +123,7 @@ class _PopupWindowRoute<T> extends PopupRoute<T> {
                 color: isShowBg ? const Color(0x99000000) : null,
                 child: CustomSingleChildLayout(
                   delegate: _PopupWindowLayoutDelegate(
-                    position, null, Directionality.of(context)
+                    position, Directionality.of(context)
                   ),
                   child: win,
                 ),
@@ -141,12 +142,10 @@ class _PopupWindow<T> extends StatelessWidget {
     Key key,
     this.route,
     this.semanticLabel,
-    this.fullWidth = false,
   }) : super(key: key);
 
   final _PopupWindowRoute<T> route;
   final String semanticLabel;
-  final bool fullWidth;
 
   @override
   Widget build(BuildContext context) {
@@ -158,15 +157,8 @@ class _PopupWindow<T> extends StatelessWidget {
     final CurveTween width = CurveTween(curve: const Interval(0.0, unit));
     final CurveTween height = CurveTween(curve: const Interval(0.0, unit * length));
 
-    final Widget child = ConstrainedBox(
-      constraints: BoxConstraints(
-        minWidth: fullWidth ? double.infinity : _kWindowMinWidth,
-        maxWidth: fullWidth ? double.infinity : _kWindowMaxWidth,
-      ),
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(vertical: _kWindowVerticalPadding),
-        child: route.child,
-      )
+    final Widget child = SingleChildScrollView(
+      child: route.child,
     );
 
     return AnimatedBuilder(
@@ -174,20 +166,16 @@ class _PopupWindow<T> extends StatelessWidget {
       builder: (BuildContext context, Widget child) {
         return Opacity(
           opacity: opacity.evaluate(route.animation),
-          child: Material(
-            type: route.elevation == 0 ? MaterialType.transparency : MaterialType.card,
-            elevation: route.elevation,
-            child: Align(
-              alignment: AlignmentDirectional.topEnd,
-              widthFactor: width.evaluate(route.animation),
-              heightFactor: height.evaluate(route.animation),
-              child: Semantics(
-                scopesRoute: true,
-                namesRoute: true,
-                explicitChildNodes: true,
-                label: semanticLabel,
-                child: child,
-              ),
+          child: Align(
+            alignment: AlignmentDirectional.topEnd,
+            widthFactor: width.evaluate(route.animation),
+            heightFactor: height.evaluate(route.animation),
+            child: Semantics(
+              scopesRoute: true,
+              namesRoute: true,
+              explicitChildNodes: true,
+              label: semanticLabel,
+              child: child,
             ),
           ),
         );
@@ -200,10 +188,9 @@ class _PopupWindow<T> extends StatelessWidget {
 ///自定义委托内容：子控件大小及其位置计算
 class _PopupWindowLayoutDelegate extends SingleChildLayoutDelegate {
   _PopupWindowLayoutDelegate(
-      this.position, this.selectedItemOffset, this.textDirection);
+      this.position, this.textDirection);
 
   final RelativeRect position;
-  final double selectedItemOffset;
   final TextDirection textDirection;
 
   @override
@@ -221,14 +208,7 @@ class _PopupWindowLayoutDelegate extends SingleChildLayoutDelegate {
     // getConstraintsForChild.
 
     // Find the ideal vertical position.
-    double y;
-    if (selectedItemOffset == null) {
-      y = position.top;
-    } else {
-      y = position.top +
-          (size.height - position.top - position.bottom) / 2.0 -
-          selectedItemOffset;
-    }
+    double y = position.top;
 
     // Find the ideal horizontal position.
     double x;
