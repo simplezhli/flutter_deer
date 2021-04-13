@@ -20,13 +20,18 @@ import 'package:provider/provider.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:sp_util/sp_util.dart';
 import 'package:flutter_deer/demo/demo_page.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 Future<void> main() async {
 //  debugProfileBuildsEnabled = true;
 //  debugPaintLayerBordersEnabled = true;
 //  debugProfilePaintsEnabled = true;
 //  debugRepaintRainbowEnabled = true;
+
+  // 确保初始化完成
   WidgetsFlutterBinding.ensureInitialized();
+  // 去除URL中的“#”(hash)，仅针对Web。默认为setHashUrlStrategy
+  setPathUrlStrategy();
   /// sp初始化
   await SpUtil.getInstance();
   /// 异常处理

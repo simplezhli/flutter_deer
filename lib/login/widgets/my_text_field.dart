@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_gen/gen_l10n/deer_localizations.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
@@ -128,11 +129,13 @@ class _MyTextFieldState extends State<MyTextField> {
       ),
     );
 
-    /// 个别机型（华为、vivo）密码安全键盘不弹出问题，临时修复方法：https://github.com/flutter/flutter/issues/68571 (issues/61446)
-    textField = Listener(
-      onPointerDown: (e) => FocusScope.of(context).requestFocus(widget.focusNode),
-      child: textField,
-    );
+    /// 个别Android机型（华为、vivo）的密码安全键盘不弹出问题，临时修复方法：https://github.com/flutter/flutter/issues/68571 (issues/61446)
+    if (Device.isAndroid) {
+      textField = Listener(
+        onPointerDown: (e) => FocusScope.of(context).requestFocus(widget.focusNode),
+        child: textField,
+      );
+    }
 
     Widget clearButton;
 
