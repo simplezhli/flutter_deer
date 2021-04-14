@@ -1,4 +1,5 @@
 
+import 'package:common_utils/common_utils.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter_deer/goods/page/qr_code_scanner_page.dart';
 import 'package:flutter_deer/routers/i_router.dart';
@@ -25,7 +26,9 @@ class GoodsRouter implements IRouterProvider{
     router.define(goodsEditPage, handler: Handler(handlerFunc: (_, Map<String, List<String>> params) {
       final bool isAdd = params['isAdd']?.first == 'true';
       final bool isScan = params['isScan']?.first == 'true';
-      return GoodsEditPage(isAdd: isAdd, isScan: isScan,);
+      final String url = EncryptUtil.decodeBase64(params['url']?.first ?? '');
+      final String heroTag = params['heroTag']?.first ?? 'heroTag';
+      return GoodsEditPage(isAdd: isAdd, isScan: isScan, goodsImageUrl: url, heroTag: heroTag,);
     }));
     router.define(goodsSearchPage, handler: Handler(handlerFunc: (_, __) => const GoodsSearchPage()));
     router.define(goodsSizePage, handler: Handler(handlerFunc: (_, __) => const GoodsSizePage()));

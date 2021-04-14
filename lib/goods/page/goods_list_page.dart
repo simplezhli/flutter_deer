@@ -1,5 +1,6 @@
 
 
+import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/goods/models/goods_item_entity.dart';
 import 'package:flutter_deer/goods/provider/goods_page_provider.dart';
@@ -108,8 +109,10 @@ class _GoodsListPageState extends State<GoodsListPage> with AutomaticKeepAliveCl
       loadMore: _loadMore,
       hasMore: _page < _maxPage,
       itemBuilder: (_, index) {
+        final String heroTag = 'goodsImg${widget.index}-$index';
         return GoodsItem(
           index: index,
+          heroTag: heroTag,
           selectIndex: _selectIndex,
           item: _list[index],
           animation: _animation,
@@ -137,7 +140,8 @@ class _GoodsListPageState extends State<GoodsListPage> with AutomaticKeepAliveCl
             setState(() {
               _selectIndex = -1;
             });
-            NavigatorUtils.push(context, '${GoodsRouter.goodsEditPage}?isAdd=false');
+            final String url = EncryptUtil.encodeBase64(_list[index].icon);
+            NavigatorUtils.push(context, '${GoodsRouter.goodsEditPage}?isAdd=false&url=$url&heroTag=$heroTag');
           },
           onTapOperation: () {
             Toast.show('下架');

@@ -24,7 +24,8 @@ class GoodsItem extends StatelessWidget {
     @required this.onTapOperation,
     @required this.onTapDelete,
     @required this.onTapMenuClose,
-    @required this.animation
+    @required this.animation,
+    @required this.heroTag,
   }): super(key: key);
 
   final GoodsItemEntity item;
@@ -36,13 +37,19 @@ class GoodsItem extends StatelessWidget {
   final VoidCallback onTapDelete;
   final VoidCallback onTapMenuClose;
   final Animation<double> animation;
+  final String heroTag;
   
   @override
   Widget build(BuildContext context) {
     final Row child = Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        ExcludeSemantics(child: LoadImage(item.icon, width: 72.0, height: 72.0)),
+        ExcludeSemantics(
+          child: Hero(
+            tag: heroTag,
+            child: LoadImage(item.icon, width: 72.0, height: 72.0),
+          ),
+        ),
         Gaps.hGap8,
         Expanded(
           child: Column(

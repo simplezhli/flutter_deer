@@ -20,10 +20,18 @@ import '../goods_router.dart';
 /// design/4商品/index.html#artboard5
 class GoodsEditPage extends StatefulWidget {
   
-  const GoodsEditPage({Key key, this.isAdd = true, this.isScan = false}) : super(key: key);
+  const GoodsEditPage({
+    Key key,
+    this.isAdd = true,
+    this.isScan = false,
+    this.heroTag,
+    this.goodsImageUrl
+  }) : super(key: key);
   
   final bool isAdd;
   final bool isScan;
+  final String heroTag;
+  final String goodsImageUrl;
   
   @override
   _GoodsEditPageState createState() => _GoodsEditPageState();
@@ -73,8 +81,10 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
             ),
           ),
           Gaps.vGap16,
-          const Center(
+          Center(
             child: SelectedImage(
+              heroTag: widget.heroTag,
+              url: widget.goodsImageUrl,
               size: 96.0,
             ),
           ),
