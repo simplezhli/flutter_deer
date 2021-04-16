@@ -75,7 +75,6 @@ dependencies:
   # 动画效果 https://github.com/xvrh/lottie-flutter
   lottie: ^0.7.0+1
 
-
 dev_dependencies:
   # Widget测试
   flutter_test:
