@@ -19,7 +19,7 @@
 | ![](./preview/Screenshot_13.png)   |  ![](./preview/Screenshot_14.png)   | ![](./preview/Screenshot_15.png)  |  ![](./preview/Screenshot_17.png)  |
 | ![](./preview/Screenshot_18.png)   |  ![](./preview/Screenshot_19.png)   | ![](./preview/Screenshot_20.png)  |  ![](./preview/Screenshot_21.png)  |
 | ![](./preview/Screenshot_22.jpg)   |  ![](./preview/Screenshot_23.jpg)   | ![](./preview/Screenshot_24.jpg)  |  ![](./preview/Screenshot_25.jpg)  |
-| ![](./preview/Screenshot_26.jpg)   |  ![](./preview/Screenshot_27.jpg)   |  |  |
+| ![](./preview/Screenshot_26.jpg)   |  ![](./preview/Screenshot_27.jpg)   | ![](./preview/lottie.gif)         |  |
 
 **觉得还可以的话，来个Star、Fork支持一波！有问题欢迎提Issue。**
 
@@ -49,6 +49,7 @@
 * 自定义简易日历
 * 曲线图及[饼状图](https://dartpad.cn/d06f8f737d6eb2d87978eb2d14b87864)
 * 模块化路由管理
+* 更多Demo（水波纹动画、刮刮卡、lottie）
 * 更多的细节优化
 
 具体可以下载体验：
@@ -146,6 +147,7 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 | [qr_code_scanner](https://github.com/juliuscanute/qr_code_scanner)     | **扫码功能** |
 | [intl](https://github.com/dart-lang/intl)     | **本地化** |
 | [vibration](https://github.com/benjamindean/flutter_vibration)     | **振动** |
+| [lottie](https://github.com/xvrh/lottie-flutter)     | **动画效果** |
 
 详细内容可以参看[pubspec.yaml](https://github.com/simplezhli/flutter_deer/blob/master/pubspec.yaml)文件    
 

@@ -19,7 +19,7 @@ The effect of some pages is as follows:
 | ![](./preview/Screenshot_13.png)   |  ![](./preview/Screenshot_14.png)   | ![](./preview/Screenshot_15.png)  |  ![](./preview/Screenshot_17.png)  |
 | ![](./preview/Screenshot_18.png)   |  ![](./preview/Screenshot_19.png)   | ![](./preview/Screenshot_20.png)  |  ![](./preview/Screenshot_21.png)  |
 | ![](./preview/Screenshot_22.jpg)   |  ![](./preview/Screenshot_23.jpg)   | ![](./preview/Screenshot_24.jpg)  |  ![](./preview/Screenshot_25.jpg)  |
-| ![](./preview/Screenshot_26.jpg)   |  ![](./preview/Screenshot_27.jpg)   |  |  |
+| ![](./preview/Screenshot_26.jpg)   |  ![](./preview/Screenshot_27.jpg)   | ![](./preview/lottie.gif)         |  |
 
 ## Content
 
@@ -138,6 +138,7 @@ Web：https://simplezhli.github.io/flutter_deer/
 | [qr_code_scanner](https://github.com/juliuscanute/qr_code_scanner)     | **Scan code** |
 | [intl](https://github.com/dart-lang/intl)     | **Localization** |
 | [vibration](https://github.com/benjamindean/flutter_vibration)     | **Vibration** |
+| [lottie](https://github.com/xvrh/lottie-flutter)     | **lottie** |
 
 For details, please refer to the [pubspec.yaml](https://github.com/simplezhli/flutter_deer/blob/master/pubspec.yaml) file.  
 

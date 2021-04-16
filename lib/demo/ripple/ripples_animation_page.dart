@@ -5,8 +5,8 @@ import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 
 /// https://medium.com/flutterdevs/ripple-animation-in-flutter-3421cbd66a18
-class RipplesAnimation extends StatefulWidget {
-  const RipplesAnimation({
+class RipplesAnimationPage extends StatefulWidget {
+  const RipplesAnimationPage({
     Key key,
     this.size = 80.0,
     this.color = Colors.red,
@@ -19,7 +19,7 @@ class RipplesAnimation extends StatefulWidget {
   _RipplesAnimationState createState() => _RipplesAnimationState();
 }
 
-class _RipplesAnimationState extends State<RipplesAnimation> with TickerProviderStateMixin {
+class _RipplesAnimationState extends State<RipplesAnimationPage> with TickerProviderStateMixin {
 
   AnimationController _controller;
 

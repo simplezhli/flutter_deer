@@ -60,8 +60,6 @@ dependencies:
   qr_code_scanner: 0.4.0
   # App Shortcuts https://github.com/flutter/plugins/tree/master/packages/quick_actions
   quick_actions: 0.6.0
-  # 刮刮卡 https://github.com/vintage/scratcher
-  scratcher: ^2.0.1
   # 振动（支持Web） https://github.com/benjamindean/flutter_vibration
   vibration: ^1.7.4-nullsafety.0
   # 获取当前设备信息 https://github.com/flutter/plugins/tree/master/packages/device_info
@@ -71,6 +69,12 @@ dependencies:
     git:
       ref: 'fdf1e412'
       url: 'https://github.com/simplezhli/flutter_2d_amap.git'
+  # demo 用到的库
+  # 刮刮卡 https://github.com/vintage/scratcher
+  scratcher: ^2.0.1
+  # 动画效果 https://github.com/xvrh/lottie-flutter
+  lottie: ^0.7.0+1
+
 
 dev_dependencies:
   # Widget测试
@@ -111,6 +115,7 @@ flutter:
     - assets/images/shop/
     - assets/images/account/
     - assets/images/statistic/
+    - assets/lottie/
     
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
