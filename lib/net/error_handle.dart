@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 class ExceptionHandle {
   static const int success = 200;
   static const int success_not_content = 204;
+  static const int not_modified = 304;
   static const int unauthorized = 401;
   static const int forbidden = 403;
   static const int not_found = 404;

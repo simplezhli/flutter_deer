@@ -59,7 +59,7 @@ dependencies:
   # 扫码 https://github.com/juliuscanute/qr_code_scanner
   qr_code_scanner: 0.4.0
   # App Shortcuts https://github.com/flutter/plugins/tree/master/packages/quick_actions
-  quick_actions: 0.6.0
+  quick_actions: 0.6.0+1
   # 振动（支持Web） https://github.com/benjamindean/flutter_vibration
   vibration: ^1.7.4-nullsafety.0
   # 获取当前设备信息 https://github.com/flutter/plugins/tree/master/packages/device_info
