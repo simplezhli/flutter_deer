@@ -7,7 +7,7 @@ import 'package:flutter_deer/util/theme_utils.dart';
 /// https://medium.com/flutterdevs/ripple-animation-in-flutter-3421cbd66a18
 class RipplesAnimationPage extends StatefulWidget {
   const RipplesAnimationPage({
-    Key key,
+    Key? key,
     this.size = 80.0,
     this.color = Colors.red,
   }) : super(key: key);
@@ -21,7 +21,7 @@ class RipplesAnimationPage extends StatefulWidget {
 
 class _RipplesAnimationState extends State<RipplesAnimationPage> with TickerProviderStateMixin {
 
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -47,7 +47,7 @@ class _RipplesAnimationState extends State<RipplesAnimationPage> with TickerProv
             gradient: RadialGradient(
               colors: <Color>[
                 widget.color,
-                Color.lerp(widget.color, Colors.black, .05)
+                Color.lerp(widget.color, Colors.black, .05)!
               ],
             ),
           ),
@@ -92,14 +92,14 @@ class _RipplesAnimationState extends State<RipplesAnimationPage> with TickerProv
 class CirclePainter extends CustomPainter {
 
   CirclePainter(this._animation, {
-    @required this.color,
+    required this.color,
   }) : super(repaint: _animation);
 
   final Color color;
   final Animation<double> _animation;
 
   void circle(Canvas canvas, Rect rect, double value) {
-    final double opacity = (1.0 - (value / 4.0)).clamp(0.0, 1.0) as double;
+    final double opacity = (1.0 - (value / 4.0)).clamp(0.0, 1.0);
     final Color _color = color.withOpacity(opacity);
     final double size = rect.width / 2;
     final double area = size * size;

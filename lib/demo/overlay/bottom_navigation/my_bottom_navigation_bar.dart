@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 class MyBottomNavigationBar extends StatefulWidget {
 
   const MyBottomNavigationBar({
-    Key key,
+    Key? key,
     this.selectedPosition = 0,
     this.isShowIndicator = true,
-    @required this.selectedCallback,
+    required this.selectedCallback,
   }) : super(key: key);
 
   /// 选中下标
@@ -42,14 +42,14 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> with Tick
 
   double itemWidth = 0;
 
-  AnimationController controller;
-  Animation<double> animation;
+  late AnimationController controller;
+  late Animation<double> animation;
   
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      itemWidth = (context.size.width - barHeight) / 3;
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      itemWidth = (context.size!.width - barHeight) / 3;
       setState(() {});
     });
     

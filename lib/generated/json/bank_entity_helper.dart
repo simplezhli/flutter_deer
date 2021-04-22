@@ -1,14 +1,17 @@
 import 'package:flutter_deer/account/models/bank_entity.dart';
+import 'package:azlistview/azlistview.dart';
 
 bankEntityFromJson(BankEntity data, Map<String, dynamic> json) {
 	if (json['id'] != null) {
-		data.id = json['id']?.toInt();
+		data.id = json['id'] is String
+				? int.tryParse(json['id'])
+				: json['id'].toInt();
 	}
 	if (json['bankName'] != null) {
-		data.bankName = json['bankName']?.toString();
+		data.bankName = json['bankName'].toString();
 	}
 	if (json['firstLetter'] != null) {
-		data.firstLetter = json['firstLetter']?.toString();
+		data.firstLetter = json['firstLetter'].toString();
 	}
 	return data;
 }

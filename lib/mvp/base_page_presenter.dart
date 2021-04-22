@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter_deer/mvp/base_presenter.dart';
 import 'package:flutter_deer/net/net.dart';
-import 'package:meta/meta.dart';
 
 import 'mvps.dart';
 
@@ -12,7 +11,7 @@ class BasePagePresenter<V extends IMvpView> extends BasePresenter<V> {
     _cancelToken = CancelToken();
   }
 
-  CancelToken _cancelToken;
+  late CancelToken _cancelToken;
 
   @override
   void dispose() {
@@ -24,15 +23,15 @@ class BasePagePresenter<V extends IMvpView> extends BasePresenter<V> {
 
   /// 返回Future 适用于刷新，加载更多
   Future requestNetwork<T>(Method method, {
-    @required String url,
+    required String url,
     bool isShow = true,
     bool isClose = true,
-    NetSuccessCallback<T> onSuccess,
-    NetErrorCallback onError,
+    NetSuccessCallback<T?>? onSuccess,
+    NetErrorCallback? onError,
     dynamic params,
-    Map<String, dynamic> queryParameters,
-    CancelToken cancelToken,
-    Options options,
+    Map<String, dynamic>? queryParameters,
+    CancelToken? cancelToken,
+    Options? options,
   }) {
     if (isShow) {
       view.showProgress();
@@ -46,9 +45,7 @@ class BasePagePresenter<V extends IMvpView> extends BasePresenter<V> {
         if (isClose) {
           view.closeProgress();
         }
-        if (onSuccess != null) {
-          onSuccess(data);
-        }
+        onSuccess?.call(data);
       },
       onError: (code, msg) {
         _onError(code, msg, onError);
@@ -57,15 +54,15 @@ class BasePagePresenter<V extends IMvpView> extends BasePresenter<V> {
   }
 
   void asyncRequestNetwork<T>(Method method, {
-    @required String url,
+    required String url,
     bool isShow = true,
     bool isClose = true,
-    NetSuccessCallback<T> onSuccess,
-    NetErrorCallback onError,
+    NetSuccessCallback<T?>? onSuccess,
+    NetErrorCallback? onError,
     dynamic params,
-    Map<String, dynamic> queryParameters,
-    CancelToken cancelToken,
-    Options options, 
+    Map<String, dynamic>? queryParameters,
+    CancelToken? cancelToken,
+    Options? options,
   }) {
     if (isShow) {
       view.showProgress();
@@ -79,9 +76,7 @@ class BasePagePresenter<V extends IMvpView> extends BasePresenter<V> {
         if (isClose) {
           view.closeProgress();
         }
-        if (onSuccess != null) {
-          onSuccess(data);
-        }
+        onSuccess?.call(data);
       },
       onError: (code, msg) {
         _onError(code, msg, onError);
@@ -102,7 +97,7 @@ class BasePagePresenter<V extends IMvpView> extends BasePresenter<V> {
           url: HttpApi.upload,
           params: formData,
           onSuccess: (data) {
-            imgPath = data;
+            imgPath = data ?? '';
           }
       );
     } catch(e) {
@@ -111,7 +106,7 @@ class BasePagePresenter<V extends IMvpView> extends BasePresenter<V> {
     return imgPath;
   }
 
-  void _onError(int code, String msg, NetErrorCallback onError) {
+  void _onError(int code, String msg, NetErrorCallback? onError) {
     /// 异常时直接关闭加载圈，不受isClose影响
     view.closeProgress();
     if (code != ExceptionHandle.cancel_error) {

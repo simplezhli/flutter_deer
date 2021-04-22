@@ -1,9 +1,8 @@
-
 import 'mvps.dart';
 
 class BasePresenter<V extends IMvpView> extends IPresenter {
 
-  V view;
+  late V view;
 
   @override
   void deactivate() {}

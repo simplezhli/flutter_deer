@@ -6,7 +6,7 @@ import 'package:lottie/lottie.dart';
 /// 感谢Flopsy项目提供的思路及素材
 class LottieDemo extends StatefulWidget {
 
-  const LottieDemo({Key key,}) : super(key: key);
+  const LottieDemo({Key? key,}) : super(key: key);
 
   @override
   _LottieDemoState createState() => _LottieDemoState();
@@ -18,8 +18,8 @@ const Color _textColor = Color(0xFFCCCCCC);
 
 class _LottieDemoState extends State<LottieDemo> with TickerProviderStateMixin {
 
-  AnimationController _controller;
-  Bunny _bunny;
+  late AnimationController _controller;
+  late Bunny _bunny;
 
   @override
   void initState() {
@@ -132,8 +132,8 @@ class _LottieDemoState extends State<LottieDemo> with TickerProviderStateMixin {
 class _MyTextField extends StatefulWidget {
 
   const _MyTextField({
-    Key key,
-    @required this.labelText,
+    Key? key,
+    required this.labelText,
     this.obscureText = false,
     this.keyboardType,
     this.onHasFocus,
@@ -143,13 +143,13 @@ class _MyTextField extends StatefulWidget {
 
   final String labelText;
   final bool obscureText;
-  final TextInputType keyboardType;
+  final TextInputType? keyboardType;
   /// 获取焦点监听
-  final Function(bool isObscure) onHasFocus;
+  final Function(bool isObscure)? onHasFocus;
   /// 密码可见监听
-  final Function(bool isObscure) onObscureText;
+  final Function(bool isObscure)? onObscureText;
   /// 文字输入监听
-  final Function(String text) onChanged;
+  final Function(String text)? onChanged;
 
   @override
   _MyTextFieldState createState() => _MyTextFieldState();
@@ -168,7 +168,7 @@ class _MyTextFieldState extends State<_MyTextField> {
 
   void _refresh() {
     if (_focusNode.hasFocus && widget.onHasFocus != null) {
-      widget.onHasFocus(_isObscure);
+      widget.onHasFocus?.call(_isObscure);
     }
     setState(() {
 
@@ -216,7 +216,7 @@ class _MyTextFieldState extends State<_MyTextField> {
                   _isObscure = !_isObscure;
                 });
                 if (widget.onObscureText != null) {
-                  widget.onObscureText(_isObscure);
+                  widget.onObscureText?.call(_isObscure);
                 }
               },
             ) : null,

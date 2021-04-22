@@ -1,4 +1,3 @@
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/util/image_utils.dart';
@@ -7,7 +6,7 @@ import 'package:flutter_deer/util/image_utils.dart';
 class LoadImage extends StatelessWidget {
   
   const LoadImage(this.image, {
-    Key key,
+    Key? key,
     this.width, 
     this.height,
     this.fit = BoxFit.cover, 
@@ -19,13 +18,13 @@ class LoadImage extends StatelessWidget {
        super(key: key);
   
   final String image;
-  final double width;
-  final double height;
+  final double? width;
+  final double? height;
   final BoxFit fit;
   final ImageFormat format;
   final String holderImg;
-  final int cacheWidth;
-  final int cacheHeight;
+  final int? cacheWidth;
+  final int? cacheHeight;
   
   @override
   Widget build(BuildContext context) {
@@ -59,7 +58,7 @@ class LoadImage extends StatelessWidget {
 class LoadAssetImage extends StatelessWidget {
   
   const LoadAssetImage(this.image, {
-    Key key,
+    Key? key,
     this.width,
     this.height, 
     this.cacheWidth,
@@ -70,13 +69,13 @@ class LoadAssetImage extends StatelessWidget {
   }): super(key: key);
 
   final String image;
-  final double width;
-  final double height;
-  final int cacheWidth;
-  final int cacheHeight;
-  final BoxFit fit;
+  final double? width;
+  final double? height;
+  final int? cacheWidth;
+  final int? cacheHeight;
+  final BoxFit? fit;
   final ImageFormat format;
-  final Color color;
+  final Color? color;
   
   @override
   Widget build(BuildContext context) {

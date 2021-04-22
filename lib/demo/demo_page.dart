@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/demo/focus/focus_demo_page.dart';
 import 'package:flutter_deer/demo/lottie/lottie_demo.dart';

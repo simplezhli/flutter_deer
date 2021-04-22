@@ -8,7 +8,7 @@ import 'package:scratcher/scratcher.dart';
 
 class ScratchCardDemoPage extends StatefulWidget {
 
-  const ScratchCardDemoPage({Key key}) : super(key: key);
+  const ScratchCardDemoPage({Key? key}) : super(key: key);
 
   @override
   _ScratchCardDemoPageState createState() => _ScratchCardDemoPageState();
@@ -37,7 +37,7 @@ class _ScratchCardDemoPageState extends State<ScratchCardDemoPage> {
             onThreshold: () {
               /// 这里设置刮开50%，就揭开所有。
               print('Threshold reached!');
-              scratchKey.currentState.reveal(
+              scratchKey.currentState!.reveal(
                 duration: const Duration(milliseconds: 1000),
               );
             },
@@ -56,7 +56,7 @@ class _ScratchCardDemoPageState extends State<ScratchCardDemoPage> {
               OutlinedButton(
                 child: const Text('Reset'),
                 onPressed: () {
-                  scratchKey.currentState.reset(
+                  scratchKey.currentState!.reset(
                     duration: const Duration(milliseconds: 2000),
                   );
                 },
@@ -64,7 +64,7 @@ class _ScratchCardDemoPageState extends State<ScratchCardDemoPage> {
               ElevatedButton(
                 child: const Text('Reveal'),
                 onPressed: () {
-                  scratchKey.currentState.reveal(
+                  scratchKey.currentState!.reveal(
                     duration: const Duration(milliseconds: 2000),
                   );
                 },

@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'account/account_accessibility_test.dart' as account_test;
 import 'goods/goods_accessibility_test.dart' as goods_test;
 import 'login/login_accessibility_test.dart' as login_test;

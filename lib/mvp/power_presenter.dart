@@ -1,4 +1,3 @@
-
 import 'package:flutter_deer/mvp/base_page.dart';
 import 'package:flutter_deer/mvp/base_page_presenter.dart';
 import 'package:flutter_deer/mvp/base_presenter.dart';
@@ -10,7 +9,7 @@ class PowerPresenter<IMvpView> extends BasePresenter {
     _state = state;
   }
 
-  BasePageMixin _state;
+  late BasePageMixin _state;
   List<BasePagePresenter> _presenters = [];
 
   void requestPresenter(List<BasePagePresenter> presenters) {

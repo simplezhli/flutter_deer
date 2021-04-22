@@ -1,4 +1,3 @@
-
 import 'dart:io';
 import 'package:device_info/device_info.dart';
 import 'package:flutter/foundation.dart';
@@ -16,7 +15,7 @@ class Device {
   static bool get isFuchsia => !isWeb && Platform.isFuchsia;
   static bool get isIOS => !isWeb && Platform.isIOS;
 
-  static AndroidDeviceInfo _androidInfo;
+  static late AndroidDeviceInfo _androidInfo;
 
   static Future<void> initDeviceInfo() async {
     if (isAndroid) {

@@ -1,4 +1,4 @@
-
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/shop/page/freight_config_page.dart';
 import 'package:flutter_deer/shop/page/input_text_page.dart';

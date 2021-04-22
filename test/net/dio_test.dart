@@ -1,4 +1,4 @@
-
+// @dart=2.9
 import 'package:dio/dio.dart';
 import 'package:flutter_deer/net/net.dart';
 import 'package:flutter_deer/shop/models/user_entity.dart';

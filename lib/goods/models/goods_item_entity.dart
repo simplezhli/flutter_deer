@@ -1,3 +1,4 @@
+// @dart=2.9
 class GoodsItemEntity {
 
 	GoodsItemEntity({this.icon, this.title, this.type});

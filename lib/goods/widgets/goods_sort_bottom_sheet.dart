@@ -1,4 +1,4 @@
-
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/goods/provider/goods_sort_provider.dart';
 import 'package:flutter_deer/res/resources.dart';

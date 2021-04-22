@@ -1,4 +1,4 @@
-
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/goods/page/goods_edit_page.dart';
 import 'package:flutter_deer/goods/page/goods_page.dart';

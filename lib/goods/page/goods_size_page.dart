@@ -1,4 +1,4 @@
-
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/goods/models/goods_size_model.dart';
 import 'package:flutter_deer/goods/widgets/goods_size_dialog.dart';

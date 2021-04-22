@@ -15,7 +15,7 @@ class NavigatorUtils {
   static void pushResult(BuildContext context, String path, Function(Object) function,
       {bool replace = false, bool clearStack = false}) {
     unfocus();
-    Routes.router.navigateTo(context, path, replace: replace, clearStack: clearStack, transition: TransitionType.native).then((Object result) {
+    Routes.router.navigateTo(context, path, replace: replace, clearStack: clearStack, transition: TransitionType.native).then((Object? result) {
       // 页面返回result为null
       if (result == null) {
         return;

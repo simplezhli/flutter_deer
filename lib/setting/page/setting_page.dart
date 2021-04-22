@@ -1,4 +1,4 @@
-
+// @dart=2.9
 import 'package:flutter_deer/demo/demo_page.dart';
 import 'package:flutter_deer/util/device_utils.dart';
 import 'package:sp_util/sp_util.dart';

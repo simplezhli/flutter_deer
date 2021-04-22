@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/demo/navigator/books_app_state.dart';
 import 'package:flutter_deer/demo/navigator/delegate/inner_router_delegate.dart';

@@ -1,4 +1,4 @@
-
+// @dart=2.9
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/mvp/base_page.dart';
@@ -27,7 +27,7 @@ class OrderSearchPage extends StatefulWidget {
 class _OrderSearchPageState extends State<OrderSearchPage> with BasePageMixin<OrderSearchPage, PowerPresenter> implements OrderSearchIMvpView, ShopIMvpView {
 
   @override
-  BaseListProvider<SearchItem> provider = BaseListProvider<SearchItem>();
+  BaseListProvider<SearchItems> provider = BaseListProvider<SearchItems>();
   
   String _keyword;
   int _page = 1;
@@ -41,7 +41,7 @@ class _OrderSearchPageState extends State<OrderSearchPage> with BasePageMixin<Or
   
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<BaseListProvider<SearchItem>>(
+    return ChangeNotifierProvider<BaseListProvider<SearchItems>>(
       create: (_) => provider,
       child: Scaffold(
         appBar: SearchBar(
@@ -57,7 +57,7 @@ class _OrderSearchPageState extends State<OrderSearchPage> with BasePageMixin<Or
             _orderSearchPresenter.search(_keyword, _page, true);
           },
         ),
-        body: Consumer<BaseListProvider<SearchItem>>(
+        body: Consumer<BaseListProvider<SearchItems>>(
           builder: (_, provider, __) {
             return DeerListView(
               key: const Key('order_search_list'),
