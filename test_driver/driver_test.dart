@@ -1,4 +1,4 @@
-
+// @dart=2.9
 import 'account/account_test.dart' as account_test;
 import 'goods/goods_test.dart' as goods_test;
 import 'home/splash_page_test.dart' as splash_test;

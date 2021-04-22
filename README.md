@@ -21,7 +21,7 @@
 | ![](./preview/Screenshot_22.jpg)   |  ![](./preview/Screenshot_23.jpg)   | ![](./preview/Screenshot_24.jpg)  |  ![](./preview/Screenshot_25.jpg)  |
 | ![](./preview/Screenshot_26.jpg)   |  ![](./preview/Screenshot_27.jpg)   | ![](./preview/lottie.gif)         |  |
 
-**觉得还可以的话，来个Star、Fork支持一波！有问题欢迎提Issue。**
+**觉得还可以的话，来个Star、Fork支持一波！本项目持续维护中，有问题欢迎提Issue。**
 
 ## 实现内容
 

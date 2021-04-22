@@ -8,7 +8,7 @@ homepage: https://weilu.blog.csdn.net/
 publish_to: 'none'
 
 environment:
-  sdk: ">=2.10.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
   flutter: ">=2.0.0"
 
 dependencies:
@@ -25,13 +25,13 @@ dependencies:
   # 网络库 https://github.com/flutterchina/dio
   dio: ^4.0.0
   # https://github.com/ReactiveX/rxdart
-  rxdart: ^0.25.0
+  rxdart: ^0.26.0
   # Dart 常用工具类库 https://github.com/Sky24n/common_utils
-  common_utils: 1.2.4
+  common_utils: 2.0.2
   # Flutter 常用工具类库 https://github.com/Sky24n/flustars
-  flustars: ^0.3.3
+  flustars: ^2.0.1
   # Flutter 轮播图 https://github.com/best-flutter/flutter_swiper
-  flutter_swiper: ^1.1.6  # flutter_swiper很久不维护，备用空安全版本：flutter_card_swiper: ^0.4.0
+  flutter_swiper_null_safety: ^1.0.0  # flutter_swiper很久不维护，可以使用空安全版本：flutter_swiper_null_safety
   # 启动URL的插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/url_launcher
   url_launcher: 6.0.3
   # 图片选择插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/image_picker
@@ -51,7 +51,7 @@ dependencies:
   # 路由框架 https://github.com/theyakka/fluro
   fluro: ^2.0.3
   # 图片缓存 https://github.com/renefloor/flutter_cached_network_image
-  cached_network_image: ^2.5.1
+  cached_network_image: ^3.0.0
   # 格式化String https://github.com/Naddiseo/dart-sprintf
   sprintf: ^6.0.0
   # 状态管理 https://github.com/rrousselGit/provider
@@ -73,7 +73,13 @@ dependencies:
   # 刮刮卡 https://github.com/vintage/scratcher
   scratcher: ^2.0.1
   # 动画效果 https://github.com/xvrh/lottie-flutter
-  lottie: ^0.7.0+1
+  lottie: ^1.0.1
+
+# flutter_driver与common_utils、lottie等个别库依赖冲突，用依赖版本覆盖处理
+dependency_overrides:
+  archive: ^3.0.0
+  crypto: ^3.0.0
+  convert: ^3.0.0
 
 dev_dependencies:
   # Widget测试
