@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -12,7 +11,7 @@ import 'load_image.dart';
 class SearchBar extends StatefulWidget implements PreferredSizeWidget {
 
   const SearchBar({
-    Key key,
+    Key? key,
     this.hintText = '',
     this.backImg = 'assets/images/ic_back_black.png',
     this.onPressed,
@@ -20,7 +19,7 @@ class SearchBar extends StatefulWidget implements PreferredSizeWidget {
 
   final String backImg;
   final String hintText;
-  final Function(String) onPressed;
+  final Function(String)? onPressed;
 
   @override
   _SearchBarState createState() => _SearchBarState();
@@ -113,7 +112,7 @@ class _SearchBarState extends State<SearchBar> {
           onSubmitted: (String val) {
             _focus.unfocus();
             // 点击软键盘的动作按钮时的回调
-            widget.onPressed(val);
+            widget.onPressed?.call(val);
           },
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.only(top: 0.0, left: -8.0, right: -16.0, bottom: 14.0),
@@ -133,7 +132,7 @@ class _SearchBarState extends State<SearchBar> {
               ),
               onTap: () {
                 /// https://github.com/flutter/flutter/issues/35848
-                SchedulerBinding.instance.addPostFrameCallback((_) {
+                SchedulerBinding.instance!.addPostFrameCallback((_) {
                   _controller.text = '';
                 });
               },
@@ -152,7 +151,7 @@ class _SearchBarState extends State<SearchBar> {
       text: '搜索',
       onPressed:() {
         _focus.unfocus();
-        widget.onPressed(_controller.text);
+        widget.onPressed?.call(_controller.text);
       },
     );
     

@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'dart:ui';
 
 import 'package:common_utils/common_utils.dart';
@@ -33,7 +32,7 @@ class Utils {
   }
 
   static String formatPrice(String price, {MoneyFormat format = MoneyFormat.END_INTEGER}){
-    return MoneyUtil.changeYWithUnit(NumUtil.getDoubleByValueStr(price), MoneyUnit.YUAN, format: format);
+    return MoneyUtil.changeYWithUnit(NumUtil.getDoubleByValueStr(price) ?? 0, MoneyUnit.YUAN, format: format);
   }
 
   static KeyboardActionsConfig getKeyboardActionsConfig(BuildContext context, List<FocusNode> list) {
@@ -57,10 +56,10 @@ class Utils {
     );
   }
 
-  static String getCurrLocale() {
-    final String locale = SpUtil.getString(Constant.locale);
+  static String? getCurrLocale() {
+    final String locale = SpUtil.getString(Constant.locale)!;
     if (locale == '') {
-      return window.locale.languageCode;
+      return window.locale?.languageCode;  // 2.0.0 web问题：https://github.com/flutter/flutter/issues/79351
     }
     return locale;
   }
@@ -68,10 +67,10 @@ class Utils {
 }
 
 
-Future<T> showElasticDialog<T>({
-  @required BuildContext context,
+Future<T?> showElasticDialog<T>({
+  required BuildContext context,
   bool barrierDismissible = true,
-  WidgetBuilder builder,
+  required WidgetBuilder builder,
 }) {
 
   return showGeneralDialog(

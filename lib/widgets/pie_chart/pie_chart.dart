@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -11,9 +10,9 @@ import 'package:flutter_deer/widgets/pie_chart/pie_data.dart';
 class PieChart extends StatefulWidget {
   
   const PieChart({
-    Key key,
-    @required this.data,
-    @required this.name
+    Key? key,
+    required this.data,
+    required this.name
   }) : assert(data != null, 'The [data] argument must not be null.'),
        assert(name != null, 'The [name] argument must not be null.'),
        super(key: key);
@@ -32,10 +31,10 @@ class PieChart extends StatefulWidget {
 
 class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin {
 
-  int count;
-  Animation<double> animation;
-  AnimationController controller;
-  List<PieData> oldData;
+  late int count;
+  late Animation<double> animation;
+  late AnimationController controller;
+  late List<PieData> oldData;
   
   @override
   void initState() {
@@ -82,7 +81,7 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
       child: RepaintBoundary(
         child: AnimatedBuilder(
           animation: animation,
-          builder: (_, Widget child) {
+          builder: (_, Widget? child) {
             return CustomPaint(
               painter: PieChartPainter(
                 widget.data,
@@ -122,7 +121,7 @@ class PieChartPainter extends CustomPainter {
     for (int i = 0; i < data.length; i++) {
       count += data[i].number;
     }
-    PieData pieData;
+    PieData? pieData;
     if (data.length == 11) {
       // 获取“其他”数据
       pieData = data[10];
@@ -146,22 +145,22 @@ class PieChartPainter extends CustomPainter {
     _mPaint = Paint();
     totalAngle = angleFactor * math.pi * 2;
   }
-  
-  Rect mCircle;
-  Paint _mPaint;
+
+  late Rect mCircle;
+  late Paint _mPaint;
   // 半径
-  double mRadius;
-  List<PieData> data;
-  double totalAngle;
+  late double mRadius;
+  late List<PieData> data;
+  late double totalAngle;
 
   // 起始角度
-  double prevAngle;
-  Color bgColor;
+  late double prevAngle;
+  late Color bgColor;
   
   // 总数量
-  int count;
+  late int count;
   // 图表名称
-  String name;
+  late String name;
   
   @override
   void paint(Canvas canvas, Size size) {

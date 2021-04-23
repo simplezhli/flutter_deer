@@ -75,7 +75,7 @@ Web：https://simplezhli.github.io/flutter_deer/
 
 - I have added a relative path to the design drawings in the page notes. I can search or find the corresponding page. I hope it will help you.
 
-- This project uses the FlutterJsonBeanFactory plugin to generate beans. 
+- This project uses the [FlutterJsonBeanFactory](https://github.com/zhangruiyu/FlutterJsonBeanFactory) plugin to generate beans.
 
 ## Summary of experience
 

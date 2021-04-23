@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/demo/navigator/parser/route_information_parser.dart';
 import 'package:flutter_deer/demo/navigator/delegate/router_delegate.dart';
@@ -7,7 +6,7 @@ import 'package:flutter_deer/demo/navigator/delegate/router_delegate.dart';
 /// https://weilu.blog.csdn.net/article/details/108902282
 class NestedRouterDemo extends StatefulWidget {
 
-  const NestedRouterDemo({Key key}) : super(key: key);
+  const NestedRouterDemo({Key? key}) : super(key: key);
 
   @override
   _NestedRouterDemoState createState() => _NestedRouterDemoState();

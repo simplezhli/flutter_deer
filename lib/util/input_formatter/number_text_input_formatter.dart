@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/services.dart';
 
 /// 数字、小数格式化（默认两位小数）

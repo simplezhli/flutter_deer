@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'dart:io';
 
 import 'package:common_utils/common_utils.dart';
@@ -13,14 +12,14 @@ import 'package:image_picker/image_picker.dart';
 class SelectedImage extends StatefulWidget {
 
   const SelectedImage({
-    Key key,
+    Key? key,
     this.url,
     this.heroTag,
     this.size = 80.0,
   }): super(key: key);
 
-  final String url;
-  final String heroTag;
+  final String? url;
+  final String? heroTag;
   final double size;
 
   @override
@@ -30,8 +29,8 @@ class SelectedImage extends StatefulWidget {
 class SelectedImageState extends State<SelectedImage> {
 
   final ImagePicker _picker = ImagePicker();
-  ImageProvider _imageProvider;
-  PickedFile pickedFile;
+  ImageProvider? _imageProvider;
+  PickedFile? pickedFile;
 
   Future<void> _getImage() async {
     try {
@@ -39,9 +38,9 @@ class SelectedImageState extends State<SelectedImage> {
       if (pickedFile != null) {
 
         if (Device.isWeb) {
-          _imageProvider = NetworkImage(pickedFile.path);
+          _imageProvider = NetworkImage(pickedFile!.path);
         } else {
-          _imageProvider = FileImage(File(pickedFile.path));
+          _imageProvider = FileImage(File(pickedFile!.path));
         }
 
       } else {
@@ -78,7 +77,7 @@ class SelectedImageState extends State<SelectedImage> {
     );
 
     if (widget.heroTag != null && !Device.isWeb) {
-      image = Hero(tag: widget.heroTag, child: image);
+      image = Hero(tag: widget.heroTag!, child: image);
     }
 
     return Semantics(

@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/demo/navigator/screen/app_shell.dart';
 import 'package:flutter_deer/demo/navigator/book_entity.dart';

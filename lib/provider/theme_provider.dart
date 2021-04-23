@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'dart:ui';
 
 import 'package:flutter_deer/routers/web_page_transitions.dart';
@@ -15,7 +14,7 @@ extension ThemeModeExtension on ThemeMode {
 class ThemeProvider extends ChangeNotifier {
   
   void syncTheme() {
-    final String theme = SpUtil.getString(Constant.theme);
+    final String theme = SpUtil.getString(Constant.theme) ?? '';
     if (theme.isNotEmpty && theme != ThemeMode.system.value) {
       notifyListeners();
     }
@@ -27,7 +26,7 @@ class ThemeProvider extends ChangeNotifier {
   }
 
   ThemeMode getThemeMode(){
-    final String theme = SpUtil.getString(Constant.theme);
+    final String theme = SpUtil.getString(Constant.theme) ?? '';
     switch(theme) {
       case 'Dark':
         return ThemeMode.dark;
@@ -82,6 +81,7 @@ class ThemeProvider extends ChangeNotifier {
         brightness: isDarkMode ? Brightness.dark : Brightness.light,
       ),
       pageTransitionsTheme: NoTransitionsOnWeb(),
+      visualDensity: VisualDensity.standard,  // https://github.com/flutter/flutter/issues/77142
     );
   }
 

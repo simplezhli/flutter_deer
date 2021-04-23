@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -13,28 +12,27 @@ const double _kWindowCloseIntervalEnd = 2.0 / 3.0;
 const double _kWindowScreenPadding = 0.0;
 
 ///弹窗方法
-Future<T> showPopupWindow<T>({
-  @required BuildContext context,
-  @required RenderBox anchor,
-  @required Widget child,
-  Offset offset,
-  String semanticLabel,
+Future<T?> showPopupWindow<T>({
+  required BuildContext context,
+  required RenderBox anchor,
+  required Widget child,
+  Offset? offset,
+  String? semanticLabel,
   bool isShowBg = false,
 }) {
   assert(context != null);
-  String label = semanticLabel;
+
   switch (defaultTargetPlatform) {
     case TargetPlatform.iOS:
     case TargetPlatform.macOS:
-      label = semanticLabel;
       break;
     case TargetPlatform.android:
     case TargetPlatform.fuchsia:
     case TargetPlatform.linux:
     case TargetPlatform.windows:
-      label = semanticLabel ?? MaterialLocalizations.of(context)?.popupMenuLabel;
+      semanticLabel ??= MaterialLocalizations.of(context).popupMenuLabel;
   }
-  final RenderBox overlay = Overlay.of(context).context.findRenderObject() as RenderBox;
+  final RenderBox? overlay = Overlay.of(context)!.context.findRenderObject() as RenderBox?;
 
   // 默认位置锚点下方
   final Offset _offset = Offset(0, anchor.size.height);
@@ -50,13 +48,13 @@ Future<T> showPopupWindow<T>({
   final b = anchor.localToGlobal(anchor.size.bottomLeft(offset), ancestor: overlay);
   final RelativeRect position = RelativeRect.fromRect(
     Rect.fromPoints(a, b),
-    Offset.zero & overlay.size,
+    Offset.zero & overlay!.size,
   );
   return Navigator.push(context,
       _PopupWindowRoute(
         position: position,
         child: child,
-        semanticLabel: label,
+        semanticLabel: semanticLabel,
         barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
         isShowBg: isShowBg
       ));
@@ -65,21 +63,21 @@ Future<T> showPopupWindow<T>({
 ///自定义弹窗路由：参照_PopupMenuRoute修改的
 class _PopupWindowRoute<T> extends PopupRoute<T> {
   _PopupWindowRoute({
-    RouteSettings settings,
-    this.child,
-    this.position,
-    this.barrierLabel,
-    this.semanticLabel,
-    this.isShowBg,
+    RouteSettings? settings,
+    required this.child,
+    required this.position,
+    required this.barrierLabel,
+    required this.semanticLabel,
+    required this.isShowBg,
   }) : super(settings: settings);
 
   final Widget child;
   final RelativeRect position;
-  final String semanticLabel;
+  final String? semanticLabel;
   final bool isShowBg;
   
   @override
-  Color get barrierColor => null;
+  Color? get barrierColor => null;
 
   @override
   bool get barrierDismissible => true;
@@ -140,13 +138,13 @@ class _PopupWindowRoute<T> extends PopupRoute<T> {
 ///自定义弹窗控件：对自定义的弹窗内容进行再包装，添加长宽、动画等约束条件
 class _PopupWindow<T> extends StatelessWidget {
   const _PopupWindow({
-    Key key,
-    this.route,
-    this.semanticLabel,
+    Key? key,
+    required this.route,
+    required this.semanticLabel,
   }) : super(key: key);
 
   final _PopupWindowRoute<T> route;
-  final String semanticLabel;
+  final String? semanticLabel;
 
   @override
   Widget build(BuildContext context) {
@@ -163,14 +161,14 @@ class _PopupWindow<T> extends StatelessWidget {
     );
 
     return AnimatedBuilder(
-      animation: route.animation,
-      builder: (BuildContext context, Widget child) {
+      animation: route.animation!,
+      builder: (BuildContext context, Widget? child) {
         return Opacity(
-          opacity: opacity.evaluate(route.animation),
+          opacity: opacity.evaluate(route.animation!),
           child: Align(
             alignment: AlignmentDirectional.topEnd,
-            widthFactor: width.evaluate(route.animation),
-            heightFactor: height.evaluate(route.animation),
+            widthFactor: width.evaluate(route.animation!),
+            heightFactor: height.evaluate(route.animation!),
             child: Semantics(
               scopesRoute: true,
               namesRoute: true,

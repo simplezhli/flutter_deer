@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 
@@ -43,7 +42,7 @@ import 'package:flutter/widgets.dart';
 /// ```
 mixin ChangeNotifierMixin<T extends StatefulWidget> on State<T> {
 
-  Map<ChangeNotifier, List<VoidCallback>> _map;
+  Map<ChangeNotifier?, List<VoidCallback>>? _map;
 
   Map<ChangeNotifier, List<VoidCallback>> changeNotifier();
   

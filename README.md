@@ -82,7 +82,7 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 
 - 因为页面有点多，一开始可能会导致页面无法与设计图对应上。我在代码注释中有添加设计图的相对路径，可以搜索或查找到对应页面，希望对你有帮助。
 
-- 本项目使用FlutterJsonBeanFactory插件来生成Bean。FlutterJsonBeanFactory插件使用可以查看[这篇文章](https://www.jianshu.com/p/14cbcbaa74b7)。
+- 本项目使用[FlutterJsonBeanFactory](https://github.com/zhangruiyu/FlutterJsonBeanFactory)插件来生成Bean。
 
 - Web受制于js等资源过大和部署在Github上，访问会慢一些。
 

@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
@@ -9,15 +8,15 @@ import 'package:flutter_deer/widgets/my_button.dart';
 class BaseDialog extends StatelessWidget {
 
   const BaseDialog({
-    Key key,
+    Key? key,
     this.title,
     this.onPressed,
     this.hiddenTitle = false,
-    @required this.child
+    required this.child
   }) : super(key : key);
 
-  final String title;
-  final VoidCallback onPressed;
+  final String? title;
+  final VoidCallback? onPressed;
   final Widget child;
   final bool hiddenTitle;
 
@@ -29,7 +28,7 @@ class BaseDialog extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(bottom: 8.0),
         child: Text(
-          hiddenTitle ? '' : title,
+          hiddenTitle ? '' : title ?? '',
           style: TextStyles.textBold18,
         ),
       ),
@@ -107,15 +106,15 @@ class BaseDialog extends StatelessWidget {
 class _DialogButton extends StatelessWidget {
   
   const _DialogButton({
-    Key key,
-    this.text,
+    Key? key,
+    required this.text,
     this.textColor,
     this.onPressed,
   }): super(key: key);
   
   final String text;
-  final Color textColor;
-  final VoidCallback onPressed;
+  final Color? textColor;
+  final VoidCallback? onPressed;
   
   @override
   Widget build(BuildContext context) {

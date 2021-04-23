@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 
 /// Navigator工具类 
@@ -33,7 +32,7 @@ class AppNavigator {
     );
   }
 
-  static void pushResult(BuildContext context, Widget scene, Function(Object) function) {
+  static void pushResult(BuildContext context, Widget scene, Function(Object?) function) {
     Navigator.push<void>(
       context,
       MaterialPageRoute(

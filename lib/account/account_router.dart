@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:fluro/fluro.dart';
 import 'package:flutter_deer/routers/i_router.dart';
 
@@ -35,7 +34,7 @@ class AccountRouter implements IRouterProvider{
     router.define(accountRecordListPage, handler: Handler(handlerFunc: (_, __) => const AccountRecordListPage()));
     router.define(addWithdrawalAccountPage, handler: Handler(handlerFunc: (_, __) => const AddWithdrawalAccountPage()));
     router.define(bankSelectPage, handler: Handler(handlerFunc: (_, Map<String, List<String>> params) {
-      final int type = int.parse(params['type']?.first);
+      final int type = int.parse(params['type']?.first ?? '0');
       return BankSelectPage(type: type);
     }));
     router.define(citySelectPage, handler: Handler(handlerFunc: (_, __) => const CitySelectPage()));

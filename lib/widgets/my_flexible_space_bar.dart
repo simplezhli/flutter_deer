@@ -1,7 +1,6 @@
 // Copyright 2016 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-// @dart=2.9
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -28,7 +27,7 @@ class MyFlexibleSpaceBar extends StatefulWidget {
   ///
   /// Most commonly used in the [AppBar.flexibleSpace] field.
   const MyFlexibleSpaceBar({
-    Key key,
+    Key? key,
     this.title,
     this.background,
     this.centerTitle,
@@ -40,18 +39,18 @@ class MyFlexibleSpaceBar extends StatefulWidget {
   /// The primary contents of the flexible space bar when expanded.
   ///
   /// Typically a [Text] widget.
-  final Widget title;
+  final Widget? title;
 
   /// Shown behind the [title] when expanded.
   ///
   /// Typically an [Image] widget with [Image.fit] set to [BoxFit.cover].
-  final Widget background;
+  final Widget? background;
 
   /// Whether the title should be centered.
   ///
   /// By default this property is true if the current target platform
   /// is [TargetPlatform.iOS], false otherwise.
-  final bool centerTitle;
+  final bool? centerTitle;
 
   /// Collapse effect while scrolling.
   ///
@@ -68,7 +67,7 @@ class MyFlexibleSpaceBar extends StatefulWidget {
   /// By default the value of this property is
   /// `EdgeInsetsDirectional.only(start: 72, bottom: 16)` if the title is
   /// not centered, `EdgeInsetsDirectional.only(start 0, bottom: 16)` otherwise.
-  final EdgeInsetsGeometry titlePadding;
+  final EdgeInsetsGeometry? titlePadding;
 
   /// Wraps a widget that contains an [AppBar] to convey sizing information down
   /// to the [FlexibleSpaceBar].
@@ -88,11 +87,11 @@ class MyFlexibleSpaceBar extends StatefulWidget {
   ///  * [FlexibleSpaceBarSettings] which creates a settings object that can be
   ///    used to specify these settings to a [FlexibleSpaceBar].
   static Widget createSettings({
-    double toolbarOpacity,
-    double minExtent,
-    double maxExtent,
-    @required double currentExtent,
-    @required Widget child,
+    double? toolbarOpacity,
+    double? minExtent,
+    double? maxExtent,
+    required double currentExtent,
+    required Widget child,
   }) {
     assert(currentExtent != null);
     return FlexibleSpaceBarSettings(
@@ -111,7 +110,7 @@ class MyFlexibleSpaceBar extends StatefulWidget {
 class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
   bool _getEffectiveCenterTitle(ThemeData theme) {
     if (widget.centerTitle != null)
-      return widget.centerTitle;
+      return widget.centerTitle!;
     assert(theme.platform != null);
     switch (theme.platform) {
       case TargetPlatform.android:
@@ -123,7 +122,6 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
       case TargetPlatform.macOS:
         return true;
     }
-    return null;
   }
 
   Alignment _getTitleAlignment(bool effectiveCenterTitle) {
@@ -137,10 +135,9 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
       case TextDirection.ltr:
         return Alignment.bottomLeft;
     }
-    return null;
   }
 
-  double _getCollapsePadding(double t, FlexibleSpaceBarSettings settings) {
+  double? _getCollapsePadding(double t, FlexibleSpaceBarSettings settings) {
     switch (widget.collapseMode) {
       case CollapseMode.pin:
         return -(settings.maxExtent - settings.currentExtent);
@@ -150,7 +147,6 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
         final double deltaExtent = settings.maxExtent - settings.minExtent;
         return -Tween<double>(begin: 0.0, end: deltaExtent / 4.0).transform(t);
     }
-    return null;
   }
 
   final GlobalKey _key = GlobalKey();
@@ -160,9 +156,9 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
   @override
   void initState() {
     //监听Widget是否绘制完毕
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final RenderBox renderBoxRed = _key.currentContext.findRenderObject() as RenderBox;
-      _offset = renderBoxRed.size.width / 2;
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      final RenderBox? renderBoxRed = _key.currentContext!.findRenderObject() as RenderBox?;
+      _offset = renderBoxRed!.size.width / 2;
     });
     super.initState();
   }
@@ -170,7 +166,7 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    final FlexibleSpaceBarSettings settings = context.dependOnInheritedWidgetOfExactType<FlexibleSpaceBarSettings>();
+    final FlexibleSpaceBarSettings settings = context.dependOnInheritedWidgetOfExactType<FlexibleSpaceBarSettings>()!;
     assert(settings != null, 'A FlexibleSpaceBar must be wrapped in the widget returned by FlexibleSpaceBar.createSettings().');
 
     final List<Widget> children = <Widget>[];
@@ -179,7 +175,7 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
 
     // 0.0 -> Expanded
     // 1.0 -> Collapsed to toolbar
-    final double t = (1.0 - (settings.currentExtent - settings.minExtent) / deltaExtent).clamp(0.0, 1.0) as double;
+    final double t = (1.0 - (settings.currentExtent - settings.minExtent) / deltaExtent).clamp(0.0, 1.0);
 
     // background image
     if (widget.background != null) {
@@ -188,7 +184,7 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
         left: 0.0,
         right: 0.0,
         height: settings.maxExtent,
-        child: widget.background,
+        child: widget.background!,
       ));
     }
 
@@ -198,7 +194,7 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
       switch (theme.platform) {
         case TargetPlatform.iOS:
         case TargetPlatform.macOS:
-          title = widget.title;
+          title = widget.title!;
           break;
         case TargetPlatform.android:
         case TargetPlatform.fuchsia:
@@ -218,9 +214,9 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
 
       final double opacity = settings.toolbarOpacity;
       if (opacity > 0.0) {
-        TextStyle titleStyle = theme.primaryTextTheme.headline6;
+        TextStyle titleStyle = theme.primaryTextTheme.headline6!;
         titleStyle = titleStyle.copyWith(
-            color: titleStyle.color.withOpacity(opacity),
+            color: titleStyle.color!.withOpacity(opacity),
             fontWeight: t != 0 ? FontWeight.normal : FontWeight.bold
         );
         final bool effectiveCenterTitle = _getEffectiveCenterTitle(theme);

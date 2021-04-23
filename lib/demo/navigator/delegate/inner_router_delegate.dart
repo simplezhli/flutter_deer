@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/demo/navigator/book_entity.dart';
 import 'package:flutter_deer/demo/navigator/books_app_state.dart';
@@ -39,7 +38,7 @@ class InnerRouterDelegate extends RouterDelegate<BookRoutePath>
           if (appState.selectedBook != null)
             MaterialPage<dynamic>(
               key: ValueKey(appState.selectedBook),
-              child: BookDetailsScreen(book: appState.selectedBook),
+              child: BookDetailsScreen(book: appState.selectedBook!),
             ),
         ] else
           const FadeAnimationPage(
@@ -70,7 +69,7 @@ class InnerRouterDelegate extends RouterDelegate<BookRoutePath>
 
 class FadeAnimationPage extends Page<void> {
 
-  const FadeAnimationPage({LocalKey key, this.child}) : super(key: key);
+  const FadeAnimationPage({LocalKey? key, required this.child}) : super(key: key);
 
   final Widget child;
 

@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
@@ -12,7 +11,7 @@ import 'package:vibration/vibration.dart';
 /// design/6店铺-账户/index.html#artboard13
 class WithdrawalPasswordSetting extends StatefulWidget {
 
-  const WithdrawalPasswordSetting({Key key}) : super(key: key);
+  const WithdrawalPasswordSetting({Key? key}) : super(key: key);
 
   @override
   _WithdrawalPasswordSettingState createState() => _WithdrawalPasswordSettingState();
@@ -125,7 +124,7 @@ class _WithdrawalPasswordSettingState extends State<WithdrawalPasswordSetting> {
           }
 
           /// 点击时给予振动反馈
-          if (!Device.isDesktop && await Vibration.hasVibrator()) {
+          if (!Device.isDesktop && (await Vibration.hasVibrator() ?? false)) {
             Vibration.vibrate(duration: 10);
           }
 

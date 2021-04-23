@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/demo/navigator/book_entity.dart';
 
@@ -6,9 +5,9 @@ class BooksAppState extends ChangeNotifier {
 
   BooksAppState() : _selectedIndex = 0;
 
-  int _selectedIndex;
+  late int _selectedIndex;
 
-  Book _selectedBook;
+  Book? _selectedBook;
 
   final List<Book> books = <Book>[
     Book('Stranger in a Strange Land', 'Robert A. Heinlein'),
@@ -29,9 +28,9 @@ class BooksAppState extends ChangeNotifier {
     notifyListeners();
   }
 
-  Book get selectedBook => _selectedBook;
+  Book? get selectedBook => _selectedBook;
 
-  set selectedBook(Book book) {
+  set selectedBook(Book? book) {
     _selectedBook = book;
     notifyListeners();
   }
@@ -40,7 +39,7 @@ class BooksAppState extends ChangeNotifier {
     if (!books.contains(_selectedBook)) {
       return 0;
     }
-    return books.indexOf(_selectedBook);
+    return books.indexOf(_selectedBook!);
   }
 
   void setSelectedBookById(int id) {

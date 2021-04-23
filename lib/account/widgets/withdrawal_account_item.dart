@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -11,9 +10,9 @@ import 'package:flutter_deer/widgets/load_image.dart';
 class WithdrawalAccountItem extends StatefulWidget {
 
   const WithdrawalAccountItem({
-    Key key,
-    @required this.data,
-    this.onLongPress,
+    Key? key,
+    required this.data,
+    required this.onLongPress,
   }): super(key: key);
   
   final WithdrawalAccountModel data;
@@ -26,8 +25,8 @@ class WithdrawalAccountItem extends StatefulWidget {
 /// 3D翻转动画 https://medium.com/flutterpub/flutter-flip-card-animation-with-3d-effect-4284af04f5a
 class _WithdrawalAccountItemState extends State<WithdrawalAccountItem> with SingleTickerProviderStateMixin {
 
-  AnimationController _animationController;
-  Animation<double> _animation;
+  late AnimationController _animationController;
+  late Animation<double> _animation;
   AnimationStatus _animationStatus = AnimationStatus.dismissed;
 
   @override
@@ -142,9 +141,9 @@ class _WithdrawalAccountItemState extends State<WithdrawalAccountItem> with Sing
 class AccountCard extends StatefulWidget {
 
   const AccountCard({
-    Key key,
-    @required this.child,
-    this.type
+    Key? key,
+    required this.child,
+    required this.type
   }): super(key: key);
 
   final Widget child;

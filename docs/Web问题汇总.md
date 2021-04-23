@@ -40,6 +40,12 @@
 
 目前处理方法是添加`RepaintBoundary`。
 
+## 按钮的大小在移动端与Web端不同
+
+可以`ThemeData`中全局指定`visualDensity`属性为`VisualDensity.standard`。
+
+详情见[Buttons not respecting default dimensions](https://github.com/flutter/flutter/issues/77142)
+
 ## 指定渲染引擎
 
 ```
@@ -49,6 +55,11 @@ flutter run -d chrome --release --web-renderer canvaskit
 ```
 
 > 总结：HTML渲染相较于CanvasKit渲染，UI还原度差一些，但综合性能相对较好。
+
+
+## 历史问题
+
+- 2.0.0已知问题(~~#79351~~)。
 
 
 

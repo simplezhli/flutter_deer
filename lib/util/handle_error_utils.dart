@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'dart:async';
 
 import 'package:flutter/widgets.dart';
@@ -13,7 +12,7 @@ void handleError(void body) {
       FlutterError.dumpErrorToConsole(details);
     } else {
       // release时，将异常交由zone统一处理。
-      Zone.current.handleUncaughtError(details.exception, details.stack);
+      Zone.current.handleUncaughtError(details.exception, details.stack!);
     }
   };
 
