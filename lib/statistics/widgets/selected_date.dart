@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
@@ -6,10 +5,10 @@ import 'package:flutter_deer/util/theme_utils.dart';
 class SelectedDateButton extends StatelessWidget {
 
   const SelectedDateButton(this.text,{
-    Key key,
+    Key? key,
     this.fontSize = 14.0,
     this.selected = false,
-    @required this.unSelectedTextColor,
+    required this.unSelectedTextColor,
     this.enable = true,
     this.onTap,
     this.semanticsLabel
@@ -20,9 +19,9 @@ class SelectedDateButton extends StatelessWidget {
   final double fontSize;
   final bool selected;
   final Color unSelectedTextColor;
-  final GestureTapCallback onTap;
+  final GestureTapCallback? onTap;
   final bool enable;
-  final String semanticsLabel;
+  final String? semanticsLabel;
 
   @override
   Widget build(BuildContext context) {

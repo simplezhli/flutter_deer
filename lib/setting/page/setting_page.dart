@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter_deer/demo/demo_page.dart';
 import 'package:flutter_deer/util/device_utils.dart';
 import 'package:sp_util/sp_util.dart';
@@ -18,7 +17,7 @@ import '../setting_router.dart';
 /// design/8设置/index.html
 class SettingPage extends StatefulWidget {
 
-  const SettingPage({Key key}) : super(key: key);
+  const SettingPage({Key? key}) : super(key: key);
 
   @override
   _SettingPageState createState() => _SettingPageState();
@@ -79,7 +78,7 @@ class _SettingPageState extends State<SettingPage> {
   }
 
   String _getCurrentTheme() {
-    final String theme = SpUtil.getString(Constant.theme);
+    final String? theme = SpUtil.getString(Constant.theme);
     String themeMode;
     switch(theme) {
       case 'Dark':
@@ -96,7 +95,7 @@ class _SettingPageState extends State<SettingPage> {
   }
 
   String _getCurrentLocale() {
-    final String locale = SpUtil.getString(Constant.locale);
+    final String? locale = SpUtil.getString(Constant.locale);
     String localeMode;
     switch(locale) {
       case 'zh':

@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
@@ -8,7 +7,7 @@ import 'package:sticky_headers/sticky_headers.dart';
 /// design/6店铺-账户/index.html#artboard19
 class WithdrawalRecordListPage extends StatefulWidget {
 
-  const WithdrawalRecordListPage({Key key}) : super(key: key);
+  const WithdrawalRecordListPage({Key? key}) : super(key: key);
 
   @override
   _WithdrawalRecordListPageState createState() => _WithdrawalRecordListPageState();

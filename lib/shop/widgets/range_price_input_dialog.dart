@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
@@ -11,12 +10,12 @@ import 'package:flutter_deer/widgets/base_dialog.dart';
 class RangePriceInputDialog extends StatefulWidget {
 
   const RangePriceInputDialog({
-    Key key,
+    Key? key,
     this.title,
-    this.onPressed,
+    required this.onPressed,
   }) : super(key : key);
 
-  final String title;
+  final String? title;
   final Function(String, String) onPressed;
   
   @override

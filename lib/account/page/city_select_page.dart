@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -14,7 +13,7 @@ import 'package:azlistview/azlistview.dart';
 /// design/6店铺-账户/index.html#artboard34
 class CitySelectPage extends StatefulWidget {
 
-  const CitySelectPage({Key key}) : super(key: key);
+  const CitySelectPage({Key? key}) : super(key: key);
 
   @override
   _CitySelectPageState createState() => _CitySelectPageState();
@@ -84,7 +83,7 @@ class _CitySelectPageState extends State<CitySelectPage> {
             indexHintWidth: 96,
             indexHintHeight: 96,
             indexHintTextStyle: const TextStyle(fontSize: 26.0, color: Colors.white),
-            textStyle: Theme.of(context).textTheme.subtitle2,
+            textStyle: Theme.of(context).textTheme.subtitle2!,
             downTextStyle: context.isDark ? TextStyles.textSize12 : const TextStyle(fontSize: 12.0, color: Colors.black),
           ),
         ),

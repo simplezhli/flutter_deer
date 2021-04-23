@@ -1,7 +1,6 @@
-// @dart=2.9
 class GoodsItemEntity {
 
-	GoodsItemEntity({this.icon, this.title, this.type});
+	GoodsItemEntity({required this.icon, required this.title, required this.type});
 
 	GoodsItemEntity.fromJson(Map<String, dynamic> json) {
 		icon = json['icon'] as String;
@@ -9,9 +8,9 @@ class GoodsItemEntity {
 		type = json['type'] as int;
 	}
 
-	String icon;
-	String title;
-	int type;
+	late String icon;
+	late String title;
+	late int type;
 
 	Map<String, dynamic> toJson() {
 		final Map<String, dynamic> data = <String, dynamic>{};

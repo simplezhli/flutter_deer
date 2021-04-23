@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/account/widgets/rise_number_text.dart';
@@ -13,7 +12,7 @@ import '../account_router.dart';
 /// design/6店铺-账户/index.html#artboard2
 class AccountPage extends StatefulWidget {
 
-  const AccountPage({Key key}) : super(key: key);
+  const AccountPage({Key? key}) : super(key: key);
 
   @override
   _AccountPageState createState() => _AccountPageState();
@@ -88,17 +87,17 @@ class _AccountPageState extends State<AccountPage> {
 class _AccountMoney extends StatelessWidget {
   
   const _AccountMoney({
-    Key key,
-    @required this.title,
-    @required this.money,
+    Key? key,
+    required this.title,
+    required this.money,
     this.alignment,
     this.moneyTextStyle
   }): super(key: key);
 
   final String title;
   final String money;
-  final MainAxisAlignment alignment;
-  final TextStyle moneyTextStyle;
+  final MainAxisAlignment? alignment;
+  final TextStyle? moneyTextStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +111,7 @@ class _AccountMoney extends StatelessWidget {
             Text(title, style: const TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
             Gaps.vGap8,
             RiseNumberText(
-              NumUtil.getDoubleByValueStr(money),
+              NumUtil.getDoubleByValueStr(money) ?? 0,
               style: moneyTextStyle ?? const TextStyle(
                 color: Colours.text_disabled, 
                 fontSize: Dimens.font_sp14,

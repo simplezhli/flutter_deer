@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/account/account_router.dart';
 import 'package:flutter_deer/account/models/bank_entity.dart';
@@ -17,7 +16,7 @@ import 'package:flutter_deer/widgets/text_field_item.dart';
 /// design/6店铺-账户/index.html#artboard29
 class AddWithdrawalAccountPage extends StatefulWidget {
 
-  const AddWithdrawalAccountPage({Key key}) : super(key: key);
+  const AddWithdrawalAccountPage({Key? key}) : super(key: key);
 
   @override
   _AddWithdrawalAccountPageState createState() => _AddWithdrawalAccountPageState();
@@ -32,7 +31,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
   
   @override
   Widget build(BuildContext context) {
-    final TextStyle style = Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp14);
+    final TextStyle? style = Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: Dimens.font_sp14);
     final List<Widget> children = <Widget>[
       Gaps.vGap5,
       SelectedItem(
@@ -57,7 +56,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
             SelectedItem(
               title: '开  户  地',
               content: _city.isEmpty ? '选择开户城市' : _city,
-              style: _city.isEmpty ? style: null,
+              style: _city.isEmpty ? style : null,
               onTap: () {
                 NavigatorUtils.pushResult(context, AccountRouter.citySelectPage, (Object result) {
                   setState(() {
@@ -75,7 +74,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                 NavigatorUtils.pushResult(context, '${AccountRouter.bankSelectPage}?type=0', (Object result) {
                   setState(() {
                     final BankEntity model = result as BankEntity;
-                    _bank = model.bankName;
+                    _bank = model.bankName.nullSafe;
                   });
                 });
               },
@@ -88,7 +87,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
                 NavigatorUtils.pushResult(context, '${AccountRouter.bankSelectPage}?type=1', (Object result) {
                   setState(() {
                     final BankEntity model = result as BankEntity;
-                    _bank1 = model.bankName;
+                    _bank1 = model.bankName.nullSafe;
                   });
                 });
               },

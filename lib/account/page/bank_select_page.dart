@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -7,6 +6,7 @@ import 'package:flutter_deer/account/models/bank_entity.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
+import 'package:flutter_deer/util/other_utils.dart';
 import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:azlistview/azlistview.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
@@ -14,7 +14,7 @@ import 'package:flutter_deer/widgets/load_image.dart';
 /// design/6店铺-账户/index.html#artboard33
 class BankSelectPage extends StatefulWidget {
   
-  const BankSelectPage({Key key, this.type}) : super(key: key);
+  const BankSelectPage({Key? key, this.type = 0}) : super(key: key);
   
   final int type;
   
@@ -55,14 +55,16 @@ class _BankSelectPageState extends State<BankSelectPage> {
       SuspensionUtil.setShowSuspensionStatus(_bankList);
       _indexBarData = _bankList.map((BankEntity e) {
         if (e.isShowSuspension) {
-          return e.firstLetter;
+          return e.firstLetter.nullSafe;
         } else {
           return '';
         }
       }).where((String element) => element.isNotEmpty).toList();
-      // add header.
-      _bankList.insert(0, BankEntity(firstLetter: '常用'));
-      _indexBarData.insert(0, '常用');
+      if (widget.type == 0) {
+        // add header.
+        _bankList.insert(0, BankEntity(firstLetter: '常用'));
+        _indexBarData.insert(0, '常用');
+      }
       setState(() {
        
       });
@@ -80,7 +82,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
           data: _bankList,
           itemCount: _bankList.length,
           itemBuilder: (_, int index) {
-            if (index == 0) {
+            if (index == 0 && widget.type == 0) {
               return _buildHeader();
             }
             return _buildListItem(index);
@@ -92,7 +94,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
             indexHintWidth: 96,
             indexHintHeight: 96,
             indexHintTextStyle: const TextStyle(fontSize: 26.0, color: Colors.white),
-            textStyle: Theme.of(context).textTheme.subtitle2,
+            textStyle: Theme.of(context).textTheme.subtitle2!,
             downTextStyle: context.isDark ? TextStyles.textSize12 : const TextStyle(fontSize: 12.0, color: Colors.black),
           ),
         ),
@@ -156,11 +158,11 @@ class _BankSelectPageState extends State<BankSelectPage> {
                 opacity: model.isShowSuspension ? 1 : 0,
                 child: SizedBox(
                   width: 28.0,
-                  child: Text(model.firstLetter),
+                  child: Text(model.firstLetter.nullSafe),
                 )
               ),
               Expanded(
-                child: Text(model.bankName),
+                child: Text(model.bankName.nullSafe),
               )
             ],
           ),

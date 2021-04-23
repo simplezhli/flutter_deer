@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
@@ -8,7 +7,7 @@ import 'package:flutter_deer/widgets/my_card.dart';
 /// design/8设置/index.html#artboard2
 class MessagePage extends StatefulWidget {
 
-  const MessagePage({Key key}) : super(key: key);
+  const MessagePage({Key? key}) : super(key: key);
 
   @override
   _MessagePageState createState() => _MessagePageState();

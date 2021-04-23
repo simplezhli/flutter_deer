@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/common/common.dart';
 import 'package:sp_util/sp_util.dart';
@@ -8,7 +7,7 @@ import 'package:provider/provider.dart';
 
 class ThemePage extends StatefulWidget {
 
-  const ThemePage({Key key}) : super(key: key);
+  const ThemePage({Key? key}) : super(key: key);
 
   @override
   _ThemePageState createState() => _ThemePageState();
@@ -20,7 +19,7 @@ class _ThemePageState extends State<ThemePage> {
 
   @override
   Widget build(BuildContext context) {
-    final String theme = SpUtil.getString(Constant.theme);
+    final String? theme = SpUtil.getString(Constant.theme);
     String themeMode;
     switch(theme) {
       case 'Dark':

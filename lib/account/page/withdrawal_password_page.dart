@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/account/widgets/sms_verify_dialog.dart';
 import 'package:flutter_deer/account/widgets/withdrawal_password_setting.dart';
@@ -12,7 +11,7 @@ import 'package:flutter_deer/widgets/click_item.dart';
 /// design/6店铺-账户/index.html#artboard20
 class WithdrawalPasswordPage extends StatefulWidget {
 
-  const WithdrawalPasswordPage({Key key}) : super(key: key);
+  const WithdrawalPasswordPage({Key? key}) : super(key: key);
 
   @override
   _WithdrawalPasswordPageState createState() => _WithdrawalPasswordPageState();

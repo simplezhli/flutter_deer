@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
@@ -9,7 +8,7 @@ import 'package:flutter_deer/widgets/my_button.dart';
 /// design/6店铺-账户/index.html#artboard5
 class WithdrawalResultPage extends StatefulWidget {
 
-  const WithdrawalResultPage({Key key}) : super(key: key);
+  const WithdrawalResultPage({Key? key}) : super(key: key);
 
   @override
   _WithdrawalResultPageState createState() => _WithdrawalResultPageState();

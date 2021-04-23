@@ -1,4 +1,3 @@
-// @dart=2.9
 library bezier_chart;
 
 export 'bezier_chart_config.dart';

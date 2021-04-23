@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
@@ -9,17 +8,17 @@ import 'package:flutter_deer/widgets/my_app_bar.dart';
 class InputTextPage extends StatefulWidget {
 
   const InputTextPage({
-    Key key,
-    @required this.title,
+    Key? key,
+    required this.title,
     this.content,
     this.hintText,
     this.keyboardType = TextInputType.text,
   }) : super(key : key);
 
   final String title;
-  final String content;
-  final String hintText;
-  final TextInputType keyboardType;
+  final String? content;
+  final String? hintText;
+  final TextInputType? keyboardType;
   
   @override
   _InputTextPageState createState() => _InputTextPageState();
@@ -28,13 +27,13 @@ class InputTextPage extends StatefulWidget {
 class _InputTextPageState extends State<InputTextPage> {
 
   final TextEditingController _controller = TextEditingController();
-  List<TextInputFormatter> _inputFormatters;
-  int _maxLength;
+  List<TextInputFormatter>? _inputFormatters;
+  late int _maxLength;
 
   @override
   void initState() {
     super.initState();
-    _controller.text = widget.content;
+    _controller.text = widget.content ?? '';
     _maxLength = widget.keyboardType == TextInputType.phone ? 11 : 30;
     _inputFormatters = widget.keyboardType == TextInputType.phone ? [FilteringTextInputFormatter.allow(RegExp('[0-9]'))] : null;
   }

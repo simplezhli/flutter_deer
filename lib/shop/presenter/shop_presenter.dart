@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/account/models/city_entity.dart';
 import 'package:flutter_deer/mvp/base_page_presenter.dart';
@@ -12,7 +11,7 @@ class ShopPagePresenter extends BasePagePresenter<ShopIMvpView> {
 
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
       if (view.isAccessibilityTest) {
         return;
       }
@@ -33,7 +32,7 @@ class ShopPagePresenter extends BasePagePresenter<ShopIMvpView> {
     asyncRequestNetwork<List<CityEntity>>(Method.get,
       url: HttpApi.subscriptions,
       onSuccess: (data) {
-        data.forEach((element) {
+        data?.forEach((element) {
           Log.d(element.name);
         });
       },

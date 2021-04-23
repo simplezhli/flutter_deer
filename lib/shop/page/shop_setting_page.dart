@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:flutter_2d_amap/flutter_2d_amap.dart';
 import 'package:flutter_deer/res/resources.dart';
@@ -19,7 +17,7 @@ import 'package:flutter_deer/widgets/my_scroll_view.dart';
 /// design/7店铺-店铺配置/index.html#artboard17
 class ShopSettingPage extends StatefulWidget {
 
-  const ShopSettingPage({Key key}) : super(key: key);
+  const ShopSettingPage({Key? key}) : super(key: key);
 
   @override
   _ShopSettingPageState createState() => _ShopSettingPageState();
@@ -175,10 +173,9 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
               NavigatorUtils.pushResult(context, ShopRouter.addressSelectPage, (result) {
                 setState(() {
                   final PoiSearch model = result as PoiSearch;
-                  _address = model.provinceName + ' ' +
-                      model.cityName + ' ' +
-                      model.adName + ' ' +
-                      model.title;
+                  _address = model.provinceName.nullSafe + ' ' +
+                      model.cityName.nullSafe + ' ' +
+                      model.adName.nullSafe + ' ' + model.title.nullSafe;
                 });
               });
             },
@@ -211,7 +208,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
   }
 
   void _goInputTextPage(BuildContext context, String title,
-      String hintText, String content, Function(Object) function, {TextInputType keyboardType}) {
+      String hintText, String content, Function(Object?) function, {TextInputType? keyboardType}) {
     AppNavigator.pushResult(
       context,
       InputTextPage(

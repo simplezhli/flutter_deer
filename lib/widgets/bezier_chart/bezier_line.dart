@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 
 typedef MissingValueBuilder = double Function(DateTime value);
@@ -22,7 +21,7 @@ class BezierLine {
 
   ///This builder is only valid for `bezierChartScale` of date types
   ///It uses the double value returned by the function based on the current `DateTime` received as parameter
-  final MissingValueBuilder onMissingValue;
+  final MissingValueBuilder? onMissingValue;
 
   ///Label used in the bubble info indicator
   final String label;
@@ -32,13 +31,13 @@ class BezierLine {
     this.lineStrokeWidth = 2.0,
     this.label = '',
     this.onMissingValue,
-    Color dataPointFillColor,
-    Color dataPointStrokeColor,
-    this.data,
-  })  : this.dataPointFillColor = dataPointFillColor ?? lineColor,
-        this.dataPointStrokeColor = dataPointStrokeColor ?? lineColor;
+    Color? dataPointFillColor,
+    Color? dataPointStrokeColor,
+    required this.data,
+  })  : dataPointFillColor = dataPointFillColor ?? lineColor,
+        dataPointStrokeColor = dataPointStrokeColor ?? lineColor;
 
-  factory BezierLine.copy({BezierLine bezierLine}) {
+  factory BezierLine.copy({required BezierLine bezierLine}) {
     return BezierLine(
       lineColor: bezierLine.lineColor,
       lineStrokeWidth: bezierLine.lineStrokeWidth,
@@ -64,11 +63,11 @@ class BezierLine {
 
   @override
   int get hashCode => data
-      .map((val) => val.value?.toString() ?? '')
+      .map((val) => val.value.toString())
       .reduce((val1, val2) => '$val1$val2')
       .hashCode;
-}
 
+}
 ///This class represent each value `Y` per `X` axis
 class DataPoint<T> {
   ///The value `Y`
@@ -78,8 +77,8 @@ class DataPoint<T> {
   final T xAxis;
 
   const DataPoint({
-    this.value,
-    this.xAxis,
+    required this.value,
+    required this.xAxis,
   });
 
   @override
