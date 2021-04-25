@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/order/widgets/pay_type_dialog.dart';
@@ -17,9 +16,9 @@ const List<String> orderRightButtonText = ['接单', '开始配送', '完成', '
 class OrderItem extends StatelessWidget {
 
   const OrderItem({
-    Key key,
-    @required this.tabIndex,
-    @required this.index,
+    Key? key,
+    required this.tabIndex,
+    required this.index,
   }) : super(key: key);
 
   final int tabIndex;
@@ -43,7 +42,7 @@ class OrderItem extends StatelessWidget {
   }
 
   Widget _buildContent(BuildContext context) {
-    final TextStyle textTextStyle = Theme.of(context).textTheme.bodyText2.copyWith(fontSize: Dimens.font_sp12);
+    final TextStyle? textTextStyle = Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: Dimens.font_sp12);
     final bool isDark = context.isDark;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -98,7 +97,7 @@ class OrderItem extends StatelessWidget {
                   style: textTextStyle,
                   children: <TextSpan>[
                     TextSpan(text: Utils.formatPrice('20.00', format: MoneyFormat.NORMAL)),
-                    TextSpan(text: '  共3件商品', style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp10)),
+                    TextSpan(text: '  共3件商品', style: Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: Dimens.font_sp10)),
                   ],
                 ),
               ),
@@ -203,16 +202,16 @@ class OrderItem extends StatelessWidget {
 class OrderItemButton extends StatelessWidget {
   
   const OrderItemButton({
-    Key key,
+    Key? key,
     this.bgColor,
     this.textColor,
-    this.text,
+    required this.text,
     this.onTap
   }): super(key: key);
   
-  final Color bgColor;
-  final Color textColor;
-  final GestureTapCallback onTap;
+  final Color? bgColor;
+  final Color? textColor;
+  final GestureTapCallback? onTap;
   final String text;
   
   @override

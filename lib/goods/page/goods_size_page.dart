@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/goods/models/goods_size_model.dart';
 import 'package:flutter_deer/goods/widgets/goods_size_dialog.dart';
@@ -19,7 +18,7 @@ import '../goods_router.dart';
 /// design/4商品/index.html#artboard9
 class GoodsSizePage extends StatefulWidget {
 
-  const GoodsSizePage({Key key}) : super(key: key);
+  const GoodsSizePage({Key? key}) : super(key: key);
 
   @override
   _GoodsSizePageState createState() => _GoodsSizePageState();
@@ -48,14 +47,14 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
     _goodsSizeList.add(GoodsSizeModel('goods/goods_size_1', '黑色3', 10, '50.0', 2, '2', '2.5', ''));
 
     // 获取Build完成状态监听
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
       _showHint();
     });
   }
 
   /// design/4商品/index.html#artboard18
   void _showHint() {
-    final RenderBox hint = _hintKey.currentContext.findRenderObject() as RenderBox;
+    final RenderBox hint = _hintKey.currentContext!.findRenderObject()! as RenderBox;
     showPopupWindow<void>(
       context: context,
       isShowBg: true,
@@ -125,7 +124,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                   key: const Key('name_edit'),
                   text: TextSpan(
                     text: '先对名称进行',
-                    style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp14),
+                    style: Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: Dimens.font_sp14),
                     children: <TextSpan>[
                       TextSpan(text: '编辑', style: TextStyle(color: Theme.of(context).primaryColor)),
                     ],
@@ -226,7 +225,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
       onTap: () {
         /// 如果侧滑菜单打开，关闭侧滑菜单。否则跳转
         if (_slidableController.activeState != null) {
-          _slidableController.activeState.close();
+          _slidableController.activeState!.close();
         } else {
           NavigatorUtils.push(context, GoodsRouter.goodsSizeEditPage);
         }

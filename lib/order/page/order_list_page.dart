@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/order/provider/order_page_provider.dart';
 import 'package:flutter_deer/order/widgets/order_item.dart';
@@ -11,8 +10,8 @@ import 'package:provider/provider.dart';
 class OrderListPage extends StatefulWidget {
 
   const OrderListPage({
-    Key key,
-    @required this.index,
+    Key? key,
+    required this.index,
   }): super(key: key);
 
   final int index;
@@ -40,7 +39,7 @@ class _OrderListPageState extends State<OrderListPage> with AutomaticKeepAliveCl
   }
 
   @override
-  Map<ChangeNotifier, List<VoidCallback>> changeNotifier() {
+  Map<ChangeNotifier, List<VoidCallback>?>? changeNotifier() {
     return {_controller: null};
   }
   
@@ -69,7 +68,7 @@ class _OrderListPageState extends State<OrderListPage> with AutomaticKeepAliveCl
                   ///SliverAppBar的expandedHeight高度,避免重叠
                   handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
                 ),
-                child,
+                child!,
               ],
             );
           },

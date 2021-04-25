@@ -9,6 +9,8 @@ import 'package:flutter_deer/shop/models/user_entity.dart';
 import 'package:flutter_deer/generated/json/user_entity_helper.dart';
 import 'package:flutter_deer/account/models/city_entity.dart';
 import 'package:flutter_deer/generated/json/city_entity_helper.dart';
+import 'package:flutter_deer/goods/models/goods_sort_entity.dart';
+import 'package:flutter_deer/generated/json/goods_sort_entity_helper.dart';
 import 'package:flutter_deer/order/models/search_entity.dart';
 import 'package:flutter_deer/generated/json/search_entity_helper.dart';
 
@@ -29,6 +31,8 @@ class JsonConvert<T> {
 				return userEntityFromJson(data as UserEntity, json) as T;
 			case CityEntity:
 				return cityEntityFromJson(data as CityEntity, json) as T;
+			case GoodsSortEntity:
+				return goodsSortEntityFromJson(data as GoodsSortEntity, json) as T;
 			case SearchEntity:
 				return searchEntityFromJson(data as SearchEntity, json) as T;
 			case SearchItems:
@@ -48,6 +52,8 @@ class JsonConvert<T> {
 				return userEntityToJson(data as UserEntity);
 			case CityEntity:
 				return cityEntityToJson(data as CityEntity);
+			case GoodsSortEntity:
+				return goodsSortEntityToJson(data as GoodsSortEntity);
 			case SearchEntity:
 				return searchEntityToJson(data as SearchEntity);
 			case SearchItems:
@@ -68,6 +74,8 @@ class JsonConvert<T> {
 			return UserEntity().fromJson(json);
 		}	else if(type == (CityEntity).toString()){
 			return CityEntity().fromJson(json);
+		}	else if(type == (GoodsSortEntity).toString()){
+			return GoodsSortEntity().fromJson(json);
 		}	else if(type == (SearchEntity).toString()){
 			return SearchEntity().fromJson(json);
 		}	else if(type == (SearchItems).toString()){
@@ -88,6 +96,8 @@ class JsonConvert<T> {
 			return data.map<UserEntity>((e) => UserEntity().fromJson(e)).toList() as M;
 		}	else if(<CityEntity>[] is M){
 			return data.map<CityEntity>((e) => CityEntity().fromJson(e)).toList() as M;
+		}	else if(<GoodsSortEntity>[] is M){
+			return data.map<GoodsSortEntity>((e) => GoodsSortEntity().fromJson(e)).toList() as M;
 		}	else if(<SearchEntity>[] is M){
 			return data.map<SearchEntity>((e) => SearchEntity().fromJson(e)).toList() as M;
 		}	else if(<SearchItems>[] is M){

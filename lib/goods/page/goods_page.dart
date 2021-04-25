@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/goods/goods_router.dart';
 import 'package:flutter_deer/goods/page/goods_list_page.dart';
@@ -17,7 +16,7 @@ import 'package:provider/provider.dart';
 /// design/4商品/index.html
 class GoodsPage extends StatefulWidget {
 
-  const GoodsPage({Key key}) : super(key: key);
+  const GoodsPage({Key? key}) : super(key: key);
 
   @override
   _GoodsPageState createState() => _GoodsPageState();
@@ -26,7 +25,7 @@ class GoodsPage extends StatefulWidget {
 class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
 
   final List<String> _sortList = ['全部商品', '个人护理', '饮料', '沐浴洗护', '厨房用具', '休闲食品', '生鲜水果', '酒水', '家庭清洁'];
-  TabController _tabController;
+  TabController? _tabController;
   final PageController _pageController = PageController(initialPage: 0);
 
   final GlobalKey _addKey = GlobalKey();
@@ -43,14 +42,14 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
 
   @override
   void dispose() {
-    _tabController.dispose();
+    _tabController?.dispose();
     super.dispose();
   }
   
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    final Color _iconColor = ThemeUtils.getIconColor(context);
+    final Color? _iconColor = ThemeUtils.getIconColor(context);
     return ChangeNotifierProvider<GoodsPageProvider>(
       create: (_) => provider,
       child: Scaffold(
@@ -158,15 +157,15 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
   }
 
   void _onPageChange(int index) {
-    _tabController.animateTo(index);
+    _tabController?.animateTo(index);
     provider.setIndex(index);
   }
 
   /// design/4商品/index.html#artboard3
   void _showSortMenu() {
     // 获取点击控件的坐标
-    final RenderBox button = _buttonKey.currentContext.findRenderObject() as RenderBox;
-    final RenderBox body = _bodyKey.currentContext.findRenderObject() as RenderBox;
+    final RenderBox button = _buttonKey.currentContext!.findRenderObject()! as RenderBox;
+    final RenderBox body = _bodyKey.currentContext!.findRenderObject()! as RenderBox;
 
     showPopupWindow<void>(
       context: context,
@@ -187,7 +186,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
 
   /// design/4商品/index.html#artboard4
   void _showAddMenu() {
-    final RenderBox button = _addKey.currentContext.findRenderObject() as RenderBox;
+    final RenderBox button = _addKey.currentContext!.findRenderObject()! as RenderBox;
 
     showPopupWindow<void>(
       context: context,

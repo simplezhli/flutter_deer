@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter_deer/mvp/base_page_presenter.dart';
 import 'package:flutter_deer/net/net.dart';
 import 'package:flutter_deer/order/models/search_entity.dart';
@@ -19,20 +18,20 @@ class OrderSearchPresenter extends BasePagePresenter<OrderSearchIMvpView> {
       queryParameters: params,
       isShow: isShowDialog,
       onSuccess: (data) {
-        if (data != null) {
+        if (data != null && data.items != null) {
           /// 一页30条数据，等于30条认为有下一页
           /// 具体的处理逻辑根据具体的接口情况处理，这部分可以抽离出来
-          view.provider.setHasMore(data.items.length == 30);
+          view.provider.setHasMore(data.items!.length == 30);
           if (page == 1) {
             /// 刷新
             view.provider.list.clear();
-            if (data.items.isEmpty) {
+            if (data.items!.isEmpty) {
               view.provider.setStateType(StateType.order);
             } else {
-              view.provider.addAll(data.items);
+              view.provider.addAll(data.items!);
             }
           } else {
-            view.provider.addAll(data.items);
+            view.provider.addAll(data.items!);
           }
         } else {
           /// 加载失败

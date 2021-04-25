@@ -1,4 +1,3 @@
-// @dart=2.9
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
@@ -7,11 +6,11 @@ import 'package:flutter_deer/util/theme_utils.dart';
 class GoodsSortMenu extends StatefulWidget {
 
   const GoodsSortMenu({
-    Key key,
-    @required this.data,
-    @required this.sortIndex,
-    @required this.height,
-    @required this.onSelected,
+    Key? key,
+    required this.data,
+    required this.sortIndex,
+    required this.height,
+    required this.onSelected,
   }): super(key: key);
 
   final List<String> data;
@@ -25,7 +24,7 @@ class GoodsSortMenu extends StatefulWidget {
 
 class _GoodsSortMenuState extends State<GoodsSortMenu> with SingleTickerProviderStateMixin {
 
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {

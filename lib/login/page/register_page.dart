@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,7 +14,7 @@ import 'package:flutter_deer/login/widgets/my_text_field.dart';
 /// design/1注册登录/index.html#artboard11
 class RegisterPage extends StatefulWidget {
 
-  const RegisterPage({Key key}) : super(key: key);
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
   _RegisterPageState createState() => _RegisterPageState();
@@ -32,9 +31,9 @@ class _RegisterPageState extends State<RegisterPage> with ChangeNotifierMixin<Re
   bool _clickable = false;
   
   @override
-  Map<ChangeNotifier, List<VoidCallback>> changeNotifier() {
+  Map<ChangeNotifier, List<VoidCallback>?>? changeNotifier() {
     final List<VoidCallback> callbacks = <VoidCallback>[_verify];
-    return <ChangeNotifier, List<VoidCallback>>{
+    return <ChangeNotifier, List<VoidCallback>?>{
       _nameController: callbacks,
       _vCodeController: callbacks,
       _passwordController: callbacks,
@@ -73,7 +72,7 @@ class _RegisterPageState extends State<RegisterPage> with ChangeNotifierMixin<Re
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: MyAppBar(
-          title: DeerLocalizations.of(context).register,
+          title: DeerLocalizations.of(context)!.register,
         ),
         body: MyScrollView(
           keyboardConfig: Utils.getKeyboardActionsConfig(context, <FocusNode>[_nodeText1, _nodeText2, _nodeText3]),
@@ -87,7 +86,7 @@ class _RegisterPageState extends State<RegisterPage> with ChangeNotifierMixin<Re
   List<Widget> _buildBody() {
     return <Widget>[
       Text(
-        DeerLocalizations.of(context).openYourAccount,
+        DeerLocalizations.of(context)!.openYourAccount,
         style: TextStyles.textBold26,
       ),
       Gaps.vGap16,
@@ -97,7 +96,7 @@ class _RegisterPageState extends State<RegisterPage> with ChangeNotifierMixin<Re
         controller: _nameController,
         maxLength: 11,
         keyboardType: TextInputType.phone,
-        hintText: DeerLocalizations.of(context).inputPhoneHint,
+        hintText: DeerLocalizations.of(context)!.inputPhoneHint,
       ),
       Gaps.vGap8,
       MyTextField(
@@ -107,16 +106,16 @@ class _RegisterPageState extends State<RegisterPage> with ChangeNotifierMixin<Re
         keyboardType: TextInputType.number,
         getVCode: () async {
           if (_nameController.text.length == 11) {
-            Toast.show(DeerLocalizations.of(context).verificationButton);
+            Toast.show(DeerLocalizations.of(context)!.verificationButton);
             /// 一般可以在这里发送真正的请求，请求成功返回true
             return true;
           } else {
-            Toast.show(DeerLocalizations.of(context).inputPhoneInvalid);
+            Toast.show(DeerLocalizations.of(context)!.inputPhoneInvalid);
             return false;
           }
         },
         maxLength: 6,
-        hintText: DeerLocalizations.of(context).inputVerificationCodeHint,
+        hintText: DeerLocalizations.of(context)!.inputVerificationCodeHint,
       ),
       Gaps.vGap8,
       MyTextField(
@@ -127,13 +126,13 @@ class _RegisterPageState extends State<RegisterPage> with ChangeNotifierMixin<Re
         controller: _passwordController,
         keyboardType: TextInputType.visiblePassword,
         maxLength: 16,
-        hintText: DeerLocalizations.of(context).inputPasswordHint,
+        hintText: DeerLocalizations.of(context)!.inputPasswordHint,
       ),
       Gaps.vGap24,
       MyButton(
         key: const Key('register'),
         onPressed: _clickable ? _register : null,
-        text: DeerLocalizations.of(context).register,
+        text: DeerLocalizations.of(context)!.register,
       )
     ];
   }

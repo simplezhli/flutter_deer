@@ -1,4 +1,3 @@
-// @dart=2.9
 
 import 'dart:io';
 
@@ -9,7 +8,7 @@ import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class QrCodeScannerPage extends StatefulWidget {
 
-  const QrCodeScannerPage({Key key}) : super(key: key);
+  const QrCodeScannerPage({Key? key}) : super(key: key);
 
   @override
   _QrCodeScannerPageState createState() => _QrCodeScannerPageState();
@@ -17,7 +16,7 @@ class QrCodeScannerPage extends StatefulWidget {
 
 class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
-  QRViewController controller;
+  QRViewController? controller;
 
   /// In order to get hot reload to work we need to pause the camera if the platform
   /// is android, or resume the camera if the platform is iOS.
@@ -25,9 +24,9 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
   void reassemble() {
     super.reassemble();
     if (Platform.isAndroid) {
-      controller.pauseCamera();
+      controller?.pauseCamera();
     } else if (Platform.isIOS) {
-      controller.resumeCamera();
+      controller?.resumeCamera();
     }
   }
 
@@ -61,9 +60,7 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
               child: IconButton(
                 icon: const Icon(Icons.highlight_outlined, size: 32, color: Colors.white,),
                 onPressed: () {
-                  if (controller != null) {
-                    controller.toggleFlash();
-                  }
+                  controller?.toggleFlash();
                 },
               ),
             ),
@@ -86,7 +83,7 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
     this.controller = controller;
     controller.scannedDataStream.listen((scanData) {
       /// 避免扫描结果多次回调
-      controller?.dispose();
+      controller.dispose();
       NavigatorUtils.goBackWithParams(context, scanData.code);
     });
   }

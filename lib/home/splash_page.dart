@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -19,7 +18,7 @@ import 'package:sp_util/sp_util.dart';
 
 class SplashPage extends StatefulWidget {
 
-  const SplashPage({Key key}) : super(key: key);
+  const SplashPage({Key? key}) : super(key: key);
 
   @override
   _SplashPageState createState() => _SplashPageState();
@@ -29,17 +28,17 @@ class _SplashPageState extends State<SplashPage> {
 
   int _status = 0;
   final List<String> _guideList = ['app_start_1', 'app_start_2', 'app_start_3'];
-  StreamSubscription _subscription;
+  StreamSubscription? _subscription;
 
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
+    WidgetsBinding.instance!.addPostFrameCallback((_) async {
       /// 两种初始化方案，另一种见 main.dart
       /// 两种方法各有优劣
       await SpUtil.getInstance();
       await Device.initDeviceInfo();
-      if (SpUtil.getBool(Constant.keyGuide, defValue: true)) {
+      if (SpUtil.getBool(Constant.keyGuide, defValue: true)!) {
         /// 预先缓存图片，避免直接使用时因为首次加载造成闪动
         _guideList.forEach((image) {
           precacheImage(ImageUtils.getAssetImage(image, format: ImageFormat.webp), context);
@@ -73,7 +72,7 @@ class _SplashPageState extends State<SplashPage> {
 
   void _initSplash() {
     _subscription = Stream.value(1).delay(const Duration(milliseconds: 1500)).listen((_) {
-      if (SpUtil.getBool(Constant.keyGuide, defValue: true) || Constant.isDriverTest) {
+      if (SpUtil.getBool(Constant.keyGuide, defValue: true)! || Constant.isDriverTest) {
         SpUtil.putBool(Constant.keyGuide, false);
         _initGuide();
       } else {

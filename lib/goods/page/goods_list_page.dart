@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/goods/models/goods_item_entity.dart';
@@ -17,8 +15,8 @@ import '../widgets/goods_item.dart';
 class GoodsListPage extends StatefulWidget {
   
   const GoodsListPage({
-    Key key,
-    @required this.index
+    Key? key,
+    required this.index
   }): super(key: key);
   
   final int index;
@@ -30,8 +28,8 @@ class GoodsListPage extends StatefulWidget {
 class _GoodsListPageState extends State<GoodsListPage> with AutomaticKeepAliveClientMixin<GoodsListPage>, SingleTickerProviderStateMixin {
   
   int _selectIndex = -1;
-  Animation<double> _animation;
-  AnimationController _controller;
+  late Animation<double> _animation;
+  late AnimationController _controller;
   List<GoodsItemEntity> _list = [];
   AnimationStatus _animationStatus = AnimationStatus.dismissed;
   
@@ -96,7 +94,7 @@ class _GoodsListPageState extends State<GoodsListPage> with AutomaticKeepAliveCl
   }
 
   int _page = 1;
-  int _maxPage;
+  late int _maxPage;
   StateType _stateType = StateType.loading;
   
   @override

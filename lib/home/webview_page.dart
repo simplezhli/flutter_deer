@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -10,9 +9,9 @@ import 'package:webview_flutter/webview_flutter.dart';
 class WebViewPage extends StatefulWidget {
 
   const WebViewPage({
-    Key key,
-    @required this.title,
-    @required this.url,
+    Key? key,
+    required this.title,
+    required this.url,
   }) : super(key: key);
 
   final String title;
@@ -44,10 +43,10 @@ class _WebViewPageState extends State<WebViewPage> {
         return WillPopScope(
           onWillPop: () async {
             if (snapshot.hasData) {
-              final bool canGoBack = await snapshot.data.canGoBack();
+              final bool canGoBack = await snapshot.data!.canGoBack();
               if (canGoBack) {
                 // 网页可以返回时，优先返回上一页
-                await snapshot.data.goBack();
+                await snapshot.data!.goBack();
                 return Future.value(false);
               }
             }

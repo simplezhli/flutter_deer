@@ -1,4 +1,3 @@
-// @dart=2.9
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/order/page/order_list_page.dart';
@@ -19,7 +18,7 @@ import '../order_router.dart';
 /// design/3订单/index.html
 class OrderPage extends StatefulWidget {
 
-  const OrderPage({Key key}) : super(key: key);
+  const OrderPage({Key? key}) : super(key: key);
 
   @override
   _OrderPageState createState() => _OrderPageState();
@@ -30,7 +29,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
   @override
   bool get wantKeepAlive => true;
   
-  TabController _tabController;
+  TabController? _tabController;
   OrderPageProvider provider = OrderPageProvider();
 
   int _lastReportedPage = 0;
@@ -39,7 +38,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
   void initState() {
     super.initState();
     _tabController = TabController(vsync: this, length: 5);
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
       /// 预先缓存剩余切换图片
       _preCacheImage();
     });
@@ -55,7 +54,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
 
   @override
   void dispose() {
-    _tabController.dispose();
+    _tabController?.dispose();
     super.dispose();
   }
 
@@ -91,7 +90,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
                   /// PageView的onPageChanged是监听ScrollUpdateNotification，会造成滑动中卡顿。这里修改为监听滚动结束再更新、
                   if (notification.depth == 0 && notification is ScrollEndNotification) {
                     final PageMetrics metrics = notification.metrics as PageMetrics;
-                    final int currentPage = metrics.page.round();
+                    final int currentPage = (metrics.page ?? 0).round();
                     if (currentPage != _lastReportedPage) {
                       _lastReportedPage = currentPage;
                       _onPageChange(currentPage);
@@ -206,7 +205,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
   Future<void> _onPageChange(int index) async {
     provider.setIndex(index);
     /// 这里没有指示器，所以缩短过渡动画时间，减少不必要的刷新
-    _tabController.animateTo(index, duration: const Duration(milliseconds: 0));
+    _tabController?.animateTo(index, duration: const Duration(milliseconds: 0));
   }
 }
 

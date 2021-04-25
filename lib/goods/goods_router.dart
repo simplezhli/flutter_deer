@@ -1,4 +1,4 @@
-// @dart=2.9
+
 import 'package:common_utils/common_utils.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter_deer/goods/page/qr_code_scanner_page.dart';
@@ -9,7 +9,6 @@ import 'page/goods_page.dart';
 import 'page/goods_search_page.dart';
 import 'page/goods_size_edit_page.dart';
 import 'page/goods_size_page.dart';
-
 
 class GoodsRouter implements IRouterProvider{
 

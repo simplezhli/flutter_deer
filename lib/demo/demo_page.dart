@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_deer/demo/focus/focus_demo_page.dart';
 import 'package:flutter_deer/demo/lottie/lottie_demo.dart';
 import 'package:flutter_deer/demo/navigator/books_main.dart';
@@ -20,6 +21,16 @@ class DemoPage extends StatefulWidget {
 }
 
 class _DemoPageState extends State<DemoPage> {
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      /// 显示状态栏和导航栏(使用QuickActions进入demo页)
+      SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top, SystemUiOverlay.bottom]);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

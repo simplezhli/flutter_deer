@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -29,9 +28,10 @@ Future<void> main() async {
 //  debugProfilePaintsEnabled = true;
 //  debugRepaintRainbowEnabled = true;
 
-  // 确保初始化完成
+  /// 确保初始化完成
   WidgetsFlutterBinding.ensureInitialized();
-  // 去除URL中的“#”(hash)，仅针对Web。默认为setHashUrlStrategy
+  /// 去除URL中的“#”(hash)，仅针对Web。默认为setHashUrlStrategy
+  /// 注意本地部署和远程部署时`web/index.html`中的base标签，https://github.com/flutter/flutter/issues/69760
   setPathUrlStrategy();
   /// sp初始化
   await SpUtil.getInstance();
@@ -45,15 +45,15 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
 
-  MyApp({Key key, this.home, this.theme}): super(key: key) {
+  MyApp({Key? key, this.home, this.theme}): super(key: key) {
     Log.init();
     initDio();
     Routes.initRoutes();
     initQuickActions();
   }
 
-  final Widget home;
-  final ThemeData theme;
+  final Widget? home;
+  final ThemeData? theme;
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey();
   
   void initDio() {
@@ -83,7 +83,7 @@ class MyApp extends StatelessWidget {
         // 总体来说使用不方便，这种动态的方式在安卓中局限性高。这里仅做练习使用。
         quickActions.initialize((String shortcutType) async {
           if (shortcutType == 'demo') {
-            navigatorKey.currentState.push<dynamic>(MaterialPageRoute<dynamic>(
+            navigatorKey.currentState?.push<dynamic>(MaterialPageRoute<dynamic>(
               builder: (BuildContext context) => const DemoPage(),
             ));
           }
@@ -141,7 +141,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: DeerLocalizations.supportedLocales,
       locale: localeProvider.locale,
       navigatorKey: navigatorKey,
-      builder: (BuildContext context, Widget child) {
+      builder: (BuildContext context, Widget? child) {
         /// 仅针对安卓
         if (Device.isAndroid) {
           /// 切换深色模式会触发此方法，这里设置导航栏颜色
@@ -150,7 +150,7 @@ class MyApp extends StatelessWidget {
         /// 保证文字大小不受手机系统设置影响 https://www.kikt.top/posts/flutter/layout/dynamic-text/
         return MediaQuery(
           data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-          child: child,
+          child: child!,
         );
       },
       /// 因为使用了fluro，这里设置主要针对Web

@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/goods/models/goods_item_entity.dart';
@@ -15,17 +14,17 @@ import 'menu_reveal.dart';
 class GoodsItem extends StatelessWidget {
   
   const GoodsItem({
-    Key key,
-    @required this.item,
-    @required this.index,
-    @required this.selectIndex,
-    @required this.onTapMenu,
-    @required this.onTapEdit,
-    @required this.onTapOperation,
-    @required this.onTapDelete,
-    @required this.onTapMenuClose,
-    @required this.animation,
-    @required this.heroTag,
+    Key? key,
+    required this.item,
+    required this.index,
+    required this.selectIndex,
+    required this.onTapMenu,
+    required this.onTapEdit,
+    required this.onTapOperation,
+    required this.onTapDelete,
+    required this.onTapMenuClose,
+    required this.animation,
+    required this.heroTag,
   }): super(key: key);
 
   final GoodsItemEntity item;
@@ -144,10 +143,10 @@ class GoodsItem extends StatelessWidget {
       child: AnimatedBuilder(
         animation: animation,
         child: _buildGoodsMenuContent(context),
-        builder:(_, Widget child) {
+        builder: (_, Widget? child) {
           return MenuReveal(
             revealPercent: animation.value,
-            child: child
+            child: child!
           );
         }
       ),
@@ -213,12 +212,12 @@ class GoodsItem extends StatelessWidget {
 class _GoodsItemTag extends StatelessWidget {
   
   const _GoodsItemTag({
-    Key key,
-    this.color,
-    this.text,
+    Key? key,
+    required this.color,
+    required this.text,
   }): super(key: key);
 
-  final Color color;
+  final Color? color;
   final String text;
   
   @override

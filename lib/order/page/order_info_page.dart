@@ -1,4 +1,3 @@
-// @dart=2.9
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
@@ -16,7 +15,7 @@ import '../order_router.dart';
 /// design/3订单/index.html#artboard10
 class OrderInfoPage extends StatefulWidget {
 
-  const OrderInfoPage({Key key}) : super(key: key);
+  const OrderInfoPage({Key? key}) : super(key: key);
 
   @override
   _OrderInfoPageState createState() => _OrderInfoPageState();
@@ -178,7 +177,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
         padding: const EdgeInsets.symmetric(vertical: 4.0),
         child: Row(
           children: <Widget>[
-            Text(title, style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp14)),
+            Text(title, style: Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: Dimens.font_sp14)),
             Gaps.hGap8,
             Text(content)
           ],
@@ -257,7 +256,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
     );
   }
   
-  Widget _buildGoodsInfoItem(String title, String content, {Color contentTextColor}) {
+  Widget _buildGoodsInfoItem(String title, String content, {Color? contentTextColor}) {
     return MergeSemantics(
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -266,7 +265,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
           children: <Widget>[
             Text(title),
             Text(content, style: TextStyle(
-              color: contentTextColor ?? Theme.of(context).textTheme.bodyText2.color,
+              color: contentTextColor ?? Theme.of(context).textTheme.bodyText2?.color,
               fontWeight: FontWeight.bold
             ))
           ],

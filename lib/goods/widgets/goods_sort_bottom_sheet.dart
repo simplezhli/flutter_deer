@@ -1,10 +1,10 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/goods/provider/goods_sort_provider.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/screen_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
+import 'package:flutter_deer/util/other_utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:provider/provider.dart';
 
@@ -13,9 +13,9 @@ import 'package:provider/provider.dart';
 class GoodsSortBottomSheet extends StatefulWidget {
 
   const GoodsSortBottomSheet({
-    Key key,
-    @required this.provider,
-    @required this.onSelected,
+    Key? key,
+    required this.provider,
+    required this.onSelected,
   }): super(key: key);
 
   final Function(String, String) onSelected;
@@ -28,22 +28,22 @@ class GoodsSortBottomSheet extends StatefulWidget {
 
 class GoodsSortBottomSheetState extends State<GoodsSortBottomSheet> with SingleTickerProviderStateMixin {
   
-  TabController _tabController;
+  TabController? _tabController;
   final ScrollController _controller = ScrollController();
   
   @override
   void initState() {
     super.initState();
     _tabController = TabController(vsync: this, length: 3);
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
       widget.provider.initData();
-      _tabController.animateTo(widget.provider.index, duration: const Duration(microseconds: 0));
+      _tabController?.animateTo(widget.provider.index, duration: const Duration(microseconds: 0));
     });
   }
 
   @override
   void dispose() {
-    _tabController.dispose();
+    _tabController?.dispose();
     _controller.dispose();
     super.dispose();
   }
@@ -61,7 +61,7 @@ class GoodsSortBottomSheetState extends State<GoodsSortBottomSheet> with SingleT
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  child,
+                  child!,
                   Gaps.line,
                   Container(
                     // 隐藏点击效果
@@ -70,9 +70,9 @@ class GoodsSortBottomSheetState extends State<GoodsSortBottomSheet> with SingleT
                       controller: _tabController,
                       isScrollable: true,
                       onTap: (index) {
-                        if (provider.myTabs[index].text.isEmpty) {
+                        if (provider.myTabs[index].text.nullSafe.isEmpty) {
                           // 拦截点击事件
-                          _tabController.animateTo(provider.index);
+                          _tabController?.animateTo(provider.index);
                           return;
                         }
                         provider.setList(index);
@@ -136,7 +136,7 @@ class GoodsSortBottomSheetState extends State<GoodsSortBottomSheet> with SingleT
   }
 
   Widget _buildItem(GoodsSortProvider provider, int index) {
-    final bool flag = provider.mList[index]['name'] == provider.myTabs[provider.index].text;
+    final bool flag = provider.mList[index].name == provider.myTabs[provider.index].text;
     return InkWell(
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -144,7 +144,7 @@ class GoodsSortBottomSheetState extends State<GoodsSortBottomSheet> with SingleT
         child: Row(
           children: <Widget>[
             Text(
-              provider.mList[index]['name'] as String,
+              provider.mList[index].name,
               style: flag ? TextStyle(
                 fontSize: Dimens.font_sp14,
                 color: Theme.of(context).primaryColor,
@@ -158,18 +158,18 @@ class GoodsSortBottomSheetState extends State<GoodsSortBottomSheet> with SingleT
         ),
       ),
       onTap: () {
-        provider.myTabs[provider.index] = Tab(text: provider.mList[index]['name'] as String);
+        provider.myTabs[provider.index] = Tab(text: provider.mList[index].name);
         provider.positions[provider.index] = index;
 
         provider.indexIncrement();
         provider.setListAndChangeTab();
         if (provider.index > 2) {
           provider.setIndex(2);
-          widget.onSelected(provider.mList[index]['id'] as String, provider.mList[index]['name'] as String);
+          widget.onSelected(provider.mList[index].id, provider.mList[index].name);
           NavigatorUtils.goBack(context);
         }
         _controller.animateTo(0.0, duration: const Duration(milliseconds: 100), curve: Curves.ease);
-        _tabController.animateTo(provider.index);
+        _tabController?.animateTo(provider.index);
       },
     );
   }

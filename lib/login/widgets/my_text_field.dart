@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
@@ -15,8 +14,8 @@ import 'package:flutter_deer/widgets/my_button.dart';
 class MyTextField extends StatefulWidget {
   
   const MyTextField({
-    Key key,
-    @required this.controller,
+    Key? key,
+    required this.controller,
     this.maxLength = 16,
     this.autoFocus = false,
     this.keyboardType = TextInputType.text,
@@ -32,11 +31,11 @@ class MyTextField extends StatefulWidget {
   final bool autoFocus;
   final TextInputType keyboardType;
   final String hintText;
-  final FocusNode focusNode;
+  final FocusNode? focusNode;
   final bool isInputPwd;
-  final Future<bool> Function() getVCode;
+  final Future<bool> Function()? getVCode;
   /// 用于集成测试寻找widget
-  final String keyName;
+  final String? keyName;
   
   @override
   _MyTextFieldState createState() => _MyTextFieldState();
@@ -49,8 +48,8 @@ class _MyTextFieldState extends State<MyTextField> {
   /// 倒计时秒数
   final int _second = 30;
   /// 当前秒数
-  int _currentSecond;
-  StreamSubscription _subscription;
+  late int _currentSecond;
+  StreamSubscription? _subscription;
 
   @override
   void initState() {
@@ -74,12 +73,12 @@ class _MyTextFieldState extends State<MyTextField> {
   @override
   void dispose() {
     _subscription?.cancel();
-    widget.controller?.removeListener(isEmpty);
+    widget.controller.removeListener(isEmpty);
     super.dispose();
   }
 
   Future _getVCode() async {
-    final bool isSuccess = await widget.getVCode();
+    final bool isSuccess = await widget.getVCode!();
     if (isSuccess != null && isSuccess) {
       setState(() {
         _currentSecond = _second;
@@ -122,7 +121,7 @@ class _MyTextFieldState extends State<MyTextField> {
         ),
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(
-            color: Theme.of(context).dividerTheme.color,
+            color: Theme.of(context).dividerTheme.color!,
             width: 0.8,
           ),
         ),
@@ -137,7 +136,7 @@ class _MyTextFieldState extends State<MyTextField> {
       );
     }
 
-    Widget clearButton;
+    late Widget clearButton;
 
     if (_isShowDelete) {
       clearButton = Semantics(
@@ -154,7 +153,7 @@ class _MyTextFieldState extends State<MyTextField> {
       );
     }
 
-    Widget pwdVisible;
+    late Widget pwdVisible;
     if (widget.isInputPwd) {
       pwdVisible = Semantics(
         label: '密码可见开关',
@@ -175,13 +174,13 @@ class _MyTextFieldState extends State<MyTextField> {
       );
     }
 
-    Widget getVCodeButton;
+    late Widget getVCodeButton;
     if (widget.getVCode != null) {
       getVCodeButton = MyButton(
         key: const Key('getVerificationCode'),
         onPressed: _clickable ? _getVCode : null,
         fontSize: Dimens.font_sp12,
-        text: _clickable ? DeerLocalizations.of(context).getVerificationCode : '（$_currentSecond s）',
+        text: _clickable ? DeerLocalizations.of(context)!.getVerificationCode : '（$_currentSecond s）',
         textColor: themeData.primaryColor,
         disabledTextColor: isDark ? Colours.dark_text : Colors.white,
         backgroundColor: Colors.transparent,
