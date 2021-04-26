@@ -97,7 +97,7 @@ class _SMSLoginPageState extends State<SMSLoginPage> with ChangeNotifierMixin<SM
         keyboardType: TextInputType.number,
         hintText: DeerLocalizations.of(context)!.inputVerificationCodeHint,
         getVCode: () {
-          Toast.show('获取验证码');
+          Toast.show(DeerLocalizations.of(context)!.getVerificationCode);
           return Future<bool>.value(true);
         },
       ),

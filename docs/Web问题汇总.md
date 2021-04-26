@@ -1,4 +1,10 @@
-# Web 问题汇总（flutter 2.0.3）
+# Web 问题汇总（flutter 2.0.5）
+
+## 使用`Locale`报空安全错误
+
+master分支已修复，详情见[[Web]: App throws null safety errors on Locale using latest stable, but works on Master](https://github.com/flutter/flutter/issues/79351)
+
+由于本项目已迁移至空安全，因此运行Web端时，需要使用master分支或将`other_utils`文件下的`window.locale.languageCode;` 修改为 `window.locale?.languageCode;`。
 
 ## CanvasKit渲染（默认PC浏览器）
 
@@ -57,9 +63,6 @@ flutter run -d chrome --release --web-renderer canvaskit
 > 总结：HTML渲染相较于CanvasKit渲染，UI还原度差一些，但综合性能相对较好。
 
 
-## 历史问题
-
-- 2.0.0已知问题(~~#79351~~)。
 
 
 

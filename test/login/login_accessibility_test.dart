@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/login/page/login_page.dart';
 import 'package:flutter_deer/login/page/register_page.dart';

@@ -1,7 +1,7 @@
 name: flutter_deer
 description: Flutter Deer
 
-version: 1.1.7+17
+version: 1.2.0+18
 author: 唯鹿 <a05111993@163.com>
 homepage: https://weilu.blog.csdn.net/
 
@@ -75,10 +75,10 @@ dependencies:
   # 动画效果 https://github.com/xvrh/lottie-flutter
   lottie: ^1.0.1
 
-# flutter_driver与common_utils、lottie等个别库依赖冲突，用依赖版本覆盖处理
+# flutter_driver与common_utils、lottie等个别库依赖冲突，用依赖版本覆盖处理。
 dependency_overrides:
-  archive: ^3.0.0
-  crypto: ^3.0.0
+  archive: ^3.1.2
+  crypto: ^3.0.1
   convert: ^3.0.0
 
 dev_dependencies:

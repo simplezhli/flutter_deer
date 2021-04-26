@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/image_utils.dart';
@@ -50,7 +51,11 @@ class SelectedImageState extends State<SelectedImage> {
 
       });
     } catch (e) {
-      Toast.show('没有权限，无法打开相册！');
+      if (e is MissingPluginException) {
+        Toast.show('当前平台暂不支持！');
+      } else {
+        Toast.show('没有权限，无法打开相册！');
+      }
     }
   }
 

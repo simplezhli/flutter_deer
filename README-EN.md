@@ -146,7 +146,9 @@ For details, please refer to the [pubspec.yaml](https://github.com/simplezhli/fl
 
 * [x] Web support.
 
-* [ ] Migrate to null-safety.
+* [x] Migrate to null-safety.
+
+* [ ] Migrate to Navigator 2.0.
 
 ## Thanks For
 

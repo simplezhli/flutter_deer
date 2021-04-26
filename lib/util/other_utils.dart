@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/common/common.dart';
-import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/util/toast_utils.dart';
 import 'package:keyboard_actions/keyboard_actions_item.dart';
@@ -60,17 +59,12 @@ class Utils {
   static String? getCurrLocale() {
     final String locale = SpUtil.getString(Constant.locale)!;
     if (locale == '') {
-      if (Device.isWeb) {
-        return window.locale?.languageCode;  // 2.0.0 web问题：https://github.com/flutter/flutter/issues/79351
-      } else {
-        return window.locale.languageCode;
-      }
+      return window.locale.languageCode;
     }
     return locale;
   }
 
 }
-
 
 Future<T?> showElasticDialog<T>({
   required BuildContext context,

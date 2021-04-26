@@ -23,7 +23,7 @@
 
 **觉得还可以的话，来个Star、Fork支持一波！本项目持续维护中，有问题欢迎提Issue。**
 
-## 实现内容
+## 实现内容（已迁移到空安全）
 
 * mvp模式
 * 使用`provider` (5.x 版本)做状态管理
@@ -54,7 +54,7 @@
 
 具体可以下载体验：
 
-Android版安装包：[点击下载](https://www.pgyer.com/gYXj)，安装密码：`111111`。
+Android版安装包：[点击下载](https://www.pgyer.com/gYXj)，下载密码：`111111`。
 
 iOS需要自行下载代码运行。
 
@@ -171,7 +171,9 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 
 * [x] Web端支持。
 
-* [ ] 迁移到空安全。
+* [x] 迁移到空安全。（安装包减少135KB，10.3M -> 10.1M）
+
+* [ ] 迁移至Navigator 2.0。
 
 ## 已知存在问题：
 

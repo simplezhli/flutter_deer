@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/provider/theme_provider.dart';
 import 'package:flutter_deer/store/page/store_audit_page.dart';
