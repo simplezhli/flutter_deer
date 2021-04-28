@@ -39,7 +39,16 @@ class _SearchBarState extends State<SearchBar> {
     _controller.dispose();
     super.dispose();
   }
-  
+
+  // @override
+  // void initState() {
+  //   WidgetsBinding.instance!.addPostFrameCallback((_) async {
+  //     SystemChannels.textInput.invokeMethod<void>('TextInput.updateConfig', const TextInputConfiguration().toJson());
+  //     SystemChannels.textInput.invokeMethod<void>('TextInput.hide');
+  //   });
+  //   super.initState();
+  // }
+
   @override
   Widget build(BuildContext context) {
     final bool isDark = context.isDark;

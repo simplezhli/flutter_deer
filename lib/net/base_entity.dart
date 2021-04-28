@@ -1,4 +1,4 @@
-import 'package:flutter_deer/common/common.dart';
+import 'package:flutter_deer/res/constant.dart';
 import 'package:flutter_deer/generated/json/base/json_convert_content.dart';
 
 class BaseEntity<T> {

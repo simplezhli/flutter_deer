@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_deer/common/common.dart';
+import 'package:flutter_deer/res/constant.dart';
+import 'package:flutter_deer/setting/provider/theme_provider.dart';
 import 'package:sp_util/sp_util.dart';
-import 'package:flutter_deer/provider/theme_provider.dart';
 import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:provider/provider.dart';
 

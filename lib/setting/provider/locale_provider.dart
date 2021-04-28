@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:sp_util/sp_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_deer/common/common.dart';
+import 'package:flutter_deer/res/constant.dart';
 
 class LocaleProvider extends ChangeNotifier {
 

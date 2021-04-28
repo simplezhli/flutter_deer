@@ -128,7 +128,8 @@ class _MyTextFieldState extends State<MyTextField> {
       ),
     );
 
-    /// 个别Android机型（华为、vivo）的密码安全键盘不弹出问题，临时修复方法：https://github.com/flutter/flutter/issues/68571 (issues/61446)
+    /// 个别Android机型（华为、vivo）的密码安全键盘不弹出问题（已知小米正常），临时修复方法：https://github.com/flutter/flutter/issues/68571 (issues/61446)
+    /// 怀疑是安全键盘与三方输入法之间的切换冲突问题。
     if (Device.isAndroid) {
       textField = Listener(
         onPointerDown: (e) => FocusScope.of(context).requestFocus(widget.focusNode),

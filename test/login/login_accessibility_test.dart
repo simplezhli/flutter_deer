@@ -5,7 +5,7 @@ import 'package:flutter_deer/login/page/reset_password_page.dart';
 import 'package:flutter_deer/login/page/sms_login_page.dart';
 import 'package:flutter_deer/login/page/update_password_page.dart';
 import 'package:flutter_deer/main.dart';
-import 'package:flutter_deer/provider/theme_provider.dart';
+import 'package:flutter_deer/setting/provider/theme_provider.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

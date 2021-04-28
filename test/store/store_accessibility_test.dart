@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_deer/provider/theme_provider.dart';
+import 'package:flutter_deer/setting/provider/theme_provider.dart';
 import 'package:flutter_deer/store/page/store_audit_page.dart';
 import 'package:flutter_deer/store/page/store_audit_result_page.dart';
 import 'package:flutter_test/flutter_test.dart';
