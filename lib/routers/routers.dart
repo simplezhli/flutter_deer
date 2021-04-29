@@ -14,7 +14,6 @@ import 'package:flutter_deer/shop/shop_router.dart';
 import 'package:flutter_deer/statistics/statistics_router.dart';
 import 'package:flutter_deer/store/store_router.dart';
 
-// ignore: avoid_classes_with_only_static_members
 class Routes {
 
   static String home = '/home';
@@ -40,7 +39,7 @@ class Routes {
       final String url = params['url']?.first ?? '';
       return WebViewPage(title: title, url: url);
     }));
-    
+
     _listRouter.clear();
     /// 各自路由由各自模块管理，统一在此添加初始化
     _listRouter.add(ShopRouter());

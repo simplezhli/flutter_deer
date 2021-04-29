@@ -178,7 +178,6 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
         onSelected: (index, name) {
           provider.setSortIndex(index);
           Toast.show('选择分类: $name');
-          NavigatorUtils.goBack(context);
         },
       ),
     );

@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 
 class GoodsSortMenu extends StatefulWidget {
@@ -24,34 +25,40 @@ class GoodsSortMenu extends StatefulWidget {
 
 class _GoodsSortMenuState extends State<GoodsSortMenu> with SingleTickerProviderStateMixin {
 
-  late AnimationController _controller;
+  late final AnimationController _controller = AnimationController(
+    duration: const Duration(milliseconds: 300),
+    vsync: this,
+  )..forward();
+
+  late final Animation<double> _animation = CurvedAnimation(
+    parent: _controller,
+    curve: Curves.easeInCubic,
+    reverseCurve: Curves.easeOutCubic,
+  );
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      duration: const Duration(milliseconds: 300),
-      vsync: this,
-    );
-    _controller.forward();
+    _animation.addStatusListener(_statusListener);
+  }
+
+  void _statusListener(AnimationStatus status) {
+    if (status == AnimationStatus.dismissed) {
+      /// 菜单动画停止，关闭菜单。
+      NavigatorUtils.goBack(context);
+    }
   }
 
   @override
   void dispose() {
+    _animation.removeStatusListener(_statusListener);
     _controller.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-
     final Color backgroundColor = context.backgroundColor;
-
-    final Animation<double> animation = CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeInCubic,
-      reverseCurve: Curves.easeOutCubic,
-    );
 
     final Widget listView = ListView.builder(
       physics: const ClampingScrollPhysics(),
@@ -65,15 +72,13 @@ class _GoodsSortMenuState extends State<GoodsSortMenu> with SingleTickerProvider
     );
 
     return FadeTransition(
-      opacity: animation,
+      opacity: _animation,
       child: Container(
         color: const Color(0x99000000),
         height: widget.height - 12.0,
-        child: SlideTransition(
-          position: Tween<Offset>(
-            begin: const Offset(0.0, -1.0),
-            end: Offset.zero,
-          ).animate(animation),
+        child: ScaleTransition(
+          scale: _animation,
+          alignment: Alignment.topCenter,
           child: listView,
         ),
       ),
