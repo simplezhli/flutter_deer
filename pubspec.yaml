@@ -46,8 +46,6 @@ dependencies:
   sticky_headers: ^0.2.0
   # 城市选择列表 https://github.com/flutterchina/azlistview
   azlistview: ^2.0.0-nullsafety.0
-  # 手势识别 https://github.com/aleksanderwozniak/simple_gesture_detector
-  # simple_gesture_detector: ^0.1.4
   # 路由框架 https://github.com/theyakka/fluro
   fluro: ^2.0.3
   # 图片缓存 https://github.com/renefloor/flutter_cached_network_image

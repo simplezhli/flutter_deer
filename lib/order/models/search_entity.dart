@@ -128,8 +128,6 @@ class SearchItems with JsonConvert<SearchItems> {
 	bool? hasPages;
 	@JSONField(name: 'forks_count')
 	int? forksCount;
-	@JSONField(name: 'mirror_url')
-	dynamic? mirrorUrl;
 	bool? archived;
 	bool? disabled;
 	@JSONField(name: 'open_issues_count')

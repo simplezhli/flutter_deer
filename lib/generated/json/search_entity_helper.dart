@@ -226,9 +226,6 @@ searchItemsFromJson(SearchItems data, Map<String, dynamic> json) {
 				? int.tryParse(json['forks_count'])
 				: json['forks_count'].toInt();
 	}
-	if (json['mirror_url'] != null) {
-		data.mirrorUrl = json['mirror_url'];
-	}
 	if (json['archived'] != null) {
 		data.archived = json['archived'];
 	}
@@ -335,7 +332,6 @@ Map<String, dynamic> searchItemsToJson(SearchItems entity) {
 	data['has_wiki'] = entity.hasWiki;
 	data['has_pages'] = entity.hasPages;
 	data['forks_count'] = entity.forksCount;
-	data['mirror_url'] = entity.mirrorUrl;
 	data['archived'] = entity.archived;
 	data['disabled'] = entity.disabled;
 	data['open_issues_count'] = entity.openIssuesCount;
