@@ -3,6 +3,7 @@ import 'package:flutter_deer/goods/models/goods_size_model.dart';
 import 'package:flutter_deer/goods/widgets/goods_size_dialog.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/toast_utils.dart';
 import 'package:flutter_deer/util/other_utils.dart';
@@ -91,6 +92,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
           NavigatorUtils.goBack(context);
         },
       ),
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -287,7 +289,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
       alignment: Alignment.center,
       child: Text(
         text,
-        style: const TextStyle(color: Colors.white, fontSize: Dimens.font_sp10, height: 1.1,),
+        style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp10, height: Device.isAndroid ? 1.1 : null,),
       ),
     );
   }

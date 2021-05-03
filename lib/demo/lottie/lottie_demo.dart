@@ -213,7 +213,7 @@ class _MyTextFieldState extends State<_MyTextField> {
             ),
             suffixIcon: widget.obscureText ? IconButton(
               icon: Icon(
-                Icons.remove_red_eye,
+                _isObscure ? Icons.visibility_off : Icons.visibility,
                 color: _focusNode.hasFocus ? _primaryColor : _textColor,
               ),
               onPressed: () {
