@@ -42,12 +42,12 @@ class SelectedDateButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(20.0),
 //            shape: BoxShape.circle,
             boxShadow: context.isDark ? null : const [
-              BoxShadow(color: Color(0x805793FA), offset: Offset(0.0, 2.0), blurRadius: 8.0, spreadRadius: 0.0),
+              BoxShadow(color: Colours.shadow_blue, offset: Offset(0.0, 2.0), blurRadius: 8.0, spreadRadius: 0.0),
             ],
             gradient: const LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Color(0xFF5758FA), Color(0xFF5793FA)],
+              colors: [Color(0xFF5758FA), Colours.gradient_blue],
             ),
           ) : null,
           child: Column(

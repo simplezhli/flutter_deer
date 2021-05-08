@@ -163,7 +163,7 @@ class _AccountCardState extends State<AccountCard> {
           borderRadius: BorderRadius.circular(8.0),
           boxShadow: context.isDark ? null : [
             BoxShadow(
-              color: widget.type == 1 ? const Color(0x804EE07A) : const Color(0x805793FA),
+              color: widget.type == 1 ? const Color(0x804EE07A) : Colours.shadow_blue,
               offset: const Offset(0.0, 2.0),
               blurRadius: 8.0,
               spreadRadius: 0.0,

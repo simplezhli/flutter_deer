@@ -134,7 +134,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
                   children: <Widget>[
                     Text(widget.index == 1 ? '订单走势' : '交易额走势', style: TextStyles.textBold18),
                     Gaps.vGap16,
-                    _buildChart(Colours.app_main, const Color(0x805793FA), widget.index == 1 ? '全部订单' : '交易额(元)', '3000'),
+                    _buildChart(Colours.app_main, Colours.shadow_blue, widget.index == 1 ? '全部订单' : '交易额(元)', '3000'),
                     if (widget.index == 1) Column(
                       children: <Widget>[
                         Gaps.vGap16,

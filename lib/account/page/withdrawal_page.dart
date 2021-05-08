@@ -106,7 +106,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: const <Widget>[
                 Text('提现金额', style: TextStyles.textBold14),
-                Text('单笔2万，单日2万', style: TextStyle(fontSize: Dimens.font_sp12, color: Color(0xFFFF8547)))
+                Text('单笔2万，单日2万', style: TextStyle(fontSize: Dimens.font_sp12, color: Colours.orange))
               ],
             ),
             Gaps.vGap8,
@@ -221,14 +221,14 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                   text: '手续费按',
                   style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: Dimens.font_sp12),
                   children: const <TextSpan>[
-                    TextSpan(text: '0.3%', style: TextStyle(color: Color(0xFFFF8547))),
+                    TextSpan(text: '0.3%', style: TextStyle(color: Colours.orange)),
                     TextSpan(text: '收取'),
                   ],
                 ) : TextSpan(
                   text: '预计',
                   style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: Dimens.font_sp12),
                   children: const <TextSpan>[
-                    TextSpan(text: 'T+1天到账(免手续费，T为工作日)', style: TextStyle(color: Color(0xFFFF8547))),
+                    TextSpan(text: 'T+1天到账(免手续费，T为工作日)', style: TextStyle(color: Colours.orange)),
                   ],
                 ),
               )
