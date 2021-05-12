@@ -56,9 +56,9 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
             (node) {
               return GestureDetector(
                 onTap: () => node.unfocus(),
-                child: const Padding(
-                  padding: EdgeInsets.only(right: 16.0),
-                  child: Text('关闭'),
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 16.0),
+                  child: Text(Utils.getCurrLocale() == 'zh' ? '关闭' : 'Close'),
                 ),
               );
             },

@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -35,6 +36,8 @@ Future<void> main() async {
   setPathUrlStrategy();
   /// sp初始化
   await SpUtil.getInstance();
+  /// 1.22 预览功能: 在输入频率与显示刷新率不匹配情况下提供平滑的滚动效果
+  // GestureBinding.instance?.resamplingEnabled = true;
   /// 异常处理
   handleError(runApp(MyApp()));
   /// 隐藏状态栏。为启动页、引导页设置。完成后修改回显示状态栏。
@@ -159,6 +162,7 @@ class MyApp extends StatelessWidget {
           builder: (BuildContext context) => const NotFoundPage(),
         );
       },
+      restorationScopeId: 'app',
     );
   }
 
