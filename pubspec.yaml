@@ -30,12 +30,12 @@ dependencies:
   common_utils: 2.0.2
   # Flutter 常用工具类库 https://github.com/Sky24n/flustars
   flustars: ^2.0.1
-  # Flutter 轮播图 https://github.com/best-flutter/flutter_swiper
-  flutter_swiper_null_safety: ^1.0.0  # flutter_swiper很久不维护，可以使用空安全版本：flutter_swiper_null_safety
+  # Flutter 轮播图 https://github.com/lianyagang/flutter_swiper_null_safety
+  flutter_swiper_null_safety: ^1.0.2  # flutter_swiper很久不维护，可以使用空安全版本：flutter_swiper_null_safety
   # 启动URL的插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/url_launcher
   url_launcher: 6.0.3
   # 图片选择插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/image_picker
-  image_picker: 0.7.4
+  image_picker: 0.7.5
   # 侧滑删除 https://github.com/letsar/flutter_slidable
   flutter_slidable: ^0.6.0
   # WebView插件 https://github.com/flutter/plugins/tree/master/packages/webview_flutter
