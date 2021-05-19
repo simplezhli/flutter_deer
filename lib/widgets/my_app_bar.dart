@@ -37,9 +37,12 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark;
 
     final Widget back = isBack ? IconButton(
-      onPressed: () {
+      onPressed: () async {
         FocusManager.instance.primaryFocus?.unfocus();
-        Navigator.maybePop(context);
+        final isBack = await Navigator.maybePop(context);
+        if (!isBack) {
+          await SystemNavigator.pop();
+        }
       },
       tooltip: 'Back',
       padding: const EdgeInsets.all(12.0),
