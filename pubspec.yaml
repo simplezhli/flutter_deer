@@ -35,7 +35,7 @@ dependencies:
   # 启动URL的插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/url_launcher
   url_launcher: 6.0.3
   # 图片选择插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/image_picker
-  image_picker: 0.7.5
+  image_picker: 0.7.5+2
   # 侧滑删除 https://github.com/letsar/flutter_slidable
   flutter_slidable: ^0.6.0
   # WebView插件 https://github.com/flutter/plugins/tree/master/packages/webview_flutter
@@ -69,11 +69,12 @@ dependencies:
       url: 'https://github.com/simplezhli/flutter_2d_amap.git'
   # demo 用到的库
   # 刮刮卡 https://github.com/vintage/scratcher
-  scratcher: ^2.0.1
+  scratcher: ^2.1.0
   # 动画效果 https://github.com/xvrh/lottie-flutter
   lottie: ^1.0.1
 
-# flutter_driver与common_utils、lottie等个别库依赖冲突，用依赖版本覆盖处理。
+# flutter 2.0 中flutter_driver与common_utils、lottie等个别库依赖冲突，用依赖版本覆盖处理。
+# 使用flutter 2.2无需添加
 dependency_overrides:
   archive: ^3.1.2
   crypto: ^3.0.1

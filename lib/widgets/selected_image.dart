@@ -61,7 +61,6 @@ class SelectedImageState extends State<SelectedImage> {
 
   @override
   Widget build(BuildContext context) {
-    // color为null时，Web报错NoSuchMethodError: invalid member on null: 'red' （2.0.3），因此这里指定色值。
     final ColorFilter _colorFilter = ColorFilter.mode(
         ThemeUtils.isDark(context) ? Colours.dark_unselected_item_color : Colours.text_gray,
         BlendMode.srcIn

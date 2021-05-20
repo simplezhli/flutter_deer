@@ -64,9 +64,9 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 
 [![Build Status](https://github.com/simplezhli/flutter_deer/workflows/flutter_deer%20driver/badge.svg?branch=master)](https://github.com/simplezhli/flutter_deer/actions?query=workflow%3A%22flutter_deer+driver%22+branch%3Amaster)
 
-    1. Flutter version 2.0.6
+    1. Flutter version 2.2.0
      
-    2. Dart version 2.12.3
+    2. Dart version 2.13.0
 
 ## 注意事项
 
@@ -160,8 +160,6 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 * [x] 引入状态管理，预计使用 [provider](https://github.com/rrousselGit/provider)
 
 * [x] 页面添加设计图路径注释，方便寻找对应的设计图。
-
-* [x] 项目中有使用这一套框架及组件，会同步修复及优化遇到的问题。
 
 * [x] 添加集成测试。
 

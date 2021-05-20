@@ -40,7 +40,6 @@ class _StatisticsPageState extends State<StatisticsPage> {
     return <Widget>[
       SliverAppBar(
         brightness: Brightness.dark,
-        leading: Gaps.empty,
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         centerTitle: true,

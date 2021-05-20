@@ -12,7 +12,7 @@ import 'package:flutter_deer/widgets/my_button.dart';
 
 /// 登录模块的输入框封装
 class MyTextField extends StatefulWidget {
-  
+
   const MyTextField({
     Key? key,
     required this.controller,
@@ -36,7 +36,7 @@ class MyTextField extends StatefulWidget {
   final Future<bool> Function()? getVCode;
   /// 用于集成测试寻找widget
   final String? keyName;
-  
+
   @override
   _MyTextFieldState createState() => _MyTextFieldState();
 }
@@ -59,7 +59,7 @@ class _MyTextFieldState extends State<MyTextField> {
     widget.controller.addListener(isEmpty);
     super.initState();
   }
-  
+
   void isEmpty() {
     final bool isNotEmpty = widget.controller.text.isNotEmpty;
     /// 状态不一样在刷新，避免重复不必要的setState
@@ -69,7 +69,7 @@ class _MyTextFieldState extends State<MyTextField> {
       });
     }
   }
-  
+
   @override
   void dispose() {
     _subscription?.cancel();
@@ -92,7 +92,7 @@ class _MyTextFieldState extends State<MyTextField> {
       });
     }
   }
-  
+
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
@@ -107,7 +107,7 @@ class _MyTextFieldState extends State<MyTextField> {
       textInputAction: TextInputAction.done,
       keyboardType: widget.keyboardType,
       // 数字、手机号限制格式为0到9， 密码限制不包含汉字
-      inputFormatters: (widget.keyboardType == TextInputType.number || widget.keyboardType == TextInputType.phone) ? 
+      inputFormatters: (widget.keyboardType == TextInputType.number || widget.keyboardType == TextInputType.phone) ?
       [FilteringTextInputFormatter.allow(RegExp('[0-9]'))] : [FilteringTextInputFormatter.deny(RegExp('[\u4e00-\u9fa5]'))],
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.symmetric(vertical: 16.0),
@@ -137,7 +137,7 @@ class _MyTextFieldState extends State<MyTextField> {
       );
     }
 
-    late Widget clearButton;
+    Widget? clearButton;
 
     if (_isShowDelete) {
       clearButton = Semantics(
@@ -204,9 +204,12 @@ class _MyTextFieldState extends State<MyTextField> {
         Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            /// _isShowDelete参数动态变化，为了不破坏树结构，false时放一个空Widget。
+            /// _isShowDelete参数动态变化，为了不破坏树结构使用Visibility，false时放一个空Widget。
             /// 对于其他参数，为初始配置参数，基本可以确定树结构，就不做空Widget处理。
-            if (_isShowDelete) clearButton else Gaps.empty,
+            Visibility(
+              visible: _isShowDelete,
+              child: clearButton ?? Gaps.empty,
+            ),
             if (widget.isInputPwd) Gaps.hGap15,
             if (widget.isInputPwd) pwdVisible,
             if (widget.getVCode != null) Gaps.hGap15,
