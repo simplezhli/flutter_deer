@@ -175,7 +175,7 @@ class DioUtils {
     }
   }
 
-  void _onError(int code, String msg, NetErrorCallback? onError) {
+  void _onError(int? code, String msg, NetErrorCallback? onError) {
     if (code == null) {
       code = ExceptionHandle.unknown_error;
       msg = '未知异常';
