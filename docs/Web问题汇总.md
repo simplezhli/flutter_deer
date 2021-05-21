@@ -1,5 +1,9 @@
 # Web 问题汇总（flutter 2.2.0）
 
+## service worker
+
+flutter 2.2中新的`service worker`加载机制目前发现兼容不够，部分浏览器无法正常工作。（web/index1.html）
+
 ## CanvasKit渲染（默认PC浏览器）
 
 ### 中文文字、表情等加载延迟导致乱码现象

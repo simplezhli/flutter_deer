@@ -119,6 +119,8 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 - [【译】正确操作Dart中的字符串](https://weilu.blog.csdn.net/article/details/107857569)
 
 - [【译】学习Flutter中新的Navigator和Router系统](https://weilu.blog.csdn.net/article/details/108902282)
+
+- [【译】Flutter 2.2中的新功能](https://weilu.blog.csdn.net/article/details/117061293)
     
 ## 使用到的三方库
 

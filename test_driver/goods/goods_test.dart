@@ -77,7 +77,7 @@ void main() {
 
     test('商品规格页测试',() async {
       await driver.tap(find.text('商品规格'));
-      await delayed();await delayed();
+      await delayed();
       await driver.tap(find.byValueKey('hint'));
       await delayed();
       await driver.tap(find.byValueKey('name_edit'));

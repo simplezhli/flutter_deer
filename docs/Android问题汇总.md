@@ -26,9 +26,23 @@ maven {
 
 参考：https://github.com/flutter/flutter/issues/39729
 
+## 关于打包
+
+默认使用`flutter build apk`命令，包含32、64位。
+
+添加`--target-platform`可指定平台，比如`android-arm`或`android-arm64`，来减小包体积。
+
+还可以使用`--split-debug-info`标志省略调试信息，来减小包体积。（注意使用此方式无法获取可读的堆栈信息）
+
+完整举例子：
+
+```
+flutter build apk --target-platform android-arm64 --obfuscate --split-debug-info=/flutter_deer/
+```
+
 ## 历史问题
 
-- 1.22.0已知问题(~~#67262~~ ~~#67213~~)
+- 1.22.0已知问题(~~#67262~~ ~~#67213~~)。
 
 - 1.17.0已知问题(~~#25767~~ ~~#47191~~)。
 
