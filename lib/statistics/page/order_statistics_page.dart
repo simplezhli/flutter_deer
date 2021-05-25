@@ -173,11 +173,14 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
     
     final Column body = Column(
       children: <Widget>[
+        Gaps.vGap16,
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
+            Gaps.hGap16,
             Text(title, style: const TextStyle(color: Colors.white)),
+            const Spacer(),
             Text(count, style: const TextStyle(color: Colors.white)),
+            Gaps.hGap16,
           ],
         ),
         Gaps.vGap4,
@@ -195,7 +198,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
               ),
             ],
             config: BezierChartConfig(
-              footerHeight: 0,
+              footerHeight: 16,
               showVerticalIndicator: false,
               verticalIndicatorFixedPosition: false,
               snap: true,
@@ -212,7 +215,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
         color: color,
         shadowColor: shadowColor,
         child: Container(
-          padding: const EdgeInsets.all(16.0),
+          //padding: const EdgeInsets.symmetric(horizontal: 16.0),
           decoration: BoxDecoration(
             image: DecorationImage(
               image: ImageUtils.getAssetImage('statistic/chart_fg'),

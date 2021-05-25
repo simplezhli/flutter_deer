@@ -1349,8 +1349,9 @@ class _BezierChartPainter extends CustomPainter {
         double infoHeight = 30;
 
         //bubble indicator padding
-        final horizontalPadding = 28.0;
-        //todo 42
+        // TODO 28
+        final horizontalPadding = 18.0;
+        // TODO 42
         double offsetInfo = 37 + ((_currentCustomValues.length - 1.0) * 10.0);
         final centerForCircle = Offset(verticalX, height - yValue);
         final center = config.verticalIndicatorFixedPosition
@@ -1383,8 +1384,7 @@ class _BezierChartPainter extends CustomPainter {
         infoHeight =
             infoHeight + (_currentCustomValues.length - 1) * (infoHeight / 3);
 
-        for (_CustomValue customValue
-        in _currentCustomValues.reversed.toList()) {
+        for (_CustomValue customValue in _currentCustomValues.reversed.toList()) {
           textValues.add(
             TextSpan(
               text: '${customValue.value} ',
@@ -1488,7 +1488,7 @@ class _BezierChartPainter extends CustomPainter {
           textPainter.paint(
             canvas,
             Offset(
-              center.dx - textPainter.width / 2,
+              center.dx - textPainter.width / 2 + 6,  // TODO 0
               center.dy - offsetInfo - infoHeight / 2.5,
             ),
           );
@@ -1501,7 +1501,7 @@ class _BezierChartPainter extends CustomPainter {
                 centerIndicator.dx -
                     infoWidth / 2 +
                     radiusDotIndicatorItems +
-                    4,
+                    6, // TODO 4
                 centerIndicator.dy);
             canvas.drawCircle(
                 fixedCenter,

@@ -5,7 +5,7 @@ name: flutter_deer web deploy
 on:
   push:
     paths:
-      - 'pubspec.yaml'
+      - 'pubspec1.yaml'
 
 jobs:
   web_build_and_deploy:

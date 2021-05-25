@@ -21,7 +21,26 @@ class _TestPageState extends State<TestPage> {
       body: Center(
         child: NeumorphicContainer(
           child: GestureDetector(
-            child: const Text('点击跳转', style: TextStyle(fontSize: 18.0, color: Colors.white70),),
+            child: Text(
+              '点击跳转',
+              style: TextStyle(
+                fontSize: 18.0,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                shadows: [
+                  const Shadow(
+                    offset: Offset(3, 3),
+                    color: Colors.black38,
+                    blurRadius: 10,
+                  ),
+                  Shadow(
+                    offset: const Offset(-3, -3),
+                    color: Colors.white.withOpacity(0.85),
+                    blurRadius: 10,
+                  )
+                ],
+              ),
+            ),
             onTap: () {
               Navigator.push<TestPage>(
                 context,
