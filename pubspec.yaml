@@ -35,7 +35,7 @@ dependencies:
   # 启动URL的插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/url_launcher
   url_launcher: 6.0.4
   # 图片选择插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/image_picker
-  image_picker: 0.7.5+2
+  image_picker: 0.7.5+3
   # 侧滑删除 https://github.com/letsar/flutter_slidable
   flutter_slidable: ^0.6.0
   # WebView插件 https://github.com/flutter/plugins/tree/master/packages/webview_flutter
@@ -62,6 +62,8 @@ dependencies:
   vibration: ^1.7.4-nullsafety.0
   # 获取当前设备信息 https://github.com/flutter/plugins/tree/master/packages/device_info
   device_info: 2.0.1
+  # 改变桌面端窗口大小(MacOS/Linux/Windows) https://github.com/mix1009/desktop_window
+  desktop_window: 0.4.0
   # 高德2D地图插件（支持Web） https://github.com/simplezhli/flutter_2d_amap
   flutter_2d_amap:
     git:
@@ -93,7 +95,7 @@ dev_dependencies:
 #  flutter_goldens:
 #    sdk: flutter
   # 单元测试
-  test: ^1.16.5
+  test: ^1.16.8
 
 # For information on the generic Dart part of this file, see the
 # following page: https:/w.dartlang.org/tools/pub/pubspec
