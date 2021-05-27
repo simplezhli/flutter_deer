@@ -148,6 +148,7 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 | [sprintf](https://github.com/Naddiseo/dart-sprintf)                   | **格式化String**   |
 | [qr_code_scanner](https://github.com/juliuscanute/qr_code_scanner)     | **扫码功能** |
 | [intl](https://github.com/dart-lang/intl)     | **本地化** |
+| [device_info_plus](https://github.com/fluttercommunity/plus_plugins/tree/main/packages/device_info_plus)     | **获取设备信息** |
 | [vibration](https://github.com/benjamindean/flutter_vibration)     | **振动** |
 | [lottie](https://github.com/xvrh/lottie-flutter)     | **动画效果** |
 

@@ -14,7 +14,6 @@ import 'package:flutter_deer/util/handle_error_utils.dart';
 import 'package:flutter_deer/util/log_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_gen/gen_l10n/deer_localizations.dart';
-import 'package:desktop_window/desktop_window.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:flutter_deer/home/splash_page.dart';
 import 'package:provider/provider.dart';
@@ -44,10 +43,6 @@ Future<void> main() async {
   SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
   // TODO(weilu): 启动体验不佳。状态栏、导航栏在冷启动开始的一瞬间为黑色，且无法通过隐藏、修改颜色等方式进行处理。。。
   // 相关问题跟踪：https://github.com/flutter/flutter/issues/73351
-  /// 设置桌面端窗口大小
-  if (Device.isDesktop) {
-    await DesktopWindow.setWindowSize(const Size(400, 800));
-  }
 }
 
 class MyApp extends StatelessWidget {

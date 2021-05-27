@@ -10,6 +10,7 @@ import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
+import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:rxdart/rxdart.dart';
@@ -46,7 +47,10 @@ class _SplashPageState extends State<SplashPage> {
       }
       _initSplash();
     });
-
+    /// 设置桌面端窗口大小
+    if (Device.isDesktop) {
+      DesktopWindow.setWindowSize(const Size(400, 800));
+    }
     if (Device.isAndroid) {
       final QuickActions quickActions = QuickActions();
       quickActions.initialize((String shortcutType) async {

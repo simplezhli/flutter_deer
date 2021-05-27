@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:device_info/device_info.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 
 /// https://medium.com/gskinner-team/flutter-simplify-platform-screen-size-detection-4cb6fc4f7ed1
@@ -27,7 +27,7 @@ class Device {
   /// 使用前记得初始化
   static int getAndroidSdkInt() {
     if (isAndroid && _androidInfo != null) {
-      return _androidInfo.version.sdkInt;
+      return _androidInfo.version.sdkInt ?? -1;
     } else {
       return -1;
     }

@@ -137,6 +137,7 @@ Web：https://simplezhli.github.io/flutter_deer/
 | [sprintf](https://github.com/Naddiseo/dart-sprintf)                   | **Format String**   |
 | [qr_code_scanner](https://github.com/juliuscanute/qr_code_scanner)     | **Scan code** |
 | [intl](https://github.com/dart-lang/intl)     | **Localization** |
+| [device_info_plus](https://github.com/fluttercommunity/plus_plugins/tree/main/packages/device_info_plus)     | **Device info** |
 | [vibration](https://github.com/benjamindean/flutter_vibration)     | **Vibration** |
 | [lottie](https://github.com/xvrh/lottie-flutter)     | **lottie** |
 
