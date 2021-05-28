@@ -2,6 +2,7 @@ import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/goods/models/goods_item_entity.dart';
 import 'package:flutter_deer/goods/provider/goods_page_provider.dart';
+import 'package:flutter_deer/res/constant.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/toast_utils.dart';
 import 'package:flutter_deer/widgets/my_refresh_list.dart';
@@ -13,26 +14,26 @@ import '../widgets/goods_delete_bottom_sheet.dart';
 import '../widgets/goods_item.dart';
 
 class GoodsListPage extends StatefulWidget {
-  
+
   const GoodsListPage({
     Key? key,
     required this.index
   }): super(key: key);
-  
+
   final int index;
-  
+
   @override
   _GoodsListPageState createState() => _GoodsListPageState();
 }
 
 class _GoodsListPageState extends State<GoodsListPage> with AutomaticKeepAliveClientMixin<GoodsListPage>, SingleTickerProviderStateMixin {
-  
+
   int _selectIndex = -1;
   late Animation<double> _animation;
   late AnimationController _controller;
   List<GoodsItemEntity> _list = [];
   AnimationStatus _animationStatus = AnimationStatus.dismissed;
-  
+
   @override
   void initState() {
     super.initState();
@@ -58,7 +59,10 @@ class _GoodsListPageState extends State<GoodsListPage> with AutomaticKeepAliveCl
 
   final List<String> _imgList = [
     'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3130502839,1206722360&fm=26&gp=0.jpg',
-    'https://xxx', // 故意使用一张无效链接，触发默认显示图片
+    if (Constant.isDriverTest)
+      'https://img2.baidu.com/it/u=3994371075,170872697&fm=26&fmt=auto&gp=0.jpg'
+    else
+      'https://xxx', // 可以使用一张无效链接，触发缺省、异常显示图片
     'https://img0.baidu.com/it/u=4049693009,2577412121&fm=224&fmt=auto&gp=0.jpg',
     'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3659255919,3211745976&fm=26&gp=0.jpg',
     'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2085939314,235211629&fm=26&gp=0.jpg',
@@ -86,7 +90,7 @@ class _GoodsListPageState extends State<GoodsListPage> with AutomaticKeepAliveCl
       _setGoodsCount(_list.length);
     });
   }
-  
+
   void _setGoodsCount(int count) {
 //    Provider.of<GoodsPageProvider>(context, listen: false).setGoodsCount(count);
     /// 与上方等价，provider 4.1.0添加的拓展方法
@@ -96,7 +100,7 @@ class _GoodsListPageState extends State<GoodsListPage> with AutomaticKeepAliveCl
   int _page = 1;
   late int _maxPage;
   StateType _stateType = StateType.loading;
-  
+
   @override
   Widget build(BuildContext context) {
     super.build(context);

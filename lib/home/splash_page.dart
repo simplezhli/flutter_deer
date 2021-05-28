@@ -18,7 +18,6 @@ import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 import 'package:sp_util/sp_util.dart';
 
 class SplashPage extends StatefulWidget {
-
   const SplashPage({Key? key}) : super(key: key);
 
   @override
@@ -26,7 +25,6 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-
   int _status = 0;
   final List<String> _guideList = ['app_start_1', 'app_start_2', 'app_start_3'];
   StreamSubscription? _subscription;
@@ -93,7 +91,7 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return Material(
       color: context.backgroundColor,
-      child: _status == 0 ? 
+      child: _status == 0 ?
       const FractionallyAlignedSizedBox(
         heightFactor: 0.3,
         widthFactor: 0.33,

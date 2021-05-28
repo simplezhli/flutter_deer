@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/goods/models/goods_size_model.dart';
 import 'package:flutter_deer/goods/widgets/goods_size_dialog.dart';
@@ -26,7 +27,7 @@ class GoodsSizePage extends StatefulWidget {
 }
 
 class _GoodsSizePageState extends State<GoodsSizePage> {
-  
+
   bool _isEdit = false;
   String _sizeName = '商品规格名称';
   final GlobalKey _hintKey = GlobalKey();
@@ -72,14 +73,14 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: ImageUtils.getAssetImage('goods/ydss'),
-              fit: BoxFit.fitWidth
-            )
+              fit: BoxFit.fitWidth,
+            ),
           ),
         ),
-      )
+      ),
     );
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,39 +103,26 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
               _sizeName,
               style: TextStyles.textBold24,
             ),
-            InkWell(
-              onTap: () {
-                showDialog<void>(
-                  context: context,
-                  barrierDismissible: false,
-                  builder: (BuildContext context) {
-                    return GoodsSizeDialog(
-                      onPressed: (name) {
-                        setState(() {
-                          _sizeName = name;
-                          _isEdit = true;
-                        });
+            Gaps.vGap8,
+            RichText(
+              key: const Key('name_edit'),
+              text: TextSpan(
+                text: '先对名称进行',
+                style: Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: Dimens.font_sp14),
+                children: <TextSpan>[
+                  TextSpan(
+                    text: '编辑',
+                    semanticsLabel: '编辑',
+                    style: TextStyle(color: Theme.of(context).primaryColor),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        _showGoodsSizeDialog();
                       },
-                    );
-                  }
-                );
-              },
-              child: Padding(
-                // 扩大点击范围
-                padding: const EdgeInsets.all(8.0),
-                child: RichText(
-                  key: const Key('name_edit'),
-                  text: TextSpan(
-                    text: '先对名称进行',
-                    style: Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: Dimens.font_sp14),
-                    children: <TextSpan>[
-                      TextSpan(text: '编辑', style: TextStyle(color: Theme.of(context).primaryColor)),
-                    ],
-                  )
-                ),
+                  ),
+                ],
               ),
             ),
-            Gaps.vGap24,
+            Gaps.vGap32,
             Expanded(
               child: _goodsSizeList.isEmpty ? const StateLayout(
                 type: StateType.goods,
@@ -159,7 +147,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
       ),
     );
   }
- 
+
   /// design/4商品/index.html#artboard19
   Widget _buildGoodsSizeItem(int index) {
 
@@ -238,11 +226,11 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
           decoration: BoxDecoration(
             border: Border(
               bottom: Divider.createBorderSide(context, width: 0.8),
-            )
+            ),
           ),
           child: Padding(
             padding: const EdgeInsets.only(right: 16.0, bottom: 16.0),
-            child: widget
+            child: widget,
           ),
         ),
       ),
@@ -253,7 +241,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
       key: Key(index.toString()),
       controller: _slidableController,
       actionPane: const SlidableDrawerActionPane(),
-      actionExtentRatio: 0.20, 
+      actionExtentRatio: 0.20,
       ///右侧的action
       secondaryActions: <Widget>[
         SlideAction(
@@ -273,7 +261,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
           },
         ),
       ],
-      child: widget
+      child: widget,
     );
   }
 
@@ -291,6 +279,23 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
         text,
         style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp10, height: Device.isAndroid ? 1.1 : null,),
       ),
+    );
+  }
+
+  void _showGoodsSizeDialog() {
+    showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return GoodsSizeDialog(
+          onPressed: (name) {
+            setState(() {
+              _sizeName = name;
+              _isEdit = true;
+            });
+          },
+        );
+      },
     );
   }
 }

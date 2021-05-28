@@ -80,10 +80,12 @@ void main() {
       await delayed();
       await driver.tap(find.byValueKey('hint'));
       await delayed();
-      await driver.tap(find.byValueKey('name_edit'));
-      await delayed();
-      await driver.tap(find.text('取消'));
-      await delayed();
+      /// 在集成测试中不能点击特定的TextSpan，这里测试部分放在integration_test/goods_test.dart 实现
+      /// https://github.com/flutter/flutter/issues/67123
+      // await driver.tap(find.byValueKey('name_edit'));
+      // await delayed();
+      // await driver.tap(find.text('取消'));
+      // await delayed();
       await driver.tap(find.byValueKey('2'));
       await delayed();
       await driver.tap(find.byTooltip('Back'));
