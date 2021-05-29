@@ -102,6 +102,7 @@ class MyApp extends StatelessWidget {
         const ShortcutItem(
           type: 'demo',
           localizedTitle: 'Demo',
+          icon: 'flutter_dash_black'
         ),
       ]);
     }
