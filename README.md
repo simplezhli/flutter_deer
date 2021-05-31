@@ -64,9 +64,9 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 
 [![Build Status](https://github.com/simplezhli/flutter_deer/workflows/flutter_deer%20driver/badge.svg?branch=master)](https://github.com/simplezhli/flutter_deer/actions?query=workflow%3A%22flutter_deer+driver%22+branch%3Amaster)
 
-    1. Flutter version 2.2.0
+    1. Flutter version 2.2.1
      
-    2. Dart version 2.13.0
+    2. Dart version 2.13.1
 
 ## 注意事项
 
