@@ -135,10 +135,10 @@ class LoggingInterceptor extends Interceptor{
 class AdapterInterceptor extends Interceptor{
 
   static const String _kMsg = 'msg';
-  static const String _kSlash = '\'';
+  static const String _kSlash = "'";
   static const String _kMessage = 'message';
 
-  static const String _kDefaultText = '"无返回信息"';
+  static const String _kDefaultText = '无返回信息';
   static const String _kNotFound = '未找到查询信息';
 
   static const String _kFailureFormat = '{"code":%d,"message":"%s"}';
