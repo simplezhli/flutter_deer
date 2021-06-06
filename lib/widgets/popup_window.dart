@@ -7,9 +7,9 @@ import 'package:flutter/material.dart';
 /// weilu update：
 /// 1.去除了IntrinsicWidth限制，添加了默认蒙版。
 /// 2.简化position计算。
-const Duration _kWindowDuration = Duration(milliseconds: 0);
+const Duration _kWindowDuration = Duration.zero;
 const double _kWindowCloseIntervalEnd = 2.0 / 3.0;
-const double _kWindowScreenPadding = 0.0;
+const double _kWindowScreenPadding = 0.001;
 
 ///弹窗方法
 Future<T?> showPopupWindow<T>({

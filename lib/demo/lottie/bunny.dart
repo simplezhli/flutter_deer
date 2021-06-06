@@ -103,12 +103,12 @@ class Bunny {
     }
 
     final double frame = (_neutral_to_tracking[1] - _neutral_to_tracking[0]) * progress;
-    controller.animateTo(framesToPercentage(frame.toInt() + _neutral_to_tracking[0]), duration: const Duration(milliseconds: 0));
+    controller.animateTo(framesToPercentage(frame.toInt() + _neutral_to_tracking[0]), duration: Duration.zero);
   }
 
   void setMinMaxFrame(List<int> frames) {
     /// 移动至起始帧
-    controller.animateTo(framesToPercentage(frames[0]), duration: const Duration(milliseconds: 0));
+    controller.animateTo(framesToPercentage(frames[0]), duration: Duration.zero);
     /// 动画至结束帧
     controller.animateTo(framesToPercentage(frames[1]));
   }

@@ -129,7 +129,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 controller: _tabController,
                 labelStyle: TextStyles.textBold18,
                 indicatorSize: TabBarIndicatorSize.label,
-                labelPadding: const EdgeInsets.only(left: 0.0),
+                labelPadding: EdgeInsets.zero,
                 unselectedLabelColor: context.isDark ? Colours.text_gray : Colours.text,
                 labelColor: Theme.of(context).primaryColor,
                 indicatorPadding: const EdgeInsets.only(right: 98.0 - 36.0),

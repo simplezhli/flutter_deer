@@ -37,7 +37,7 @@ class GoodsSortBottomSheetState extends State<GoodsSortBottomSheet> with SingleT
     _tabController = TabController(vsync: this, length: 3);
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       widget.provider.initData();
-      _tabController?.animateTo(widget.provider.index, duration: const Duration(microseconds: 0));
+      _tabController?.animateTo(widget.provider.index, duration: Duration.zero);
     });
   }
 
