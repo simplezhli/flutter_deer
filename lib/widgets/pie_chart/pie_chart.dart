@@ -186,7 +186,7 @@ class PieChartPainter extends CustomPainter {
       final double x = (size.height * 0.74 / 2) * math.cos(prevAngle + (totalAngle * data[i].percentage / 2));
       final double y = (size.height * 0.74 / 2) * math.sin(prevAngle + (totalAngle * data[i].percentage / 2));
       // 保留一位小数
-      final String percentage = (data[i].percentage * 100).toStringAsFixed(1) + '%';
+      final String percentage = '${(data[i].percentage * 100).toStringAsFixed(1)}%';
       drawPercentage(canvas, percentage, x, y, size);
       prevAngle = prevAngle + totalAngle * data[i].percentage;
     }
@@ -230,7 +230,7 @@ class PieChartPainter extends CustomPainter {
     final List<CustomPainterSemantics> nodes = <CustomPainterSemantics>[];
     final double height = size.height / data.length;
     for (int i = 0; i < data.length; i++) {
-      final String percentage = (data[i].percentage * 100).toStringAsFixed(1) + '%';
+      final String percentage = '${(data[i].percentage * 100).toStringAsFixed(1)}%';
       final CustomPainterSemantics node = CustomPainterSemantics(
         rect: Rect.fromLTRB(
           0, height * i,
@@ -238,7 +238,7 @@ class PieChartPainter extends CustomPainter {
         ),
         properties: SemanticsProperties(
           sortKey: OrdinalSortKey(i.toDouble()),
-          label: name + '$count件' + data[i].name + '占比'+ percentage,
+          label: '$name${'$count件'}${data[i].name}占比$percentage',
           readOnly: true,
           textDirection: TextDirection.ltr,
         ),

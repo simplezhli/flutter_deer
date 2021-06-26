@@ -137,9 +137,7 @@ class _AddressItem extends StatelessWidget {
           children: <Widget>[
             Expanded(
               child: Text(
-                date.provinceName.nullSafe + ' ' +
-                date.cityName.nullSafe + ' ' +
-                date.adName.nullSafe + ' ' + date.title.nullSafe,
+                '${date.provinceName.nullSafe} ${date.cityName.nullSafe} ${date.adName.nullSafe} ${date.title.nullSafe}',
               ),
             ),
             Visibility(

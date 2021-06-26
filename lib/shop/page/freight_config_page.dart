@@ -284,7 +284,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
       if (_list[index].min.isEmpty || _list[index].max.isEmpty) {
         return '';
       } else {
-        return _list[index].min + '~' + _list[index].max;
+        return '${_list[index].min}~${_list[index].max}';
       }
     }
   }

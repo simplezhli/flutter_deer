@@ -133,9 +133,7 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
           NavigatorUtils.pushResult(context, ShopRouter.addressSelectPage, (result) {
             setState(() {
               final PoiSearch model = result as PoiSearch;
-              _address = model.provinceName.nullSafe + ' ' +
-                  model.cityName.nullSafe + ' ' +
-                  model.adName.nullSafe + ' ' + model.title.nullSafe;
+              _address = '${model.provinceName.nullSafe} ${model.cityName.nullSafe} ${model.adName.nullSafe} ${model.title.nullSafe}';
             });
           });
         }

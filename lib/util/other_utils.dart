@@ -23,7 +23,7 @@ class Utils {
 
   /// 调起拨号页
   static Future<void> launchTelURL(String phone) async {
-    final String url = 'tel:'+ phone;
+    final String url = 'tel:$phone';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
