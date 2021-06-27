@@ -39,7 +39,7 @@ class TokenInterceptor extends Interceptor {
       _tokenDio!.options = DioUtils.instance.dio.options;
       final Response response = await _tokenDio!.post<dynamic>('lgn/refreshToken', data: params);
       if (response.statusCode == ExceptionHandle.success) {
-        return json.decode(response.data.toString())['access_token'] as String;
+        return (json.decode(response.data.toString()) as Map<String, dynamic>)['access_token'] as String;
       }
     } catch(e) {
       Log.e('刷新Token失败！');

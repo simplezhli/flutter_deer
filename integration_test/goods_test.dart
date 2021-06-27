@@ -117,11 +117,13 @@ void fireOnTap(Finder finder, String text) {
   final Element element = finder.evaluate().single;
   final RenderParagraph paragraph = element.renderObject! as RenderParagraph;
   // The children are the individual TextSpans which have GestureRecognizers
-  paragraph.text.visitChildren((dynamic span) {
-    if (span.text != text)
-      return true; // continue iterating.
+  paragraph.text.visitChildren((InlineSpan span) {
+    if (span is TextSpan) {
+      if (span.text != text)
+        return true; // continue iterating.
 
-    (span.recognizer as TapGestureRecognizer).onTap!();
+      (span.recognizer! as TapGestureRecognizer).onTap!();
+    }
     return false; // stop iterating, we found the one.
   });
 }

@@ -11,7 +11,7 @@ class GoodsDeleteBottomSheet extends StatelessWidget {
     required this.onTapDelete,
   }): super(key: key);
 
-  final Function onTapDelete;
+  final VoidCallback onTapDelete;
   
   @override
   Widget build(BuildContext context) {
