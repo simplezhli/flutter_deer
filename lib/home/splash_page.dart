@@ -50,7 +50,7 @@ class _SplashPageState extends State<SplashPage> {
       DesktopWindow.setWindowSize(const Size(400, 800));
     }
     if (Device.isAndroid) {
-      final QuickActions quickActions = QuickActions();
+      const QuickActions quickActions = QuickActions();
       quickActions.initialize((String shortcutType) async {
         if (shortcutType == 'demo') {
           AppNavigator.pushReplacement(context, const DemoPage());

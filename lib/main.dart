@@ -85,7 +85,7 @@ class MyApp extends StatelessWidget {
 
   void initQuickActions() {
     if (Device.isMobile) {
-      final QuickActions quickActions = QuickActions();
+      const QuickActions quickActions = QuickActions();
       if (Device.isIOS) {
         // Android每次是重新启动activity，所以放在了splash_page处理。
         // 总体来说使用不方便，这种动态的方式在安卓中局限性高。这里仅做练习使用。
