@@ -31,11 +31,11 @@ class SelectedImageState extends State<SelectedImage> {
 
   final ImagePicker _picker = ImagePicker();
   ImageProvider? _imageProvider;
-  PickedFile? pickedFile;
+  XFile? pickedFile;
 
   Future<void> _getImage() async {
     try {
-      pickedFile = await _picker.getImage(source: ImageSource.gallery, maxWidth: 800);
+      pickedFile = await _picker.pickImage(source: ImageSource.gallery, maxWidth: 800);
       if (pickedFile != null) {
 
         if (Device.isWeb) {
