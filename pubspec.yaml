@@ -55,7 +55,7 @@ dependencies:
   # 状态管理 https://github.com/rrousselGit/provider
   provider: ^5.0.0
   # 扫码 https://github.com/juliuscanute/qr_code_scanner
-  qr_code_scanner: 0.5.1
+  qr_code_scanner: 0.5.2
   # App Shortcuts https://github.com/flutter/plugins/tree/master/packages/quick_actions
   quick_actions: 0.6.0+3
   # 振动（支持Web） https://github.com/benjamindean/flutter_vibration
