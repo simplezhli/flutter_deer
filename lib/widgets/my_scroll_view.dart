@@ -56,7 +56,7 @@ class MyScrollView extends StatelessWidget {
         isDialog: bottomButton != null,
         overscroll: overScroll,
         config: keyboardConfig!,
-        tapOutsideToDismiss: tapOutsideToDismiss,
+        tapOutsideBehavior: tapOutsideToDismiss ? TapOutsideBehavior.opaqueDismiss : TapOutsideBehavior.none,
         child: contents
       );
 
