@@ -83,9 +83,10 @@ class _OverlayDemoPageState extends State<OverlayDemoPage> {
           isShowIndicator: Application.navigatorObserver.list.isEmpty,
           selectedCallback: (position) {
             /// 返回主页
-            Application.navigatorObserver.list.forEach((route) {
+            void removeRoute(Route route) {
               Navigator.removeRoute(context, route);
-            });
+            }
+            Application.navigatorObserver.list.forEach(removeRoute);
             /// 手动清空
             Application.navigatorObserver.list = [];
           },

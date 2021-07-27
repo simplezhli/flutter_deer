@@ -63,11 +63,12 @@ class DioUtils {
 //      client.badCertificateCallback =
 //          (X509Certificate cert, String host, int port) => true;
 //    };
-    
+
     /// 添加拦截器
-    _interceptors.forEach((interceptor) {
+    void addInterceptor(Interceptor interceptor) {
       _dio.interceptors.add(interceptor);
-    });
+    }
+    _interceptors.forEach(addInterceptor);
   }
 
   static final DioUtils _singleton = DioUtils._();

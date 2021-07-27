@@ -52,8 +52,9 @@ class Routes {
     _listRouter.add(StatisticsRouter());
   
     /// 初始化路由
-    _listRouter.forEach((routerProvider) {
+    void initRouter(IRouterProvider routerProvider) {
       routerProvider.initRouter(router);
-    });
+    }
+    _listRouter.forEach(initRouter);
   }
 }

@@ -275,11 +275,12 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
   
   List<Widget> _buildWeeks() {
     final List<Widget> widgets = [];
-    _weeks.forEach((str) {
+    void addWidget(String str) {
       widgets.add(Center(
         child: Text(str, style: Theme.of(context).textTheme.subtitle2),
       ));
-    });
+    }
+    _weeks.forEach(addWidget);
     return widgets;
   }
 
@@ -292,7 +293,8 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
       list = date.DateUtils.daysInWeek(_selectedDay);
     }
     dayWidgets.addAll(_buildWeeks());
-    list.forEach((day) {
+
+    void addButton(DateTime day) {
       dayWidgets.add(
         Center(
           child: SelectedDateButton(
@@ -311,13 +313,15 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
           ),
         ),
       );
-    });
+    }
+
+    list.forEach(addButton);
     return dayWidgets;
   }
 
   List<Widget> _builderYearCalendar() {
     final List<Widget> monthWidgets = [];
-    _monthList.forEach((month) {
+    void addButton(int month) {
       monthWidgets.add(
         Center(
           child: SelectedDateButton(
@@ -333,13 +337,15 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
           ),
         ),
       );
-    });
+    }
+    _monthList.forEach(addButton);
     return monthWidgets;
   }
   
   List<Widget> _builderWeekCalendar() {
     final List<Widget> dayWidgets = [];
-    _weeksDays.forEach((day) {
+
+    void addButton(DateTime day) {
       dayWidgets.add(
         Center(
           child: SelectedDateButton(
@@ -354,8 +360,10 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
             },
           ),
         ),
-      );       
-    });
+      );
+    }
+    _weeksDays.forEach(addButton);
     return dayWidgets;
   }
+
 }

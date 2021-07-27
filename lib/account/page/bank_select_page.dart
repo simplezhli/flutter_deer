@@ -48,9 +48,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
     // 获取城市列表
     rootBundle.loadString(widget.type == 0 ? 'assets/data/bank.json' : 'assets/data/bank_2.json').then((String value) {
       final List<dynamic> list = json.decode(value) as List<dynamic>;
-      list.forEach((dynamic value) {
-        _bankList.add(BankEntity().fromJson(value as Map<String, dynamic>));
-      });
+      list.forEach(_addBank);
       SuspensionUtil.sortListBySuspensionTag(_bankList);
       SuspensionUtil.setShowSuspensionStatus(_bankList);
       _indexBarData = _bankList.map((BankEntity e) {
@@ -69,6 +67,10 @@ class _BankSelectPageState extends State<BankSelectPage> {
        
       });
     });
+  }
+
+  void _addBank(dynamic value) {
+    _bankList.add(BankEntity().fromJson(value as Map<String, dynamic>));
   }
   
   @override
