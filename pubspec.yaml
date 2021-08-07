@@ -21,7 +21,7 @@ dependencies:
   # Localization https://github.com/dart-lang/intl
   intl: ^0.17.0
   # Toast插件 https://github.com/OpenFlutter/flutter_oktoast
-  oktoast: ^3.0.0
+  oktoast: ^3.1.1
   # 网络库 https://github.com/flutterchina/dio
   dio: ^4.0.0
   # https://github.com/ReactiveX/rxdart
@@ -35,13 +35,13 @@ dependencies:
   # 启动URL的插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/url_launcher
   url_launcher: 6.0.9
   # 图片选择插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/image_picker
-  image_picker: 0.8.2
+  image_picker: 0.8.3+1
   # 侧滑删除 https://github.com/letsar/flutter_slidable
   flutter_slidable: ^0.6.0
   # WebView插件 https://github.com/flutter/plugins/tree/master/packages/webview_flutter
   webview_flutter: 2.0.10
   # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions
-  keyboard_actions: ^3.4.1
+  keyboard_actions: ^3.4.3
   # 列表悬浮头 https://github.com/fluttercommunity/flutter_sticky_headers
   sticky_headers: ^0.2.0
   # 城市选择列表 https://github.com/flutterchina/azlistview
