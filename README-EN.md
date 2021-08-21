@@ -24,7 +24,7 @@ The effect of some pages is as follows:
 ## Content
 
 * mvp mode
-* Use `provider`(version 5.x) for state management
+* Use `provider`(version 6.x) for state management
 * Network request encapsulation based on `dio` (version 4.x)
 * Driver testing, accessibility testing.
 * Support dark mode

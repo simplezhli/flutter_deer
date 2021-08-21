@@ -35,11 +35,11 @@ dependencies:
   # 启动URL的插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/url_launcher
   url_launcher: 6.0.9
   # 图片选择插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/image_picker
-  image_picker: 0.8.3+1
+  image_picker: 0.8.3+2
   # 侧滑删除 https://github.com/letsar/flutter_slidable
   flutter_slidable: ^0.6.0
   # WebView插件 https://github.com/flutter/plugins/tree/master/packages/webview_flutter
-  webview_flutter: 2.0.10
+  webview_flutter: 2.0.12
   # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions
   keyboard_actions: ^3.4.3
   # 列表悬浮头 https://github.com/fluttercommunity/flutter_sticky_headers
@@ -53,11 +53,11 @@ dependencies:
   # 格式化String https://github.com/Naddiseo/dart-sprintf
   sprintf: ^6.0.0
   # 状态管理 https://github.com/rrousselGit/provider
-  provider: ^5.0.0
+  provider: ^6.0.0
   # 扫码 https://github.com/juliuscanute/qr_code_scanner
   qr_code_scanner: 0.5.2
   # App Shortcuts https://github.com/flutter/plugins/tree/master/packages/quick_actions
-  quick_actions: 0.6.0+3
+  quick_actions: 0.6.0+6
   # 振动（支持Web） https://github.com/benjamindean/flutter_vibration
   vibration: ^1.7.4-nullsafety.0
   # 获取当前设备信息 https://github.com/fluttercommunity/plus_plugins/tree/main/packages/device_info_plus
