@@ -2,12 +2,13 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:flutter_deer/util/device_utils.dart';
-import 'package:sp_util/sp_util.dart';
 import 'package:flutter_deer/res/constant.dart';
+import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/log_utils.dart';
-import 'package:sprintf/sprintf.dart';
 import 'package:flutter_deer/util/other_utils.dart';
+import 'package:sp_util/sp_util.dart';
+import 'package:sprintf/sprintf.dart';
+
 import 'dio_utils.dart';
 import 'error_handle.dart';
 

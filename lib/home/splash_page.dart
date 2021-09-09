@@ -1,20 +1,20 @@
 import 'dart:async';
 
+import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_deer/res/constant.dart';
 import 'package:flutter_deer/demo/demo_page.dart';
 import 'package:flutter_deer/login/login_router.dart';
+import 'package:flutter_deer/res/constant.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/app_navigator.dart';
 import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
-import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 import 'package:sp_util/sp_util.dart';
 
 class SplashPage extends StatefulWidget {

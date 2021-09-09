@@ -1,10 +1,11 @@
 import 'dart:async';
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:rxdart/rxdart.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/device_utils.dart';
+import 'package:rxdart/rxdart.dart';
 
 class ThemeUtils {
 

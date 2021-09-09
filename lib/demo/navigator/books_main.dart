@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_deer/demo/navigator/parser/route_information_parser.dart';
 import 'package:flutter_deer/demo/navigator/delegate/router_delegate.dart';
+import 'package:flutter_deer/demo/navigator/parser/route_information_parser.dart';
 
 /// https://gist.github.com/johnpryan/bbca91e23bbb4d39247fa922533be7c9
 /// https://weilu.blog.csdn.net/article/details/108902282

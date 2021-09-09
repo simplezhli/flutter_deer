@@ -4,9 +4,9 @@ import 'package:flutter_deer/account/widgets/withdrawal_password_setting.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/other_utils.dart';
-import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:flutter_deer/widgets/base_dialog.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
+import 'package:flutter_deer/widgets/my_app_bar.dart';
 
 /// design/6店铺-账户/index.html#artboard20
 class WithdrawalPasswordPage extends StatefulWidget {

@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/constant.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/util/toast_utils.dart';
-import 'package:keyboard_actions/keyboard_actions_item.dart';
 import 'package:keyboard_actions/keyboard_actions_config.dart';
+import 'package:keyboard_actions/keyboard_actions_item.dart';
 import 'package:sp_util/sp_util.dart';
 import 'package:url_launcher/url_launcher.dart';
 

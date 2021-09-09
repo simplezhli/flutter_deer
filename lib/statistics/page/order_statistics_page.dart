@@ -4,13 +4,13 @@ import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/statistics/widgets/selected_date.dart';
+import 'package:flutter_deer/util/date_utils.dart' as date;
 import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
-import 'package:flutter_deer/widgets/my_app_bar.dart';
-import 'package:flutter_deer/widgets/load_image.dart';
-import 'package:flutter_deer/widgets/my_card.dart';
 import 'package:flutter_deer/widgets/bezier_chart/bezier_chart.dart';
-import 'package:flutter_deer/util/date_utils.dart' as date;
+import 'package:flutter_deer/widgets/load_image.dart';
+import 'package:flutter_deer/widgets/my_app_bar.dart';
+import 'package:flutter_deer/widgets/my_card.dart';
 
 /// design/5统计/index.html#artboard1
 /// design/5统计/index.html#artboard6
@@ -104,7 +104,6 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
 //                      ),
                       AnimatedSize(
                         child: _buildCalendar(),
-                        vsync: this,
                         curve: Curves.decelerate,
                         duration: const Duration(milliseconds: 300),
                       ),

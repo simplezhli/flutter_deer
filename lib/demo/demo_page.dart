@@ -27,7 +27,7 @@ class _DemoPageState extends State<DemoPage> {
     super.initState();
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       /// 显示状态栏和导航栏(使用QuickActions进入demo页)
-      SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top, SystemUiOverlay.bottom]);
+      SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom]);
     });
   }
 

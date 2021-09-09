@@ -1,19 +1,19 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_2d_amap/flutter_2d_amap.dart';
+import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/shop/shop_router.dart';
-import 'package:flutter_deer/util/other_utils.dart';
 import 'package:flutter_deer/store/store_router.dart';
+import 'package:flutter_deer/util/other_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
+import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/my_scroll_view.dart';
 import 'package:flutter_deer/widgets/selected_image.dart';
 import 'package:flutter_deer/widgets/selected_item.dart';
 import 'package:flutter_deer/widgets/text_field_item.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
 
 

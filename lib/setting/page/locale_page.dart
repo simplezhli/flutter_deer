@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/constant.dart';
 import 'package:flutter_deer/setting/provider/locale_provider.dart';
 import 'package:flutter_deer/util/toast_utils.dart';
-import 'package:sp_util/sp_util.dart';
 import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:provider/provider.dart';
+import 'package:sp_util/sp_util.dart';
 
 class LocalePage extends StatefulWidget {
 

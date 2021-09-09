@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_deer/goods/models/goods_sort_entity.dart';
 import 'package:flutter_deer/generated/json/base/json_convert_content.dart';
+import 'package:flutter_deer/goods/models/goods_sort_entity.dart';
 
 class GoodsSortProvider extends ChangeNotifier {
 

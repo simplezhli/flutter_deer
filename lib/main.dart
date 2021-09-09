@@ -2,24 +2,24 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_deer/res/constant.dart';
+import 'package:flutter_deer/demo/demo_page.dart';
+import 'package:flutter_deer/home/splash_page.dart';
 import 'package:flutter_deer/net/dio_utils.dart';
 import 'package:flutter_deer/net/intercept.dart';
-import 'package:flutter_deer/setting/provider/locale_provider.dart';
-import 'package:flutter_deer/setting/provider/theme_provider.dart';
+import 'package:flutter_deer/res/constant.dart';
 import 'package:flutter_deer/routers/not_found_page.dart';
 import 'package:flutter_deer/routers/routers.dart';
+import 'package:flutter_deer/setting/provider/locale_provider.dart';
+import 'package:flutter_deer/setting/provider/theme_provider.dart';
 import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/handle_error_utils.dart';
 import 'package:flutter_deer/util/log_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_gen/gen_l10n/deer_localizations.dart';
 import 'package:oktoast/oktoast.dart';
-import 'package:flutter_deer/home/splash_page.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:sp_util/sp_util.dart';
-import 'package:flutter_deer/demo/demo_page.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 Future<void> main() async {
@@ -44,7 +44,7 @@ Future<void> main() async {
   handleError(runApp(MyApp()));
 
   /// 隐藏状态栏。为启动页、引导页设置。完成后修改回显示状态栏。
-  SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom]);
   // TODO(weilu): 启动体验不佳。状态栏、导航栏在冷启动开始的一瞬间为黑色，且无法通过隐藏、修改颜色等方式进行处理。。。
   // 相关问题跟踪：https://github.com/flutter/flutter/issues/73351
 }

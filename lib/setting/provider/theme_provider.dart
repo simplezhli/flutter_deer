@@ -1,11 +1,11 @@
 import 'dart:ui';
 
-import 'package:flutter_deer/routers/web_page_transitions.dart';
-import 'package:sp_util/sp_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/constant.dart';
 import 'package:flutter_deer/res/resources.dart';
+import 'package:flutter_deer/routers/web_page_transitions.dart';
+import 'package:sp_util/sp_util.dart';
 
 extension ThemeModeExtension on ThemeMode {
   String get value => <String>['System', 'Light', 'Dark'][index];
