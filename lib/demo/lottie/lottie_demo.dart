@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_deer/demo/lottie/bunny.dart';
 import 'package:lottie/lottie.dart';
 
@@ -42,7 +43,7 @@ class _LottieDemoState extends State<LottieDemo> with TickerProviderStateMixin {
 
     final Widget content = Scaffold(
       appBar: AppBar(
-        brightness: Brightness.dark,
+        systemOverlayStyle: SystemUiOverlayStyle.light,
         backgroundColor: _backgroundColor,
         title: const Text('Lottie Demo', style: TextStyle(color: _textColor),),
         iconTheme: const IconThemeData(color: _textColor),
@@ -106,12 +107,12 @@ class _LottieDemoState extends State<LottieDemo> with TickerProviderStateMixin {
     return Theme(
       data: ThemeData(
         primaryColor: _primaryColor,
-        accentColor: _primaryColor,
         textSelectionTheme: TextSelectionThemeData(
           selectionColor: _primaryColor.withAlpha(70),
           selectionHandleColor: _primaryColor,  // 覆盖`selectionHandleColor`不起作用 https://github.com/flutter/flutter/issues/74890
           cursorColor: _primaryColor,
         ),
+        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: _primaryColor),
       ),
       child: content,
     );

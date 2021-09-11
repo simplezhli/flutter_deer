@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_deer/order/page/order_page.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
@@ -39,7 +40,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
     isDark = context.isDark;
     return <Widget>[
       SliverAppBar(
-        brightness: Brightness.dark,
+        systemOverlayStyle: SystemUiOverlayStyle.light,
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         centerTitle: true,

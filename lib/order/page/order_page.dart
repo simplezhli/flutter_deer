@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_deer/order/page/order_list_page.dart';
 import 'package:flutter_deer/order/provider/order_page_provider.dart';
 import 'package:flutter_deer/res/resources.dart';
@@ -117,7 +118,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
       SliverOverlapAbsorber(
         handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
         sliver: SliverAppBar(
-          brightness: Brightness.dark,
+          systemOverlayStyle: SystemUiOverlayStyle.light,
           actions: <Widget>[
             IconButton(
               onPressed: () {
