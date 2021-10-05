@@ -79,7 +79,7 @@ class _MyTextFieldState extends State<MyTextField> {
 
   Future _getVCode() async {
     final bool isSuccess = await widget.getVCode!();
-    if (isSuccess != null && isSuccess) {
+    if (isSuccess) {
       setState(() {
         _currentSecond = _second;
         _clickable = false;

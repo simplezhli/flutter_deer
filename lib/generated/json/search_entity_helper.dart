@@ -19,7 +19,7 @@ Map<String, dynamic> searchEntityToJson(SearchEntity entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	data['total_count'] = entity.totalCount;
 	data['incomplete_results'] = entity.incompleteResults;
-	data['items'] =  entity.items?.map((v) => v.toJson())?.toList();
+	data['items'] =  entity.items?.map((v) => v.toJson()).toList();
 	return data;
 }
 

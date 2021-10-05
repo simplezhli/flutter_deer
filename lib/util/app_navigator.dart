@@ -28,7 +28,7 @@ class AppNavigator {
       context,
       MaterialPageRoute(
         builder: (BuildContext context) => scene,
-      ), (route) => route == null
+      ), (route) => false
     );
   }
 

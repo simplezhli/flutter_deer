@@ -12,8 +12,7 @@ class SelectedDateButton extends StatelessWidget {
     this.enable = true,
     this.onTap,
     this.semanticsLabel
-  }): assert(unSelectedTextColor != null, 'The [unSelectedTextColor] argument must not be null.'),
-      super(key: key);
+  }): super(key: key);
 
   final String text;
   final double fontSize;

@@ -30,7 +30,7 @@ class Device {
     if (Constant.isDriverTest) {
       return -1;
     }
-    if (isAndroid && _androidInfo != null) {
+    if (isAndroid) {
       return _androidInfo.version.sdkInt ?? -1;
     } else {
       return -1;

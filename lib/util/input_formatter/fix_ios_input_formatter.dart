@@ -19,7 +19,7 @@ class FixIOSTextInputFormatter extends TextInputFormatter {
 
     if (Platform.isIOS) {
       // ios Composing变化也执行format，因为在拼音阶段没有执行LengthLimitingTextInputFormatter，从拼音到汉字需要重新执行
-      if (newValue != null && newValue.composing != null && newValue.composing.isValid) {
+      if (newValue.composing.isValid) {
         // ios拼音阶段不执行长度限制的format
         return TextEditingValue.empty;
       }

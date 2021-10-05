@@ -17,9 +17,7 @@ class MySingleChildScrollView extends StatelessWidget {
     this.controller,
     required this.child,
     this.dragStartBehavior = DragStartBehavior.start,
-  })  : assert(scrollDirection != null),
-        assert(dragStartBehavior != null),
-        assert(
+  })  : assert(
             !(controller != null && primary == true),
             'Primary ScrollViews obtain their ScrollController via inheritance from a PrimaryScrollController widget. '
             'You cannot both set primary to true and pass an explicit controller.'),
@@ -126,8 +124,7 @@ class _SingleChildViewport extends SingleChildRenderObjectWidget {
     this.axisDirection = AxisDirection.down,
     required this.offset,
     Widget? child,
-  })  : assert(axisDirection != null),
-        super(key: key, child: child);
+  })  : super(key: key, child: child);
 
   final AxisDirection axisDirection;
   final ViewportOffset offset;
@@ -158,10 +155,7 @@ class _RenderSingleChildViewport extends RenderBox
     required ViewportOffset offset,
     double cacheExtent = RenderAbstractViewport.defaultCacheExtent,
     RenderBox? child,
-  })  : assert(axisDirection != null),
-        assert(offset != null),
-        assert(cacheExtent != null),
-        _axisDirection = axisDirection,
+  })  : _axisDirection = axisDirection,
         _offset = offset,
         _cacheExtent = cacheExtent {
     this.child = child;
@@ -170,7 +164,6 @@ class _RenderSingleChildViewport extends RenderBox
   AxisDirection get axisDirection => _axisDirection;
   AxisDirection _axisDirection;
   set axisDirection(AxisDirection value) {
-    assert(value != null);
     if (value == _axisDirection) return;
     _axisDirection = value;
     markNeedsLayout();
@@ -181,7 +174,6 @@ class _RenderSingleChildViewport extends RenderBox
   ViewportOffset get offset => _offset;
   ViewportOffset _offset;
   set offset(ViewportOffset value) {
-    assert(value != null);
     if (value == _offset) return;
     if (attached) _offset.removeListener(_hasScrolled);
     _offset = value;
@@ -193,7 +185,6 @@ class _RenderSingleChildViewport extends RenderBox
   double get cacheExtent => _cacheExtent;
   double _cacheExtent;
   set cacheExtent(double value) {
-    assert(value != null);
     if (value == _cacheExtent) return;
     _cacheExtent = value;
     markNeedsLayout();
@@ -311,7 +302,6 @@ class _RenderSingleChildViewport extends RenderBox
   Offset get _paintOffset => _paintOffsetForPosition(offset.pixels);
 
   Offset _paintOffsetForPosition(double position) {
-    assert(axisDirection != null);
     switch (axisDirection) {
       case AxisDirection.up:
         return Offset(0.0, position - child!.size.height + size.height);
@@ -357,7 +347,7 @@ class _RenderSingleChildViewport extends RenderBox
 
   @override
   Rect? describeApproximatePaintClip(RenderObject child) {
-    if (child != null && _shouldClipAtPaintOffset(_paintOffset))
+    if (_shouldClipAtPaintOffset(_paintOffset))
       return Offset.zero & size;
     return null;
   }
@@ -378,7 +368,7 @@ class _RenderSingleChildViewport extends RenderBox
     if (target is! RenderBox)
       return RevealedOffset(offset: offset.pixels, rect: rect);
 
-    final RenderBox targetBox = target as RenderBox;
+    final RenderBox targetBox = target;
     final Matrix4 transform = targetBox.getTransformTo(this);
     final Rect bounds = MatrixUtils.transformRect(transform, rect);
     final Size contentSize = child!.size;
@@ -387,7 +377,6 @@ class _RenderSingleChildViewport extends RenderBox
     double targetMainAxisExtent;
     double mainAxisExtent;
 
-    assert(axisDirection != null);
     switch (axisDirection) {
       case AxisDirection.up:
         mainAxisExtent = size.height;
@@ -450,7 +439,6 @@ class _RenderSingleChildViewport extends RenderBox
 
   @override
   Rect describeSemanticsClip(RenderObject child) {
-    assert(axis != null);
     switch (axis) {
       case Axis.vertical:
         return Rect.fromLTRB(

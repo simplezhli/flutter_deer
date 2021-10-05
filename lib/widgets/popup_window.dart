@@ -20,7 +20,6 @@ Future<T?> showPopupWindow<T>({
   String? semanticLabel,
   bool isShowBg = false,
 }) {
-  assert(context != null);
 
   switch (defaultTargetPlatform) {
     case TargetPlatform.iOS:
@@ -219,7 +218,6 @@ class _PopupWindowLayoutDelegate extends SingleChildLayoutDelegate {
       x = position.left;
     } else {
       // Menu button is equidistant from both edges, so grow in reading direction.
-      assert(textDirection != null);
       switch (textDirection) {
         case TextDirection.rtl:
           x = size.width - position.right - childSize.width;

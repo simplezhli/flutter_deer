@@ -33,8 +33,7 @@ class MyFlexibleSpaceBar extends StatefulWidget {
     this.centerTitle,
     this.titlePadding,
     this.collapseMode = CollapseMode.parallax,
-  }) : assert(collapseMode != null),
-        super(key: key);
+  }) : super(key: key);
 
   /// The primary contents of the flexible space bar when expanded.
   ///
@@ -93,7 +92,6 @@ class MyFlexibleSpaceBar extends StatefulWidget {
     required double currentExtent,
     required Widget child,
   }) {
-    assert(currentExtent != null);
     return FlexibleSpaceBarSettings(
       toolbarOpacity: toolbarOpacity ?? 1.0,
       minExtent: minExtent ?? currentExtent,
@@ -111,7 +109,6 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
   bool _getEffectiveCenterTitle(ThemeData theme) {
     if (widget.centerTitle != null)
       return widget.centerTitle!;
-    assert(theme.platform != null);
     switch (theme.platform) {
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
@@ -128,7 +125,6 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
     if (effectiveCenterTitle)
       return Alignment.bottomCenter;
     final TextDirection textDirection = Directionality.of(context);
-    assert(textDirection != null);
     switch (textDirection) {
       case TextDirection.rtl:
         return Alignment.bottomRight;
@@ -167,7 +163,6 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     final FlexibleSpaceBarSettings settings = context.dependOnInheritedWidgetOfExactType<FlexibleSpaceBarSettings>()!;
-    assert(settings != null, 'A FlexibleSpaceBar must be wrapped in the widget returned by FlexibleSpaceBar.createSettings().');
 
     final List<Widget> children = <Widget>[];
 

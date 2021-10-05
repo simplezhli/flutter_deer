@@ -14,8 +14,7 @@ class LoadImage extends StatelessWidget {
     this.holderImg = 'none',
     this.cacheWidth,
     this.cacheHeight,
-  }) : assert(image != null, 'The [image] argument must not be null.'),
-       super(key: key);
+  }) : super(key: key);
   
   final String image;
   final double? width;

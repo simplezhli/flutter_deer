@@ -113,7 +113,7 @@ class BasePagePresenter<V extends IMvpView> extends BasePresenter<V> {
       view.showToast(msg);
     }
     /// 页面如果dispose，则不回调onError
-    if (onError != null && view.getContext() != null) {
+    if (onError != null) {
       onError(code, msg);
     }
   }

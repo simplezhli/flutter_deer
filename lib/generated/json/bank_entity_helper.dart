@@ -1,5 +1,4 @@
 import 'package:flutter_deer/account/models/bank_entity.dart';
-import 'package:azlistview/azlistview.dart';
 
 bankEntityFromJson(BankEntity data, Map<String, dynamic> json) {
 	if (json['id'] != null) {

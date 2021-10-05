@@ -148,9 +148,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> with Tick
     });
     controller.forward(from: 0.0);
     
-    if (widget.selectedCallback != null) {
-      widget.selectedCallback(selectedPosition);
-    }
+    widget.selectedCallback(selectedPosition);
   }
 
   @override

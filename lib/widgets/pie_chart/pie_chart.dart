@@ -13,9 +13,7 @@ class PieChart extends StatefulWidget {
     Key? key,
     required this.data,
     required this.name
-  }) : assert(data != null, 'The [data] argument must not be null.'),
-       assert(name != null, 'The [name] argument must not be null.'),
-       super(key: key);
+  }) : super(key: key);
   
   final List<PieData> data;
   final String name;
@@ -114,7 +112,7 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
 class PieChartPainter extends CustomPainter {
   
   PieChartPainter(this.data, double angleFactor, this.bgColor, this.name, this.count) {
-    if (data.length == null || data.isEmpty) {
+    if (data.isEmpty) {
       return;
     }
     int count = 0;
@@ -164,7 +162,7 @@ class PieChartPainter extends CustomPainter {
   
   @override
   void paint(Canvas canvas, Size size) {
-    if (data.length == null || data.isEmpty) {
+    if (data.isEmpty) {
       return;
     }
     prevAngle = -math.pi;

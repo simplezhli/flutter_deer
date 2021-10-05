@@ -1,5 +1,4 @@
 import 'package:flutter_deer/account/models/city_entity.dart';
-import 'package:azlistview/azlistview.dart';
 
 cityEntityFromJson(CityEntity data, Map<String, dynamic> json) {
 	if (json['name'] != null) {
