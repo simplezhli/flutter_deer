@@ -1,7 +1,7 @@
 name: flutter_deer
 description: Flutter Deer
 
-version: 1.2.0+18
+version: 1.2.1+19
 # 唯鹿 <a05111993@163.com>
 homepage: https://weilu.blog.csdn.net/
 
@@ -67,7 +67,7 @@ dependencies:
   # 高德2D地图插件（支持Web） https://github.com/simplezhli/flutter_2d_amap
   flutter_2d_amap:
     git:
-      ref: '3d4d188'
+      ref: '02a0be19'
       url: 'https://github.com/simplezhli/flutter_2d_amap.git'
   # demo 用到的库
   # 刮刮卡 https://github.com/vintage/scratcher
