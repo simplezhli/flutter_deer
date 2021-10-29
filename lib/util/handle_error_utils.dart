@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_deer/res/constant.dart';
 
 /// 捕获全局异常，进行统一处理。
-void handleError(void body) {
+void handleError(void Function() body) {
   /// 重写Flutter异常回调 FlutterError.onError
   FlutterError.onError = (FlutterErrorDetails details) {
     if (!Constant.inProduction) {
@@ -17,7 +17,7 @@ void handleError(void body) {
   };
 
   /// 使用runZonedGuarded捕获Flutter未捕获的异常
-  runZonedGuarded(() => body, (Object error, StackTrace stackTrace) async {
+  runZonedGuarded(body, (Object error, StackTrace stackTrace) async {
     await _reportError(error, stackTrace);
   });
 
