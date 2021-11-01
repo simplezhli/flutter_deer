@@ -23,7 +23,7 @@ dependencies:
   # Toast插件 https://github.com/OpenFlutter/flutter_oktoast
   oktoast: ^3.1.3+1
   # 网络库 https://github.com/flutterchina/dio
-  dio: ^4.0.0
+  dio: ^4.0.1
   # https://github.com/ReactiveX/rxdart
   rxdart: ^0.27.2
   # Dart 常用工具类库 https://github.com/Sky24n/common_utils
@@ -55,13 +55,13 @@ dependencies:
   # 状态管理 https://github.com/rrousselGit/provider
   provider: ^6.0.1
   # 扫码 https://github.com/juliuscanute/qr_code_scanner
-  qr_code_scanner: 0.5.2
+  qr_code_scanner: 0.6.0
   # App Shortcuts https://github.com/flutter/plugins/tree/master/packages/quick_actions
   quick_actions: 0.6.0+7
   # 振动（支持Web） https://github.com/benjamindean/flutter_vibration
   vibration: ^1.7.4-nullsafety.0
   # 获取当前设备信息 https://github.com/fluttercommunity/plus_plugins/tree/main/packages/device_info_plus
-  device_info_plus: 2.2.0
+  device_info_plus: 3.1.0
   # 改变桌面端窗口大小(MacOS/Linux/Windows) https://github.com/mix1009/desktop_window
   desktop_window: 0.4.0
   # 高德2D地图插件（支持Web） https://github.com/simplezhli/flutter_2d_amap

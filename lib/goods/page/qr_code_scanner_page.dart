@@ -84,7 +84,7 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
     controller.scannedDataStream.listen((scanData) {
       /// 避免扫描结果多次回调
       controller.dispose();
-      NavigatorUtils.goBackWithParams(context, scanData.code);
+      NavigatorUtils.goBackWithParams(context, scanData.code ?? '');
     });
   }
 
