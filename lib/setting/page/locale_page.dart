@@ -1,13 +1,15 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_deer/common/common.dart';
-import 'package:flutter_deer/provider/locale_provider.dart';
-import 'package:flutter_deer/util/toast.dart';
-import 'package:sp_util/sp_util.dart';
+import 'package:flutter_deer/res/constant.dart';
+import 'package:flutter_deer/setting/provider/locale_provider.dart';
+import 'package:flutter_deer/util/toast_utils.dart';
 import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:provider/provider.dart';
+import 'package:sp_util/sp_util.dart';
 
 class LocalePage extends StatefulWidget {
+
+  const LocalePage({Key? key}) : super(key: key);
+
   @override
   _LocalePageState createState() => _LocalePageState();
 }
@@ -18,7 +20,7 @@ class _LocalePageState extends State<LocalePage> {
 
   @override
   Widget build(BuildContext context) {
-    final String locale = SpUtil.getString(Constant.locale);
+    final String? locale = SpUtil.getString(Constant.locale);
     String localeMode;
     switch(locale) {
       case 'zh':
@@ -44,6 +46,7 @@ class _LocalePageState extends State<LocalePage> {
               final String locale = index == 0 ? '' : (index == 1 ? 'zh' : 'en');
               context.read<LocaleProvider>().setLocale(locale);
               Toast.show('当前功能仅登录模块有效');
+              setState(() {});
             },
             child: Container(
               alignment: Alignment.centerLeft,

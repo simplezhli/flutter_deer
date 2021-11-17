@@ -1,4 +1,3 @@
-
 import 'package:fluro/fluro.dart';
 import 'package:flutter_deer/routers/i_router.dart';
 
@@ -31,20 +30,20 @@ class AccountRouter implements IRouterProvider{
   
   @override
   void initRouter(FluroRouter router) {
-    router.define(accountPage, handler: Handler(handlerFunc: (_, __) => AccountPage()));
-    router.define(accountRecordListPage, handler: Handler(handlerFunc: (_, __) => AccountRecordListPage()));
-    router.define(addWithdrawalAccountPage, handler: Handler(handlerFunc: (_, __) => AddWithdrawalAccountPage()));
+    router.define(accountPage, handler: Handler(handlerFunc: (_, __) => const AccountPage()));
+    router.define(accountRecordListPage, handler: Handler(handlerFunc: (_, __) => const AccountRecordListPage()));
+    router.define(addWithdrawalAccountPage, handler: Handler(handlerFunc: (_, __) => const AddWithdrawalAccountPage()));
     router.define(bankSelectPage, handler: Handler(handlerFunc: (_, Map<String, List<String>> params) {
-      final int type = int.parse(params['type']?.first);
+      final int type = int.parse(params['type']?.first ?? '0');
       return BankSelectPage(type: type);
     }));
-    router.define(citySelectPage, handler: Handler(handlerFunc: (_, __) => CitySelectPage()));
-    router.define(withdrawalAccountListPage, handler: Handler(handlerFunc: (_, __) => WithdrawalAccountListPage()));
-    router.define(withdrawalAccountPage, handler: Handler(handlerFunc: (_, __) => WithdrawalAccountPage()));
-    router.define(withdrawalPage, handler: Handler(handlerFunc: (_, __) => WithdrawalPage()));
-    router.define(withdrawalPasswordPage, handler: Handler(handlerFunc: (_, __) => WithdrawalPasswordPage()));
-    router.define(withdrawalRecordListPage, handler: Handler(handlerFunc: (_, __) => WithdrawalRecordListPage()));
-    router.define(withdrawalResultPage, handler: Handler(handlerFunc: (_, __) => WithdrawalResultPage()));
+    router.define(citySelectPage, handler: Handler(handlerFunc: (_, __) => const CitySelectPage()));
+    router.define(withdrawalAccountListPage, handler: Handler(handlerFunc: (_, __) => const WithdrawalAccountListPage()));
+    router.define(withdrawalAccountPage, handler: Handler(handlerFunc: (_, __) => const WithdrawalAccountPage()));
+    router.define(withdrawalPage, handler: Handler(handlerFunc: (_, __) => const WithdrawalPage()));
+    router.define(withdrawalPasswordPage, handler: Handler(handlerFunc: (_, __) => const WithdrawalPasswordPage()));
+    router.define(withdrawalRecordListPage, handler: Handler(handlerFunc: (_, __) => const WithdrawalRecordListPage()));
+    router.define(withdrawalResultPage, handler: Handler(handlerFunc: (_, __) => const WithdrawalResultPage()));
   }
   
 }

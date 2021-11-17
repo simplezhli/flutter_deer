@@ -6,7 +6,7 @@ import 'package:flutter_deer/demo/overlay/route/my_navigator_observer.dart';
 
 class OverlayDemo extends StatelessWidget {
 
-  OverlayDemo() {
+  OverlayDemo({Key? key}): super(key: key) {
     Application.navigatorObserver = MyNavigatorObserver();
   }
   // This widget is the root of your application.
@@ -17,7 +17,7 @@ class OverlayDemo extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: OverlayDemoPage(),
+      home: const OverlayDemoPage(),
       navigatorObservers: <NavigatorObserver>[
         Application.navigatorObserver
       ],

@@ -31,7 +31,7 @@
             <!-- Theme to apply as soon as Flutter begins rendering frames -->
             <meta-data
                 android:name="io.flutter.embedding.android.NormalTheme"
-                android:resource="@android:style/Theme.Black.NoTitleBar" />
+                android:resource="@style/NormalTheme" />
             
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -42,8 +42,9 @@
 
         <meta-data
             android:name="flutterEmbedding"
-            android:value="2" />        
+            android:value="2" />
 
+        <!-- 高德地图 -->
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="29017a09c0b0279853577be7df682513"/>
@@ -58,6 +59,14 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths"/>
         </provider>
-        
+
+        <meta-data android:name="android.max_aspect" android:value="2.4"/>
+        <!-- 全屏使用刘海区域-->
+        <!-- 华为 -->
+        <meta-data android:name="android.notch_support" android:value="true" />
+        <!-- 小米 Android O （https://dev.mi.com/console/doc/detail?pId=1341）-->
+        <meta-data android:name="notch.config" android:value="portrait" />
+        <!-- 其他品牌或系统版本使用官方方法，设置shortEdges-->
+
     </application>
 </manifest>

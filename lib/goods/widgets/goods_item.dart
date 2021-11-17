@@ -1,11 +1,12 @@
-
 import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/goods/models/goods_item_entity.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/theme_utils.dart';
+import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/other_utils.dart';
+import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
+import 'package:flutter_deer/widgets/my_button.dart';
 
 import 'menu_reveal.dart';
 
@@ -14,16 +15,17 @@ import 'menu_reveal.dart';
 class GoodsItem extends StatelessWidget {
   
   const GoodsItem({
-    Key key,
-    @required this.item,
-    @required this.index,
-    @required this.selectIndex,
-    @required this.onTapMenu,
-    @required this.onTapEdit,
-    @required this.onTapOperation,
-    @required this.onTapDelete,
-    @required this.onTapMenuClose,
-    @required this.animation
+    Key? key,
+    required this.item,
+    required this.index,
+    required this.selectIndex,
+    required this.onTapMenu,
+    required this.onTapEdit,
+    required this.onTapOperation,
+    required this.onTapDelete,
+    required this.onTapMenuClose,
+    required this.animation,
+    required this.heroTag,
   }): super(key: key);
 
   final GoodsItemEntity item;
@@ -35,20 +37,26 @@ class GoodsItem extends StatelessWidget {
   final VoidCallback onTapDelete;
   final VoidCallback onTapMenuClose;
   final Animation<double> animation;
+  final String heroTag;
   
   @override
   Widget build(BuildContext context) {
     final Row child = Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        ExcludeSemantics(child: LoadImage(item.icon, width: 72.0, height: 72.0)),
+        ExcludeSemantics(
+          child: Hero(
+            tag: heroTag,
+            child: LoadImage(item.icon, width: 72.0, height: 72.0),
+          ),
+        ),
         Gaps.hGap8,
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              const Text(
-                '八月十五中秋月饼礼盒',
+              Text(
+                item.type % 3 != 0 ? '八月十五中秋月饼礼盒' : '八月十五中秋月饼礼盒八月十五中秋月饼礼盒',
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -67,7 +75,7 @@ class GoodsItem extends StatelessWidget {
                     // 修改透明度实现隐藏，类似于invisible
                     opacity: item.type % 2 != 0 ? 0.0 : 1.0,
                     child: _GoodsItemTag(
-                      text: '社区币抵扣',
+                      text: '金币抵扣',
                       color: Theme.of(context).primaryColor,
                     ),
                   )
@@ -112,7 +120,7 @@ class GoodsItem extends StatelessWidget {
     return Stack(
       children: <Widget>[
         // item间的分隔线
-        Container(
+        Padding(
           padding: const EdgeInsets.only(left: 16.0, top: 16.0),
           child: DecoratedBox(
             decoration: BoxDecoration(
@@ -136,10 +144,10 @@ class GoodsItem extends StatelessWidget {
       child: AnimatedBuilder(
         animation: animation,
         child: _buildGoodsMenuContent(context),
-        builder:(_, Widget child) {
+        builder: (_, Widget? child) {
           return MenuReveal(
             revealPercent: animation.value,
-            child: child
+            child: child!
           );
         }
       ),
@@ -149,55 +157,53 @@ class GoodsItem extends StatelessWidget {
   Widget _buildGoodsMenuContent(BuildContext context) {
     final bool isDark = context.isDark;
     final Color buttonColor = isDark ? Colours.dark_text : Colors.white;
+
     return InkWell(
       onTap: onTapMenuClose,
       child: Container(
         color: isDark ? const Color(0xB34D4D4D) : const Color(0x4D000000),
-        child: Theme( // 修改button默认的最小宽度与padding
-          data: Theme.of(context).copyWith(
-            buttonTheme: ButtonThemeData(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Gaps.hGap15,
+            MyButton(
+              key: Key('goods_edit_item_$index'),
+              text: '编辑',
+              fontSize: Dimens.font_sp16,
+              radius: 24.0,
               minWidth: 56.0,
-              height: 56.0,
-              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap, // 距顶部距离为0
-              shape:RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(24.0),
-              ),
+              minHeight: 56.0,
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              textColor: isDark ? Colours.dark_button_text : Colors.white,
+              backgroundColor: isDark ? Colours.dark_app_main : Colours.app_main,
+              onPressed: onTapEdit,
             ),
-            textTheme: const TextTheme(
-              button: TextStyle(
-                fontSize: Dimens.font_sp16,
-              ),
+            MyButton(
+              key: Key('goods_operation_item_$index'),
+              text: '下架',
+              fontSize: Dimens.font_sp16,
+              radius: 24.0,
+              minWidth: 56.0,
+              minHeight: 56.0,
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              textColor: Colours.text,
+              backgroundColor: buttonColor,
+              onPressed: onTapOperation,
             ),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Gaps.hGap15,
-              FlatButton(
-                key: Key('goods_edit_item_$index'),
-                textColor: isDark ?  Colours.dark_button_text : Colors.white,
-                color: isDark ?  Colours.dark_app_main : Colours.app_main,
-                child: const Text('编辑'),
-                onPressed: onTapEdit,
-              ),
-              FlatButton(
-                key: Key('goods_operation_item_$index'),
-                textColor: Colours.text,
-                color: buttonColor,
-                child: const Text('下架'),
-                onPressed: onTapOperation,
-              ),
-              FlatButton(
-                key: Key('goods_delete_item_$index'),
-                textColor: Colours.text,
-                color: buttonColor,
-                child: const Text('删除'),
-                onPressed: onTapDelete,
-              ),
-              Gaps.hGap15,
-            ],
-          ),
+            MyButton(
+              key: Key('goods_delete_item_$index'),
+              text: '删除',
+              fontSize: Dimens.font_sp16,
+              radius: 24.0,
+              minWidth: 56.0,
+              minHeight: 56.0,
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              textColor: Colours.text,
+              backgroundColor: buttonColor,
+              onPressed: onTapDelete,
+            ),
+            Gaps.hGap15,
+          ],
         ),
       ),
     );
@@ -207,12 +213,12 @@ class GoodsItem extends StatelessWidget {
 class _GoodsItemTag extends StatelessWidget {
   
   const _GoodsItemTag({
-    Key key,
-    this.color,
-    this.text,
+    Key? key,
+    required this.color,
+    required this.text,
   }): super(key: key);
 
-  final Color color;
+  final Color? color;
   final String text;
   
   @override
@@ -228,9 +234,10 @@ class _GoodsItemTag extends StatelessWidget {
       alignment: Alignment.center,
       child: Text(
         text,
-        style: const TextStyle(
+        style: TextStyle(
           color: Colors.white,
           fontSize: Dimens.font_sp10,
+          height: Device.isAndroid ? 1.1 : null,
         ),
       ),
     );

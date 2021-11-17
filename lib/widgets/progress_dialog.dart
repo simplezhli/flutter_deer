@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
@@ -7,7 +6,7 @@ import 'package:flutter_deer/res/resources.dart';
 class ProgressDialog extends Dialog {
 
   const ProgressDialog({
-    Key key,
+    Key? key,
     this.hintText = '',
   }):super(key: key);
 

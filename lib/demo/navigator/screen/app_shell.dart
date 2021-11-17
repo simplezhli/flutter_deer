@@ -6,8 +6,9 @@ import 'package:flutter_deer/demo/navigator/delegate/inner_router_delegate.dart'
 class AppShell extends StatefulWidget {
 
   const AppShell({
-    @required this.appState,
-  });
+    Key? key,
+    required this.appState,
+  }): super(key: key);
 
   final BooksAppState appState;
 
@@ -16,8 +17,8 @@ class AppShell extends StatefulWidget {
 }
 
 class _AppShellState extends State<AppShell> {
-  InnerRouterDelegate _routerDelegate;
-  ChildBackButtonDispatcher _backButtonDispatcher;
+  late InnerRouterDelegate _routerDelegate;
+  late ChildBackButtonDispatcher _backButtonDispatcher;
 
   @override
   void initState() {
@@ -36,7 +37,7 @@ class _AppShellState extends State<AppShell> {
     super.didChangeDependencies();
     // Defer back button dispatching to the child router
     _backButtonDispatcher = Router.of(context)
-        .backButtonDispatcher
+        .backButtonDispatcher!
         .createChildBackButtonDispatcher();
   }
 

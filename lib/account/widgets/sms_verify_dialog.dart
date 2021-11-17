@@ -1,4 +1,3 @@
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -6,14 +5,19 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/screen_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
-import 'package:flutter_deer/util/toast.dart';
+import 'package:flutter_deer/util/toast_utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
+import 'package:flutter_deer/widgets/my_button.dart';
 
 /// design/6店铺-账户/index.html#artboard23
 /// 骚操作：借腹生子
 class SMSVerifyDialog extends StatefulWidget {
+
+  const SMSVerifyDialog({Key? key}) : super(key: key);
+
   @override
   _SMSVerifyDialogState createState() => _SMSVerifyDialogState();
 }
@@ -23,8 +27,8 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
   /// 倒计时秒数
   final int _second = 60;
   /// 当前秒数
-  int _currentSecond;
-  StreamSubscription _subscription;
+  late int _currentSecond;
+  StreamSubscription? _subscription;
   bool _clickable = true;
 
   final FocusNode _focusNode = FocusNode();
@@ -126,7 +130,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                     /// https://github.com/flutter/flutter/issues/47191
                     /// https://github.com/flutter/flutter/pull/57264 
                     /// 1.19.0已修复，小于此版本需添加addPostFrameCallback处理，否则会错误触发onChanged。
-                    SchedulerBinding.instance.addPostFrameCallback((_) {
+                    SchedulerBinding.instance!.addPostFrameCallback((_) {
                       _controller.clear();
                     });
                   }
@@ -160,47 +164,58 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
         ),
         Gaps.vGap16,
         Gaps.line,
-        Container(
-          width: double.infinity,
-          height: 48.0,
-          child: FlatButton(
-            child: Text(_clickable ? '获取验证码' : '已发送($_currentSecond s)', style: const TextStyle(fontSize: Dimens.font_sp18)),
-            textColor: textColor,
-            disabledTextColor: Colours.text_gray,
-            onPressed: _clickable ? () {
+        MyButton(
+          text: _clickable ? '获取验证码' : '已发送($_currentSecond s)',
+          textColor: textColor,
+          disabledTextColor: Colours.text_gray,
+          backgroundColor: Colors.transparent,
+          disabledBackgroundColor: Colors.transparent,
+          onPressed: _clickable ? () {
+            setState(() {
+              _currentSecond = _second;
+              _clickable = false;
+            });
+            _subscription = Stream.periodic(const Duration(seconds: 1), (i) => i).take(_second).listen((i) {
               setState(() {
-                _currentSecond = _second;
-                _clickable = false;
+                _currentSecond = _second - i - 1;
+                _clickable = _currentSecond < 1;
               });
-              _subscription = Stream.periodic(const Duration(seconds: 1), (i) => i).take(_second).listen((i) {
-                setState(() {
-                  _currentSecond = _second - i - 1;
-                  _clickable = _currentSecond < 1;
-                });
-              });
-            }: null,
-          ),
-        )
+            });
+          }: null,
+        ),
       ],
     );
-    
-    return Scaffold(//创建透明层
-      backgroundColor: Colors.transparent,//透明类型
-      body: AnimatedContainer(
+
+    Widget body = Container(
+      decoration: BoxDecoration(
+        color: context.dialogBackgroundColor,
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      width: 280.0,
+      height: 210.0,
+      child: child,
+    );
+
+    /// 判断原因见BaseDialog注释
+    if (Device.getAndroidSdkInt() >= 30) {
+      body = Container(
+        alignment: Alignment.center,
+        height: context.height - MediaQuery.of(context).viewInsets.bottom,
+        child: body,
+      );
+    } else {
+      body = AnimatedContainer(
         alignment: Alignment.center,
         height: context.height - MediaQuery.of(context).viewInsets.bottom,
         duration: const Duration(milliseconds: 120),
         curve: Curves.easeInCubic,
-        child: Container(
-          decoration: BoxDecoration(
-            color: context.dialogBackgroundColor,
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          width: 280.0,
-          height: 210.0,
-          child: child,
-        ),
-      ),
+        child: body,
+      );
+    }
+
+    return Scaffold(//创建透明层
+      backgroundColor: Colors.transparent,//透明类型
+      body: body,
     );
   }
 

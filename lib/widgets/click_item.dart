@@ -1,19 +1,18 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 
 class ClickItem extends StatelessWidget {
 
   const ClickItem({
-    Key key,
+    Key? key,
     this.onTap,
-    @required this.title,
+    required this.title,
     this.content = '',
     this.textAlign = TextAlign.start,
     this.maxLines = 1
   }): super(key: key);
 
-  final GestureTapCallback onTap;
+  final GestureTapCallback? onTap;
   final String title;
   final String content;
   final TextAlign textAlign;
@@ -35,7 +34,7 @@ class ClickItem extends StatelessWidget {
             maxLines: maxLines,
             textAlign: maxLines == 1 ? TextAlign.right : textAlign,
             overflow: TextOverflow.ellipsis,
-            style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp14),
+            style: Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: Dimens.font_sp14),
           ),
         ),
         Gaps.hGap8,

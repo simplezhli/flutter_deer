@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 class NeumorphicContainer extends StatefulWidget {
 
   NeumorphicContainer({
-    Key key,
-    this.child,
+    Key? key,
+    required this.child,
     this.bevel = 10.0,
     this.color,
   })  : blurOffset = Offset(bevel / 2, bevel / 2),
@@ -16,7 +16,7 @@ class NeumorphicContainer extends StatefulWidget {
   final Widget child;
   final double bevel;
   final Offset blurOffset;
-  final Color color;
+  final Color? color;
 
   @override
   _NeumorphicContainerState createState() => _NeumorphicContainerState();
@@ -81,6 +81,6 @@ class _NeumorphicContainerState extends State<NeumorphicContainer> {
 
 extension ColorUtils on Color {
   Color mix(Color another, double amount) {
-    return Color.lerp(this, another, amount);
+    return Color.lerp(this, another, amount)!;
   }
 }

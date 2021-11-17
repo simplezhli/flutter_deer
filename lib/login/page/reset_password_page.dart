@@ -1,19 +1,21 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_deer/localization/app_localizations.dart';
-import 'package:flutter_deer/util/change_notifier_manage.dart';
+import 'package:flutter_deer/login/widgets/my_text_field.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/toast.dart';
+import 'package:flutter_deer/util/change_notifier_manage.dart';
 import 'package:flutter_deer/util/other_utils.dart';
+import 'package:flutter_deer/util/toast_utils.dart';
 import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/my_scroll_view.dart';
-import 'package:flutter_deer/login/widgets/my_text_field.dart';
+import 'package:flutter_gen/gen_l10n/deer_localizations.dart';
 
 
 /// design/1注册登录/index.html#artboard9
 class ResetPasswordPage extends StatefulWidget {
+
+  const ResetPasswordPage({Key? key}) : super(key: key);
+
   @override
   _ResetPasswordPageState createState() => _ResetPasswordPageState();
 }
@@ -29,9 +31,9 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> with ChangeNotifi
   bool _clickable = false;
 
   @override
-  Map<ChangeNotifier, List<VoidCallback>> changeNotifier() {
+  Map<ChangeNotifier, List<VoidCallback>?>? changeNotifier() {
     final List<VoidCallback> callbacks = <VoidCallback>[_verify];
-    return <ChangeNotifier, List<VoidCallback>>{
+    return <ChangeNotifier, List<VoidCallback>?>{
       _nameController: callbacks,
       _vCodeController: callbacks,
       _passwordController: callbacks,
@@ -63,14 +65,14 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> with ChangeNotifi
   }
   
   void _reset() {
-    Toast.show(AppLocalizations.of(context).confirm);
+    Toast.show(DeerLocalizations.of(context)!.confirm);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(
-        title: AppLocalizations.of(context).forgotPasswordLink,
+        title: DeerLocalizations.of(context)!.forgotPasswordLink,
       ),
       body: MyScrollView(
         keyboardConfig: Utils.getKeyboardActionsConfig(context, <FocusNode>[_nodeText1, _nodeText2, _nodeText3]),
@@ -84,7 +86,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> with ChangeNotifi
   List<Widget> _buildBody() {
     return <Widget>[
       Text(
-        AppLocalizations.of(context).resetLoginPassword,
+        DeerLocalizations.of(context)!.resetLoginPassword,
         style: TextStyles.textBold26,
       ),
       Gaps.vGap16,
@@ -93,7 +95,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> with ChangeNotifi
         controller: _nameController,
         maxLength: 11,
         keyboardType: TextInputType.phone,
-        hintText: AppLocalizations.of(context).inputPhoneHint,
+        hintText: DeerLocalizations.of(context)!.inputPhoneHint,
       ),
       Gaps.vGap8,
       MyTextField(
@@ -104,7 +106,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> with ChangeNotifi
           return Future<bool>.value(true);
         },
         maxLength: 6,
-        hintText: AppLocalizations.of(context).inputVerificationCodeHint,
+        hintText: DeerLocalizations.of(context)!.inputVerificationCodeHint,
       ),
       Gaps.vGap8,
       MyTextField(
@@ -113,12 +115,12 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> with ChangeNotifi
         controller: _passwordController,
         maxLength: 16,
         keyboardType: TextInputType.visiblePassword,
-        hintText: AppLocalizations.of(context).inputPasswordHint,
+        hintText: DeerLocalizations.of(context)!.inputPasswordHint,
       ),
       Gaps.vGap24,
       MyButton(
         onPressed: _clickable ? _reset : null,
-        text: AppLocalizations.of(context).confirm,
+        text: DeerLocalizations.of(context)!.confirm,
       )
     ];
   }

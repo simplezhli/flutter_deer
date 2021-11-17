@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
@@ -7,6 +6,9 @@ import 'package:sticky_headers/sticky_headers.dart';
 
 /// design/6店铺-账户/index.html#artboard1
 class AccountRecordListPage extends StatefulWidget {
+
+  const AccountRecordListPage({Key? key}) : super(key: key);
+
   @override
   _AccountRecordListPageState createState() => _AccountRecordListPageState();
 }
@@ -30,7 +32,7 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
               color: ThemeUtils.getStickyHeaderColor(context),
               padding: const EdgeInsets.only(left: 16.0),
               height: 34.0,
-              child: Text('2018/06/0${index + 1}'),
+              child: Text('2021/06/0${index + 1}'),
             ),
             content: _buildItem(index),
           );
@@ -58,10 +60,12 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
               Positioned(
                 top: 0.0,
                 right: 0.0,
-                child: Text(i.isEven ? '+10.00' : '-10.00', style: i.isEven ? TextStyle(
+                child: Text(i.isEven ? '+10.00' : '-10.00',
+                  style: i.isEven ? TextStyle(
                     color: Theme.of(context).errorColor,
-                    fontWeight: FontWeight.bold
-                ) : TextStyles.textBold14),
+                    fontWeight: FontWeight.bold,
+                  ) : TextStyles.textBold14,
+                ),
               ),
               Positioned(
                 bottom: 0.0,

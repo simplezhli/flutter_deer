@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 class MyBottomNavigationBar extends StatefulWidget {
 
   const MyBottomNavigationBar({
-    Key key,
+    Key? key,
     this.selectedPosition = 0,
     this.isShowIndicator = true,
-    @required this.selectedCallback,
+    required this.selectedCallback,
   }) : super(key: key);
 
   /// 选中下标
@@ -42,14 +42,14 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> with Tick
 
   double itemWidth = 0;
 
-  AnimationController controller;
-  Animation<double> animation;
+  late AnimationController controller;
+  late Animation<double> animation;
   
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      itemWidth = (context.size.width - barHeight) / 3;
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      itemWidth = (context.size!.width - barHeight) / 3;
       setState(() {});
     });
     
@@ -96,7 +96,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> with Tick
             shape: BoxShape.circle,
             color: Colors.white,
             boxShadow: [
-              BoxShadow(color: Colors.grey, offset: Offset(0.0, 0.0), blurRadius: 1.0, spreadRadius: 0.0),
+              BoxShadow(color: Colors.grey, offset: Offset.zero, blurRadius: 1.0, spreadRadius: 0.0),
             ],
           ),
         ),
@@ -148,9 +148,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> with Tick
     });
     controller.forward(from: 0.0);
     
-    if (widget.selectedCallback != null) {
-      widget.selectedCallback(selectedPosition);
-    }
+    widget.selectedCallback(selectedPosition);
   }
 
   @override

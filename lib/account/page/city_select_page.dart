@@ -1,18 +1,20 @@
-
 import 'dart:convert';
 
+import 'package:azlistview/azlistview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/account/models/city_entity.dart';
-import 'package:flutter_deer/common/common.dart';
+import 'package:flutter_deer/res/constant.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/my_app_bar.dart';
-import 'package:azlistview/azlistview.dart';
 
 /// design/6店铺-账户/index.html#artboard34
 class CitySelectPage extends StatefulWidget {
+
+  const CitySelectPage({Key? key}) : super(key: key);
+
   @override
   _CitySelectPageState createState() => _CitySelectPageState();
 }
@@ -38,9 +40,7 @@ class _CitySelectPageState extends State<CitySelectPage> {
       jsonStr = await rootBundle.loadString('assets/data/city.json');
     }
     final List<dynamic> list = json.decode(jsonStr) as List<dynamic>;
-    list.forEach((dynamic value) {
-      _cityList.add(CityEntity().fromJson(value as Map<String, dynamic>));
-    });
+    list.forEach(_addCity);
     SuspensionUtil.setShowSuspensionStatus(_cityList);
     _indexBarData = _cityList.map((CityEntity e) {
       if (e.isShowSuspension) {
@@ -54,12 +54,13 @@ class _CitySelectPageState extends State<CitySelectPage> {
     });
   }
 
+  void _addCity(dynamic value) {
+    _cityList.add(CityEntity().fromJson(value as Map<String, dynamic>));
+  }
+
   /// rootBundle.loadString源码修改
   Future<String> _loadString(String key) async {
     final ByteData data = await rootBundle.load(key);
-    if (data == null) {
-      throw FlutterError('Unable to load asset: $key');
-    }
     return utf8.decode(data.buffer.asUint8List());
   }
   
@@ -81,7 +82,7 @@ class _CitySelectPageState extends State<CitySelectPage> {
             indexHintWidth: 96,
             indexHintHeight: 96,
             indexHintTextStyle: const TextStyle(fontSize: 26.0, color: Colors.white),
-            textStyle: Theme.of(context).textTheme.subtitle2,
+            textStyle: Theme.of(context).textTheme.subtitle2!,
             downTextStyle: context.isDark ? TextStyles.textSize12 : const TextStyle(fontSize: 12.0, color: Colors.black),
           ),
         ),

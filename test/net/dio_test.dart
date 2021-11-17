@@ -1,4 +1,3 @@
-
 import 'package:dio/dio.dart';
 import 'package:flutter_deer/net/net.dart';
 import 'package:flutter_deer/shop/models/user_entity.dart';
@@ -17,7 +16,7 @@ void main() {
       await DioUtils.instance.requestNetwork<UserEntity>(
         Method.get, HttpApi.users, 
         onSuccess: (data) {
-          expect(data.name, '唯鹿');
+          expect(data?.name, '唯鹿');
         },
         onError: (_, __) {
           print('$_, $__');

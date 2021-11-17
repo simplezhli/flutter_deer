@@ -1,14 +1,15 @@
-
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/goods/models/goods_size_model.dart';
 import 'package:flutter_deer/goods/widgets/goods_size_dialog.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/image_utils.dart';
-import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/util/other_utils.dart';
-import 'package:flutter_deer/widgets/my_app_bar.dart';
+import 'package:flutter_deer/util/toast_utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
+import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/popup_window.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
@@ -18,12 +19,15 @@ import '../goods_router.dart';
 
 /// design/4商品/index.html#artboard9
 class GoodsSizePage extends StatefulWidget {
+
+  const GoodsSizePage({Key? key}) : super(key: key);
+
   @override
   _GoodsSizePageState createState() => _GoodsSizePageState();
 }
 
 class _GoodsSizePageState extends State<GoodsSizePage> {
-  
+
   bool _isEdit = false;
   String _sizeName = '商品规格名称';
   final GlobalKey _hintKey = GlobalKey();
@@ -45,27 +49,19 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
     _goodsSizeList.add(GoodsSizeModel('goods/goods_size_1', '黑色3', 10, '50.0', 2, '2', '2.5', ''));
 
     // 获取Build完成状态监听
-    WidgetsBinding.instance.addPostFrameCallback((callback) {
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
       _showHint();
     });
   }
 
   /// design/4商品/index.html#artboard18
   void _showHint() {
-    final RenderBox hint = _hintKey.currentContext.findRenderObject() as RenderBox;
-    final RenderBox overlay = Overlay.of(context).context.findRenderObject() as RenderBox;
-    final a = hint.localToGlobal(Offset(50.0, hint.size.height + 150.0), ancestor: overlay);
-    final b = hint.localToGlobal(hint.size.bottomLeft(const Offset(50.0, 150.0)), ancestor: overlay);
-    final RelativeRect position = RelativeRect.fromRect(
-      Rect.fromPoints(a, b),
-      Offset.zero & overlay.size,
-    );
+    final RenderBox hint = _hintKey.currentContext!.findRenderObject()! as RenderBox;
     showPopupWindow<void>(
       context: context,
-      fullWidth: false,
       isShowBg: true,
-      position: position,
-      elevation: 0.0,
+      offset: const Offset(50.0, 150.0),
+      anchor: hint,
       child: Semantics(
         label: '弹出引导页',
         hint: '向左滑动可删除列表，点击可关闭',
@@ -77,14 +73,14 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: ImageUtils.getAssetImage('goods/ydss'),
-              fit: BoxFit.fitWidth
-            )
+              fit: BoxFit.fitWidth,
+            ),
           ),
         ),
-      )
+      ),
     );
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,6 +93,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
           NavigatorUtils.goBack(context);
         },
       ),
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -106,39 +103,26 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
               _sizeName,
               style: TextStyles.textBold24,
             ),
-            InkWell(
-              onTap: () {
-                showDialog<void>(
-                  context: context,
-                  barrierDismissible: false,
-                  builder: (BuildContext context) {
-                    return GoodsSizeDialog(
-                      onPressed: (name) {
-                        setState(() {
-                          _sizeName = name;
-                          _isEdit = true;
-                        });
+            Gaps.vGap8,
+            RichText(
+              key: const Key('name_edit'),
+              text: TextSpan(
+                text: '先对名称进行',
+                style: Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: Dimens.font_sp14),
+                children: <TextSpan>[
+                  TextSpan(
+                    text: '编辑',
+                    semanticsLabel: '编辑',
+                    style: TextStyle(color: Theme.of(context).primaryColor),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        _showGoodsSizeDialog();
                       },
-                    );
-                  }
-                );
-              },
-              child: Padding(
-                // 扩大点击范围
-                padding: const EdgeInsets.all(8.0),
-                child: RichText(
-                  key: const Key('name_edit'),
-                  text: TextSpan(
-                    text: '先对名称进行',
-                    style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp14),
-                    children: <TextSpan>[
-                      TextSpan(text: '编辑', style: TextStyle(color: Theme.of(context).primaryColor)),
-                    ],
-                  )
-                ),
+                  ),
+                ],
               ),
             ),
-            Gaps.vGap24,
+            Gaps.vGap32,
             Expanded(
               child: _goodsSizeList.isEmpty ? const StateLayout(
                 type: StateType.goods,
@@ -146,7 +130,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
               ) : ListView.builder(
                 itemCount: _goodsSizeList.length,
                 itemExtent: 107.0,
-                itemBuilder: (_, index) => _getGoodsSizeItem(index),
+                itemBuilder: (_, index) => _buildGoodsSizeItem(index),
               ),
             ),
             Padding(
@@ -163,9 +147,9 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
       ),
     );
   }
- 
+
   /// design/4商品/index.html#artboard19
-  Widget _getGoodsSizeItem(int index) {
+  Widget _buildGoodsSizeItem(int index) {
 
     // item
     Widget widget = Row(
@@ -196,36 +180,11 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                 children: <Widget>[
                   Offstage(
                     offstage: _goodsSizeList[index].reducePrice.isEmpty,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                      margin: const EdgeInsets.only(right: 4.0),
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).errorColor,
-                        borderRadius: BorderRadius.circular(2.0),
-                      ),
-                      height: 16.0,
-                      alignment: Alignment.center,
-                      child: Text(
-                        '立减${_goodsSizeList[index].reducePrice}元',
-                        style: const TextStyle(color: Colors.white, fontSize: Dimens.font_sp10),
-                      ),
-                    ),
+                    child: _buildGoodsTag(Theme.of(context).errorColor, '立减${_goodsSizeList[index].reducePrice}元'),
                   ),
                   Opacity(
                     opacity: _goodsSizeList[index].currencyPrice.isEmpty ? 0.0 : 1.0,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColor,
-                        borderRadius: BorderRadius.circular(2.0),
-                      ),
-                      height: 16.0,
-                      alignment: Alignment.center,
-                      child: Text(
-                        '社区币抵扣${_goodsSizeList[index].currencyPrice}元',
-                        style: const TextStyle(color: Colors.white, fontSize: Dimens.font_sp10),
-                      ),
-                    ),
+                    child: _buildGoodsTag(Theme.of(context).primaryColor, '金币抵扣${_goodsSizeList[index].currencyPrice}元'),
                   )
                 ],
               ),
@@ -256,22 +215,22 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
       onTap: () {
         /// 如果侧滑菜单打开，关闭侧滑菜单。否则跳转
         if (_slidableController.activeState != null) {
-          _slidableController.activeState.close();
+          _slidableController.activeState!.close();
         } else {
           NavigatorUtils.push(context, GoodsRouter.goodsSizeEditPage);
         }
       },
-      child: Container(
+      child: Padding(
         padding: const EdgeInsets.only(left: 16.0, top: 16.0),
         child: DecoratedBox(
           decoration: BoxDecoration(
             border: Border(
               bottom: Divider.createBorderSide(context, width: 0.8),
-            )
+            ),
           ),
           child: Padding(
             padding: const EdgeInsets.only(right: 16.0, bottom: 16.0),
-            child: widget
+            child: widget,
           ),
         ),
       ),
@@ -282,7 +241,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
       key: Key(index.toString()),
       controller: _slidableController,
       actionPane: const SlidableDrawerActionPane(),
-      actionExtentRatio: 0.20, 
+      actionExtentRatio: 0.20,
       ///右侧的action
       secondaryActions: <Widget>[
         SlideAction(
@@ -302,7 +261,41 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
           },
         ),
       ],
-      child: widget
+      child: widget,
+    );
+  }
+
+  Widget _buildGoodsTag(Color color, String text) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+      margin: const EdgeInsets.only(right: 4.0),
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(2.0),
+      ),
+      height: 16.0,
+      alignment: Alignment.center,
+      child: Text(
+        text,
+        style: TextStyle(color: Colors.white, fontSize: Dimens.font_sp10, height: Device.isAndroid ? 1.1 : null,),
+      ),
+    );
+  }
+
+  void _showGoodsSizeDialog() {
+    showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return GoodsSizeDialog(
+          onPressed: (name) {
+            setState(() {
+              _sizeName = name;
+              _isEdit = true;
+            });
+          },
+        );
+      },
     );
   }
 }

@@ -1,4 +1,3 @@
-
 import 'package:fluro/fluro.dart';
 import 'package:flutter_deer/routers/i_router.dart';
 
@@ -13,8 +12,8 @@ class StoreRouter implements IRouterProvider{
   
   @override
   void initRouter(FluroRouter router) {
-    router.define(auditPage, handler: Handler(handlerFunc: (_, __) => StoreAuditPage()));
-    router.define(auditResultPage, handler: Handler(handlerFunc: (_, __) => StoreAuditResultPage()));
+    router.define(auditPage, handler: Handler(handlerFunc: (_, __) => const StoreAuditPage()));
+    router.define(auditResultPage, handler: Handler(handlerFunc: (_, __) => const StoreAuditResultPage()));
   }
   
 }

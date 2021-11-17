@@ -1,9 +1,8 @@
-
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_deer/common/common.dart';
+import 'package:flutter_deer/res/constant.dart';
 import 'package:flutter_deer/util/log_utils.dart';
 import 'base_entity.dart';
 import 'error_handle.dart';
@@ -12,16 +11,16 @@ import 'error_handle.dart';
 int _connectTimeout = 15000;
 int _receiveTimeout = 15000;
 int _sendTimeout = 10000;
-String _baseUrl;
+String _baseUrl = '';
 List<Interceptor> _interceptors = [];
 
 /// 初始化Dio配置
 void configDio({
-  int connectTimeout,
-  int receiveTimeout,
-  int sendTimeout,
-  String baseUrl,
-  List<Interceptor> interceptors,
+  int? connectTimeout,
+  int? receiveTimeout,
+  int? sendTimeout,
+  String? baseUrl,
+  List<Interceptor>? interceptors,
 }) {
   _connectTimeout = connectTimeout ?? _connectTimeout;
   _receiveTimeout = receiveTimeout ?? _receiveTimeout;
@@ -64,27 +63,28 @@ class DioUtils {
 //      client.badCertificateCallback =
 //          (X509Certificate cert, String host, int port) => true;
 //    };
-    
+
     /// 添加拦截器
-    _interceptors.forEach((interceptor) {
+    void addInterceptor(Interceptor interceptor) {
       _dio.interceptors.add(interceptor);
-    });
+    }
+    _interceptors.forEach(addInterceptor);
   }
 
   static final DioUtils _singleton = DioUtils._();
 
   static DioUtils get instance => DioUtils();
 
-  static Dio _dio;
+  static late Dio _dio;
 
   Dio get dio => _dio;
 
   // 数据返回格式统一，统一处理异常
   Future<BaseEntity<T>> _request<T>(String method, String url, {
-    dynamic data,
-    Map<String, dynamic> queryParameters,
-    CancelToken cancelToken,
-    Options options,
+    Object? data,
+    Map<String, dynamic>? queryParameters,
+    CancelToken? cancelToken,
+    Options? options,
   }) async {
     final Response<String> response = await _dio.request<String>(
       url,
@@ -108,19 +108,19 @@ class DioUtils {
     }
   }
 
-  Options _checkOptions(String method, Options options) {
+  Options _checkOptions(String method, Options? options) {
     options ??= Options();
     options.method = method;
     return options;
   }
 
   Future requestNetwork<T>(Method method, String url, {
-    NetSuccessCallback<T> onSuccess,
-    NetErrorCallback onError,
-    dynamic params, 
-    Map<String, dynamic> queryParameters,
-    CancelToken cancelToken, 
-    Options options, 
+    NetSuccessCallback<T?>? onSuccess,
+    NetErrorCallback? onError,
+    Object? params,
+    Map<String, dynamic>? queryParameters,
+    CancelToken? cancelToken,
+    Options? options,
   }) {
     return _request<T>(method.value, url,
       data: params,
@@ -129,9 +129,7 @@ class DioUtils {
       cancelToken: cancelToken,
     ).then<void>((BaseEntity<T> result) {
       if (result.code == 0) {
-        if (onSuccess != null) {
-          onSuccess(result.data);
-        }
+        onSuccess?.call(result.data);
       } else {
         _onError(result.code, result.message, onError);
       }
@@ -144,12 +142,12 @@ class DioUtils {
 
   /// 统一处理(onSuccess返回T对象，onSuccessList返回 List<T>)
   void asyncRequestNetwork<T>(Method method, String url, {
-    NetSuccessCallback<T> onSuccess,
-    NetErrorCallback onError,
-    dynamic params, 
-    Map<String, dynamic> queryParameters, 
-    CancelToken cancelToken, 
-    Options options, 
+    NetSuccessCallback<T?>? onSuccess,
+    NetErrorCallback? onError,
+    Object? params,
+    Map<String, dynamic>? queryParameters,
+    CancelToken? cancelToken,
+    Options? options,
   }) {
     Stream.fromFuture(_request<T>(method.value, url,
       data: params,
@@ -178,15 +176,13 @@ class DioUtils {
     }
   }
 
-  void _onError(int code, String msg, NetErrorCallback onError) {
+  void _onError(int? code, String msg, NetErrorCallback? onError) {
     if (code == null) {
       code = ExceptionHandle.unknown_error;
       msg = '未知异常';
     }
     Log.e('接口请求异常： code: $code, mag: $msg');
-    if (onError != null) {
-      onError(code, msg);
-    }
+    onError?.call(code, msg);
   }
 }
 

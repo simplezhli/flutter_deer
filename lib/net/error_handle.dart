@@ -1,10 +1,10 @@
 import 'dart:io';
-
 import 'package:dio/dio.dart';
 
 class ExceptionHandle {
   static const int success = 200;
   static const int success_not_content = 204;
+  static const int not_modified = 304;
   static const int unauthorized = 401;
   static const int forbidden = 403;
   static const int not_found = 404;
@@ -37,7 +37,7 @@ class ExceptionHandle {
       if (error.type.errorCode == 0) {
         return _handleException(error.error);
       } else {
-        return _errorMap[error.type.errorCode];
+        return _errorMap[error.type.errorCode]!;
       }
     } else {
       return _handleException(error);
@@ -55,7 +55,7 @@ class ExceptionHandle {
     if (error is FormatException) {
       errorCode = parse_error;
     }
-    return _errorMap[errorCode];
+    return _errorMap[errorCode]!;
   }
 }
 

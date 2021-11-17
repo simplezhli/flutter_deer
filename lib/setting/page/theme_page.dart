@@ -1,12 +1,14 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_deer/common/common.dart';
-import 'package:sp_util/sp_util.dart';
-import 'package:flutter_deer/provider/theme_provider.dart';
+import 'package:flutter_deer/res/constant.dart';
+import 'package:flutter_deer/setting/provider/theme_provider.dart';
 import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:provider/provider.dart';
+import 'package:sp_util/sp_util.dart';
 
 class ThemePage extends StatefulWidget {
+
+  const ThemePage({Key? key}) : super(key: key);
+
   @override
   _ThemePageState createState() => _ThemePageState();
 }
@@ -14,17 +16,10 @@ class ThemePage extends StatefulWidget {
 class _ThemePageState extends State<ThemePage> {
 
   final List<String> _list = <String>['跟随系统', '开启', '关闭'];
-//  StreamSubscription _subscription;
-  
-//  @override
-//  void dispose() {
-//    _subscription?.cancel();
-//    super.dispose();
-//  }
 
   @override
   Widget build(BuildContext context) {
-    final String theme = SpUtil.getString(Constant.theme);
+    final String? theme = SpUtil.getString(Constant.theme);
     String themeMode;
     switch(theme) {
       case 'Dark':
@@ -51,14 +46,7 @@ class _ThemePageState extends State<ThemePage> {
 //              Provider.of<ThemeProvider>(context, listen: false).setTheme(themeMode);
               /// 与上方等价，provider 4.1.0添加的拓展方法
               context.read<ThemeProvider>().setTheme(themeMode);
-//              _subscription?.cancel();
-//              /// 主题切换动画200毫秒
-//              _subscription = Stream.value(1).delay(Duration(milliseconds: 200)).listen((_) {
-//                if (!mounted) {
-//                  return;
-//                }
-//                ThemeUtils.setSystemNavigationBarStyle(context, themeMode);
-//              });
+              setState(() {});
             },
             child: Container(
               alignment: Alignment.centerLeft,

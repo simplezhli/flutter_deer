@@ -1,28 +1,36 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/goods/provider/goods_sort_provider.dart';
 import 'package:flutter_deer/goods/widgets/goods_sort_bottom_sheet.dart';
+import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
-import 'package:flutter_deer/util/other_utils.dart';
+import 'package:flutter_deer/util/toast_utils.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
+import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/my_scroll_view.dart';
 import 'package:flutter_deer/widgets/selected_image.dart';
 import 'package:flutter_deer/widgets/text_field_item.dart';
-import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/widgets/my_app_bar.dart';
 
 import '../goods_router.dart';
 
 /// design/4商品/index.html#artboard5
 class GoodsEditPage extends StatefulWidget {
   
-  const GoodsEditPage({Key key, this.isAdd = true, this.isScan = false}) : super(key: key);
+  const GoodsEditPage({
+    Key? key,
+    this.isAdd = true,
+    this.isScan = false,
+    this.heroTag,
+    this.goodsImageUrl
+  }) : super(key: key);
   
   final bool isAdd;
   final bool isScan;
+  final String? heroTag;
+  final String? goodsImageUrl;
   
   @override
   _GoodsEditPageState createState() => _GoodsEditPageState();
@@ -30,23 +38,26 @@ class GoodsEditPage extends StatefulWidget {
 
 class _GoodsEditPageState extends State<GoodsEditPage> {
 
-  String _goodsSortName;
+  String? _goodsSortName;
   final TextEditingController _codeController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
       if (widget.isScan) {
         _scan();
       }
     });
   }
-  
-  Future<void> _scan() async {
-    final code = await Utils.scan();
-    if (code != null) {
-      _codeController.text = code;
+
+  void _scan() {
+    if (Device.isMobile) {
+      NavigatorUtils.pushResult(context, GoodsRouter.qrCodeScannerPage, (Object code) {
+        _codeController.text = code.toString();
+      });
+    } else {
+      Toast.show('当前平台暂不支持');
     }
   }
   
@@ -69,8 +80,10 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
             ),
           ),
           Gaps.vGap16,
-          const Center(
+          Center(
             child: SelectedImage(
+              heroTag: widget.heroTag,
+              url: widget.goodsImageUrl,
               size: 96.0,
             ),
           ),
@@ -78,7 +91,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
           Center(
             child: Text(
               '点击添加商品图片',
-              style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp14),
+              style: Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: Dimens.font_sp14),
             ),
           ),
           Gaps.vGap16,

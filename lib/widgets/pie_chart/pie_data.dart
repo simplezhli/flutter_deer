@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class PieData {
   /// 颜色
-  Color color;
+  late Color color;
   /// 百分比
-  num percentage;
+  late num percentage;
   /// 数量
-  int number;
+  late int number;
   /// 名称
-  String name;
+  late String name;
   
   @override
   String toString() => 'name: $name, color: $color, '

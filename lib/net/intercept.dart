@@ -1,11 +1,12 @@
 
-
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:sp_util/sp_util.dart';
-import 'package:flutter_deer/common/common.dart';
+import 'package:flutter_deer/res/constant.dart';
+import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/log_utils.dart';
+import 'package:flutter_deer/util/other_utils.dart';
+import 'package:sp_util/sp_util.dart';
 import 'package:sprintf/sprintf.dart';
 
 import 'dio_utils.dart';
@@ -13,28 +14,33 @@ import 'error_handle.dart';
 
 class AuthInterceptor extends Interceptor {
   @override
-  Future onRequest(RequestOptions options) {
-    final String accessToken = SpUtil.getString(Constant.accessToken);
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
+    final String accessToken = SpUtil.getString(Constant.accessToken).nullSafe;
     if (accessToken.isNotEmpty) {
       options.headers['Authorization'] = 'token $accessToken';
     }
-    // https://developer.github.com/v3/#user-agent-required
-    options.headers['User-Agent'] = 'Mozilla/5.0';
-    return super.onRequest(options);
+    if (!Device.isWeb) {
+      // https://developer.github.com/v3/#user-agent-required
+      options.headers['User-Agent'] = 'Mozilla/5.0';
+    }
+    super.onRequest(options, handler);
   }
 }
 
 class TokenInterceptor extends Interceptor {
 
-  Future<String> getToken() async {
+  Dio? _tokenDio;
+
+  Future<String?> getToken() async {
 
     final Map<String, String> params = <String, String>{};
-    params['refresh_token'] = SpUtil.getString(Constant.refreshToken);
+    params['refresh_token'] = SpUtil.getString(Constant.refreshToken).nullSafe;
     try {
-      _tokenDio.options = DioUtils.instance.dio.options;
-      final Response response = await _tokenDio.post<dynamic>('lgn/refreshToken', data: params);
+      _tokenDio ??= Dio();
+      _tokenDio!.options = DioUtils.instance.dio.options;
+      final Response response = await _tokenDio!.post<dynamic>('lgn/refreshToken', data: params);
       if (response.statusCode == ExceptionHandle.success) {
-        return json.decode(response.data.toString())['access_token'] as String;
+        return (json.decode(response.data.toString()) as Map<String, dynamic>)['access_token'] as String;
       }
     } catch(e) {
       Log.e('刷新Token失败！');
@@ -42,66 +48,71 @@ class TokenInterceptor extends Interceptor {
     return null;
   }
 
-  final Dio _tokenDio = Dio();
-
   @override
-  Future<Object> onResponse(Response response) async {
+  Future<void> onResponse(Response response, ResponseInterceptorHandler handler) async {
     //401代表token过期
-    if (response != null && response.statusCode == ExceptionHandle.unauthorized) {
+    if (response.statusCode == ExceptionHandle.unauthorized) {
       Log.d('-----------自动刷新Token------------');
       final Dio dio = DioUtils.instance.dio;
-      dio.interceptors.requestLock.lock();
-      final String accessToken = await getToken(); // 获取新的accessToken
+      dio.lock();
+      final String? accessToken = await getToken(); // 获取新的accessToken
       Log.e('-----------NewToken: $accessToken ------------');
-      SpUtil.putString(Constant.accessToken, accessToken);
-      dio.interceptors.requestLock.unlock();
+      SpUtil.putString(Constant.accessToken, accessToken.nullSafe);
+      dio.unlock();
 
       if (accessToken != null) {
         // 重新请求失败接口
-        final RequestOptions request = response.request;
+        final RequestOptions request = response.requestOptions;
         request.headers['Authorization'] = 'Bearer $accessToken';
+
+        final Options options = Options(
+          headers: request.headers,
+          method: request.method,
+        );
+
         try {
           Log.e('----------- 重新请求接口 ------------');
           /// 避免重复执行拦截器，使用tokenDio
-          final Response response = await _tokenDio.request<dynamic>(request.path,
-              data: request.data,
-              queryParameters: request.queryParameters,
-              cancelToken: request.cancelToken,
-              options: request,
-              onReceiveProgress: request.onReceiveProgress);
-          return response;
+          final Response response = await _tokenDio!.request<dynamic>(request.path,
+            data: request.data,
+            queryParameters: request.queryParameters,
+            cancelToken: request.cancelToken,
+            options: options,
+            onReceiveProgress: request.onReceiveProgress,
+          );
+          return handler.next(response);
         } on DioError catch (e) {
-          return e;
+          return handler.reject(e);
         }
       }
     }
-    return super.onResponse(response);
+    super.onResponse(response, handler);
   }
 }
 
 class LoggingInterceptor extends Interceptor{
 
-  DateTime _startTime;
-  DateTime _endTime;
+  late DateTime _startTime;
+  late DateTime _endTime;
   
   @override
-  Future onRequest(RequestOptions options) {
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     _startTime = DateTime.now();
     Log.d('----------Start----------');
     if (options.queryParameters.isEmpty) {
-      Log.d('RequestUrl: ' + options.baseUrl + options.path);
+      Log.d('RequestUrl: ${options.baseUrl}${options.path}');
     } else {
-      Log.d('RequestUrl: ' + options.baseUrl + options.path + '?' + Transformer.urlEncodeMap(options.queryParameters));
+      Log.d('RequestUrl: ${options.baseUrl}${options.path}?${Transformer.urlEncodeMap(options.queryParameters)}');
     }
-    Log.d('RequestMethod: ' + options.method);
-    Log.d('RequestHeaders:' + options.headers.toString());
+    Log.d('RequestMethod: ${options.method}');
+    Log.d('RequestHeaders:${options.headers}');
     Log.d('RequestContentType: ${options.contentType}');
     Log.d('RequestData: ${options.data.toString()}');
-    return super.onRequest(options);
+    super.onRequest(options, handler);
   }
   
   @override
-  Future onResponse(Response response) {
+  void onResponse(Response response, ResponseInterceptorHandler handler) {
     _endTime = DateTime.now();
     final int duration = _endTime.difference(_startTime).inMilliseconds;
     if (response.statusCode == ExceptionHandle.success) {
@@ -112,40 +123,40 @@ class LoggingInterceptor extends Interceptor{
     // 输出结果
     Log.json(response.data.toString());
     Log.d('----------End: $duration 毫秒----------');
-    return super.onResponse(response);
+    super.onResponse(response, handler);
   }
   
   @override
-  Future onError(DioError err) {
+  void onError(DioError err, ErrorInterceptorHandler handler) {
     Log.d('----------Error-----------');
-    return super.onError(err);
+    super.onError(err, handler);
   }
 }
 
 class AdapterInterceptor extends Interceptor{
 
   static const String _kMsg = 'msg';
-  static const String _kSlash = '\'';
+  static const String _kSlash = "'";
   static const String _kMessage = 'message';
 
-  static const String _kDefaultText = '"无返回信息"';
+  static const String _kDefaultText = '无返回信息';
   static const String _kNotFound = '未找到查询信息';
 
   static const String _kFailureFormat = '{"code":%d,"message":"%s"}';
   static const String _kSuccessFormat = '{"code":0,"data":%s,"message":""}';
   
   @override
-  Future onResponse(Response response) {
+  void onResponse(Response response, ResponseInterceptorHandler handler) {
     final Response r = adapterData(response);
-    return super.onResponse(r);
+    super.onResponse(r, handler);
   }
   
   @override
-  Future onError(DioError err) {
+  void onError(DioError err, ErrorInterceptorHandler handler) {
     if (err.response != null) {
-      adapterData(err.response);
+      adapterData(err.response!);
     }
-    return super.onError(err);
+    super.onError(err, handler);
   }
 
   Response adapterData(Response response) {

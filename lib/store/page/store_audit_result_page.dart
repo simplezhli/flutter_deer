@@ -1,14 +1,16 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/routers/routers.dart';
-import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
+import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 
 /// design/2店铺审核/index.html#artboard2
 class StoreAuditResultPage extends StatefulWidget {
+
+  const StoreAuditResultPage({Key? key}) : super(key: key);
+
   @override
   _StoreAuditResultPageState createState() => _StoreAuditResultPageState();
 }
@@ -37,7 +39,7 @@ class _StoreAuditResultPageState extends State<StoreAuditResultPage> {
             ),
             Gaps.vGap8,
             Text(
-              '2020-02-21 15:20:10',
+              '2021-02-21 15:20:10',
               style: Theme.of(context).textTheme.subtitle2,
             ),
             Gaps.vGap8,

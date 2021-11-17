@@ -1,3 +1,4 @@
+
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
 
@@ -5,7 +6,7 @@ import '../tools/test_utils.dart';
 
 void main([List<String> args = const <String>[]]) {
   group('引导页：', () {
-    FlutterDriver driver;
+    late FlutterDriver driver;
 
     // 测试之前连接程序
     setUpAll(() async {
@@ -19,7 +20,7 @@ void main([List<String> args = const <String>[]]) {
 
     // 在测试完成后，关闭程序的连接。
     tearDownAll(() async {
-      await driver?.close();
+      await driver.close();
     });
 
     test('测试引导页滑动',() async {

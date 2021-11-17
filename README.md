@@ -19,25 +19,25 @@
 | ![](./preview/Screenshot_13.png)   |  ![](./preview/Screenshot_14.png)   | ![](./preview/Screenshot_15.png)  |  ![](./preview/Screenshot_17.png)  |
 | ![](./preview/Screenshot_18.png)   |  ![](./preview/Screenshot_19.png)   | ![](./preview/Screenshot_20.png)  |  ![](./preview/Screenshot_21.png)  |
 | ![](./preview/Screenshot_22.jpg)   |  ![](./preview/Screenshot_23.jpg)   | ![](./preview/Screenshot_24.jpg)  |  ![](./preview/Screenshot_25.jpg)  |
-| ![](./preview/Screenshot_26.jpg)   |  ![](./preview/Screenshot_27.jpg)   |  |  |
+| ![](./preview/Screenshot_26.jpg)   |  ![](./preview/Screenshot_27.jpg)   | ![](./preview/lottie.gif)         |  |
 
-**觉得还可以的话，来个Star、Fork支持一波！有问题欢迎提Issue。**
+**觉得还可以的话，来个Star、Fork支持一波！本项目持续维护中，有问题欢迎提Issue。**
 
-## 实现内容
+## 实现内容（已迁移到空安全）
 
 * mvp模式
-* 使用`provider` (4.x 版本)做状态管理
-* 基于`dio` （3.x 版本）的网络请求封装
+* 使用`provider` (6.x 版本)做状态管理
+* 基于`dio` （4.x 版本）的网络请求封装
 * 完整的集成测试、可访问性测试。
 * 支持深色模式
 * 本地化（感谢 @ghedwards）
 * 使用`Sliver` 系列组件实现复杂滚动效果
 * 使用高德地图定位选择地址（支持Web）
-* 输入框等部件的处理封装
+* 通用Widget的处理封装
 * 下拉刷新 + 上拉加载更多
 * 应用检查更新
 * PopupWindow
-* 扫码功能（barcode_scan插件）
+* 扫码功能（qr_code_scanner插件）
 * 菜单切换动画（圆形扩散、3D翻转）
 * 侧滑删除
 * 城市选择
@@ -49,21 +49,24 @@
 * 自定义简易日历
 * 曲线图及[饼状图](https://dartpad.cn/d06f8f737d6eb2d87978eb2d14b87864)
 * 模块化路由管理
+* 更多Demo（水波纹动画、刮刮卡、lottie）
 * 更多的细节优化
 
 具体可以下载体验：
 
-Android版安装包：[点击下载](https://www.pgyer.com/gYXj)，安装密码：`111111`。
+Android版安装包：[点击下载](https://www.pgyer.com/gYXj)，下载密码：`111111`。
 
 iOS需要自行下载代码运行。
+
+Web体验地址：https://simplezhli.github.io/flutter_deer/
 
 ## 项目运行环境
 
 [![Build Status](https://github.com/simplezhli/flutter_deer/workflows/flutter_deer%20driver/badge.svg?branch=master)](https://github.com/simplezhli/flutter_deer/actions?query=workflow%3A%22flutter_deer+driver%22+branch%3Amaster)
 
-    1. Flutter version 1.22.4
+    1. Flutter version 2.5.2
      
-    2. Dart version 2.10.4
+    2. Dart version 2.14.3
 
 ## 注意事项
 
@@ -71,15 +74,17 @@ iOS需要自行下载代码运行。
     iOS可以执行命令`flutter build ios` 以创建`release`版本。
     Android可以执行命令`flutter build apk` 以创建`release`版本。
 
-- 项目运行有问题可以在[iOS问题汇总](./doc/iOS问题汇总.md)、[Android问题汇总](./doc/Android问题汇总.md)中尝试寻找解决办法。
+- 项目运行有问题可以在[iOS问题汇总](./docs/iOS问题汇总.md)、[Android问题汇总](./docs/Android问题汇总.md)中尝试寻找解决办法。
 
-- 由于部分插件的原因，本项目在web上支持不完善（主要为功能方面，UI问题不大）。有兴趣的可自行运行体验。
+- 由于部分插件的原因，本项目在Windows、macOS仅做预览（主要为原生功能方面，UI问题不大）。有兴趣的可自行运行体验。
         
 - 可以执行集成测试命令`flutter drive --target=test_driver/driver.dart` 查看功能演示。
 
 - 因为页面有点多，一开始可能会导致页面无法与设计图对应上。我在代码注释中有添加设计图的相对路径，可以搜索或查找到对应页面，希望对你有帮助。
 
-- 本项目使用FlutterJsonBeanFactory插件来生成Bean。FlutterJsonBeanFactory插件使用可以查看[这篇文章](https://www.jianshu.com/p/14cbcbaa74b7)。
+- 本项目使用[FlutterJsonBeanFactory](https://github.com/zhangruiyu/FlutterJsonBeanFactory)插件来生成Bean。
+
+- Web受制于js等资源过大和部署在Github上，访问会慢一些。
 
 ## 心得总结（推荐阅读）
 
@@ -105,6 +110,8 @@ iOS需要自行下载代码运行。
 
 - [玩玩Flutter Web —— 实现高德地图插件](https://weilu.blog.csdn.net/article/details/106465792)
 
+- [在GitHub Actions上进行Flutter 的测试和部署](https://weilu.blog.csdn.net/article/details/114744416)
+
 - [Flutter动画曲线Curves 效果一览](https://weilu.blog.csdn.net/article/details/95632571)
 
 - [Flutter状态管理之Riverpod](https://weilu.blog.csdn.net/article/details/108352306)
@@ -112,6 +119,8 @@ iOS需要自行下载代码运行。
 - [【译】正确操作Dart中的字符串](https://weilu.blog.csdn.net/article/details/107857569)
 
 - [【译】学习Flutter中新的Navigator和Router系统](https://weilu.blog.csdn.net/article/details/108902282)
+
+- [【译】Flutter 2.2中的新功能](https://weilu.blog.csdn.net/article/details/117061293)
     
 ## 使用到的三方库
 
@@ -137,8 +146,11 @@ iOS需要自行下载代码运行。
 | [date_utils](https://github.com/apptreesoftware/date_utils)           | **常用的日期工具类** |
 | [bezier_chart](https://github.com/aeyrium/bezier-chart)               | **曲线图表**       |
 | [sprintf](https://github.com/Naddiseo/dart-sprintf)                   | **格式化String**   |
-| [barcode_scan](https://github.com/apptreesoftware/flutter_barcode_reader)     | **扫码功能** |
+| [qr_code_scanner](https://github.com/juliuscanute/qr_code_scanner)     | **扫码功能** |
 | [intl](https://github.com/dart-lang/intl)     | **本地化** |
+| [device_info_plus](https://github.com/fluttercommunity/plus_plugins/tree/main/packages/device_info_plus)     | **获取设备信息** |
+| [vibration](https://github.com/benjamindean/flutter_vibration)     | **振动** |
+| [lottie](https://github.com/xvrh/lottie-flutter)     | **动画效果** |
 
 详细内容可以参看[pubspec.yaml](https://github.com/simplezhli/flutter_deer/blob/master/pubspec.yaml)文件    
 
@@ -152,31 +164,25 @@ iOS需要自行下载代码运行。
 
 * [x] 页面添加设计图路径注释，方便寻找对应的设计图。
 
-* [x] 项目中有使用这一套框架及组件，会同步修复及优化遇到的问题。
-
 * [x] 添加集成测试。
 
 * [x] 深色模式支持。
 
 * [x] 添加`Semantics`（语义）
 
-* [ ] Web端支持。
+* [x] Web端支持。
 
-## 已知问题：
+* [x] 迁移到空安全。（安装包减少135KB，10.3M -> 10.1M）
 
-- 1.22.0已知问题(~~#67262~~ ~~#67213~~)
+* [ ] 迁移至Navigator 2.0。
 
-- 1.17.0已知问题(~~#25767~~ ~~#38323~~ ~~#47191~~)。
+## 已知存在问题：
+
+- 2.0.0 已知存在问题(#68571 #73351 #73388 #74890 #79773 #79931)
 
 - ListView在没有设置分割线的情况下，个别Item之间存在大约1像素的间隔（[像素对齐问题](https://github.com/flutter/flutter/issues/14288)）。
 
-- 1.17.0已修复。~~在iOS手机上开启深色模式时，[无法将状态栏文字修改为黑色](https://github.com/flutter/flutter/issues/41067)。~~
-
-- 1.12.13已知问题（~~#47804~~ ~~#47270~~ ~~#47635~~ ~~#47137~~ ~~#47462~~ ~~#47804~~ ~~#47021~~）。
-
-- 1.12.13已修复。~~在1.9.1上，TextField在语言环境为中文时，[光标与输入文字不居中显示](https://github.com/flutter/flutter/issues/40248)，可暂时使用`textBaseline: TextBaseline.alphabetic` 处理此问提。~~
-
-- 1.9.1已支持，使用`keyboardType: TextInputType.visiblePassword`即可。~~输入框在不设置`obscureText`属性的情况下(false)，[无法弹出密码模式键盘](https://github.com/flutter/flutter/issues/31738)，可暂时使用`BlacklistingTextInputFormatter`去除可能会输入的中文。~~
+- 其他历史问题见docs目录下的问题汇总。
 
 ## Thanks For
 
@@ -190,7 +196,7 @@ iOS需要自行下载代码运行。
     you may not use this file except in compliance with the License.
     You may obtain a copy of the License at
 
-       http://www.apache.org/licenses/LICENSE-2.0
+       https://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing, software
     distributed under the License is distributed on an "AS IS" BASIS,

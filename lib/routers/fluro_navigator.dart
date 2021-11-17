@@ -7,15 +7,29 @@ import 'routers.dart';
 class NavigatorUtils {
   
   static void push(BuildContext context, String path,
-      {bool replace = false, bool clearStack = false}) {
+      {bool replace = false, bool clearStack = false, Object? arguments}) {
     unfocus();
-    Routes.router.navigateTo(context, path, replace: replace, clearStack: clearStack, transition: TransitionType.native);
+    Routes.router.navigateTo(context, path,
+      replace: replace,
+      clearStack: clearStack,
+      transition: TransitionType.native,
+      routeSettings: RouteSettings(
+        arguments: arguments,
+      ),
+    );
   }
 
   static void pushResult(BuildContext context, String path, Function(Object) function,
-      {bool replace = false, bool clearStack = false}) {
+      {bool replace = false, bool clearStack = false, Object? arguments}) {
     unfocus();
-    Routes.router.navigateTo(context, path, replace: replace, clearStack: clearStack, transition: TransitionType.native).then((Object result) {
+    Routes.router.navigateTo(context, path,
+      replace: replace,
+      clearStack: clearStack,
+      transition: TransitionType.native,
+      routeSettings: RouteSettings(
+        arguments: arguments,
+      ),
+    ).then((Object? result) {
       // 页面返回result为null
       if (result == null) {
         return;

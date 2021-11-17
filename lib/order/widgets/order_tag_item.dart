@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
@@ -8,9 +7,9 @@ import 'package:flutter_deer/widgets/my_card.dart';
 class OrderTagItem extends StatelessWidget {
 
   const OrderTagItem({
-    Key key,
-    @required this.date,
-    @required this.orderTotal,
+    Key? key,
+    required this.date,
+    required this.orderTotal,
   }) : super(key: key);
   
   final String date;

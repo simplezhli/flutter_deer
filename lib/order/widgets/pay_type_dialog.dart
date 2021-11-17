@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
@@ -9,11 +8,11 @@ import 'package:flutter_deer/widgets/load_image.dart';
 class PayTypeDialog extends StatefulWidget {
 
   const PayTypeDialog({
-    Key key,
+    Key? key,
     this.onPressed,
   }) : super(key : key);
 
-  final Function(int, String) onPressed;
+  final Function(int, String)? onPressed;
   
   @override
   _PayTypeDialog createState() => _PayTypeDialog();
@@ -72,7 +71,7 @@ class _PayTypeDialog extends State<PayTypeDialog> {
       ),
       onPressed: () {
         NavigatorUtils.goBack(context);
-        widget.onPressed(_value, _list[_value]);
+        widget.onPressed?.call(_value, _list[_value]);
       },
     );
   }

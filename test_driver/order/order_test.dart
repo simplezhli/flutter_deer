@@ -1,3 +1,4 @@
+
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
 
@@ -6,7 +7,7 @@ import '../tools/test_utils.dart';
 void main() {
 
   group('订单部分：', () {
-    FlutterDriver driver;
+    late FlutterDriver driver;
 
     setUpAll(() async {
       driver = await FlutterDriver.connect();
@@ -18,13 +19,13 @@ void main() {
     });
 
     tearDownAll(() async {
-      await driver?.close();
+      await driver.close();
     });
-    
+
     test('滑动订单列表',() async {
       await driver.tap(find.byTooltip('订单'));
       
-      // 水平滑动
+      /// 水平滑动
       final SerializableFinder pageView = find.byValueKey('pageView');
       await driver.scroll(pageView, -400.0, 0, scrollDuration);
       await delayed();
@@ -32,16 +33,20 @@ void main() {
       await delayed();
       final SerializableFinder orderList = find.byValueKey('order_list');
       await driver.waitFor(orderList);
-      final SerializableFinder orderItem = find.byValueKey('order_item_7');
-      await delayed();
-      // 垂直滑动
-      await driver.scrollUntilVisible(orderList, orderItem, dyScroll: -400);
+
+      /// 垂直滑动
+      await driver.scroll(orderList, 0, -800, scrollDuration);
       await delayed();
 
+      final SerializableFinder orderItem = find.byValueKey('order_item_1');
+      await driver.scrollUntilVisible(orderList, orderItem, dyScroll: 400);
+      await delayed();
+      /// 滚动finder所在列表，直到该小部件完全可见。
+      await driver.scrollIntoView(orderItem);
     });
 
     test('订单操作',() async {
-      // 点击订单列表按钮
+      /// 点击订单列表按钮
       await driver.tap(find.byValueKey('order_button_1_1'));
       await delayed();
       await driver.tap(find.text('取消'));
@@ -76,6 +81,6 @@ void main() {
       await delayed();
       await driver.tap(find.byValueKey('search_back'));
       await delayed();
-    }, timeout: Timeout.factor(5));
+    }, timeout: const Timeout.factor(5));
   });
 }

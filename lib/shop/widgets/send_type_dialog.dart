@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
@@ -10,15 +9,14 @@ import 'package:flutter_deer/widgets/load_image.dart';
 class SendTypeDialog extends StatefulWidget {
 
   const SendTypeDialog({
-    Key key,
-    this.onPressed,
+    Key? key,
+    required this.onPressed,
   }) : super(key : key);
 
   final Function(int, String) onPressed;
   
   @override
   _SendTypeDialog createState() => _SendTypeDialog();
-  
 }
 
 class _SendTypeDialog extends State<SendTypeDialog> {

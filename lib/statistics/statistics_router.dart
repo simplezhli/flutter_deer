@@ -1,4 +1,3 @@
-
 import 'package:fluro/fluro.dart';
 import 'package:flutter_deer/routers/i_router.dart';
 
@@ -14,10 +13,10 @@ class StatisticsRouter implements IRouterProvider{
   @override
   void initRouter(FluroRouter router) {
     router.define(orderStatisticsPage, handler: Handler(handlerFunc: (_, params) {
-      final int index = int.parse(params['index']?.first);
+      final int index = int.parse(params['index']?.first ?? '0');
       return OrderStatisticsPage(index);
     }));
-    router.define(goodsStatisticsPage, handler: Handler(handlerFunc: (_, __) => GoodsStatisticsPage()));
+    router.define(goodsStatisticsPage, handler: Handler(handlerFunc: (_, __) => const GoodsStatisticsPage()));
   }
   
 }

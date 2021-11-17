@@ -1,12 +1,11 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/account/account_router.dart';
 import 'package:flutter_deer/mvp/base_page.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/setting/setting_router.dart';
-import 'package:flutter_deer/shop/models/user_entity.dart';
 import 'package:flutter_deer/shop/iview/shop_iview.dart';
+import 'package:flutter_deer/shop/models/user_entity.dart';
 import 'package:flutter_deer/shop/presenter/shop_presenter.dart';
 import 'package:flutter_deer/shop/provider/user_provider.dart';
 import 'package:flutter_deer/shop/shop_router.dart';
@@ -19,7 +18,7 @@ import 'package:provider/provider.dart';
 class ShopPage extends StatefulWidget {
 
   const ShopPage({
-    Key key,
+    Key? key,
     this.isAccessibilityTest = false,
   }) : super(key : key);
 
@@ -38,7 +37,7 @@ class _ShopPageState extends State<ShopPage> with BasePageMixin<ShopPage, ShopPa
   UserProvider provider = UserProvider();
   
   @override
-  void setUser(UserEntity user) {
+  void setUser(UserEntity? user) {
     provider.setUser(user);
   }
 
@@ -48,7 +47,7 @@ class _ShopPageState extends State<ShopPage> with BasePageMixin<ShopPage, ShopPa
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    final Color _iconColor = ThemeUtils.getIconColor(context);
+    final Color? _iconColor = ThemeUtils.getIconColor(context);
     final Widget line = Container(
       height: 0.6, 
       width: double.infinity, 
@@ -109,7 +108,7 @@ class _ShopPageState extends State<ShopPage> with BasePageMixin<ShopPage, ShopPa
                         backgroundImage: ImageUtils.getImageProvider(provider.user?.avatarUrl, holderImg: 'shop/tx'),
                       ),
                     ),
-                    child,
+                    child!,
                   ],
                 );
                 return Padding(
@@ -196,11 +195,11 @@ class _ShopPageState extends State<ShopPage> with BasePageMixin<ShopPage, ShopPa
 class _ShopFunctionModule extends StatelessWidget {
 
   const _ShopFunctionModule({
-    Key key,
-    this.onItemClick,
-    @required this.data,
-    @required this.image,
-    @required this.darkImage,
+    Key? key,
+    required this.onItemClick,
+    required this.data,
+    required this.image,
+    required this.darkImage,
   }): super(key: key);
   
   final Function(int index) onItemClick;

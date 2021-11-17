@@ -4,48 +4,57 @@ import 'package:flutter/material.dart';
 ///create by elileo on 2018/12/21
 ///https://github.com/elileo1/flutter_travel_friends/blob/master/lib/widget/PopupWindow.dart
 ///
-/// weilu update： 去除了IntrinsicWidth限制，添加了默认蒙版
-const Duration _kWindowDuration = Duration(milliseconds: 300);
+/// weilu update：
+/// 1.去除了IntrinsicWidth限制，添加了默认蒙版。
+/// 2.简化position计算。
+const Duration _kWindowDuration = Duration.zero;
 const double _kWindowCloseIntervalEnd = 2.0 / 3.0;
-const double _kWindowMaxWidth = 240.0;
-const double _kWindowMinWidth = 48.0;
-const double _kWindowVerticalPadding = 0.0;
-const double _kWindowScreenPadding = 0.0;
+const double _kWindowScreenPadding = 0.001;
 
 ///弹窗方法
-Future<T> showPopupWindow<T>({
-  @required BuildContext context,
-  RelativeRect position,
-  @required Widget child,
-  double elevation = 8.0,
-  String semanticLabel,
-  bool fullWidth,
+Future<T?> showPopupWindow<T>({
+  required BuildContext context,
+  required RenderBox anchor,
+  required Widget child,
+  Offset? offset,
+  String? semanticLabel,
   bool isShowBg = false,
 }) {
-  assert(context != null);
-  String label = semanticLabel;
+
   switch (defaultTargetPlatform) {
     case TargetPlatform.iOS:
     case TargetPlatform.macOS:
-      label = semanticLabel;
       break;
     case TargetPlatform.android:
     case TargetPlatform.fuchsia:
     case TargetPlatform.linux:
     case TargetPlatform.windows:
-      label = semanticLabel ?? MaterialLocalizations.of(context)?.popupMenuLabel;
+      semanticLabel ??= MaterialLocalizations.of(context).popupMenuLabel;
   }
+  final RenderBox? overlay = Overlay.of(context)!.context.findRenderObject() as RenderBox?;
 
+  // 默认位置锚点下方
+  final Offset _offset = Offset(0, anchor.size.height);
+
+  if (offset == null) {
+    offset = _offset;
+  } else {
+    offset = offset + _offset;
+  }
+  // 获得控件左下方的坐标
+  final a = anchor.localToGlobal(offset, ancestor: overlay);
+  // 获得控件右下方的坐标
+  final b = anchor.localToGlobal(anchor.size.bottomLeft(offset), ancestor: overlay);
+  final RelativeRect position = RelativeRect.fromRect(
+    Rect.fromPoints(a, b),
+    Offset.zero & overlay!.size,
+  );
   return Navigator.push(context,
       _PopupWindowRoute(
         position: position,
         child: child,
-        elevation: elevation,
-        semanticLabel: label,
-        theme: Theme.of(context, shadowThemeOnly: true),
-        barrierLabel:
-        MaterialLocalizations.of(context).modalBarrierDismissLabel,
-        fullWidth: fullWidth,
+        semanticLabel: semanticLabel,
+        barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
         isShowBg: isShowBg
       ));
 }
@@ -53,27 +62,21 @@ Future<T> showPopupWindow<T>({
 ///自定义弹窗路由：参照_PopupMenuRoute修改的
 class _PopupWindowRoute<T> extends PopupRoute<T> {
   _PopupWindowRoute({
-    RouteSettings settings,
-    this.child,
-    this.position,
-    this.elevation = 8.0,
-    this.theme,
-    this.barrierLabel,
-    this.semanticLabel,
-    this.fullWidth,
-    this.isShowBg,
+    RouteSettings? settings,
+    required this.child,
+    required this.position,
+    required this.barrierLabel,
+    required this.semanticLabel,
+    required this.isShowBg,
   }) : super(settings: settings);
 
   final Widget child;
   final RelativeRect position;
-  double elevation;
-  final ThemeData theme;
-  final String semanticLabel;
-  final bool fullWidth;
+  final String? semanticLabel;
   final bool isShowBg;
   
   @override
-  Color get barrierColor => null;
+  Color? get barrierColor => null;
 
   @override
   bool get barrierDismissible => true;
@@ -95,14 +98,10 @@ class _PopupWindowRoute<T> extends PopupRoute<T> {
   @override
   Widget buildPage(BuildContext context, Animation<double> animation,
       Animation<double> secondaryAnimation) {
-    Widget win = _PopupWindow<T>(
+    final Widget win = _PopupWindow<T>(
       route: this,
       semanticLabel: semanticLabel,
-      fullWidth: fullWidth,
     );
-    if (theme != null) {
-      win = Theme(data: theme, child: win);
-    }
 
     return MediaQuery.removePadding(
       context: context,
@@ -122,7 +121,7 @@ class _PopupWindowRoute<T> extends PopupRoute<T> {
                 color: isShowBg ? const Color(0x99000000) : null,
                 child: CustomSingleChildLayout(
                   delegate: _PopupWindowLayoutDelegate(
-                    position, null, Directionality.of(context)
+                    position, Directionality.of(context)
                   ),
                   child: win,
                 ),
@@ -138,15 +137,13 @@ class _PopupWindowRoute<T> extends PopupRoute<T> {
 ///自定义弹窗控件：对自定义的弹窗内容进行再包装，添加长宽、动画等约束条件
 class _PopupWindow<T> extends StatelessWidget {
   const _PopupWindow({
-    Key key,
-    this.route,
-    this.semanticLabel,
-    this.fullWidth = false,
+    Key? key,
+    required this.route,
+    required this.semanticLabel,
   }) : super(key: key);
 
   final _PopupWindowRoute<T> route;
-  final String semanticLabel;
-  final bool fullWidth;
+  final String? semanticLabel;
 
   @override
   Widget build(BuildContext context) {
@@ -158,36 +155,25 @@ class _PopupWindow<T> extends StatelessWidget {
     final CurveTween width = CurveTween(curve: const Interval(0.0, unit));
     final CurveTween height = CurveTween(curve: const Interval(0.0, unit * length));
 
-    final Widget child = ConstrainedBox(
-      constraints: BoxConstraints(
-        minWidth: fullWidth ? double.infinity : _kWindowMinWidth,
-        maxWidth: fullWidth ? double.infinity : _kWindowMaxWidth,
-      ),
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(vertical: _kWindowVerticalPadding),
-        child: route.child,
-      )
+    final Widget child = SingleChildScrollView(
+      child: route.child,
     );
 
     return AnimatedBuilder(
-      animation: route.animation,
-      builder: (BuildContext context, Widget child) {
+      animation: route.animation!,
+      builder: (BuildContext context, Widget? child) {
         return Opacity(
-          opacity: opacity.evaluate(route.animation),
-          child: Material(
-            type: route.elevation == 0 ? MaterialType.transparency : MaterialType.card,
-            elevation: route.elevation,
-            child: Align(
-              alignment: AlignmentDirectional.topEnd,
-              widthFactor: width.evaluate(route.animation),
-              heightFactor: height.evaluate(route.animation),
-              child: Semantics(
-                scopesRoute: true,
-                namesRoute: true,
-                explicitChildNodes: true,
-                label: semanticLabel,
-                child: child,
-              ),
+          opacity: opacity.evaluate(route.animation!),
+          child: Align(
+            alignment: AlignmentDirectional.topEnd,
+            widthFactor: width.evaluate(route.animation!),
+            heightFactor: height.evaluate(route.animation!),
+            child: Semantics(
+              scopesRoute: true,
+              namesRoute: true,
+              explicitChildNodes: true,
+              label: semanticLabel,
+              child: child,
             ),
           ),
         );
@@ -200,10 +186,9 @@ class _PopupWindow<T> extends StatelessWidget {
 ///自定义委托内容：子控件大小及其位置计算
 class _PopupWindowLayoutDelegate extends SingleChildLayoutDelegate {
   _PopupWindowLayoutDelegate(
-      this.position, this.selectedItemOffset, this.textDirection);
+      this.position, this.textDirection);
 
   final RelativeRect position;
-  final double selectedItemOffset;
   final TextDirection textDirection;
 
   @override
@@ -221,14 +206,7 @@ class _PopupWindowLayoutDelegate extends SingleChildLayoutDelegate {
     // getConstraintsForChild.
 
     // Find the ideal vertical position.
-    double y;
-    if (selectedItemOffset == null) {
-      y = position.top;
-    } else {
-      y = position.top +
-          (size.height - position.top - position.bottom) / 2.0 -
-          selectedItemOffset;
-    }
+    double y = position.top;
 
     // Find the ideal horizontal position.
     double x;
@@ -240,7 +218,6 @@ class _PopupWindowLayoutDelegate extends SingleChildLayoutDelegate {
       x = position.left;
     } else {
       // Menu button is equidistant from both edges, so grow in reading direction.
-      assert(textDirection != null);
       switch (textDirection) {
         case TextDirection.rtl:
           x = size.width - position.right - childSize.width;

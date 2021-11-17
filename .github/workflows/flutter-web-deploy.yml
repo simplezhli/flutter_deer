@@ -1,0 +1,29 @@
+name: flutter_deer web deploy
+
+# push 提交中修改`pubspec.yaml`触发此workflow。
+# 为了避免每次部署，这里使用一个不存在的文件名。
+on:
+  push:
+    paths:
+      - 'pubspec1.yaml'
+
+jobs:
+  web_build_and_deploy:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2.3.1
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '2.5.0'
+          channel: 'stable'
+      - name: "Web Build 🔧"
+        run: |
+          flutter pub get
+          flutter build web
+      - name: "Web Deploy 🚀"
+          # https://github.com/JamesIves/github-pages-deploy-action
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          token: '${{ secrets.GITHUB_TOKEN }}'
+          branch: gh-pages
+          folder: build/web

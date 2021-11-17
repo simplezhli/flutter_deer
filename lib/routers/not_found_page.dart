@@ -4,6 +4,8 @@ import 'package:flutter_deer/widgets/state_layout.dart';
 
 class NotFoundPage extends StatelessWidget {
 
+  const NotFoundPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

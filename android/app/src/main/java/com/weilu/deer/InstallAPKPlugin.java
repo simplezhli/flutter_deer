@@ -9,21 +9,17 @@ import androidx.annotation.NonNull;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodChannel;
-import io.flutter.plugin.common.PluginRegistry.Registrar;
 
+/**
+ * @author weilu
+ */
 public class InstallAPKPlugin implements FlutterPlugin {
   
   private MethodChannel channel;
-  private Activity mActivity;
+  private final Activity mActivity;
 
   public InstallAPKPlugin(Activity activity) {
     this.mActivity = activity;
-  }
-
-  /** Plugin registration. */
-  public static void registerWith(Registrar registrar) {
-    InstallAPKPlugin plugin = new InstallAPKPlugin(registrar.activity());
-    plugin.setupMethodChannel(registrar.messenger());
   }
 
   @Override

@@ -1,17 +1,17 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/widgets/my_button.dart';
 
 /// design/4商品/index.html#artboard2
 class GoodsDeleteBottomSheet extends StatelessWidget {
   
   const GoodsDeleteBottomSheet({
-    Key key,
-    @required this.onTapDelete,
+    Key? key,
+    required this.onTapDelete,
   }): super(key: key);
 
-  final Function onTapDelete;
+  final VoidCallback onTapDelete;
   
   @override
   Widget build(BuildContext context) {
@@ -30,29 +30,25 @@ class GoodsDeleteBottomSheet extends StatelessWidget {
               ),
             ),
             Gaps.line,
-            SizedBox(
-              height: 54.0,
-              width: double.infinity,
-              child: FlatButton(
-                textColor: Theme.of(context).errorColor,
-                child: const Text('确认删除', style: TextStyle(fontSize: Dimens.font_sp18)),
-                onPressed: () {
-                  NavigatorUtils.goBack(context);
-                  onTapDelete();
-                },
-              ),
+            MyButton(
+              minHeight: 54.0,
+              textColor: Theme.of(context).errorColor,
+              text: '确认删除',
+              backgroundColor: Colors.transparent,
+              onPressed: () {
+                NavigatorUtils.goBack(context);
+                onTapDelete();
+              },
             ),
             Gaps.line,
-            SizedBox(
-              height: 54.0,
-              width: double.infinity,
-              child: FlatButton(
-                textColor: Colours.text_gray,
-                child: const Text('取消', style: TextStyle(fontSize: Dimens.font_sp18)),
-                onPressed: () {
-                  NavigatorUtils.goBack(context);
-                },
-              ),
+            MyButton(
+              minHeight: 54.0,
+              textColor: Colours.text_gray,
+              text: '取消',
+              backgroundColor: Colors.transparent,
+              onPressed: () {
+                NavigatorUtils.goBack(context);
+              },
             ),
           ],
         ),

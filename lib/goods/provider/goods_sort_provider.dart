@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_deer/generated/json/base/json_convert_content.dart';
+import 'package:flutter_deer/goods/models/goods_sort_entity.dart';
 
 class GoodsSortProvider extends ChangeNotifier {
 
@@ -12,13 +14,13 @@ class GoodsSortProvider extends ChangeNotifier {
   final List<Tab> _myTabs = <Tab>[const Tab(text: '请选择'), const Tab(text: ''), const Tab(text: '')];
   List<Tab> get myTabs => _myTabs;
 
-  List<Object> _mGoodsSort = [];
-  List<Object> _mGoodsSort1 = [];
-  List<Object> _mGoodsSort2 = [];
+  List<GoodsSortEntity> _mGoodsSort = [];
+  List<GoodsSortEntity> _mGoodsSort1 = [];
+  List<GoodsSortEntity> _mGoodsSort2 = [];
 
   /// 当前列表数据
-  List<Object> _mList = [];
-  List get mList => _mList;
+  List<GoodsSortEntity> _mList = [];
+  List<GoodsSortEntity> get mList => _mList;
 
   /// 三级联动选择的position
   final List<int> _positions = [0, 0, 0];
@@ -74,15 +76,15 @@ class GoodsSortProvider extends ChangeNotifier {
 
     // 模拟数据，数据为固定的三个列表
     rootBundle.loadString('assets/data/sort_0.json').then((String value) {
-      _mGoodsSort = json.decode(value) as List;
+      _mGoodsSort = JsonConvert.fromJsonAsT<List<GoodsSortEntity>>(json.decode(value));
       _mList = _mGoodsSort;
       notifyListeners();
     });
     rootBundle.loadString('assets/data/sort_1.json').then((String value) {
-      _mGoodsSort1 = json.decode(value) as List;
+      _mGoodsSort1 = JsonConvert.fromJsonAsT<List<GoodsSortEntity>>(json.decode(value));
     });
     rootBundle.loadString('assets/data/sort_2.json').then((String value) {
-      _mGoodsSort2 = json.decode(value) as List;
+      _mGoodsSort2 = JsonConvert.fromJsonAsT<List<GoodsSortEntity>>(json.decode(value));
     });
   }
 }

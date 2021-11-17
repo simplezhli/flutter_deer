@@ -1,3 +1,4 @@
+
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
 
@@ -6,7 +7,7 @@ import '../tools/test_utils.dart';
 void main() {
 
   group('店铺部分：', () {
-    FlutterDriver driver;
+    late FlutterDriver driver;
 
     setUpAll(() async {
       driver = await FlutterDriver.connect();
@@ -18,7 +19,7 @@ void main() {
     });
 
     tearDownAll(() async {
-      await driver?.close();
+      await driver.close();
     });
 
     test('店铺页测试',() async {
@@ -29,7 +30,7 @@ void main() {
       await driver.tap(find.byTooltip('Back'));
       await delayed();
       
-    }, timeout: Timeout.factor(3));
+    }, timeout: const Timeout.factor(3));
 
     test('店铺设置页测试',() async {
       await driver.tap(find.text('店铺设置'));

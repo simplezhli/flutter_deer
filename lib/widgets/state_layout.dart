@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
@@ -9,13 +8,13 @@ import 'package:flutter_deer/widgets/load_image.dart';
 class StateLayout extends StatelessWidget {
   
   const StateLayout({
-    Key key,
-    @required this.type,
+    Key? key,
+    required this.type,
     this.hintText
   }):super(key: key);
   
   final StateType type;
-  final String hintText;
+  final String? hintText;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +36,7 @@ class StateLayout extends StatelessWidget {
         const SizedBox(width: double.infinity, height: Dimens.gap_dp16,),
         Text(
           hintText ?? type.hintText,
-          style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: Dimens.font_sp14),
+          style: Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: Dimens.font_sp14),
         ),
         Gaps.vGap50,
       ],

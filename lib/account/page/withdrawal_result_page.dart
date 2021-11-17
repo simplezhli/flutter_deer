@@ -1,13 +1,15 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
+import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 
 /// design/6店铺-账户/index.html#artboard5
 class WithdrawalResultPage extends StatefulWidget {
+
+  const WithdrawalResultPage({Key? key}) : super(key: key);
+
   @override
   _WithdrawalResultPageState createState() => _WithdrawalResultPageState();
 }
@@ -36,7 +38,7 @@ class _WithdrawalResultPageState extends State<WithdrawalResultPage> {
             ),
             Gaps.vGap8,
             Text(
-              '2020-02-21 15:20:10',
+              '2021-02-21 15:20:10',
               style: Theme.of(context).textTheme.subtitle2,
             ),
             Gaps.vGap8,

@@ -1,7 +1,7 @@
 
 import 'dart:convert' as convert;
 import 'package:common_utils/common_utils.dart';
-import 'package:flutter_deer/common/common.dart';
+import 'package:flutter_deer/res/constant.dart';
 
 /// 输出Log工具类
 class Log {

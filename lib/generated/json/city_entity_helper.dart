@@ -2,13 +2,13 @@ import 'package:flutter_deer/account/models/city_entity.dart';
 
 cityEntityFromJson(CityEntity data, Map<String, dynamic> json) {
 	if (json['name'] != null) {
-		data.name = json['name']?.toString();
+		data.name = json['name'].toString();
 	}
 	if (json['cityCode'] != null) {
-		data.cityCode = json['cityCode']?.toString();
+		data.cityCode = json['cityCode'].toString();
 	}
 	if (json['firstCharacter'] != null) {
-		data.firstCharacter = json['firstCharacter']?.toString();
+		data.firstCharacter = json['firstCharacter'].toString();
 	}
 	return data;
 }
