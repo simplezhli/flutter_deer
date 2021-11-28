@@ -56,7 +56,6 @@ jobs:
           flutter-version: '2.5.3'
           channel: 'stable' # or: 'dev' or 'beta'
       - run: "flutter clean"
-      - run: "flutter pub get"
       - name: "Run Flutter Driver tests"
         run: "flutter drive --target=test_driver/driver.dart"
         
