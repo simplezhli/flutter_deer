@@ -44,7 +44,7 @@ post_install do |installer|
         config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.0'
       end
       # https://github.com/flutter/flutter/issues/90504 #84562
-      config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64 i386'
+#       config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64 i386'
     end
   end
 end
