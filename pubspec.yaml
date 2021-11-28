@@ -67,7 +67,7 @@ dependencies:
   # 高德2D地图插件（支持Web） https://github.com/simplezhli/flutter_2d_amap
   flutter_2d_amap:
     git:
-      ref: '65666de9'
+      ref: '597a0538'
       url: 'https://github.com/simplezhli/flutter_2d_amap.git'
   # demo 用到的库
   # 刮刮卡 https://github.com/vintage/scratcher
