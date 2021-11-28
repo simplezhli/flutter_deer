@@ -33,8 +33,6 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
   final GlobalKey _hintKey = GlobalKey();
 
   final List<GoodsSizeModel> _goodsSizeList = [];
-  // 保留一个Slidable打开
-  final SlidableController _slidableController = SlidableController();
 
   @override
   void initState() {
@@ -127,10 +125,12 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
               child: _goodsSizeList.isEmpty ? const StateLayout(
                 type: StateType.goods,
                 hintText: '暂无商品规格',
-              ) : ListView.builder(
-                itemCount: _goodsSizeList.length,
-                itemExtent: 107.0,
-                itemBuilder: (_, index) => _buildGoodsSizeItem(index),
+              ) : SlidableAutoCloseBehavior(
+                child: ListView.builder(
+                  itemCount: _goodsSizeList.length,
+                  itemExtent: 107.0,
+                  itemBuilder: (_, index) => _buildGoodsSizeItem(index),
+                ),
               ),
             ),
             Padding(
@@ -213,12 +213,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
     // item装饰
     widget = InkWell(
       onTap: () {
-        /// 如果侧滑菜单打开，关闭侧滑菜单。否则跳转
-        if (_slidableController.activeState != null) {
-          _slidableController.activeState!.close();
-        } else {
-          NavigatorUtils.push(context, GoodsRouter.goodsSizeEditPage);
-        }
+        NavigatorUtils.push(context, GoodsRouter.goodsSizeEditPage);
       },
       child: Padding(
         padding: const EdgeInsets.only(left: 16.0, top: 16.0),
@@ -235,32 +230,31 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
         ),
       ),
     );
-
     // 侧滑删除
     return Slidable(
       key: Key(index.toString()),
-      controller: _slidableController,
-      actionPane: const SlidableDrawerActionPane(),
-      actionExtentRatio: 0.20,
-      ///右侧的action
-      secondaryActions: <Widget>[
-        SlideAction(
-          child: Semantics(
-            label: '删除',
-            child: Container(
-              width: 72.0,
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
-              child: LoadAssetImage('goods/goods_delete', key: Key('delete_$index'),),
+      endActionPane: ActionPane(
+        motion: const DrawerMotion(),
+        extentRatio: 0.20,
+        children: [
+          CustomSlidableAction(
+            backgroundColor: Theme.of(context).errorColor,
+            child: Semantics(
+              label: '删除',
+              child: LoadAssetImage(
+                'goods/goods_delete',
+                key: Key('delete_$index'),
+                width: 24.0,
+              ),
             ),
+            onPressed: (context) {
+              setState(() {
+                _goodsSizeList.removeAt(index);
+              });
+            },
           ),
-          color: Theme.of(context).errorColor,
-          onTap: () {
-            setState(() {
-              _goodsSizeList.removeAt(index);
-            });
-          },
-        ),
-      ],
+        ],
+      ),
       child: widget,
     );
   }
