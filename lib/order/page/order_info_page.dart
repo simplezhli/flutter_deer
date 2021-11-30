@@ -42,7 +42,6 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Expanded(
-              flex: 1,
               child: MyButton(
                 backgroundColor: isDark ? Colours.dark_material_bg : const Color(0xFFE1EAFA),
                 textColor: isDark ? Colours.dark_text : Colours.app_main,
@@ -53,7 +52,6 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
             ),
             Gaps.hGap16,
             Expanded(
-              flex: 1,
               child: MyButton(
                 text: '接单',
                 minHeight: 45,

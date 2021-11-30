@@ -40,7 +40,6 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
     return KeyboardActionsConfig(
       keyboardActionsPlatform: KeyboardActionsPlatform.IOS,
       keyboardBarColor: ThemeUtils.getKeyboardActionsColor(context),
-      nextFocus: true,
       actions: [
         KeyboardActionsItem(
           focusNode: _nodeText1,
@@ -169,7 +168,6 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
         return DraggableScrollableSheet(
           key: const Key('goods_sort'),
           initialChildSize: 0.7,
-          maxChildSize: 1,
           minChildSize: 0.65,
           expand: false,
           builder: (_, scrollController) {

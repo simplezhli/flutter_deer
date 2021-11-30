@@ -111,7 +111,6 @@ class MoreWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           if (hasMore) const CupertinoActivityIndicator(),
           if (hasMore) Gaps.hGap5,

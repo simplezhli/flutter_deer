@@ -166,7 +166,6 @@ class _AccountCardState extends State<AccountCard> {
               color: widget.type == 1 ? const Color(0x804EE07A) : Colours.shadow_blue,
               offset: const Offset(0.0, 2.0),
               blurRadius: 8.0,
-              spreadRadius: 0.0,
             ),
           ],
           gradient: LinearGradient(

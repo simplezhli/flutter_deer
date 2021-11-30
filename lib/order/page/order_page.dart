@@ -135,8 +135,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
           backgroundColor: Colors.transparent,
           elevation: 0.0,
           centerTitle: true,
-          expandedHeight: 100.0,
-          floating: false, // 不随着滑动隐藏标题
+          expandedHeight: 100.0, // 不随着滑动隐藏标题
           pinned: true, // 固定在顶部
           flexibleSpace: MyFlexibleSpaceBar(
             background: isDark ? Container(height: 113.0, color: Colours.dark_bg_color,) : LoadAssetImage('order/order_bg',
@@ -201,7 +200,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
     ];
   }
 
-  final PageController _pageController = PageController(initialPage: 0);
+  final PageController _pageController = PageController();
   Future<void> _onPageChange(int index) async {
     provider.setIndex(index);
     /// 这里没有指示器，所以缩短过渡动画时间，减少不必要的刷新
@@ -241,7 +240,6 @@ class _TabView extends StatelessWidget {
           width: 46.0,
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               /// 使用context.select替代Consumer
               LoadAssetImage(context.select<OrderPageProvider, int>((value) => value.index) == index ? 

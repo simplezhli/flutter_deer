@@ -43,7 +43,6 @@ class _GoodsSizeDialog extends State<GoodsSizeDialog> {
         child: TextField(
           autofocus: true,
           controller: _controller,
-          maxLines: 1,
           decoration: const InputDecoration(
             isDense: true,
             contentPadding: EdgeInsets.symmetric(horizontal: 16.0),

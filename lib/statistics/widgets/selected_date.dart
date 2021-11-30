@@ -41,7 +41,7 @@ class SelectedDateButton extends StatelessWidget {
           decoration: selected ? BoxDecoration(
             borderRadius: BorderRadius.circular(20.0),
             boxShadow: context.isDark ? null : const [
-              BoxShadow(color: Colours.shadow_blue, offset: Offset(0.0, 2.0), blurRadius: 8.0, spreadRadius: 0.0),
+              BoxShadow(color: Colours.shadow_blue, offset: Offset(0.0, 2.0), blurRadius: 8.0),
             ],
             gradient: const LinearGradient(
               begin: Alignment.topCenter,

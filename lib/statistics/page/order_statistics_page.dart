@@ -199,8 +199,6 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
             config: BezierChartConfig(
               footerHeight: 16,
               showVerticalIndicator: false,
-              verticalIndicatorFixedPosition: false,
-              snap: true,
               backgroundColor: color,
             ),
           ),

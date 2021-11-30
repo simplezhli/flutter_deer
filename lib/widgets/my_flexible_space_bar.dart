@@ -223,7 +223,7 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
         final double scaleValue = Tween<double>(begin: 1.5, end: 1.0).transform(t);
         final double width = (size.width - 32.0) / 2 - _offset;
         final Matrix4 scaleTransform = Matrix4.identity()
-          ..scale(scaleValue, scaleValue, 1.0)..translate(t * width, 0.0);
+          ..scale(scaleValue, scaleValue, 1.0)..translate(t * width);
         final Alignment titleAlignment = _getTitleAlignment(false);
         children.add(Container(
           padding: padding,

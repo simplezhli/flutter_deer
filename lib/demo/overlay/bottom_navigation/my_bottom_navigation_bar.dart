@@ -75,7 +75,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> with Tick
         color: Colors.white,
         borderRadius: BorderRadius.circular(barHeight / 2),
         boxShadow: const [
-          BoxShadow(color: Colors.grey, offset: Offset(0.0, 1.0), blurRadius: 4.0, spreadRadius: 0.0),
+          BoxShadow(color: Colors.grey, offset: Offset(0.0, 1.0), blurRadius: 4.0),
         ],
       ),
     );
@@ -96,7 +96,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> with Tick
             shape: BoxShape.circle,
             color: Colors.white,
             boxShadow: [
-              BoxShadow(color: Colors.grey, offset: Offset.zero, blurRadius: 1.0, spreadRadius: 0.0),
+              BoxShadow(color: Colors.grey, blurRadius: 1.0),
             ],
           ),
         ),

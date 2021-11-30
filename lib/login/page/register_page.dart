@@ -125,7 +125,6 @@ class _RegisterPageState extends State<RegisterPage> with ChangeNotifierMixin<Re
         isInputPwd: true,
         controller: _passwordController,
         keyboardType: TextInputType.visiblePassword,
-        maxLength: 16,
         hintText: DeerLocalizations.of(context)!.inputPasswordHint,
       ),
       Gaps.vGap24,

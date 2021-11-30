@@ -94,7 +94,6 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Gaps.vGap16,
             Text(

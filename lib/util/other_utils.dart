@@ -38,7 +38,6 @@ class Utils {
   static KeyboardActionsConfig getKeyboardActionsConfig(BuildContext context, List<FocusNode> list) {
     return KeyboardActionsConfig(
       keyboardBarColor: ThemeUtils.getKeyboardActionsColor(context),
-      nextFocus: true,
       actions: List.generate(list.length, (i) => KeyboardActionsItem(
         focusNode: list[i],
         toolbarButtons: [

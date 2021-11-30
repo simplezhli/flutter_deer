@@ -73,7 +73,7 @@ class _PieChartState extends State<PieChart> with SingleTickerProviderStateMixin
         shape: BoxShape.circle,
         color: bgColor,
         boxShadow: <BoxShadow>[
-          BoxShadow(color: shadowColor, offset: const Offset(0.0, 4.0), blurRadius: 8.0, spreadRadius: 0.0),
+          BoxShadow(color: shadowColor, offset: const Offset(0.0, 4.0), blurRadius: 8.0),
         ],
       ),
       child: RepaintBoundary(

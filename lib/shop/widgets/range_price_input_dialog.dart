@@ -84,7 +84,6 @@ class _RangePriceInputDialog extends State<RangePriceInputDialog> {
       autofocus: true,
       //style: TextStyles.textDark14,
       controller: controller,
-      maxLines: 1,
       keyboardType: const TextInputType.numberWithOptions(decimal: true),
       // 金额限制数字格式
       inputFormatters: [UsNumberTextInputFormatter()],

@@ -118,7 +118,6 @@ class _LoginPageState extends State<LoginPage> with ChangeNotifierMixin<LoginPag
       isInputPwd: true,
       controller: _passwordController,
       keyboardType: TextInputType.visiblePassword,
-      maxLength: 16,
       hintText: DeerLocalizations.of(context)!.inputPasswordHint,
     ),
     Gaps.vGap24,

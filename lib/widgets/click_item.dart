@@ -54,7 +54,6 @@ class ClickItem extends StatelessWidget {
       margin: const EdgeInsets.only(left: 15.0),
       padding: const EdgeInsets.fromLTRB(0, 15.0, 15.0, 15.0),
       constraints: const BoxConstraints(
-        maxHeight: double.infinity,
         minHeight: 50.0,
       ),
       width: double.infinity,

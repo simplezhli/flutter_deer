@@ -116,7 +116,6 @@ class _SearchBarState extends State<SearchBar> {
 //          autofocus: true,
           controller: _controller,
           focusNode: _focus,
-          maxLines: 1,
           textInputAction: TextInputAction.search,
           onSubmitted: (String val) {
             _focus.unfocus();
@@ -124,7 +123,7 @@ class _SearchBarState extends State<SearchBar> {
             widget.onPressed?.call(val);
           },
           decoration: InputDecoration(
-            contentPadding: const EdgeInsets.only(top: 0.0, left: -8.0, right: -16.0, bottom: 14.0),
+            contentPadding: const EdgeInsets.only(left: -8.0, right: -16.0, bottom: 14.0),
             border: InputBorder.none,
             icon: Padding(
               padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 8.0),

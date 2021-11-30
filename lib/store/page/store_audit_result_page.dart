@@ -25,7 +25,6 @@ class _StoreAuditResultPageState extends State<StoreAuditResultPage> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Gaps.vGap50,
             const LoadAssetImage('store/icon_success',

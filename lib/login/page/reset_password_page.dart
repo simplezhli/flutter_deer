@@ -113,7 +113,6 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> with ChangeNotifi
         focusNode: _nodeText3,
         isInputPwd: true,
         controller: _passwordController,
-        maxLength: 16,
         keyboardType: TextInputType.visiblePassword,
         hintText: DeerLocalizations.of(context)!.inputPasswordHint,
       ),

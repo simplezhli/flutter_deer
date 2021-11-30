@@ -136,7 +136,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
     showElasticDialog<void>(
       context: context,
       builder: (BuildContext context) {
-        const OutlinedBorder buttonShape = RoundedRectangleBorder(borderRadius: BorderRadius.zero);
+        const OutlinedBorder buttonShape = RoundedRectangleBorder();
 
         final Widget content = Column(
           children: <Widget>[

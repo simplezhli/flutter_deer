@@ -26,7 +26,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
 
   final List<String> _sortList = ['全部商品', '个人护理', '饮料', '沐浴洗护', '厨房用具', '休闲食品', '生鲜水果', '酒水', '家庭清洁'];
   TabController? _tabController;
-  final PageController _pageController = PageController(initialPage: 0);
+  final PageController _pageController = PageController();
 
   final GlobalKey _addKey = GlobalKey();
   final GlobalKey _bodyKey = GlobalKey();
