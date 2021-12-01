@@ -8,8 +8,8 @@ homepage: https://weilu.blog.csdn.net/
 publish_to: 'none'
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
-  flutter: ">=2.0.0"
+  sdk: ">=2.14.0 <3.0.0"
+  flutter: ">=2.5.0"
 
 dependencies:
   flutter:
@@ -75,12 +75,9 @@ dependencies:
   # 动画效果 https://github.com/xvrh/lottie-flutter
   lottie: ^1.2.1
 
-# flutter 2.0 中flutter_driver与common_utils、lottie等个别库依赖冲突，用依赖版本覆盖处理。
-# 使用flutter 2.2无需添加
-#dependency_overrides:
-#  archive: ^3.1.2
-#  crypto: ^3.0.1
-#  convert: ^3.0.0
+# https://github.com/simplezhli/flutter_deer/issues/187
+dependency_overrides:
+  decimal: 1.5.0
 
 dev_dependencies:
   # Widget测试
