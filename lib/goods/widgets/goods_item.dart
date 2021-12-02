@@ -94,6 +94,7 @@ class GoodsItem extends StatelessWidget {
               container: true,
               label: '商品操作菜单',
               child: GestureDetector(
+                onTap: onTapMenu,
                 child: Container(
                   key: Key('goods_menu_item_$index'),
                   width: 44.0,
@@ -102,7 +103,6 @@ class GoodsItem extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 28.0, bottom: 28.0),
                   child: const LoadAssetImage('goods/ellipsis'),
                 ),
-                onTap: onTapMenu,
               ),
             ),
             Padding(

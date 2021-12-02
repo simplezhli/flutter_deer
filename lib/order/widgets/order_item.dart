@@ -217,6 +217,7 @@ class OrderItemButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: onTap,
       child: Container(
         alignment: Alignment.center,
         padding: const EdgeInsets.symmetric(horizontal: 14.0),
@@ -231,7 +232,6 @@ class OrderItemButton extends StatelessWidget {
         ),
         child: Text(text, style: TextStyle(fontSize: Dimens.font_sp14, color: textColor),),
       ),
-      onTap: onTap,
     );
   }
 }

@@ -115,6 +115,9 @@ class GoodsSortBottomSheetState extends State<GoodsSortBottomSheet> with SingleT
                   ),
                 ),
                 Positioned(
+                  right: 16.0,
+                  top: 16.0,
+                  bottom: 16.0,
                   child: InkWell(
                     onTap: () => NavigatorUtils.goBack(context),
                     child: const SizedBox(
@@ -123,9 +126,6 @@ class GoodsSortBottomSheetState extends State<GoodsSortBottomSheet> with SingleT
                       child: LoadAssetImage('goods/icon_dialog_close'),
                     ),
                   ),
-                  right: 16.0,
-                  top: 16.0,
-                  bottom: 16.0,
                 )
               ],
             ),

@@ -41,6 +41,13 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
       appBar: const MyAppBar(),
       body: MyScrollView(
         padding: const EdgeInsets.symmetric(vertical: 16.0),
+        bottomButton: Padding(
+          padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
+          child: MyButton(
+            text: '提交',
+            onPressed: () => NavigatorUtils.goBack(context),
+          ),
+        ),
         children: <Widget>[
           Gaps.vGap5,
           Row(
@@ -178,13 +185,6 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
           ),
           Gaps.vGap8,
         ],
-        bottomButton: Padding(
-          padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
-          child: MyButton(
-            text: '提交',
-            onPressed: () => NavigatorUtils.goBack(context),
-          ),
-        ),
       )
     );
   }

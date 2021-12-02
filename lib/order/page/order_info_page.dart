@@ -164,8 +164,8 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
       body: MyScrollView(
         key: const Key('order_info'),
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        children: children,
         bottomButton: bottomMenu,
+        children: children,
       )
     );
   }
@@ -190,8 +190,8 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         const Padding(
-          child: LoadAssetImage('order/icon_goods', width: 56.0, height: 56.0),
           padding: EdgeInsets.only(top: 5.0),
+          child: LoadAssetImage('order/icon_goods', width: 56.0, height: 56.0),
         ),
         Gaps.hGap8,
         Expanded(

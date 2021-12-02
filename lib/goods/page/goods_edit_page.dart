@@ -70,6 +70,13 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
       body: MyScrollView(
         key: const Key('goods_edit_page'),
         padding: const EdgeInsets.symmetric(vertical: 16.0),
+        bottomButton: Padding(
+          padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
+          child: MyButton(
+            onPressed: () => NavigatorUtils.goBack(context),
+            text: '提交',
+          ),
+        ),
         children: <Widget>[
           Gaps.vGap5,
           const Padding(
@@ -121,13 +128,13 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
                 child: Semantics(
                   label: '扫码',
                   child: GestureDetector(
+                    onTap: _scan,
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: context.isDark ?
                         const LoadAssetImage('goods/icon_sm', width: 16.0, height: 16.0) :
                         const LoadAssetImage('goods/scanning', width: 16.0, height: 16.0),
                     ),
-                    onTap: _scan,
                   ),
                 ),
               )
@@ -175,13 +182,6 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
           ),
           Gaps.vGap8,
         ],
-        bottomButton: Padding(
-          padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
-          child: MyButton(
-            onPressed: () => NavigatorUtils.goBack(context),
-            text: '提交',
-          ),
-        ),
       )
     );
   }

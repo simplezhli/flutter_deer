@@ -77,7 +77,6 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
         padding: const EdgeInsets.symmetric(vertical: 16.0),
         keyboardConfig: _buildConfig(context),
         tapOutsideToDismiss: true,
-        children: _buildBody(),
         bottomButton: Padding(
           padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
           child: MyButton(
@@ -88,6 +87,7 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
             text: '提交',
           ),
         ),
+        children: _buildBody(),
       ),
       /// 同时存在底部按钮与keyboardConfig配置时，为保证Android与iOS平台软键盘弹出高度正常，添加下面的代码。
       resizeToAvoidBottomInset: defaultTargetPlatform != TargetPlatform.iOS,

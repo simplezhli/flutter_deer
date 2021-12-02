@@ -26,6 +26,13 @@ class _GoodsSizeEditPageState extends State<GoodsSizeEditPage> {
       ),
       body: MyScrollView(
         padding: const EdgeInsets.symmetric(vertical: 16.0),
+        bottomButton: Padding(
+          padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
+          child: MyButton(
+            onPressed: () => NavigatorUtils.goBack(context),
+            text: '确定',
+          ),
+        ),
         children: <Widget>[
           Gaps.vGap5,
           const Padding(
@@ -84,13 +91,6 @@ class _GoodsSizeEditPageState extends State<GoodsSizeEditPage> {
           ),
           Gaps.vGap8,
         ],
-        bottomButton: Padding(
-          padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
-          child: MyButton(
-            onPressed: () => NavigatorUtils.goBack(context),
-            text: '确定',
-          ),
-        ),
       )
     );
   }

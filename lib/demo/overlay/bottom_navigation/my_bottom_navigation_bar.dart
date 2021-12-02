@@ -89,6 +89,8 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> with Tick
     if (widget.isShowIndicator) {
       /// 指示器
       children.add(Positioned(
+        left: 6.0 + animation.value * itemWidth,
+        top: (barHeight - indicatorHeight) / 2,
         child: Container(
           width: indicatorHeight,
           height: indicatorHeight,
@@ -100,8 +102,6 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> with Tick
             ],
           ),
         ),
-        left: 6.0 + animation.value * itemWidth,
-        top: (barHeight - indicatorHeight) / 2,
       ));
     }
 
@@ -114,6 +114,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> with Tick
       );
 
       children.add(Positioned.fromRect(
+        rect: rect,
         child: GestureDetector(
           child: Container(
             decoration: BoxDecoration(
@@ -126,7 +127,6 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> with Tick
             _selectedPosition(i);
           },
         ),
-        rect: rect,
       ));
     }
     

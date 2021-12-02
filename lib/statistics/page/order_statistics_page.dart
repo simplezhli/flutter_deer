@@ -103,9 +103,9 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
 //                        duration: const Duration(milliseconds: 300),
 //                      ),
                       AnimatedSize(
-                        child: _buildCalendar(),
                         curve: Curves.decelerate,
                         duration: const Duration(milliseconds: 300),
+                        child: _buildCalendar(),
                       ),
                       if (_selectedIndex == 1) InkWell(
                         onTap: () {

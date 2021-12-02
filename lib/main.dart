@@ -124,11 +124,11 @@ class MyApp extends StatelessWidget {
 
     /// Toast 配置
     return OKToast(
-      child: app,
       backgroundColor: Colors.black54,
       textPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
       radius: 20.0,
-      position: ToastPosition.bottom
+      position: ToastPosition.bottom,
+      child: app
     );
   }
 
