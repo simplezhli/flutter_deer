@@ -44,4 +44,3 @@ class Colours {
   static const Color shadow_blue = Color(0x805793FA);
   static const Color orange = Color(0xFFFF8547);
 }
-

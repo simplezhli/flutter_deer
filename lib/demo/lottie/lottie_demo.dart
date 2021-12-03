@@ -235,4 +235,3 @@ class _MyTextFieldState extends State<_MyTextField> {
     );
   }
 }
-

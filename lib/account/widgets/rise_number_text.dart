@@ -56,12 +56,10 @@ class _RiseNumberTextState extends State<RiseNumberText> with SingleTickerProvid
       builder: (_, __) {
         // 数字默认从0增长。数据变化时，由之前数字为基础变化。
         return Text(
-          (_fromNumber + (_animation.value * (widget.number - _fromNumber))).toStringAsFixed(2).toString(),
+          (_fromNumber + (_animation.value * (widget.number - _fromNumber))).toStringAsFixed(2),
           style: widget.style,
         );
       },
     );
   }
 }
-
-

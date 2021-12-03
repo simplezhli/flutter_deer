@@ -239,4 +239,3 @@ class _ShopFunctionModule extends StatelessWidget {
     );
   }
 }
-

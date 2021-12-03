@@ -245,4 +245,3 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
     return ClipRect(child: Stack(children: children));
   }
 }
-

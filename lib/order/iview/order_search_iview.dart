@@ -6,4 +6,3 @@ abstract class OrderSearchIMvpView implements IMvpView {
 
   BaseListProvider<SearchItems> get provider;
 }
-

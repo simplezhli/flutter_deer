@@ -212,4 +212,3 @@ class AdapterInterceptor extends Interceptor{
     return response;
   }
 }
-

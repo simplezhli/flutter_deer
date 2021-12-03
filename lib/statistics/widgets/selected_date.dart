@@ -80,4 +80,3 @@ class SelectedDateButton extends StatelessWidget {
     return enable ? (selected ? Colors.white : unSelectedTextColor) : Colours.text_gray_c;
   }
 }
-

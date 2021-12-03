@@ -43,4 +43,3 @@ class _DoubleTapBackExitAppState extends State<DoubleTapBackExitApp> {
     return Future.value(true);
   }
 }
-
