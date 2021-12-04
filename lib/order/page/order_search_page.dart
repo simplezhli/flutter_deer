@@ -34,7 +34,7 @@ class _OrderSearchPageState extends State<OrderSearchPage> with BasePageMixin<Or
   @override
   void initState() {
     /// 默认为加载中状态，本页面场景默认为空
-    provider.setStateTypeNotNotify(StateType.empty);
+    provider.stateType = StateType.empty;
     super.initState();
   }
   

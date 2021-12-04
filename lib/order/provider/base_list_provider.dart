@@ -6,23 +6,13 @@ class BaseListProvider<T> extends ChangeNotifier {
   final List<T> _list = <T>[];
   List<T> get list => _list;
 
-  StateType _stateType = StateType.loading;
-  bool _hasMore = true;
+  bool hasMore = true;
 
-  StateType get stateType => _stateType;
-  bool get hasMore => _hasMore;
-
-  void setStateTypeNotNotify(StateType stateType) {
-    _stateType = stateType;
-  }
+  StateType stateType = StateType.loading;
 
   void setStateType(StateType stateType) {
-    _stateType = stateType;
+    this.stateType = stateType;
     notifyListeners();
-  }
-
-  void setHasMore(bool hasMore) {
-    _hasMore = hasMore;
   }
 
   void add(T data) {

@@ -21,7 +21,7 @@ class OrderSearchPresenter extends BasePagePresenter<OrderSearchIMvpView> {
         if (data != null && data.items != null) {
           /// 一页30条数据，等于30条认为有下一页
           /// 具体的处理逻辑根据具体的接口情况处理，这部分可以抽离出来
-          view.provider.setHasMore(data.items!.length == 30);
+          view.provider.hasMore = data.items!.length == 30;
           if (page == 1) {
             /// 刷新
             view.provider.list.clear();
@@ -35,13 +35,13 @@ class OrderSearchPresenter extends BasePagePresenter<OrderSearchIMvpView> {
           }
         } else {
           /// 加载失败
-          view.provider.setHasMore(false);
+          view.provider.hasMore = false;
           view.provider.setStateType(StateType.network);
         }
       },
       onError: (_, __) {
         /// 加载失败
-        view.provider.setHasMore(false);
+        view.provider.hasMore = false;
         view.provider.setStateType(StateType.network);
       }
     );
