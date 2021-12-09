@@ -53,7 +53,6 @@ void main() {
 
       map.forEach((name, page) {
         testWidgets('$name $themeName', (WidgetTester tester) async {
-          tester.binding.addTime(const Duration(seconds: 3));
           final SemanticsHandle handle = tester.ensureSemantics();
           await tester.pumpWidget(MaterialApp(theme: theme, home: page));
           await expectLater(tester, meetsGuideline(textContrastGuideline));

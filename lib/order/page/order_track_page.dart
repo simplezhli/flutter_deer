@@ -39,7 +39,9 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
           Stepper(
             physics: const BouncingScrollPhysics(),
             currentStep: 4 - 1,
-            controlsBuilder: (_, {onStepContinue, onStepCancel}) {
+            // flutter 2.8.0以下使用：
+            // controlsBuilder: (_, {onStepContinue, onStepCancel}) {
+            controlsBuilder: (_, __) {
               return Gaps.empty; //操作按钮置空
             },
             steps: List.generate(4, (i) => _buildStep(i)),
