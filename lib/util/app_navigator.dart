@@ -45,7 +45,7 @@ class AppNavigator {
       }
       function(result);
     }).catchError((dynamic error) {
-      print('$error');
+      debugPrint('$error');
     });
   }
 

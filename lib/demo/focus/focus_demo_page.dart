@@ -26,7 +26,7 @@ class _FocusDemoPageState extends State<FocusDemoPage> {
 
   @override
   Widget build(BuildContext context) {
-    print('${widget.title} build');
+    debugPrint('${widget.title} build');
     return Scaffold(
       appBar: AppBar(
         backgroundColor: context.isDark ? Colours.dark_bg_color : Colors.blue,

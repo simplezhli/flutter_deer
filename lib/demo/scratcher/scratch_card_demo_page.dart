@@ -33,10 +33,10 @@ class _ScratchCardDemoPageState extends State<ScratchCardDemoPage> {
             brushSize: 20,
             threshold: 50,
             color: Colors.grey,
-            onChange: (value) => print('Scratch progress: ${value.toStringAsFixed(2)}%'),
+            onChange: (value) => debugPrint('Scratch progress: ${value.toStringAsFixed(2)}%'),
             onThreshold: () {
               /// 这里设置刮开50%，就揭开所有。
-              print('Threshold reached!');
+              debugPrint('Threshold reached!');
               scratchKey.currentState!.reveal(
                 duration: const Duration(milliseconds: 1000),
               );

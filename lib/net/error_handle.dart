@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 
 class ExceptionHandle {
   static const int success = 200;
@@ -32,7 +33,7 @@ class ExceptionHandle {
   };
 
   static NetError handleException(dynamic error) {
-    print(error);
+    debugPrint(error.toString());
     if (error is DioError) {
       if (error.type.errorCode == 0) {
         return _handleException(error.error);

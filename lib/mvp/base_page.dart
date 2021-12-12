@@ -50,7 +50,7 @@ mixin BasePageMixin<T extends StatefulWidget, P extends BasePresenter> on State<
         );
       } catch(e) {
         /// 异常原因主要是页面没有build完成就调用Progress。
-        print(e);
+        debugPrint(e.toString());
       }
     }
   }

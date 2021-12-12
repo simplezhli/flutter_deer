@@ -20,7 +20,7 @@ void main() {
     Constant.isDriverTest = true;
 
     tearDown(() {
-      print('< Success');
+      debugPrint('< Success');
     });
 
     testWidgets('商品页测试',(WidgetTester tester) async {

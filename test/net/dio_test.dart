@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_deer/net/net.dart';
 import 'package:flutter_deer/shop/models/user_entity.dart';
 import 'package:test/test.dart';
@@ -19,7 +20,7 @@ void main() {
           expect(data?.name, '唯鹿');
         },
         onError: (_, __) {
-          print('$_, $__');
+          debugPrint('$_, $__');
         }
       );
     });

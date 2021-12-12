@@ -66,7 +66,7 @@ class _WebViewPageState extends State<WebViewPage> {
                     _controller.complete(webViewController);
                   },
                   onProgress: (int progress) {
-                    print('WebView is loading (progress : $progress%)');
+                    debugPrint('WebView is loading (progress : $progress%)');
                     setState(() {
                       _progressValue = progress;
                     });

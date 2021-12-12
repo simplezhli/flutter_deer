@@ -175,7 +175,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
       );
     } catch (e) {
       Toast.show('下载失败!');
-      print(e);
+      debugPrint(e.toString());
       setState(() {
         _isDownload = false;
       });

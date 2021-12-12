@@ -14,7 +14,7 @@ void main() {
   group('登录部分：', () {
 
     tearDown(() {
-      print('< Success');
+      debugPrint('< Success');
     });
 
     testWidgets('登录页按钮点击',(WidgetTester tester) async {
