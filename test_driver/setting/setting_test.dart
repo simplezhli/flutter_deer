@@ -1,5 +1,4 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
 
@@ -16,7 +15,7 @@ void main([List<String> args = const <String>[]]) {
     });
 
     tearDown(() {
-      debugPrint('< Success');
+      print('< Success');
     });
 
     tearDownAll(() async {

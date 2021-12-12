@@ -44,7 +44,7 @@ analyzer:
     - "lib/generated/json/**"
     - "lib/widgets/bezier_chart/**"
 #    - "test/**"
-#    - "test_driver/**"
+    - "test_driver/**"
 
 linter:
   rules:
@@ -107,9 +107,10 @@ linter:
     # - comment_references # blocked on https://github.com/dart-lang/linter/issues/1142
     # - constant_identifier_names # needs an opt-out https://github.com/dart-lang/linter/issues/204
     - control_flow_in_finally
+    # - curly_braces_in_flow_control_structures # not required by flutter style
+#    - depend_on_referenced_packages
     - deprecated_consistency
-    # - curly_braces_in_flow_control_structures # required by flutter style
-    # - diagnostic_describe_all_properties # not yet tested
+    # - diagnostic_describe_all_properties # enabled only at the framework level (packages/flutter/lib)
     - directives_ordering
     # - do_not_use_environment # we do this commonly
     - empty_catches
@@ -127,6 +128,7 @@ linter:
     - leading_newlines_in_multiline_strings
     - library_names
     - library_prefixes
+#    - library_private_types_in_public_api
     # - lines_longer_than_80_chars # required by flutter style
     - list_remove_unrelated_type
     # - literal_only_boolean_expressions # too many false positives: https://github.com/dart-lang/sdk/issues/34181
@@ -165,6 +167,7 @@ linter:
     - prefer_final_fields
     - prefer_final_in_for_each
     - prefer_final_locals
+    # - prefer_final_parameters # we should enable this one day (see also parameter_assignments)
     - prefer_for_elements_to_map_fromIterable
     - prefer_foreach
     - prefer_function_declarations_over_variables
@@ -180,8 +183,9 @@ linter:
     - prefer_is_not_operator
     - prefer_iterable_whereType
     # - prefer_mixin # https://github.com/dart-lang/language/issues/32
-    - prefer_null_aware_operators # disable until NNBD, see https://github.com/flutter/flutter/pull/32711#issuecomment-492930932
-    # - prefer_relative_imports # incompatible with sub-package imports
+    - prefer_null_aware_operators
+    # - prefer_null_aware_method_calls # "call()" is confusing to people new to the language since it's not documented anywhere
+#    - prefer_relative_imports
     - prefer_single_quotes
     - prefer_spread_collections
     - prefer_typing_uninitialized_variables
@@ -189,6 +193,7 @@ linter:
     - provide_deprecation_message
     # - public_member_api_docs # enabled on a case-by-case basis; see e.g. packages/analysis_options.yaml
     - recursive_getters
+    # - require_trailing_commas # blocked on https://github.com/dart-lang/sdk/issues/47441
     - sized_box_for_whitespace
     - slash_for_doc_comments
     - sort_child_properties_last
@@ -204,6 +209,7 @@ linter:
     - unnecessary_await_in_return
     - unnecessary_brace_in_string_interps
     - unnecessary_const
+    - unnecessary_constructor_name
     # - unnecessary_final # conflicts with prefer_final_locals
     - unnecessary_getters_setters
     # - unnecessary_lambdas # has false positives: https://github.com/dart-lang/linter/issues/498
@@ -211,7 +217,7 @@ linter:
     - unnecessary_null_aware_assignments
     - unnecessary_null_checks
     - unnecessary_null_in_if_null_operators
-    # - unnecessary_nullable_for_final_variable_declarations
+    - unnecessary_nullable_for_final_variable_declarations
     - unnecessary_overrides
     - unnecessary_parenthesis
     # - unnecessary_raw_strings # what's "necessary" is a matter of opinion; consistency across strings can help readability more than this lint
@@ -233,6 +239,7 @@ linter:
     - use_rethrow_when_possible
     - use_setters_to_change_properties
     # - use_string_buffers # has false positives: https://github.com/dart-lang/sdk/issues/34182
+    - use_test_throws_matchers
     # - use_to_and_as_if_applicable # has false positives, so we prefer to catch this by code-review
     - valid_regexps
     - void_checks

@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_deer/net/net.dart';
 import 'package:flutter_deer/shop/models/user_entity.dart';
 import 'package:test/test.dart';
