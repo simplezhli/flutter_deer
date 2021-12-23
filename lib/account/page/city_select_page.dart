@@ -55,7 +55,7 @@ class _CitySelectPageState extends State<CitySelectPage> {
   }
 
   void _addCity(dynamic value) {
-    _cityList.add(CityEntity().fromJson(value as Map<String, dynamic>));
+    _cityList.add(CityEntity.fromJson(value as Map<String, dynamic>));
   }
 
   /// rootBundle.loadString源码修改

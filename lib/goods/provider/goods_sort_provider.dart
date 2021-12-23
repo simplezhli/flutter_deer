@@ -76,15 +76,15 @@ class GoodsSortProvider extends ChangeNotifier {
 
     // 模拟数据，数据为固定的三个列表
     rootBundle.loadString('assets/data/sort_0.json').then((String value) {
-      _mGoodsSort = JsonConvert.fromJsonAsT<List<GoodsSortEntity>>(json.decode(value));
+      _mGoodsSort = JsonConvert.fromJsonAsT<List<GoodsSortEntity>>(json.decode(value)) ?? [];
       _mList = _mGoodsSort;
       notifyListeners();
     });
     rootBundle.loadString('assets/data/sort_1.json').then((String value) {
-      _mGoodsSort1 = JsonConvert.fromJsonAsT<List<GoodsSortEntity>>(json.decode(value));
+      _mGoodsSort1 = JsonConvert.fromJsonAsT<List<GoodsSortEntity>>(json.decode(value)) ?? [];
     });
     rootBundle.loadString('assets/data/sort_2.json').then((String value) {
-      _mGoodsSort2 = JsonConvert.fromJsonAsT<List<GoodsSortEntity>>(json.decode(value));
+      _mGoodsSort2 = JsonConvert.fromJsonAsT<List<GoodsSortEntity>>(json.decode(value)) ?? [];
     });
   }
 }

@@ -1,7 +1,15 @@
-import 'package:flutter_deer/generated/json/base/json_convert_content.dart';
 import 'package:flutter_deer/generated/json/base/json_field.dart';
+import 'package:flutter_deer/generated/json/search_entity.g.dart';
 
-class SearchEntity with JsonConvert<SearchEntity> {
+@JsonSerializable()
+class SearchEntity {
+
+	SearchEntity();
+
+	factory SearchEntity.fromJson(Map<String, dynamic> json) => $SearchEntityFromJson(json);
+
+	Map<String, dynamic> toJson() => $SearchEntityToJson(this);
+
 	@JSONField(name: 'total_count')
 	int? totalCount;
 	@JSONField(name: 'incomplete_results')
@@ -9,7 +17,15 @@ class SearchEntity with JsonConvert<SearchEntity> {
 	List<SearchItems>? items;
 }
 
-class SearchItems with JsonConvert<SearchItems> {
+@JsonSerializable()
+class SearchItems {
+
+	SearchItems();
+
+	factory SearchItems.fromJson(Map<String, dynamic> json) => $SearchItemsFromJson(json);
+
+	Map<String, dynamic> toJson() => $SearchItemsToJson(this);
+
 	int? id;
 	@JSONField(name: 'node_id')
 	String? nodeId;
@@ -142,7 +158,15 @@ class SearchItems with JsonConvert<SearchItems> {
 	double? score;
 }
 
-class SearchItemsOwner with JsonConvert<SearchItemsOwner> {
+@JsonSerializable()
+class SearchItemsOwner {
+
+	SearchItemsOwner();
+
+	factory SearchItemsOwner.fromJson(Map<String, dynamic> json) => $SearchItemsOwnerFromJson(json);
+
+	Map<String, dynamic> toJson() => $SearchItemsOwnerToJson(this);
+
 	String? login;
 	int? id;
 	@JSONField(name: 'node_id')
@@ -177,7 +201,15 @@ class SearchItemsOwner with JsonConvert<SearchItemsOwner> {
 	bool? siteAdmin;
 }
 
-class SearchItemsLicense with JsonConvert<SearchItemsLicense> {
+@JsonSerializable()
+class SearchItemsLicense {
+
+	SearchItemsLicense();
+
+	factory SearchItemsLicense.fromJson(Map<String, dynamic> json) => $SearchItemsLicenseFromJson(json);
+
+	Map<String, dynamic> toJson() => $SearchItemsLicenseToJson(this);
+
 	String? key;
 	String? name;
 	@JSONField(name: 'spdx_id')

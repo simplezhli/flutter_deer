@@ -17,7 +17,7 @@ class BaseEntity<T> {
   late String message;
   T? data;
 
-  T _generateOBJ<O>(Object json) {
+  T? _generateOBJ<O>(Object json) {
     if (T.toString() == 'String') {
       return json.toString() as T;
     } else if (T.toString() == 'Map<dynamic, dynamic>') {

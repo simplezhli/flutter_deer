@@ -70,7 +70,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
   }
 
   void _addBank(dynamic value) {
-    _bankList.add(BankEntity().fromJson(value as Map<String, dynamic>));
+    _bankList.add(BankEntity.fromJson(value as Map<String, dynamic>));
   }
   
   @override
