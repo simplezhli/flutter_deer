@@ -59,6 +59,12 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
     super.dispose();
   }
 
+  /// https://github.com/simplezhli/flutter_deer/issues/194
+  @override
+  // ignore: must_call_super
+  void didChangeDependencies() {
+  }
+
   bool isDark = false;
 
   @override

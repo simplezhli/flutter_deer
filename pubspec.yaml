@@ -37,11 +37,11 @@ dependencies:
   # 图片选择插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/image_picker
   image_picker: 0.8.4+4
   # 侧滑删除 https://github.com/letsar/flutter_slidable
-  flutter_slidable: ^1.1.0
+  flutter_slidable: ^1.2.0
   # WebView插件 https://github.com/flutter/plugins/tree/master/packages/webview_flutter
   webview_flutter: 3.0.0
   # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions
-  keyboard_actions: ^3.4.4
+  keyboard_actions: ^3.4.6
   # 列表悬浮头 https://github.com/fluttercommunity/flutter_sticky_headers
   sticky_headers: ^0.2.0
   # 城市选择列表 https://github.com/flutterchina/azlistview
@@ -53,15 +53,15 @@ dependencies:
   # 格式化String https://github.com/Naddiseo/dart-sprintf
   sprintf: ^6.0.0
   # 状态管理 https://github.com/rrousselGit/provider
-  provider: ^6.0.1
+  provider: ^6.0.2
   # 扫码 https://github.com/juliuscanute/qr_code_scanner
   qr_code_scanner: 0.6.1
   # App Shortcuts https://github.com/flutter/plugins/tree/master/packages/quick_actions
-  quick_actions: 0.6.0+7
+  quick_actions: 0.6.0+8
   # 振动（支持Web） https://github.com/benjamindean/flutter_vibration
   vibration: ^1.7.4-nullsafety.0
   # 获取当前设备信息 https://github.com/fluttercommunity/plus_plugins/tree/main/packages/device_info_plus
-  device_info_plus: 3.1.1
+  device_info_plus: 3.2.1
   # 改变桌面端窗口大小(MacOS/Linux/Windows) https://github.com/mix1009/desktop_window
   desktop_window: 0.4.0
   # 高德2D地图插件（支持Web） https://github.com/simplezhli/flutter_2d_amap

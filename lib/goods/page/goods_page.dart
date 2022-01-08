@@ -45,7 +45,13 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
     _tabController?.dispose();
     super.dispose();
   }
-  
+
+  /// https://github.com/flutter/flutter/issues/72908
+  @override
+  // ignore: must_call_super
+  void didChangeDependencies() {
+  }
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
