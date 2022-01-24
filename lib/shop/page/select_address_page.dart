@@ -31,6 +31,7 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
   @override
   void initState() {
     super.initState();
+    Flutter2dAMap.updatePrivacy(true);
     /// 配置key
     Flutter2dAMap.setApiKey(
       iOSKey: '4327916279bf45a044bb53b947442387',
