@@ -1,12 +1,12 @@
 buildscript {
     ext.kotlin_version = '1.5.21'
     repositories {
-//        maven { url 'https://maven.aliyun.com/repository/public' }//jcenter
-//        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }//gradle-plugin
-//        maven { url 'https://maven.aliyun.com/repository/central' }//central
-//        maven { url 'https://maven.aliyun.com/repository/google' }//google
+        maven { url 'https://maven.aliyun.com/repository/public' }//jcenter
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }//gradle-plugin
+        maven { url 'https://maven.aliyun.com/repository/central' }//central
+        maven { url 'https://maven.aliyun.com/repository/google' }//google
         google()
-        jcenter()
+        mavenCentral()
         maven { url 'https://jitpack.io' }
     }
 
@@ -18,12 +18,12 @@ buildscript {
 
 allprojects {
     repositories {
-//        maven { url 'https://maven.aliyun.com/repository/public' }
-//        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
-//        maven { url 'https://maven.aliyun.com/repository/central' }
-//        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
         google()
-        jcenter()
+        mavenCentral()
         maven { url 'https://jitpack.io' }
     }
 }
