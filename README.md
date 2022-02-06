@@ -2,6 +2,8 @@
 
 <img src="preview/logo.jpg"/>
 
+## [English](README-EN.md) | 中文
+
 本项目为个人学习Flutter的练习项目。
 
 通过设置、修改、组合自带部件以及自定义来实现具体的设计效果，满足日常开发的需求。
