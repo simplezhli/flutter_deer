@@ -27,25 +27,25 @@ dependencies:
   # https://github.com/ReactiveX/rxdart
   rxdart: ^0.27.3
   # Dart 常用工具类库 https://github.com/Sky24n/common_utils
-  common_utils: 2.0.2
+  common_utils: 2.1.0
   # Flutter 常用工具类库 https://github.com/Sky24n/flustars
   flustars: ^2.0.1
   # Flutter 轮播图 https://github.com/lianyagang/flutter_swiper_null_safety
   flutter_swiper_null_safety: ^1.0.2  # flutter_swiper很久不维护，可以使用空安全版本：flutter_swiper_null_safety
   # 启动URL的插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/url_launcher
-  url_launcher: 6.0.18
+  url_launcher: 6.0.20
   # 图片选择插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/image_picker
-  image_picker: 0.8.4+4
+  image_picker: 0.8.4+9
   # 侧滑删除 https://github.com/letsar/flutter_slidable
   flutter_slidable: ^1.2.0
   # WebView插件 https://github.com/flutter/plugins/tree/master/packages/webview_flutter
   webview_flutter: 3.0.0
   # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions
-  keyboard_actions: ^3.4.6
+  keyboard_actions: ^3.4.7
   # 列表悬浮头 https://github.com/fluttercommunity/flutter_sticky_headers
   sticky_headers: ^0.2.0
   # 城市选择列表 https://github.com/flutterchina/azlistview
-  azlistview: ^2.0.0-nullsafety.0
+  azlistview: ^2.0.0
   # 路由框架 https://github.com/theyakka/fluro
   fluro: ^2.0.3
   # 图片缓存 https://github.com/renefloor/flutter_cached_network_image
@@ -57,11 +57,11 @@ dependencies:
   # 扫码 https://github.com/juliuscanute/qr_code_scanner
   qr_code_scanner: 0.6.1
   # App Shortcuts https://github.com/flutter/plugins/tree/master/packages/quick_actions
-  quick_actions: 0.6.0+8
+  quick_actions: 0.6.0+9
   # 振动（支持Web） https://github.com/benjamindean/flutter_vibration
   vibration: ^1.7.4-nullsafety.0
   # 获取当前设备信息 https://github.com/fluttercommunity/plus_plugins/tree/main/packages/device_info_plus
-  device_info_plus: 3.2.1
+  device_info_plus: 3.2.2
   # 改变桌面端窗口大小(MacOS/Linux/Windows) https://github.com/mix1009/desktop_window
   desktop_window: 0.4.0
   # 高德2D地图插件（支持Web） https://github.com/simplezhli/flutter_2d_amap
@@ -73,11 +73,11 @@ dependencies:
   # 刮刮卡 https://github.com/vintage/scratcher
   scratcher: ^2.1.0
   # 动画效果 https://github.com/xvrh/lottie-flutter
-  lottie: ^1.2.1
+  lottie: ^1.2.2
 
 # https://github.com/simplezhli/flutter_deer/issues/187
-dependency_overrides:
-  decimal: 1.5.0
+#dependency_overrides:
+#  decimal: 1.5.0
 
 dev_dependencies:
   # Widget测试

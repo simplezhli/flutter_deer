@@ -2,6 +2,8 @@
 
 <img src="preview/logo.jpg"/>
 
+## English | [中文](README.md)
+
 This project is an exercise project for individuals to learn Flutter.
 
 Realize specific design effects by setting, modifying, combining self-contained widgets and customizing to meet the needs of daily development.
