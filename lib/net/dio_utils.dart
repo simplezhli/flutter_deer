@@ -39,7 +39,7 @@ class DioUtils {
   factory DioUtils() => _singleton;
 
   DioUtils._() {
-    final BaseOptions _options = BaseOptions(
+    final BaseOptions options = BaseOptions(
       connectTimeout: _connectTimeout,
       receiveTimeout: _receiveTimeout,
       sendTimeout: _sendTimeout,
@@ -52,7 +52,7 @@ class DioUtils {
       baseUrl: _baseUrl,
 //      contentType: Headers.formUrlEncodedContentType, // 适用于post form表单提交
     );
-    _dio = Dio(_options);
+    _dio = Dio(options);
     /// Fiddler抓包代理配置 https://www.jianshu.com/p/d831b1f7c45b
 //    (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
 //        (HttpClient client) {
@@ -100,8 +100,8 @@ class DioUtils {
       /// 主要目的减少不必要的性能开销
       final bool isCompute = !Constant.isDriverTest && data.length > 10 * 1024;
       debugPrint('isCompute:$isCompute');
-      final Map<String, dynamic> _map = isCompute ? await compute(parseData, data) : parseData(data);
-      return BaseEntity<T>.fromJson(_map);
+      final Map<String, dynamic> map = isCompute ? await compute(parseData, data) : parseData(data);
+      return BaseEntity<T>.fromJson(map);
     } catch(e) {
       debugPrint(e.toString());
       return BaseEntity<T>(ExceptionHandle.parse_error, '数据解析错误！', null);

@@ -61,7 +61,7 @@ class SelectedImageState extends State<SelectedImage> {
 
   @override
   Widget build(BuildContext context) {
-    final ColorFilter _colorFilter = ColorFilter.mode(
+    final ColorFilter colorFilter = ColorFilter.mode(
         ThemeUtils.isDark(context) ? Colours.dark_unselected_item_color : Colours.text_gray,
         BlendMode.srcIn
     );
@@ -75,7 +75,7 @@ class SelectedImageState extends State<SelectedImage> {
         image: DecorationImage(
             image: _imageProvider ?? ImageUtils.getImageProvider(widget.url, holderImg: 'store/icon_zj'),
             fit: BoxFit.cover,
-            colorFilter: _imageProvider == null && TextUtil.isEmpty(widget.url) ? _colorFilter : null
+            colorFilter: _imageProvider == null && TextUtil.isEmpty(widget.url) ? colorFilter : null
         ),
       ),
     );

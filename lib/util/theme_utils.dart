@@ -40,11 +40,11 @@ class ThemeUtils {
     /// 主题切换动画（AnimatedTheme）时间为200毫秒，延时设置导航栏颜色，这样过渡相对自然。
     _subscription?.cancel();
     _subscription = Stream.value(1).delay(const Duration(milliseconds: 200)).listen((_) {
-      bool _isDark = false;
+      bool isDark = false;
       if (mode == ThemeMode.dark || (mode == ThemeMode.system && window.platformBrightness == Brightness.dark)) {
-        _isDark = true;
+        isDark = true;
       }
-      setSystemBarStyle(isDark: _isDark);
+      setSystemBarStyle(isDark: isDark);
     });
   }
 
@@ -53,13 +53,13 @@ class ThemeUtils {
   static void setSystemBarStyle({bool? isDark}) {
     if (Device.isAndroid) {
 
-      final bool _isDark = isDark ?? window.platformBrightness == Brightness.dark;
-      debugPrint('isDark: $_isDark');
+      final bool isDarkMode = isDark ?? window.platformBrightness == Brightness.dark;
+      debugPrint('isDark: $isDarkMode');
       final SystemUiOverlayStyle systemUiOverlayStyle = SystemUiOverlayStyle(
         /// 透明状态栏
         statusBarColor: Colors.transparent,
-        systemNavigationBarColor: _isDark ? Colours.dark_bg_color : Colors.white,
-        systemNavigationBarIconBrightness: _isDark ? Brightness.light : Brightness.dark,
+        systemNavigationBarColor: isDarkMode ? Colours.dark_bg_color : Colors.white,
+        systemNavigationBarIconBrightness: isDarkMode ? Brightness.light : Brightness.dark,
       );
       SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
     }

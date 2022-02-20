@@ -47,7 +47,7 @@ class _ShopPageState extends State<ShopPage> with BasePageMixin<ShopPage, ShopPa
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    final Color? _iconColor = ThemeUtils.getIconColor(context);
+    final Color? iconColor = ThemeUtils.getIconColor(context);
     final Widget line = Container(
       height: 0.6, 
       width: double.infinity, 
@@ -69,7 +69,7 @@ class _ShopPageState extends State<ShopPage> with BasePageMixin<ShopPage, ShopPa
                 key: const Key('message'),
                 width: 24.0,
                 height: 24.0,
-                color: _iconColor,
+                color: iconColor,
               ),
             ),
             IconButton(
@@ -82,7 +82,7 @@ class _ShopPageState extends State<ShopPage> with BasePageMixin<ShopPage, ShopPa
                 key: const Key('setting'),
                 width: 24.0,
                 height: 24.0,
-                color: _iconColor,
+                color: iconColor,
               ),
             )
           ],

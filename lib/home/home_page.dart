@@ -54,7 +54,7 @@ class _HomeState extends State<Home> with RestorationMixin{
 
   List<BottomNavigationBarItem> _buildBottomNavigationBarItem() {
     if (_list == null) {
-      const _tabImages = [
+      const tabImages = [
         [
           LoadAssetImage('home/icon_order', width: _imageSize, color: Colours.unselected_item_color,),
           LoadAssetImage('home/icon_order', width: _imageSize, color: Colours.app_main,),
@@ -72,10 +72,10 @@ class _HomeState extends State<Home> with RestorationMixin{
           LoadAssetImage('home/icon_shop', width: _imageSize, color: Colours.app_main,),
         ]
       ];
-      _list = List.generate(_tabImages.length, (i) {
+      _list = List.generate(tabImages.length, (i) {
         return BottomNavigationBarItem(
-          icon: _tabImages[i][0],
-          activeIcon: _tabImages[i][1],
+          icon: tabImages[i][0],
+          activeIcon: tabImages[i][1],
           label: _appBarTitles[i],
         );
       });
@@ -85,7 +85,7 @@ class _HomeState extends State<Home> with RestorationMixin{
 
   List<BottomNavigationBarItem> _buildDarkBottomNavigationBarItem() {
     if (_listDark == null) {
-      const _tabImagesDark = [
+      const tabImagesDark = [
         [
           LoadAssetImage('home/icon_order', width: _imageSize),
           LoadAssetImage('home/icon_order', width: _imageSize, color: Colours.dark_app_main,),
@@ -104,10 +104,10 @@ class _HomeState extends State<Home> with RestorationMixin{
         ]
       ];
 
-      _listDark = List.generate(_tabImagesDark.length, (i) {
+      _listDark = List.generate(tabImagesDark.length, (i) {
         return BottomNavigationBarItem(
-          icon: _tabImagesDark[i][0],
-          activeIcon: _tabImagesDark[i][1],
+          icon: tabImagesDark[i][0],
+          activeIcon: tabImagesDark[i][1],
           label: _appBarTitles[i],
         );
       });

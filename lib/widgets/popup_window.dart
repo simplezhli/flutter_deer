@@ -34,12 +34,12 @@ Future<T?> showPopupWindow<T>({
   final RenderBox? overlay = Overlay.of(context)!.context.findRenderObject() as RenderBox?;
 
   // 默认位置锚点下方
-  final Offset _offset = Offset(0, anchor.size.height);
+  final Offset defaultOffset = Offset(0, anchor.size.height);
 
   if (offset == null) {
-    offset = _offset;
+    offset = defaultOffset;
   } else {
-    offset = offset + _offset;
+    offset = offset + defaultOffset;
   }
   // 获得控件左下方的坐标
   final a = anchor.localToGlobal(offset, ancestor: overlay);

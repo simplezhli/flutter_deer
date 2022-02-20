@@ -55,7 +55,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    final Color? _iconColor = ThemeUtils.getIconColor(context);
+    final Color? iconColor = ThemeUtils.getIconColor(context);
     return ChangeNotifierProvider<GoodsPageProvider>(
       create: (_) => provider,
       child: Scaffold(
@@ -69,7 +69,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 key: const Key('search'),
                 width: 24.0,
                 height: 24.0,
-                color: _iconColor,
+                color: iconColor,
               ),
             ),
             IconButton(
@@ -81,7 +81,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 key: const Key('add'),
                 width: 24.0,
                 height: 24.0,
-                color: _iconColor,
+                color: iconColor,
               ),
             )
           ],
@@ -111,7 +111,7 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                           style: TextStyles.textBold24,
                         ),
                         Gaps.hGap8,
-                        LoadAssetImage('goods/expand', width: 16.0, height: 16.0, color: _iconColor,)
+                        LoadAssetImage('goods/expand', width: 16.0, height: 16.0, color: iconColor,)
                       ],
                     );
                   },
