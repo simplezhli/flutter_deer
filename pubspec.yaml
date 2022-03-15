@@ -71,7 +71,7 @@ dependencies:
       url: 'https://github.com/simplezhli/flutter_2d_amap.git'
   # demo 用到的库
   # 刮刮卡 https://github.com/vintage/scratcher
-  scratcher: ^2.1.0
+  scratcher: ^2.2.0
   # 动画效果 https://github.com/xvrh/lottie-flutter
   lottie: ^1.2.2
 
