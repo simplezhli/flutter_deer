@@ -25,6 +25,7 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
     super.reassemble();
     if (Platform.isAndroid) {
       controller?.pauseCamera();
+      controller?.resumeCamera();
     } else if (Platform.isIOS) {
       controller?.resumeCamera();
     }
