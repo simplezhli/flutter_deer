@@ -51,7 +51,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
     });
   }
 
-  void _scan() async {
+  Future<void> _scan() async {
     if (Device.isMobile) {
       NavigatorUtils.unfocus();
       // 延时保证键盘收起，否则进入扫码页会黑屏
