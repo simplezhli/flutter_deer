@@ -1,4 +1,4 @@
-# Web 问题汇总（flutter 2.2.0）
+# Web 问题汇总（flutter 2.10.3）
 
 ## service worker
 
@@ -15,20 +15,6 @@ flutter 2.2中新的`service worker`加载机制目前发现兼容不够，部�
 - [[web] Emojis take a few seconds to render on canvaskit ](https://github.com/flutter/flutter/issues/76248)
 
 - [[Web] [CanvasKit][Feature Request]: Load fonts as soon as detecting browser locale](https://github.com/flutter/flutter/issues/77023)
-
-## HTML渲染（默认手机浏览器）
-
-### 使用`TextOverflow.ellipsis`属性。
-
-现象如下：
-
-- 文字没有超出，后面出现红色省略号。
-
-- 文字超出，未出现省略号。
-
-其他相关问题：
-
-- [[canvaskit] font renders missing glyph when text overflow is ellipsis](https://github.com/flutter/flutter/issues/76473)
 
 ## 指定渲染引擎
 
@@ -70,6 +56,17 @@ flutter run -d chrome --release --web-renderer canvaskit
 
 2.2.0已修复，详情见[[Web]: App throws null safety errors on Locale using latest stable, but works on Master](https://github.com/flutter/flutter/issues/79351)
 
+### ~~HTML渲染使用`TextOverflow.ellipsis`属性~~
+
+现象如下：
+
+- 文字没有超出，后面出现红色省略号。
+
+- 文字超出，未出现省略号。
+
+其他相关问题：
+
+- [[canvaskit] font renders missing glyph when text overflow is ellipsis](https://github.com/flutter/flutter/issues/76473)
 
 
 
