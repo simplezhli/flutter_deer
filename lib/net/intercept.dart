@@ -27,7 +27,7 @@ class AuthInterceptor extends Interceptor {
   }
 }
 
-class TokenInterceptor extends Interceptor {
+class TokenInterceptor extends QueuedInterceptor {
 
   Dio? _tokenDio;
 
@@ -53,12 +53,9 @@ class TokenInterceptor extends Interceptor {
     //401代表token过期
     if (response.statusCode == ExceptionHandle.unauthorized) {
       Log.d('-----------自动刷新Token------------');
-      final Dio dio = DioUtils.instance.dio;
-      dio.lock();
       final String? accessToken = await getToken(); // 获取新的accessToken
       Log.e('-----------NewToken: $accessToken ------------');
       SpUtil.putString(Constant.accessToken, accessToken.nullSafe);
-      dio.unlock();
 
       if (accessToken != null) {
         // 重新请求失败接口

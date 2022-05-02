@@ -14,8 +14,9 @@ class Utils {
 
   /// 打开链接
   static Future<void> launchWebURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
+    final Uri uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
     } else {
       Toast.show('打开链接失败！');
     }
@@ -23,9 +24,9 @@ class Utils {
 
   /// 调起拨号页
   static Future<void> launchTelURL(String phone) async {
-    final String url = 'tel:$phone';
-    if (await canLaunch(url)) {
-      await launch(url);
+    final Uri uri = Uri.parse('tel:$phone');
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
     } else {
       Toast.show('拨号失败！');
     }
