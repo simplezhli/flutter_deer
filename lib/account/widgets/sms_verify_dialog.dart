@@ -28,7 +28,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
   final int _second = 60;
   /// 当前秒数
   late int _currentSecond;
-  StreamSubscription? _subscription;
+  StreamSubscription<dynamic>? _subscription;
   bool _clickable = true;
 
   final FocusNode _focusNode = FocusNode();

@@ -69,7 +69,7 @@ class _GoodsListPageState extends State<GoodsListPage> with AutomaticKeepAliveCl
     'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2441563887,1184810091&fm=26&gp=0.jpg'
   ];
 
-  Future _onRefresh() async {
+  Future<dynamic> _onRefresh() async {
     await Future.delayed(const Duration(seconds: 2), () {
       setState(() {
         _page = 1;
@@ -80,7 +80,7 @@ class _GoodsListPageState extends State<GoodsListPage> with AutomaticKeepAliveCl
     });
   }
 
-  Future _loadMore() async {
+  Future<dynamic> _loadMore() async {
     await Future.delayed(const Duration(seconds: 2), () {
       setState(() {
         _list.addAll(List.generate(10, (i) =>

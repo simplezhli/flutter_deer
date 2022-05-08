@@ -38,7 +38,7 @@ class TokenInterceptor extends QueuedInterceptor {
     try {
       _tokenDio ??= Dio();
       _tokenDio!.options = DioUtils.instance.dio.options;
-      final Response response = await _tokenDio!.post<dynamic>('lgn/refreshToken', data: params);
+      final Response<dynamic> response = await _tokenDio!.post<dynamic>('lgn/refreshToken', data: params);
       if (response.statusCode == ExceptionHandle.success) {
         return (json.decode(response.data.toString()) as Map<String, dynamic>)['access_token'] as String;
       }
@@ -49,7 +49,7 @@ class TokenInterceptor extends QueuedInterceptor {
   }
 
   @override
-  Future<void> onResponse(Response response, ResponseInterceptorHandler handler) async {
+  Future<void> onResponse(Response<dynamic> response, ResponseInterceptorHandler handler) async {
     //401代表token过期
     if (response.statusCode == ExceptionHandle.unauthorized) {
       Log.d('-----------自动刷新Token------------');
@@ -70,7 +70,7 @@ class TokenInterceptor extends QueuedInterceptor {
         try {
           Log.e('----------- 重新请求接口 ------------');
           /// 避免重复执行拦截器，使用tokenDio
-          final Response response = await _tokenDio!.request<dynamic>(request.path,
+          final Response<dynamic> response = await _tokenDio!.request<dynamic>(request.path,
             data: request.data,
             queryParameters: request.queryParameters,
             cancelToken: request.cancelToken,
@@ -109,7 +109,7 @@ class LoggingInterceptor extends Interceptor{
   }
   
   @override
-  void onResponse(Response response, ResponseInterceptorHandler handler) {
+  void onResponse(Response<dynamic> response, ResponseInterceptorHandler handler) {
     _endTime = DateTime.now();
     final int duration = _endTime.difference(_startTime).inMilliseconds;
     if (response.statusCode == ExceptionHandle.success) {
@@ -143,8 +143,8 @@ class AdapterInterceptor extends Interceptor{
   static const String _kSuccessFormat = '{"code":0,"data":%s,"message":""}';
   
   @override
-  void onResponse(Response response, ResponseInterceptorHandler handler) {
-    final Response r = adapterData(response);
+  void onResponse(Response<dynamic> response, ResponseInterceptorHandler handler) {
+    final Response<dynamic> r = adapterData(response);
     super.onResponse(r, handler);
   }
   
@@ -156,7 +156,7 @@ class AdapterInterceptor extends Interceptor{
     super.onError(err, handler);
   }
 
-  Response adapterData(Response response) {
+  Response<dynamic> adapterData(Response<dynamic> response) {
     String result;
     String content = response.data?.toString() ?? '';
     /// 成功时，直接格式化返回

@@ -74,7 +74,7 @@ class FadeAnimationPage extends Page<void> {
   final Widget child;
 
   @override
-  Route createRoute(BuildContext context) {
+  Route<dynamic> createRoute(BuildContext context) {
     return PageRouteBuilder<dynamic>(
       settings: this,
       pageBuilder: (context, animation, animation2) {

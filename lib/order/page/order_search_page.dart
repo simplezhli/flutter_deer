@@ -23,7 +23,7 @@ class OrderSearchPage extends StatefulWidget {
   _OrderSearchPageState createState() => _OrderSearchPageState();
 }
 
-class _OrderSearchPageState extends State<OrderSearchPage> with BasePageMixin<OrderSearchPage, PowerPresenter> implements OrderSearchIMvpView, ShopIMvpView {
+class _OrderSearchPageState extends State<OrderSearchPage> with BasePageMixin<OrderSearchPage, PowerPresenter<dynamic>> implements OrderSearchIMvpView, ShopIMvpView {
 
   @override
   BaseListProvider<SearchItems> provider = BaseListProvider<SearchItems>();
@@ -94,8 +94,8 @@ class _OrderSearchPageState extends State<OrderSearchPage> with BasePageMixin<Or
   late ShopPagePresenter _shopPagePresenter;
 
   @override
-  PowerPresenter createPresenter() {
-    final PowerPresenter powerPresenter = PowerPresenter<dynamic>(this);
+  PowerPresenter<dynamic> createPresenter() {
+    final PowerPresenter<dynamic> powerPresenter = PowerPresenter<dynamic>(this);
     _orderSearchPresenter = OrderSearchPresenter();
     _shopPagePresenter = ShopPagePresenter();
     powerPresenter.requestPresenter([_orderSearchPresenter, _shopPagePresenter]);

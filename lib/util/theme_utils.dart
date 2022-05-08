@@ -33,7 +33,7 @@ class ThemeUtils {
     return isDark(context) ? Colours.dark_bg_color : Colors.grey[200];
   }
 
-  static StreamSubscription? _subscription;
+  static StreamSubscription<dynamic>? _subscription;
 
   /// 设置NavigationBar样式，使得导航栏颜色与深色模式的设置相符。
   static void setSystemNavigationBar(ThemeMode mode) {

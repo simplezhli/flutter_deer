@@ -41,7 +41,7 @@ class Log {
   }
 
   // https://github.com/Milad-Akarie/pretty_dio_logger
-  static void _printMap(Map data, {String tag = tag, int tabs = 1, bool isListItem = false, bool isLast = false}) {
+  static void _printMap(Map<dynamic, dynamic> data, {String tag = tag, int tabs = 1, bool isListItem = false, bool isLast = false}) {
     final bool isRoot = tabs == 1;
     final String initialIndent = _indent(tabs);
     tabs++;
@@ -80,7 +80,7 @@ class Log {
     LogUtil.v('$initialIndent}${isListItem && !isLast ? ',' : ''}', tag: tag);
   }
 
-  static void _printList(List list, {String tag = tag, int tabs = 1}) {
+  static void _printList(List<dynamic> list, {String tag = tag, int tabs = 1}) {
     list.asMap().forEach((i, dynamic e) {
       final bool isLast = i == list.length - 1;
       if (e is Map) {

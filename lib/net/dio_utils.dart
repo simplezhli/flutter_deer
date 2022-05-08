@@ -114,7 +114,7 @@ class DioUtils {
     return options;
   }
 
-  Future requestNetwork<T>(Method method, String url, {
+  Future<dynamic> requestNetwork<T>(Method method, String url, {
     NetSuccessCallback<T?>? onSuccess,
     NetErrorCallback? onError,
     Object? params,

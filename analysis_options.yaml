@@ -1,11 +1,8 @@
 # Specify analysis options.
 #
-# Until there are meta linter rules, each desired lint must be explicitly enabled.
-# See: https://github.com/dart-lang/linter/issues/288
-#
 # For a list of lints, see: http://dart-lang.github.io/linter/lints/
 # See the configuration guide for more
-# https://github.com/dart-lang/sdk/tree/master/pkg/analyzer#configuring-the-analyzer
+# https://github.com/dart-lang/sdk/tree/main/pkg/analyzer#configuring-the-analyzer
 #
 # There are other similar analysis options files in the flutter repos,
 # which should be kept in sync with this file:
@@ -15,19 +12,19 @@
 #   - https://github.com/flutter/engine/blob/master/analysis_options.yaml
 #   - https://github.com/flutter/packages/blob/master/analysis_options.yaml
 #
-# This file contains the analysis options used by Flutter tools, such as IntelliJ,
-# Android Studio, and the `flutter analyze` command.
+# This file contains the analysis options used for code in the flutter/flutter
+# repository.
 
 analyzer:
-  strong-mode:
-    implicit-casts: false
-    implicit-dynamic: false
+  language:
+    strict-casts: true
+    strict-raw-types: true
   errors:
     # treat missing required parameters as a warning (not a hint)
     missing_required_param: warning
     # treat missing returns as a warning (not a hint)
     missing_return: warning
-    # allow having TODOs in the code
+    # allow having TODO comments in the code
     todo: ignore
     # allow self-reference to deprecated members (we do this because otherwise we have
     # to annotate every member in every test, assert, etc, when we deprecate something)
@@ -48,8 +45,7 @@ analyzer:
 
 linter:
   rules:
-    # these rules are documented on and in the same order as
-    # the Dart Lint rules page to make maintenance easier
+    # This list is derived from the list of all available lints located at
     # https://github.com/dart-lang/linter/blob/master/example/all.yaml
     - always_declare_return_types
     - always_put_control_body_on_new_line

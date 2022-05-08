@@ -7,7 +7,7 @@ import 'package:flutter_deer/widgets/state_layout.dart';
 
 class OrderSearchPresenter extends BasePagePresenter<OrderSearchIMvpView> {
 
-  Future search(String text, int page, bool isShowDialog) {
+  Future<dynamic> search(String text, int page, bool isShowDialog) {
    
     final Map<String, String> params = <String, String>{};
     params['q'] = text;

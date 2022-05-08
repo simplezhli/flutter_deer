@@ -22,7 +22,7 @@ class BasePagePresenter<V extends IMvpView> extends BasePresenter<V> {
   }
 
   /// 返回Future 适用于刷新，加载更多
-  Future requestNetwork<T>(Method method, {
+  Future<dynamic> requestNetwork<T>(Method method, {
     required String url,
     bool isShow = true,
     bool isClose = true,

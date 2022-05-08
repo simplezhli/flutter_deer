@@ -27,7 +27,7 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   int _status = 0;
   final List<String> _guideList = ['app_start_1', 'app_start_2', 'app_start_3'];
-  StreamSubscription? _subscription;
+  StreamSubscription<dynamic>? _subscription;
 
   @override
   void initState() {

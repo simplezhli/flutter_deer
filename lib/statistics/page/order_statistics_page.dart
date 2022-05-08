@@ -225,12 +225,12 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
     );
   }
 
-  List<DataPoint> data = [];
-  List<DataPoint> data1 = [];
-  List<DataPoint> data2 = [];
+  List<DataPoint<dynamic>> data = [];
+  List<DataPoint<dynamic>> data1 = [];
+  List<DataPoint<dynamic>> data2 = [];
 
   // 数据变化图标会刷新，否则不会
-  List<DataPoint> _getRandomData() {
+  List<DataPoint<dynamic>> _getRandomData() {
     if (data.isEmpty) {
       for (int i = 0; i < 7; i++) {
         data.add(DataPoint<double>(value: Random.secure().nextInt(3000).toDouble(), xAxis: (i * 5).toDouble()));
