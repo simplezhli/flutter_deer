@@ -130,7 +130,7 @@ class _SMSVerifyDialogState extends State<SMSVerifyDialog> {
                     /// https://github.com/flutter/flutter/issues/47191
                     /// https://github.com/flutter/flutter/pull/57264 
                     /// 1.19.0已修复，小于此版本需添加addPostFrameCallback处理，否则会错误触发onChanged。
-                    SchedulerBinding.instance!.addPostFrameCallback((_) {
+                    SchedulerBinding.instance.addPostFrameCallback((_) {
                       _controller.clear();
                     });
                   }

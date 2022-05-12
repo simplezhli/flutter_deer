@@ -32,7 +32,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((_) async {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
       /// 两种初始化方案，另一种见 main.dart
       /// 两种方法各有优劣
       await SpUtil.getInstance();

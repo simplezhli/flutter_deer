@@ -44,7 +44,7 @@ class _GoodsEditPageState extends State<GoodsEditPage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       if (widget.isScan) {
         _scan();
       }

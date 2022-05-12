@@ -10,7 +10,7 @@ class ShopPagePresenter extends BasePagePresenter<ShopIMvpView> {
 
   @override
   void initState() {
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       if (view.isAccessibilityTest) {
         return;
       }

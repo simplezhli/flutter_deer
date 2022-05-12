@@ -48,7 +48,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> with Tick
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       itemWidth = (context.size!.width - barHeight) / 3;
       setState(() {});
     });

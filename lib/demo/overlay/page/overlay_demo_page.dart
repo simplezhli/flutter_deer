@@ -24,7 +24,7 @@ class _OverlayDemoPageState extends State<OverlayDemoPage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       _overlayEntry = OverlayEntry(
         builder: (context) => _buildBottomNavigation(context),
       );

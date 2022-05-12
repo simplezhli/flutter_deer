@@ -46,7 +46,7 @@ class _FocusDemoPageState extends State<FocusDemoPage> {
 //              FocusScope.of(context).unfocus();
 //              _focusNode.unfocus();
 //              FocusManager.instance.primaryFocus.unfocus();
-              WidgetsBinding.instance!.addPostFrameCallback((_) {
+              WidgetsBinding.instance.addPostFrameCallback((_) {
                 debugDumpFocusTree();
               });
             },

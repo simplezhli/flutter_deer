@@ -39,7 +39,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
   void initState() {
     super.initState();
     _tabController = TabController(vsync: this, length: 5);
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       /// 预先缓存剩余切换图片
       _preCacheImage();
     });

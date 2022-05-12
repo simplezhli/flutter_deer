@@ -140,7 +140,7 @@ class _SearchBarState extends State<SearchBar> {
               ),
               onTap: () {
                 /// https://github.com/flutter/flutter/issues/35848
-                SchedulerBinding.instance!.addPostFrameCallback((_) {
+                SchedulerBinding.instance.addPostFrameCallback((_) {
                   _controller.text = '';
                 });
               },
