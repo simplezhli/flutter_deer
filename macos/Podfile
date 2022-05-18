@@ -36,5 +36,12 @@ end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     flutter_additional_macos_build_settings(target)
+    target.build_configurations.each do |config|
+      if config.build_settings['MACOSX_DEPLOYMENT_TARGET'].to_f < 10.9
+        config.build_settings['MACOSX_DEPLOYMENT_TARGET'] = '10.11'
+      end
+      # https://github.com/flutter/flutter/issues/94914
+      config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
+    end
   end
 end
