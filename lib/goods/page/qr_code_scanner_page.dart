@@ -79,9 +79,17 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
     );
   }
 
-  void _onQRViewCreated(QRViewController controller) {
-    this.controller = controller;
-    controller.scannedDataStream.listen((scanData) {
+  void _onQRViewCreated(QRViewController? controller) {
+    setState(() {
+      this.controller = controller;
+      if (Platform.isAndroid) {
+        controller?.pauseCamera();
+        controller?.resumeCamera();
+      } else if (Platform.isIOS) {
+        controller?.resumeCamera();
+      }
+    });
+    controller?.scannedDataStream.listen((scanData) {
       /// 避免扫描结果多次回调
       controller.dispose();
       NavigatorUtils.goBackWithParams(context, scanData.code ?? '');

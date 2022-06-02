@@ -776,7 +776,7 @@ class BezierChartState extends State<BezierChart>
     );
     _buildXDataPoints();
     _computeSeries();
-    WidgetsBinding.instance!.addPostFrameCallback(_onLayoutDone);
+    WidgetsBinding.instance.addPostFrameCallback(_onLayoutDone);
     super.initState();
   }
 

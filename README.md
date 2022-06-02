@@ -66,9 +66,9 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 
 [![Build Status](https://github.com/simplezhli/flutter_deer/workflows/flutter_deer%20driver/badge.svg?branch=master)](https://github.com/simplezhli/flutter_deer/actions?query=workflow%3A%22flutter_deer+driver%22+branch%3Amaster)
 
-    1. Flutter version 3.0.0
+    1. Flutter version 3.0.1
 
-    2. Dart version 2.17
+    2. Dart version 2.17.1
 
 ## 注意事项
 
@@ -179,6 +179,8 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 * [ ] 迁移至Navigator 2.0。
 
 ## 已知存在问题：
+
+- 部分使用的到的三方库没有适配3.0.0，flutter_swiper_null_safety、flustars、azlistview（scrollable_positioned_list）。暂不影响运行，只是会有警告。
 
 - 2.0.0 已知存在问题(#68571 #73351 #73388 #74890 #79773 #79931)
 
