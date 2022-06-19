@@ -119,8 +119,9 @@ void fireOnTap(Finder finder, String text) {
   // The children are the individual TextSpans which have GestureRecognizers
   paragraph.text.visitChildren((InlineSpan span) {
     if (span is TextSpan) {
-      if (span.text != text)
+      if (span.text != text) {
         return true; // continue iterating.
+      }
 
       (span.recognizer! as TapGestureRecognizer).onTap!();
     }

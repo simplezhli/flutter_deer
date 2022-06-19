@@ -32,8 +32,9 @@ class Log {
           _printMap(data);
         } else if (data is List) {
           _printList(data);
-        } else
+        } else {
           LogUtil.v(msg, tag: tag);
+        }
       } catch(e) {
         LogUtil.e(msg, tag: tag);
       }
@@ -57,9 +58,9 @@ class Log {
         value = '"$value"';
       }
       if (value is Map) {
-        if (value.isEmpty)
+        if (value.isEmpty) {
           LogUtil.v('${_indent(tabs)} $key: $value${!isLast ? ',' : ''}', tag: tag);
-        else {
+        } else {
           LogUtil.v('${_indent(tabs)} $key: {', tag: tag);
           _printMap(value, tabs: tabs);
         }

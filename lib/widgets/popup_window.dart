@@ -230,14 +230,17 @@ class _PopupWindowLayoutDelegate extends SingleChildLayoutDelegate {
 
     // Avoid going outside an area defined as the rectangle 8.0 pixels from the
     // edge of the screen in every direction.
-    if (x < _kWindowScreenPadding)
+    if (x < _kWindowScreenPadding) {
       x = _kWindowScreenPadding;
-    else if (x + childSize.width > size.width - _kWindowScreenPadding)
+    } else if (x + childSize.width > size.width - _kWindowScreenPadding) {
       x = size.width - childSize.width - _kWindowScreenPadding;
-    if (y < _kWindowScreenPadding)
+    }
+
+    if (y < _kWindowScreenPadding) {
       y = _kWindowScreenPadding;
-    else if (y + childSize.height > size.height - _kWindowScreenPadding)
+    } else if (y + childSize.height > size.height - _kWindowScreenPadding) {
       y = size.height - childSize.height - _kWindowScreenPadding;
+    }
     return Offset(x, y);
   }
 
