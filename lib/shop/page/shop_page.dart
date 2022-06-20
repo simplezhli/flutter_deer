@@ -195,12 +195,12 @@ class _ShopPageState extends State<ShopPage> with BasePageMixin<ShopPage, ShopPa
 class _ShopFunctionModule extends StatelessWidget {
 
   const _ShopFunctionModule({
-    Key? key,
+    super.key,
     required this.onItemClick,
     required this.data,
     required this.image,
     required this.darkImage,
-  }): super(key: key);
+  });
   
   final Function(int index) onItemClick;
   final List<String> data;

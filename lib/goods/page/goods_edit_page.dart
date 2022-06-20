@@ -20,12 +20,12 @@ import '../goods_router.dart';
 class GoodsEditPage extends StatefulWidget {
   
   const GoodsEditPage({
-    Key? key,
+    super.key,
     this.isAdd = true,
     this.isScan = false,
     this.heroTag,
     this.goodsImageUrl
-  }) : super(key: key);
+  });
   
   final bool isAdd;
   final bool isScan;

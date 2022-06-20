@@ -7,7 +7,7 @@ import 'package:sticky_headers/sticky_headers.dart';
 /// design/6店铺-账户/index.html#artboard19
 class WithdrawalRecordListPage extends StatefulWidget {
 
-  const WithdrawalRecordListPage({Key? key}) : super(key: key);
+  const WithdrawalRecordListPage({super.key});
 
   @override
   _WithdrawalRecordListPageState createState() => _WithdrawalRecordListPageState();

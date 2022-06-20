@@ -4,7 +4,7 @@ import 'package:flutter_deer/demo/widgets/neumorphic.dart';
 
 class TestPage extends StatefulWidget {
 
-  const TestPage({Key? key}) : super(key: key);
+  const TestPage({super.key});
   
   @override
   _TestPageState createState() => _TestPageState();

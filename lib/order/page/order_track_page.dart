@@ -7,7 +7,7 @@ import 'package:flutter_deer/widgets/my_scroll_view.dart';
 /// design/3订单/index.html#artboard10
 class OrderTrackPage extends StatefulWidget {
 
-  const OrderTrackPage({Key? key}) : super(key: key);
+  const OrderTrackPage({super.key});
 
   @override
   _OrderTrackPageState createState() => _OrderTrackPageState();

@@ -14,7 +14,7 @@ import 'package:flutter_deer/widgets/my_app_bar.dart';
 /// design/6店铺-账户/index.html#artboard33
 class BankSelectPage extends StatefulWidget {
   
-  const BankSelectPage({Key? key, this.type = 0}) : super(key: key);
+  const BankSelectPage({super.key, this.type = 0});
   
   final int type;
   

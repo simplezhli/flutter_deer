@@ -7,9 +7,9 @@ import 'package:flutter_deer/widgets/my_button.dart';
 class GoodsDeleteBottomSheet extends StatelessWidget {
   
   const GoodsDeleteBottomSheet({
-    Key? key,
+    super.key,
     required this.onTapDelete,
-  }): super(key: key);
+  });
 
   final VoidCallback onTapDelete;
   

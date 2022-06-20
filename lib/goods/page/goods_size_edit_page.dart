@@ -10,7 +10,7 @@ import 'package:flutter_deer/widgets/text_field_item.dart';
 /// design/4商品/index.html#artboard14
 class GoodsSizeEditPage extends StatefulWidget {
 
-  const GoodsSizeEditPage({Key? key}) : super(key: key);
+  const GoodsSizeEditPage({super.key});
 
   @override
   _GoodsSizeEditPageState createState() => _GoodsSizeEditPageState();

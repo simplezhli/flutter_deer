@@ -18,7 +18,7 @@ import 'package:rxdart/rxdart.dart';
 import 'package:sp_util/sp_util.dart';
 
 class SplashPage extends StatefulWidget {
-  const SplashPage({Key? key}) : super(key: key);
+  const SplashPage({super.key});
 
   @override
   _SplashPageState createState() => _SplashPageState();

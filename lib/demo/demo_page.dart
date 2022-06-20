@@ -14,7 +14,7 @@ import 'package:flutter_deer/widgets/my_app_bar.dart';
 
 class DemoPage extends StatefulWidget {
 
-  const DemoPage({Key? key}) : super(key: key);
+  const DemoPage({super.key});
 
   @override
   _DemoPageState createState() => _DemoPageState();

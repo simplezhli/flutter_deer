@@ -16,7 +16,7 @@ import 'package:flutter_deer/widgets/my_button.dart';
 /// 骚操作：借腹生子
 class SMSVerifyDialog extends StatefulWidget {
 
-  const SMSVerifyDialog({Key? key}) : super(key: key);
+  const SMSVerifyDialog({super.key});
 
   @override
   _SMSVerifyDialogState createState() => _SMSVerifyDialogState();

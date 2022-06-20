@@ -5,7 +5,7 @@ import 'package:flutter_deer/util/theme_utils.dart';
 
 /// 博客：https://weilu.blog.csdn.net/article/details/107132031
 class FocusDemoPage extends StatefulWidget {
-  const FocusDemoPage({Key? key, required this.title}) : super(key: key);
+  const FocusDemoPage({super.key, required this.title});
 
   final String title;
 

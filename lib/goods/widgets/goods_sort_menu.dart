@@ -7,12 +7,12 @@ import 'package:flutter_deer/util/theme_utils.dart';
 class GoodsSortMenu extends StatefulWidget {
 
   const GoodsSortMenu({
-    Key? key,
+    super.key,
     required this.data,
     required this.sortIndex,
     required this.height,
     required this.onSelected,
-  }): super(key: key);
+  });
 
   final List<String> data;
   final int sortIndex;

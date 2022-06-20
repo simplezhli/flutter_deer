@@ -7,9 +7,9 @@ import 'package:flutter_deer/widgets/base_dialog.dart';
 class GoodsSizeDialog extends StatefulWidget {
 
   const GoodsSizeDialog({
-    Key? key,
+    super.key,
     this.onPressed,
-  }) : super(key : key);
+  });
 
   final Function(String)? onPressed;
   

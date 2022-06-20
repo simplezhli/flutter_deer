@@ -10,9 +10,9 @@ import 'package:provider/provider.dart';
 class OrderListPage extends StatefulWidget {
 
   const OrderListPage({
-    Key? key,
+    super.key,
     required this.index,
-  }): super(key: key);
+  });
 
   final int index;
   

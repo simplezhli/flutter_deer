@@ -11,7 +11,7 @@ import 'package:flutter_deer/widgets/my_app_bar.dart';
 /// design/6店铺-账户/index.html#artboard20
 class WithdrawalPasswordPage extends StatefulWidget {
 
-  const WithdrawalPasswordPage({Key? key}) : super(key: key);
+  const WithdrawalPasswordPage({super.key});
 
   @override
   _WithdrawalPasswordPageState createState() => _WithdrawalPasswordPageState();

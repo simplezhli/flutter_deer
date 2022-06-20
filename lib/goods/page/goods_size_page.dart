@@ -20,7 +20,7 @@ import '../goods_router.dart';
 /// design/4商品/index.html#artboard9
 class GoodsSizePage extends StatefulWidget {
 
-  const GoodsSizePage({Key? key}) : super(key: key);
+  const GoodsSizePage({super.key});
 
   @override
   _GoodsSizePageState createState() => _GoodsSizePageState();

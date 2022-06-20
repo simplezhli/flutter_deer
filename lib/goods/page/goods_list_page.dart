@@ -16,9 +16,9 @@ import '../widgets/goods_item.dart';
 class GoodsListPage extends StatefulWidget {
 
   const GoodsListPage({
-    Key? key,
+    super.key,
     required this.index
-  }): super(key: key);
+  });
 
   final int index;
 

@@ -7,7 +7,7 @@ import 'package:lottie/lottie.dart';
 /// 感谢Flopsy项目提供的思路及素材
 class LottieDemo extends StatefulWidget {
 
-  const LottieDemo({Key? key,}) : super(key: key);
+  const LottieDemo({super.key,});
 
   @override
   _LottieDemoState createState() => _LottieDemoState();
@@ -133,14 +133,14 @@ class _LottieDemoState extends State<LottieDemo> with TickerProviderStateMixin {
 class _MyTextField extends StatefulWidget {
 
   const _MyTextField({
-    Key? key,
+    super.key,
     required this.labelText,
     this.obscureText = false,
     this.keyboardType,
     this.onHasFocus,
     this.onObscureText,
     this.onChanged
-  }) : super(key: key);
+  });
 
   final String labelText;
   final bool obscureText;

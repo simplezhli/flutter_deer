@@ -49,7 +49,7 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key, this.home, this.theme}) : super(key: key) {
+  MyApp({super.key, this.home, this.theme}) {
     Log.init();
     initDio();
     Routes.initRoutes();

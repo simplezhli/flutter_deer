@@ -8,12 +8,12 @@ import 'package:flutter_deer/widgets/my_app_bar.dart';
 class InputTextPage extends StatefulWidget {
 
   const InputTextPage({
-    Key? key,
+    super.key,
     required this.title,
     this.content,
     this.hintText,
     this.keyboardType = TextInputType.text,
-  }) : super(key : key);
+  });
 
   final String title;
   final String? content;

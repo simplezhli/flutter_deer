@@ -15,7 +15,7 @@ import 'menu_reveal.dart';
 class GoodsItem extends StatelessWidget {
   
   const GoodsItem({
-    Key? key,
+    super.key,
     required this.item,
     required this.index,
     required this.selectIndex,
@@ -26,7 +26,7 @@ class GoodsItem extends StatelessWidget {
     required this.onTapMenuClose,
     required this.animation,
     required this.heroTag,
-  }): super(key: key);
+  });
 
   final GoodsItemEntity item;
   final int index;
@@ -213,10 +213,10 @@ class GoodsItem extends StatelessWidget {
 class _GoodsItemTag extends StatelessWidget {
   
   const _GoodsItemTag({
-    Key? key,
+    super.key,
     required this.color,
     required this.text,
-  }): super(key: key);
+  });
 
   final Color? color;
   final String text;

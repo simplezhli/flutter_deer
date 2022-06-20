@@ -6,12 +6,11 @@ import 'package:flutter/material.dart';
 class NeumorphicContainer extends StatefulWidget {
 
   NeumorphicContainer({
-    Key? key,
+    super.key,
     required this.child,
     this.bevel = 10.0,
     this.color,
-  })  : blurOffset = Offset(bevel / 2, bevel / 2),
-        super(key: key);
+  })  : blurOffset = Offset(bevel / 2, bevel / 2);
 
   final Widget child;
   final double bevel;

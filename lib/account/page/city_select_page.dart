@@ -13,7 +13,7 @@ import 'package:flutter_deer/widgets/my_app_bar.dart';
 /// design/6店铺-账户/index.html#artboard34
 class CitySelectPage extends StatefulWidget {
 
-  const CitySelectPage({Key? key}) : super(key: key);
+  const CitySelectPage({super.key});
 
   @override
   _CitySelectPageState createState() => _CitySelectPageState();

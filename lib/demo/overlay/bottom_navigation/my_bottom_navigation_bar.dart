@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 class MyBottomNavigationBar extends StatefulWidget {
 
   const MyBottomNavigationBar({
-    Key? key,
+    super.key,
     this.selectedPosition = 0,
     this.isShowIndicator = true,
     required this.selectedCallback,
-  }) : super(key: key);
+  });
 
   /// 选中下标
   final int selectedPosition;

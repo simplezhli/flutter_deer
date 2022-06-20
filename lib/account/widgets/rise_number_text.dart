@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 class RiseNumberText extends StatefulWidget {
 
   const RiseNumberText(this.number,{
-    Key? key,
+    super.key,
     this.style,
     this.duration = 1200
-  }): super(key: key);
+  });
 
   final num number;
   final TextStyle? style;

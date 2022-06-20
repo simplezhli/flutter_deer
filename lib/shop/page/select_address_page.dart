@@ -115,11 +115,11 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
 class _AddressItem extends StatelessWidget {
 
   const _AddressItem({
-    Key? key,
+    super.key,
     required this.date,
     this.isSelected = false,
     this.onTap,
-  }) : super(key: key);
+  });
 
   final PoiSearch date;
   final bool isSelected;

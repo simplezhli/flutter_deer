@@ -12,7 +12,7 @@ import 'package:flutter_gen/gen_l10n/deer_localizations.dart';
 /// design/1注册登录/index.html#artboard11
 class RegisterPage extends StatefulWidget {
 
-  const RegisterPage({Key? key}) : super(key: key);
+  const RegisterPage({super.key});
 
   @override
   _RegisterPageState createState() => _RegisterPageState();

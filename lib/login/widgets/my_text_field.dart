@@ -13,7 +13,7 @@ import 'package:flutter_gen/gen_l10n/deer_localizations.dart';
 class MyTextField extends StatefulWidget {
 
   const MyTextField({
-    Key? key,
+    super.key,
     required this.controller,
     this.maxLength = 16,
     this.autoFocus = false,
@@ -23,7 +23,7 @@ class MyTextField extends StatefulWidget {
     this.isInputPwd = false,
     this.getVCode,
     this.keyName
-  }): super(key: key);
+  });
 
   final TextEditingController controller;
   final int maxLength;

@@ -16,7 +16,7 @@ import 'package:provider/provider.dart';
 /// design/4商品/index.html
 class GoodsPage extends StatefulWidget {
 
-  const GoodsPage({Key? key}) : super(key: key);
+  const GoodsPage({super.key});
 
   @override
   _GoodsPageState createState() => _GoodsPageState();

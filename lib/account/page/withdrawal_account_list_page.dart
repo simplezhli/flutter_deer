@@ -10,7 +10,7 @@ import '../account_router.dart';
 /// design/6店铺-账户/index.html#artboard7
 class WithdrawalAccountListPage extends StatefulWidget {
 
-  const WithdrawalAccountListPage({Key? key}) : super(key: key);
+  const WithdrawalAccountListPage({super.key});
 
   @override
   _WithdrawalAccountListPageState createState() => _WithdrawalAccountListPageState();

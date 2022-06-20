@@ -69,7 +69,7 @@ class InnerRouterDelegate extends RouterDelegate<BookRoutePath>
 
 class FadeAnimationPage extends Page<void> {
 
-  const FadeAnimationPage({LocalKey? key, required this.child}) : super(key: key);
+  const FadeAnimationPage({super.key, required this.child});
 
   final Widget child;
 

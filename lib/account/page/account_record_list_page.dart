@@ -7,7 +7,7 @@ import 'package:sticky_headers/sticky_headers.dart';
 /// design/6店铺-账户/index.html#artboard1
 class AccountRecordListPage extends StatefulWidget {
 
-  const AccountRecordListPage({Key? key}) : super(key: key);
+  const AccountRecordListPage({super.key});
 
   @override
   _AccountRecordListPageState createState() => _AccountRecordListPageState();

@@ -7,7 +7,7 @@ import 'package:sp_util/sp_util.dart';
 
 class ThemePage extends StatefulWidget {
 
-  const ThemePage({Key? key}) : super(key: key);
+  const ThemePage({super.key});
 
   @override
   _ThemePageState createState() => _ThemePageState();

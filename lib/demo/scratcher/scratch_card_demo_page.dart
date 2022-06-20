@@ -8,7 +8,7 @@ import 'package:scratcher/scratcher.dart';
 
 class ScratchCardDemoPage extends StatefulWidget {
 
-  const ScratchCardDemoPage({Key? key}) : super(key: key);
+  const ScratchCardDemoPage({super.key});
 
   @override
   _ScratchCardDemoPageState createState() => _ScratchCardDemoPageState();

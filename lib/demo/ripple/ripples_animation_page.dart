@@ -7,10 +7,10 @@ import 'package:flutter_deer/util/theme_utils.dart';
 /// https://medium.com/flutterdevs/ripple-animation-in-flutter-3421cbd66a18
 class RipplesAnimationPage extends StatefulWidget {
   const RipplesAnimationPage({
-    Key? key,
+    super.key,
     this.size = 80.0,
     this.color = Colors.red,
-  }) : super(key: key);
+  });
 
   final double size;
   final Color color;

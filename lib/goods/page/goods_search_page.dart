@@ -5,7 +5,7 @@ import 'package:flutter_deer/widgets/search_bar.dart';
 
 class GoodsSearchPage extends StatefulWidget {
 
-  const GoodsSearchPage({Key? key}) : super(key: key);
+  const GoodsSearchPage({super.key});
 
   @override
   _GoodsSearchPageState createState() => _GoodsSearchPageState();

@@ -11,7 +11,7 @@ import 'package:flutter_deer/demo/overlay/route/application.dart';
 /// 本例包含自定义BottomNavigationBar，路由监听及Overlay悬浮用法。
 class OverlayDemoPage extends StatefulWidget {
 
-  const OverlayDemoPage({Key? key}) : super(key: key);
+  const OverlayDemoPage({super.key});
 
   @override
   _OverlayDemoPageState createState() => _OverlayDemoPageState();

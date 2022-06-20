@@ -9,10 +9,10 @@ import 'package:webview_flutter/webview_flutter.dart';
 class WebViewPage extends StatefulWidget {
 
   const WebViewPage({
-    Key? key,
+    super.key,
     required this.title,
     required this.url,
-  }) : super(key: key);
+  });
 
   final String title;
   final String url;

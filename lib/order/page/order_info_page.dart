@@ -16,7 +16,7 @@ import '../order_router.dart';
 /// design/3订单/index.html#artboard10
 class OrderInfoPage extends StatefulWidget {
 
-  const OrderInfoPage({Key? key}) : super(key: key);
+  const OrderInfoPage({super.key});
 
   @override
   _OrderInfoPageState createState() => _OrderInfoPageState();

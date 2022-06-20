@@ -13,10 +13,10 @@ import 'package:provider/provider.dart';
 class GoodsSortBottomSheet extends StatefulWidget {
 
   const GoodsSortBottomSheet({
-    Key? key,
+    super.key,
     required this.provider,
     required this.onSelected,
-  }): super(key: key);
+  });
 
   final Function(String, String) onSelected;
   /// 临时状态

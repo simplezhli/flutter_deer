@@ -16,10 +16,10 @@ const List<String> orderRightButtonText = ['接单', '开始配送', '完成', '
 class OrderItem extends StatelessWidget {
 
   const OrderItem({
-    Key? key,
+    super.key,
     required this.tabIndex,
     required this.index,
-  }) : super(key: key);
+  });
 
   final int tabIndex;
   final int index;
@@ -202,12 +202,12 @@ class OrderItem extends StatelessWidget {
 class OrderItemButton extends StatelessWidget {
   
   const OrderItemButton({
-    Key? key,
+    super.key,
     this.bgColor,
     this.textColor,
     required this.text,
     this.onTap
-  }): super(key: key);
+  });
   
   final Color? bgColor;
   final Color? textColor;

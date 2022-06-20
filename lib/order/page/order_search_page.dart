@@ -17,7 +17,7 @@ import 'package:provider/provider.dart';
 /// design/3订单/index.html#artboard8
 class OrderSearchPage extends StatefulWidget {
 
-  const OrderSearchPage({Key? key}) : super(key: key);
+  const OrderSearchPage({super.key});
 
   @override
   _OrderSearchPageState createState() => _OrderSearchPageState();

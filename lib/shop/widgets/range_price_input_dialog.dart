@@ -9,10 +9,10 @@ import 'package:flutter_deer/widgets/base_dialog.dart';
 class RangePriceInputDialog extends StatefulWidget {
 
   const RangePriceInputDialog({
-    Key? key,
+    super.key,
     this.title,
     required this.onPressed,
-  }) : super(key : key);
+  });
 
   final String? title;
   final Function(String, String) onPressed;

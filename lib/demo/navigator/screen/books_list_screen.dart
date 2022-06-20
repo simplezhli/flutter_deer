@@ -4,10 +4,10 @@ import 'package:flutter_deer/demo/navigator/book_entity.dart';
 class BooksListScreen extends StatelessWidget {
 
   const BooksListScreen({
-    Key? key,
+    super.key,
     required this.books,
     required this.onTapped,
-  }): super(key: key);
+  });
 
   final List<Book> books;
   final ValueChanged<Book> onTapped;

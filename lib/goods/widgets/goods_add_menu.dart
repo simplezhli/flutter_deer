@@ -8,8 +8,8 @@ import 'package:flutter_deer/widgets/load_image.dart';
 class GoodsAddMenu extends StatefulWidget {
 
   const GoodsAddMenu({
-    Key? key,
-  }): super(key: key);
+    super.key,
+  });
 
   @override
   _GoodsAddMenuState createState() => _GoodsAddMenuState();

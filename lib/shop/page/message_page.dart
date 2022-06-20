@@ -6,7 +6,7 @@ import 'package:flutter_deer/widgets/my_card.dart';
 /// design/8设置/index.html#artboard2
 class MessagePage extends StatefulWidget {
 
-  const MessagePage({Key? key}) : super(key: key);
+  const MessagePage({super.key});
 
   @override
   _MessagePageState createState() => _MessagePageState();

@@ -11,7 +11,7 @@ import 'package:flutter_deer/widgets/my_app_bar.dart';
 
 class AboutPage extends StatefulWidget {
 
-  const AboutPage({Key? key}) : super(key: key);
+  const AboutPage({super.key});
 
   @override
   _AboutPageState createState() => _AboutPageState();
