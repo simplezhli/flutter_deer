@@ -6,7 +6,7 @@ import 'package:flutter_deer/util/theme_utils.dart';
 class MyButton extends StatelessWidget {
 
   const MyButton({
-    Key? key,
+    super.key,
     this.text = '',
     this.fontSize = Dimens.font_sp18,
     this.textColor,
@@ -19,7 +19,7 @@ class MyButton extends StatelessWidget {
     this.radius = 2.0,
     this.side = BorderSide.none,
     required this.onPressed,
-  }): super(key: key);
+  });
 
   final String text;
   final double fontSize;

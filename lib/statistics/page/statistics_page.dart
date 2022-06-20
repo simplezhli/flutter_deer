@@ -15,7 +15,7 @@ import 'package:flutter_deer/widgets/my_flexible_space_bar.dart';
 /// design/5统计/index.html
 class StatisticsPage extends StatefulWidget {
 
-  const StatisticsPage({Key? key}) : super(key: key);
+  const StatisticsPage({super.key});
 
   @override
   _StatisticsPageState createState() => _StatisticsPageState();
@@ -112,7 +112,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
 
 class _StatisticsItem extends StatelessWidget {
 
-  const _StatisticsItem(this.title, this.img, this.index, {Key? key}): super(key: key);
+  const _StatisticsItem(this.title, this.img, this.index, {super.key});
 
   final String title;
   final String img;

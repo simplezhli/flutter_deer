@@ -12,7 +12,7 @@ import '../account_router.dart';
 /// design/6店铺-账户/index.html#artboard2
 class AccountPage extends StatefulWidget {
 
-  const AccountPage({Key? key}) : super(key: key);
+  const AccountPage({super.key});
 
   @override
   _AccountPageState createState() => _AccountPageState();
@@ -87,12 +87,12 @@ class _AccountPageState extends State<AccountPage> {
 class _AccountMoney extends StatelessWidget {
   
   const _AccountMoney({
-    Key? key,
+    super.key,
     required this.title,
     required this.money,
     this.alignment,
     this.moneyTextStyle
-  }): super(key: key);
+  });
 
   final String title;
   final String money;

@@ -18,9 +18,9 @@ import 'package:provider/provider.dart';
 class ShopPage extends StatefulWidget {
 
   const ShopPage({
-    Key? key,
+    super.key,
     this.isAccessibilityTest = false,
-  }) : super(key : key);
+  });
 
   final bool isAccessibilityTest;
   

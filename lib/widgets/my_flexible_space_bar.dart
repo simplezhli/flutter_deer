@@ -25,13 +25,13 @@ class MyFlexibleSpaceBar extends StatefulWidget {
   ///
   /// Most commonly used in the [AppBar.flexibleSpace] field.
   const MyFlexibleSpaceBar({
-    Key? key,
+    super.key,
     this.title,
     this.background,
     this.centerTitle,
     this.titlePadding,
     this.collapseMode = CollapseMode.parallax,
-  }) : super(key: key);
+  });
 
   /// The primary contents of the flexible space bar when expanded.
   ///

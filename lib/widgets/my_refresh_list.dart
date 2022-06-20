@@ -9,7 +9,7 @@ import 'package:flutter_deer/widgets/state_layout.dart';
 class DeerListView extends StatefulWidget {
 
   const DeerListView({
-    Key? key,
+    super.key,
     required this.itemCount,
     required this.itemBuilder,
     required this.onRefresh,
@@ -19,7 +19,7 @@ class DeerListView extends StatefulWidget {
     this.pageSize = 10,
     this.padding,
     this.itemExtent,
-  }): super(key: key);
+  });
 
   final RefreshCallback onRefresh;
   final LoadMoreCallback? loadMore;
@@ -98,7 +98,7 @@ class _DeerListViewState extends State<DeerListView> {
 
 class MoreWidget extends StatelessWidget {
   
-  const MoreWidget(this.itemCount, this.hasMore, this.pageSize, {Key? key}): super(key: key);
+  const MoreWidget(this.itemCount, this.hasMore, this.pageSize, {super.key});
 
   final int itemCount;
   final bool hasMore;

@@ -11,11 +11,11 @@ import 'load_image.dart';
 class SearchBar extends StatefulWidget implements PreferredSizeWidget {
 
   const SearchBar({
-    Key? key,
+    super.key,
     this.hintText = '',
     this.backImg = 'assets/images/ic_back_black.png',
     this.onPressed,
-  }): super(key: key);
+  });
 
   final String backImg;
   final String hintText;

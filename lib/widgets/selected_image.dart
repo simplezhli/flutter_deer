@@ -13,11 +13,11 @@ import 'package:image_picker/image_picker.dart';
 class SelectedImage extends StatefulWidget {
 
   const SelectedImage({
-    Key? key,
+    super.key,
     this.url,
     this.heroTag,
     this.size = 80.0,
-  }): super(key: key);
+  });
 
   final String? url;
   final String? heroTag;

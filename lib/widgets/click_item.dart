@@ -4,13 +4,13 @@ import 'package:flutter_deer/res/resources.dart';
 class ClickItem extends StatelessWidget {
 
   const ClickItem({
-    Key? key,
+    super.key,
     this.onTap,
     required this.title,
     this.content = '',
     this.textAlign = TextAlign.start,
     this.maxLines = 1
-  }): super(key: key);
+  });
 
   final GestureTapCallback? onTap;
   final String title;

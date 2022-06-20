@@ -6,7 +6,7 @@ import 'package:flutter_deer/util/image_utils.dart';
 class LoadImage extends StatelessWidget {
   
   const LoadImage(this.image, {
-    Key? key,
+    super.key,
     this.width, 
     this.height,
     this.fit = BoxFit.cover, 
@@ -14,7 +14,7 @@ class LoadImage extends StatelessWidget {
     this.holderImg = 'none',
     this.cacheWidth,
     this.cacheHeight,
-  }) : super(key: key);
+  });
   
   final String image;
   final double? width;
@@ -57,7 +57,7 @@ class LoadImage extends StatelessWidget {
 class LoadAssetImage extends StatelessWidget {
   
   const LoadAssetImage(this.image, {
-    Key? key,
+    super.key,
     this.width,
     this.height, 
     this.cacheWidth,
@@ -65,7 +65,7 @@ class LoadAssetImage extends StatelessWidget {
     this.fit,
     this.format = ImageFormat.png,
     this.color
-  }): super(key: key);
+  });
 
   final String image;
   final double? width;

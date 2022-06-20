@@ -10,11 +10,11 @@ import 'package:flutter_deer/widgets/base_dialog.dart';
 class PriceInputDialog extends StatefulWidget {
 
   const PriceInputDialog({
-    Key? key,
+    super.key,
     this.title,
     this.inputMaxPrice = 100000,
     required this.onPressed,
-  }) : super(key : key);
+  });
 
   final String? title;
   final double inputMaxPrice;

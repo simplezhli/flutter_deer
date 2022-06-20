@@ -8,10 +8,10 @@ import 'package:flutter_deer/widgets/load_image.dart';
 class StateLayout extends StatelessWidget {
   
   const StateLayout({
-    Key? key,
+    super.key,
     required this.type,
     this.hintText
-  }):super(key: key);
+  });
   
   final StateType type;
   final String? hintText;

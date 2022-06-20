@@ -5,14 +5,14 @@ import 'package:flutter_deer/util/theme_utils.dart';
 class SelectedDateButton extends StatelessWidget {
 
   const SelectedDateButton(this.text,{
-    Key? key,
+    super.key,
     this.fontSize = 14.0,
     this.selected = false,
     required this.unSelectedTextColor,
     this.enable = true,
     this.onTap,
     this.semanticsLabel
-  }): super(key: key);
+  });
 
   final String text;
   final double fontSize;

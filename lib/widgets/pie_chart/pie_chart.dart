@@ -10,10 +10,10 @@ import 'package:flutter_deer/widgets/pie_chart/pie_data.dart';
 class PieChart extends StatefulWidget {
   
   const PieChart({
-    Key? key,
+    super.key,
     required this.data,
     required this.name
-  }) : super(key: key);
+  });
   
   final List<PieData> data;
   final String name;

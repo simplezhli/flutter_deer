@@ -16,7 +16,7 @@ import 'package:flutter_deer/widgets/my_card.dart';
 /// design/5统计/index.html#artboard6
 class OrderStatisticsPage extends StatefulWidget {
 
-  const OrderStatisticsPage(this.index, {Key? key}) : super(key: key);
+  const OrderStatisticsPage(this.index, {super.key});
 
   final int index;
 

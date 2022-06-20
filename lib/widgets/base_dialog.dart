@@ -8,12 +8,12 @@ import 'package:flutter_deer/widgets/my_button.dart';
 class BaseDialog extends StatelessWidget {
 
   const BaseDialog({
-    Key? key,
+    super.key,
     this.title,
     this.onPressed,
     this.hiddenTitle = false,
     required this.child
-  }) : super(key : key);
+  });
 
   final String? title;
   final VoidCallback? onPressed;
@@ -106,11 +106,11 @@ class BaseDialog extends StatelessWidget {
 class _DialogButton extends StatelessWidget {
   
   const _DialogButton({
-    Key? key,
+    super.key,
     required this.text,
     this.textColor,
     this.onPressed,
-  }): super(key: key);
+  });
   
   final String text;
   final Color? textColor;

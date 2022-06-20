@@ -9,7 +9,7 @@ import 'package:flutter_deer/widgets/my_button.dart';
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   const MyAppBar({
-    Key? key,
+    super.key,
     this.backgroundColor,
     this.title = '',
     this.centerTitle = '',
@@ -18,7 +18,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.backImgColor,
     this.onPressed,
     this.isBack = true
-  }): super(key: key);
+  });
 
   final Color? backgroundColor;
   final String title;

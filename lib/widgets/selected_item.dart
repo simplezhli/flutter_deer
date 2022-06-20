@@ -4,13 +4,13 @@ import 'package:flutter_deer/res/resources.dart';
 class SelectedItem extends StatelessWidget {
 
   const SelectedItem({
-    Key? key,
+    super.key,
     this.onTap,
     required this.title,
     this.content = '',
     this.textAlign = TextAlign.start,
     this.style
-  }): super(key: key);
+  });
 
   final GestureTapCallback? onTap;
   final String title;

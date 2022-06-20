@@ -6,10 +6,10 @@ import 'package:flutter_deer/util/toast_utils.dart';
 class DoubleTapBackExitApp extends StatefulWidget {
 
   const DoubleTapBackExitApp({
-    Key? key,
+    super.key,
     required this.child,
     this.duration = const Duration(milliseconds: 2500),
-  }): super(key: key);
+  });
 
   final Widget child;
   /// 两次点击返回按钮的时间间隔

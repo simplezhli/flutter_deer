@@ -13,7 +13,7 @@ class FractionallyAlignedSizedBox extends StatelessWidget {
   /// If non-null, the [widthFactor] and [heightFactor] arguments must be
   /// non-negative.
   const FractionallyAlignedSizedBox({
-    Key? key,
+    super.key,
     required this.child,
     this.leftFactor,
     this.topFactor,
@@ -26,8 +26,7 @@ class FractionallyAlignedSizedBox extends StatelessWidget {
         assert(
             topFactor == null || bottomFactor == null || heightFactor == null),
         assert(widthFactor == null || widthFactor >= 0.0),
-        assert(heightFactor == null || heightFactor >= 0.0),
-        super(key: key);
+        assert(heightFactor == null || heightFactor >= 0.0);
 
   /// The relative distance that the child's left edge is inset from the left of the parent.
   final double? leftFactor;

@@ -5,11 +5,11 @@ import 'package:flutter_deer/util/theme_utils.dart';
 class MyCard extends StatelessWidget {
 
   const MyCard({
-    Key? key,
+    super.key,
     required this.child,
     this.color,
     this.shadowColor
-  }): super(key: key);
+  });
   
   final Widget child;
   final Color? color;

@@ -15,7 +15,7 @@ import 'package:flutter_deer/widgets/my_scroll_view.dart';
 /// design/7店铺-店铺配置/index.html#artboard17
 class ShopSettingPage extends StatefulWidget {
 
-  const ShopSettingPage({Key? key}) : super(key: key);
+  const ShopSettingPage({super.key});
 
   @override
   _ShopSettingPageState createState() => _ShopSettingPageState();

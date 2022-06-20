@@ -20,7 +20,7 @@ import 'package:keyboard_actions/keyboard_actions.dart';
 /// design/2店铺审核/index.html
 class StoreAuditPage extends StatefulWidget {
 
-  const StoreAuditPage({Key? key}) : super(key: key);
+  const StoreAuditPage({super.key});
 
   @override
   _StoreAuditPageState createState() => _StoreAuditPageState();

@@ -7,13 +7,13 @@ import 'package:flutter_deer/util/input_formatter/number_text_input_formatter.da
 class TextFieldItem extends StatelessWidget {
 
   const TextFieldItem({
-    Key? key,
+    super.key,
     this.controller,
     required this.title,
     this.keyboardType = TextInputType.text,
     this.hintText = '',
     this.focusNode,
-  }): super(key: key);
+  });
 
   final TextEditingController? controller;
   final String title;

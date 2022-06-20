@@ -8,7 +8,7 @@ import 'package:sp_util/sp_util.dart';
 
 class LocalePage extends StatefulWidget {
 
-  const LocalePage({Key? key}) : super(key: key);
+  const LocalePage({super.key});
 
   @override
   _LocalePageState createState() => _LocalePageState();

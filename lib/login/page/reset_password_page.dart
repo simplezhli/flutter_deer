@@ -13,7 +13,7 @@ import 'package:flutter_gen/gen_l10n/deer_localizations.dart';
 /// design/1注册登录/index.html#artboard9
 class ResetPasswordPage extends StatefulWidget {
 
-  const ResetPasswordPage({Key? key}) : super(key: key);
+  const ResetPasswordPage({super.key});
 
   @override
   _ResetPasswordPageState createState() => _ResetPasswordPageState();
