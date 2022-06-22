@@ -133,7 +133,6 @@ class _LottieDemoState extends State<LottieDemo> with TickerProviderStateMixin {
 class _MyTextField extends StatefulWidget {
 
   const _MyTextField({
-    super.key,
     required this.labelText,
     this.obscureText = false,
     this.keyboardType,

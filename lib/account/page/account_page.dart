@@ -87,7 +87,6 @@ class _AccountPageState extends State<AccountPage> {
 class _AccountMoney extends StatelessWidget {
   
   const _AccountMoney({
-    super.key,
     required this.title,
     required this.money,
     this.alignment,

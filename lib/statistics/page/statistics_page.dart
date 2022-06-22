@@ -112,7 +112,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
 
 class _StatisticsItem extends StatelessWidget {
 
-  const _StatisticsItem(this.title, this.img, this.index, {super.key});
+  const _StatisticsItem(this.title, this.img, this.index);
 
   final String title;
   final String img;

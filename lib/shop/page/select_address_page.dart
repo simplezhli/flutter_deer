@@ -115,7 +115,6 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
 class _AddressItem extends StatelessWidget {
 
   const _AddressItem({
-    super.key,
     required this.date,
     this.isSelected = false,
     this.onTap,

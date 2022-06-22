@@ -106,7 +106,6 @@ class BaseDialog extends StatelessWidget {
 class _DialogButton extends StatelessWidget {
   
   const _DialogButton({
-    super.key,
     required this.text,
     this.textColor,
     this.onPressed,

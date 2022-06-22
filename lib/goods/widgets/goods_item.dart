@@ -213,7 +213,6 @@ class GoodsItem extends StatelessWidget {
 class _GoodsItemTag extends StatelessWidget {
   
   const _GoodsItemTag({
-    super.key,
     required this.color,
     required this.text,
   });
