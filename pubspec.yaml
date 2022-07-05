@@ -41,7 +41,7 @@ dependencies:
   # WebView插件 https://github.com/flutter/plugins/tree/master/packages/webview_flutter
   webview_flutter: 3.0.4
   # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions
-  keyboard_actions: ^4.0.0
+  keyboard_actions: ^4.0.1
   # 列表悬浮头 https://github.com/fluttercommunity/flutter_sticky_headers
   sticky_headers: ^0.3.0+2
   # 城市选择列表 https://github.com/flutterchina/azlistview
@@ -64,13 +64,13 @@ dependencies:
   # 振动（支持Web） https://github.com/benjamindean/flutter_vibration
   vibration: ^1.7.4-nullsafety.0
   # 获取当前设备信息 https://github.com/fluttercommunity/plus_plugins/tree/main/packages/device_info_plus
-  device_info_plus: 3.2.3
+  device_info_plus: 4.0.0
   # 改变桌面端窗口大小(MacOS/Linux/Windows) https://github.com/mix1009/desktop_window
   desktop_window: 0.4.0
   # 高德2D地图插件（支持Web） https://github.com/simplezhli/flutter_2d_amap
   flutter_2d_amap:
     git:
-      ref: 'eac817b9'
+      ref: '9e1d22ec'
       url: 'https://github.com/simplezhli/flutter_2d_amap.git'
   # demo 用到的库
   # 刮刮卡 https://github.com/vintage/scratcher
