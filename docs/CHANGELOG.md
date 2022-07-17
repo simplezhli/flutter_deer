@@ -1,8 +1,13 @@
 # Change Log:
 
+## 1.2.2
+
+* 适配Android 12。
+* Flutter SDK升至3.0.0。
+
 ## 1.2.1
 
-* Android 11
+* 适配Android 11。
 
 ## 1.2.0
 

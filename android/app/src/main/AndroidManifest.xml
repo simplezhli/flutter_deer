@@ -35,6 +35,7 @@
             android:screenOrientation="portrait"
             android:name=".MainActivity"
             android:theme="@style/LaunchTheme"
+            android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <!-- Specify that the launch screen should continue being displayed -->
             <!-- until Flutter renders its first frame. -->
