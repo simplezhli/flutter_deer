@@ -53,7 +53,7 @@ jobs:
       # https://github.com/marketplace/actions/flutter-action
       - uses: subosito/flutter-action@v1
         with:
-          flutter-version: '3.0.1'
+          flutter-version: '3.0.4'
           channel: 'stable' # or: 'dev' or 'beta'
       - run: "flutter clean"
       - name: "Run Flutter Driver tests"
@@ -76,7 +76,7 @@ jobs:
           java-version: 1.11
       - uses: subosito/flutter-action@v1
         with:
-          flutter-version: '3.0.1'
+          flutter-version: '3.0.4'
           channel: 'stable' # or: 'dev' or 'beta'
       - name: "Run Flutter Driver tests"
         # GitHub Action for installing, configuring and running Android Emulators (work only Mac OS)
@@ -101,7 +101,7 @@ jobs:
       # https://github.com/marketplace/actions/flutter-action
       - uses: subosito/flutter-action@v1
         with:
-          flutter-version: '3.0.1'
+          flutter-version: '3.0.4'
           channel: 'stable'
       - run: "flutter pub get"
       - name: "Run Flutter Accessibility Tests"

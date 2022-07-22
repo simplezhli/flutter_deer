@@ -66,9 +66,9 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 
 [![Build Status](https://github.com/simplezhli/flutter_deer/workflows/flutter_deer%20driver/badge.svg?branch=master)](https://github.com/simplezhli/flutter_deer/actions?query=workflow%3A%22flutter_deer+driver%22+branch%3Amaster)
 
-    1. Flutter version 3.0.1
+    1. Flutter version 3.0.4
 
-    2. Dart version 2.17.1
+    2. Dart version 2.17.5
 
 ## 注意事项
 
@@ -79,7 +79,7 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 - 项目运行有问题可以在[iOS问题汇总](./docs/iOS问题汇总.md)、[Android问题汇总](./docs/Android问题汇总.md)中尝试寻找解决办法。
 
 - 由于部分插件的原因，本项目在Windows、macOS仅做预览（主要为原生功能方面，UI问题不大）。有兴趣的可自行运行体验。
-        
+
 - 可以执行集成测试命令`flutter drive --target=test_driver/driver.dart` 查看功能演示。
 
 - 因为页面有点多，一开始可能会导致页面无法与设计图对应上。我在代码注释中有添加设计图的相对路径，可以搜索或查找到对应页面，希望对你有帮助。
@@ -123,7 +123,7 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 - [【译】学习Flutter中新的Navigator和Router系统](https://weilu.blog.csdn.net/article/details/108902282)
 
 - [【译】Flutter 2.2中的新功能](https://weilu.blog.csdn.net/article/details/117061293)
-    
+
 ## 使用到的三方库
 
 | 库                         | 功能             |
@@ -154,7 +154,7 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 | [vibration](https://github.com/benjamindean/flutter_vibration)     | **振动** |
 | [lottie](https://github.com/xvrh/lottie-flutter)     | **动画效果** |
 
-详细内容可以参看[pubspec.yaml](https://github.com/simplezhli/flutter_deer/blob/master/pubspec.yaml)文件    
+详细内容可以参看[pubspec.yaml](https://github.com/simplezhli/flutter_deer/blob/master/pubspec.yaml)文件
 
 ## 后续计划：
 
@@ -180,7 +180,7 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 
 ## 已知存在问题：
 
-- 部分使用的到的三方库没有适配3.0.0，flutter_swiper_null_safety、flustars、azlistview（scrollable_positioned_list）。暂不影响运行，只是会有警告。
+- 部分使用的到的三方库没有适配3.0.0，flutter_swiper（flutter_swiper_null_safety_flutter3替代）、flustars（flustars_flutter3替代）、azlistview（升级scrollable_positioned_list）。
 
 - 2.0.0 已知存在问题(#68571 #73351 #73388 #74890 #79773 #79931)
 

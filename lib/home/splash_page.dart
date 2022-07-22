@@ -12,7 +12,7 @@ import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/fractionally_aligned_sized_box.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
-import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
+import 'package:flutter_swiper_null_safety_flutter3/flutter_swiper_null_safety_flutter3.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:sp_util/sp_util.dart';
