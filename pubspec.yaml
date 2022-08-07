@@ -25,7 +25,7 @@ dependencies:
   # 网络库 https://github.com/flutterchina/dio
   dio: ^4.0.6
   # https://github.com/ReactiveX/rxdart
-  rxdart: ^0.27.3
+  rxdart: ^0.27.5
   # Dart 常用工具类库 https://github.com/Sky24n/common_utils
   common_utils: 2.1.0
   # Flutter 常用工具类库 https://github.com/Sky24n/flustars
@@ -33,7 +33,7 @@ dependencies:
   # Flutter 轮播图 https://github.com/mdddj/flutter_swiper_null_safety
   flutter_swiper_null_safety_flutter3: ^2.0.0   # flutter_swiper很久不维护，可以使用这个替代
   # 启动URL的插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/url_launcher
-  url_launcher: 6.1.2
+  url_launcher: 6.1.5
   # 图片选择插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/image_picker
   image_picker: 0.8.5+3
   # 侧滑删除 https://github.com/letsar/flutter_slidable
@@ -62,9 +62,9 @@ dependencies:
   # App Shortcuts https://github.com/flutter/plugins/tree/master/packages/quick_actions
   quick_actions: 0.6.0+11
   # 振动（支持Web） https://github.com/benjamindean/flutter_vibration
-  vibration: ^1.7.4-nullsafety.0
+  vibration: ^1.7.5
   # 获取当前设备信息 https://github.com/fluttercommunity/plus_plugins/tree/main/packages/device_info_plus
-  device_info_plus: 4.0.0
+  device_info_plus: 4.0.1
   # 改变桌面端窗口大小(MacOS/Linux/Windows) https://github.com/mix1009/desktop_window
   desktop_window: 0.4.0
   # 高德2D地图插件（支持Web） https://github.com/simplezhli/flutter_2d_amap
@@ -76,7 +76,7 @@ dependencies:
   # 刮刮卡 https://github.com/vintage/scratcher
   scratcher: ^2.2.1
   # 动画效果 https://github.com/xvrh/lottie-flutter
-  lottie: ^1.3.0
+  lottie: ^1.4.1
 
 # https://github.com/simplezhli/flutter_deer/issues/187
 dependency_overrides:
