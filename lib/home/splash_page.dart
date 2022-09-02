@@ -39,10 +39,10 @@ class _SplashPageState extends State<SplashPage> {
       await Device.initDeviceInfo();
       if (SpUtil.getBool(Constant.keyGuide, defValue: true)!) {
         /// 预先缓存图片，避免直接使用时因为首次加载造成闪动
-        void _precacheImage(String image) {
+        void precacheImages(String image) {
           precacheImage(ImageUtils.getAssetImage(image, format: ImageFormat.webp), context);
         }
-        _guideList.forEach(_precacheImage);
+        _guideList.forEach(precacheImages);
       }
       _initSplash();
     });

@@ -190,7 +190,7 @@ class _AddWithdrawalAccountPageState extends State<AddWithdrawalAccountPage> {
             data: TextButtonThemeData(
               style: TextButton.styleFrom(
                 // 文字颜色
-                primary: Theme.of(context).primaryColor,
+                foregroundColor: Theme.of(context).primaryColor,
                 // 按钮大小
                 minimumSize: Size.infinite,
                 // 修改默认圆角

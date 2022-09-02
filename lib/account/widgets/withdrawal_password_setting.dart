@@ -123,11 +123,6 @@ class _WithdrawalPasswordSettingState extends State<WithdrawalPasswordSetting> {
             return;
           }
 
-          /// 点击时给予振动反馈
-          if (!Device.isDesktop && (await Vibration.hasVibrator() ?? false)) {
-            Vibration.vibrate(duration: 10);
-          }
-
           if (index == 11) {
             if (_index == 0) {
               return;
@@ -156,6 +151,11 @@ class _WithdrawalPasswordSettingState extends State<WithdrawalPasswordSetting> {
           setState(() {
 
           });
+
+          /// 点击时给予振动反馈
+          if (!Device.isDesktop && (await Vibration.hasVibrator() ?? false)) {
+            Vibration.vibrate(duration: 10);
+          }
         },
       ),
     );

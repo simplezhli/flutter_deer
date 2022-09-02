@@ -52,11 +52,11 @@ mixin ChangeNotifierMixin<T extends StatefulWidget> on State<T> {
     _map?.forEach((changeNotifier, callbacks) { 
       if (callbacks != null && callbacks.isNotEmpty) {
 
-        void _addListener(VoidCallback callback) {
+        void addListener(VoidCallback callback) {
           changeNotifier?.addListener(callback);
         }
 
-        callbacks.forEach(_addListener);
+        callbacks.forEach(addListener);
       }
     });
     super.initState();
@@ -66,11 +66,11 @@ mixin ChangeNotifierMixin<T extends StatefulWidget> on State<T> {
   void dispose() {
     _map?.forEach((changeNotifier, callbacks) {
       if (callbacks != null && callbacks.isNotEmpty) {
-        void _removeListener(VoidCallback callback) {
+        void removeListener(VoidCallback callback) {
           changeNotifier?.removeListener(callback);
         }
 
-        callbacks.forEach(_removeListener);
+        callbacks.forEach(removeListener);
       }
       changeNotifier?.dispose();
     });

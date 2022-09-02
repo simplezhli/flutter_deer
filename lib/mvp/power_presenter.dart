@@ -42,10 +42,10 @@ class PowerPresenter<IMvpView> extends BasePresenter {
   @override
   void didUpdateWidgets<W>(W oldWidget) {
 
-    void _didUpdateWidgets(BasePagePresenter presenter) {
+    void didUpdateWidgets(BasePagePresenter presenter) {
       presenter.didUpdateWidgets<W>(oldWidget);
     }
-    _presenters.forEach(_didUpdateWidgets);
+    _presenters.forEach(didUpdateWidgets);
   }
 
   @override

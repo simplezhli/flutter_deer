@@ -60,11 +60,11 @@ dependencies:
   #      url: https://github.com/xeinebiu/qr_code_scanner.git
   #      ref: fix_break_changes_platform
   # App Shortcuts https://github.com/flutter/plugins/tree/master/packages/quick_actions
-  quick_actions: 0.6.0+11
+  quick_actions: 1.0.0
   # 振动（支持Web） https://github.com/benjamindean/flutter_vibration
   vibration: ^1.7.5
   # 获取当前设备信息 https://github.com/fluttercommunity/plus_plugins/tree/main/packages/device_info_plus
-  device_info_plus: 4.0.1
+  device_info_plus: 4.1.2
   # 改变桌面端窗口大小(MacOS/Linux/Windows) https://github.com/mix1009/desktop_window
   desktop_window: 0.4.0
   # 高德2D地图插件（支持Web） https://github.com/simplezhli/flutter_2d_amap
