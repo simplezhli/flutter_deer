@@ -61,9 +61,9 @@ Web：https://simplezhli.github.io/flutter_deer/
 
 [![Build Status](https://github.com/simplezhli/flutter_deer/workflows/flutter_deer%20driver/badge.svg?branch=master)](https://github.com/simplezhli/flutter_deer/actions?query=workflow%3A%22flutter_deer+driver%22+branch%3Amaster)
 
-    1. Flutter version 3.0.1
+    1. Flutter version 3.3.0
 
-    2. Dart version 2.17.1
+    2. Dart version 2.18.0
 
 ## Precautions
 
