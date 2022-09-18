@@ -21,7 +21,7 @@ dependencies:
   # Localization https://github.com/dart-lang/intl
   intl: ^0.17.0
   # Toast插件 https://github.com/OpenFlutter/flutter_oktoast
-  oktoast: ^3.2.0
+  oktoast: ^3.3.0
   # 网络库 https://github.com/flutterchina/dio
   dio: ^4.0.6
   # https://github.com/ReactiveX/rxdart
@@ -31,7 +31,7 @@ dependencies:
   # Flutter 常用工具类库 https://github.com/Sky24n/flustars
   flustars_flutter3: ^3.0.0 # flustars很久不维护，可以使用这个替代
   # Flutter 轮播图 https://github.com/mdddj/flutter_swiper_null_safety
-  flutter_swiper_null_safety_flutter3: ^2.0.0   # flutter_swiper很久不维护，可以使用这个替代
+  flutter_swiper_null_safety_flutter3: ^3.0.0   # flutter_swiper很久不维护，可以使用这个替代
   # 启动URL的插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/url_launcher
   url_launcher: 6.1.5
   # 图片选择插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/image_picker
