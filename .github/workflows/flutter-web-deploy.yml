@@ -16,6 +16,7 @@ jobs:
         with:
           flutter-version: '3.3.2'
           channel: 'stable'
+          architecture: x64
       - name: "Web Build 🔧"
         run: |
           flutter pub get

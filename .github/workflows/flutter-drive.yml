@@ -55,6 +55,7 @@ jobs:
         with:
           flutter-version: '3.3.2'
           channel: 'stable' # or: 'dev' or 'beta'
+          architecture: x64
       - run: "flutter clean"
       - name: "Run Flutter Driver tests"
         run: "flutter drive --target=test_driver/driver.dart"
@@ -78,6 +79,7 @@ jobs:
         with:
           flutter-version: '3.3.2'
           channel: 'stable' # or: 'dev' or 'beta'
+          architecture: x64
       - name: "Run Flutter Driver tests"
         # GitHub Action for installing, configuring and running Android Emulators (work only Mac OS)
         # https://github.com/marketplace/actions/android-emulator-runner
@@ -103,6 +105,7 @@ jobs:
         with:
           flutter-version: '3.3.2'
           channel: 'stable'
+          architecture: x64
       - run: "flutter pub get"
       - name: "Run Flutter Accessibility Tests"
         run: "flutter test test/accessibility_test.dart"
