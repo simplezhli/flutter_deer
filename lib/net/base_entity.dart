@@ -9,7 +9,7 @@ class BaseEntity<T> {
     code = json[Constant.code] as int?;
     message = json[Constant.message] as String;
     if (json.containsKey(Constant.data)) {
-      data = _generateOBJ<T>(json[Constant.data] as Object);
+      data = _generateOBJ<T>(json[Constant.data] as Object?);
     }
   }
 
@@ -17,7 +17,10 @@ class BaseEntity<T> {
   late String message;
   T? data;
 
-  T? _generateOBJ<O>(Object json) {
+  T? _generateOBJ<O>(Object? json) {
+    if (json == null) {
+      return null;
+    }
     if (T.toString() == 'String') {
       return json.toString() as T;
     } else if (T.toString() == 'Map<dynamic, dynamic>') {
