@@ -6,7 +6,7 @@ import FlutterMacOS
 import Foundation
 
 import desktop_window
-import device_info_plus_macos
+import device_info_plus
 import path_provider_macos
 import shared_preferences_macos
 import sqflite
