@@ -31,7 +31,7 @@ class Device {
       return -1;
     }
     if (isAndroid) {
-      return _androidInfo.version.sdkInt ?? -1;
+      return _androidInfo.version.sdkInt;
     } else {
       return -1;
     }

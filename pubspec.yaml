@@ -53,18 +53,18 @@ dependencies:
   # 格式化String https://github.com/Naddiseo/dart-sprintf
   sprintf: ^7.0.0
   # 状态管理 https://github.com/rrousselGit/provider
-  provider: ^6.0.3
+  provider: ^6.0.4
   # 扫码 https://github.com/juliuscanute/qr_code_scanner
   qr_code_scanner: 1.0.0
   #    git:
   #      url: https://github.com/xeinebiu/qr_code_scanner.git
   #      ref: fix_break_changes_platform
   # App Shortcuts https://github.com/flutter/plugins/tree/master/packages/quick_actions
-  quick_actions: 1.0.0
+  quick_actions: 1.0.1
   # 振动（支持Web） https://github.com/benjamindean/flutter_vibration
   vibration: ^1.7.5
   # 获取当前设备信息 https://github.com/fluttercommunity/plus_plugins/tree/main/packages/device_info_plus
-  device_info_plus: 6.0.0
+  device_info_plus: 7.0.1
   # 改变桌面端窗口大小(MacOS/Linux/Windows) https://github.com/mix1009/desktop_window
   desktop_window: 0.4.0
   # 高德2D地图插件（支持Web） https://github.com/simplezhli/flutter_2d_amap
@@ -74,7 +74,7 @@ dependencies:
       url: 'https://github.com/simplezhli/flutter_2d_amap.git'
   # demo 用到的库
   # 刮刮卡 https://github.com/vintage/scratcher
-  scratcher: ^2.2.1
+  scratcher: ^2.3.0
   # 动画效果 https://github.com/xvrh/lottie-flutter
   lottie: ^1.4.1
 
