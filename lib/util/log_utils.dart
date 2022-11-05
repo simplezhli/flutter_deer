@@ -7,9 +7,9 @@ import 'package:flutter_deer/res/constant.dart';
 class Log {
 
   static const String tag = 'DEER-LOG';
-  
+
   static void init() {
-    LogUtil.init(isDebug: !Constant.inProduction);
+    LogUtil.init(isDebug: !Constant.inProduction, maxLen: 512);
   }
 
   static void d(String msg, {String tag = tag}) {
@@ -65,7 +65,7 @@ class Log {
           _printMap(value, tabs: tabs);
         }
       } else if (value is List) {
-        if (value.isEmpty) {
+        if (value.isEmpty || value.length > 50) {
           LogUtil.v('${_indent(tabs)} $key: ${value.toString()}', tag: tag);
         } else {
           LogUtil.v('${_indent(tabs)} $key: [', tag: tag);
@@ -85,7 +85,7 @@ class Log {
     list.asMap().forEach((i, dynamic e) {
       final bool isLast = i == list.length - 1;
       if (e is Map) {
-        if (e.isEmpty) {
+        if (_canFlattenMap(e, list)) {
           LogUtil.v('${_indent(tabs)}  $e${!isLast ? ',' : ''}', tag: tag);
         } else {
           _printMap(e, tabs: tabs + 1, isListItem: true, isLast: isLast);
@@ -94,6 +94,12 @@ class Log {
         LogUtil.v('${_indent(tabs + 2)} $e${isLast ? '' : ','}', tag: tag);
       }
     });
+  }
+
+  /// 避免一秒内输出过多行数的日志被限制显示
+  /// Single process limit 250/s drop 66 lines.
+  static bool _canFlattenMap(Map<dynamic, dynamic> map, List<dynamic> list) {
+    return list.length * map.length > 100;
   }
 
   static String _indent([int tabCount = 1]) => '  ' * tabCount;
