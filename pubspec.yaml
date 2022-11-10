@@ -8,8 +8,8 @@ homepage: https://weilu.blog.csdn.net/
 publish_to: 'none'
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
-  flutter: ">=3.0.0 <4.0.0"
+  sdk: ">=2.18.0 <3.0.0"
+  flutter: ">=3.3.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -47,7 +47,7 @@ dependencies:
   # 城市选择列表 https://github.com/flutterchina/azlistview
   azlistview: ^2.0.0
   # 路由框架 https://github.com/theyakka/fluro
-  fluro: ^2.0.3
+  fluro: ^2.0.4
   # 图片缓存 https://github.com/renefloor/flutter_cached_network_image
   cached_network_image: ^3.2.1
   # 格式化String https://github.com/Naddiseo/dart-sprintf
@@ -76,7 +76,7 @@ dependencies:
   # 刮刮卡 https://github.com/vintage/scratcher
   scratcher: ^2.3.0
   # 动画效果 https://github.com/xvrh/lottie-flutter
-  lottie: ^1.4.1
+  lottie: ^2.0.0
 
 # https://github.com/simplezhli/flutter_deer/issues/187
 dependency_overrides:
