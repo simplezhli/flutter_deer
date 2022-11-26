@@ -20,12 +20,6 @@ analyzer:
     strict-casts: true
     strict-raw-types: true
   errors:
-    # treat missing required parameters as a warning (not a hint)
-    missing_required_param: warning
-    # treat missing returns as a warning (not a hint)
-    missing_return: warning
-    # allow having TODO comments in the code
-    todo: ignore
     # allow self-reference to deprecated members (we do this because otherwise we have
     # to annotate every member in every test, assert, etc, when we deprecate something)
     deprecated_member_use_from_same_package: ignore
@@ -102,7 +96,7 @@ linter:
     - conditional_uri_does_not_exist
     # - constant_identifier_names # needs an opt-out https://github.com/dart-lang/linter/issues/204
     - control_flow_in_finally
-    - curly_braces_in_flow_control_structures # not required by flutter style, but developer-facing code should have this on
+    - curly_braces_in_flow_control_structures
 #    - depend_on_referenced_packages
     - deprecated_consistency
     # - diagnostic_describe_all_properties # enabled only at the framework level (packages/flutter/lib)
@@ -214,6 +208,7 @@ linter:
     - unnecessary_late
     - unnecessary_new
     - unnecessary_null_aware_assignments
+    - unnecessary_null_aware_operator_on_extension_on_nullable
     - unnecessary_null_checks
     - unnecessary_null_in_if_null_operators
     - unnecessary_nullable_for_final_variable_declarations
@@ -224,6 +219,7 @@ linter:
     - unnecessary_string_escapes
     - unnecessary_string_interpolations
     - unnecessary_this
+    - unnecessary_to_list_in_spreads
     - unrelated_type_equality_checks
     - unsafe_html
     - use_build_context_synchronously
