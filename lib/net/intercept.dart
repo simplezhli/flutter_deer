@@ -1,7 +1,7 @@
 
 import 'dart:convert';
 
-import 'package:dio/dio.dart';
+import 'package:diox/diox.dart';
 import 'package:flutter_deer/res/constant.dart';
 import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/log_utils.dart';

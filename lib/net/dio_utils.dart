@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:dio/dio.dart';
+import 'package:diox/diox.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_deer/res/constant.dart';
 import 'package:flutter_deer/util/log_utils.dart';
@@ -8,17 +8,17 @@ import 'base_entity.dart';
 import 'error_handle.dart';
 
 /// 默认dio配置
-int _connectTimeout = 15000;
-int _receiveTimeout = 15000;
-int _sendTimeout = 10000;
+Duration _connectTimeout = const Duration(seconds: 15);
+Duration _receiveTimeout = const Duration(seconds: 15);
+Duration _sendTimeout = const Duration(seconds: 10);
 String _baseUrl = '';
 List<Interceptor> _interceptors = [];
 
 /// 初始化Dio配置
 void configDio({
-  int? connectTimeout,
-  int? receiveTimeout,
-  int? sendTimeout,
+  Duration? connectTimeout,
+  Duration? receiveTimeout,
+  Duration? sendTimeout,
   String? baseUrl,
   List<Interceptor>? interceptors,
 }) {

@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:dio/dio.dart';
+import 'package:diox/diox.dart';
 import 'package:flutter/foundation.dart';
 
 class ExceptionHandle {

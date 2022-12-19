@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:dio/dio.dart';
+import 'package:diox/diox.dart';
 import 'package:flustars_flutter3/flustars_flutter3.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
