@@ -23,7 +23,7 @@ dependencies:
   # Toast插件 https://github.com/OpenFlutter/flutter_oktoast
   oktoast: ^3.3.1
   # 网络库 https://github.com/cfug/diox
-  diox: ^5.0.0-dev.1
+  diox: ^5.0.0-dev.2
   # https://github.com/ReactiveX/rxdart
   rxdart: ^0.27.5
   # Dart 常用工具类库 https://github.com/Sky24n/common_utils
@@ -35,11 +35,11 @@ dependencies:
   # 启动URL的插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/url_launcher
   url_launcher: 6.1.5
   # 图片选择插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/image_picker
-  image_picker: 0.8.5+3
+  image_picker: 0.8.6
   # 侧滑删除 https://github.com/letsar/flutter_slidable
   flutter_slidable: ^2.0.0
   # WebView插件 https://github.com/flutter/plugins/tree/master/packages/webview_flutter
-  webview_flutter: 3.0.4
+  webview_flutter: 4.0.0
   # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions
   keyboard_actions: ^4.1.0
   # 列表悬浮头 https://github.com/fluttercommunity/flutter_sticky_headers
@@ -49,11 +49,11 @@ dependencies:
   # 路由框架 https://github.com/theyakka/fluro
   fluro: ^2.0.4
   # 图片缓存 https://github.com/renefloor/flutter_cached_network_image
-  cached_network_image: ^3.2.1
+  cached_network_image: ^3.2.3
   # 格式化String https://github.com/Naddiseo/dart-sprintf
   sprintf: ^7.0.0
   # 状态管理 https://github.com/rrousselGit/provider
-  provider: ^6.0.4
+  provider: ^6.0.5
   # 扫码 https://github.com/juliuscanute/qr_code_scanner
   qr_code_scanner: 1.0.0
   #    git:
@@ -77,7 +77,7 @@ dependencies:
   # 刮刮卡 https://github.com/vintage/scratcher
   scratcher: ^2.3.0
   # 动画效果 https://github.com/xvrh/lottie-flutter
-  lottie: ^2.0.0
+  lottie: ^2.1.0
 
 # https://github.com/simplezhli/flutter_deer/issues/187
 dependency_overrides:
