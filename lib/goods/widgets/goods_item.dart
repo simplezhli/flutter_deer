@@ -160,7 +160,7 @@ class GoodsItem extends StatelessWidget {
 
     return InkWell(
       onTap: onTapMenuClose,
-      child: Container(
+      child: ColoredBox(
         color: isDark ? const Color(0xB34D4D4D) : const Color(0x4D000000),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

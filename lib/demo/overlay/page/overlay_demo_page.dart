@@ -47,7 +47,7 @@ class _OverlayDemoPageState extends State<OverlayDemoPage> {
       appBar: AppBar(
         title: const Text('Overlay Demo'),
       ),
-      body: Container(
+      body: ColoredBox(
         color: Colors.amber,
         child: Center(
           child: GestureDetector(

@@ -63,7 +63,7 @@ class GoodsSortBottomSheetState extends State<GoodsSortBottomSheet> with SingleT
                 children: <Widget>[
                   child!,
                   Gaps.line,
-                  Container(
+                  ColoredBox(
                     // 隐藏点击效果
                     color: context.dialogBackgroundColor,
                     child: TabBar(
