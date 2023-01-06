@@ -56,7 +56,7 @@ class _WithdrawalRecordListPageState extends State<WithdrawalRecordListPage> {
           Positioned(
             bottom: 0.0,
             left: 0.0,
-            child: Text(i.isEven ? '12:40:20' : '12:50:20', style: Theme.of(context).textTheme.subtitle2),
+            child: Text(i.isEven ? '12:40:20' : '12:50:20', style: Theme.of(context).textTheme.titleSmall),
           ),
           Positioned(
             bottom: 0.0,
@@ -65,7 +65,7 @@ class _WithdrawalRecordListPageState extends State<WithdrawalRecordListPage> {
               i.isEven ? '审核失败' : '待审核',
               style: i.isEven ? TextStyle(
                 fontSize: Dimens.font_sp12,
-                color: Theme.of(context).errorColor,
+                color: Theme.of(context).colorScheme.error,
               ) : const TextStyle(
                 fontSize: Dimens.font_sp12,
                 color: Colours.orange,

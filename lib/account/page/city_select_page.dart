@@ -82,7 +82,7 @@ class _CitySelectPageState extends State<CitySelectPage> {
             indexHintWidth: 96,
             indexHintHeight: 96,
             indexHintTextStyle: const TextStyle(fontSize: 26.0, color: Colors.white),
-            textStyle: Theme.of(context).textTheme.subtitle2!,
+            textStyle: Theme.of(context).textTheme.titleSmall!,
             downTextStyle: context.isDark ? TextStyles.textSize12 : const TextStyle(fontSize: 12.0, color: Colors.black),
           ),
         ),

@@ -11,7 +11,7 @@ extension ThemeModeExtension on ThemeMode {
 }
 
 class ThemeProvider extends ChangeNotifier {
-  
+
   void syncTheme() {
     final String theme = SpUtil.getString(Constant.theme) ?? '';
     if (theme.isNotEmpty && theme != ThemeMode.system.value) {
@@ -38,11 +38,11 @@ class ThemeProvider extends ChangeNotifier {
 
   ThemeData getTheme({bool isDarkMode = false}) {
     return ThemeData(
-      errorColor: isDarkMode ? Colours.dark_red : Colours.red,
       primaryColor: isDarkMode ? Colours.dark_app_main : Colours.app_main,
       colorScheme: ColorScheme.fromSwatch().copyWith(
         brightness: isDarkMode ? Brightness.dark : Brightness.light,
         secondary: isDarkMode ? Colours.dark_app_main : Colours.app_main,
+        error: isDarkMode ? Colours.dark_red : Colours.red,
       ),
       // Tab指示器颜色
       indicatorColor: isDarkMode ? Colours.dark_app_main : Colours.app_main,
@@ -61,10 +61,10 @@ class ThemeProvider extends ChangeNotifier {
       ),
       textTheme: TextTheme(
         // TextField输入文字颜色
-        subtitle1: isDarkMode ? TextStyles.textDark : TextStyles.text,
+        titleMedium: isDarkMode ? TextStyles.textDark : TextStyles.text,
         // Text文字样式
-        bodyText2: isDarkMode ? TextStyles.textDark : TextStyles.text,
-        subtitle2: isDarkMode ? TextStyles.textDarkGray12 : TextStyles.textGray12,
+        bodyMedium: isDarkMode ? TextStyles.textDark : TextStyles.text,
+        titleSmall: isDarkMode ? TextStyles.textDarkGray12 : TextStyles.textGray12,
       ),
       inputDecorationTheme: InputDecorationTheme(
         hintStyle: isDarkMode ? TextStyles.textHint14 : TextStyles.textDarkGray14,

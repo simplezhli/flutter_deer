@@ -92,7 +92,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                         children: <Widget>[
                           Text(_data.typeName),
                           Gaps.vGap8,
-                          Text(_data.name, style: Theme.of(context).textTheme.subtitle2),
+                          Text(_data.name, style: Theme.of(context).textTheme.titleSmall),
                         ],
                       ),
                     ),
@@ -150,7 +150,7 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text('最多可提现70元', style: Theme.of(context).textTheme.subtitle2),
+                Text('最多可提现70元', style: Theme.of(context).textTheme.titleSmall),
                 GestureDetector(
                   onTap: () {
                     _controller.text = '70';
@@ -219,14 +219,14 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
               child: RichText(
                 text: type == 0 ? TextSpan(
                   text: '手续费按',
-                  style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: Dimens.font_sp12),
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: Dimens.font_sp12),
                   children: const <TextSpan>[
                     TextSpan(text: '0.3%', style: TextStyle(color: Colours.orange)),
                     TextSpan(text: '收取'),
                   ],
                 ) : TextSpan(
                   text: '预计',
-                  style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: Dimens.font_sp12),
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: Dimens.font_sp12),
                   children: const <TextSpan>[
                     TextSpan(text: 'T+1天到账(免手续费，T为工作日)', style: TextStyle(color: Colours.orange)),
                   ],

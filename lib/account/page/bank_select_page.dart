@@ -96,7 +96,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
             indexHintWidth: 96,
             indexHintHeight: 96,
             indexHintTextStyle: const TextStyle(fontSize: 26.0, color: Colors.white),
-            textStyle: Theme.of(context).textTheme.subtitle2!,
+            textStyle: Theme.of(context).textTheme.titleSmall!,
             downTextStyle: context.isDark ? TextStyles.textSize12 : const TextStyle(fontSize: 12.0, color: Colors.black),
           ),
         ),
@@ -112,7 +112,7 @@ class _BankSelectPageState extends State<BankSelectPage> {
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 16.0),
-            child: Text('常用', style: Theme.of(context).textTheme.subtitle2),
+            child: Text('常用', style: Theme.of(context).textTheme.titleSmall),
           ),
           Expanded(
             child: ListView.builder(

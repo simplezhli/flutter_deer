@@ -139,7 +139,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
                         Gaps.vGap16,
                         _buildChart(const Color(0xFFFFAA33), const Color(0x80FFAA33), '完成订单', '2000'),
                         Gaps.vGap16,
-                        _buildChart(Theme.of(context).errorColor, const Color(0x80FF4759), '取消订单', '1000'),
+                        _buildChart(Theme.of(context).colorScheme.error, const Color(0x80FF4759), '取消订单', '1000'),
                         Gaps.vGap16,
                       ],
                     )
@@ -274,7 +274,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
     final List<Widget> widgets = [];
     void addWidget(String str) {
       widgets.add(Center(
-        child: Text(str, style: Theme.of(context).textTheme.subtitle2),
+        child: Text(str, style: Theme.of(context).textTheme.titleSmall),
       ));
     }
     _weeks.forEach(addWidget);

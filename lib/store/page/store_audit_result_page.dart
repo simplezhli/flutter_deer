@@ -39,12 +39,12 @@ class _StoreAuditResultPageState extends State<StoreAuditResultPage> {
             Gaps.vGap8,
             Text(
               '2021-02-21 15:20:10',
-              style: Theme.of(context).textTheme.subtitle2,
+              style: Theme.of(context).textTheme.titleSmall,
             ),
             Gaps.vGap8,
             Text(
               '预计完成时间：02月28日',
-              style: Theme.of(context).textTheme.subtitle2,
+              style: Theme.of(context).textTheme.titleSmall,
             ),
             Gaps.vGap24,
             MyButton(

@@ -68,7 +68,7 @@ class GoodsItem extends StatelessWidget {
                     visible: item.type % 3 == 0,
                     child: _GoodsItemTag(
                       text: '立减',
-                      color: Theme.of(context).errorColor,
+                      color: Theme.of(context).colorScheme.error,
                     ),
                   ),
                   Opacity(
@@ -109,7 +109,7 @@ class GoodsItem extends StatelessWidget {
               padding: const EdgeInsets.only(top: 10.0),
               child: Text(
                 '特产美味',
-                style: Theme.of(context).textTheme.subtitle2,
+                style: Theme.of(context).textTheme.titleSmall,
               ),
             )
           ],

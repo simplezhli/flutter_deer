@@ -105,7 +105,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
               key: const Key('name_edit'),
               text: TextSpan(
                 text: '先对名称进行',
-                style: Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: Dimens.font_sp14),
+                style: Theme.of(context).textTheme.titleSmall?.copyWith(fontSize: Dimens.font_sp14),
                 children: <TextSpan>[
                   TextSpan(
                     text: '编辑',
@@ -179,7 +179,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                 children: <Widget>[
                   Offstage(
                     offstage: _goodsSizeList[index].reducePrice.isEmpty,
-                    child: _buildGoodsTag(Theme.of(context).errorColor, '立减${_goodsSizeList[index].reducePrice}元'),
+                    child: _buildGoodsTag(Theme.of(context).colorScheme.error, '立减${_goodsSizeList[index].reducePrice}元'),
                   ),
                   Opacity(
                     opacity: _goodsSizeList[index].currencyPrice.isEmpty ? 0.0 : 1.0,
@@ -237,7 +237,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
         extentRatio: 0.20,
         children: [
           CustomSlidableAction(
-            backgroundColor: Theme.of(context).errorColor,
+            backgroundColor: Theme.of(context).colorScheme.error,
             child: Semantics(
               label: '删除',
               child: LoadAssetImage(

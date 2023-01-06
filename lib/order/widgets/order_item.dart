@@ -42,7 +42,7 @@ class OrderItem extends StatelessWidget {
   }
 
   Widget _buildContent(BuildContext context) {
-    final TextStyle? textTextStyle = Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: Dimens.font_sp12);
+    final TextStyle? textTextStyle = Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: Dimens.font_sp12);
     final bool isDark = context.isDark;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,7 +56,7 @@ class OrderItem extends StatelessWidget {
               '货到付款',
               style: TextStyle(
                 fontSize: Dimens.font_sp12,
-                color: Theme.of(context).errorColor,
+                color: Theme.of(context).colorScheme.error,
               ),
             ),
           ],
@@ -64,7 +64,7 @@ class OrderItem extends StatelessWidget {
         Gaps.vGap8,
         Text(
           '西安市雁塔区 鱼化寨街道唐兴路唐兴数码3楼318',
-          style: Theme.of(context).textTheme.subtitle2,
+          style: Theme.of(context).textTheme.titleSmall,
         ),
         Gaps.vGap8,
         Gaps.line,
@@ -74,7 +74,7 @@ class OrderItem extends StatelessWidget {
             style: textTextStyle,
             children: <TextSpan>[
               const TextSpan(text: '清凉一度抽纸'),
-              TextSpan(text: '  x1', style: Theme.of(context).textTheme.subtitle2),
+              TextSpan(text: '  x1', style: Theme.of(context).textTheme.titleSmall),
             ],
           ),
         ),
@@ -84,7 +84,7 @@ class OrderItem extends StatelessWidget {
             style: textTextStyle,
             children: <TextSpan>[
               const TextSpan(text: '清凉一度抽纸'),
-              TextSpan(text: '  x2', style: Theme.of(context).textTheme.subtitle2),
+              TextSpan(text: '  x2', style: Theme.of(context).textTheme.titleSmall),
             ],
           ),
         ),
@@ -97,7 +97,7 @@ class OrderItem extends StatelessWidget {
                   style: textTextStyle,
                   children: <TextSpan>[
                     TextSpan(text: Utils.formatPrice('20.00', format: MoneyFormat.NORMAL)),
-                    TextSpan(text: '  共3件商品', style: Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: Dimens.font_sp10)),
+                    TextSpan(text: '  共3件商品', style: Theme.of(context).textTheme.titleSmall?.copyWith(fontSize: Dimens.font_sp10)),
                   ],
                 ),
               ),
@@ -172,9 +172,9 @@ class OrderItem extends StatelessWidget {
               },
               style: ButtonStyle(
                 // 按下高亮颜色
-                overlayColor: MaterialStateProperty.all<Color>(Theme.of(context).errorColor.withOpacity(0.2)),
+                overlayColor: MaterialStateProperty.all<Color>(Theme.of(context).colorScheme.error.withOpacity(0.2)),
               ),
-              child: Text('拨打', style: TextStyle(color: Theme.of(context).errorColor),),
+              child: Text('拨打', style: TextStyle(color: Theme.of(context).colorScheme.error),),
             ),
           ],
         );

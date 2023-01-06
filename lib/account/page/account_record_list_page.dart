@@ -62,7 +62,7 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
                 right: 0.0,
                 child: Text(i.isEven ? '+10.00' : '-10.00',
                   style: i.isEven ? TextStyle(
-                    color: Theme.of(context).errorColor,
+                    color: Theme.of(context).colorScheme.error,
                     fontWeight: FontWeight.bold,
                   ) : TextStyles.textBold14,
                 ),
@@ -70,12 +70,12 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
               Positioned(
                 bottom: 0.0,
                 left: 0.0,
-                child: Text(i.isEven ? '18:20:10' : '08:20:11', style: Theme.of(context).textTheme.subtitle2),
+                child: Text(i.isEven ? '18:20:10' : '08:20:11', style: Theme.of(context).textTheme.titleSmall),
               ),
               Positioned(
                 bottom: 0.0,
                 right: 0.0,
-                child: Text('余额：20.00', style: Theme.of(context).textTheme.subtitle2),
+                child: Text('余额：20.00', style: Theme.of(context).textTheme.titleSmall),
               ),
             ],
           ),

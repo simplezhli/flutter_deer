@@ -105,12 +105,12 @@ class _SMSLoginPageState extends State<SMSLoginPage> with ChangeNotifierMixin<SM
         child: RichText(
           text: TextSpan(
             text: DeerLocalizations.of(context)!.registeredTips,
-            style: Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: Dimens.font_sp14),
+            style: Theme.of(context).textTheme.titleSmall?.copyWith(fontSize: Dimens.font_sp14),
             children: <TextSpan>[
               TextSpan(
                 text: DeerLocalizations.of(context)!.register,
                 style: TextStyle(
-                  color: Theme.of(context).errorColor,
+                  color: Theme.of(context).colorScheme.error,
                 ),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () {
@@ -133,7 +133,7 @@ class _SMSLoginPageState extends State<SMSLoginPage> with ChangeNotifierMixin<SM
         child: GestureDetector(
           child: Text(
             DeerLocalizations.of(context)!.forgotPasswordLink,
-            style: Theme.of(context).textTheme.subtitle2,
+            style: Theme.of(context).textTheme.titleSmall,
           ),
           onTap: () => NavigatorUtils.push(context, LoginRouter.resetPasswordPage),
         ),

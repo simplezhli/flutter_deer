@@ -111,7 +111,7 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
       Center(
         child: Text(
           '店主手持身份证或营业执照',
-          style: Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: Dimens.font_sp14),
+          style: Theme.of(context).textTheme.titleSmall?.copyWith(fontSize: Dimens.font_sp14),
         ),
       ),
       Gaps.vGap16,

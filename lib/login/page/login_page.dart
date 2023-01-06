@@ -132,7 +132,7 @@ class _LoginPageState extends State<LoginPage> with ChangeNotifierMixin<LoginPag
         child: Text(
           DeerLocalizations.of(context)!.forgotPasswordLink,
           key: const Key('forgotPassword'),
-          style: Theme.of(context).textTheme.subtitle2,
+          style: Theme.of(context).textTheme.titleSmall,
         ),
         onTap: () => NavigatorUtils.push(context, LoginRouter.resetPasswordPage),
       ),

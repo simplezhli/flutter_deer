@@ -137,7 +137,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                           _getPriceText(index).isEmpty ? '订单金额' : _getPriceText(index),
                           key: Key('订单金额$index'),
                           textAlign: TextAlign.end,
-                          style: _getPriceText(index).isEmpty ? Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: Dimens.font_sp14) : null,
+                          style: _getPriceText(index).isEmpty ? Theme.of(context).textTheme.titleSmall?.copyWith(fontSize: Dimens.font_sp14) : null,
                         ),
                       ),
                     )),
@@ -195,7 +195,7 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                         child: Text(
                           _list[index].price.isEmpty ? (_list[index].type == 1 ? '运费比率' : '运费金额'): _list[index].price,
                           textAlign: TextAlign.end,
-                          style: _list[index].price.isEmpty ? Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: Dimens.font_sp14) : null,
+                          style: _list[index].price.isEmpty ? Theme.of(context).textTheme.titleSmall?.copyWith(fontSize: Dimens.font_sp14) : null,
                         ),
                       ),
                     )),

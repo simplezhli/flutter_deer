@@ -122,7 +122,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                 Gaps.line,
                 MyButton(
                   minHeight: 54.0,
-                  textColor: Theme.of(context).errorColor,
+                  textColor: Theme.of(context).colorScheme.error,
                   text: '确认解绑',
                   backgroundColor: Colors.transparent,
                   onPressed: () {

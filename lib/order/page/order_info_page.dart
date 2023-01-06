@@ -26,7 +26,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
   
   @override
   Widget build(BuildContext context) {
-    final Color red = Theme.of(context).errorColor;
+    final Color red = Theme.of(context).colorScheme.error;
     final bool isDark = context.isDark;
 
     final Widget bottomMenu = Container(
@@ -176,7 +176,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
         padding: const EdgeInsets.symmetric(vertical: 4.0),
         child: Row(
           children: <Widget>[
-            Text(title, style: Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: Dimens.font_sp14)),
+            Text(title, style: Theme.of(context).textTheme.titleSmall?.copyWith(fontSize: Dimens.font_sp14)),
             Gaps.hGap8,
             Text(content)
           ],
@@ -204,11 +204,11 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                 overflow: TextOverflow.ellipsis,
               ),
               Gaps.vGap4,
-              Text(index.isEven ? '玫瑰香 520ml' : '125ml', style: Theme.of(context).textTheme.subtitle2),
+              Text(index.isEven ? '玫瑰香 520ml' : '125ml', style: Theme.of(context).textTheme.titleSmall),
               Gaps.vGap8,
               Row(
                 children: <Widget>[
-                  _buildGoodsTag(Theme.of(context).errorColor, '立减2.50元'),
+                  _buildGoodsTag(Theme.of(context).colorScheme.error, '立减2.50元'),
                   Gaps.hGap4,
                   Offstage(
                     offstage: index % 2 != 0,
@@ -264,7 +264,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
           children: <Widget>[
             Text(title),
             Text(content, style: TextStyle(
-              color: contentTextColor ?? Theme.of(context).textTheme.bodyText2?.color,
+              color: contentTextColor ?? Theme.of(context).textTheme.bodyMedium?.color,
               fontWeight: FontWeight.bold
             ))
           ],
@@ -293,9 +293,9 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
               },
               style: ButtonStyle(
                 // 按下高亮颜色
-                overlayColor: MaterialStateProperty.all<Color>(Theme.of(context).errorColor.withOpacity(0.2)),
+                overlayColor: MaterialStateProperty.all<Color>(Theme.of(context).colorScheme.error.withOpacity(0.2)),
               ),
-              child: Text('拨打', style: TextStyle(color: Theme.of(context).errorColor),),
+              child: Text('拨打', style: TextStyle(color: Theme.of(context).colorScheme.error),),
             ),
           ],
         );

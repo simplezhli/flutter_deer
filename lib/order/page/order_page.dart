@@ -260,7 +260,7 @@ class _TabView extends StatelessWidget {
           right: 0.0,
           child: index < 3 ? DecoratedBox(
             decoration: BoxDecoration(
-              color: Theme.of(context).errorColor,
+              color: Theme.of(context).colorScheme.error,
               borderRadius: BorderRadius.circular(11.0),
             ),
             child: const Padding(
