@@ -104,7 +104,7 @@ class LoggingInterceptor extends Interceptor{
     Log.d('RequestMethod: ${options.method}');
     Log.d('RequestHeaders:${options.headers}');
     Log.d('RequestContentType: ${options.contentType}');
-    Log.d('RequestData: ${options.data.toString()}');
+    Log.d('RequestData: ${options.data}');
     super.onRequest(options, handler);
   }
   

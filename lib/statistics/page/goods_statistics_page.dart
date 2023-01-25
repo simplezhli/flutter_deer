@@ -42,11 +42,11 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
         Gaps.hGap12,
         Gaps.vLine,
         Gaps.hGap12,
-        _buildSelectedText('${_initialDay.month.toString()}月', 1),
+        _buildSelectedText('${_initialDay.month}月', 1),
         Gaps.hGap12,
         Gaps.vLine,
         Gaps.hGap12,
-        _buildSelectedText(_type ? '${date.DateUtils.previousWeekToString(_initialDay)} -${date.DateUtils.apiDayFormat2(_initialDay)}' : '${_initialDay.day.toString()}日', 2),
+        _buildSelectedText(_type ? '${date.DateUtils.previousWeekToString(_initialDay)} -${date.DateUtils.apiDayFormat2(_initialDay)}' : '${_initialDay.day}日', 2),
       ],
     );
     

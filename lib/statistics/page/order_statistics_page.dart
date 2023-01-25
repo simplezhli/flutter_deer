@@ -78,7 +78,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> with TickerPr
                   Gaps.hGap12,
                   Gaps.vLine,
                   Gaps.hGap12,
-                  _buildButton('${_initialDay.month.toString()}月', const Key('month'), 1),
+                  _buildButton('${_initialDay.month}月', const Key('month'), 1),
                   Gaps.hGap12,
                   Gaps.vLine,
                   Gaps.hGap12,

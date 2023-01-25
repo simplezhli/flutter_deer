@@ -25,7 +25,7 @@ dependencies:
   # 网络库 https://github.com/cfug/diox
   diox: ^5.0.0-dev.3
   # https://github.com/ReactiveX/rxdart
-  rxdart: ^0.27.5
+  rxdart: ^0.27.7
   # Dart 常用工具类库 https://github.com/Sky24n/common_utils
   common_utils: 2.1.0
   sp_util: 2.0.3
@@ -34,13 +34,13 @@ dependencies:
   # Flutter 轮播图 https://github.com/mdddj/flutter_swiper_null_safety
   flutter_swiper_null_safety_flutter3: ^3.0.0   # flutter_swiper很久不维护，可以使用这个替代
   # 启动URL的插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/url_launcher
-  url_launcher: 6.1.5
+  url_launcher: 6.1.8
   # 图片选择插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/image_picker
   image_picker: 0.8.6
   # 侧滑删除 https://github.com/letsar/flutter_slidable
   flutter_slidable: ^2.0.0
   # WebView插件 https://github.com/flutter/plugins/tree/master/packages/webview_flutter
-  webview_flutter: 4.0.1
+  webview_flutter: 4.0.2
   # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions
   keyboard_actions: ^4.1.0
   # 列表悬浮头 https://github.com/fluttercommunity/flutter_sticky_headers
@@ -78,7 +78,7 @@ dependencies:
   # 刮刮卡 https://github.com/vintage/scratcher
   scratcher: ^2.3.0
   # 动画效果 https://github.com/xvrh/lottie-flutter
-  lottie: ^2.1.0
+  lottie: ^2.2.0
 
 # https://github.com/simplezhli/flutter_deer/issues/187
 dependency_overrides:

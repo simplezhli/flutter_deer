@@ -29,7 +29,7 @@ class _OverlayDemoPageState extends State<OverlayDemoPage> {
         builder: (context) => _buildBottomNavigation(context),
       );
       /// 添加悬浮
-      Overlay.of(context)?.insert(_overlayEntry!);
+      Overlay.of(context).insert(_overlayEntry!);
     });
   }
   

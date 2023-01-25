@@ -66,7 +66,7 @@ class Log {
         }
       } else if (value is List) {
         if (value.isEmpty || value.length > 50) {
-          LogUtil.v('${_indent(tabs)} $key: ${value.toString()}', tag: tag);
+          LogUtil.v('${_indent(tabs)} $key: $value', tag: tag);
         } else {
           LogUtil.v('${_indent(tabs)} $key: [', tag: tag);
           _printList(value, tabs: tabs);

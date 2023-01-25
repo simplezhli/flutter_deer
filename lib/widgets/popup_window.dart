@@ -31,7 +31,7 @@ Future<T?> showPopupWindow<T>({
     case TargetPlatform.windows:
       semanticLabel ??= MaterialLocalizations.of(context).popupMenuLabel;
   }
-  final RenderBox? overlay = Overlay.of(context)!.context.findRenderObject() as RenderBox?;
+  final RenderBox? overlay = Overlay.of(context).context.findRenderObject() as RenderBox?;
 
   // 默认位置锚点下方
   final Offset defaultOffset = Offset(0, anchor.size.height);
