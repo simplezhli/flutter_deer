@@ -18,7 +18,7 @@ jobs:
       matrix:
         device:
           - "iPhone 8"
-          - "iPhone 12 Pro Max"
+          - "iPhone 14 Pro Max"
       # When set to true, GitHub cancels all in-progress jobs if any matrix job
       # fails.
       fail-fast: false
@@ -53,7 +53,7 @@ jobs:
       # https://github.com/marketplace/actions/flutter-action
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.3.7'
+          flutter-version: '3.7.0'
           channel: 'stable' # or: 'dev' or 'beta'
           architecture: x64
       - run: "flutter clean"
@@ -77,7 +77,7 @@ jobs:
           java-version: 1.11
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.3.7'
+          flutter-version: '3.7.0'
           channel: 'stable' # or: 'dev' or 'beta'
           architecture: x64
       - name: "Run Flutter Driver tests"
@@ -103,7 +103,7 @@ jobs:
       # https://github.com/marketplace/actions/flutter-action
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.3.7'
+          flutter-version: '3.7.0'
           channel: 'stable'
           architecture: x64
       - run: "flutter pub get"

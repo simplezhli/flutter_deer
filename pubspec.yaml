@@ -1,15 +1,15 @@
 name: flutter_deer
 description: Flutter Deer
 
-version: 1.2.2+20
+version: 1.2.3+21
 # 唯鹿 <a05111993@163.com>
 homepage: https://weilu.blog.csdn.net/
 
 publish_to: 'none'
 
 environment:
-  sdk: ">=2.18.0 <3.0.0"
-  flutter: ">=3.3.0 <4.0.0"
+  sdk: ">=2.19.0 <3.0.0"
+  flutter: ">=3.7.0 <4.0.0"
 
 dependencies:
   flutter:
