@@ -77,6 +77,7 @@ class _HomeState extends State<Home> with RestorationMixin{
           icon: tabImages[i][0],
           activeIcon: tabImages[i][1],
           label: _appBarTitles[i],
+          tooltip: _appBarTitles[i],
         );
       });
     }
@@ -109,6 +110,7 @@ class _HomeState extends State<Home> with RestorationMixin{
           icon: tabImagesDark[i][0],
           activeIcon: tabImagesDark[i][1],
           label: _appBarTitles[i],
+          tooltip: _appBarTitles[i],
         );
       });
     }
