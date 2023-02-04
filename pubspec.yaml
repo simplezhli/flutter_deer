@@ -67,8 +67,8 @@ dependencies:
   vibration_web: 1.6.5
   # 获取当前设备信息 https://github.com/fluttercommunity/plus_plugins/tree/main/packages/device_info_plus
   device_info_plus: 8.0.0
-  # 改变桌面端窗口大小(MacOS/Linux/Windows) https://github.com/mix1009/desktop_window
-  desktop_window: 0.4.0
+  # 桌面应用调整窗口的大小和位置 https://github.com/leanflutter/window_manager
+  window_manager: 0.3.0
   # 高德2D地图插件（支持Web） https://github.com/simplezhli/flutter_2d_amap
   flutter_2d_amap:
     git:

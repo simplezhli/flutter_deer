@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/demo/demo_page.dart';
 import 'package:flutter_deer/login/login_router.dart';
@@ -46,10 +45,7 @@ class _SplashPageState extends State<SplashPage> {
       }
       _initSplash();
     });
-    /// 设置桌面端窗口大小
-    if (Device.isDesktop) {
-      DesktopWindow.setWindowSize(const Size(400, 800));
-    }
+
     if (Device.isAndroid) {
       const QuickActions quickActions = QuickActions();
       quickActions.initialize((String shortcutType) async {

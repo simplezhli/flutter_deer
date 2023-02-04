@@ -20,6 +20,7 @@ import 'package:provider/provider.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:sp_util/sp_util.dart';
 import 'package:url_strategy/url_strategy.dart';
+import 'package:window_manager/window_manager.dart';
 
 Future<void> main() async {
 //  debugProfileBuildsEnabled = true;
@@ -29,6 +30,25 @@ Future<void> main() async {
 
   /// 确保初始化完成
   WidgetsFlutterBinding.ensureInitialized();
+
+  if (Device.isDesktop) {
+    await WindowManager.instance.ensureInitialized();
+    windowManager.waitUntilReadyToShow().then((_) async {
+      /// 隐藏标题栏及操作按钮
+      // await windowManager.setTitleBarStyle(
+      //   TitleBarStyle.hidden,
+      //   windowButtonVisibility: false,
+      // );
+      /// 设置桌面端窗口大小
+      await windowManager.setSize(const Size(400, 800));
+      await windowManager.setMinimumSize(const Size(400, 800));
+      /// 居中显示
+      await windowManager.center();
+      await windowManager.show();
+      await windowManager.setPreventClose(false);
+      await windowManager.setSkipTaskbar(false);
+    });
+  }
 
   /// 去除URL中的“#”(hash)，仅针对Web。默认为setHashUrlStrategy
   /// 注意本地部署和远程部署时`web/index.html`中的base标签，https://github.com/flutter/flutter/issues/69760
