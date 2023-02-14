@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:diox/diox.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_deer/res/constant.dart';
 import 'package:flutter_deer/util/log_utils.dart';

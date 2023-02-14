@@ -29,7 +29,7 @@
 
 * mvp模式
 * 使用`provider` (6.x 版本)做状态管理
-* 基于`diox` （5.x 版本）的网络请求封装
+* 基于`dio` （5.x 版本）的网络请求封装
 * 完整的集成测试、可访问性测试。
 * 支持深色模式
 * 本地化（感谢 @ghedwards）
@@ -128,7 +128,7 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 
 | 库                         | 功能             |
 | -------------------------- | --------------- |
-| [diox](https://github.com/cfug/diox)                            | **网络库**       |
+| [dio](https://github.com/cfug/dio)                            | **网络库**       |
 | [provider](https://github.com/rrousselGit/provider)                   | **状态管理**     |
 | [flutter_2d_amap](https://github.com/simplezhli/flutter_2d_amap)      | **高德2D地图**   |
 | [cached_network_image](https://github.com/renefloor/flutter_cached_network_image)       | **图片加载**       |

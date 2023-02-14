@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:diox/diox.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter_deer/mvp/base_presenter.dart';
 import 'package:flutter_deer/net/net.dart';
 

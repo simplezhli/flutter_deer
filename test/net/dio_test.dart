@@ -1,4 +1,4 @@
-import 'package:diox/diox.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_deer/net/net.dart';
 import 'package:flutter_deer/shop/models/user_entity.dart';
