@@ -54,15 +54,13 @@ class DioUtils {
     );
     _dio = Dio(options);
     /// Fiddler抓包代理配置 https://www.jianshu.com/p/d831b1f7c45b
-//    (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
-//        (HttpClient client) {
-//      client.findProxy = (uri) {
-//        //proxy all request to localhost:8888
-//        return 'PROXY 10.41.0.132:8888';
-//      };
-//      client.badCertificateCallback =
-//          (X509Certificate cert, String host, int port) => true;
-//    };
+   // _dio.httpClientAdapter = IOHttpClientAdapter()..onHttpClientCreate = (HttpClient client) {
+   //   client.findProxy = (uri) {
+   //     //proxy all request to localhost:8888
+   //     return 'PROXY 10.41.0.132:8888';
+   //   };
+   //   return client;
+   // };
 
     /// 添加拦截器
     void addInterceptor(Interceptor interceptor) {
