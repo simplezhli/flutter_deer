@@ -24,7 +24,7 @@ analyzer:
     # to annotate every member in every test, assert, etc, when we deprecate something)
     deprecated_member_use_from_same_package: ignore
     # Turned off until null-safe rollout is complete.
-    unnecessary_null_comparison: ignore
+#    unnecessary_null_comparison: ignore
   exclude:
     # the following two are relative to the stocks example and the flutter package respectively
     # see https://github.com/dart-lang/sdk/issues/28463
@@ -111,6 +111,7 @@ linter:
     - flutter_style_todos
     - hash_and_equals
     - implementation_imports
+    - implicit_call_tearoffs
     # - invariant_booleans # too many false positives: https://github.com/dart-lang/linter/issues/811
     - iterable_contains_unrelated_type
     # - join_return_with_assignment # not required by flutter style
@@ -153,7 +154,6 @@ linter:
     # - prefer_constructors_over_static_methods # far too many false positives
     - prefer_contains
     # - prefer_double_quotes # opposite of prefer_single_quotes
-    - prefer_equal_for_default_values
     # - prefer_expression_function_bodies # conflicts with https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo#consider-using--for-short-functions-and-methods
     - prefer_final_fields
     - prefer_final_in_for_each
