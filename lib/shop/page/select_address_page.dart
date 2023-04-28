@@ -4,7 +4,7 @@ import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/other_utils.dart';
 import 'package:flutter_deer/util/toast_utils.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
-import 'package:flutter_deer/widgets/search_bar.dart';
+import 'package:flutter_deer/widgets/my_search_bar.dart';
 
 class AddressSelectPage extends StatefulWidget {
 
@@ -42,7 +42,7 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: SearchBar(
+      appBar: MySearchBar(
         hintText: '搜索地址',
         onPressed: (text) {
           _controller.animateTo(0.0, duration: const Duration(milliseconds: 10), curve: Curves.ease);

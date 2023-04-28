@@ -8,9 +8,9 @@ import 'package:flutter_deer/widgets/my_button.dart';
 import 'load_image.dart';
 
 /// 搜索页的AppBar
-class SearchBar extends StatefulWidget implements PreferredSizeWidget {
+class MySearchBar extends StatefulWidget implements PreferredSizeWidget {
 
-  const SearchBar({
+  const MySearchBar({
     super.key,
     this.hintText = '',
     this.backImg = 'assets/images/ic_back_black.png',
@@ -22,13 +22,13 @@ class SearchBar extends StatefulWidget implements PreferredSizeWidget {
   final Function(String)? onPressed;
 
   @override
-  _SearchBarState createState() => _SearchBarState();
+  _MySearchBarState createState() => _MySearchBarState();
 
   @override
   Size get preferredSize => const Size.fromHeight(48.0);
 }
 
-class _SearchBarState extends State<SearchBar> {
+class _MySearchBarState extends State<MySearchBar> {
 
   final TextEditingController _controller = TextEditingController();
   final FocusNode _focus = FocusNode();

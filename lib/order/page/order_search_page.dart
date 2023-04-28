@@ -10,7 +10,7 @@ import 'package:flutter_deer/shop/models/user_entity.dart';
 import 'package:flutter_deer/shop/presenter/shop_presenter.dart';
 import 'package:flutter_deer/util/other_utils.dart';
 import 'package:flutter_deer/widgets/my_refresh_list.dart';
-import 'package:flutter_deer/widgets/search_bar.dart';
+import 'package:flutter_deer/widgets/my_search_bar.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
 import 'package:provider/provider.dart';
 
@@ -43,7 +43,7 @@ class _OrderSearchPageState extends State<OrderSearchPage> with BasePageMixin<Or
     return ChangeNotifierProvider<BaseListProvider<SearchItems>>(
       create: (_) => provider,
       child: Scaffold(
-        appBar: SearchBar(
+        appBar: MySearchBar(
           hintText: '请输入手机号或姓名查询',
           onPressed: (text) {
             if (text.isEmpty) {
