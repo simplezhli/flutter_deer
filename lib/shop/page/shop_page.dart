@@ -118,11 +118,11 @@ class _ShopPageState extends State<ShopPage> with BasePageMixin<ShopPage, ShopPa
                   ),
                 );
               },
-              child: Positioned(
+              child: const Positioned(
                 top: 38.0,
                 left: 0.0,
                 child: Row(
-                  children: const <Widget>[
+                  children: <Widget>[
                     LoadAssetImage('shop/zybq', width: 40.0, height: 16.0,),
                     Gaps.hGap8,
                     Text('店铺账号:15000000000', style: TextStyles.textSize12)

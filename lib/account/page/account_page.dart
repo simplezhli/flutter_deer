@@ -61,9 +61,9 @@ class _AccountPageState extends State<AccountPage> {
             fit: BoxFit.fill,
           ),
         ),
-        child: Column(
+        child: const Column(
           children: <Widget>[
-            const _AccountMoney(
+            _AccountMoney(
               title: '当前余额(元)',
               money: '30.12',
               alignment: MainAxisAlignment.end,
@@ -71,7 +71,7 @@ class _AccountPageState extends State<AccountPage> {
             ),
             Expanded(
               child: Row(
-                children: const <Widget>[
+                children: <Widget>[
                   _AccountMoney(title: '累计结算金额', money: '20000'),
                   _AccountMoney(title: '累计发放佣金', money: '0.02'),
                 ],

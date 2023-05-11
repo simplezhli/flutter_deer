@@ -102,9 +102,9 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
               ),
             ),
             Gaps.vGap16,
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const <Widget>[
+              children: <Widget>[
                 Text('提现金额', style: TextStyles.textBold14),
                 Text('单笔2万，单日2万', style: TextStyle(fontSize: Dimens.font_sp12, color: Colours.orange))
               ],
@@ -165,9 +165,9 @@ class _WithdrawalPageState extends State<WithdrawalPage> {
                 )
               ],
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const <Widget>[
+              children: <Widget>[
                 Text('转出方式', style: TextStyles.textBold14),
                 LoadAssetImage('account/sm', width: 16.0)
               ],

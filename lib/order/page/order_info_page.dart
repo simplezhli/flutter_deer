@@ -80,12 +80,12 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
             child: LoadAssetImage('order/icon_avatar', width: 44.0, height: 44.0),
           ),
           Gaps.hGap8,
-          Expanded(
+          const Expanded(
             // 合并Text的语义
             child: MergeSemantics(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const <Widget>[
+                children: <Widget>[
                   Text('郭李'),
                   Gaps.vGap8,
                   Text('15000000000'),
@@ -108,9 +108,9 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
         ],
       ),
       Gaps.vGap10,
-      Row(
+      const Row(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const <Widget>[
+        children: <Widget>[
           LoadAssetImage('order/icon_address', width: 16.0, height: 20.0),
           Gaps.hGap4,
           Expanded(child: Text('西安市雁塔区 鱼化寨街道唐兴路唐兴数码3楼318', maxLines: 2)),

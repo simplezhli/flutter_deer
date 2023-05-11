@@ -41,7 +41,7 @@ class ThemeUtils {
     _subscription?.cancel();
     _subscription = Stream.value(1).delay(const Duration(milliseconds: 200)).listen((_) {
       bool isDark = false;
-      if (mode == ThemeMode.dark || (mode == ThemeMode.system && window.platformBrightness == Brightness.dark)) {
+      if (mode == ThemeMode.dark || (mode == ThemeMode.system && PlatformDispatcher.instance.platformBrightness == Brightness.dark)) {
         isDark = true;
       }
       setSystemBarStyle(isDark: isDark);
@@ -53,7 +53,7 @@ class ThemeUtils {
   static void setSystemBarStyle({bool? isDark}) {
     if (Device.isAndroid) {
 
-      final bool isDarkMode = isDark ?? window.platformBrightness == Brightness.dark;
+      final bool isDarkMode = isDark ?? PlatformDispatcher.instance.platformBrightness == Brightness.dark;
       debugPrint('isDark: $isDarkMode');
       final SystemUiOverlayStyle systemUiOverlayStyle = SystemUiOverlayStyle(
         /// 透明状态栏
