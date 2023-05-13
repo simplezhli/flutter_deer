@@ -8,7 +8,7 @@ homepage: https://weilu.blog.csdn.net/
 publish_to: 'none'
 
 environment:
-  sdk: ">=2.19.0 <3.0.0"
+  sdk: ">=3.0.0-0 <4.0.0"
   flutter: ">=3.7.0 <4.0.0"
 
 dependencies:
@@ -33,14 +33,14 @@ dependencies:
   flustars_flutter3: ^3.0.0 # flustars很久不维护，可以使用这个替代
   # Flutter 轮播图 https://github.com/mdddj/flutter_swiper_null_safety
   flutter_swiper_null_safety_flutter3: ^3.0.1   # flutter_swiper很久不维护，可以使用这个替代
-  # 启动URL的插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/url_launcher
+  # 启动URL的插件（支持Web） https://github.com/flutter/packages/tree/main/packages/url_launcher
   url_launcher: 6.1.8
-  # 图片选择插件（支持Web） https://github.com/flutter/plugins/tree/master/packages/image_picker
+  # 图片选择插件（支持Web） https://github.com/flutter/packages/tree/main/packages/image_picker
   image_picker: 0.8.6
   # 侧滑删除 https://github.com/letsar/flutter_slidable
   flutter_slidable: ^3.0.0
-  # WebView插件 https://github.com/flutter/plugins/tree/master/packages/webview_flutter
-  webview_flutter: 4.0.7
+  # WebView插件 https://github.com/flutter/packages/tree/main/packages/webview_flutter
+  webview_flutter: 4.2.0
   # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions
   keyboard_actions: ^4.2.0
   # 列表悬浮头 https://github.com/fluttercommunity/flutter_sticky_headers
@@ -60,8 +60,8 @@ dependencies:
   #    git:
   #      url: https://github.com/xeinebiu/qr_code_scanner.git
   #      ref: fix_break_changes_platform
-  # App Shortcuts https://github.com/flutter/plugins/tree/master/packages/quick_actions
-  quick_actions: 1.0.1
+  # App Shortcuts https://github.com/flutter/packages/tree/main/packages/quick_actions
+  quick_actions: 1.0.3
   # 振动 https://github.com/benjamindean/flutter_vibration
   vibration: 1.7.6
   vibration_web: 1.6.5
