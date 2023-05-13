@@ -28,39 +28,41 @@ Future<void> main() async {
 //  debugProfilePaintsEnabled = true;
 //  debugRepaintRainbowEnabled = true;
 
-  /// 确保初始化完成
-  WidgetsFlutterBinding.ensureInitialized();
-
-  if (Device.isDesktop) {
-    await WindowManager.instance.ensureInitialized();
-    windowManager.waitUntilReadyToShow().then((_) async {
-      /// 隐藏标题栏及操作按钮
-      // await windowManager.setTitleBarStyle(
-      //   TitleBarStyle.hidden,
-      //   windowButtonVisibility: false,
-      // );
-      /// 设置桌面端窗口大小
-      await windowManager.setSize(const Size(400, 800));
-      await windowManager.setMinimumSize(const Size(400, 800));
-      /// 居中显示
-      await windowManager.center();
-      await windowManager.show();
-      await windowManager.setPreventClose(false);
-      await windowManager.setSkipTaskbar(false);
-    });
-  }
-
-  /// 去除URL中的“#”(hash)，仅针对Web。默认为setHashUrlStrategy
-  /// 注意本地部署和远程部署时`web/index.html`中的base标签，https://github.com/flutter/flutter/issues/69760
-  setPathUrlStrategy();
-
-  /// sp初始化
-  await SpUtil.getInstance();
-
-  /// 1.22 预览功能: 在输入频率与显示刷新率不匹配情况下提供平滑的滚动效果
-  // GestureBinding.instance?.resamplingEnabled = true;
   /// 异常处理
-  handleError(() => runApp(MyApp()));
+  handleError(() async {
+    /// 确保初始化完成
+    WidgetsFlutterBinding.ensureInitialized();
+
+    if (Device.isDesktop) {
+      await WindowManager.instance.ensureInitialized();
+      windowManager.waitUntilReadyToShow().then((_) async {
+        /// 隐藏标题栏及操作按钮
+        // await windowManager.setTitleBarStyle(
+        //   TitleBarStyle.hidden,
+        //   windowButtonVisibility: false,
+        // );
+        /// 设置桌面端窗口大小
+        await windowManager.setSize(const Size(400, 800));
+        await windowManager.setMinimumSize(const Size(400, 800));
+        /// 居中显示
+        await windowManager.center();
+        await windowManager.show();
+        await windowManager.setPreventClose(false);
+        await windowManager.setSkipTaskbar(false);
+      });
+    }
+
+    /// 去除URL中的“#”(hash)，仅针对Web。默认为setHashUrlStrategy
+    /// 注意本地部署和远程部署时`web/index.html`中的base标签，https://github.com/flutter/flutter/issues/69760
+    setPathUrlStrategy();
+
+    /// sp初始化
+    await SpUtil.getInstance();
+
+    /// 1.22 预览功能: 在输入频率与显示刷新率不匹配情况下提供平滑的滚动效果
+    // GestureBinding.instance?.resamplingEnabled = true;
+    runApp(MyApp());
+  });
 
   /// 隐藏状态栏。为启动页、引导页设置。完成后修改回显示状态栏。
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom]);
