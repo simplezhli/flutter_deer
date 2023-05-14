@@ -67,7 +67,7 @@ jobs:
     strategy:
       # set of different configurations of the virtual environment.
       matrix:
-        api-level: [21, 31]
+        api-level: [21, 33]
         target: [default]
     steps:
       - uses: actions/checkout@v2

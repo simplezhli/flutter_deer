@@ -1,5 +1,10 @@
 # Change Log:
 
+## 1.3.0
+
+* 适配Android 13。
+* Flutter SDK升至3.10.0。
+
 ## 1.2.3
 
 * Flutter SDK升至3.7.0。
