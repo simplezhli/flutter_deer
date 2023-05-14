@@ -68,6 +68,7 @@ void main([List<String> args = const <String>[]]) {
         await driver.tap(find.byTooltip('店铺'));
         await delayed();
         await driver.tap(find.byValueKey('setting'));
+        await delayed();
       }
     });
 
@@ -94,6 +95,7 @@ void main([List<String> args = const <String>[]]) {
       await driver.tap(find.byTooltip('Back'));
       await delayed();
       await driver.tap(find.byValueKey('noAccountRegister'));
+      await delayed();
     });
   });
 }

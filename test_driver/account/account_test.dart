@@ -127,6 +127,7 @@ void main() {
       await delayed();
       /// 进入设置页，便于执行设置模块测试操作
       await driver.tap(find.byValueKey('setting'));
+      await delayed();
     });
   });
 }

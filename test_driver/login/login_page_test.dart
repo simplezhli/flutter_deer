@@ -32,17 +32,20 @@ void main() {
       await driver.tap(find.byTooltip('Back'));
       await delayed();
       await driver.tap(find.byValueKey('noAccountRegister'));
+      await delayed();
     });
 
     test('注册页测试',() async {
       await driver.tap(find.byValueKey('getVerificationCode'));/// 无法成功触发事件，需要输入手机号
-      
+      await delayed();
+
       final SerializableFinder textField = find.byValueKey('phone');
       await driver.tap(textField);  // 点击输入框，给予焦点
       await driver.enterText('15000000000');  // 输入内容
       await delayed();
       
       await driver.tap(find.byValueKey('getVerificationCode'));
+      await delayed();
 
       final SerializableFinder textField2 = find.byValueKey('vcode');
       await driver.tap(textField2);
@@ -55,12 +58,14 @@ void main() {
       await delayed();
 
       await driver.tap(find.byValueKey('register')); // 点击注册
-      
+      await delayed();
+
       // 清除输入框文字
       await driver.tap(find.byValueKey('password_delete'));
 
       await delayed();
       await driver.tap(find.byTooltip('Back'));
+      await delayed();
     }, timeout: const Timeout(Duration(seconds: 30)));
 
     test('登录页测试',() async {
@@ -78,6 +83,7 @@ void main() {
       await driver.tap(find.byValueKey('password_showPwd'));
       await delayed();
       await driver.tap(find.byValueKey('login')); // 点击登录
+      await delayed();
     }, timeout: const Timeout(Duration(seconds: 30)));
   });
 }

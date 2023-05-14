@@ -34,11 +34,13 @@ void main() {
 
       await delayed();
       await driver.tap(find.text('提交'));
+      await delayed();
     });
 
     test('审核结果页测试',() async {
       await delayed();
       await driver.tap(find.text('进入'));
+      await delayed();
     });
   });
 }

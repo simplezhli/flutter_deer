@@ -55,6 +55,7 @@ void main() {
       await delayed();
       await driver.tap(find.text('确定'));
       await driver.scroll(find.byValueKey('order_list'), 0.0, 500.0, scrollDuration);
+      await delayed();
     });
 
     test('订单详情页',() async {
@@ -72,6 +73,7 @@ void main() {
 
     test('订单搜索页测试',() async {
       await driver.tap(find.byTooltip('搜索'));
+      await delayed();
       await driver.tap(find.byValueKey('search_text_field'), timeout: const Duration(minutes: 1),);
       await driver.enterText('flutter');
       await driver.tap(find.text('搜索'));
