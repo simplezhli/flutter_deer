@@ -4,15 +4,15 @@
 
 ## English | [中文](README.md)
 
-This project is an exercise project for individuals to learn Flutter.
+This project is an exercise in learning Flutter for personal growth and development.
 
-Realize specific design effects by setting, modifying, combining self-contained widgets and customizing to meet the needs of daily development.
+To achieve specific design outcomes and meet the demands of daily development, one may employ the methods of configuring, modifying, combining pre-existing components, and customizing.
 
-See the design catalog for the design drawings of this project.
+The design plans for this project can be found in the "design" directory. You may utilize these plans to practice with a specific goal in mind. Any implementation is solely based on personal comprehension and learning. Should there be any superior implementation strategies, I welcome the opportunity for discussion.
 
 ## Preview
 
-The effect of some pages is as follows:
+Some of the page effects are as follows:
 
 | ![](./preview/Screenshot_1.png)    |  ![](./preview/Screenshot_2.png)    | ![](./preview/Screenshot_3.png)   |  ![](./preview/Screenshot_4.png)   |
 | :--------------------------------: | :---------------------------------: | :-------------------------------: | :-------------------------------:  |
@@ -23,41 +23,46 @@ The effect of some pages is as follows:
 | ![](./preview/Screenshot_22.jpg)   |  ![](./preview/Screenshot_23.jpg)   | ![](./preview/Screenshot_24.jpg)  |  ![](./preview/Screenshot_25.jpg)  |
 | ![](./preview/Screenshot_26.jpg)   |  ![](./preview/Screenshot_27.jpg)   | ![](./preview/lottie.gif)         |  |
 
-## Content
+**If you find this project satisfactory, kindly show your support by giving it a Star or Fork. Rest assured, this project is being continuously maintained and any issues can be brought to our attention by submitting an Issue.**
 
-* mvp mode
-* Use `provider`(version 6.x) for state management
+## Realizing the content.
+
+* MVP pattern
+* State management using `provider` (version 6.x)
 * Network request encapsulation based on `dio` (version 5.x)
-* Driver testing, accessibility testing.
-* Support dark mode
-* Localization（Thanks @ghedwards）  
-* Use `Sliver` series of components to achieve complex scrolling effects
-* Use amap Positioning to select address
-* Pull down to refresh + pull up to load more
-* Check update
+* Integration testing and accessibility testing
+* Support for dark mode
+* Localization（Thanks to @ghedwards）
+* Implementation of complex scrolling effects using `Sliver` series components
+* Location selection using AMap (supports Web)
+* Encapsulation of common widgets handling
+* Pull-to-refresh and load-more functionality
+* Application update check
 * PopupWindow
-* Scan code（qr_code_scanner plugin）
-* Menu switching animation (circular diffusion, 3D flip)
-* Sliding delete
+* QR code scanning functionality (using the qr_code_scanner plugin)
+* Menu switching animations (circular expansion, 3D flip)
+* Swipe-to-delete
 * City selection
-* Similar to the three-level linkage of Jingdong's choice of cities
-* Custom Dialog
-* Sticky headers
+* Three-level linkage selection similar to JD's city selection
+* Various custom dialogs
+* Sticky header for lists
 * Password input keyboard
-* Verification code input
-* Custom Simple Calendar
-* Graphs and [pie charts](https://dartpad.cn/d06f8f737d6eb2d87978eb2d14b87864)
-* Modular routing management
-* More optimization
+* Verification code input box
+* Custom simple calendar
+* Line chart and [pie charts](https://dartpad.cn/d06f8f737d6eb2d87978eb2d14b87864)
+* Modularized route management
+* More demos (ripple animation, scratch card, lottie)
+* More detailed optimizations
 
+You may download and experience it specifically by accessing the following links:
 
-Android package：[Click to download](https://www.pgyer.com/gYXj)，Password: `111111`。
+For the Android version, kindly click on the link provided: [Download here](https://www.pgyer.com/oEm8me), and enter the password: `111111`.
 
-iOS and Web needs to download the code to run.
+As for iOS, you will need to download and run the code on your own.
 
-Web：https://simplezhli.github.io/flutter_deer/
+For web experience, please visit: https://simplezhli.github.io/flutter_deer/
 
-## Project environment
+## The project's operational environment.
 
 [![Build Status](https://github.com/simplezhli/flutter_deer/workflows/flutter_deer%20driver/badge.svg?branch=master)](https://github.com/simplezhli/flutter_deer/actions?query=workflow%3A%22flutter_deer+driver%22+branch%3Amaster)
 
@@ -65,21 +70,23 @@ Web：https://simplezhli.github.io/flutter_deer/
 
     2. Dart version 3.0.0
 
-## Precautions
+## Precautions to be taken.
 
-- iOS can execute commands `flutter build ios` to create `release` versions. Android can execute commands `flutter build apk` to create `release` versions.
+- In debug mode, there may be some lagging, which is considered a normal occurrence. A satisfactory experience requires the creation of a release package. To create a release version for iOS, execute the command `flutter build ios`. For Android, execute the command `flutter build apk`.
 
-- If there is a problem with the project, you can try to find a solution in the [iOS problem summary](./docs/iOS问题汇总.md) and [Android problem summary](./docs/Android问题汇总.md).
+- If there are any issues with the project's execution, please refer to the [iOS issue summary](./docs/iOS问题汇总.md) and [Android issue summary](./docs/Android问题汇总.md) for possible solutions.
 
-- Due to some plug-ins, this project has imperfect support on the Windows and macOS. Those who are interested can run the experience by themselves.
+- Due to certain plugin limitations, this project is only available for preview on Windows and macOS. Those interested may run and experience it themselves.
         
-- You can execute integration test commands to `flutter drive --target=test_driver/driver.dart` view function demonstrations.
+- To view the functionality demonstration, execute the integration test command `flutter drive --target=test_driver/driver.dart`.
 
-- I have added a relative path to the design drawings in the page notes. I can search or find the corresponding page. I hope it will help you.
+- Due to the abundance of pages, it may be difficult to match the design at first. However, I have added the relative path of the design in the code comments, which can be searched or located for the corresponding page. I hope this will be helpful to you.
 
-- This project uses the [FlutterJsonBeanFactory](https://github.com/zhangruiyu/FlutterJsonBeanFactory) plugin to generate beans.
+- This project uses the [FlutterJsonBeanFactory](https://github.com/zhangruiyu/FlutterJsonBeanFactory) plugin to generate Beans.
 
-## Summary of experience
+- Web performance may be slower due to large resource files such as js and deployment on Github.
+
+## Summary of Experience
 
 - [Flutter开发中的一些Tips(一)](https://weilu.blog.csdn.net/article/details/90546727)
 
@@ -115,33 +122,33 @@ Web：https://simplezhli.github.io/flutter_deer/
     
 ## Tripartite library used
 
-| 库                         | 功能             |
+| library                         | Functionality             |
 | -------------------------- | --------------- |
-| [dio](https://github.com/cfug/dio)                            | **Network library**       |
+| [dio](https://github.com/cfug/dio)                            | **Networking library**       |
 | [provider](https://github.com/rrousselGit/provider)                   | **State management**     |
-| [flutter_2d_amap](https://github.com/simplezhli/flutter_2d_amap)      | **2D AMap**   |
+| [flutter_2d_amap](https://github.com/simplezhli/flutter_2d_amap)      | **2D map from Amap**   |
 | [cached_network_image](https://github.com/renefloor/flutter_cached_network_image)       | **Image loading**       |
-| [fluro](https://github.com/theyakka/fluro)                            | **Route**     |
-| [flutter_oktoast](https://github.com/OpenFlutter/flutter_oktoast)     | **Toast**        |
-| [common_utils](https://github.com/Sky24n/common_utils)                | **Dart common utils library**     |
-| [flutter_slidable](https://github.com/letsar/flutter_slidable)        | **Sliding delete**     |
-| [flustars](https://github.com/Sky24n/flustars)                        | **Flutter common utils library**       |
-| [flutter_swiper](https://github.com/best-flutter/flutter_swiper)      | **Flutter banner component**       |
-| [url_launcher](https://github.com/flutter/plugins/tree/master/packages/url_launcher)   | **Launch URL plugin**       |
-| [image_picker](https://github.com/flutter/plugins/tree/master/packages/image_picker)   | **Picture selection plugin** |
-| [rxdart](https://github.com/ReactiveX/rxdart)                         | **Dart responsive extension** |
+| [fluro](https://github.com/theyakka/fluro)                            | **Routing management**     |
+| [flutter_oktoast](https://github.com/OpenFlutter/flutter_oktoast)     | **Toast notifications**        |
+| [common_utils](https://github.com/Sky24n/common_utils)                | **Common Dart utility library**     |
+| [flutter_slidable](https://github.com/letsar/flutter_slidable)        | **Swipe-to-delete**     |
+| [flustars](https://github.com/Sky24n/flustars)                        | **Common Flutter utility library**       |
+| [flutter_swiper](https://github.com/best-flutter/flutter_swiper)      | **Flutter carousel component**       |
+| [url_launcher](https://github.com/flutter/plugins/tree/master/packages/url_launcher)   | **Plugin for launching URLs**       |
+| [image_picker](https://github.com/flutter/plugins/tree/master/packages/image_picker)   | **Plugin for selecting images** |
+| [rxdart](https://github.com/ReactiveX/rxdart)                         | **Reactive extensions for Dart** |
 | [webview_flutter](https://github.com/flutter/plugins/tree/master/packages/webview_flutter)    | **WebView plugin**       |
-| [keyboard_actions](https://github.com/diegoveloper/flutter_keyboard_actions)                  | **Keyboard actions**       |
-| [sticky_headers](https://github.com/fluttercommunity/flutter_sticky_headers)   | **Sticky headers**       |
+| [keyboard_actions](https://github.com/diegoveloper/flutter_keyboard_actions)                  | **Handling keyboard events**       |
+| [sticky_headers](https://github.com/fluttercommunity/flutter_sticky_headers)   | **Sticky headers for lists**       |
 | [azlistview](https://github.com/flutterchina/azlistview)              | **City selection list**   |
-| [date_utils](https://github.com/apptreesoftware/date_utils)           | **Commonly used date tools** |
+| [date_utils](https://github.com/apptreesoftware/date_utils)           | **Common date utility classes** |
 | [bezier_chart](https://github.com/aeyrium/bezier-chart)               | **Bezier chart**       |
-| [sprintf](https://github.com/Naddiseo/dart-sprintf)                   | **Format String**   |
-| [qr_code_scanner](https://github.com/juliuscanute/qr_code_scanner)     | **Scan code** |
+| [sprintf](https://github.com/Naddiseo/dart-sprintf)                   | **String formatting**   |
+| [qr_code_scanner](https://github.com/juliuscanute/qr_code_scanner)     | **Scanning QR codes** |
 | [intl](https://github.com/dart-lang/intl)     | **Localization** |
-| [device_info_plus](https://github.com/fluttercommunity/plus_plugins/tree/main/packages/device_info_plus)     | **Device info** |
+| [device_info_plus](https://github.com/fluttercommunity/plus_plugins/tree/main/packages/device_info_plus)     | **Getting device information** |
 | [vibration](https://github.com/benjamindean/flutter_vibration)     | **Vibration** |
-| [lottie](https://github.com/xvrh/lottie-flutter)     | **lottie** |
+| [lottie](https://github.com/xvrh/lottie-flutter)     | **Animation effects** |
 
 For details, please refer to the [pubspec.yaml](https://github.com/simplezhli/flutter_deer/blob/master/pubspec.yaml) file.  
 
