@@ -78,7 +78,7 @@ class TokenInterceptor extends QueuedInterceptor {
             onReceiveProgress: request.onReceiveProgress,
           );
           return handler.next(response);
-        } on DioError catch (e) {
+        } on DioException catch (e) {
           return handler.reject(e);
         }
       }
@@ -124,7 +124,7 @@ class LoggingInterceptor extends Interceptor{
   }
   
   @override
-  void onError(DioError err, ErrorInterceptorHandler handler) {
+  void onError(DioException err, ErrorInterceptorHandler handler) {
     Log.d('----------Error-----------');
     super.onError(err, handler);
   }
@@ -149,7 +149,7 @@ class AdapterInterceptor extends Interceptor{
   }
   
   @override
-  void onError(DioError err, ErrorInterceptorHandler handler) {
+  void onError(DioException err, ErrorInterceptorHandler handler) {
     if (err.response != null) {
       adapterData(err.response!);
     }
