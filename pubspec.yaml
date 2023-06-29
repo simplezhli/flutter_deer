@@ -36,7 +36,7 @@ dependencies:
   # 启动URL的插件（支持Web） https://github.com/flutter/packages/tree/main/packages/url_launcher
   url_launcher: 6.1.8
   # 图片选择插件 https://github.com/flutter/packages/tree/main/packages/image_picker
-  image_picker: 0.8.8
+  image_picker: 1.0.0
   # 侧滑删除 https://github.com/letsar/flutter_slidable
   flutter_slidable: ^3.0.0
   # WebView插件 https://github.com/flutter/packages/tree/main/packages/webview_flutter
@@ -61,9 +61,9 @@ dependencies:
   #      url: https://github.com/xeinebiu/qr_code_scanner.git
   #      ref: fix_break_changes_platform
   # App Shortcuts https://github.com/flutter/packages/tree/main/packages/quick_actions
-  quick_actions: 1.0.3
+  quick_actions: 1.0.5
   # 振动 https://github.com/benjamindean/flutter_vibration
-  vibration: 1.7.6
+  vibration: 1.8.1
   vibration_web: 1.6.5
   # 获取当前设备信息 https://github.com/fluttercommunity/plus_plugins/tree/main/packages/device_info_plus
   device_info_plus: 9.0.2
