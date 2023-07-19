@@ -30,7 +30,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
     _list.clear();
     _list.add(WithdrawalAccountModel('唯鹿', '微信', 1, ''));
     _list.add(WithdrawalAccountModel('李*', '工商银行', 0, '**** **** **** 5236'));
-    _list.add(WithdrawalAccountModel('李*', '渤海银行', 0, '**** **** **** 2165'));
+    _list.add(WithdrawalAccountModel('李*', '工商银行', 0, '**** **** **** 2165'));
   }
   
   @override
