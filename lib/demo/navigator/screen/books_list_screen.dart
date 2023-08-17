@@ -17,7 +17,7 @@ class BooksListScreen extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: [
-          for (var book in books)
+          for (final book in books)
             ListTile(
               title: Text(book.title),
               subtitle: Text(book.author),

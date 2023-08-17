@@ -23,7 +23,7 @@ dependencies:
   # Toast插件 https://github.com/OpenFlutter/flutter_oktoast
   oktoast: ^3.3.1
   # 网络库 https://github.com/cfug/dio
-  dio: ^5.3.0
+  dio: ^5.3.2
   # https://github.com/ReactiveX/rxdart
   rxdart: ^0.27.7
   # Dart 常用工具类库 https://github.com/Sky24n/common_utils
@@ -78,7 +78,7 @@ dependencies:
   # 刮刮卡 https://github.com/vintage/scratcher
   scratcher: ^2.3.0
   # 动画效果 https://github.com/xvrh/lottie-flutter
-  lottie: ^2.5.0
+  lottie: ^2.6.0
 
 # https://github.com/simplezhli/flutter_deer/issues/187
 dependency_overrides:
