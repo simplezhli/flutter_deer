@@ -56,7 +56,7 @@
 
 具体可以下载体验：
 
-Android版安装包：[点击下载](https://www.pgyer.com/oEm8me)，下载密码：`111111`。
+Android版安装包：[点击去下载](https://github.com/simplezhli/flutter_deer/releases)。
 
 iOS需要自行下载代码运行。
 
