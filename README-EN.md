@@ -139,7 +139,6 @@ For web experience, please visit: https://simplezhli.github.io/flutter_deer/
 | [rxdart](https://github.com/ReactiveX/rxdart)                         | **Reactive extensions for Dart** |
 | [webview_flutter](https://github.com/flutter/plugins/tree/master/packages/webview_flutter)    | **WebView plugin**       |
 | [keyboard_actions](https://github.com/diegoveloper/flutter_keyboard_actions)                  | **Handling keyboard events**       |
-| [sticky_headers](https://github.com/fluttercommunity/flutter_sticky_headers)   | **Sticky headers for lists**       |
 | [azlistview](https://github.com/flutterchina/azlistview)              | **City selection list**   |
 | [date_utils](https://github.com/apptreesoftware/date_utils)           | **Common date utility classes** |
 | [bezier_chart](https://github.com/aeyrium/bezier-chart)               | **Bezier chart**       |

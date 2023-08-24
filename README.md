@@ -143,7 +143,6 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 | [rxdart](https://github.com/ReactiveX/rxdart)                         | **Dart的响应式扩展** |
 | [webview_flutter](https://github.com/flutter/plugins/tree/master/packages/webview_flutter)    | **WebView插件**       |
 | [keyboard_actions](https://github.com/diegoveloper/flutter_keyboard_actions)                  | **处理键盘事件**       |
-| [sticky_headers](https://github.com/fluttercommunity/flutter_sticky_headers)   | **列表悬浮头**       |
 | [azlistview](https://github.com/flutterchina/azlistview)              | **城市选择列表**   |
 | [date_utils](https://github.com/apptreesoftware/date_utils)           | **常用的日期工具类** |
 | [bezier_chart](https://github.com/aeyrium/bezier-chart)               | **曲线图表**       |
