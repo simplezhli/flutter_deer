@@ -21,9 +21,9 @@ dependencies:
   # Localization https://github.com/dart-lang/intl
   intl: ^0.18.0
   # Toast插件 https://github.com/OpenFlutter/flutter_oktoast
-  oktoast: ^3.3.1
+  oktoast: ^3.3.2
   # 网络库 https://github.com/cfug/dio
-  dio: ^5.3.2
+  dio: ^5.3.3
   # https://github.com/ReactiveX/rxdart
   rxdart: ^0.27.7
   # Dart 常用工具类库 https://github.com/Sky24n/common_utils
@@ -48,7 +48,7 @@ dependencies:
   # 路由框架 https://github.com/theyakka/fluro
   fluro: ^2.0.5
   # 图片缓存 https://github.com/renefloor/flutter_cached_network_image
-  cached_network_image: ^3.2.3
+  cached_network_image: ^3.3.0
   # 格式化String https://github.com/Naddiseo/dart-sprintf
   sprintf: ^7.0.0
   # 状态管理 https://github.com/rrousselGit/provider
