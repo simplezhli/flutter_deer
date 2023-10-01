@@ -24,6 +24,7 @@ void main() {
     
     test('店铺审核资料页测试',() async {
       await driver.tap(find.text('主营范围'));
+      await delayed();
       final SerializableFinder sortList = find.byValueKey('goods_sort');
       await delayed();
       
