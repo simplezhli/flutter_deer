@@ -58,15 +58,15 @@ class _GoodsListPageState extends State<GoodsListPage> with AutomaticKeepAliveCl
   }
 
   final List<String> _imgList = [
-    'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3130502839,1206722360&fm=26&gp=0.jpg',
+    'https://hbimg.b0.upaiyun.com/29cdf569b916ec8b952804a93b0a77e8c9baf61a58e0b-A0orbz_fw658',
     if (Constant.isDriverTest)
-      'https://img2.baidu.com/it/u=3994371075,170872697&fm=26&fmt=auto&gp=0.jpg'
+      'https://hbimg.huabanimg.com/a3947661524be662da9f40d95dddc73c66196816633e1-9bUI91_fw658'
     else
       'https://xxx', // 可以使用一张无效链接，触发缺省、异常显示图片
-    'https://img0.baidu.com/it/u=4049693009,2577412121&fm=224&fmt=auto&gp=0.jpg',
-    'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3659255919,3211745976&fm=26&gp=0.jpg',
-    'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2085939314,235211629&fm=26&gp=0.jpg',
-    'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2441563887,1184810091&fm=26&gp=0.jpg'
+    'https://hbimg.huabanimg.com/528c11bba65e2b8c0b6ae56f05e66b68f78f545f4ff26-tkM2Lx_fw658',
+    'https://img2.baidu.com/it/u=272387872,295674292&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
+    'https://img0.baidu.com/it/u=2202484983,917817934&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
+    'https://img0.baidu.com/it/u=2329453320,961102964&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500'
   ];
 
   Future<dynamic> _onRefresh() async {
