@@ -58,7 +58,7 @@ jobs:
           architecture: x64
       - run: "flutter clean"
       - name: "Run Flutter Driver tests"
-        run: "flutter drive --target=test_driver/driver.dart"
+        run: "flutter drive --target=test_driver/driver.dart --no-enable-impeller" #https://github.com/flutter/flutter/issues/128391
         
   drive_android:
     # The type of machine to run the job on.

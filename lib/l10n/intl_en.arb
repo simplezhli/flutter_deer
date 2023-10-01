@@ -84,7 +84,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "getVerificationCode": "Get verification code",
+  "getVerificationCode": "Get code",
   "@getVerificationCode": {
     "description": "Get verification code",
     "type": "text",
