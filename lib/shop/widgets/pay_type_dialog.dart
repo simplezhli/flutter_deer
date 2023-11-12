@@ -16,7 +16,7 @@ class PayTypeDialog extends StatefulWidget {
   });
 
   final List<int>? value;
-  final Function(List<int>) onPressed;
+  final void Function(List<int>) onPressed;
   
   @override
   _PayTypeDialog createState() => _PayTypeDialog();

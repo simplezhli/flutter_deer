@@ -18,7 +18,7 @@ class GoodsSortBottomSheet extends StatefulWidget {
     required this.onSelected,
   });
 
-  final Function(String, String) onSelected;
+  final void Function(String, String) onSelected;
   /// 临时状态
   final GoodsSortProvider provider;
   

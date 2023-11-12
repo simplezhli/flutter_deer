@@ -29,9 +29,9 @@ void configDio({
   _interceptors = interceptors ?? _interceptors;
 }
 
-typedef NetSuccessCallback<T> = Function(T data);
-typedef NetSuccessListCallback<T> = Function(List<T> data);
-typedef NetErrorCallback = Function(int code, String msg);
+typedef NetSuccessCallback<T> = void Function(T data);
+typedef NetSuccessListCallback<T> = void Function(List<T> data);
+typedef NetErrorCallback = void Function(int code, String msg);
 
 /// @weilu https://github.com/simplezhli
 class DioUtils {

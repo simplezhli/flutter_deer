@@ -19,7 +19,7 @@ class NavigatorUtils {
     );
   }
 
-  static void pushResult(BuildContext context, String path, Function(Object) function,
+  static void pushResult(BuildContext context, String path, void Function(Object) function,
       {bool replace = false, bool clearStack = false, Object? arguments}) {
     unfocus();
     Routes.router.navigateTo(context, path,

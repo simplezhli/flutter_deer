@@ -19,7 +19,7 @@ class MySearchBar extends StatefulWidget implements PreferredSizeWidget {
 
   final String backImg;
   final String hintText;
-  final Function(String)? onPressed;
+  final void Function(String)? onPressed;
 
   @override
   _MySearchBarState createState() => _MySearchBarState();

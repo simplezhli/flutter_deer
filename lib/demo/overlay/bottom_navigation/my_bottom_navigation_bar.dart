@@ -13,7 +13,7 @@ class MyBottomNavigationBar extends StatefulWidget {
   /// 选中下标
   final int selectedPosition;
   final bool isShowIndicator;
-  final Function(int selectedPosition) selectedCallback;
+  final void Function(int selectedPosition) selectedCallback;
   
   @override
   _MyBottomNavigationBarState createState() => _MyBottomNavigationBarState();

@@ -40,7 +40,7 @@ dependencies:
   # 侧滑删除 https://github.com/letsar/flutter_slidable
   flutter_slidable: ^3.0.0
   # WebView插件 https://github.com/flutter/packages/tree/main/packages/webview_flutter
-  webview_flutter: 4.2.4
+  webview_flutter: 4.4.1
   # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions
   keyboard_actions: ^4.2.0
   # 城市选择列表 https://github.com/flutterchina/azlistview
@@ -64,7 +64,7 @@ dependencies:
   vibration: 1.8.1
   vibration_web: 1.6.5
   # 获取当前设备信息 https://github.com/fluttercommunity/plus_plugins/tree/main/packages/device_info_plus
-  device_info_plus: 9.0.2
+  device_info_plus: 9.1.0
   # 桌面应用调整窗口的大小和位置 https://github.com/leanflutter/window_manager
   window_manager: 0.3.6
   # 高德2D地图插件（支持Web） https://github.com/simplezhli/flutter_2d_amap
@@ -76,7 +76,7 @@ dependencies:
   # 刮刮卡 https://github.com/vintage/scratcher
   scratcher: ^2.4.0
   # 动画效果 https://github.com/xvrh/lottie-flutter
-  lottie: ^2.6.0
+  lottie: ^2.7.0
 
 # https://github.com/simplezhli/flutter_deer/issues/187
 dependency_overrides:

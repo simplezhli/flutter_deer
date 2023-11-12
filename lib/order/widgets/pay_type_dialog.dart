@@ -12,7 +12,7 @@ class PayTypeDialog extends StatefulWidget {
     this.onPressed,
   });
 
-  final Function(int, String)? onPressed;
+  final void Function(int, String)? onPressed;
   
   @override
   _PayTypeDialog createState() => _PayTypeDialog();

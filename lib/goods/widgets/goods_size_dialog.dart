@@ -11,7 +11,7 @@ class GoodsSizeDialog extends StatefulWidget {
     this.onPressed,
   });
 
-  final Function(String)? onPressed;
+  final void Function(String)? onPressed;
   
   @override
   _GoodsSizeDialog createState() => _GoodsSizeDialog();

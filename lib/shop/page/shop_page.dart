@@ -201,7 +201,7 @@ class _ShopFunctionModule extends StatelessWidget {
     required this.darkImage,
   });
   
-  final Function(int index) onItemClick;
+  final void Function(int index) onItemClick;
   final List<String> data;
   final List<String> image;
   final List<String> darkImage;

@@ -145,11 +145,11 @@ class _MyTextField extends StatefulWidget {
   final bool obscureText;
   final TextInputType? keyboardType;
   /// 获取焦点监听
-  final Function(bool isObscure)? onHasFocus;
+  final void Function(bool isObscure)? onHasFocus;
   /// 密码可见监听
-  final Function(bool isObscure)? onObscureText;
+  final void Function(bool isObscure)? onObscureText;
   /// 文字输入监听
-  final Function(String text)? onChanged;
+  final void Function(String text)? onChanged;
 
   @override
   _MyTextFieldState createState() => _MyTextFieldState();

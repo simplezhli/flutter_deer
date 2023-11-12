@@ -32,7 +32,7 @@ class AppNavigator {
     );
   }
 
-  static void pushResult(BuildContext context, Widget scene, Function(Object?) function) {
+  static void pushResult(BuildContext context, Widget scene, void Function(Object?) function) {
     Navigator.push<void>(
       context,
       MaterialPageRoute(

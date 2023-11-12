@@ -204,7 +204,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
   }
 
   void _goInputTextPage(BuildContext context, String title,
-      String hintText, String content, Function(Object?) function,
+      String hintText, String content, void Function(Object?) function,
       {TextInputType? keyboardType}) {
 
     NavigatorUtils.pushResult(context,
@@ -218,7 +218,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
     );
   }
 
-  void _showInputDialog(String title, Function(String) onPressed) {
+  void _showInputDialog(String title, void Function(String) onPressed) {
     showDialog<void>(
       context: context,
       barrierDismissible: false,

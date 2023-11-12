@@ -17,7 +17,7 @@ class GoodsSortMenu extends StatefulWidget {
   final List<String> data;
   final int sortIndex;
   final double height;
-  final Function(int, String) onSelected;
+  final void Function(int, String) onSelected;
 
   @override
   _GoodsSortMenuState createState() => _GoodsSortMenuState();

@@ -15,7 +15,7 @@ class RangePriceInputDialog extends StatefulWidget {
   });
 
   final String? title;
-  final Function(String, String) onPressed;
+  final void Function(String, String) onPressed;
   
   @override
   _RangePriceInputDialog createState() => _RangePriceInputDialog();
