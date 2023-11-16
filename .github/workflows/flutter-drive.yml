@@ -53,7 +53,7 @@ jobs:
       # https://github.com/marketplace/actions/flutter-action
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.13.6'
+          flutter-version: '3.16.0'
           channel: 'stable' # or: 'dev' or 'beta'
           architecture: x64
       - run: "flutter clean"
@@ -78,7 +78,7 @@ jobs:
           java-version: '11'
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.13.6'
+          flutter-version: '3.16.0'
           channel: 'stable' # or: 'dev' or 'beta'
           architecture: x64
       - name: "Run Flutter Driver tests"
@@ -104,7 +104,7 @@ jobs:
       # https://github.com/marketplace/actions/flutter-action
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.13.6'
+          flutter-version: '3.16.0'
           channel: 'stable'
           architecture: x64
       - run: "flutter pub get"

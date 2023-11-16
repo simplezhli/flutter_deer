@@ -39,11 +39,8 @@ class _UpdateDialogState extends State<UpdateDialog> {
   @override
   Widget build(BuildContext context) {
     final Color primaryColor = Theme.of(context).primaryColor;
-    return WillPopScope(
-      onWillPop: () async {
-        /// 使用false禁止返回键返回，达到强制升级目的
-        return true;
-      },
+    return PopScope(
+      canPop: false, /// 使用false禁止返回键返回，达到强制升级目的
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.transparent,

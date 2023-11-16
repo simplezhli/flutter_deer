@@ -25,21 +25,19 @@ class _DoubleTapBackExitAppState extends State<DoubleTapBackExitApp> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: _isExit,
+    return PopScope(
+      canPop: _lastTime == null || DateTime.now().difference(_lastTime!) > widget.duration,
+      onPopInvoked: (didPop) {
+        if (!didPop) {
+          Toast.cancelToast();
+          /// 不推荐使用 `dart:io` 的 exit(0)
+          SystemNavigator.pop();
+        } else {
+          _lastTime = DateTime.now();
+          Toast.show('再次点击退出应用');
+        }
+      },
       child: widget.child,
     );
-  }
-
-  Future<bool> _isExit() async {
-    if (_lastTime == null || DateTime.now().difference(_lastTime!) > widget.duration) {
-      _lastTime = DateTime.now();
-      Toast.show('再次点击退出应用');
-      return Future.value(false);
-    }
-    Toast.cancelToast();
-    /// 不推荐使用 `dart:io` 的 exit(0)
-    await SystemNavigator.pop();
-    return Future.value(true);
   }
 }
