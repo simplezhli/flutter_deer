@@ -38,10 +38,11 @@ mixin BasePageMixin<T extends StatefulWidget, P extends BasePresenter> on State<
           barrierDismissible: false,
           barrierColor: const Color(0x00FFFFFF), // 默认dialog背景色为半透明黑色，这里修改为透明（1.20添加属性）
           builder:(_) {
-            return PopScope(
-              onPopInvoked: (_) {
+            return WillPopScope(
+              onWillPop: () async {
                 // 拦截到返回键，证明dialog被手动关闭
                 _isShowDialog = false;
+                return Future.value(true);
               },
               child: buildProgress(),
             );
