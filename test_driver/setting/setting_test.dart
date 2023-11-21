@@ -52,7 +52,7 @@ void main([List<String> args = const <String>[]]) {
       await driver.tap(find.text('夜间模式'));
       await delayed();
       await driver.tap(find.text('开启'));
-      await Future<dynamic>.delayed(const Duration(seconds: 2));
+      await Future<dynamic>.delayed(const Duration(seconds: 4));
       await driver.tap(find.byTooltip('Back'));
       await delayed();
       // 查看效果
@@ -76,7 +76,7 @@ void main([List<String> args = const <String>[]]) {
       await driver.tap(find.text('多语言'));
       await delayed();
       await driver.tap(find.text('English'));
-      await Future<dynamic>.delayed(const Duration(seconds: 1));
+      await Future<dynamic>.delayed(const Duration(seconds: 2));
       await driver.tap(find.byTooltip('Back'));
       await delayed();
 

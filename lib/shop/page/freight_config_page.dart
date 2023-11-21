@@ -145,9 +145,9 @@ class _FreightConfigPageState extends State<FreightConfigPage> {
                   const Text('元'),
                 ],
               ),
-              Gaps.vGap15,
+              const Spacer(),
               Gaps.line,
-              Gaps.vGap15,
+              const Spacer(),
               Row(
                 children: <Widget>[
                   Semantics(

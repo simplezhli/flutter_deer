@@ -187,7 +187,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                   )
                 ],
               ),
-              Gaps.vGap16,
+              const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[

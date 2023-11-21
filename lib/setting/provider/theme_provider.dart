@@ -38,6 +38,7 @@ class ThemeProvider extends ChangeNotifier {
 
   ThemeData getTheme({bool isDarkMode = false}) {
     return ThemeData(
+      useMaterial3: false,
       primaryColor: isDarkMode ? Colours.dark_app_main : Colours.app_main,
       colorScheme: ColorScheme.fromSwatch().copyWith(
         brightness: isDarkMode ? Brightness.dark : Brightness.light,
