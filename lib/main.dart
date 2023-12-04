@@ -27,7 +27,10 @@ Future<void> main() async {
 //  debugPaintLayerBordersEnabled = true;
 //  debugProfilePaintsEnabled = true;
 //  debugRepaintRainbowEnabled = true;
-
+  if (Constant.inProduction) {
+    /// Release环境时不打印debugPrint内容
+    debugPrint = (String? message, {int? wrapWidth}) {};
+  }
   /// 异常处理
   handleError(() async {
     /// 确保初始化完成

@@ -21,9 +21,9 @@ dependencies:
   # Localization https://github.com/dart-lang/intl
   intl: ^0.18.0
   # Toast插件 https://github.com/OpenFlutter/flutter_oktoast
-  oktoast: ^3.3.2
+  oktoast: ^3.4.0
   # 网络库 https://github.com/cfug/dio
-  dio: ^5.3.3
+  dio: ^5.4.0
   # https://github.com/ReactiveX/rxdart
   rxdart: ^0.27.7
   # Dart 常用工具类库 https://github.com/Sky24n/common_utils
@@ -38,7 +38,7 @@ dependencies:
   # 图片选择插件 https://github.com/flutter/packages/tree/main/packages/image_picker
   image_picker: 1.0.4
   # 侧滑删除 https://github.com/letsar/flutter_slidable
-  flutter_slidable: ^3.0.0
+  flutter_slidable: ^3.0.1
   # WebView插件 https://github.com/flutter/packages/tree/main/packages/webview_flutter
   webview_flutter: 4.4.1
   # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions
@@ -52,7 +52,7 @@ dependencies:
   # 格式化String https://github.com/Naddiseo/dart-sprintf
   sprintf: ^7.0.0
   # 状态管理 https://github.com/rrousselGit/provider
-  provider: ^6.0.5
+  provider: ^6.1.1
   # 扫码 https://github.com/juliuscanute/qr_code_scanner
   qr_code_scanner: 1.0.0
   #    git:
@@ -74,7 +74,7 @@ dependencies:
       url: 'https://github.com/simplezhli/flutter_2d_amap.git'
   # demo 用到的库
   # 刮刮卡 https://github.com/vintage/scratcher
-  scratcher: ^2.4.0
+  scratcher: ^2.5.0
   # 动画效果 https://github.com/xvrh/lottie-flutter
   lottie: ^2.7.0
 
