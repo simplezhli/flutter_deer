@@ -36,8 +36,13 @@
         navigator.serviceWorker.register('flutter_service_worker.js');
       });
     }
-  </script>
-<!--高德地图-->
+</script>
+<!--高德地图 https://lbs.amap.com/api/javascript-api-v2/guide/abc/jscode -->
+<script type="text/javascript">
+  window._AMapSecurityConfig = {
+    securityJsCode: "71d62f39f1672a3469ee464ab1f4665f",
+  };
+</script>
 <script src="https://webapi.amap.com/loader.js"></script>
 <script src="main.dart.js" type="application/javascript"></script>
 </body>

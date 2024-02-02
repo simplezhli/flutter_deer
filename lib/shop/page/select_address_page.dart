@@ -34,7 +34,7 @@ class _AddressSelectPageState extends State<AddressSelectPage> {
     /// 配置key
     Flutter2dAMap.setApiKey(
       iOSKey: '4327916279bf45a044bb53b947442387',
-      webKey: '4e479545913a3a180b3cffc267dad646',
+      webKey: 'c9446a164fd1245dd110b54114095303',
     );
   }
   
