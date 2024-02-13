@@ -34,7 +34,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
     final Color bgColor = backgroundColor ?? context.backgroundColor;
 
     final SystemUiOverlayStyle overlayStyle = ThemeData.estimateBrightnessForColor(bgColor) == Brightness.dark
-        ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark;
+        ? ThemeUtils.light : ThemeUtils.dark;
 
     final Widget action = actionName.isNotEmpty ? Positioned(
       right: 0.0,
