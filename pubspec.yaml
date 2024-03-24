@@ -32,13 +32,13 @@ dependencies:
   # Flutter 常用工具类库 https://github.com/Sky24n/flustars
   flustars_flutter3: ^3.0.0 # flustars很久不维护，可以使用这个替代
   # Flutter 轮播图 https://github.com/mdddj/flutter_swiper_null_safety
-  flutter_swiper_null_safety_flutter3: ^4.0.0   # flutter_swiper很久不维护，可以使用这个替代
+  flutter_swiper_null_safety_flutter3: ^4.0.3   # flutter_swiper很久不维护，可以使用这个替代
   # 启动URL的插件（支持Web） https://github.com/flutter/packages/tree/main/packages/url_launcher
-  url_launcher: 6.2.4
+  url_launcher: 6.2.5
   # 图片选择插件 https://github.com/flutter/packages/tree/main/packages/image_picker
-  image_picker: 1.0.4
+  image_picker: 1.0.7
   # 侧滑删除 https://github.com/letsar/flutter_slidable
-  flutter_slidable: ^3.0.1
+  flutter_slidable: ^3.1.0
   # WebView插件 https://github.com/flutter/packages/tree/main/packages/webview_flutter
   webview_flutter: 4.7.0
   # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions
@@ -52,21 +52,21 @@ dependencies:
   # 格式化String https://github.com/Naddiseo/dart-sprintf
   sprintf: ^7.0.0
   # 状态管理 https://github.com/rrousselGit/provider
-  provider: ^6.1.1
+  provider: ^6.1.2
   # 扫码 https://github.com/juliuscanute/qr_code_scanner
   qr_code_scanner: 1.0.0
   #    git:
   #      url: https://github.com/xeinebiu/qr_code_scanner.git
   #      ref: fix_break_changes_platform
   # App Shortcuts https://github.com/flutter/packages/tree/main/packages/quick_actions
-  quick_actions: 1.0.5
+  quick_actions: 1.0.7
   # 振动 https://github.com/benjamindean/flutter_vibration
-  vibration: 1.8.1
-  vibration_web: 1.6.5
+  vibration: 1.8.4
+  vibration_web: 1.6.6
   # 获取当前设备信息 https://github.com/fluttercommunity/plus_plugins/tree/main/packages/device_info_plus
-  device_info_plus: 9.1.0
+  device_info_plus: 10.0.1
   # 桌面应用调整窗口的大小和位置 https://github.com/leanflutter/window_manager
-  window_manager: 0.3.6
+  window_manager: 0.3.8
   # 高德2D地图插件（支持Web） https://github.com/simplezhli/flutter_2d_amap
   flutter_2d_amap:
     git:
@@ -76,7 +76,7 @@ dependencies:
   # 刮刮卡 https://github.com/vintage/scratcher
   scratcher: ^2.5.0
   # 动画效果 https://github.com/xvrh/lottie-flutter
-  lottie: ^3.0.0
+  lottie: ^3.1.0
 
 # https://github.com/simplezhli/flutter_deer/issues/187
 dependency_overrides:
