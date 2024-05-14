@@ -1,4 +1,3 @@
-library utils;
 
 import 'package:intl/intl.dart';
 
