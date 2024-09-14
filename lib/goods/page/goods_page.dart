@@ -120,10 +120,8 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
               ),
             ),
             Gaps.vGap24,
-            Container(
-              // 隐藏点击效果
+            Padding(
               padding: const EdgeInsets.only(left: 16.0),
-              color: context.backgroundColor,
               child: TabBar(
                 onTap: (index) {
                   if (!mounted) {
@@ -139,6 +137,11 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 unselectedLabelColor: context.isDark ? Colours.text_gray : Colours.text,
                 labelColor: Theme.of(context).primaryColor,
                 indicatorPadding: const EdgeInsets.only(right: 98.0 - 36.0),
+                // 隐藏点击效果
+                overlayColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+                    return Colors.transparent;
+                  },
+                ),
                 tabs: const <Widget>[
                   _TabView('在售', 0),
                   _TabView('待售', 1),

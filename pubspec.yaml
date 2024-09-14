@@ -8,8 +8,8 @@ homepage: https://weilu.blog.csdn.net/
 publish_to: 'none'
 
 environment:
-  sdk: ">=3.0.0-0 <4.0.0"
-  flutter: ">=3.7.0"
+  sdk: ">=3.4.0 <4.0.0"
+  flutter: ">=3.19.0"
 
 dependencies:
   flutter:
@@ -23,7 +23,7 @@ dependencies:
   # Toast插件 https://github.com/OpenFlutter/flutter_oktoast
   oktoast: ^3.4.0
   # 网络库 https://github.com/cfug/dio
-  dio: ^5.5.0+1
+  dio: ^5.7.0
   # https://github.com/ReactiveX/rxdart
   rxdart: ^0.28.0
   # Dart 常用工具类库 https://github.com/Sky24n/common_utils
@@ -61,8 +61,8 @@ dependencies:
   # App Shortcuts https://github.com/flutter/packages/tree/main/packages/quick_actions
   quick_actions: 1.0.7
   # 振动 https://github.com/benjamindean/flutter_vibration
-  vibration: 1.9.0
-  vibration_web: 1.6.7
+  vibration: 2.0.0
+  vibration_web: 1.6.8
   # 获取当前设备信息 https://github.com/fluttercommunity/plus_plugins/tree/main/packages/device_info_plus
   device_info_plus: 10.0.1
   # 桌面应用调整窗口的大小和位置 https://github.com/leanflutter/window_manager

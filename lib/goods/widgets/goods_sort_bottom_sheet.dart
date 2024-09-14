@@ -63,31 +63,31 @@ class GoodsSortBottomSheetState extends State<GoodsSortBottomSheet> with SingleT
                 children: <Widget>[
                   child!,
                   Gaps.line,
-                  ColoredBox(
+                  TabBar(
+                    controller: _tabController,
+                    isScrollable: true,
+                    onTap: (index) {
+                      if (provider.myTabs[index].text.nullSafe.isEmpty) {
+                        // 拦截点击事件
+                        _tabController?.animateTo(provider.index);
+                        return;
+                      }
+                      provider.setList(index);
+                      provider.setIndex(index);
+                      _controller.animateTo(
+                        provider.positions[provider.index] * 48.0,
+                        duration: const Duration(milliseconds: 10),
+                        curve: Curves.ease,
+                      );
+                    },
+                    indicatorSize: TabBarIndicatorSize.label,
+                    unselectedLabelColor: context.isDark ? Colours.text_gray : Colours.text,
+                    labelColor: Theme.of(context).primaryColor,
                     // 隐藏点击效果
-                    color: context.dialogBackgroundColor,
-                    child: TabBar(
-                      controller: _tabController,
-                      isScrollable: true,
-                      onTap: (index) {
-                        if (provider.myTabs[index].text.nullSafe.isEmpty) {
-                          // 拦截点击事件
-                          _tabController?.animateTo(provider.index);
-                          return;
-                        }
-                        provider.setList(index);
-                        provider.setIndex(index);
-                        _controller.animateTo(
-                          provider.positions[provider.index] * 48.0,
-                          duration: const Duration(milliseconds: 10),
-                          curve: Curves.ease,
-                        );
-                      },
-                      indicatorSize: TabBarIndicatorSize.label,
-                      unselectedLabelColor: context.isDark ? Colours.text_gray : Colours.text,
-                      labelColor: Theme.of(context).primaryColor,
-                      tabs: provider.myTabs,
-                    ),
+                    overlayColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+                      return Colors.transparent;
+                    },),
+                    tabs: provider.myTabs,
                   ),
                   Gaps.line,
                   Expanded(
