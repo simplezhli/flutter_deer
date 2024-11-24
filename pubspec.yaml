@@ -54,30 +54,30 @@ dependencies:
   # 状态管理 https://github.com/rrousselGit/provider
   provider: ^6.1.2
   # 扫码 https://github.com/juliuscanute/qr_code_scanner
-  qr_code_scanner: 1.0.0
-  #    git:
-  #      url: https://github.com/xeinebiu/qr_code_scanner.git
-  #      ref: fix_break_changes_platform
+  qr_code_scanner:
+    git:
+      url: 'https://github.com/NeverOvO/qr_code_scanner.git'
+      ref: '3fe7b88'
   # App Shortcuts https://github.com/flutter/packages/tree/main/packages/quick_actions
   quick_actions: 1.0.7
   # 振动 https://github.com/benjamindean/flutter_vibration
   vibration: 2.0.0
   vibration_web: 1.6.8
   # 获取当前设备信息 https://github.com/fluttercommunity/plus_plugins/tree/main/packages/device_info_plus
-  device_info_plus: 10.0.1
+  device_info_plus: 11.1.1
   # 桌面应用调整窗口的大小和位置 https://github.com/leanflutter/window_manager
   window_manager: 0.4.0
   # 高德2D地图插件（支持Web） https://github.com/simplezhli/flutter_2d_amap
   flutter_2d_amap:
     git:
-      ref: '3850a4dc'
+      ref: '0105ceae'
       url: 'https://github.com/simplezhli/flutter_2d_amap.git'
   # demo 用到的库
   # 刮刮卡 https://github.com/vintage/scratcher
   scratcher: ^2.5.0
   # 动画效果 https://github.com/xvrh/lottie-flutter
   lottie: ^3.1.2
-  win32: 5.5.1
+  win32: 5.5.3
 
 # https://github.com/simplezhli/flutter_deer/issues/187
 dependency_overrides:
