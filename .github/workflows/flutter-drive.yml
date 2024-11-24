@@ -66,8 +66,9 @@ jobs:
     strategy:
       # set of different configurations of the virtual environment.
       matrix:
-        api-level: [34]
+        api-level: [33]
         target: [google_apis]
+        arch: arm64-v8a
     steps:
       - uses: actions/checkout@v3
       - name: set up JDK 17
@@ -79,7 +80,7 @@ jobs:
         with:
           flutter-version: '3.24.0'
           channel: 'stable' # or: 'dev' or 'beta'
-          architecture: arm64-v8a
+          architecture: x64
       - name: "Run Flutter Driver tests"
         # GitHub Action for installing, configuring and running Android Emulators (work only Mac OS)
         # https://github.com/marketplace/actions/android-emulator-runner
