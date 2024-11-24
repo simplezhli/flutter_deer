@@ -17,7 +17,7 @@ jobs:
       # A set of different configurations of the virtual environment.
       matrix:
         device:
-          - "iPhone 14 Pro Max"
+          - "iPhone 15 Pro Max"
       # When set to true, GitHub cancels all in-progress jobs if any matrix job
       # fails.
       fail-fast: false
@@ -66,7 +66,7 @@ jobs:
     strategy:
       # set of different configurations of the virtual environment.
       matrix:
-        api-level: [33]
+        api-level: [34]
         target: [google_apis]
     steps:
       - uses: actions/checkout@v3
@@ -79,7 +79,7 @@ jobs:
         with:
           flutter-version: '3.24.0'
           channel: 'stable' # or: 'dev' or 'beta'
-          architecture: x64
+          architecture: arm64-v8a
       - name: "Run Flutter Driver tests"
         # GitHub Action for installing, configuring and running Android Emulators (work only Mac OS)
         # https://github.com/marketplace/actions/android-emulator-runner
