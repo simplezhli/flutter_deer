@@ -54,7 +54,6 @@ jobs:
         with:
           flutter-version: '3.24.0'
           channel: 'stable' # or: 'dev' or 'beta'
-          architecture: x64
       - run: "flutter clean"
       - name: "Run Flutter Driver tests"
         run: "flutter drive --target=test_driver/driver.dart --no-enable-impeller" #https://github.com/flutter/flutter/issues/128391
@@ -66,7 +65,7 @@ jobs:
     strategy:
       # set of different configurations of the virtual environment.
       matrix:
-        api-level: [33]
+        api-level: [29, 34]
         target: [google_apis]
     steps:
       - uses: actions/checkout@v3
@@ -79,7 +78,6 @@ jobs:
         with:
           flutter-version: '3.24.0'
           channel: 'stable' # or: 'dev' or 'beta'
-          architecture: x64
       - name: "Run Flutter Driver tests"
         # GitHub Action for installing, configuring and running Android Emulators (work only Mac OS)
         # https://github.com/marketplace/actions/android-emulator-runner
@@ -105,7 +103,6 @@ jobs:
         with:
           flutter-version: '3.24.0'
           channel: 'stable'
-          architecture: x64
       - run: "flutter pub get"
       - name: "Run Flutter Accessibility Tests"
         run: "flutter test test/accessibility_test.dart"
