@@ -66,9 +66,9 @@ For web experience, please visit: https://simplezhli.github.io/flutter_deer/
 
 [![flutter_deer driver](https://github.com/simplezhli/flutter_deer/actions/workflows/flutter-drive.yml/badge.svg?branch=master)](https://github.com/simplezhli/flutter_deer/actions/workflows/flutter-drive.yml)
 
-    1. Flutter version 3.24.0
+    1. Flutter version 3.27.0
 
-    2. Dart version 3.5.0
+    2. Dart version 3.6.0
 
 ## Precautions to be taken.
 
