@@ -13,13 +13,14 @@ import 'package:flutter_deer/setting/provider/theme_provider.dart';
 import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/handle_error_utils.dart';
 import 'package:flutter_deer/util/log_utils.dart';
-import 'package:flutter_gen/gen_l10n/deer_localizations.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:sp_util/sp_util.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:window_manager/window_manager.dart';
+
+import '../../l10n/deer_localizations.dart';
 
 Future<void> main() async {
 //  debugProfileBuildsEnabled = true;

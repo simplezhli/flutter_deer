@@ -10,9 +10,9 @@ import 'package:flutter_deer/util/other_utils.dart';
 import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/my_scroll_view.dart';
-import 'package:flutter_gen/gen_l10n/deer_localizations.dart';
 import 'package:sp_util/sp_util.dart';
 
+import '../../l10n/deer_localizations.dart';
 import '../login_router.dart';
 
 /// design/1注册登录/index.html

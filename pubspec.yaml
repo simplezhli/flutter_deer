@@ -38,7 +38,7 @@ dependencies:
   # 图片选择插件 https://github.com/flutter/packages/tree/main/packages/image_picker
   image_picker: 1.1.2
   # 侧滑删除 https://github.com/letsar/flutter_slidable
-  flutter_slidable: ^3.1.2
+  flutter_slidable: ^4.0.0
   # WebView插件 https://github.com/flutter/packages/tree/main/packages/webview_flutter
   webview_flutter: 4.8.0
   # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions
@@ -59,7 +59,7 @@ dependencies:
       url: 'https://github.com/NeverOvO/qr_code_scanner.git'
       ref: '3fe7b88'
   # App Shortcuts https://github.com/flutter/packages/tree/main/packages/quick_actions
-  quick_actions: 1.0.7
+  quick_actions: 1.1.0
   # 振动 https://github.com/benjamindean/flutter_vibration
   vibration: 2.0.0
   vibration_web: 1.6.8
@@ -76,7 +76,7 @@ dependencies:
   # 刮刮卡 https://github.com/vintage/scratcher
   scratcher: ^2.5.0
   # 动画效果 https://github.com/xvrh/lottie-flutter
-  lottie: ^3.1.2
+  lottie: ^3.3.0
   win32: 5.5.3
 
 # https://github.com/simplezhli/flutter_deer/issues/187

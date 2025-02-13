@@ -7,7 +7,7 @@ import 'package:flutter_deer/util/toast_utils.dart';
 import 'package:flutter_deer/widgets/my_app_bar.dart';
 import 'package:flutter_deer/widgets/my_button.dart';
 import 'package:flutter_deer/widgets/my_scroll_view.dart';
-import 'package:flutter_gen/gen_l10n/deer_localizations.dart';
+import '../../l10n/deer_localizations.dart';
 
 
 /// design/1注册登录/index.html#artboard9
