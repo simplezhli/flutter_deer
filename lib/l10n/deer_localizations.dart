@@ -82,7 +82,8 @@ abstract class DeerLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
     delegate,
     GlobalMaterialLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
@@ -90,10 +91,7 @@ abstract class DeerLocalizations {
   ];
 
   /// A list of this localizations delegate's supported locales.
-  static const List<Locale> supportedLocales = <Locale>[
-    Locale('en'),
-    Locale('zh')
-  ];
+  static const List<Locale> supportedLocales = <Locale>[Locale('en'), Locale('zh')];
 
   /// Title for the application
   ///
@@ -220,18 +218,17 @@ class _DeerLocalizationsDelegate extends LocalizationsDelegate<DeerLocalizations
 }
 
 DeerLocalizations lookupDeerLocalizations(Locale locale) {
-
-
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en': return DeerLocalizationsEn();
-    case 'zh': return DeerLocalizationsZh();
+    case 'en':
+      return DeerLocalizationsEn();
+    case 'zh':
+      return DeerLocalizationsZh();
   }
 
   throw FlutterError(
-    'DeerLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-    'an issue with the localizations generation tool. Please file an issue '
-    'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.'
-  );
+      'DeerLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+      'an issue with the localizations generation tool. Please file an issue '
+      'on GitHub with a reproducible sample app and the gen-l10n configuration '
+      'that was used.');
 }
