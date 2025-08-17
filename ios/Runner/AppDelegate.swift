@@ -8,7 +8,7 @@ import Flutter
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     GeneratedPluginRegistrant.register(with: self)
-    let controller:FlutterViewController = window.rootViewController as! FlutterViewController
+    let controller:FlutterViewController = window?.rootViewController as! FlutterViewController
     let versionChannel = FlutterMethodChannel(name: "version", binaryMessenger: controller as! FlutterBinaryMessenger)
     versionChannel.setMethodCallHandler { (call, result) in
         if "jumpAppStore" == call.method {
