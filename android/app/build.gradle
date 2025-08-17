@@ -31,7 +31,7 @@ android {
 
     defaultConfig {
         applicationId "com.weilu.deer"
-        minSdkVersion 21
+        minSdkVersion flutter.minSdkVersion
         targetSdkVersion 35
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
