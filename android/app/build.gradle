@@ -27,8 +27,8 @@ def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
-    compileSdkVersion 35
-
+    compileSdkVersion 36
+    ndkVersion = "28.2.13676358"
     defaultConfig {
         applicationId "com.weilu.deer"
         minSdkVersion flutter.minSdkVersion
@@ -79,5 +79,5 @@ flutter {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.20"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.0.21"
 }

@@ -11,8 +11,4 @@ PRODUCT_NAME = flutter_deer
 PRODUCT_BUNDLE_IDENTIFIER = com.weilu.flutterDeer
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2020 com.weilu. All rights reserved.
-
-#include "Pods/Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"
-#include "Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"
-#include "Pods/Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"
+PRODUCT_COPYRIGHT = Copyright © 2025 com.weilu. All rights reserved.
