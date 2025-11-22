@@ -17,7 +17,7 @@ jobs:
       # A set of different configurations of the virtual environment.
       matrix:
         device:
-          - "iPhone 15 Pro Max"
+          - "iPhone 17 Pro Max"
       # When set to true, GitHub cancels all in-progress jobs if any matrix job
       # fails.
       fail-fast: false
@@ -65,7 +65,7 @@ jobs:
     strategy:
       # set of different configurations of the virtual environment.
       matrix:
-        api-level: [29, 34]
+        api-level: [35]
         target: [google_apis]
     steps:
       - uses: actions/checkout@v3
