@@ -60,7 +60,7 @@ jobs:
         
   drive_android:
     # The type of machine to run the job on.
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     # creates a build matrix for your jobs
     strategy:
       # set of different configurations of the virtual environment.
@@ -79,25 +79,25 @@ jobs:
           flutter-version: '3.47.4'
           channel: 'stable' # or: 'dev' or 'beta'
       - name: "Run Flutter Driver tests"
-        # GitHub Action for installing, configuring and running Android Emulators (work only Mac OS)
+        # GitHub Action for installing, configuring and running Android Emulators (work only macOS)
         # https://github.com/marketplace/actions/android-emulator-runner
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: ${{ matrix.api-level }}
           target: ${{ matrix.target }}
           arch: arm64-v8a
-          profile: Nexus 6
+          profile: pixel_5
           script: "flutter drive --target=test_driver/driver.dart"
           
   accessibility_test:
-    #The type of machine to run the job on. [windows,macos, ubuntu , self-hosted]
+    #The type of machine to run the job on. [windows,macOS, ubuntu , self-hosted]
     runs-on: macos-latest
     #sequence of tasks called
     steps:
       # The branch or tag ref that triggered the workflow will be checked out.
       # https://github.com/actions/checkout
       - uses: actions/checkout@v3
-      # Setup a flutter environment.
+      # Set up a flutter environment.
       # https://github.com/marketplace/actions/flutter-action
       - uses: subosito/flutter-action@v2
         with:
