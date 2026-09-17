@@ -35,6 +35,12 @@ analyzer:
     - "lib/widgets/bezier_chart/**"
 #    - "test/**"
     - "test_driver/**"
+    - build/**
+    - android/**
+    - ios/**
+    - web/**
+    - windows/**
+    - macos/**
 
 formatter:
    page_width: 100
