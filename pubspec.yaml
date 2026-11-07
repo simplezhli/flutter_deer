@@ -66,10 +66,11 @@ dependencies:
   # 桌面应用调整窗口的大小和位置 https://github.com/leanflutter/window_manager
   window_manager: 0.5.2
   # 高德2D地图插件（支持Web） https://github.com/simplezhli/flutter_2d_amap
-  flutter_2d_amap:
-    git:
-      ref: '2f9657e4'
-      url: 'https://github.com/simplezhli/flutter_2d_amap.git'
+  # 已移除：AMap 二进制库不支持 arm64 模拟器（iOS 26+ Apple Silicon 模拟器必需）
+  # flutter_2d_amap:
+  #   git:
+  #     ref: '2f9657e4'
+  #     url: 'https://github.com/simplezhli/flutter_2d_amap.git'
   # demo 用到的库
   # 刮刮卡 https://github.com/vintage/scratcher
   scratcher: ^2.5.0
@@ -110,6 +111,7 @@ flutter:
 
   assets:
     - assets/data/
+    - assets/map/
     - assets/images/
     - assets/images/home/
     - assets/images/store/

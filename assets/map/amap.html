@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>AMap</title>
+  <style>
+    html, body { margin: 0; padding: 0; width: 100%; height: 100%; }
+    #map { width: 100%; height: 100%; }
+  </style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+  // 安全密钥（JS API 2.0 需要，1.4.15 会忽略，保持与 web/index.html 一致）
+  window._AMapSecurityConfig = {
+    securityJsCode: '71d62f39f1672a3469ee464ab1f4665f',
+  };
+  window.onerror = function (message) {
+    send({ type: 'error', message: String(message) });
+  };
+</script>
+<!-- 与原 flutter_2d_amap Web 端实现保持一致：1.4.15 + PlaceSearch 插件 -->
+<script src="https://webapi.amap.com/maps?v=1.4.15&key=c9446a164fd1245dd110b54114095303&plugin=AMap.PlaceSearch"></script>
+<script>
+  (function () {
+    /// 与原 flutter_2d_amap 相同的 POI 分类过滤
+    var POI_TYPE = '010000|010100|020000|030000|040000|050000|050100|060000|060100|060200|060300|060400|070000|080000|080100|080300|080500|080600|090000|090100|090200|090300|100000|100100|110000|110100|120000|120200|120300|130000|140000|141200|150000|150100|150200|160000|160100|170000|170100|170200|180000|190000|200000';
+    /// 默认中心点（北京），模拟器无法定位时的兜底
+    var DEFAULT_CENTER = [116.397428, 39.90923];
+    var map = null;
+    var placeSearch = null;
+    var marker = null;
+
+    function send(message) {
+      if (window.AMapFlutter && window.AMapFlutter.postMessage) {
+        window.AMapFlutter.postMessage(JSON.stringify(message));
+      }
+    }
+
+    function mapPoi(poi) {
+      return {
+        cityCode: poi.citycode,
+        cityName: poi.cityname,
+        provinceName: poi.pname,
+        title: poi.name,
+        adName: poi.adname,
+        provinceCode: poi.pcode,
+        latitude: poi.location ? String(poi.location.getLat()) : '',
+        longitude: poi.location ? String(poi.location.getLng()) : ''
+      };
+    }
+
+    function handleResult(status, result) {
+      var list = [];
+      if (status === 'complete' && result.poiList && result.poiList.pois) {
+        result.poiList.pois.forEach(function (poi) {
+          list.push(mapPoi(poi));
+        });
+      } else if (status !== 'no_data' && status !== 'complete') {
+        send({ type: 'error', message: 'placeSearch ' + status + ': ' + JSON.stringify(result) });
+      }
+      /// 默认移动到搜索结果的第一条（与原实现一致）
+      if (list.length > 0) {
+        map.setZoom(17);
+        moveTo(list[0].latitude, list[0].longitude);
+      }
+      send({ type: 'poi', status: status, data: list });
+    }
+
+    /// Flutter -> JS：移动地图并打点
+    window.moveTo = function (lat, lng) {
+      if (!map) { return; }
+      var lngLat = new AMap.LngLat(parseFloat(lng), parseFloat(lat));
+      map.setCenter(lngLat);
+      if (marker == null) {
+        marker = new AMap.Marker({
+          position: lngLat,
+          offset: new AMap.Pixel(-13, -34),
+          anchor: 'bottom-center',
+          icon: new AMap.Icon({
+            size: new AMap.Size(26, 34),
+            imageSize: new AMap.Size(26, 34),
+            image: 'https://a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png'
+          })
+        });
+        map.add(marker);
+      } else {
+        marker.setPosition(lngLat);
+      }
+    };
+
+    /// Flutter -> JS：关键字搜索 POI
+    window.searchPoi = function (keyword) {
+      if (!placeSearch) { return; }
+      placeSearch.setCity('');
+      placeSearch.search(keyword, handleResult);
+    };
+
+    function init() {
+      map = new AMap.Map('map', {
+        zoom: 11,
+        resizeEnable: true,
+        center: DEFAULT_CENTER
+      });
+      placeSearch = new AMap.PlaceSearch({
+        extensions: 'all',
+        type: POI_TYPE,
+        pageIndex: 1,
+        pageSize: 50
+      });
+      /// 初始按默认中心点周边搜索，保证打开页面列表不为空
+      placeSearch.searchNearBy('', DEFAULT_CENTER, 2000, handleResult);
+      send({ type: 'ready' });
+    }
+
+    if (window.AMap) {
+      init();
+    } else {
+      send({ type: 'error', message: 'AMap JS 加载失败（检查网络或 key）' });
+    }
+  })();
+</script>
+</body>
+</html>

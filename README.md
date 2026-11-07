@@ -130,7 +130,6 @@ Web体验地址：https://simplezhli.github.io/flutter_deer/
 | -------------------------- | --------------- |
 | [dio](https://github.com/cfug/dio)                            | **网络库**       |
 | [provider](https://github.com/rrousselGit/provider)                   | **状态管理**     |
-| [flutter_2d_amap](https://github.com/simplezhli/flutter_2d_amap)      | **高德2D地图**   |
 | [cached_network_image](https://github.com/renefloor/flutter_cached_network_image)       | **图片加载**       |
 | [fluro](https://github.com/theyakka/fluro)                            | **路由管理**     |
 | [flutter_oktoast](https://github.com/OpenFlutter/flutter_oktoast)     | **Toast**        |

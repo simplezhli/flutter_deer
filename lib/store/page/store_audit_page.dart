@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_2d_amap/flutter_2d_amap.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/shop/models/poi_search.dart';
 import 'package:flutter_deer/shop/shop_router.dart';
 import 'package:flutter_deer/store/store_router.dart';
 import 'package:flutter_deer/util/other_utils.dart';

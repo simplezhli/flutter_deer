@@ -126,7 +126,6 @@ For web experience, please visit: https://simplezhli.github.io/flutter_deer/
 | -------------------------- | --------------- |
 | [dio](https://github.com/cfug/dio)                            | **Networking library**       |
 | [provider](https://github.com/rrousselGit/provider)                   | **State management**     |
-| [flutter_2d_amap](https://github.com/simplezhli/flutter_2d_amap)      | **2D map from Amap**   |
 | [cached_network_image](https://github.com/renefloor/flutter_cached_network_image)       | **Image loading**       |
 | [fluro](https://github.com/theyakka/fluro)                            | **Routing management**     |
 | [flutter_oktoast](https://github.com/OpenFlutter/flutter_oktoast)     | **Toast notifications**        |
