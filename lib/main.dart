@@ -178,7 +178,13 @@ class MyApp extends StatelessWidget {
         /// 保证文字大小不受手机系统设置影响 https://www.kikt.top/posts/flutter/layout/dynamic-text/
         return MediaQuery(
           data: MediaQuery.of(context).copyWith(textScaler: TextScaler.noScaling),
-          child: child!,
+          /// iPhone Duo 等双屏设备右侧存在系统侧边栏（状态区域），全局 SafeArea
+          /// 避免各页面内容与其重叠。背景取 scaffoldBackgroundColor，与页面底色保持一致。
+          child: ColoredBox(
+            color: Theme.of(context).scaffoldBackgroundColor,
+            /// 顶部底部间距保持原样，由各页面自行处理。
+            child: SafeArea(bottom: false, top: false, child: child!),
+          ),
         );
       },
 

@@ -152,18 +152,35 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
   @override
   void initState() {
     //监听Widget是否绘制完毕
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final RenderBox? renderBoxRed = _key.currentContext!.findRenderObject() as RenderBox?;
-      _offset = renderBoxRed!.size.width / 2;
-    });
+    WidgetsBinding.instance.addPostFrameCallback(_measureTitle);
     super.initState();
+  }
+
+  /// 首帧时标题可能尚未挂载或尺寸为 0（如携带初始滚动偏移启动），
+  /// 此时测得的宽度为 0 会导致折叠后标题偏移错误，逐帧重试直到测到为止。
+  void _measureTitle(Duration duration) {
+    if (!mounted || widget.title == null) {
+      return;
+    }
+    final RenderBox? renderBox = _key.currentContext?.findRenderObject() as RenderBox?;
+    final double half = (renderBox?.hasSize ?? false) ? renderBox!.size.width / 2 : 0.0;
+    if (half <= 0) {
+      WidgetsBinding.instance.addPostFrameCallback(_measureTitle);
+      return;
+    }
+    if (half != _offset) {
+      _offset = half;
+      setState(() {});
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
     final FlexibleSpaceBarSettings settings = context.dependOnInheritedWidgetOfExactType<FlexibleSpaceBarSettings>()!;
 
+    /// 标题居中位移需按实际布局宽度计算（如 iPhone Duo 侧边栏下 SafeArea 内缩后，
+    /// MediaQuery.size.width 与实际可用宽度不一致），普通设备二者相等，行为不变。
+    return LayoutBuilder(builder: (BuildContext context, BoxConstraints constraints) {
     final List<Widget> children = <Widget>[];
 
     final double deltaExtent = settings.maxExtent - settings.minExtent;
@@ -221,7 +238,7 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
               bottom: 16.0,
             );
         final double scaleValue = Tween<double>(begin: 1.5, end: 1.0).transform(t);
-        final double width = (size.width - 32.0) / 2 - _offset;
+        final double width = (constraints.maxWidth - 32.0) / 2 - _offset;
         final Matrix4 scaleTransform = Matrix4.identity()
           ..scale(scaleValue, scaleValue, 1.0)..translate(t * width);
         final Alignment titleAlignment = _getTitleAlignment(false);
@@ -243,5 +260,6 @@ class _FlexibleSpaceBarState extends State<MyFlexibleSpaceBar> {
     }
 
     return ClipRect(child: Stack(children: children));
+    });
   }
 }
