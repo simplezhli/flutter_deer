@@ -7,8 +7,14 @@ import 'package:flutter_deer/shop/page/select_address_page.dart';
 import 'package:flutter_deer/shop/page/shop_page.dart';
 import 'package:flutter_deer/shop/page/shop_setting_page.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart';
+
+import '../fake_webview_platform.dart';
 
 void main() {
+
+  // AddressSelectPage 在 initState 中创建 WebViewController，测试环境需注册假平台实现。
+  WebViewPlatform.instance = FakeWebViewPlatform();
 
   final Map<String, Widget> map = <String, Widget>{};
   map['shop_page'] = const ShopPage(isAccessibilityTest: true,);

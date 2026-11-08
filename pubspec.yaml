@@ -42,6 +42,7 @@ dependencies:
   # WebView插件 https://github.com/flutter/packages/tree/main/packages/webview_flutter
   webview_flutter: 4.13.0
   webview_flutter_wkwebview: 3.23.4
+  webview_flutter_platform_interface: 2.15.1
   # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions
   keyboard_actions: ^4.2.1
   # 城市选择列表 https://github.com/flutterchina/azlistview

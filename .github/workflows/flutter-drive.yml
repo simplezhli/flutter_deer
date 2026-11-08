@@ -78,15 +78,22 @@ jobs:
         with:
           flutter-version: '3.47.4'
           channel: 'stable' # or: 'dev' or 'beta'
+      # Linux runner 上跑 x86_64 模拟器需要 KVM 硬件加速，先放开 /dev/kvm 权限
+      # https://github.com/ReactiveCircus/android-emulator-runner#running-on-ubuntu-based-runners
+      - name: "Enable KVM"
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
       - name: "Run Flutter Driver tests"
-        # GitHub Action for installing, configuring and running Android Emulators (work only macOS)
         # https://github.com/marketplace/actions/android-emulator-runner
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: ${{ matrix.api-level }}
           target: ${{ matrix.target }}
-          arch: arm64-v8a
+          arch: x86_64 # ubuntu 是 x86_64 主机，必须用 x86_64 镜像 + KVM；arm64-v8a 只适合 macOS ARM
           profile: pixel_5
+          emulator-boot-timeout: 1200
           script: "flutter drive --target=test_driver/driver.dart"
           
   accessibility_test:
