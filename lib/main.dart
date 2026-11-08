@@ -1,3 +1,4 @@
+import 'package:adaptive_platform_ui/adaptive_platform_ui.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -175,8 +176,8 @@ class MyApp extends StatelessWidget {
       locale: localeProvider.locale,
       navigatorKey: navigatorKey,
       builder: (BuildContext context, Widget? child) {
-        /// 保证文字大小不受手机系统设置影响 https://www.kikt.top/posts/flutter/layout/dynamic-text/
-        return MediaQuery(
+        /// 保证文字大小不受手机系统设置影响 https://www.kikt.top/posts/flutter/layout/dynamic-type/
+        Widget app = MediaQuery(
           data: MediaQuery.of(context).copyWith(textScaler: TextScaler.noScaling),
           /// iPhone Duo 等双屏设备右侧存在系统侧边栏（状态区域），全局 SafeArea
           /// 避免各页面内容与其重叠。背景取 scaffoldBackgroundColor，与页面底色保持一致。
@@ -186,6 +187,12 @@ class MyApp extends StatelessWidget {
             child: SafeArea(bottom: false, top: false, child: child!),
           ),
         );
+        /// iOS 26+ 安装固定工具栏宿主：iPhone Duo 上将底部 tab 栏停靠到侧边栏液态玻璃胶囊。
+        /// 其余平台不安装，行为与之前完全一致。
+        if (Device.isIOS26Plus) {
+          app = AdaptiveToolbarHost(child: app);
+        }
+        return app;
       },
 
       /// 因为使用了fluro，这里设置主要针对Web

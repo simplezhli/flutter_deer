@@ -83,6 +83,9 @@ class ThemeProvider extends ChangeNotifier {
       ),
       cupertinoOverrideTheme: CupertinoThemeData(
         brightness: isDarkMode ? Brightness.dark : Brightness.light,
+        // iOS 26+ 液态玻璃路径（AdaptiveScaffold）使用 CupertinoPageScaffold，
+        // 背景取自 CupertinoTheme，这里与 Material 主题底色保持一致。
+        scaffoldBackgroundColor: isDarkMode ? Colours.dark_bg_color : Colors.white,
       ),
       pageTransitionsTheme: NoTransitionsOnWeb(),
       visualDensity: VisualDensity.standard,  // https://github.com/flutter/flutter/issues/77142

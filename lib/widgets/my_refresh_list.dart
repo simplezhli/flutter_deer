@@ -66,6 +66,7 @@ class _DeerListViewState extends State<DeerListView> {
       ),
     );
     return SafeArea(
+      bottom: widget.loadMore == null,
       child: NotificationListener<ScrollNotification>(
         onNotification: (ScrollNotification note) {
           /// 确保是垂直方向滚动，且滑动至底部
@@ -108,7 +109,7 @@ class MoreWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextStyle style = context.isDark ? TextStyles.textGray14 : const TextStyle(color: Color(0x8A000000));
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      padding: EdgeInsets.only(top: 10, bottom: 10 + MediaQuery.of(context).padding.bottom),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[

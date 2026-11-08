@@ -4,6 +4,7 @@ import 'package:flutter_deer/goods/models/goods_item_entity.dart';
 import 'package:flutter_deer/goods/provider/goods_page_provider.dart';
 import 'package:flutter_deer/res/constant.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
+import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/toast_utils.dart';
 import 'package:flutter_deer/widgets/my_refresh_list.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
@@ -110,6 +111,8 @@ class _GoodsListPageState extends State<GoodsListPage> with AutomaticKeepAliveCl
       onRefresh: _onRefresh,
       loadMore: _loadMore,
       hasMore: _page < _maxPage,
+      /// iOS 26+ 悬浮液态玻璃 tab 栏下的底部让位（Duo 停靠侧边条时为 0，随屏幕形态实时更新）
+      padding: EdgeInsets.only(bottom: Device.glassTabBarBottomInsetOf(context)),
       itemBuilder: (_, index) {
         final String heroTag = 'goodsImg${widget.index}-$index';
         return GoodsItem(

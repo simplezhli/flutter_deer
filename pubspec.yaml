@@ -63,6 +63,9 @@ dependencies:
   vibration_web: 1.6.8
   # 获取当前设备信息 https://github.com/fluttercommunity/plus_plugins/tree/main/packages/device_info_plus
   device_info_plus: 11.5.0
+  # iOS 26+ 液态玻璃（原生 UIKit 组件，仅 iOS 26+ 实例化，其余平台走原有实现） https://github.com/berkaycatak/adaptive_platform_ui
+  # 锁定精确版本：底部导航依赖其 iPhone Duo 侧边栏停靠行为，升级前需回归验证
+  adaptive_platform_ui: 1.0.2
   # 桌面应用调整窗口的大小和位置 https://github.com/leanflutter/window_manager
   window_manager: 0.5.2
   # 高德2D地图插件（支持Web） https://github.com/simplezhli/flutter_2d_amap

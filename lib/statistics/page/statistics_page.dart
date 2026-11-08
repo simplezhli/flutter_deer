@@ -3,6 +3,7 @@ import 'package:flutter_deer/order/page/order_page.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/statistics/statistics_router.dart';
+import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/screen_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
@@ -86,10 +87,11 @@ class _StatisticsPageState extends State<StatisticsPage> {
           , 120.0,
         ),
       ),
-      const SliverToBoxAdapter(
+      SliverToBoxAdapter(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0),
-          child: Column(
+          /// iOS 26+ 悬浮液态玻璃 tab 栏下的底部让位（Duo 停靠侧边条时为 0，随屏幕形态实时更新）
+          padding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, Device.glassTabBarBottomInsetOf(context)),
+          child: const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Gaps.vGap32,
@@ -100,6 +102,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
               _StatisticsItem('交易额统计', 'jyetj', 2),
               Gaps.vGap8,
               _StatisticsItem('商品统计', 'sptj', 3),
+              Gaps.vGap16,
             ],
           ),
         ),

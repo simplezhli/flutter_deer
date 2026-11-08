@@ -9,6 +9,7 @@ import 'package:flutter_deer/shop/models/user_entity.dart';
 import 'package:flutter_deer/shop/presenter/shop_presenter.dart';
 import 'package:flutter_deer/shop/provider/user_provider.dart';
 import 'package:flutter_deer/shop/shop_router.dart';
+import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/theme_utils.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
@@ -178,6 +179,8 @@ class _ShopPageState extends State<ShopPage> with BasePageMixin<ShopPage, ShopPa
                 },
               ),
             ),
+            /// iOS 26+ 悬浮液态玻璃 tab 栏下的底部让位（Duo 停靠侧边条时为 0，随屏幕形态实时更新）
+            SizedBox(height: Device.glassTabBarBottomInsetOf(context)),
           ],
         ),
       ),

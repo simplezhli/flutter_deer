@@ -3,6 +3,7 @@ import 'package:flutter_deer/order/provider/order_page_provider.dart';
 import 'package:flutter_deer/order/widgets/order_item.dart';
 import 'package:flutter_deer/order/widgets/order_tag_item.dart';
 import 'package:flutter_deer/util/change_notifier_manage.dart';
+import 'package:flutter_deer/util/device_utils.dart';
 import 'package:flutter_deer/widgets/my_refresh_list.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
 import 'package:provider/provider.dart';
@@ -73,7 +74,8 @@ class _OrderListPageState extends State<OrderListPage> with AutomaticKeepAliveCl
             );
           },
           child: SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            /// iOS 26+ 悬浮液态玻璃 tab 栏下的底部让位（Duo 停靠侧边条时为 0，随屏幕形态实时更新）
+            padding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, Device.glassTabBarBottomInsetOf(context)),
             sliver: _list.isEmpty ? SliverFillRemaining(child: StateLayout(type: _stateType)) :
             SliverList(
               delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
