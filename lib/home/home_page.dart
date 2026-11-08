@@ -164,19 +164,19 @@ class _HomeState extends State<Home> with RestorationMixin{
     );
   }
 
-  /// 原生 UITabBar 的图标使用 SF Symbols（PNG 资产在原生侧无法着色）
+  /// 原生 UITabBar 会从 Flutter 资产包加载 UIImage——未选中按 unselectedItemColor 着色、
+  /// 选中以 template 模式跟随 tint（primaryColor），与各平台 BottomNavigationBar 的视觉保持一致。
   List<AdaptiveNavigationDestination> _buildGlassDestinations() {
     const icons = [
-      ['list.clipboard', 'list.clipboard.fill'],
-      ['shippingbox', 'shippingbox.fill'],
-      ['chart.bar', 'chart.bar.fill'],
-      ['storefront', 'storefront.fill'],
+      'assets/images/home/icon_order.png',
+      'assets/images/home/icon_commodity.png',
+      'assets/images/home/icon_statistics.png',
+      'assets/images/home/icon_shop.png',
     ];
     return List<AdaptiveNavigationDestination>.generate(
       icons.length,
       (i) => AdaptiveNavigationDestination(
-        icon: icons[i][0],
-        selectedIcon: icons[i][1],
+        icon: icons[i],
         label: _appBarTitles[i],
       ),
     );
